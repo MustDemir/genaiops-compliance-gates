@@ -1,0 +1,24 @@
+id: R001
+title: Risikomanagement fuer High-Risk GenAI muss nachweisbar operationalisiert sein
+kontrollmechanismus: Policy-as-Code Pruefung auf dokumentiertes Risiko-Assessment
+  vor Deployment
+lifecycle_phase: pre-deployment
+governance_dimension: regulatorisch
+eu_ai_act_refs:
+- Art. 9
+must_should: MUST
+description: Vor Freigabe muss ein versioniertes Risiko-Assessment mit benannten Mitigationsmassnahmen
+  vorliegen.
+evidence_expected:
+- risk_assessment_report
+- mitigation_plan
+acceptance_criteria:
+- Risiko-Assessment ist vorhanden, versioniert und dem Release zugeordnet.
+- Mindestens ein Mitigationsplan pro identifiziertem High-Risk-Risiko ist dokumentiert.
+linked_gates:
+- tbd_5.3
+sources:
+- EU AI Act (VO 2024/1689) Art. 9
+- Elia (2025) MQG4AI [QRW95D4X] — Quality-Gate-Konzept fuer KI-Systeme, Risikomanagement-Methodik
+notes: DRAFT v0.3 - linked_gates auf tbd_5.3 gemaess D_GATE_IDS_LOCATION. Elia liefert
+  Gate-Konzept als Kontrollmechanismus fuer Art. 9.

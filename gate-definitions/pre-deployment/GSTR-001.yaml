@@ -1,0 +1,28 @@
+id: GSTR-001
+name: "Strategic Gate: Human Oversight und Verantwortungsmodell"
+dimension: "strategic"
+lifecycle_phase: "evaluation"
+trigger: "Go/No-Go Entscheidung vor Produktivsetzung im Steering Review"
+policy_checks:
+  - "Pruefe benannten Owner fuer Human Oversight."
+  - "Pruefe dokumentierten Eskalations- und Interventionsprozess."
+evidence_required:
+  - "oversight_roles_matrix"
+  - "escalation_procedure"
+decision: "manual_review"
+owner: "Product Owner"
+audit_trail:
+  enabled: true
+  evidence_store_ref: "evidence://gates/strategic"
+waiver:
+  allowed: true
+  requires: "Freigabe durch Product Owner und Compliance"
+links:
+  requirements:
+    - "R004"
+  eu_ai_act_refs:
+    - "Art. 14"
+sources:
+  - "04_anforderungsanalyse_RQ1/requirements/R004.yaml"
+  - "04_anforderungsanalyse_RQ1/chapter_state.yaml"
+notes: "DRAFT v0.1 - Rollenmodell wird in Kap. 4.5 finalisiert."

@@ -1,0 +1,28 @@
+id: R011
+title: Konformitaetserklaerung und CE-Kennzeichnung muessen vor Einsatz geprueft sein
+kontrollmechanismus: Pre-Deployment Gate-Pruefung auf vorhandene und gueltige Konformitaetsdokumentation
+lifecycle_phase: pre-deployment
+governance_dimension: regulatorisch
+eu_ai_act_refs:
+- Art. 26 Abs. 1
+- Art. 47
+- Art. 48
+must_should: MUST
+description: Vor Einsatz eines High-Risk-KI-Systems muss der Deployer pruefen, ob
+  eine gueltige EU-Konformitaetserklaerung und CE-Kennzeichnung des Providers vorliegen.
+  Ohne gueltige Konformitaetsdokumentation darf kein Deployment erfolgen.
+evidence_expected:
+- conformity_declaration_check
+- ce_marking_verification
+- provider_documentation_receipt
+acceptance_criteria:
+- EU-Konformitaetserklaerung liegt vor und ist gueltig.
+- CE-Kennzeichnung ist vorhanden.
+- Pruefergebnis ist im Evidence Store dokumentiert.
+linked_gates:
+- tbd_5.3
+sources:
+- EU AI Act (VO 2024/1689) Art. 26 Abs. 1, Art. 47, Art. 48
+- Kiejnich-Kruk (2025) [D6526468] — Deployer-Obligations-Analyse, Art. 26 Abs. 1 CE-Pruefpflicht
+notes: DRAFT v0.3 - reine Deployer-Pflicht. Keine eigene Konformitaetsbewertung, nur
+  Pruefung der Provider-Dokumentation. Kiejnich-Kruk bestaetigt CE-Check als Deployer-Eingangspruefung.

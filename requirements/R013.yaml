@@ -1,0 +1,26 @@
+id: R013
+title: "Bias- und Fairness-Monitoring muss im laufenden Betrieb implementiert sein"
+kontrollmechanismus: "Continuous Monitoring mit automatisierter Bias-Detection und periodischer Fairness-Evaluation"
+lifecycle_phase: "operation"
+governance_dimension: "technisch"
+eu_ai_act_refs:
+  - "Art. 9 Abs. 2 lit. a"
+  - "Art. 10 Abs. 2 lit. f"
+  - "Art. 15"
+must_should: "SHOULD"
+description: "Im laufenden Betrieb sollen Bias-Metriken und Fairness-Indikatoren kontinuierlich erhoben werden. Signifikante Abweichungen von definierten Fairness-Schwellenwerten loesen Alerts und manuelle Review-Prozesse aus."
+evidence_expected:
+  - "bias_metrics_report"
+  - "fairness_evaluation_log"
+  - "alert_and_remediation_log"
+acceptance_criteria:
+  - "Bias-Metriken sind definiert und werden automatisch erhoben."
+  - "Fairness-Schwellenwerte sind konfiguriert."
+  - "Abweichungen ueber Schwellenwert loesen dokumentierte Alerts aus."
+linked_gates:
+  - "tbd_5.3"
+sources:
+  - "EU AI Act (VO 2024/1689) Art. 9, Art. 10, Art. 15"
+  - "Díaz-Rodríguez et al. (2023) [NWJFNALE] — Trustworthy AI Requirements: Diversity, Non-Discrimination and Fairness Dimension, Lifecycle-Monitoring"
+  - "Guldimann et al. (2025) COMPL-AI [QTQJ92VY] — Bias/Fairness-Benchmarks: alle LLMs zeigen Defizite bei Diversity/Non-Discrimination/Fairness"
+notes: "DRAFT v0.3 - SHOULD statt MUST da Deployer-Pflicht hier weniger explizit. Art. 10 primaer Provider, Deployer via Risikomanagement Art. 9. Díaz-Rodríguez liefert Taxonomie der Fairness-Dimensionen. Guldimann zeigt empirisch Bias-Defizite aller getesteten LLMs."

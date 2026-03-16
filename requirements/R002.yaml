@@ -1,0 +1,31 @@
+id: R002
+title: Technische Dokumentation und Protokollierung muessen auditierbar verfuegbar
+  sein
+kontrollmechanismus: Gate-pruefung auf vollstaendige technische Doku und run-bezogene
+  Log-Referenzen
+lifecycle_phase: deployment
+governance_dimension: regulatorisch
+eu_ai_act_refs:
+- Art. 11
+must_should: MUST
+description: Jeder produktive Release muss mit technischer Dokumentation und versionierten
+  Artefakt-Referenzen verknuepft sein. Logging (Art. 12) in R014, Transparenz (Art.
+  13) in R007 ausgelagert.
+evidence_expected:
+- technical_documentation
+- model_card
+- release_artifact_reference
+acceptance_criteria:
+- Dokumentation verweist eindeutig auf Modellversion und Release.
+- Log-Referenzen sind im Evidence Store auffindbar.
+linked_gates:
+- tbd_5.3
+sources:
+- EU AI Act (VO 2024/1689) Art. 11
+- Guldimann et al. (2025) COMPL-AI [QTQJ92VY] — Technische Dokumentations-Benchmarks
+  fuer EU AI Act Art. 11
+- Lucaj et al. (2025) TechOps [5Y79UTJ9] — Open-Source-Templates (Data/Model/Application)
+  fuer Art. 11 + Annex IV, versionierbar und automatisierbar (https://github.com/aloosley/techops)
+notes: DRAFT v0.4 - Lucaj als Stuetz-Quelle ergaenzt. linked_gates auf tbd_5.3 gemaess
+  D_GATE_IDS_LOCATION. Art. 13 ausgelagert nach R007, Art. 12 nach R014. Fokus nur
+  noch Art. 11.

@@ -1,0 +1,25 @@
+id: R010
+title: "Post-Market Surveillance und Drift-Monitoring muessen operativ implementiert sein"
+kontrollmechanismus: "Continuous Monitoring mit automatisierter Drift-Detection und Schwellenwert-Alerting"
+lifecycle_phase: "operation"
+governance_dimension: "technisch"
+eu_ai_act_refs:
+  - "Art. 72"
+  - "Art. 9 Abs. 2"
+must_should: "MUST"
+description: "Deployer muessen ein Post-Market-Surveillance-System betreiben, das Performance-Drift, Datenverteilungsaenderungen und Modelldegeneration erkennt. Schwellenwert-Ueberschreitungen loesen automatische Alerts und ggf. Gate-Re-Evaluation aus."
+evidence_expected:
+  - "drift_monitoring_dashboard"
+  - "drift_alert_log"
+  - "pms_periodic_report"
+acceptance_criteria:
+  - "Drift-Metriken sind definiert und werden kontinuierlich erhoben."
+  - "Schwellenwert-Ueberschreitungen loesen dokumentierte Alerts aus."
+  - "Periodische PMS-Berichte werden erstellt und archiviert."
+linked_gates:
+  - "tbd_5.3"
+sources:
+  - "EU AI Act (VO 2024/1689) Art. 72, Art. 9 Abs. 2"
+  - "Finch & Butt (2025) [HU5B664Q] — Systematic Review: Gap bei continuous monitoring practices, lifecycle risk management Art. 9"
+  - "Huwyler (2025) [UE5LVI97] — Phase 6 (Maintenance): PMS-Massnahmen, Incident Reporting, Drift-Erkennung"
+notes: "DRAFT v0.3 - Art. 72 primaer Provider-Pflicht, Deployer via Art. 26 Abs. 1 zur Ueberwachung verpflichtet. Finch & Butt identifizieren Monitoring-Gap als zentrales Compliance-Defizit. Huwyler operationalisiert PMS in Phase 6."

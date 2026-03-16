@@ -1,0 +1,24 @@
+id: R012
+title: "Grundrechte-Folgenabschaetzung muss vor Einsatz durchgefuehrt und dokumentiert sein"
+kontrollmechanismus: "Pre-Deployment Gate-Pruefung auf abgeschlossene FRIA-Dokumentation"
+lifecycle_phase: "pre-deployment"
+governance_dimension: "strategisch"
+eu_ai_act_refs:
+  - "Art. 27"
+must_should: "MUST"
+description: "Deployer, die oeffentliche Stellen sind oder im oeffentlichen Auftrag handeln, muessen vor Erstverwendung eine Grundrechte-Folgenabschaetzung (FRIA) durchfuehren. Fuer private Deployer von High-Risk-Systemen empfohlen als Best Practice."
+evidence_expected:
+  - "fria_document"
+  - "stakeholder_impact_assessment"
+acceptance_criteria:
+  - "FRIA ist abgeschlossen und versioniert."
+  - "Betroffene Grundrechte sind identifiziert und bewertet."
+  - "Mitigationsmassnahmen fuer identifizierte Risiken sind dokumentiert."
+linked_gates:
+  - "tbd_5.3"
+sources:
+  - "EU AI Act (VO 2024/1689) Art. 27"
+  - "Huwyler (2025) [UE5LVI97] — Phase 4 Action 4.3: FRIA als Pre-Deployment-Pflicht, Stakeholder-Impact-Bewertung"
+  - "Finch & Butt (2025) [HU5B664Q] — FRIA-Ontologie-Referenz (Pandit 2024), Fundamental Rights im AI Act Kontext"
+  - "Burns et al. (2025) Dynamo [2GGF93BE] — Governance-Prozess inkl. Grundrechte-Bewertung"
+notes: "DRAFT v0.3 - Art. 27 Pflicht nur fuer bestimmte Deployer-Kategorien. Fuer Enterprise-Kontext als Best Practice aufgenommen. Huwyler ordnet FRIA in Phase 4 seines 6-Phasen-Frameworks ein."

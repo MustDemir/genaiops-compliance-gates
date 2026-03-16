@@ -1,0 +1,25 @@
+id: R008
+title: "Operative Oversight-Wirksamkeit muss kontinuierlich nachgewiesen werden"
+kontrollmechanismus: "Continuous Monitoring der vier Effektivitaetsbedingungen (Sterz) mit periodischer Wirksamkeitspruefung"
+lifecycle_phase: "operation"
+governance_dimension: "strategisch"
+eu_ai_act_refs:
+  - "Art. 14"
+  - "Art. 26 Abs. 2"
+must_should: "MUST"
+description: "Waehrend des Betriebs muss die Wirksamkeit menschlicher Aufsicht nachgewiesen werden. Die vier Effektivitaetsbedingungen nach Sterz (Causal Power, Epistemic Access, Self-Control, Fitting Intentions) muessen operativ ueberpruefbar sein. Ergebnisse fliessen in den Audit Trail."
+evidence_expected:
+  - "oversight_effectiveness_report"
+  - "sterz_conditions_assessment"
+  - "intervention_log"
+acceptance_criteria:
+  - "Periodische Wirksamkeitspruefung ist konfiguriert und wird ausgefuehrt."
+  - "Eingriffe durch Oversight-Rollen werden protokolliert."
+  - "Defizite in den Sterz-Bedingungen loesen Eskalation aus."
+linked_gates:
+  - "tbd_5.3"
+sources:
+  - "EU AI Act (VO 2024/1689) Art. 14, Art. 26 Abs. 2"
+  - "Sterz et al. (2024) - Effektivitaetsbedingungen Human Oversight"
+  - "Eisenberg (2025) UCF [JUK36XAW] — Unified Control Framework, Governance-Dimensionen fuer operative Oversight"
+notes: "DRAFT v0.3 - ergaenzt R004 (pre-deployment) um operative Phase. Sterz-Bedingungen aus Kap. 4.5. Eisenberg liefert Control-Framework-Perspektive."

@@ -1,0 +1,31 @@
+id: GTECH-001
+name: "Technical Gate: Qualitaets- und Robustheitskriterien"
+dimension: "technical"
+lifecycle_phase: "deployment"
+trigger: "Pipeline-Pruefung vor Promotion von Staging nach Production"
+policy_checks:
+  - "Pruefe Mindestwerte fuer Qualitaetsmetriken."
+  - "Pruefe bestandene Safety- und Robustheitschecks."
+evidence_required:
+  - "eval_metrics_report"
+  - "safety_test_report"
+  - "audit_trail_entry"
+decision: "block"
+owner: "ML Platform Engineer"
+audit_trail:
+  enabled: true
+  evidence_store_ref: "evidence://gates/technical"
+waiver:
+  allowed: true
+  requires: "Freigabe durch Tech Lead und Governance"
+links:
+  requirements:
+    - "R003"
+    - "R005"
+  eu_ai_act_refs:
+    - "Art. 15"
+    - "Art. 12"
+sources:
+  - "04_anforderungsanalyse_RQ1/requirements/"
+  - "05_referenzarchitektur_RQ2/05_03_quality_gates/"
+notes: "DRAFT v0.1 - konkrete Schwellenwerte werden im PoC kalibriert."

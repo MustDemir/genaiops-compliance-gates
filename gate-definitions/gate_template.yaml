@@ -1,0 +1,20 @@
+id: GXXX-000
+name: ""
+dimension: "strategic|technical|compliance"
+lifecycle_phase: "ideation|development|evaluation|deployment|monitoring"
+trigger: ""
+policy_checks: []
+evidence_required: []
+decision: "approve|block|manual_review"
+owner: ""
+audit_trail:
+  enabled: true
+  evidence_store_ref: ""
+waiver:
+  allowed: false
+  requires: ""
+links:
+  requirements: []
+  eu_ai_act_refs: []
+sources: []
+notes: ""

@@ -1,0 +1,40 @@
+# Environment
+.env
+.env.*
+*.local
+
+# Python
+__pycache__/
+*.pyc
+venv/
+.venv/
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.backup
+*.tfplan
+
+# OPA
+.opa/
+
+# Kubernetes
+kubeconfig
+*.kubeconfig
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Evidence Store data (runtime artifacts, not committed)
+evidence-store/*.db
+evidence-store/data/
+
+# Secrets
+**/secrets/
+**/credentials/
