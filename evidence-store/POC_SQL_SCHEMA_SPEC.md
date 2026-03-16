@@ -1,52 +1,50 @@
-# PoC-SQL-Schema Master-MD: Evidence Store (Kap. 5.4)
+# Evidence Store — SQL Schema Specification
 
-**Datum:** 2026-03-13
-**Zweck:** DDL-Komponenten → DP-Mapping → Move-Zuordnung → APA7-Belegstellen
-**Input:** v01.sql (minimal), v02_enterprise.sql (enterprise), evidence_store_architektur.md
-**Ziel:** Konkrete Schema-Referenzen für thesis-writer bei "GO"
+**Version:** 2026-03-13
+**Purpose:** Design rationale and DDL component mapping for the Evidence Store (Chapter 5.4)
+**Inputs:** v01.sql (minimal), v02_enterprise.sql (enterprise), architecture specification
 
 ---
 
-## 1. Schema-Evolution: v01 → v02 (DSR Design Rationale)
+## 1. Schema Evolution: v01 → v02 (DSR Design Rationale)
 
-| Aspekt | v01 (Minimal) | v02 (Enterprise) | DSR-Begründung |
-|--------|---------------|-------------------|----------------|
-| Schema-Separation | Kein Schema | `medical.*` / `compliance.*` | DP4 Governance-Trennung: Payload ≠ Telemetrie |
-| Rollen | Keine | 3 Rollen (ingest/auditor/admin) | DP5 Least Privilege |
-| RLS | Nein | Row-Level Security + Policies | DP1 + DP5 Privacy by Design |
-| Hash-Chain | `hash_value`/`previous_hash` (Spalten, keine Logik) | Trigger-Funktion `set_hash_chain()` mit SHA-256 | DP5.3 Tamper Evidence |
-| Immutability | Trigger `trg_prevent_delete_update()` | Trigger `prevent_update_delete()` (identisch) | DP2 Append-Only |
+| Aspect | v01 (Minimal) | v02 (Enterprise) | Design Rationale |
+|--------|---------------|-------------------|-----------------|
+| Schema Separation | None | `medical.*` / `compliance.*` | DP4 Governance separation: Payload ≠ Telemetry |
+| Roles | None | 3 roles (ingest/auditor/admin) | DP5 Least Privilege |
+| RLS | No | Row-Level Security + Policies | DP1 + DP5 Privacy by Design |
+| Hash Chain | `hash_value`/`previous_hash` (columns only) | Trigger function `set_hash_chain()` with SHA-256 | DP5.3 Tamper Evidence |
+| Immutability | Trigger `trg_prevent_delete_update()` | Trigger `prevent_update_delete()` (identical) | DP2 Append-Only |
 | Indexes | 3 (reporting, checked_at, failures) | 4 + Materialized View | DP5.2 Performance SLO |
-| Privacy View | `vw_quality_gate_reporting` (Basis) | View + Materialized View `mv_auditor_daily` | DP1 + DP4 |
-| Payload-Referenz | `evidence_blob_url TEXT` | `payload_id UUID REFERENCES medical.payload_objects` | R3 FK-Constraint statt URL-String |
+| Privacy View | `vw_quality_gate_reporting` (basic) | View + Materialized View `mv_auditor_daily` | DP1 + DP4 |
+| Payload Reference | `evidence_blob_url TEXT` | `payload_id UUID REFERENCES medical.payload_objects` | R3 FK constraint instead of URL string |
 
-**Design-Iteration:** v01→v02 = DSR Build-Evaluate Micro-Cycle (Hevner et al., 2004)
+**Design Iteration:** v01 → v02 represents a DSR Build-Evaluate micro-cycle (Hevner et al., 2004).
 
 ---
 
-## 2. DDL-Komponenten → Design-Prinzipien → Moves
+## 2. DDL Components → Design Principles
 
-### K1: Schema-Separation (`medical.*` / `compliance.*`)
+### K1: Schema Separation (`medical.*` / `compliance.*`)
 
 ```sql
 CREATE SCHEMA IF NOT EXISTS medical;
 CREATE SCHEMA IF NOT EXISTS compliance;
 ```
 
-| Dimension | Wert |
-|-----------|------|
-| **Design-Prinzip** | DP4 (Governance-Trennung), R3 (Healthcare-Anforderung) |
-| **Move** | **M1** (Motivation: Payload/Telemetrie-Trennung) |
-| **Claim** | DSGVO Art. 9 erfordert strikte Trennung medizinischer Payload von regulatorischer Telemetrie |
-| **Belegstellen** | Nweke & Yeng (2026, PDF S. 3–4): privacy-preserving compliance; Kholkar & Ahuja (2025, S. 1): "data minimization"; Golpayegani et al. (2024): metadata separation |
-| **DSR-Eigenleistung** | **E2**: Architektur-Pattern (encrypted Blob vs. SQL) in keiner Quelle als dediziertes Pattern |
-| **SQL-Artefakt** | `medical.payload_objects` (Blob-Metadaten) + `compliance.quality_gate_results` (Telemetrie) |
+| Dimension | Value |
+|-----------|-------|
+| **Design Principle** | DP4 (Governance Separation), R3 (Healthcare Requirement) |
+| **Rationale** | GDPR Art. 9 requires strict separation of medical payload from regulatory telemetry |
+| **References** | Nweke & Yeng (2026, p. 3-4): privacy-preserving compliance; Kholkar & Ahuja (2025, p. 1): data minimization |
+| **DSR Contribution** | **E2**: Architecture pattern (encrypted Blob vs. SQL) — not described as dedicated pattern in existing literature |
+| **SQL Artifact** | `medical.payload_objects` (blob metadata) + `compliance.quality_gate_results` (telemetry) |
 
-### K2: Least-Privilege RBAC (3 Rollen + RLS)
+### K2: Least-Privilege RBAC (3 Roles + RLS)
 
 ```sql
 CREATE ROLE app_ingest_role NOINHERIT;    -- CI/CD Pipeline: INSERT only
-CREATE ROLE auditor_role NOINHERIT;        -- Auditoren: SELECT only
+CREATE ROLE auditor_role NOINHERIT;        -- Auditors: SELECT only
 CREATE ROLE admin_compliance_role NOINHERIT; -- Compliance Officer: ALL
 ```
 
@@ -57,16 +55,14 @@ CREATE POLICY pol_select_auditor ... FOR SELECT TO auditor_role;
 CREATE POLICY pol_all_admin      ... FOR ALL    TO admin_compliance_role;
 ```
 
-| Dimension | Wert |
-|-----------|------|
-| **Design-Prinzip** | DP5 (Cloud-native Integrierbarkeit) |
-| **Move** | **M4** (Least-Privilege RBAC) |
-| **Claim** | DB-native Rollen-Enforcement statt Application-Layer Access Control |
-| **Belegstellen** | Kholkar & Ahuja (2025, S. 1–2): least privilege + data minimization; Burns et al. (2025, S. 1+3): AIGA governance roles + compliance checkpoints (4-Seiten-Konferenzpaper, High-Level); Eisenberg et al. (2025, Sec. 2/Fig. 2): CONTROL-001 AI System Access Controls + RBAC + Audit Logging |
-| **DSR-Eigenleistung** | Nicht primär — gut belegt (Q4: 3 explizit + 5 implizit) |
-| **SQL-Artefakt** | 3 Rollen + 3 RLS-Policies + REVOKE/GRANT-Kette |
+| Dimension | Value |
+|-----------|-------|
+| **Design Principle** | DP5 (Cloud-native Integrability) |
+| **Rationale** | DB-native role enforcement instead of application-layer access control |
+| **References** | Kholkar & Ahuja (2025, p. 1-2): least privilege + data minimization; Burns et al. (2025, p. 1+3): AIGA governance roles; Eisenberg et al. (2025, Sec. 2/Fig. 2): CONTROL-001 AI System Access Controls + RBAC |
+| **SQL Artifact** | 3 roles + 3 RLS policies + REVOKE/GRANT chain |
 
-### K3: quality_gate_results Table (Kern-Schema)
+### K3: quality_gate_results Table (Core Schema)
 
 ```sql
 CREATE TABLE compliance.quality_gate_results (
@@ -88,26 +84,26 @@ CREATE TABLE compliance.quality_gate_results (
 );
 ```
 
-| Dimension | Wert |
-|-----------|------|
-| **Design-Prinzip** | DP1 (Compliance-Lifecycle), DP2 (Traceability) |
-| **Move** | **M2** (Schema als DSR-Artefakt) + **M6** (quality_gate_results + CAC/AAC) |
-| **Claim** | Jede Gate-Evaluation = 1 Evidence Record. CDV-Framework-Output als strukturierter Record. |
-| **Belegstellen** | Butt (2026, S. 1–2): "signed, content-addressed artifacts into a tamper-evident Evidence Backbone"; Muhammad et al. (2026, Sec. 3.4): "bounded evidence schema, versioned policy + executable checks"; Eisenberg et al. (2025, Sec. 2): UCF unified governance mit 42 Controls |
-| **Feld-Mapping** | |
+| Dimension | Value |
+|-----------|-------|
+| **Design Principle** | DP1 (Compliance Lifecycle), DP2 (Traceability) |
+| **Rationale** | Each gate evaluation = 1 evidence record. CDV Framework output as structured record. |
+| **References** | Butt (2026, p. 1-2): tamper-evident Evidence Backbone; Muhammad et al. (2026, Sec. 3.4): bounded evidence schema; Eisenberg et al. (2025, Sec. 2): UCF unified governance |
 
-| Feld | Herkunft | DP | Quelle |
-|------|----------|-----|--------|
-| `gate_type` CHECK | 3-Säulen-Taxonomie aus Kap. 5.2 | DP1 | Nweke & Yeng (2026): Clause-to-Control |
-| `decision` CHECK | PASS/FAIL Gate-Semantik | DP2 | Muhammad et al. (2026, Sec. 3.4): gate engine → PASS/WARN/BLOCK |
-| `policy_version` | Versionierte Policy-Referenz | DP2 | Muhammad et al. (2026, Sec. 3.4): "versioned policy specification" |
-| `payload_id` FK | R3 Trennung → FK statt Blob-URL | DP4, R3 | DSR-Eigenleistung E2 |
-| `hash_value` / `previous_hash` | Hash-Chain-Felder | DP5.3 | Butt (2026, S. 6+14+16): SHA-256 content-addressing |
-| `inserted_by` | Audit-Trail: wer hat eingefügt | DP5 | Kholkar & Ahuja (2025, S. 1): audit logging |
+**Field-to-Design-Principle Mapping:**
 
-**DSR-Eigenleistung E4:** Synthese aus 9 Quellen zu vollständigem Schema mit DP-Mapping. Keine einzelne Quelle liefert ein vergleichbares Schema.
+| Field | Origin | DP | Source |
+|-------|--------|-----|--------|
+| `gate_type` CHECK | 3-pillar taxonomy (Ch. 5.2) | DP1 | Nweke & Yeng (2026): Clause-to-Control |
+| `decision` CHECK | PASS/FAIL gate semantics | DP2 | Muhammad et al. (2026, Sec. 3.4): gate engine |
+| `policy_version` | Versioned policy reference | DP2 | Muhammad et al. (2026, Sec. 3.4) |
+| `payload_id` FK | R3 separation → FK instead of blob URL | DP4, R3 | DSR contribution E2 |
+| `hash_value` / `previous_hash` | Hash chain fields | DP5.3 | Butt (2026, p. 6+14+16): SHA-256 |
+| `inserted_by` | Audit trail: who inserted | DP5 | Kholkar & Ahuja (2025, p. 1): audit logging |
 
-### K4: Immutability-Trigger (Append-Only Enforcement)
+**DSR Contribution E4:** Synthesis from 9 sources into complete schema with DP mapping. No single source provides a comparable schema.
+
+### K4: Immutability Trigger (Append-Only Enforcement)
 
 ```sql
 CREATE OR REPLACE FUNCTION compliance.prevent_update_delete()
@@ -121,15 +117,14 @@ BEFORE UPDATE OR DELETE ON compliance.quality_gate_results
 FOR EACH ROW EXECUTE FUNCTION compliance.prevent_update_delete();
 ```
 
-| Dimension | Wert |
-|-----------|------|
-| **Design-Prinzip** | DP2 (Traceability), DP5.3 (Tamper Evidence) |
-| **Move** | **M3** (Immutability-Trigger) |
-| **Claim** | SQL-Level Enforcement: Append-Only als technische Garantie, nicht als Konvention |
-| **Belegstellen** | Kholkar & Ahuja (2025, S. 1): provenance + audit logging; Butt (2026, S. 1–2+4): tamper-evident Evidence Backbone; Butt (2026, S. 7): immutable; Butt (2026, S. 2+6+22+24): append-only; Muhammad et al. (2026, Sec. 3.4): "immutable evidence/decision trail"; Burns et al. (2025, S. 1): EU AI Act compliance requirements |
-| **DSR-Eigenleistung** | Teil von E1 (zusammen mit Hash-Chain) — SQL-Trigger-Enforcement ist Designbeitrag |
+| Dimension | Value |
+|-----------|-------|
+| **Design Principle** | DP2 (Traceability), DP5.3 (Tamper Evidence) |
+| **Rationale** | SQL-level enforcement: Append-only as technical guarantee, not convention |
+| **References** | Kholkar & Ahuja (2025, p. 1): provenance + audit logging; Butt (2026, p. 1-2+4): tamper-evident Evidence Backbone; Muhammad et al. (2026, Sec. 3.4): immutable evidence trail |
+| **DSR Contribution** | Part of E1 — SQL trigger enforcement is a design contribution |
 
-### K5: Hash-Chain Trigger-Funktion (SHA-256 Verkettung)
+### K5: Hash Chain Trigger Function (SHA-256 Chaining)
 
 ```sql
 CREATE OR REPLACE FUNCTION compliance.set_hash_chain()
@@ -165,15 +160,13 @@ BEFORE INSERT ON compliance.quality_gate_results
 FOR EACH ROW EXECUTE FUNCTION compliance.set_hash_chain();
 ```
 
-| Dimension | Wert |
-|-----------|------|
-| **Design-Prinzip** | **DP5.3** (Tamper Evidence — Sub-Extension von DP5) |
-| **Move** | **M7** (Hash-Chain-Integrität) ⚡ **Primäre DSR-Eigenleistung** |
-| **Claim** | Verkettete SHA-256-Hashes über alle Evidence Records. Nachträgliche Manipulation bricht Kette → O(1) Tamper Detection. Art. 12 EU AI Act Logging-Pflicht. |
-| **Belegstellen** | Butt (2026, S. 6+14+16): SHA-256 content-addressing; Butt (2026, S. 1–2+4): tamper-evident Evidence Backbone; Butt (2026, S. 2+6+22+24): append-only; Joseph (2023, S. 4+7): Hash-Chain-Formel h_i = H(h_{i-1} ∥ canon(E_i)), SHA-256; Joseph (2023, S. 16): Median-Latenz 3.2ms für Tamper Detection; Joseph (2023, S. 1+20–21): EU AI Act Art. 12 Logging-Pflicht. ⚠️ Joseph Venue-Caveat: WJAETS (kein Top-Venue, aber einzige Quelle mit quantitativer Hash-Chain-Performance) |
-| **DSR-Eigenleistung** | **E1: Hash-Chain-Immutability** — Q2 Matrix: 1/9 explizit. Kein Paper beschreibt SQL-Level Hash-Chain für AI-Governance Evidence Stores. |
-| **Abgrenzung** | ≠ Blockchain (kein Konsens-Mechanismus), ≠ Merkle Tree (lineare Kette vs. Baumstruktur). Lightweight Variante für DB-Trigger-Kontext. |
-| **Mechanik** | `prev_hash = SELECT hash_value ORDER BY audit_id DESC LIMIT 1` → `new_hash = SHA-256(alle Felder ∥ prev_hash)` |
+| Dimension | Value |
+|-----------|-------|
+| **Design Principle** | **DP5.3** (Tamper Evidence — sub-extension of DP5) |
+| **Rationale** | Chained SHA-256 hashes across all evidence records. Retroactive manipulation breaks chain → O(1) tamper detection. EU AI Act Art. 12 logging obligation. |
+| **References** | Butt (2026, p. 6+14+16): SHA-256 content-addressing; Joseph (2023, p. 4+7): hash chain formula h_i = H(h_{i-1} ∥ canon(E_i)); Joseph (2023, p. 16): median latency 3.2ms for tamper detection |
+| **DSR Contribution** | **E1: Hash-Chain Immutability** — No paper describes SQL-level hash chain for AI governance evidence stores. |
+| **Distinction** | ≠ Blockchain (no consensus mechanism), ≠ Merkle Tree (linear chain vs. tree structure). Lightweight variant for DB trigger context. |
 
 ### K6: Composite Indexes + Performance SLO
 
@@ -184,21 +177,19 @@ CREATE INDEX idx_qgr_failures_partial ON compliance.quality_gate_results (checke
 CREATE INDEX idx_qgr_run_id          ON compliance.quality_gate_results (run_id);
 ```
 
-| Dimension | Wert |
-|-----------|------|
-| **Design-Prinzip** | **DP5.2** (Performance — Sub-Extension von DP5) |
-| **Move** | **M5** (Composite Indexes + 100ms SLO) |
-| **Claim** | Query < 100ms SLO für Audit-Reporting über Millionen Gate-Durchläufe. Partial Index auf `decision = 'FAIL'` für Incident-Response. |
-| **Belegstellen** | Eisenberg et al. (2025, Sec. 2): UCF unified control library enables efficient governance queries; Muhammad et al. (2026, Sec. 3.4): "bounded evidence schema, versioned JSON artifacts"; Butt (2026, S. 5–6+10): gate schema applied across multiple gate types |
-| **DSR-Eigenleistung** | **E3**: Keine Quelle definiert quantitative Performance-Ziele für Audit-Query-Response |
-| **Index-Strategie** | |
+| Dimension | Value |
+|-----------|-------|
+| **Design Principle** | **DP5.2** (Performance — sub-extension of DP5) |
+| **Rationale** | Query < 100ms SLO for audit reporting across millions of gate executions. Partial index on `decision = 'FAIL'` for incident response. |
+| **References** | Eisenberg et al. (2025, Sec. 2): UCF enables efficient governance queries; Muhammad et al. (2026, Sec. 3.4): bounded evidence schema |
+| **DSR Contribution** | **E3**: No source defines quantitative performance targets for audit query response. |
 
-| Index | Zweck | Query-Pattern |
-|-------|-------|---------------|
-| `idx_qgr_reporting` | Compliance-Dashboard | `WHERE model_name = ? AND gate_type = ?` |
-| `idx_qgr_checked_at` | Zeitreihen-Analyse | `WHERE checked_at BETWEEN ? AND ?` |
-| `idx_qgr_failures_partial` | Incident-Response (Partial) | `WHERE decision = 'FAIL' AND checked_at > ?` |
-| `idx_qgr_run_id` | Pipeline-Run-Lookup | `WHERE run_id = ?` |
+| Index | Purpose | Query Pattern |
+|-------|---------|---------------|
+| `idx_qgr_reporting` | Compliance dashboard | `WHERE model_name = ? AND gate_type = ?` |
+| `idx_qgr_checked_at` | Time-series analysis | `WHERE checked_at BETWEEN ? AND ?` |
+| `idx_qgr_failures_partial` | Incident response (partial) | `WHERE decision = 'FAIL' AND checked_at > ?` |
+| `idx_qgr_run_id` | Pipeline run lookup | `WHERE run_id = ?` |
 
 ### K7: Privacy-Safe Reporting Views
 
@@ -207,7 +198,7 @@ CREATE OR REPLACE VIEW compliance.vw_quality_gate_reporting AS
 SELECT audit_id, model_name, model_version, pipeline_id, run_id,
        gate_type, gate_name, decision, checked_at, hash_value, previous_hash
 FROM compliance.quality_gate_results;
--- Kein: notes, inserted_by, payload_id → PII-Minimierung
+-- Excluded: notes, inserted_by, payload_id → PII minimization
 
 CREATE MATERIALIZED VIEW compliance.mv_auditor_daily AS
 SELECT date_trunc('day', checked_at) AS day_bucket,
@@ -216,120 +207,69 @@ FROM compliance.quality_gate_results
 GROUP BY 1,2,3,4;
 ```
 
-| Dimension | Wert |
-|-----------|------|
-| **Design-Prinzip** | DP1 (Compliance-Lifecycle), DP4 (Governance-Trennung) |
-| **Move** | **M1** (Privacy-Kontext) + **M4** (Auditoren-Zugriff via Views) |
-| **Claim** | Kein direkter Tabellenzugriff für Auditoren. View maskiert PII-nahe Felder. Materialized View für Dashboard-Performance. |
-| **Belegstellen** | Kholkar & Ahuja (2025, S. 1): "data minimization"; Nweke & Yeng (2026): privacy-preserving compliance checks |
-| **Masking-Logik** | View exkludiert: `notes` (Freitext), `inserted_by` (Benutzername), `payload_id` (FK zu med. Daten) |
+| Dimension | Value |
+|-----------|-------|
+| **Design Principle** | DP1 (Compliance Lifecycle), DP4 (Governance Separation) |
+| **Rationale** | No direct table access for auditors. View masks PII-adjacent fields. Materialized view for dashboard performance. |
+| **References** | Kholkar & Ahuja (2025, p. 1): data minimization; Nweke & Yeng (2026): privacy-preserving compliance |
+| **Masking Logic** | View excludes: `notes` (free text), `inserted_by` (username), `payload_id` (FK to medical data) |
 
 ---
 
-## 3. Traceability-Kette: R → DP → Gate → Evidence (M8)
+## 3. Traceability Chain: R → DP → Gate → Evidence
 
 ```
-Requirement (Kap. 4)
-    → Design Principle (Kap. 5.1)
-        → Gate-Instanz (Kap. 5.2, CDV-Framework)
-            → Evidence Record (quality_gate_results, Kap. 5.4)
-                → Hash-Chain-Verkettung (DP5.3)
-                    → Conformity Bundle (Audit-Report)
+Requirement (Ch. 4)
+    → Design Principle (Ch. 5.1)
+        → Gate Instance (Ch. 5.2, CDV Framework)
+            → Evidence Record (quality_gate_results, Ch. 5.4)
+                → Hash Chain (DP5.3)
+                    → Conformity Bundle (Audit Report)
 ```
 
-| Belegstellen | |
-|---|---|
-| Nweke & Yeng (2026, PDF S. 5–6) | "Clause-to-Control mapping" für Traceability |
-| Muhammad et al. (2026, S. 1) | "traceability and explainability" als Kernprinzip |
-| Kholkar & Ahuja (2025, S. 1) | "complete provenance, traceability, and audit logging" |
-| Butt (2026, S. 1–2) | "Clause-to-Artifact Traceability (C2AT)" |
-
-**Evidenzstärke:** 🟢 Q5 PERFEKT — 9/9 Quellen adressieren Traceability
+| Reference | Contribution |
+|-----------|-------------|
+| Nweke & Yeng (2026, p. 5-6) | Clause-to-Control mapping for traceability |
+| Muhammad et al. (2026, p. 1) | Traceability and explainability as core principle |
+| Kholkar & Ahuja (2025, p. 1) | Complete provenance, traceability, and audit logging |
+| Butt (2026, p. 1-2) | Clause-to-Artifact Traceability (C2AT) |
 
 ---
 
-## 4. CAC/AAC-Zuordnung im Schema (M6)
+## 4. CAC/AAC Classification
 
-| Schema-Komponente | CAC (Compliance-as-Code) | AAC (Audit-as-Code) |
-|-------------------|--------------------------|---------------------|
-| `gate_type` CHECK | Strategisch/Technisch/Compliance → CAC-Taxonomie | — |
-| `policy_version` | Versionierte Policy-Referenz → CAC | — |
-| Immutability-Trigger | — | Beweissicherung → AAC |
-| Hash-Chain-Trigger | — | Nachweiskette → AAC |
-| `decision` PASS/FAIL | Gate-Entscheidung → CAC | Persistiert als Evidence → AAC |
-| Privacy Views | — | Audit-Zugriff → AAC |
+| Schema Component | CAC (Compliance-as-Code) | AAC (Audit-as-Code) |
+|------------------|--------------------------|---------------------|
+| `gate_type` CHECK | Strategic/Technical/Compliance → CAC taxonomy | — |
+| `policy_version` | Versioned policy reference → CAC | — |
+| Immutability Trigger | — | Evidence preservation → AAC |
+| Hash Chain Trigger | — | Chain of custody → AAC |
+| `decision` PASS/FAIL | Gate decision → CAC | Persisted as evidence → AAC |
+| Privacy Views | — | Audit access → AAC |
 
-**Quelle:** Muhammad et al. (2026): "Audit-as-Code" als Framework-Name; Nweke & Yeng (2026): Compliance-as-Code Operationalisierung
-
----
-
-## 5. DSR-Eigenleistungen → SQL-Komponenten
-
-| # | Eigenleistung | SQL-Komponente | DP | Move | Lücken-Begründung (aus Evidenz-Matrix) |
-|---|---------------|----------------|-----|------|----------------------------------------|
-| **E1** | Hash-Chain-Immutability | `set_hash_chain()` Trigger + `prevent_update_delete()` Trigger | DP5.3 + DP2 | M7 + M3 | Q2: 1/9 explizit. Keine SQL-Level Hash-Chain für AI-Governance. |
-| **E2** | Payload/Telemetrie-Trennung | `medical.*` / `compliance.*` Schema-Separation + FK-Constraint | DP4 + R3 | M1 | Q3: 3 explizit, 4 implizit. Kein dediziertes Architektur-Pattern. |
-| **E3** | Performance SLO 100ms | 4 Composite/Partial Indexes + Materialized View | DP5.2 | M5 | Keine quantitativen Performance-Ziele in Literatur. |
-| **E4** | PostgreSQL Evidence Store Schema | Gesamtes v02-Schema (7 DDL-Blöcke, 5 Komponenten) | Alle DP | M2 | Synthese: Keine Quelle liefert vollständiges Schema. |
+**Sources:** Muhammad et al. (2026): Audit-as-Code framework; Nweke & Yeng (2026): Compliance-as-Code operationalization
 
 ---
 
-## 6. Quellen-Referenz-Index (für Writer)
+## 5. DSR Contributions → SQL Components
 
-| Quelle | Zotero-Key | PDF-Seiten-Bereich | Kern-Beitrag für 5.4 | In Moves |
-|--------|------------|---------------------|----------------------|----------|
-| Butt (2026) | V6HKHA5B | S. 1–2+4 (Evidence Backbone, tamper-evident), S. 6+14+16 (SHA-256 content-addressed), S. 5–6+10 (Gate Schema), S. 7 (immutable), S. 2+6+22+24 (append-only) | Primärquelle: content-addressed, tamper-evident, C2AT, Conformity Bundle | M2,M3,M5,M6,M7,M9 |
-| Muhammad et al. (2026) | IZVYTSTV | Sec. 1 (AAC-Framework-Definition), Sec. 3.4 (Evidence Schema + Gate Config), Sec. 3.5 (Gate Engine: PASS/WARN/BLOCK), Sec. 3.6 (Threat Model), Sec. 4.2 (Real-world Audits) | Primärquelle: AAC namensgebend, versioned policy, deterministic gate, evidence bundle. Frontiers in AI — Peer-Reviewed. | M2,M5,M6,M8,M9 |
-| Kholkar & Ahuja (2025) | VLMNBUST | S. 1 (least privilege, provenance, traceability, audit logging, data minimization) | Primärquelle: Policy-as-Prompt, Least Privilege, Provenance | M1,M3,M4,M8 |
-| Nweke & Yeng (2026) | XCM4Q2WP | Sec. I-A (Bounded Assurance Claims C1–C4), Sec. II (Engineering Requirements), Sec. IV (Traceability Bundle T_v), Sec. V-F (Worked Clause-to-Control Example) | Stützquelle: Clause-to-Control Traceability, privacy-preserving compliance, evidence contracts. IEEE Access — Peer-Reviewed. | M1,M8 |
-| Eisenberg et al. (2025) | JUK36XAW | Sec. 2 (UCF Conceptual Overview, 42 Controls), Sec. 2/Fig. 2 (CONTROL-001: AI System Access Controls + RBAC + Audit Logging), Sec. 4 (Results: Control-to-Risk Mapping) | Stützquelle: UCF unified governance, RBAC as CONTROL-001, evidence requirements. arXiv Preprint — kein Peer-Review. | M2,M4,M5,M6 |
-| Burns et al. (2025) | 2GGF93BE | S. 1 (EU AI Act Compliance, governance checkpoints), S. 3 (AIGA governance roles, accountability) | Stützquelle: Dynamo real-world EU AI Act Alignment. ⚠️ Nur 4 Seiten (ECCWS Short Paper), kein technischer Tiefgang. High-Level Governance, kein RBAC/Immutability. | M4 (schwach),M9 |
-| Joseph (2023) | Elicit | S. 4 (Hash-Chain-Grundkonzept), S. 7 (SHA-256-Formel: h_i = H(h_{i-1} ∥ canon(E_i))), S. 16 (Median-Latenz 3.2ms), S. 1+20–21 (EU AI Act Art. 12) | Supplementary: Hash-Chain + Merkle Trees, <5ms Tamper-Detection, Art. 12. ⚠️ Venue-Caveat: WJAETS (kein Peer-Review-Journal) | M7 |
+| # | Contribution | SQL Component | DP | Gap Justification |
+|---|-------------|---------------|-----|-------------------|
+| **E1** | Hash-Chain Immutability | `set_hash_chain()` + `prevent_update_delete()` triggers | DP5.3 + DP2 | 1/9 sources explicit. No SQL-level hash chain for AI governance. |
+| **E2** | Payload/Telemetry Separation | `medical.*` / `compliance.*` schema + FK constraint | DP4 + R3 | 3 explicit, 4 implicit. No dedicated architecture pattern. |
+| **E3** | Performance SLO 100ms | 4 composite/partial indexes + materialized view | DP5.2 | No quantitative performance targets in literature. |
+| **E4** | PostgreSQL Evidence Store Schema | Complete v02 schema (7 DDL blocks, 5 components) | All DP | Synthesis: No single source provides complete schema. |
 
 ---
 
-## 7. Schema-Limitationen (PoC-Scope → im Text reflektieren)
+## 6. Known Limitations (PoC Scope)
 
-| # | Limitation | Betroffene Komponente | Auswirkung | Thesis-Behandlung |
-|---|-----------|----------------------|------------|-------------------|
-| **L1** | Race Condition bei concurrent INSERTs | K5 Hash-Chain Trigger | Zwei parallele Pipeline-Runs lesen denselben `previous_hash` → Chain-Bruch | M7: als PoC-Scope-Trade-off benennen. Fix: SERIALIZABLE Isolation oder Advisory Lock. Single-Pipeline PoC = akzeptabel. |
-| **L2** | Kein Table Partitioning | K3 quality_gate_results | 100ms SLO bricht bei >>10M Records ohne `PARTITION BY RANGE (checked_at)` | M5: SLO gilt für PoC-Scale. Kap. 7: Partitionierung als Future Work. |
-| **L3** | Kein Retention/Archival | K3 + K7 | EU AI Act Art. 12(2) Aufbewahrungspflicht, aber kein automatisches Archival. `mv_auditor_daily` ohne REFRESH-Mechanismus. | Kap. 7: Retention Policy als Future Work. |
-| **L4** | `inserted_by = current_user` | K3 Feld | Bei Connection-Pooling (PgBouncer) erscheinen alle INSERTs als selber User | M4: kurz benennen. Alternative: Application-Layer `x-pipeline-id` Header. |
+| # | Limitation | Affected Component | Impact | Treatment |
+|---|-----------|-------------------|--------|-----------|
+| **L1** | Race condition on concurrent INSERTs | K5 Hash Chain Trigger | Two parallel pipeline runs read same `previous_hash` → chain break | PoC scope trade-off. Fix: SERIALIZABLE isolation or advisory lock. Single-pipeline PoC = acceptable. |
+| **L2** | No table partitioning | K3 quality_gate_results | 100ms SLO breaks at >>10M records without `PARTITION BY RANGE (checked_at)` | SLO valid for PoC scale. Partitioning as future work. |
+| **L3** | No retention/archival | K3 + K7 | EU AI Act Art. 12(2) retention obligation, but no automated archival | Retention policy as future work. |
+| **L4** | `inserted_by = current_user` | K3 field | With connection pooling (PgBouncer) all INSERTs appear as same user | Alternative: application-layer `x-pipeline-id` header. |
 
-→ Items L1+L4 im Fließtext als bewusste Design-Entscheidung (PoC-Scope), L2+L3 in Kap. 7 (Limitations/Future Work).
-
-### ⚠️ Offener Punkt: Joseph (2023) Venue-Caveat
-> **Entscheidung (2026-03-13):** Joseph (2023) bleibt als Supplementary-Quelle für M7 (Hash-Chain-Performance: 3.2ms Median-Latenz). Formulierung mit Venue-Caveat ("WJAETS, kein Peer-Review-Journal") beibehalten.
-> **TODO für spätere Sessions:** Prüfen, ob stärkere Peer-Reviewed-Quellen für quantitative Hash-Chain-Performance in AI-Governance-Kontexten existieren. Falls ja → Joseph durch stärkere Quelle ersetzen oder ergänzen. Suchstrategie: Elicit/Semantic Scholar nach "hash chain audit log performance" + "tamper detection latency".
-
----
-
-## 8. Negativ-Checklist (Schema-bezogen)
-
-- ❌ **Keine vollständigen DDL-Listings im Fließtext** — nur konzeptuelle Beschreibung + Verweis auf PoC (Kap. 6.3)
-- ❌ Keine `CREATE TABLE`-Syntax im Kapiteltext — Schema-Logik verbal beschreiben
-- ❌ Keine Azure-spezifischen Konfigurationen — gehören in Kap. 5.5 (PoC)
-- ❌ Keine Wiederholung der Gate-Taxonomie — Verweis auf Kap. 5.2
-- ❌ `pgcrypto` Extension nur erwähnen, nicht erklären (PostgreSQL-Standardbibliothek)
-
----
-
-## 9. Writer-Anweisungen
-
-### Schema-Referenzierung im Fließtext:
-```
-Pattern: "Der Evidence Store realisiert [Prinzip] durch [Mechanismus]
-         (vgl. Schema-Komponente K[x] in Abschnitt 6.3)."
-```
-
-### Kein Code im Fließtext, aber:
-- Tabellen-/Feldnamen in `monospace` erlaubt
-- Trigger-Konzept verbal beschreiben: "Ein BEFORE-Trigger auf INSERT-Operationen berechnet..."
-- Hash-Mechanik verbal: "...verkettete SHA-256-Hashes, bei denen jeder neue Record den Hash-Wert seines Vorgängers einschließt"
-
-### Forward-References:
-- Schema-DDL → Kap. 6.3 (PoC-Walkthrough)
-- Azure PostgreSQL Flexible Server → Kap. 5.5 (Cloud-Deployment)
-- Gate-Instanzen → Kap. 5.2 (CDV-Framework)
-- Decision Logs → Kap. 5.3 (Policy Engine)
+### Note on Joseph (2023)
+Joseph (2023) is used as supplementary source for hash chain performance (3.2ms median latency). Published in WJAETS (not a top-tier venue). If stronger peer-reviewed sources for quantitative hash chain performance in AI governance become available, they should be considered as replacement or complement.

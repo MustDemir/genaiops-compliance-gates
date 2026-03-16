@@ -35,6 +35,9 @@ Thumbs.db
 evidence-store/*.db
 evidence-store/data/
 
+# Internal working documents (not for public repo)
+*_INTERNAL.md
+
 # Secrets
 **/secrets/
 **/credentials/
