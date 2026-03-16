@@ -1,4 +1,4 @@
-# GenAIOps Reference Architecture — EU AI Act Compliant Quality Gate System
+# GenAIOps Compliance Gates — EU AI Act Compliant Quality Gate System
 
 A cloud-native reference architecture for operationalizing regulatory, technical, and strategic requirements in GenAI systems through automated Quality Gates — with full EU AI Act (Regulation 2024/1689) compliance built into CI/CD/CT pipelines.
 
