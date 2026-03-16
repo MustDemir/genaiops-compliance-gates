@@ -1,0 +1,34 @@
+id: GCOMP-001
+name: "Compliance Gate: EU AI Act Mindestnachweise vor Produktivsetzung"
+dimension: "compliance"
+lifecycle_phase: "deployment"
+trigger: "Pre-release Gate in CI/CD vor Produktionspromotion"
+policy_checks:
+  - "Pruefe Vorhandensein von Risiko-Assessment und technischer Dokumentation."
+  - "Pruefe Referenz auf Logging- und Transparenzartefakte."
+evidence_required:
+  - "risk_assessment_report"
+  - "technical_documentation"
+  - "run_log_reference"
+decision: "block"
+owner: "AI Governance Lead"
+audit_trail:
+  enabled: true
+  evidence_store_ref: "evidence://gates/compliance"
+waiver:
+  allowed: true
+  requires: "Freigabe durch Governance Board (min. 2 Personen)"
+links:
+  requirements:
+    - "R001"
+    - "R002"
+    - "R005"
+  eu_ai_act_refs:
+    - "Art. 9"
+    - "Art. 11"
+    - "Art. 12"
+    - "Art. 13"
+sources:
+  - "04_anforderungsanalyse_RQ1/requirements/"
+  - "00_admin/gliederung_v3.md"
+notes: "DRAFT v0.1 - Kriterien werden in Kap. 5.3 praezisiert."

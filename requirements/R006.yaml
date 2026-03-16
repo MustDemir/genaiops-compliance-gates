@@ -1,0 +1,25 @@
+id: R006
+title: "Eingabedaten-Qualitaet muss vor Verarbeitung durch das High-Risk-System geprueft sein"
+kontrollmechanismus: "Automatisierte Datenvalidierung mit Schema- und Plausibilitaetschecks vor Modellinferenz"
+lifecycle_phase: "deployment"
+governance_dimension: "technisch"
+eu_ai_act_refs:
+  - "Art. 10"
+  - "Art. 26 Abs. 4"
+must_should: "MUST"
+description: "Deployer muessen sicherstellen, dass Eingabedaten den vom Provider definierten Spezifikationen entsprechen. Automatisierte Validierung prueft Schema-Konformitaet, Wertebereichs-Plausibilitaet und Vollstaendigkeit vor jeder Modellinferenz."
+evidence_expected:
+  - "input_validation_report"
+  - "schema_conformance_check"
+  - "data_quality_metrics"
+acceptance_criteria:
+  - "Eingabedaten entsprechen dem dokumentierten Schema des Providers."
+  - "Plausibilitaetschecks sind definiert und werden automatisch ausgefuehrt."
+  - "Validierungsergebnisse werden im Evidence Store persistiert."
+linked_gates:
+  - "tbd_5.3"
+sources:
+  - "EU AI Act (VO 2024/1689) Art. 10, Art. 26 Abs. 4"
+  - "Guldimann et al. (2025) COMPL-AI [QTQJ92VY] — Privacy and Data Governance Dimension, Training Data Suitability Benchmark"
+  - "Golpayegani et al. (2024) AICat [7BF458GD] — Ontologie-basiertes Requirement-Mapping fuer Data Governance"
+notes: "DRAFT v0.3 - Art. 10 primaer Provider-Pflicht, fuer Deployer relevant via Art. 26 Abs. 4 (Eingabedaten-Relevanz). Guldimann definiert Data Governance als eine von 6 Compliance-Dimensionen mit messbaren Benchmarks."

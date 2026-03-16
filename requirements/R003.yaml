@@ -1,0 +1,25 @@
+id: R003
+title: Robustheit, Genauigkeit und Sicherheitschecks muessen vor Promotion bestanden
+  sein
+kontrollmechanismus: Automatisierte Schwellenwertpruefung fuer Qualitaets- und Safety-Metriken
+  in der Pipeline
+lifecycle_phase: deployment
+governance_dimension: technisch
+eu_ai_act_refs:
+- Art. 15
+must_should: MUST
+description: Ein Deployment darf nur erfolgen, wenn definierte technische Mindestkriterien
+  nachweisbar erfuellt sind.
+evidence_expected:
+- eval_metrics_report
+- safety_test_report
+acceptance_criteria:
+- Alle verpflichtenden Metriken liegen ueber den definierten Mindestwerten.
+- Fehlgeschlagene Safety-Checks fuehren zu blockierendem Gate-Entscheid.
+linked_gates:
+- tbd_5.3
+sources:
+- EU AI Act (VO 2024/1689) Art. 15
+- Elia (2025) MQG4AI [QRW95D4X] — Robustness-Gate-Konzept, technische Qualitaetssicherung
+notes: DRAFT v0.3 - linked_gates auf tbd_5.3 gemaess D_GATE_IDS_LOCATION. Elia definiert
+  Gate-basierte Robustheits-Pruefung.

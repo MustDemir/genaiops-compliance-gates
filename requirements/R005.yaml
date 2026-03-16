@@ -1,0 +1,25 @@
+id: R005
+title: Evidence-Persistierung muss manipulationssicher und rueckverfolgbar erfolgen
+kontrollmechanismus: Nachweispruefung auf unveraenderliche Ablage und referenzierbare
+  Audit-Trail-Eintraege
+lifecycle_phase: operation
+governance_dimension: regulatorisch
+eu_ai_act_refs:
+- Art. 12
+- Art. 15
+must_should: MUST
+description: Alle Gate-Entscheidungen muessen mit unveraenderlicher Evidence-Ablage
+  und eindeutiger Referenz gespeichert werden.
+evidence_expected:
+- immutable_storage_reference
+- audit_trail_entry
+acceptance_criteria:
+- Evidence-Referenzen sind fuer jeden Gate-Lauf vorhanden.
+- Aenderungen an bestehenden Evidence-Eintraegen sind technisch eingeschraenkt.
+linked_gates:
+- tbd_5.3
+sources:
+- EU AI Act (VO 2024/1689) Art. 12, Art. 15
+- Eisenberg (2025) UCF [JUK36XAW] — Unified Control Framework, Evidence-Store-Konzept
+notes: DRAFT v0.3 - linked_gates auf tbd_5.3 gemaess D_GATE_IDS_LOCATION. Eisenberg
+  liefert Framework fuer Audit-Trail und Evidence-Persistierung.

@@ -1,0 +1,24 @@
+id: R014
+title: "Automatische Protokollierung muss aktiviert und auswertbar konfiguriert sein"
+kontrollmechanismus: "Gate-Pruefung auf korrekte Logging-Konfiguration und Log-Auswertbarkeit"
+lifecycle_phase: "deployment"
+governance_dimension: "technisch"
+eu_ai_act_refs:
+  - "Art. 12"
+  - "Art. 26 Abs. 3"
+must_should: "MUST"
+description: "Deployer muessen automatische Protokollierungsfunktionen (Logging) aktivieren und so konfigurieren, dass Logs fuer Aufsichtsbehoerden auswertbar sind. Die Aufbewahrungsfrist betraegt mindestens sechs Monate, sofern nicht anders geregelt."
+evidence_expected:
+  - "logging_config_verification"
+  - "log_retention_policy"
+  - "log_accessibility_test"
+acceptance_criteria:
+  - "Logging ist aktiviert und erfasst alle vorgesehenen Ereignistypen."
+  - "Aufbewahrungsfrist entspricht den gesetzlichen Anforderungen."
+  - "Logs sind fuer berechtigte Stellen zugaenglich und auswertbar."
+linked_gates:
+  - "tbd_5.3"
+sources:
+  - "EU AI Act (VO 2024/1689) Art. 12, Art. 26 Abs. 3"
+  - "Lucaj et al. (2025) [5Y79UTJ9] — TechOps Templates, Logging-Konfiguration als PaC-Template"
+notes: "DRAFT v0.3 - Teilweise aus R002 ausgelagert (R002 fokussiert auf Dokumentation Art. 11, R014 auf Logging Art. 12). Art. 26 Abs. 3 = explizite Deployer-Pflicht. Lucaj operationalisiert Logging als PaC-Template."

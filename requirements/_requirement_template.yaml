@@ -1,0 +1,13 @@
+id: R000
+title: ""
+kontrollmechanismus: ""
+lifecycle_phase: "pre-deployment|deployment|operation"
+governance_dimension: "regulatorisch|technisch|strategisch"
+eu_ai_act_refs: []
+must_should: "MUST|SHOULD"
+description: ""
+evidence_expected: []
+acceptance_criteria: []
+linked_gates: []
+sources: []
+notes: ""

@@ -1,0 +1,29 @@
+id: R009
+title: Schwerwiegende Vorfaelle muessen erkannt, dokumentiert und gemeldet werden
+kontrollmechanismus: Automatisierte Incident-Detection mit eskalationsbasiertem Meldeworkflow
+lifecycle_phase: operation
+governance_dimension: regulatorisch
+eu_ai_act_refs:
+- Art. 26 Abs. 5
+- Art. 73
+must_should: MUST
+description: Deployer muessen schwerwiegende Vorfaelle (serious incidents) erkennen
+  und den Provider sowie die zustaendige Marktueberwachungsbehoerde unverzueglich
+  melden. Automatisierte Detection-Mechanismen unterstuetzen die Erkennung, der Meldeworkflow
+  stellt Fristen sicher.
+evidence_expected:
+- incident_detection_config
+- incident_report
+- notification_timestamp_log
+acceptance_criteria:
+- Incident-Detection-Regeln sind konfiguriert und aktiv.
+- Meldung erfolgt innerhalb der gesetzlichen Frist.
+- Incident-Reports sind im Evidence Store versioniert.
+linked_gates:
+- tbd_5.3
+sources:
+- EU AI Act (VO 2024/1689) Art. 26 Abs. 5, Art. 73
+- Kiejnich-Kruk (2025) [D6526468] — Deployer-Obligations-Analyse, Art. 26 Abs. 5 Incident
+  Reporting
+notes: DRAFT v0.3 - Deployer-spezifische Meldepflicht. Art. 73 definiert Meldeverfahren.
+  Kiejnich-Kruk analysiert Deployer-Pflichten systematisch.

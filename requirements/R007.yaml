@@ -1,0 +1,26 @@
+id: R007
+title: "Nutzertransparenz und Informationspflichten muessen vor Einsatz erfuellt sein"
+kontrollmechanismus: "Gate-Pruefung auf vorhandene Transparenzdokumentation und Nutzerkennzeichnung"
+lifecycle_phase: "deployment"
+governance_dimension: "regulatorisch"
+eu_ai_act_refs:
+  - "Art. 13"
+  - "Art. 26 Abs. 7"
+  - "Art. 50"
+must_should: "MUST"
+description: "Betroffene Personen und Nutzer muessen ueber den Einsatz des High-Risk-KI-Systems informiert werden. Transparenzhinweise muessen verstaendlich, zugaenglich und aktuell sein. Bei GenAI-Systemen gilt zusaetzlich Art. 50 (KI-generierte Inhalte kennzeichnen)."
+evidence_expected:
+  - "transparency_notice"
+  - "user_information_document"
+  - "ai_content_labeling_config"
+acceptance_criteria:
+  - "Transparenzhinweis ist fuer Endnutzer sichtbar und verstaendlich."
+  - "Informationspflichten gemaess Art. 13 und Art. 26 Abs. 7 sind dokumentiert."
+  - "KI-generierte Inhalte werden gemaess Art. 50 gekennzeichnet."
+linked_gates:
+  - "tbd_5.3"
+sources:
+  - "EU AI Act (VO 2024/1689) Art. 13, Art. 26 Abs. 7, Art. 50"
+  - "Guldimann et al. (2025) COMPL-AI [QTQJ92VY] — Art. 13 Interpretability + Explainability Benchmarks (Abschn. 3.1.3, HR-Benchmarks)"
+  - "Corrêa & Mönig (2024) [XVM65FRQ] — Ethical Requirements Catalog mit Transparenz-Dimension"
+notes: "DRAFT v0.3 - aus R002 ausgelagert. Art. 50 GenAI-spezifisch. Guldimann operationalisiert Art. 13 (1, 3b, 3d) mit messbaren Transparency-Benchmarks fuer LLMs."
