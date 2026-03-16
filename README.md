@@ -4,8 +4,6 @@ A cloud-native reference architecture for operationalizing regulatory, technical
 
 [![License: CC BY-NC 4.0](https://img.shields.io/badge/License-CC%20BY--NC%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc/4.0/)
 
-> 🚫 **Copilot Agents Deactivated** — GitHub Copilot coding agents are disabled for this repository. All code changes must go through manual review and the established Quality Gate pipeline to ensure EU AI Act compliance. No `copilot-setup-steps.yml` is provided intentionally.
-
 ---
 
 ## What This Is
