@@ -1,9 +1,5 @@
 # Copilot Coding Agent – Setup Steps
-# This workflow installs the tools needed by Copilot to work on this repository.
-
-name: "Copilot Setup Steps"
-
-on: workflow_dispatch
+# Installs the tools needed by Copilot to work on this repository.
 
 steps:
   - name: Checkout repository
