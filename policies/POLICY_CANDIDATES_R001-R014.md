@@ -22,12 +22,12 @@
 | Risk Classification | Art. 5-7 | R001 (Risikobewertung) | `risk_class`, `classification_reasoning` | `policy_risk_classification_valid` — prüft ob Klasse ∈ {high, limited, minimal} + Begründung vorhanden | C |
 | Application Functionality | Art. 11, 13 | R007 (Transparenz) | `instructions_for_deployers`, `model_capabilities`, `limitations` | `policy_transparency_docs_present` — prüft ob Deployer-Instruktionen + Limitationen dokumentiert | C |
 | Models and Datasets | Art. 11, Annex IV §2d | R011 (Konformitätsbewertung) | `model_links[]`, `dataset_links[]` | `policy_model_dataset_traceability` — prüft ob alle referenzierten Models/Datasets dokumentiert sind | C |
-| Deployment / Infrastructure | Art. 11, Annex IV §1b-h | R006 (Eingabedaten-Qualität) | `cloud_provider`, `security_groups`, `api_auth_method` | `policy_deployment_security_baseline` — prüft ob Verschlüsselung + Auth konfiguriert | C |
+| Deployment / Infrastructure | Art. 11, Annex IV §1b-h | R003 (Robustheit & Sicherheit) | `cloud_provider`, `security_groups`, `api_auth_method` | `policy_deployment_security_baseline` — prüft ob Verschlüsselung + Auth konfiguriert | C |
 | Lifecycle Management | Art. 11, Annex IV §6 | R010 (Performance-Monitoring) | `monitoring_metrics[]`, `review_schedule`, `audit_trails` | `policy_monitoring_configured` — prüft ob Monitoring-Endpoints + Metriken definiert | GK |
 | Risk Management System | Art. 9 | R001 (Risikobewertung) | `risk_methodology`, `identified_risks[]`, `mitigation_measures[]` | `policy_risk_management_complete` — prüft ob Risiken identifiziert + Mitigationen vorhanden | C |
 | Testing / Accuracy | Art. 15 | R003 (Safety-Metriken) | `performance_metrics`, `validation_results`, `accuracy_measures` | `policy_accuracy_threshold_met` — prüft ob Metriken über definierten Schwellenwerten | C |
 | Robustness | Art. 15 | R003 (Safety-Metriken) | `stress_test_results`, `adversarial_tests` | `policy_robustness_tested` — prüft ob Stress-/Adversarial-Tests durchgeführt | C |
-| Cybersecurity | Art. 11, Annex IV §2h | R006 (Eingabedaten-Qualität) | `data_security`, `access_control`, `incident_response` | `policy_cybersecurity_controls` — prüft ob Security-Maßnahmen dokumentiert | C |
+| Cybersecurity | Art. 11, Annex IV §2h | R003 (Robustheit & Sicherheit) | `data_security`, `access_control`, `incident_response` | `policy_cybersecurity_controls` — prüft ob Security-Maßnahmen dokumentiert | C |
 | Human Oversight | Art. 14 | R008 (Human Oversight) | `hitl_mechanisms`, `override_procedures`, `user_training` | `policy_human_oversight_defined` — prüft ob HITL + Override-Prozeduren existieren | GK |
 | Incident Management | — | R009 (Incident-Reporting) | `common_issues[]`, `support_contact`, `rollback_mechanisms` | `policy_incident_process_exists` — prüft ob Incident-Prozess + Rollback definiert | GK |
 | EU Declaration of Conformity | Art. 47 | R011 (Konformitätsbewertung) | `conformity_statement`, `standards_applied` | `policy_conformity_declaration` — prüft ob Konformitätserklärung vorhanden | C |
@@ -54,7 +54,7 @@
 | Data Pre-Processing | Art. 11, Annex IV §2d-e | R002 (Data Governance) | `cleaning_methods`, `transformation_methods`, `feature_engineering` | `policy_preprocessing_documented` | C |
 | Distribution / Licensing | Art. 11, Annex IV §2d | R002 (Data Governance) | `availability`, `license`, `user_rights` | `policy_data_license_valid` | C |
 | Data Risk Assessment | — | R001 (Risikobewertung) | `risk_description`, `potential_biases` | `policy_data_risk_assessed` | C |
-| Cybersecurity Measures | Art. 11, Annex IV §5 | R006 (Eingabedaten-Qualität) | `encryption`, `access_control`, `audit_logs` | `policy_data_security_controls` | C |
+| Cybersecurity Measures | Art. 11, Annex IV §5 | R003 (Robustheit & Sicherheit) | `encryption`, `access_control`, `audit_logs` | `policy_data_security_controls` | C |
 | Post-Market Monitoring | — | R010 (Performance-Monitoring) | `drift_detection`, `audit_logs`, `action_plans` | `policy_data_drift_monitoring` — prüft ob Drift-Detection konfiguriert | GK |
 
 ---
@@ -75,10 +75,10 @@
 |---|---|---|---|---|
 | R001 | Risikobewertung | App (Risk Classification + Risk Mgmt), Data (Risk Assessment) | 3 | C |
 | R002 | Data Governance | Model (Architecture, Data Collection), Data (alle Sektionen) | 5 | C |
-| R003 | Safety-Metriken | App (Testing/Accuracy, Robustness) | 2 | C |
+| R003 | Safety-Metriken & Sicherheit | App (Testing/Accuracy, Robustness, Cybersecurity, Deployment), Data (Cybersecurity) | 5 | C |
 | R004 | Strategische Verankerung | — (kein Template-Feld) | 0 | manuell |
 | R005 | Evidence-Persistierung | Querschnitt Decision Logs | 2 | DL |
-| R006 | Eingabedaten-Qualität | App (Cybersecurity, Deployment), Data (Cybersecurity) | 3 | C |
+| R006 | Eingabedaten-Qualität | — (kein dediziertes Lucaj-Template-Feld) | 0 | — |
 | R007 | Transparenz | App (Functionality), Model (Explainability) | 2 | C |
 | R008 | Human Oversight | App (Human Oversight) | 1 | GK |
 | R009 | Incident-Reporting | App (Incident Management) | 1 | GK |
