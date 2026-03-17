@@ -1,7 +1,7 @@
-id: GXXX-000
+id: G-XXX-00
 name: ""
-dimension: "strategic|technical|compliance"
-lifecycle_phase: "ideation|development|evaluation|deployment|monitoring"
+dimension: "regulatorisch|technisch|strategisch"
+lifecycle_phase: "pre-deployment|deployment|operations"
 trigger: ""
 policy_checks: []
 evidence_required: []

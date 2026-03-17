@@ -37,6 +37,9 @@ evidence-store/data/
 
 # Internal working documents (not for public repo)
 *_INTERNAL.md
+docs/POC_IMPLEMENTIERUNGSPLAN.md
+docs/GUTACHTER_BEWERTUNG.md
+docs/PHASE0_FIXES_LOG.md
 
 # Secrets
 **/secrets/

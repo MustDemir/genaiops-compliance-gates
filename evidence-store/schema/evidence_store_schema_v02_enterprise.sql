@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS compliance.quality_gate_results (
     model_version TEXT NOT NULL,
     pipeline_id TEXT NOT NULL,
     run_id UUID NOT NULL,
-    gate_type TEXT NOT NULL CHECK (gate_type IN ('Strategisch','Technisch','Compliance')),
+    gate_type TEXT NOT NULL CHECK (gate_type IN ('Regulatorisch','Technisch','Strategisch')),
     decision TEXT NOT NULL CHECK (decision IN ('PASS','FAIL')),
     gate_name TEXT NOT NULL,
     policy_version TEXT NOT NULL,

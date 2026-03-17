@@ -23,14 +23,15 @@ Enterprise GenAI systems face a triple challenge: they must be **technically rob
 
 ## Architecture Overview
 
-### Four-Pillar Model
+### Five-Pillar Model
 
 | Pillar | Component | Purpose |
 |--------|-----------|---------|
-| **S1** | Quality Gate Control System | 16 lifecycle-integrated gates with 7-attribute template |
-| **S2** | Policy Engine | OPA/Rego policies, Conftest (CI), Gatekeeper (K8s admission), Decision Logs |
-| **S3** | Evidence Store | PostgreSQL + Blob Storage, hash-chain integrity, RBAC, schema separation |
-| **S4** | Monitoring & PMS | Drift detection (PSI/Jensen-Shannon), incident reporting, sidecar pattern |
+| **S1** | Design Principles (DP1–DP5) | Architectural foundation and cloud-native integrability |
+| **S2** | Quality Gate Control System | 16 lifecycle-integrated gates with 7-attribute template |
+| **S3** | Policy Engine | OPA/Rego policies, Conftest (CI), Gatekeeper (K8s admission), Decision Logs |
+| **S4** | Evidence Store | PostgreSQL + Blob Storage, hash-chain integrity, RBAC, schema separation |
+| **S5** | Monitoring & PMS | Drift detection (PSI/Jensen-Shannon), incident reporting, sidecar pattern |
 
 ### Design Principles
 
@@ -58,7 +59,7 @@ Gate Inclusion Rule: D1 (Gate-Eignung) → D3 (Regulatory) → D2 (Technical) �
 genaiops-reference-architecture/
 ├── README.md
 ├── docs/
-│   ├── architecture/           # Architecture diagrams (Four-Pillar, Gate Flow, Pipeline)
+│   ├── architecture/           # Architecture diagrams (Five-Pillar, Gate Flow, Pipeline)
 │   └── walkthrough/            # PoC walkthrough documentation with screenshots
 ├── gate-definitions/           # Quality Gate specifications (YAML)
 │   ├── gate_template.yaml      # 7-attribute gate template
