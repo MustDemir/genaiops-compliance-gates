@@ -181,19 +181,43 @@ psql -f schema/evidence_store_schema_v02_enterprise.sql
 # (see pipeline/.github/workflows/ for CI/CD integration)
 ```
 
-## Build Status
+## Implementierungsfortschritt
 
-| Component | Status | Notes |
-|-----------|--------|-------|
-| Requirements (R001–R014) | ✅ Complete | Derived from EU AI Act Art. 9–15 |
-| Gate Definitions (YAML) | 🔨 In Progress | 3/16 gates specified, template ready |
-| OPA/Rego Policies | 📋 Planned | 29 policy candidates identified |
-| Evidence Store Schema | ✅ Complete | v01 (basic) + v02 (enterprise with RLS) |
-| GitHub Actions Pipeline | 📋 Planned | Gate-integrated stages |
-| Terraform (Azure) | 📋 Planned | AKS, PostgreSQL, Blob Storage |
-| Helm Charts | 📋 Planned | Gatekeeper, app, monitoring |
-| Monitoring / PMS | 📋 Planned | Prometheus, drift detection |
-| PoC Walkthrough | 📋 Planned | Healthcare scenario end-to-end |
+> Strategie: Lokal-first (Phase 1–11 kostenlos auf Minikube), Azure erst Phase 12. Geschaetzter Aufwand: ~30–42h ueber 4–6 Wochen.
+
+<!-- PROGRESS-START -->
+> Gesamtfortschritt: `██░░░░░░░░░░░░░░░░░░` **8%** (1/12 Phasen)
+
+| Phase | Beschreibung | Fortschritt | Status |
+|-------|-------------|------------|--------|
+| **1** | App entwickeln (FastAPI + Mock-Endpoint) | `████████████████████` 100% | done |
+| **2** | Containerisieren (Dockerfile, Multi-Stage, Non-Root) | `░░░░░░░░░░░░░░░░░░░░` 0% | planned |
+| **3** | Docker Compose (App + DB + Prometheus + Grafana) | `░░░░░░░░░░░░░░░░░░░░` 0% | planned |
+| **4** | K8s-Manifeste (Deployment, Service, ConfigMap, Sidecar) | `░░░░░░░░░░░░░░░░░░░░` 0% | planned |
+| **5** | Rego-Policies + Conftest-Tests (6 Gates) | `░░░░░░░░░░░░░░░░░░░░` 0% | planned |
+| **6** | Lokaler Cluster (Minikube) + Helm-Basics | `░░░░░░░░░░░░░░░░░░░░` 0% | planned |
+| **7** | Gatekeeper + ConstraintTemplates + OPS-Policies | `░░░░░░░░░░░░░░░░░░░░` 0% | planned |
+| **8** | Evidence Store (PostgreSQL Schema + Scripts) | `░░░░░░░░░░░░░░░░░░░░` 0% | planned |
+| **9** | Monitoring-Sidecar (PSI + Jensen-Shannon + Prometheus) | `░░░░░░░░░░░░░░░░░░░░` 0% | planned |
+| **10** | ArgoCD + GitHub Actions Pipeline | `░░░░░░░░░░░░░░░░░░░░` 0% | planned |
+| **11** | Green/Red Path Walkthrough + Screenshots (Kap. 6.3) | `░░░░░░░░░░░░░░░░░░░░` 0% | planned |
+| **12** | Azure AKS Migration (Terraform + ACR + PostgreSQL) | `░░░░░░░░░░░░░░░░░░░░` 0% | planned |
+<!-- PROGRESS-END -->
+
+### Artefakt-Status
+
+| Komponente | Status | Details |
+|-----------|--------|--------|
+| Requirements (R001–R014) | done | 14 YAML-Specs, EU AI Act Art. 9–15 Mapping |
+| Evidence Store Schema | done | v01 (basic) + v02 (enterprise mit RLS + Hash-Chain) |
+| Gate Template | done | 7-Attribut-Template, 3 Beispiel-Gates |
+| Policy-Kandidaten | done | 29 Kandidaten dokumentiert (22 Conftest, 4 Gatekeeper, 3 Decision Logs) |
+| Healthcare Scribe App | done | FastAPI Mock-Endpoint, /transcribe, /health, /metrics |
+| Gate-Fixtures | done | app_documentation.json, eval_results.json |
+| OPA/Rego-Code | planned | 0% — Phase 5 |
+| Terraform/Helm | planned | 0% — Phase 6/12 |
+| GitHub Actions Pipeline | planned | 0% — Phase 10 |
+| Walkthrough-Dokumentation | planned | 0% — Phase 11 |
 
 ## Academic Foundation
 
