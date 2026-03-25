@@ -1,0 +1,40 @@
+# Git
+.git
+.gitignore
+
+# Secrets (G-PRE-04 P4: keine Secrets im Image)
+.env
+.env.*
+*.key
+*.pem
+
+# Python Cache
+__pycache__
+*.pyc
+*.pyo
+.venv
+venv
+
+# Tests & Dev (nur Produktions-Dependencies im Image)
+tests/
+requirements-dev.txt
+pytest.ini
+.pytest_cache
+
+# Documentation
+docs/
+*.md
+LICENSE
+
+# Docker/K8s (nicht rekursiv ins Image kopieren)
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# Fixtures (Gate-Inputs, nicht Teil der App)
+fixtures/
+
+# IDE
+.vscode/
+.idea/
+*.swp
