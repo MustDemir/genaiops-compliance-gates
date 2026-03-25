@@ -55,7 +55,7 @@ Gate Inclusion Rule: D1 (Gate-Eignung) → D3 (Regulatory) → D2 (Technical) �
 
 ### Enforcement Flow
 
-![GenAIOps Quality Gate Enforcement Flow](docs/linkedin/enforcement-flow.svg)
+![GenAIOps Quality Gate Enforcement Flow](docs/images/enforcement-flow.svg)
 
 ## Repository Structure
 
