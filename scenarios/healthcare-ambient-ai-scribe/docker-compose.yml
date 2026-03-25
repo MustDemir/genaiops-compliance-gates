@@ -1,0 +1,79 @@
+# ================================================================
+# GenAIOps PoC — Local Development Stack
+# ================================================================
+# 4 Services: App + Evidence Store + Monitoring + Dashboard
+#
+# Usage:
+#   docker-compose up -d          # Start all services
+#   docker-compose logs -f scribe # Follow app logs
+#   docker-compose down           # Stop and remove
+#
+# Endpoints:
+#   App:        http://localhost:8080  (/transcribe, /health, /metrics)
+#   Prometheus: http://localhost:9090
+#   Grafana:    http://localhost:3000  (admin/admin)
+#   PostgreSQL: localhost:5432         (genaiops/genaiops)
+# ================================================================
+
+services:
+  # --- Ambient AI Scribe (Healthcare App) ---
+  scribe:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: scribe
+    ports:
+      - "8080:8080"
+    environment:
+      - MODEL_VERSION=mock-v1.0.0
+      - PIPELINE_ID=local-compose
+    depends_on:
+      - postgres
+    restart: unless-stopped
+
+  # --- PostgreSQL (Evidence Store S4 — empty, schema in Phase 8) ---
+  postgres:
+    image: postgres:16-alpine
+    container_name: postgres-evidence
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=genaiops
+      - POSTGRES_USER=genaiops
+      - POSTGRES_PASSWORD=genaiops
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+  # --- Prometheus (Monitoring S5 — scrapes /metrics from scribe) ---
+  prometheus:
+    image: prom/prometheus:v3.3.0
+    container_name: prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus_data:/prometheus
+    depends_on:
+      - scribe
+    restart: unless-stopped
+
+  # --- Grafana (Dashboard — walkthrough screenshots in Phase 11) ---
+  grafana:
+    image: grafana/grafana:11.6.0
+    container_name: grafana
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+    volumes:
+      - grafana_data:/var/lib/grafana
+    depends_on:
+      - prometheus
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+  prometheus_data:
+  grafana_data:

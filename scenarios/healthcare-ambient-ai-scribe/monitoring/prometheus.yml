@@ -1,0 +1,15 @@
+# Prometheus Configuration — GenAIOps PoC
+# Scrapes /metrics from the Ambient AI Scribe app every 15s
+
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+scrape_configs:
+  - job_name: "ambient-ai-scribe"
+    metrics_path: "/metrics"
+    static_configs:
+      - targets: ["scribe:8080"]
+        labels:
+          app: "ambient-ai-scribe"
+          environment: "local-dev"
