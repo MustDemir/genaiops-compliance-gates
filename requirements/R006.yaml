@@ -22,4 +22,4 @@ sources:
   - "EU AI Act (VO 2024/1689) Art. 10, Art. 26 Abs. 4"
   - "Guldimann et al. (2025) COMPL-AI [QTQJ92VY] — Privacy and Data Governance Dimension, Training Data Suitability Benchmark"
   - "Golpayegani et al. (2024) AICat [7BF458GD] — Ontologie-basiertes Requirement-Mapping fuer Data Governance"
-notes: "DRAFT v0.3 - Art. 10 primaer Provider-Pflicht, fuer Deployer relevant via Art. 26 Abs. 4 (Eingabedaten-Relevanz). Guldimann definiert Data Governance als eine von 6 Compliance-Dimensionen mit messbaren Benchmarks."
+notes: "v0.4 - Art. 10 primaer Provider-Pflicht, fuer Deployer relevant via Art. 26 Abs. 4 (Eingabedaten-Relevanz). Guldimann definiert Data Governance als eine von 6 Compliance-Dimensionen mit messbaren Benchmarks."

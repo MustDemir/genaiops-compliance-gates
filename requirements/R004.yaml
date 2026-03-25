@@ -15,9 +15,9 @@ acceptance_criteria:
 - Owner fuer Oversight ist benannt und freigegeben.
 - Eskalationsprozess ist versioniert und fuer den Betriebsfall abrufbar.
 linked_gates:
-- tbd_5.3
+- G-PRE-05
 sources:
 - EU AI Act (VO 2024/1689) Art. 14
 - Ho-Dac & Martinez (2024) [Zotero] — Art. 14 Human Oversight Standardisierung
-notes: DRAFT v0.3 - linked_gates auf tbd_5.3 gemaess D_GATE_IDS_LOCATION. Operative
+notes: v0.4 - Operative
   Oversight-Wirksamkeit separat in R008. Ho-Dac analysiert Art. 14 Standardisierungsbedarfe.

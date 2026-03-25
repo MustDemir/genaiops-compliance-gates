@@ -1,0 +1,133 @@
+{
+  "application": {
+    "name": "Ambient AI Scribe",
+    "version": "1.0.0",
+    "domain": "healthcare",
+    "description": "Medical transcription and summarization system using LLM inference"
+  },
+
+  "risk_classification": {
+    "risk_class": "high",
+    "classification_reasoning": "Annex III Nr. 5 EU AI Act: AI system intended for use in healthcare that may influence medical decisions. Processing of sensitive patient data under GDPR Art. 9.",
+    "annex_reference": "Annex III, Nr. 5 lit. a",
+    "mitigation_measures": [
+      "Human-in-the-loop review of all generated summaries before clinical use",
+      "Automated hallucination detection via faithfulness scoring",
+      "Input validation and PII detection before LLM processing",
+      "Continuous drift monitoring with alerting (PSI > 0.2)"
+    ]
+  },
+
+  "conformity_assessment": {
+    "declaration_available": true,
+    "ce_marking_verified": true,
+    "provider_documentation_received": true,
+    "provider_contact": "Azure OpenAI Service — Microsoft Corporation"
+  },
+
+  "fundamental_rights_impact_assessment": {
+    "fria_completed": true,
+    "affected_rights": [
+      "Right to health (Art. 35 EU Charter)",
+      "Protection of personal data (Art. 8 EU Charter)",
+      "Non-discrimination (Art. 21 EU Charter)"
+    ],
+    "stakeholder_groups": ["patients", "medical_staff", "hospital_administration"],
+    "mitigation_documented": true
+  },
+
+  "human_oversight": {
+    "oversight_model": "human-in-the-loop",
+    "human_oversight_lead": "Dr. med. Compliance Officer",
+    "oversight_roles": [
+      {
+        "role": "Medical Reviewer",
+        "responsibility": "Reviews AI-generated summaries before clinical documentation",
+        "authority": "Can reject, modify, or approve AI output"
+      },
+      {
+        "role": "AI Governance Lead",
+        "responsibility": "Monitors system performance, drift alerts, and compliance metrics",
+        "authority": "Can suspend system operation via kill-switch"
+      }
+    ],
+    "escalation_procedure": {
+      "level_1": "Medical Reviewer flags issue in application",
+      "level_2": "AI Governance Lead reviews flagged cases within 24h",
+      "level_3": "Chief Medical Officer decides on system suspension"
+    },
+    "intervention_capability": {
+      "kill_switch": true,
+      "output_override": true,
+      "real_time_monitoring": true
+    }
+  },
+
+  "transparency": {
+    "user_notification": "System clearly indicates AI-generated content with visual markers",
+    "ai_content_labeling": true,
+    "documentation_accessible": true,
+    "intended_use_documented": true
+  },
+
+  "data_governance": {
+    "input_data_type": "medical_conversation_text",
+    "data_classification": "special_category_personal_data",
+    "encryption_at_rest": true,
+    "encryption_in_transit": true,
+    "retention_policy": "7 years per medical record retention requirements",
+    "gdpr_lawful_basis": "Art. 9 Abs. 2 lit. h GDPR — healthcare provision"
+  },
+
+  "logging_configuration": {
+    "logging_enabled": true,
+    "event_types_captured": [
+      "inference_request",
+      "inference_response",
+      "gate_decision",
+      "error",
+      "drift_alert"
+    ],
+    "retention_period_days": 2555,
+    "log_accessibility": "Evidence Store (PostgreSQL) + Azure Blob Storage (immutable)"
+  },
+
+  "monitoring": {
+    "monitoring_enabled": true,
+    "drift_detection_configured": true,
+    "drift_metrics": ["psi_score", "js_divergence"],
+    "drift_thresholds": {
+      "psi_warning": 0.1,
+      "psi_critical": 0.2,
+      "js_warning": 0.05,
+      "js_critical": 0.1
+    },
+    "service_monitor_deployed": true,
+    "alerting_configured": true
+  },
+
+  "security": {
+    "container_non_root": true,
+    "privilege_escalation_disabled": true,
+    "resource_limits_set": true,
+    "secrets_externalized": true,
+    "image_scanning_enabled": true,
+    "network_policies_specified": true
+  },
+
+  "evidence_store": {
+    "connected": true,
+    "hash_chain_enabled": true,
+    "compliance_gate_version": "v1.0.0",
+    "storage_type": "postgresql_with_blob",
+    "immutability_enforced": true
+  },
+
+  "model_info": {
+    "model_name": "gpt-4o-mini",
+    "model_version": "mock-v1.0.0",
+    "provider": "Azure OpenAI Service",
+    "deployment_mode": "api_consumer",
+    "role_perspective": "deployer"
+  }
+}

@@ -20,9 +20,9 @@ acceptance_criteria:
 - CE-Kennzeichnung ist vorhanden.
 - Pruefergebnis ist im Evidence Store dokumentiert.
 linked_gates:
-- tbd_5.3
+- G-DEP-04
 sources:
 - EU AI Act (VO 2024/1689) Art. 26 Abs. 1, Art. 47, Art. 48
 - Kiejnich-Kruk (2025) [D6526468] — Deployer-Obligations-Analyse, Art. 26 Abs. 1 CE-Pruefpflicht
-notes: DRAFT v0.3 - reine Deployer-Pflicht. Keine eigene Konformitaetsbewertung, nur
+notes: v0.4 - reine Deployer-Pflicht. Keine eigene Konformitaetsbewertung, nur
   Pruefung der Provider-Dokumentation. Kiejnich-Kruk bestaetigt CE-Check als Deployer-Eingangspruefung.

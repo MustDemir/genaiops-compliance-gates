@@ -56,7 +56,7 @@ Gate Inclusion Rule: D1 (Gate-Eignung) → D3 (Regulatory) → D2 (Technical) �
 ## Repository Structure
 
 ```
-genaiops-reference-architecture/
+genaiops-compliance-gates/
 ├── README.md
 ├── docs/
 │   ├── architecture/           # Architecture diagrams (Five-Pillar, Gate Flow, Pipeline)

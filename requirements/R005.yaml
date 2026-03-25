@@ -17,9 +17,9 @@ acceptance_criteria:
 - Evidence-Referenzen sind fuer jeden Gate-Lauf vorhanden.
 - Aenderungen an bestehenden Evidence-Eintraegen sind technisch eingeschraenkt.
 linked_gates:
-- tbd_5.3
+- G-OPS-05
 sources:
 - EU AI Act (VO 2024/1689) Art. 12, Art. 15
 - Eisenberg (2025) UCF [JUK36XAW] — Unified Control Framework, Evidence-Store-Konzept
-notes: DRAFT v0.3 - linked_gates auf tbd_5.3 gemaess D_GATE_IDS_LOCATION. Eisenberg
+notes: v0.4 - Eisenberg
   liefert Framework fuer Audit-Trail und Evidence-Persistierung.

@@ -21,4 +21,4 @@ linked_gates:
 sources:
   - "EU AI Act (VO 2024/1689) Art. 12, Art. 26 Abs. 3"
   - "Lucaj et al. (2025) [5Y79UTJ9] — TechOps Templates, Logging-Konfiguration als PaC-Template"
-notes: "DRAFT v0.3 - Teilweise aus R002 ausgelagert (R002 fokussiert auf Dokumentation Art. 11, R014 auf Logging Art. 12). Art. 26 Abs. 3 = explizite Deployer-Pflicht. Lucaj operationalisiert Logging als PaC-Template."
+notes: "v0.4 - Teilweise aus R002 ausgelagert (R002 fokussiert auf Dokumentation Art. 11, R014 auf Logging Art. 12). Art. 26 Abs. 3 = explizite Deployer-Pflicht. Lucaj operationalisiert Logging als PaC-Template."

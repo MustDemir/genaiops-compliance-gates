@@ -40,6 +40,7 @@ evidence-store/data/
 docs/POC_IMPLEMENTIERUNGSPLAN.md
 docs/GUTACHTER_BEWERTUNG.md
 docs/PHASE0_FIXES_LOG.md
+docs/knowledge-base/
 
 # Secrets
 **/secrets/

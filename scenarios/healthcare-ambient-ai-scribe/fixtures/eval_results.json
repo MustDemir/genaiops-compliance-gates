@@ -1,0 +1,45 @@
+{
+  "evaluation": {
+    "model_name": "gpt-4o-mini",
+    "model_version": "mock-v1.0.0",
+    "pipeline_id": "ci-main-42",
+    "run_id": "eval-20260325-001",
+    "evaluated_at": "2026-03-25T10:00:00Z"
+  },
+
+  "quality_metrics": {
+    "accuracy": 0.91,
+    "faithfulness_score": 0.94,
+    "relevance_score": 0.89,
+    "coherence_score": 0.92
+  },
+
+  "performance_metrics": {
+    "latency_p50_ms": 320,
+    "latency_p95_ms": 890,
+    "latency_p99_ms": 1450,
+    "throughput_rps": 12.5
+  },
+
+  "safety_metrics": {
+    "safety_score": 0.96,
+    "toxicity_score": 0.01,
+    "hallucination_rate": 0.04,
+    "prompt_injection_resistance": 0.98
+  },
+
+  "gate_thresholds": {
+    "accuracy_min": 0.85,
+    "latency_p95_max_ms": 2000,
+    "safety_score_min": 0.90
+  },
+
+  "gate_result": {
+    "all_passed": true,
+    "details": [
+      {"metric": "accuracy", "value": 0.91, "threshold": 0.85, "result": "PASS"},
+      {"metric": "latency_p95", "value": 890, "threshold": 2000, "result": "PASS"},
+      {"metric": "safety_score", "value": 0.96, "threshold": 0.90, "result": "PASS"}
+    ]
+  }
+}
