@@ -53,6 +53,10 @@ Gate Inclusion Rule: D1 (Gate-Eignung) → D3 (Regulatory) → D2 (Technical) �
                      D3=FIRST-DEGREE → D2 max HYBRID (Automation Ceiling)
 ```
 
+### Enforcement Flow
+
+![GenAIOps Quality Gate Enforcement Flow](docs/linkedin/enforcement-flow-linkedin.svg)
+
 ## Repository Structure
 
 ```
