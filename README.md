@@ -186,12 +186,12 @@ psql -f schema/evidence_store_schema_v02_enterprise.sql
 > Strategie: Lokal-first (Phase 1–11 kostenlos auf Minikube), Azure erst Phase 12. Geschaetzter Aufwand: ~30–42h ueber 4–6 Wochen.
 
 <!-- PROGRESS-START -->
-> Gesamtfortschritt: `██░░░░░░░░░░░░░░░░░░` **8%** (1/12 Phasen)
+> Gesamtfortschritt: `████░░░░░░░░░░░░░░░░` **17%** (2/12 Phasen)
 
 | Phase | Beschreibung | Fortschritt | Status |
 |-------|-------------|------------|--------|
 | **1** | App entwickeln (FastAPI + Mock-Endpoint) | `████████████████████` 100% | done |
-| **2** | Containerisieren (Dockerfile, Multi-Stage, Non-Root) | `░░░░░░░░░░░░░░░░░░░░` 0% | planned |
+| **2** | Containerisieren (Dockerfile, Multi-Stage, Non-Root) | `████████████████████` 100% | done |
 | **3** | Docker Compose (App + DB + Prometheus + Grafana) | `░░░░░░░░░░░░░░░░░░░░` 0% | planned |
 | **4** | K8s-Manifeste (Deployment, Service, ConfigMap, Sidecar) | `░░░░░░░░░░░░░░░░░░░░` 0% | planned |
 | **5** | Rego-Policies + Conftest-Tests (6 Gates) | `░░░░░░░░░░░░░░░░░░░░` 0% | planned |
