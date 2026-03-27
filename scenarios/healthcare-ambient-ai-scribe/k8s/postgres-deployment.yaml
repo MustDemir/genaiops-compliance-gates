@@ -30,9 +30,25 @@ spec:
         app.kubernetes.io/component: evidence-store
         app.kubernetes.io/part-of: genaiops-compliance-gates
     spec:
+      # Pod-level security defaults
+      securityContext:
+        runAsNonRoot: true
+        fsGroup: 999
       containers:
         - name: postgres
           image: postgres:16-alpine
+          # G-PRE-04 partial: runAsNonRoot + no privilege escalation
+          # NOTE: readOnlyRootFilesystem NOT possible for PostgreSQL
+          #       (requires write access to /var/lib/postgresql/data).
+          #       Documented as intentional exception in PoC walkthrough.
+          securityContext:
+            runAsNonRoot: true
+            runAsUser: 999
+            runAsGroup: 999
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+                - ALL
           ports:
             - name: postgres
               containerPort: 5432

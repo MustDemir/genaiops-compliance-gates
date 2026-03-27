@@ -1,16 +1,17 @@
 # ================================================================
 # GenAIOps PoC — Ambient AI Scribe Deployment
 # ================================================================
-# G-PRE-04 Compliance:
-#   P1: runAsNonRoot + runAsUser 1000          (Non-Root)
-#   P2: resources.limits (CPU + Memory)        (Resource Limits)
-#   P3: allowPrivilegeEscalation: false        (No Privilege Escalation)
-#   P4: envFrom ConfigMap only, no secrets     (No Secrets in Manifest)
-#   P5: slim base image                        (via Dockerfile)
-#   P6: readOnlyRootFilesystem: true           (Immutable Filesystem)
+# G-PRE-04 Compliance (CDV-Contract, matches gate-definitions/G-PRE-04):
+#   P1: runAsNonRoot + runAsUser 1000          (Non-Root)             [MUST]
+#   P2: resources.limits (CPU + Memory)        (Resource Limits)      [MUST]
+#   P3: readOnlyRootFilesystem: true           (Immutable Filesystem) [SHOULD]
+#   P4: envFrom ConfigMap only, no secrets     (No Secrets in Manifest)[MUST]
+#   P5: slim base image                        (via Dockerfile)       [SHOULD]
+#   P6: allowPrivilegeEscalation: false        (No Privilege Escalation)[MUST]
 #
 # G-PRE-01: risk_class label for Conftest policy validation
 # G-PRE-05: governance annotations for documentation reference
+# G-DEP-02: eval-passed + eval-run-id for safety metrics gate
 # G-OPS-03: monitoring annotations for ServiceMonitor discovery
 # G-OPS-05: evidence-store annotations for audit trail
 #
@@ -39,6 +40,9 @@ metadata:
     genaiops.io/drift-detection-enabled: "true"
     genaiops.io/service-monitor-configured: "true"
     genaiops.io/psi-critical-threshold: "0.2"
+    # G-DEP-02: Safety Metrics (CI eval gate passed)
+    genaiops.io/eval-passed: "true"
+    genaiops.io/eval-run-id: "eval-20260325-001"
     # G-OPS-05: Evidence Store
     genaiops.io/evidence-store-connected: "true"
     genaiops.io/hash-chain-enabled: "true"
@@ -57,11 +61,21 @@ spec:
         app.kubernetes.io/part-of: genaiops-compliance-gates
         risk_class: "high"
       annotations:
+        # G-PRE-05: Governance documentation (must match Deployment-level)
         genaiops.io/governance-doc: "app_documentation.json"
+        genaiops.io/annex-reference: "Annex III, Nr. 5 lit. a"
+        genaiops.io/oversight-model: "human-in-the-loop"
+        genaiops.io/fria-completed: "true"
+        # G-OPS-03: Monitoring & Drift Detection
         genaiops.io/drift-detection-enabled: "true"
         genaiops.io/service-monitor-configured: "true"
+        # G-DEP-02: Safety Metrics (CI eval gate passed)
+        genaiops.io/eval-passed: "true"
+        genaiops.io/eval-run-id: "eval-20260325-001"
+        # G-OPS-05: Evidence Store
         genaiops.io/evidence-store-connected: "true"
         genaiops.io/hash-chain-enabled: "true"
+        # Prometheus scrape config
         prometheus.io/scrape: "true"
         prometheus.io/port: "8080"
         prometheus.io/path: "/metrics"
@@ -81,7 +95,7 @@ spec:
           envFrom:
             - configMapRef:
                 name: scribe-config
-          # G-PRE-04 P1 + P3 + P6: Container-level security
+          # G-PRE-04 P1 + P6 + P3: Container-level security
           securityContext:
             runAsNonRoot: true
             runAsUser: 1000

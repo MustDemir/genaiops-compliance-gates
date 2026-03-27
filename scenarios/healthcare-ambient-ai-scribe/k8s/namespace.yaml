@@ -11,3 +11,5 @@ metadata:
   labels:
     app.kubernetes.io/part-of: genaiops-compliance-gates
     eu-ai-act/risk-class: "high"
+    # Canonical label for Rego policy matching (policy_risk_classification_valid)
+    risk_class: "high"

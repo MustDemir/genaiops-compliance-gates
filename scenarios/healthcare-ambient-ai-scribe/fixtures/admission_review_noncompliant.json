@@ -1,0 +1,28 @@
+{
+  "review": {
+    "object": {
+      "apiVersion": "apps/v1",
+      "kind": "Deployment",
+      "metadata": {
+        "name": "ambient-ai-scribe-bad",
+        "namespace": "genaiops",
+        "labels": {
+          "app.kubernetes.io/name": "ambient-ai-scribe"
+        },
+        "annotations": {}
+      },
+      "spec": {
+        "template": {
+          "metadata": {
+            "labels": {
+              "app.kubernetes.io/name": "ambient-ai-scribe"
+            },
+            "annotations": {
+              "prometheus.io/scrape": "true"
+            }
+          }
+        }
+      }
+    }
+  }
+}

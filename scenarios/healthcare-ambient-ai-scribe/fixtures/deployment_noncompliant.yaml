@@ -1,0 +1,54 @@
+# ================================================================
+# Test Fixture: Non-Compliant Deployment (FAIL case)
+# ================================================================
+# Used by Conftest to validate G-PRE-04 security baseline.
+# Deliberately violates: P1 (root), P2 (no limits), P3 (no readOnly),
+# P4 (secret in env), P6 (privilege escalation allowed).
+# Also missing: G-PRE-05, G-OPS-03, G-OPS-05, G-DEP-02 annotations.
+# ================================================================
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ambient-ai-scribe-bad
+  namespace: genaiops
+  labels:
+    app.kubernetes.io/name: ambient-ai-scribe
+    # FAIL G-PRE-01: risk_class missing entirely
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: ambient-ai-scribe
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: ambient-ai-scribe
+        # FAIL G-PRE-01: risk_class missing in Pod labels
+      annotations:
+        # FAIL G-PRE-05: governance-doc missing
+        # FAIL G-OPS-03: drift-detection-enabled missing
+        # FAIL G-OPS-05: evidence-store-connected missing
+        # FAIL G-DEP-02: eval-passed missing
+        prometheus.io/scrape: "true"
+    spec:
+      # FAIL P1: No securityContext at Pod level (runs as root by default)
+      containers:
+        - name: scribe
+          image: ambient-ai-scribe:1.0.0
+          ports:
+            - containerPort: 8080
+          env:
+            # FAIL P4: Secret directly in manifest
+            - name: DB_PASSWORD
+              value: "super-secret-password-123"
+            - name: API_KEY
+              value: "sk-1234567890abcdef"
+          securityContext:
+            # FAIL P1: Explicitly running as root
+            runAsNonRoot: false
+            runAsUser: 0
+            # FAIL P6: Privilege escalation allowed
+            allowPrivilegeEscalation: true
+            # FAIL P3: Writable root filesystem
+            readOnlyRootFilesystem: false
+          # FAIL P2: No resource limits defined

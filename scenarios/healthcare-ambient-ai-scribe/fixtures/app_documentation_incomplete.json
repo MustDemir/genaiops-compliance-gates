@@ -1,0 +1,97 @@
+{
+  "application": {
+    "name": "Ambient AI Scribe",
+    "version": "1.0.0",
+    "domain": "healthcare",
+    "description": "Medical transcription and summarization system using LLM inference"
+  },
+
+  "risk_classification": {
+    "classification_reasoning": "",
+    "annex_reference": "",
+    "mitigation_measures": []
+  },
+
+  "conformity_assessment": {
+    "declaration_available": false,
+    "ce_marking_verified": false,
+    "provider_documentation_received": false,
+    "provider_contact": ""
+  },
+
+  "fundamental_rights_impact_assessment": {
+    "fria_completed": false,
+    "affected_rights": [],
+    "stakeholder_groups": [],
+    "mitigation_documented": false
+  },
+
+  "human_oversight": {
+    "oversight_model": "",
+    "human_oversight_lead": "",
+    "oversight_roles": [],
+    "escalation_procedure": {},
+    "intervention_capability": {
+      "kill_switch": false,
+      "output_override": false,
+      "real_time_monitoring": false
+    }
+  },
+
+  "transparency": {
+    "user_notification": "",
+    "ai_content_labeling": false,
+    "documentation_accessible": false,
+    "intended_use_documented": false
+  },
+
+  "data_governance": {
+    "input_data_type": "medical_conversation_text",
+    "data_classification": "special_category_personal_data",
+    "encryption_at_rest": false,
+    "encryption_in_transit": false,
+    "retention_policy": "",
+    "gdpr_lawful_basis": ""
+  },
+
+  "logging_configuration": {
+    "logging_enabled": false,
+    "event_types_captured": [],
+    "retention_period_days": 0,
+    "log_accessibility": ""
+  },
+
+  "monitoring": {
+    "monitoring_enabled": false,
+    "drift_detection_configured": false,
+    "drift_metrics": [],
+    "drift_thresholds": {},
+    "service_monitor_deployed": false,
+    "alerting_configured": false
+  },
+
+  "security": {
+    "container_non_root": false,
+    "privilege_escalation_disabled": false,
+    "resource_limits_set": false,
+    "secrets_externalized": false,
+    "image_scanning_enabled": false,
+    "network_policies_specified": false
+  },
+
+  "evidence_store": {
+    "connected": false,
+    "hash_chain_enabled": false,
+    "compliance_gate_version": "",
+    "storage_type": "",
+    "immutability_enforced": false
+  },
+
+  "model_info": {
+    "model_name": "gpt-4o-mini",
+    "model_version": "mock-v1.0.0",
+    "provider": "Azure OpenAI Service",
+    "deployment_mode": "api_consumer",
+    "role_perspective": "deployer"
+  }
+}

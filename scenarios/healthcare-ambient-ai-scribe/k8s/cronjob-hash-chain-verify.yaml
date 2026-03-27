@@ -1,0 +1,95 @@
+# ================================================================
+# GenAIOps PoC — Hash-Chain Verification CronJob
+# ================================================================
+# G-OPS-05: Periodic verification of Evidence Store integrity.
+#
+# Runs every 6 hours to:
+#   1. Read all records from compliance.quality_gate_results
+#   2. Recompute hash chain: h_i = SHA-256(payload_i || h_{i-1})
+#   3. Compare with stored hash_value
+#   4. Report any chain breaks (tamper detection)
+#
+# Evidence: hash_chain_validation_record → Evidence Store
+# ================================================================
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: hash-chain-verify
+  namespace: genaiops
+  labels:
+    app.kubernetes.io/name: hash-chain-verify
+    app.kubernetes.io/component: evidence-store
+    app.kubernetes.io/part-of: genaiops-compliance-gates
+spec:
+  schedule: "0 */6 * * *"
+  concurrencyPolicy: Forbid
+  successfulJobsHistoryLimit: 3
+  failedJobsHistoryLimit: 3
+  jobTemplate:
+    spec:
+      backoffLimit: 2
+      template:
+        metadata:
+          labels:
+            app.kubernetes.io/name: hash-chain-verify
+            app.kubernetes.io/component: evidence-store
+          annotations:
+            genaiops.io/evidence-store-connected: "true"
+            genaiops.io/hash-chain-enabled: "true"
+        spec:
+          securityContext:
+            runAsNonRoot: true
+            fsGroup: 1000
+          restartPolicy: OnFailure
+          containers:
+            - name: hash-chain-verify
+              # Phase 8: Replace with custom image containing verify_hash_chain.py
+              image: python:3.12-slim
+              command:
+                - python
+                - -c
+                - |
+                  import os, sys, hashlib, json
+                  # Stub: In Phase 8, this will be replaced by evidence-store/scripts/verify_hash_chain.py
+                  print("=== Hash-Chain Verification ===")
+                  print(f"Evidence Store: {os.environ.get('EVIDENCE_STORE_HOST', 'unknown')}:{os.environ.get('EVIDENCE_STORE_PORT', '5432')}")
+                  print("Status: STUB — Full implementation in Phase 8")
+                  print("Result: SKIPPED (no DB connection in stub mode)")
+                  sys.exit(0)
+              env:
+                - name: EVIDENCE_STORE_HOST
+                  valueFrom:
+                    configMapKeyRef:
+                      name: scribe-config
+                      key: EVIDENCE_STORE_HOST
+                - name: EVIDENCE_STORE_PORT
+                  valueFrom:
+                    configMapKeyRef:
+                      name: scribe-config
+                      key: EVIDENCE_STORE_PORT
+                - name: EVIDENCE_STORE_DB
+                  valueFrom:
+                    configMapKeyRef:
+                      name: scribe-config
+                      key: EVIDENCE_STORE_DB
+                - name: POSTGRES_PASSWORD
+                  valueFrom:
+                    secretKeyRef:
+                      name: postgres-credentials
+                      key: POSTGRES_PASSWORD
+              securityContext:
+                runAsNonRoot: true
+                runAsUser: 1000
+                runAsGroup: 1000
+                allowPrivilegeEscalation: false
+                readOnlyRootFilesystem: true
+                capabilities:
+                  drop:
+                    - ALL
+              resources:
+                requests:
+                  cpu: "50m"
+                  memory: "64Mi"
+                limits:
+                  cpu: "200m"
+                  memory: "128Mi"

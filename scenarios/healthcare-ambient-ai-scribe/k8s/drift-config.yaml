@@ -1,0 +1,32 @@
+# ================================================================
+# GenAIOps PoC — Drift Detection Configuration
+# ================================================================
+# G-OPS-03: ConfigMap for drift monitoring thresholds.
+# Referenced by monitoring-sidecar (Phase 9) and
+# Gatekeeper ConstraintTemplate (policy_data_drift_monitoring).
+#
+# PSI (Population Stability Index):
+#   > 0.1 = WARNING (distribution shift detected)
+#   > 0.2 = CRITICAL (significant drift, gate re-evaluation)
+#
+# JS (Jensen-Shannon Divergence):
+#   > 0.05 = WARNING
+#   > 0.1  = CRITICAL
+# ================================================================
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: drift-config
+  namespace: genaiops
+  labels:
+    app.kubernetes.io/name: drift-config
+    app.kubernetes.io/component: monitoring
+    app.kubernetes.io/part-of: genaiops-compliance-gates
+data:
+  DRIFT_THRESHOLD_PSI_WARNING: "0.1"
+  DRIFT_THRESHOLD_PSI_CRITICAL: "0.2"
+  DRIFT_THRESHOLD_JS_WARNING: "0.05"
+  DRIFT_THRESHOLD_JS_CRITICAL: "0.1"
+  DRIFT_CHECK_INTERVAL_SECONDS: "300"
+  DRIFT_BASELINE_PATH: "/data/baseline/feature_distributions.json"
+  DRIFT_ALERT_WEBHOOK: "http://alertmanager.genaiops.svc.cluster.local:9093/api/v1/alerts"

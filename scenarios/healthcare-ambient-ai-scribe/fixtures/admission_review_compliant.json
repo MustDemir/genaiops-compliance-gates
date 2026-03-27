@@ -1,0 +1,42 @@
+{
+  "review": {
+    "object": {
+      "apiVersion": "apps/v1",
+      "kind": "Deployment",
+      "metadata": {
+        "name": "ambient-ai-scribe",
+        "namespace": "genaiops",
+        "labels": {
+          "app.kubernetes.io/name": "ambient-ai-scribe",
+          "risk_class": "high"
+        },
+        "annotations": {
+          "genaiops.io/evidence-store-connected": "true",
+          "genaiops.io/hash-chain-enabled": "true",
+          "genaiops.io/evidence-store-type": "postgresql_with_blob"
+        }
+      },
+      "spec": {
+        "template": {
+          "metadata": {
+            "labels": {
+              "app.kubernetes.io/name": "ambient-ai-scribe",
+              "risk_class": "high"
+            },
+            "annotations": {
+              "genaiops.io/drift-detection-enabled": "true",
+              "genaiops.io/service-monitor-configured": "true",
+              "genaiops.io/evidence-store-connected": "true",
+              "genaiops.io/hash-chain-enabled": "true",
+              "genaiops.io/eval-passed": "true",
+              "genaiops.io/eval-run-id": "eval-20260325-001",
+              "prometheus.io/scrape": "true",
+              "prometheus.io/port": "8080",
+              "prometheus.io/path": "/metrics"
+            }
+          }
+        }
+      }
+    }
+  }
+}
