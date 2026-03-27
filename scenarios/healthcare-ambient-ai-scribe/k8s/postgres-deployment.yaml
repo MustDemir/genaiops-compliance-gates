@@ -1,0 +1,67 @@
+# ================================================================
+# GenAIOps PoC — PostgreSQL Evidence Store Deployment
+# ================================================================
+# Translates docker-compose postgres service to K8s.
+# Schema applied in Phase 8 (evidence_store_schema_v02).
+#
+# NOTE: POSTGRES_PASSWORD via Secret (kubectl create secret),
+#       NOT in this manifest (G-PRE-04 P4, Entscheidung E7).
+# ================================================================
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgres-evidence
+  namespace: genaiops
+  labels:
+    app.kubernetes.io/name: postgres-evidence
+    app.kubernetes.io/component: evidence-store
+    app.kubernetes.io/part-of: genaiops-compliance-gates
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: postgres-evidence
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: postgres-evidence
+        app.kubernetes.io/component: evidence-store
+        app.kubernetes.io/part-of: genaiops-compliance-gates
+    spec:
+      containers:
+        - name: postgres
+          image: postgres:16-alpine
+          ports:
+            - name: postgres
+              containerPort: 5432
+              protocol: TCP
+          env:
+            - name: POSTGRES_DB
+              value: "genaiops"
+            - name: POSTGRES_USER
+              value: "genaiops"
+            # Password from Secret (created manually in Phase 6):
+            #   kubectl create secret generic postgres-credentials \
+            #     --namespace=genaiops \
+            #     --from-literal=POSTGRES_PASSWORD=<secure-password>
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-credentials
+                  key: POSTGRES_PASSWORD
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
+          volumeMounts:
+            - name: postgres-data
+              mountPath: /var/lib/postgresql/data
+      volumes:
+        - name: postgres-data
+          persistentVolumeClaim:
+            claimName: postgres-evidence-pvc

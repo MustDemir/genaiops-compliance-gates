@@ -1,0 +1,31 @@
+# ================================================================
+# GenAIOps PoC — Application ConfigMap
+# ================================================================
+# Non-sensitive configuration for the Ambient AI Scribe app.
+# Source: docker-compose.yml environment variables
+#
+# G-PRE-04 P4: NO secrets here — Secrets via kubectl create secret
+#              (Phase 6, Entscheidung E7)
+# ================================================================
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: scribe-config
+  namespace: genaiops
+  labels:
+    app.kubernetes.io/name: ambient-ai-scribe
+    app.kubernetes.io/component: config
+    app.kubernetes.io/part-of: genaiops-compliance-gates
+data:
+  MODEL_VERSION: "mock-v1.0.0"
+  PIPELINE_ID: "local-minikube"
+  LOG_LEVEL: "INFO"
+  APP_ENV: "production"
+  EVIDENCE_STORE_HOST: "postgres-evidence"
+  EVIDENCE_STORE_PORT: "5432"
+  EVIDENCE_STORE_DB: "genaiops"
+  ACCURACY_THRESHOLD: "0.85"
+  LATENCY_P95_THRESHOLD: "2000"
+  SAFETY_SCORE_THRESHOLD: "0.90"
+  PSI_WARNING_THRESHOLD: "0.1"
+  PSI_CRITICAL_THRESHOLD: "0.2"

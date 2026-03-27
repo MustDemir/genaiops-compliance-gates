@@ -1,0 +1,13 @@
+# ================================================================
+# GenAIOps PoC — Namespace
+# ================================================================
+# Isolates all PoC resources in a dedicated namespace.
+# EU AI Act traceability: all resources carry consistent labels.
+# ================================================================
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: genaiops
+  labels:
+    app.kubernetes.io/part-of: genaiops-compliance-gates
+    eu-ai-act/risk-class: "high"
