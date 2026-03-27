@@ -190,14 +190,14 @@ psql -f schema/evidence_store_schema_v02_enterprise.sql
 > Strategie: Lokal-first (Phase 1–11 kostenlos auf Minikube), Azure erst Phase 12. Geschaetzter Aufwand: ~30–42h ueber 4–6 Wochen.
 
 <!-- PROGRESS-START -->
-> Gesamtfortschritt: `█████░░░░░░░░░░░░░░░` **25%** (3/12 Phasen)
+> Gesamtfortschritt: `██████░░░░░░░░░░░░░░` **33%** (4/12 Phasen)
 
 | Phase | Beschreibung | Fortschritt | Status |
 |-------|-------------|------------|--------|
 | **1** | App entwickeln (FastAPI + Mock-Endpoint) | `████████████████████` 100% | done |
 | **2** | Containerisieren (Dockerfile, Multi-Stage, Non-Root) | `████████████████████` 100% | done |
 | **3** | Docker Compose (App + DB + Prometheus + Grafana) | `████████████████████` 100% | done |
-| **4** | K8s-Manifeste (Deployment, Service, ConfigMap, Sidecar) | `░░░░░░░░░░░░░░░░░░░░` 0% | planned |
+| **4** | K8s-Manifeste (Deployment, Service, ConfigMap, Sidecar) | `████████████████████` 100% | done |
 | **5** | Rego-Policies + Conftest-Tests (6 Gates) | `░░░░░░░░░░░░░░░░░░░░` 0% | planned |
 | **6** | Lokaler Cluster (Minikube) + Helm-Basics | `░░░░░░░░░░░░░░░░░░░░` 0% | planned |
 | **7** | Gatekeeper + ConstraintTemplates + OPS-Policies | `░░░░░░░░░░░░░░░░░░░░` 0% | planned |
@@ -218,6 +218,7 @@ psql -f schema/evidence_store_schema_v02_enterprise.sql
 | Policy-Kandidaten | done | 29 Kandidaten dokumentiert (22 Conftest, 4 Gatekeeper, 3 Decision Logs) |
 | Healthcare Scribe App | done | FastAPI Mock-Endpoint, /transcribe, /health, /metrics |
 | Gate-Fixtures | done | app_documentation.json, eval_results.json |
+| K8s-Manifeste | done | 8 YAMLs: Namespace, Deployment, Service, ConfigMap, PostgreSQL, Prometheus |
 | OPA/Rego-Code | planned | 0% — Phase 5 |
 | Terraform/Helm | planned | 0% — Phase 6/12 |
 | GitHub Actions Pipeline | planned | 0% — Phase 10 |
