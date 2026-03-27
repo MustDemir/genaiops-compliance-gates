@@ -1,0 +1,30 @@
+id: G-DEP-03
+name: "Transparenzdokumentation"
+dimension: "regulatorisch"
+lifecycle_phase: "deployment"
+trigger: "PR merge to main branch — Conftest evaluiert app_documentation.json und model_documentation.json im CI-Lauf"
+policy_checks:
+  - "policy_transparency_docs_present"
+  - "policy_explainability_documented"
+evidence_required:
+  - "transparency_report"
+  - "xai_documentation"
+decision: "manual_review"
+owner: "AI Governance Lead"
+audit_trail:
+  enabled: true
+  evidence_store_ref: "evidence://gates/deployment/G-DEP-03"
+waiver:
+  allowed: true
+  requires: "Governance Lead Approval, befristet auf 30 Tage"
+links:
+  requirements:
+    - "R007"
+  eu_ai_act_refs:
+    - "Art. 13"
+    - "Art. 26 Abs. 7"
+    - "Art. 50"
+sources:
+  - "requirements/R007.yaml"
+  - "Thesis Tab. 5.2, 5.3, 5.4"
+notes: "DESIGN-ONLY — Rego-Implementierung als Future Work. HYBRID: Conftest prueft ob Deployer-Instruktionen, Limitationen und Erklaerbarkeits-Methode dokumentiert; manueller Review bewertet Verstaendlichkeit und Zugaenglichkeit der Transparenzhinweise. Art. 50 erfordert zusaetzlich KI-generierte-Inhalte-Kennzeichnung."

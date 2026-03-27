@@ -1,0 +1,35 @@
+id: G-DEP-01
+name: "Data Governance"
+dimension: "technisch"
+lifecycle_phase: "deployment"
+trigger: "PR merge to main branch — Conftest evaluiert model_documentation.json und data_documentation.json im CI-Lauf"
+policy_checks:
+  - "policy_training_documented"
+  - "policy_data_lineage_complete"
+  - "policy_dataset_description_complete"
+  - "policy_annotation_quality_verified"
+  - "policy_data_license_valid"
+evidence_required:
+  - "data_governance_documentation"
+  - "data_lineage_record"
+  - "dataset_description_document"
+decision: "block"
+owner: "Data Engineer"
+audit_trail:
+  enabled: true
+  evidence_store_ref: "evidence://gates/deployment/G-DEP-01"
+waiver:
+  allowed: true
+  requires: "Data Governance Lead Approval, befristet auf 30 Tage"
+links:
+  requirements:
+    - "R002"
+    - "R006"
+  eu_ai_act_refs:
+    - "Art. 10"
+    - "Art. 11"
+sources:
+  - "requirements/R002.yaml"
+  - "requirements/R006.yaml"
+  - "Thesis Tab. 5.2, 5.3, 5.4"
+notes: "DESIGN-ONLY — Rego-Implementierung als Future Work. AUTO: Co-Mapping R002 + R006 (Art. 10 normiert Datengovernance und Datenqualitaet als komplementaere Pruefgegenstaende). 5 Conftest-Policies pruefen Lucaj Model- und Data-Documentation-Templates auf Vollstaendigkeit."

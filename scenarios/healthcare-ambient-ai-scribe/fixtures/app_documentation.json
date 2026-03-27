@@ -18,6 +18,14 @@
     ]
   },
 
+  "manual_review": {
+    "reviewed_by": "Dr. Sarah Chen (Compliance Officer)",
+    "review_date": "2026-03-27T14:00:00Z",
+    "review_method": "manual",
+    "review_outcome": "confirmed",
+    "review_notes": "Risk classification as high-risk (Annex III, Nr. 5a) confirmed. Classification reasoning is substantive and complete. Mitigation measures are appropriate for healthcare context."
+  },
+
   "conformity_assessment": {
     "declaration_available": true,
     "ce_marking_verified": true,
@@ -121,6 +129,13 @@
     "compliance_gate_version": "v1.0.0",
     "storage_type": "postgresql_with_blob",
     "immutability_enforced": true
+  },
+
+  "approval": {
+    "approved_by": "Prof. Dr. Weber (AI Governance Lead)",
+    "approved_at": "2026-03-28T10:30:00Z",
+    "approval_method": "manual",
+    "approval_rationale": "FRIA reviewed and confirmed. Human oversight model (HITL) appropriate for high-risk healthcare system. Kill-switch tested and operational. Conformity assessment declaration verified against Art. 47."
   },
 
   "model_info": {

@@ -1,0 +1,29 @@
+id: G-PRE-02
+name: "Zweckbestimmung"
+dimension: "regulatorisch"
+lifecycle_phase: "pre-deployment"
+trigger: "PR merge to main branch — Conftest evaluiert app_documentation.json und model_documentation.json im CI-Lauf"
+policy_checks:
+  - "policy_purpose_declaration_complete"
+  - "policy_model_description_complete"
+  - "policy_intended_use_boundaries"
+evidence_required:
+  - "purpose_declaration_document"
+  - "intended_use_boundaries_document"
+decision: "manual_review"
+owner: "AI Governance Lead"
+audit_trail:
+  enabled: true
+  evidence_store_ref: "evidence://gates/pre-deployment/G-PRE-02"
+waiver:
+  allowed: true
+  requires: "Governance Lead Approval, befristet auf 30 Tage"
+links:
+  requirements:
+    - "R012"
+  eu_ai_act_refs:
+    - "Art. 27"
+sources:
+  - "requirements/R012.yaml"
+  - "Thesis Tab. 5.2, 5.3, 5.4"
+notes: "DESIGN-ONLY — Rego-Implementierung als Future Work. HYBRID: Conftest prueft Pflichtfelder (intended_purpose, sector, prohibited_uses, model_type, intended_use, out_of_scope_uses); manueller Review bewertet inhaltliche Vollstaendigkeit der FRIA."

@@ -1,0 +1,27 @@
+id: G-OPS-04
+name: "Cybersecurity-Operations"
+dimension: "technisch"
+lifecycle_phase: "operations"
+trigger: "kubectl apply — OPA Gatekeeper Admission Controller evaluiert Deployment-Manifest bei Cluster-Admission"
+policy_checks:
+  - "policy_data_security_controls"
+evidence_required:
+  - "access_control_audit_record"
+  - "incident_response_plan"
+decision: "block"
+owner: "Security Engineer"
+audit_trail:
+  enabled: true
+  evidence_store_ref: "evidence://gates/operations/G-OPS-04"
+waiver:
+  allowed: false
+  requires: "Kein Waiver moeglich — Cybersecurity im laufenden Betrieb ist nicht verhandelbar"
+links:
+  requirements:
+    - "R003"
+  eu_ai_act_refs:
+    - "Art. 15"
+sources:
+  - "requirements/R003.yaml"
+  - "Thesis Tab. 5.2, 5.3, 5.4"
+notes: "DESIGN-ONLY — Rego-Implementierung als Future Work. AUTO: Gatekeeper validiert dass Zugriffskontrolle, Verschluesselung und Audit-Logs als Cluster-Ressourcen konfiguriert sind. R003 wird zusaetzlich durch G-PRE-04 (Security-Baseline) und G-DEP-02 (Safety-Metriken) operationalisiert (Mehrfachzuordnung phasenuebergreifend)."

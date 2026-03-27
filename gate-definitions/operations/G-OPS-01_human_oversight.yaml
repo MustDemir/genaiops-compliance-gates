@@ -1,0 +1,28 @@
+id: G-OPS-01
+name: "Human Oversight"
+dimension: "regulatorisch"
+lifecycle_phase: "operations"
+trigger: "kubectl apply — OPA Gatekeeper Admission Controller evaluiert Deployment-Manifest bei Cluster-Admission"
+policy_checks:
+  - "policy_human_oversight_defined"
+evidence_required:
+  - "hitl_role_assignment_document"
+  - "override_procedure_document"
+decision: "manual_review"
+owner: "AI Governance Lead"
+audit_trail:
+  enabled: true
+  evidence_store_ref: "evidence://gates/operations/G-OPS-01"
+waiver:
+  allowed: true
+  requires: "CTO + Chief Medical Officer Approval, befristet auf 14 Tage"
+links:
+  requirements:
+    - "R008"
+  eu_ai_act_refs:
+    - "Art. 14"
+    - "Art. 26 Abs. 2"
+sources:
+  - "requirements/R008.yaml"
+  - "Thesis Tab. 5.2, 5.3, 5.4"
+notes: "DESIGN-ONLY — Rego-Implementierung als Future Work. HYBRID: Gatekeeper validiert dass HITL-Mechanismen und Override-Prozeduren als K8s-Ressourcen konfiguriert sind; manueller Review prueft Wirksamkeit der Sterz-Bedingungen (Causal Power, Epistemic Access, Self-Control, Fitting Intentions). D3-Override (Laux, 2024): First-Degree Oversight → max. HYBRID."

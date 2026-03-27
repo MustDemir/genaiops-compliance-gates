@@ -13,6 +13,21 @@
     "mitigation_measures": []
   },
 
+  "manual_review": {
+    "reviewed_by": "Dr. Sarah Chen",
+    "review_date": "2026-03-27T14:00:00Z",
+    "review_method": "manual",
+    "review_outcome": "confirmed",
+    "review_notes": "Classification confirmed"
+  },
+
+  "approval": {
+    "approved_by": "Prof. Dr. Weber",
+    "approved_at": "2026-03-28T10:30:00Z",
+    "approval_method": "manual",
+    "approval_rationale": "Approved"
+  },
+
   "conformity_assessment": {
     "declaration_available": true,
     "ce_marking_verified": true,

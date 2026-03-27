@@ -190,7 +190,7 @@ psql -f schema/evidence_store_schema_v02_enterprise.sql
 > Strategie: Lokal-first (Phase 1–11 kostenlos auf Minikube), Azure erst Phase 12. Geschaetzter Aufwand: ~30–42h ueber 4–6 Wochen.
 
 <!-- PROGRESS-START -->
-> Gesamtfortschritt: `██████░░░░░░░░░░░░░░` **33%** (4/12 Phasen)
+> Gesamtfortschritt: `██████████░░░░░░░░░░` **50%** (6/12 Phasen)
 
 | Phase | Beschreibung | Fortschritt | Status |
 |-------|-------------|------------|--------|
@@ -198,10 +198,10 @@ psql -f schema/evidence_store_schema_v02_enterprise.sql
 | **2** | Containerisieren (Dockerfile, Multi-Stage, Non-Root) | `████████████████████` 100% | done |
 | **3** | Docker Compose (App + DB + Prometheus + Grafana) | `████████████████████` 100% | done |
 | **4** | K8s-Manifeste (Deployment, Service, ConfigMap, Sidecar) | `████████████████████` 100% | done |
-| **5** | Rego-Policies + Conftest-Tests (6 Gates) | `░░░░░░░░░░░░░░░░░░░░` 0% | planned |
+| **5** | Rego-Policies + Conftest-Tests (6 Gates) | `████████████████████` 100% | done |
 | **6** | Lokaler Cluster (Minikube) + Helm-Basics | `░░░░░░░░░░░░░░░░░░░░` 0% | planned |
 | **7** | Gatekeeper + ConstraintTemplates + OPS-Policies | `░░░░░░░░░░░░░░░░░░░░` 0% | planned |
-| **8** | Evidence Store (PostgreSQL Schema + Scripts) | `░░░░░░░░░░░░░░░░░░░░` 0% | planned |
+| **8** | Evidence Store (PostgreSQL Schema + Scripts) | `████████████████████` 100% | done |
 | **9** | Monitoring-Sidecar (PSI + Jensen-Shannon + Prometheus) | `░░░░░░░░░░░░░░░░░░░░` 0% | planned |
 | **10** | ArgoCD + GitHub Actions Pipeline | `░░░░░░░░░░░░░░░░░░░░` 0% | planned |
 | **11** | Green/Red Path Walkthrough + Screenshots (Kap. 6.3) | `░░░░░░░░░░░░░░░░░░░░` 0% | planned |
@@ -213,16 +213,21 @@ psql -f schema/evidence_store_schema_v02_enterprise.sql
 | Komponente | Status | Details |
 |-----------|--------|--------|
 | Requirements (R001–R014) | done | 14 YAML-Specs, EU AI Act Art. 9–15 Mapping |
-| Evidence Store Schema | done | v01 (basic) + v02 (enterprise mit RLS + Hash-Chain) |
+| Evidence Store Schema | done | v01 (basic) + v02 (enterprise) + v03 (decision_method, E13) |
+| Evidence Store Scripts | done | record_evidence.py + verify_hash_chain.py, SQLite + PostgreSQL, Hash-Chain verified |
+| Decision-Log-Fixtures | done | G-PRE-01 (manual_review) + G-PRE-05 (governance_approval), HYBRID-Demo ready |
 | Gate Template | done | 7-Attribut-Template, 3 Beispiel-Gates |
 | Policy-Kandidaten | done | 29 Kandidaten dokumentiert (22 Conftest, 4 Gatekeeper, 3 Decision Logs) |
 | Healthcare Scribe App | done | FastAPI Mock-Endpoint, /transcribe, /health, /metrics |
 | Gate-Fixtures | done | app_documentation.json, eval_results.json |
 | K8s-Manifeste | done | 8 YAMLs: Namespace, Deployment, Service, ConfigMap, PostgreSQL, Prometheus |
-| OPA/Rego-Code | planned | 0% — Phase 5 |
+| OPA/Rego-Code | done | 6 Policies (3 Conftest PRE + 1 Conftest DEP + 2 Gatekeeper OPS), 71 Regeln, 13 Fixtures |
+| Integration Tests | done | 8 Tests (HYBRID E2E, Tamper Detection, Chain Linkage, Non-Blocking Semantics) |
+| Tamper-Detection Spec | done | Dokumentiert: 8 erkannte Angriffsvektoren, 6 bekannte Limitationen, 3 Protection Layers |
+| Walkthrough-Dokumentation | done | 13-Schritte Walkthrough für Kap. 6.3 (Pre-Dep → Dep → Ops → HYBRID → Tamper) |
+| Schema-Evolution-Dok | done | v01→v02→v03 Changelog mit Rationale und Hash-Trigger-Details |
 | Terraform/Helm | planned | 0% — Phase 6/12 |
 | GitHub Actions Pipeline | planned | 0% — Phase 10 |
-| Walkthrough-Dokumentation | planned | 0% — Phase 11 |
 
 ## Academic Foundation
 

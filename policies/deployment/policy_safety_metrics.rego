@@ -91,3 +91,51 @@ deny contains msg if {
 	input.evaluation.run_id == ""
 	msg := "G-DEP-02 (R003): evaluation.run_id is empty string"
 }
+
+# ================================================================
+# Check 6: Subgroup analysis must be performed [SHOULD-MEET]
+# Ref: Lucaj Template — subgroup sensitivity testing
+# ================================================================
+
+deny contains msg if {
+	not input.subgroup_analysis
+	msg := "G-DEP-02 (R003): subgroup_analysis section is missing from eval_results [SHOULD]"
+}
+
+deny contains msg if {
+	input.subgroup_analysis
+	not input.subgroup_analysis.performed
+	msg := "G-DEP-02 (R003): subgroup_analysis.performed is missing [SHOULD]"
+}
+
+deny contains msg if {
+	input.subgroup_analysis.performed == false
+	msg := "G-DEP-02 (R003): subgroup_analysis not performed — subgroup sensitivity testing recommended [SHOULD]"
+}
+
+deny contains msg if {
+	input.subgroup_analysis.performed == true
+	count(input.subgroup_analysis.subgroups) == 0
+	msg := "G-DEP-02 (R003): subgroup_analysis.subgroups is empty — at least one subgroup required [SHOULD]"
+}
+
+# ================================================================
+# Check 7: Adversarial tests must be performed [SHOULD-MEET]
+# Ref: Lucaj Template — adversarial robustness testing
+# ================================================================
+
+deny contains msg if {
+	not input.adversarial_tests
+	msg := "G-DEP-02 (R003): adversarial_tests section is missing from eval_results [SHOULD]"
+}
+
+deny contains msg if {
+	input.adversarial_tests
+	not input.adversarial_tests.performed
+	msg := "G-DEP-02 (R003): adversarial_tests.performed is missing [SHOULD]"
+}
+
+deny contains msg if {
+	input.adversarial_tests.performed == false
+	msg := "G-DEP-02 (R003): adversarial_tests not performed — adversarial robustness testing recommended [SHOULD]"
+}

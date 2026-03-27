@@ -78,3 +78,34 @@ deny contains msg if {
 	count(input.risk_classification.mitigation_measures) == 0
 	msg := "G-PRE-01 (R001): mitigation_measures array is empty — at least one measure required"
 }
+
+# --- Rule 7: Manual review evidence must be documented (HYBRID manual part) ---
+# G-PRE-01 is HYBRID: Conftest validates structure, human reviews substance.
+# These rules check that the MANUAL review step has been documented.
+
+deny contains msg if {
+	not input.manual_review
+	msg := "G-PRE-01 (R001): manual_review section missing — human review evidence required (HYBRID gate)"
+}
+
+deny contains msg if {
+	input.manual_review
+	not input.manual_review.reviewed_by
+	msg := "G-PRE-01 (R001): manual_review.reviewed_by is missing — reviewer identity required"
+}
+
+deny contains msg if {
+	input.manual_review.reviewed_by == ""
+	msg := "G-PRE-01 (R001): manual_review.reviewed_by is empty — reviewer identity required for audit trail"
+}
+
+deny contains msg if {
+	input.manual_review
+	not input.manual_review.review_date
+	msg := "G-PRE-01 (R001): manual_review.review_date is missing — review timestamp required"
+}
+
+deny contains msg if {
+	input.manual_review.review_date == ""
+	msg := "G-PRE-01 (R001): manual_review.review_date is empty — review timestamp required for audit trail"
+}

@@ -12,6 +12,14 @@
     "mitigation_measures": []
   },
 
+  "manual_review": {
+    "reviewed_by": "",
+    "review_date": "",
+    "review_method": "",
+    "review_outcome": "",
+    "review_notes": ""
+  },
+
   "conformity_assessment": {
     "declaration_available": false,
     "ce_marking_verified": false,
@@ -85,6 +93,13 @@
     "compliance_gate_version": "",
     "storage_type": "",
     "immutability_enforced": false
+  },
+
+  "approval": {
+    "approved_by": "",
+    "approved_at": "",
+    "approval_method": "",
+    "approval_rationale": ""
   },
 
   "model_info": {

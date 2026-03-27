@@ -1,0 +1,28 @@
+id: G-DEP-02
+name: "Safety-Metriken"
+dimension: "technisch"
+lifecycle_phase: "deployment"
+trigger: "PR merge to main branch — Conftest evaluiert eval_results.json im CI-Lauf"
+policy_checks:
+  - "policy_accuracy_threshold_met"
+  - "policy_robustness_tested"
+evidence_required:
+  - "evaluation_metrics_report"
+  - "adversarial_test_report"
+decision: "block"
+owner: "ML Engineer"
+audit_trail:
+  enabled: true
+  evidence_store_ref: "evidence://gates/deployment/G-DEP-02"
+waiver:
+  allowed: true
+  requires: "ML Lead + AI Governance Lead Approval, befristet auf 14 Tage"
+links:
+  requirements:
+    - "R003"
+  eu_ai_act_refs:
+    - "Art. 15"
+sources:
+  - "requirements/R003.yaml"
+  - "Thesis Tab. 5.2, 5.3, 5.4"
+notes: "PoC-Gate (★). AUTO: Conftest prueft ob accuracy >= 0.85, latency_p95 <= 2000ms, safety_score >= 0.90 (Schwellenwerte aus eval_results.json). R003 wird zusaetzlich durch G-PRE-04 (Security-Baseline) und G-OPS-04 (Cybersecurity-Operations) operationalisiert (Mehrfachzuordnung phasenuebergreifend)."

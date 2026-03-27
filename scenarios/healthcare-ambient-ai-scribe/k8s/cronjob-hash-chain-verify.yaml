@@ -43,19 +43,14 @@ spec:
           restartPolicy: OnFailure
           containers:
             - name: hash-chain-verify
-              # Phase 8: Replace with custom image containing verify_hash_chain.py
+              # Phase 8: Custom image with verify_hash_chain.py + psycopg2
+              # Build: docker build -t genaiops/hash-chain-verify:latest -f Dockerfile.verify .
+              # For PoC/Minikube: mount script via ConfigMap or bake into image
               image: python:3.12-slim
               command:
                 - python
-                - -c
-                - |
-                  import os, sys, hashlib, json
-                  # Stub: In Phase 8, this will be replaced by evidence-store/scripts/verify_hash_chain.py
-                  print("=== Hash-Chain Verification ===")
-                  print(f"Evidence Store: {os.environ.get('EVIDENCE_STORE_HOST', 'unknown')}:{os.environ.get('EVIDENCE_STORE_PORT', '5432')}")
-                  print("Status: STUB — Full implementation in Phase 8")
-                  print("Result: SKIPPED (no DB connection in stub mode)")
-                  sys.exit(0)
+                - /app/verify_hash_chain.py
+                - --verbose
               env:
                 - name: EVIDENCE_STORE_HOST
                   valueFrom:

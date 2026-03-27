@@ -92,3 +92,35 @@ deny contains msg if {
 	input.conformity_assessment.declaration_available == false
 	msg := "G-PRE-05 (R004): conformity assessment declaration missing — Art. 47 EU AI Act"
 }
+
+# --- Rule 7: Governance approval must be documented (HYBRID manual part) ---
+# D3-Override: Art. 14 First-Degree Oversight → max HYBRID
+# These rules validate that the MANUAL approval step has been documented.
+# The actual approval decision is made by a human — Conftest only checks evidence.
+
+deny contains msg if {
+	not input.approval
+	msg := "G-PRE-05 (R004): approval section missing — governance approval evidence required (HYBRID gate)"
+}
+
+deny contains msg if {
+	input.approval
+	not input.approval.approved_by
+	msg := "G-PRE-05 (R004): approval.approved_by is missing — approver identity required"
+}
+
+deny contains msg if {
+	input.approval.approved_by == ""
+	msg := "G-PRE-05 (R004): approval.approved_by is empty — governance approval requires named approver"
+}
+
+deny contains msg if {
+	input.approval
+	not input.approval.approved_at
+	msg := "G-PRE-05 (R004): approval.approved_at is missing — approval timestamp required for audit trail"
+}
+
+deny contains msg if {
+	input.approval.approved_at == ""
+	msg := "G-PRE-05 (R004): approval.approved_at is empty — approval timestamp required for audit trail"
+}

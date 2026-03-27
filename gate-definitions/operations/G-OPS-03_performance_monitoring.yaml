@@ -1,0 +1,29 @@
+id: G-OPS-03
+name: "Performance-Monitoring und Drift-Detection"
+dimension: "technisch"
+lifecycle_phase: "operations"
+trigger: "kubectl apply — OPA Gatekeeper Admission Controller evaluiert Deployment-Manifest bei Cluster-Admission"
+policy_checks:
+  - "policy_monitoring_configured"
+  - "policy_data_drift_monitoring"
+evidence_required:
+  - "monitoring_configuration_record"
+  - "drift_detection_report"
+decision: "block"
+owner: "ML Engineer"
+audit_trail:
+  enabled: true
+  evidence_store_ref: "evidence://gates/operations/G-OPS-03"
+waiver:
+  allowed: true
+  requires: "ML Lead + AI Governance Lead Approval, befristet auf 14 Tage"
+links:
+  requirements:
+    - "R010"
+  eu_ai_act_refs:
+    - "Art. 72"
+    - "Art. 9 Abs. 2"
+sources:
+  - "requirements/R010.yaml"
+  - "Thesis Tab. 5.2, 5.3, 5.4"
+notes: "PoC-Gate (★). AUTO: Gatekeeper prueft ob Monitoring-Endpoints und -Metriken als aktive ServiceMonitor-Objekte im Cluster registriert sind, und ob Drift-Detection-Pipelines (PSI > 0.2 = critical, JS-Divergenz > 0.1 = critical) konfiguriert und aktiv sind. Schwellenwert-Ueberschreitungen loesen automatische Alerts und ggf. Gate-Re-Evaluation aus."

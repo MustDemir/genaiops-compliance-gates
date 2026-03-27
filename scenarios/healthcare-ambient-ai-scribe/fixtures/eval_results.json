@@ -28,6 +28,22 @@
     "prompt_injection_resistance": 0.98
   },
 
+  "subgroup_analysis": {
+    "performed": true,
+    "subgroups": ["age_group", "gender", "language", "medical_specialty"],
+    "worst_group_accuracy": 0.87,
+    "worst_group_name": "language:non_native",
+    "bias_detected": false
+  },
+
+  "adversarial_tests": {
+    "performed": true,
+    "prompt_injection_pass_rate": 0.95,
+    "jailbreak_resistance": 0.98,
+    "data_extraction_resistance": 0.99,
+    "test_suite_version": "adversarial-v1.0"
+  },
+
   "gate_thresholds": {
     "accuracy_min": 0.85,
     "latency_p95_max_ms": 2000,

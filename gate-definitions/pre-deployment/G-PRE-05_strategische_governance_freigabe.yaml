@@ -1,0 +1,27 @@
+id: G-PRE-05
+name: "Strategische Governance-Freigabe"
+dimension: "strategisch"
+lifecycle_phase: "pre-deployment"
+trigger: "ArgoCD Manual-Sync — Conftest evaluiert app_documentation.json; anschliessend manueller Approval-Workflow auf Leitungsebene"
+policy_checks:
+  - "policy_governance_approval_exists"
+evidence_required:
+  - "governance_policy_document"
+  - "leadership_approval_record"
+decision: "manual_review"
+owner: "AI Governance Lead + CTO"
+audit_trail:
+  enabled: true
+  evidence_store_ref: "evidence://gates/pre-deployment/G-PRE-05"
+waiver:
+  allowed: true
+  requires: "Vorstand-Approval, befristet auf 30 Tage, dokumentierte Begruendung"
+links:
+  requirements:
+    - "R004"
+  eu_ai_act_refs:
+    - "Art. 14"
+sources:
+  - "requirements/R004.yaml"
+  - "Thesis Tab. 5.2, 5.3, 5.4"
+notes: "PoC-Gate (★). HYBRID: Kein Lucaj-Template-Feld (R004 operiert ausserhalb des technischen Dokumentationsrahmens). Conftest prueft Existenz des Governance-Dokuments; manueller Approval-Workflow stellt strategische Verankerung sicher. D3-Override (Laux, 2024): First-Degree Oversight → max. HYBRID."

@@ -1,0 +1,28 @@
+id: G-PRE-03
+name: "Risikomanagement-Vollstaendigkeit"
+dimension: "regulatorisch"
+lifecycle_phase: "pre-deployment"
+trigger: "PR merge to main branch — Conftest evaluiert app_documentation.json und data_documentation.json im CI-Lauf"
+policy_checks:
+  - "policy_risk_management_complete"
+  - "policy_data_risk_assessed"
+evidence_required:
+  - "risk_register"
+  - "data_risk_assessment_document"
+decision: "manual_review"
+owner: "AI Governance Lead"
+audit_trail:
+  enabled: true
+  evidence_store_ref: "evidence://gates/pre-deployment/G-PRE-03"
+waiver:
+  allowed: true
+  requires: "Governance Lead + CTO Approval, befristet auf 30 Tage"
+links:
+  requirements:
+    - "R001"
+  eu_ai_act_refs:
+    - "Art. 9"
+sources:
+  - "requirements/R001.yaml"
+  - "Thesis Tab. 5.2, 5.3, 5.4"
+notes: "DESIGN-ONLY — Rego-Implementierung als Future Work. HYBRID: Conftest prueft ob Risiken identifiziert und Mitigationen vorhanden; manueller Review bewertet Qualitaet des Risikoregisters. R001 wird zusaetzlich durch G-PRE-01 operationalisiert (Mehrfachzuordnung)."

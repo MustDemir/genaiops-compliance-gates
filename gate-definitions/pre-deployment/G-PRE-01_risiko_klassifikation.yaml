@@ -1,0 +1,28 @@
+id: G-PRE-01
+name: "Risiko-Klassifikation"
+dimension: "regulatorisch"
+lifecycle_phase: "pre-deployment"
+trigger: "PR merge to main branch — Conftest evaluiert app_documentation.json im CI-Lauf"
+policy_checks:
+  - "policy_risk_classification_valid"
+  - "policy_risk_classification_reasoning"
+evidence_required:
+  - "risk_classification_record"
+  - "classification_reasoning_document"
+decision: "manual_review"
+owner: "AI Governance Lead"
+audit_trail:
+  enabled: true
+  evidence_store_ref: "evidence://gates/pre-deployment/G-PRE-01"
+waiver:
+  allowed: true
+  requires: "Governance Lead + CTO Approval, befristet auf 30 Tage"
+links:
+  requirements:
+    - "R001"
+  eu_ai_act_refs:
+    - "Art. 9"
+sources:
+  - "requirements/R001.yaml"
+  - "Thesis Tab. 5.2, 5.3, 5.4"
+notes: "PoC-Gate (★). HYBRID: Conftest prueft ob risk_class in {high, limited, minimal} und classification_reasoning vorhanden; manueller Review bewertet inhaltliche Angemessenheit der Klassifikation. R001 wird zusaetzlich durch G-PRE-03 operationalisiert (Mehrfachzuordnung)."

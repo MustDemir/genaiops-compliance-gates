@@ -1,0 +1,30 @@
+id: G-DEP-04
+name: "Konformitaetsbewertung"
+dimension: "regulatorisch"
+lifecycle_phase: "deployment"
+trigger: "PR merge to main branch — Conftest evaluiert app_documentation.json im CI-Lauf"
+policy_checks:
+  - "policy_model_dataset_traceability"
+  - "policy_conformity_declaration"
+evidence_required:
+  - "conformity_declaration_document"
+  - "model_traceability_record"
+decision: "block"
+owner: "AI Governance Lead"
+audit_trail:
+  enabled: true
+  evidence_store_ref: "evidence://gates/deployment/G-DEP-04"
+waiver:
+  allowed: false
+  requires: "Kein Waiver moeglich — ohne gueltige Konformitaetserklaerung darf kein Deployment erfolgen"
+links:
+  requirements:
+    - "R011"
+  eu_ai_act_refs:
+    - "Art. 26 Abs. 1"
+    - "Art. 47"
+    - "Art. 48"
+sources:
+  - "requirements/R011.yaml"
+  - "Thesis Tab. 5.2, 5.3, 5.4"
+notes: "DESIGN-ONLY — Rego-Implementierung als Future Work. AUTO: Conftest prueft ob EU-Konformitaetserklaerung vorhanden, CE-Kennzeichnung verifiziert und Modell-Dataset-Traceability dokumentiert."

@@ -1,0 +1,28 @@
+id: G-OPS-02
+name: "Incident Reporting"
+dimension: "regulatorisch"
+lifecycle_phase: "operations"
+trigger: "kubectl apply — OPA Gatekeeper Admission Controller evaluiert Deployment-Manifest bei Cluster-Admission"
+policy_checks:
+  - "policy_incident_process_exists"
+evidence_required:
+  - "incident_process_documentation"
+  - "rollback_verification_record"
+decision: "block"
+owner: "DevOps Engineer"
+audit_trail:
+  enabled: true
+  evidence_store_ref: "evidence://gates/operations/G-OPS-02"
+waiver:
+  allowed: true
+  requires: "AI Governance Lead Approval, befristet auf 14 Tage"
+links:
+  requirements:
+    - "R009"
+  eu_ai_act_refs:
+    - "Art. 26 Abs. 5"
+    - "Art. 73"
+sources:
+  - "requirements/R009.yaml"
+  - "Thesis Tab. 5.2, 5.3, 5.4"
+notes: "DESIGN-ONLY — Rego-Implementierung als Future Work. AUTO: Gatekeeper stellt sicher dass Rollback-Mechanismen und Incident-Kontaktinformationen als annotierte Cluster-Ressourcen vorliegen. Meldung an Marktueberwachungsbehoerde innerhalb gesetzlicher Frist."

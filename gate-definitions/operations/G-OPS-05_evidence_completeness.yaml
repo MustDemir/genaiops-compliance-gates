@@ -1,0 +1,30 @@
+id: G-OPS-05
+name: "Evidence-Completeness und Audit-Trail-Integritaet"
+dimension: "compliance"
+lifecycle_phase: "operations"
+trigger: "kubectl apply — OPA Gatekeeper Admission Controller + Decision-Log-Validierung bei Cluster-Admission"
+policy_checks:
+  - "policy_evidence_completeness"
+  - "policy_hash_chain_integrity"
+  - "policy_audit_trail_immutability"
+evidence_required:
+  - "decision_log_entries"
+  - "hash_chain_validation_record"
+decision: "block"
+owner: "AI Governance Lead"
+audit_trail:
+  enabled: true
+  evidence_store_ref: "evidence://gates/operations/G-OPS-05"
+waiver:
+  allowed: false
+  requires: "Kein Waiver moeglich — Evidence-Integritaet ist Grundvoraussetzung fuer Auditierbarkeit"
+links:
+  requirements:
+    - "R005"
+  eu_ai_act_refs:
+    - "Art. 12"
+    - "Art. 15"
+sources:
+  - "requirements/R005.yaml"
+  - "Thesis Tab. 5.2, 5.3, 5.4"
+notes: "PoC-Gate (★). AUTO: Dediziertes Gate fuer Evidence-Persistierung. Gatekeeper + Decision Logs pruefen Vollstaendigkeit aller Gate-Records (16/16) und Hash-Chain-Integritaet. Jede Gate-Entscheidung — automatisiert oder manuell — wird als signierter, inhaltsadressierter Evidence-Record persistiert (Butt et al., 2026: Evidence Backbone)."

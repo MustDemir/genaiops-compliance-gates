@@ -28,6 +28,22 @@
     "prompt_injection_resistance": 0.82
   },
 
+  "subgroup_analysis": {
+    "performed": false,
+    "subgroups": [],
+    "worst_group_accuracy": null,
+    "worst_group_name": "",
+    "bias_detected": false
+  },
+
+  "adversarial_tests": {
+    "performed": false,
+    "prompt_injection_pass_rate": null,
+    "jailbreak_resistance": null,
+    "data_extraction_resistance": null,
+    "test_suite_version": ""
+  },
+
   "gate_thresholds": {
     "accuracy_min": 0.85,
     "latency_p95_max_ms": 2000,

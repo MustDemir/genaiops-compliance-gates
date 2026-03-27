@@ -1,0 +1,17 @@
+{
+  "gate_id": "G-PRE-01",
+  "decision": "PASS",
+  "decision_method": "MANUAL",
+  "reviewed_by": "Dr. Sarah Chen (Compliance Officer)",
+  "review_date": "2026-03-28T10:30:00Z",
+  "review_outcome": "Risk classification confirmed as high-risk (Annex III, Nr. 5c)",
+  "rationale": "Healthcare AI system processes sensitive patient data during medical consultations. System classifies as high-risk under EU AI Act Annex III Nr. 5c (AI systems intended for use in healthcare). Risk mitigation measures documented in risk_classification_report_v1.pdf. Manual review confirms automated risk classification is correct.",
+  "evidence_refs": [
+    "risk_classification_report_v1.pdf",
+    "impact_assessment_ambient_scribe_v1.pdf"
+  ],
+  "payload_id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+  "reviewer_role": "Compliance Officer",
+  "review_type": "risk_classification_confirmation",
+  "comment": "Automated Conftest check verified documentation completeness. This manual review confirms the substantive correctness of the risk classification and the adequacy of mitigation measures."
+}

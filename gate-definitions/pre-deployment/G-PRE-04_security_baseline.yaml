@@ -1,0 +1,29 @@
+id: G-PRE-04
+name: "Security-Baseline"
+dimension: "technisch"
+lifecycle_phase: "pre-deployment"
+trigger: "Docker-Image-Build in CI-Pipeline (GitHub Actions Build-Stage) — Conftest evaluiert K8s-Deployment-Manifest und Dockerfile"
+policy_checks:
+  - "policy_deployment_security_baseline"
+  - "policy_cybersecurity_controls"
+evidence_required:
+  - "security_baseline_report"
+  - "encryption_verification_record"
+decision: "block"
+owner: "DevOps Engineer"
+audit_trail:
+  enabled: true
+  evidence_store_ref: "evidence://gates/pre-deployment/G-PRE-04"
+waiver:
+  allowed: false
+  requires: "MUST-Verletzung: Kein Waiver moeglich (Security-Baseline nicht verhandelbar). SHOULD-Verletzung: Security Lead Approval, befristet auf 14 Tage"
+links:
+  requirements:
+    - "R003"
+  eu_ai_act_refs:
+    - "Art. 15"
+sources:
+  - "requirements/R003.yaml"
+  - "Thesis Tab. 5.2, 5.3, 5.4"
+  - "docs/knowledge-base/Docker/kap4-docker-images.md"
+notes: "PoC-Gate (★, E10). AUTO: Einziges Gate das technische Infrastruktur-Konfiguration prueft (Dockerfile + K8s-Manifest) statt Doku-Metadaten. 6 Pruefungen (CDV-Contract): P1 runAsNonRoot (MUST), P2 resource.limits (MUST), P3 readOnlyRootFilesystem (SHOULD), P4 keine Secrets in ENV (MUST), P5 slim/alpine Base-Image (SHOULD), P6 allowPrivilegeEscalation:false (MUST). R003 wird zusaetzlich durch G-DEP-02 und G-OPS-04 operationalisiert (Mehrfachzuordnung phasenuebergreifend)."
