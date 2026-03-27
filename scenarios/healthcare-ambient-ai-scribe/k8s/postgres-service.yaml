@@ -1,0 +1,24 @@
+# ================================================================
+# GenAIOps PoC — PostgreSQL Service
+# ================================================================
+# ClusterIP only — not exposed externally (unlike docker-compose).
+# App connects via postgres-evidence:5432 within the cluster.
+# ================================================================
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgres-evidence
+  namespace: genaiops
+  labels:
+    app.kubernetes.io/name: postgres-evidence
+    app.kubernetes.io/component: evidence-store
+    app.kubernetes.io/part-of: genaiops-compliance-gates
+spec:
+  type: ClusterIP
+  selector:
+    app.kubernetes.io/name: postgres-evidence
+  ports:
+    - name: postgres
+      port: 5432
+      targetPort: postgres
+      protocol: TCP

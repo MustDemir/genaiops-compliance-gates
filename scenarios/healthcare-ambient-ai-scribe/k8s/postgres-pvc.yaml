@@ -1,0 +1,21 @@
+# ================================================================
+# GenAIOps PoC — PostgreSQL PersistentVolumeClaim
+# ================================================================
+# Replaces docker-compose volume: postgres_data
+# Minikube uses default StorageClass (hostpath).
+# ================================================================
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: postgres-evidence-pvc
+  namespace: genaiops
+  labels:
+    app.kubernetes.io/name: postgres-evidence
+    app.kubernetes.io/component: evidence-store
+    app.kubernetes.io/part-of: genaiops-compliance-gates
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi

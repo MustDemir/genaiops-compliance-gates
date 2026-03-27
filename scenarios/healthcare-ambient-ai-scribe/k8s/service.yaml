@@ -1,0 +1,24 @@
+# ================================================================
+# GenAIOps PoC — Scribe App Service
+# ================================================================
+# ClusterIP Service: internal access within the cluster.
+# NodePort exposure for local Minikube access (Phase 6).
+# ================================================================
+apiVersion: v1
+kind: Service
+metadata:
+  name: ambient-ai-scribe
+  namespace: genaiops
+  labels:
+    app.kubernetes.io/name: ambient-ai-scribe
+    app.kubernetes.io/component: application
+    app.kubernetes.io/part-of: genaiops-compliance-gates
+spec:
+  type: ClusterIP
+  selector:
+    app.kubernetes.io/name: ambient-ai-scribe
+  ports:
+    - name: http
+      port: 8080
+      targetPort: http
+      protocol: TCP

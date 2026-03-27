@@ -1,0 +1,146 @@
+# ================================================================
+# GenAIOps PoC — Ambient AI Scribe Deployment
+# ================================================================
+# G-PRE-04 Compliance:
+#   P1: runAsNonRoot + runAsUser 1000          (Non-Root)
+#   P2: resources.limits (CPU + Memory)        (Resource Limits)
+#   P3: allowPrivilegeEscalation: false        (No Privilege Escalation)
+#   P4: envFrom ConfigMap only, no secrets     (No Secrets in Manifest)
+#   P5: slim base image                        (via Dockerfile)
+#   P6: readOnlyRootFilesystem: true           (Immutable Filesystem)
+#
+# G-PRE-01: risk_class label for Conftest policy validation
+# G-PRE-05: governance annotations for documentation reference
+# G-OPS-03: monitoring annotations for ServiceMonitor discovery
+# G-OPS-05: evidence-store annotations for audit trail
+#
+# Sidecar-Stub: monitoring-sidecar container placeholder
+#               (fully implemented in Phase 9 with PSI + JS metrics)
+# ================================================================
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ambient-ai-scribe
+  namespace: genaiops
+  labels:
+    app.kubernetes.io/name: ambient-ai-scribe
+    app.kubernetes.io/version: "1.0.0"
+    app.kubernetes.io/component: application
+    app.kubernetes.io/part-of: genaiops-compliance-gates
+    # G-PRE-01: Risk classification for Conftest policy check
+    risk_class: "high"
+  annotations:
+    # G-PRE-05: Governance documentation references
+    genaiops.io/governance-doc: "app_documentation.json"
+    genaiops.io/annex-reference: "Annex III, Nr. 5 lit. a"
+    genaiops.io/oversight-model: "human-in-the-loop"
+    genaiops.io/fria-completed: "true"
+    # G-OPS-03: Monitoring & Drift Detection
+    genaiops.io/drift-detection-enabled: "true"
+    genaiops.io/service-monitor-configured: "true"
+    genaiops.io/psi-critical-threshold: "0.2"
+    # G-OPS-05: Evidence Store
+    genaiops.io/evidence-store-connected: "true"
+    genaiops.io/hash-chain-enabled: "true"
+    genaiops.io/evidence-store-type: "postgresql_with_blob"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: ambient-ai-scribe
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: ambient-ai-scribe
+        app.kubernetes.io/version: "1.0.0"
+        app.kubernetes.io/component: application
+        app.kubernetes.io/part-of: genaiops-compliance-gates
+        risk_class: "high"
+      annotations:
+        genaiops.io/governance-doc: "app_documentation.json"
+        genaiops.io/drift-detection-enabled: "true"
+        genaiops.io/service-monitor-configured: "true"
+        genaiops.io/evidence-store-connected: "true"
+        genaiops.io/hash-chain-enabled: "true"
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "8080"
+        prometheus.io/path: "/metrics"
+    spec:
+      # Pod-level security defaults
+      securityContext:
+        runAsNonRoot: true
+        fsGroup: 1000
+      containers:
+        # --- Main Application Container ---
+        - name: scribe
+          image: ambient-ai-scribe:1.0.0
+          ports:
+            - name: http
+              containerPort: 8080
+              protocol: TCP
+          envFrom:
+            - configMapRef:
+                name: scribe-config
+          # G-PRE-04 P1 + P3 + P6: Container-level security
+          securityContext:
+            runAsNonRoot: true
+            runAsUser: 1000
+            runAsGroup: 1000
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop:
+                - ALL
+          # G-PRE-04 P2: Resource limits
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "500m"
+              memory: "256Mi"
+          # Health probes for K8s lifecycle management
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: http
+            initialDelaySeconds: 10
+            periodSeconds: 30
+            failureThreshold: 3
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: http
+            initialDelaySeconds: 5
+            periodSeconds: 10
+            failureThreshold: 3
+          # Tmp volume for writable temp files (readOnlyRootFilesystem)
+          volumeMounts:
+            - name: tmp
+              mountPath: /tmp
+
+        # --- Monitoring Sidecar Stub ---
+        # Phase 9: Replace with real PSI + Jensen-Shannon drift detector
+        - name: monitoring-sidecar
+          image: busybox:1.37
+          command: ["sh", "-c", "echo 'Monitoring sidecar stub — Phase 9' && sleep infinity"]
+          securityContext:
+            runAsNonRoot: true
+            runAsUser: 1001
+            runAsGroup: 1001
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop:
+                - ALL
+          resources:
+            requests:
+              cpu: "50m"
+              memory: "32Mi"
+            limits:
+              cpu: "100m"
+              memory: "64Mi"
+
+      volumes:
+        - name: tmp
+          emptyDir: {}
