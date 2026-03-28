@@ -7,8 +7,8 @@
   },
 
   "risk_classification": {
-    "risk_class": "high",
-    "classification_reasoning": "Annex III Nr. 5 EU AI Act: AI system intended for use in healthcare that may influence medical decisions. Processing of sensitive patient data under GDPR Art. 9.",
+    "risk_class": "INVALID_CLASS",
+    "classification_reasoning": "",
     "annex_reference": "Annex III, Nr. 5 lit. a",
     "mitigation_measures": [
       "Human-in-the-loop review of all generated summaries before clinical use",
