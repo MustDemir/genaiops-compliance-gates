@@ -33,6 +33,8 @@ Thumbs.db
 
 # Evidence Store data (runtime artifacts, not committed)
 evidence-store/*.db
+evidence-store/*.db-journal
+evidence-store/pipeline_report_*.json
 evidence-store/data/
 
 # Internal working documents (not for public repo)

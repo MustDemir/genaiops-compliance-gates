@@ -1,0 +1,134 @@
+# ================================================================
+# prometheusrule-drift.yaml — Prometheus Alert Rules for Drift Detection
+# ================================================================
+# Phase 9.6: Defines alerting rules for data drift.
+#
+# What this does (Kolloquium):
+#   These rules tell Prometheus: "If PSI exceeds 0.1 for 5 minutes,
+#   fire a WARNING alert. If it exceeds 0.2 for 5 minutes, fire a
+#   CRITICAL alert."
+#
+#   The alerts appear in:
+#   1. Grafana dashboards (visual indicator)
+#   2. AlertManager (could forward to Slack/PagerDuty in production)
+#   3. Prometheus UI (for debugging)
+#
+#   In the PoC, alerts are logged. In production, they would
+#   trigger automated gate re-evaluation (G-OPS-03 re-check).
+#
+# Architecture mapping:
+#   Pillar S5 → drift_detector → Prometheus → PrometheusRule → Alert
+#   EU AI Act Art. 72: Post-market surveillance requires monitoring
+# ================================================================
+
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: genaiops-drift-alerts
+  namespace: monitoring
+  labels:
+    app.kubernetes.io/name: genaiops-drift-alerts
+    app.kubernetes.io/part-of: genaiops-compliance-gates
+    # Must match kube-prometheus-stack's ruleSelector
+    release: prometheus-stack
+spec:
+  groups:
+    - name: genaiops.drift
+      rules:
+        # ── PSI Warning ──────────────────────────────────────
+        - alert: GenAIOps_DriftWarning_PSI
+          expr: genaiops_drift_psi_score > 0.1
+          for: 5m
+          labels:
+            severity: warning
+            gate_id: G-OPS-03
+            pillar: S5
+            eu_ai_act: "Art. 72"
+          annotations:
+            summary: "Data drift detected (PSI warning)"
+            description: |
+              PSI score {{ $value | printf "%.4f" }} exceeds warning threshold 0.1
+              for {{ $labels.instance }}.
+              Investigate input distribution shift.
+              Gate: G-OPS-03 (Performance Monitoring & Drift Detection)
+            runbook_url: "https://github.com/MustDemir/genaiops-compliance-gates/blob/main/docs/CLOSED_LOOP_ERKLAERUNG.md"
+
+        # ── PSI Critical ─────────────────────────────────────
+        - alert: GenAIOps_DriftCritical_PSI
+          expr: genaiops_drift_psi_score > 0.2
+          for: 5m
+          labels:
+            severity: critical
+            gate_id: G-OPS-03
+            pillar: S5
+            eu_ai_act: "Art. 72"
+          annotations:
+            summary: "Significant data drift detected (PSI critical)"
+            description: |
+              PSI score {{ $value | printf "%.4f" }} exceeds critical threshold 0.2
+              for {{ $labels.instance }}.
+              Gate G-OPS-03 re-evaluation REQUIRED.
+              Action: Investigate root cause, consider model retraining.
+            runbook_url: "https://github.com/MustDemir/genaiops-compliance-gates/blob/main/docs/CLOSED_LOOP_ERKLAERUNG.md"
+
+        # ── JSD Warning ──────────────────────────────────────
+        - alert: GenAIOps_DriftWarning_JSD
+          expr: genaiops_drift_jsd_score > 0.05
+          for: 5m
+          labels:
+            severity: warning
+            gate_id: G-OPS-03
+            pillar: S5
+            eu_ai_act: "Art. 72"
+          annotations:
+            summary: "Distribution divergence detected (JSD warning)"
+            description: |
+              JSD score {{ $value | printf "%.6f" }} exceeds warning threshold 0.05
+              for {{ $labels.instance }}.
+              Monitor closely for continued divergence.
+
+        # ── JSD Critical ─────────────────────────────────────
+        - alert: GenAIOps_DriftCritical_JSD
+          expr: genaiops_drift_jsd_score > 0.1
+          for: 5m
+          labels:
+            severity: critical
+            gate_id: G-OPS-03
+            pillar: S5
+            eu_ai_act: "Art. 72"
+          annotations:
+            summary: "Significant distribution divergence (JSD critical)"
+            description: |
+              JSD score {{ $value | printf "%.6f" }} exceeds critical threshold 0.1
+              for {{ $labels.instance }}.
+              Gate G-OPS-03 FAIL — initiate incident response.
+
+        # ── Drift Status (general) ───────────────────────────
+        - alert: GenAIOps_DriftDetector_Critical
+          expr: genaiops_drift_status == 2
+          for: 1m
+          labels:
+            severity: critical
+            gate_id: G-OPS-03
+            pillar: S5
+          annotations:
+            summary: "Drift detector reports CRITICAL status"
+            description: |
+              The drift detector has classified current data distribution
+              as CRITICAL (status=2). Evidence Store FAIL recorded.
+              Compliance action required per Art. 72 EU AI Act.
+
+        # ── Drift Detector Health ────────────────────────────
+        - alert: GenAIOps_DriftDetector_Down
+          expr: absent(genaiops_drift_status) == 1
+          for: 10m
+          labels:
+            severity: warning
+            gate_id: G-OPS-03
+            pillar: S5
+          annotations:
+            summary: "Drift detector is not reporting metrics"
+            description: |
+              No genaiops_drift_status metric received for 10 minutes.
+              The drift detector CronJob may have failed.
+              Check: kubectl get cronjob drift-detector -n genaiops

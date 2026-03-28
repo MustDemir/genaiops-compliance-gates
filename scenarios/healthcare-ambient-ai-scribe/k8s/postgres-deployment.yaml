@@ -30,10 +30,10 @@ spec:
         app.kubernetes.io/component: evidence-store
         app.kubernetes.io/part-of: genaiops-compliance-gates
     spec:
-      # Pod-level security defaults
+      # Pod-level security: postgres:16-alpine runs as UID 70 (postgres)
       securityContext:
         runAsNonRoot: true
-        fsGroup: 999
+        fsGroup: 70
       containers:
         - name: postgres
           image: postgres:16-alpine
@@ -43,8 +43,8 @@ spec:
           #       Documented as intentional exception in PoC walkthrough.
           securityContext:
             runAsNonRoot: true
-            runAsUser: 999
-            runAsGroup: 999
+            runAsUser: 70
+            runAsGroup: 70
             allowPrivilegeEscalation: false
             capabilities:
               drop:
@@ -67,6 +67,9 @@ spec:
                 secretKeyRef:
                   name: postgres-credentials
                   key: POSTGRES_PASSWORD
+            # PGDATA must be a subdirectory of the volume mount
+            - name: PGDATA
+              value: "/var/lib/postgresql/data/pgdata"
           resources:
             requests:
               cpu: "100m"

@@ -1,0 +1,90 @@
+# ================================================================
+# cronjob-drift-detector.yaml — Kubernetes CronJob for Drift Detection
+# ================================================================
+# Phase 9.6: Runs drift_detector.py every 5 minutes in the cluster.
+#
+# What this does (Kolloquium):
+#   This CronJob is the automated "watchdog" for model quality.
+#   Every 5 minutes, Kubernetes creates a new Pod that:
+#   1. Fetches current metrics from the AI Scribe app
+#   2. Compares them against the saved baseline (from ConfigMap)
+#   3. Computes PSI + JSD scores
+#   4. If drift exceeds thresholds → records FAIL to Evidence Store
+#   5. Exports metrics to Prometheus (scraped by ServiceMonitor)
+#
+#   This is the operational embodiment of G-OPS-03:
+#   "The system SHALL continuously monitor model performance
+#    and detect data drift."
+#
+# Architecture mapping:
+#   Pillar S5 → CronJob → drift_detector.py → Evidence Store (S4)
+#   EU AI Act: Art. 72 (Post-Market Surveillance)
+# ================================================================
+
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: drift-detector
+  namespace: genaiops
+  labels:
+    app.kubernetes.io/name: drift-detector
+    app.kubernetes.io/part-of: genaiops-compliance-gates
+    app.kubernetes.io/component: monitoring
+  annotations:
+    genaiops.io/gate-id: "G-OPS-03"
+    genaiops.io/pillar: "S5"
+    genaiops.io/requirement: "R010"
+    genaiops.io/eu-ai-act: "Art. 72"
+spec:
+  schedule: "*/5 * * * *"
+  concurrencyPolicy: Forbid
+  successfulJobsHistoryLimit: 5
+  failedJobsHistoryLimit: 3
+  jobTemplate:
+    spec:
+      backoffLimit: 1
+      template:
+        metadata:
+          labels:
+            app.kubernetes.io/name: drift-detector
+          annotations:
+            genaiops.io/drift-detection-enabled: "true"
+            genaiops.io/evidence-store-connected: "true"
+        spec:
+          containers:
+            - name: drift-detector
+              image: genaiops/drift-detector:latest
+              imagePullPolicy: IfNotPresent
+              command: ["python3", "/app/drift_detector.py"]
+              args:
+                - "--source"
+                - "http://ambient-ai-scribe.genaiops.svc:8080/metrics"
+                - "--baseline"
+                - "/data/baseline.json"
+                - "--record-evidence"
+              envFrom:
+                - configMapRef:
+                    name: drift-config
+              env:
+                - name: EVIDENCE_STORE_DB_URL
+                  valueFrom:
+                    secretKeyRef:
+                      name: evidence-store-credentials
+                      key: database-url
+                      optional: true
+              volumeMounts:
+                - name: baseline
+                  mountPath: /data
+                  readOnly: true
+              resources:
+                requests:
+                  cpu: 50m
+                  memory: 64Mi
+                limits:
+                  cpu: 100m
+                  memory: 128Mi
+          volumes:
+            - name: baseline
+              configMap:
+                name: drift-baseline
+          restartPolicy: OnFailure

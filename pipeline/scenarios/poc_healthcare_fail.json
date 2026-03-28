@@ -1,0 +1,70 @@
+{
+  "scenario": {
+    "name": "Healthcare Ambient AI Scribe — Compliance Violation (FAIL)",
+    "description": "Demonstrates the red-path: G-DEP-02 fails due to insufficient safety metrics, pipeline halts, FAIL evidence is recorded.",
+    "version": "1.0.0",
+    "created": "2026-03-28"
+  },
+
+  "pipeline": {
+    "id": "poc-closed-loop-fail",
+    "model_name": "ambient-ai-scribe",
+    "model_version": "0.9.0-degraded",
+    "evidence_db": "evidence_closed_loop_fail.db"
+  },
+
+  "gates": [
+    {
+      "gate_id": "G-PRE-01",
+      "gate_name": "Risk Classification",
+      "phase": "pre-deployment",
+      "method": "HYBRID",
+      "fixture": "scenarios/healthcare-ambient-ai-scribe/fixtures/app_documentation.json",
+      "policy": "policies/pre-deployment/policy_risk_classification.rego"
+    },
+    {
+      "gate_id": "G-PRE-04",
+      "gate_name": "Security Baseline",
+      "phase": "pre-deployment",
+      "method": "AUTO",
+      "fixture": "scenarios/healthcare-ambient-ai-scribe/fixtures/deployment_compliant.yaml",
+      "policy": "policies/pre-deployment/policy_security_baseline.rego"
+    },
+    {
+      "gate_id": "G-PRE-05",
+      "gate_name": "Strategic Governance Approval",
+      "phase": "pre-deployment",
+      "method": "HYBRID",
+      "fixture": "scenarios/healthcare-ambient-ai-scribe/fixtures/app_documentation.json",
+      "policy": "policies/pre-deployment/policy_governance_approval.rego"
+    },
+    {
+      "gate_id": "G-DEP-02",
+      "gate_name": "Safety Metrics Validation",
+      "phase": "deployment",
+      "method": "AUTO",
+      "fixture": "scenarios/healthcare-ambient-ai-scribe/fixtures/eval_results_fail.json",
+      "policy": "policies/deployment/policy_safety_metrics.rego",
+      "expect_fail": true,
+      "description_kolloquium": "Hier scheitert das Gate absichtlich: accuracy=0.72 (unter 0.85), latency_p95=2800ms (über 2000ms), safety_score=0.78 (unter 0.90). Die Pipeline stoppt — das FAIL wird trotzdem im Evidence Store festgehalten. Das zeigt: auch gescheiterte Prüfungen werden dokumentiert."
+    },
+    {
+      "gate_id": "G-OPS-03",
+      "gate_name": "Monitoring Configuration",
+      "phase": "operations",
+      "method": "AUTO",
+      "fixture": "scenarios/healthcare-ambient-ai-scribe/fixtures/deployment_compliant.yaml",
+      "policy": "policies/operations/policy_monitoring_configured.rego",
+      "skip_reason": "Pipeline halted at G-DEP-02"
+    },
+    {
+      "gate_id": "G-OPS-05",
+      "gate_name": "Evidence Completeness",
+      "phase": "operations",
+      "method": "AUTO",
+      "fixture": "scenarios/healthcare-ambient-ai-scribe/fixtures/deployment_compliant.yaml",
+      "policy": "policies/operations/policy_evidence_completeness.rego",
+      "skip_reason": "Pipeline halted at G-DEP-02"
+    }
+  ]
+}

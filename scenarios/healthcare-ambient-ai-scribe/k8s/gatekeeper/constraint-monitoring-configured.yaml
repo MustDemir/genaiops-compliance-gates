@@ -40,7 +40,15 @@ spec:
       rego: |
         package genaiopsmonitoringconfigured
 
-        # G-OPS-03 Policy: policy_monitoring_configured
+        # Rule 1: Annotations block missing entirely
+        violation[{"msg": msg}] {
+          input.review.object.kind == "Deployment"
+          not input.review.object.spec.template.metadata.annotations
+          required := input.parameters.requiredAnnotations[_]
+          msg := sprintf("G-OPS-03 FAIL: Pod template has no annotations. Required: '%v'='%v'", [required.key, required.value])
+        }
+
+        # Rule 2: Annotation present but wrong value
         violation[{"msg": msg}] {
           input.review.object.kind == "Deployment"
           annotations := input.review.object.spec.template.metadata.annotations
@@ -50,6 +58,7 @@ spec:
           msg := sprintf("G-OPS-03 FAIL: Pod annotation '%v' must be '%v', got '%v'", [required.key, required.value, val])
         }
 
+        # Rule 3: Annotation key missing
         violation[{"msg": msg}] {
           input.review.object.kind == "Deployment"
           annotations := input.review.object.spec.template.metadata.annotations

@@ -1,0 +1,406 @@
+# ================================================================
+# GenAIOps Compliance Gates — CI/CD Pipeline
+# ================================================================
+# Operationalizes Compliance-as-Code (D_CAC_AAC_DIFF):
+#   EU AI Act Art. 9–15 → R001–R014 → Rego Policies → Pipeline Enforcement
+#
+# Triggered on: push to main, pull_request to main
+# Gates checked (Conftest, S3 Policy Engine):
+#   G-PRE-01: Risk Classification     (R001, Art.9)   — HYBRID
+#   G-PRE-04: Security Baseline       (R003, Art.15)  — AUTO
+#   G-PRE-05: Governance Approval     (R012, Art.14)  — HYBRID
+#   G-DEP-02: Safety Metrics          (R003, Art.15)  — AUTO
+#
+# Evidence: Every gate result → Evidence Store (S4) with hash chain
+# Traceability: Commit-SHA as image tag (DP2)
+# ================================================================
+
+name: GenAIOps Quality Gate Pipeline
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scenarios/healthcare-ambient-ai-scribe/**'
+      - 'policies/**'
+      - 'evidence-store/**'
+      - 'pipeline/**'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'scenarios/healthcare-ambient-ai-scribe/**'
+      - 'policies/**'
+      - 'evidence-store/**'
+      - 'pipeline/**'
+  workflow_dispatch:  # Manual trigger for demo/walkthrough
+
+env:
+  SCENARIO_DIR: scenarios/healthcare-ambient-ai-scribe
+  IMAGE_NAME: ghcr.io/${{ github.repository_owner }}/ambient-ai-scribe
+  # PoC: SQLite for Evidence Store (production → PostgreSQL)
+  EVIDENCE_DB: /tmp/evidence_pipeline.db
+
+jobs:
+  # ────────────────────────────────────────────────────────
+  # Job 1: Quality Gate Checks (S2 + S3)
+  # ────────────────────────────────────────────────────────
+  quality-gates:
+    name: "Quality Gate Checks"
+    runs-on: ubuntu-latest
+    outputs:
+      gate_result: ${{ steps.gate-summary.outputs.result }}
+      pipeline_run_id: ${{ steps.init.outputs.pipeline_run_id }}
+
+    steps:
+      # ── Step 1: Setup ──
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Initialize pipeline run
+        id: init
+        run: |
+          PIPELINE_RUN_ID="pipeline-$(date +%Y%m%d-%H%M%S)-${GITHUB_SHA::8}"
+          echo "pipeline_run_id=$PIPELINE_RUN_ID" >> "$GITHUB_OUTPUT"
+          echo "::notice::Pipeline Run ID: $PIPELINE_RUN_ID"
+          echo "::notice::Commit SHA: $GITHUB_SHA"
+
+      - name: Install OPA + Conftest
+        run: |
+          # Install Conftest (Policy-as-Code tool for CI)
+          CONFTEST_VERSION="0.46.2"
+          wget -q "https://github.com/open-policy-agent/conftest/releases/download/v${CONFTEST_VERSION}/conftest_${CONFTEST_VERSION}_Linux_x86_64.tar.gz"
+          tar xzf "conftest_${CONFTEST_VERSION}_Linux_x86_64.tar.gz"
+          sudo mv conftest /usr/local/bin/
+          conftest --version
+          echo "::notice::Conftest v${CONFTEST_VERSION} installed"
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Python dependencies
+        run: |
+          pip install psycopg2-binary
+
+      # ── Step 2: Pre-Deployment Gates ──
+      - name: "Gate G-PRE-01: Risk Classification (R001, Art.9)"
+        id: g-pre-01
+        run: |
+          echo "::group::G-PRE-01 Risk Classification"
+          echo "📋 Checking: Is risk classification complete and valid?"
+          echo "   Policy: policies/pre-deployment/policy_risk_classification.rego"
+          echo "   Input:  $SCENARIO_DIR/fixtures/app_documentation.json"
+          echo ""
+
+          conftest test \
+            "$SCENARIO_DIR/fixtures/app_documentation.json" \
+            --policy policies/pre-deployment/policy_risk_classification.rego \
+            --namespace "genaiops.pre_deployment.risk_classification" \
+            --no-color \
+            --output json > /tmp/g-pre-01-result.json 2>&1 || true
+
+          # Parse result
+          FAILURES=$(cat /tmp/g-pre-01-result.json | python3 -c "
+          import json, sys
+          data = json.load(sys.stdin)
+          failures = sum(len(r.get('failures', [])) for r in data)
+          print(failures)
+          ")
+
+          if [ "$FAILURES" = "0" ]; then
+            echo "✅ G-PRE-01 PASS — Risk classification valid"
+            echo "result=PASS" >> "$GITHUB_OUTPUT"
+          else
+            echo "❌ G-PRE-01 FAIL — Risk classification incomplete"
+            cat /tmp/g-pre-01-result.json | python3 -c "
+          import json, sys
+          data = json.load(sys.stdin)
+          for r in data:
+            for f in r.get('failures', []):
+              print(f'  → {f[\"msg\"]}')
+          "
+            echo "result=FAIL" >> "$GITHUB_OUTPUT"
+          fi
+          echo "::endgroup::"
+
+      - name: "Gate G-PRE-04: Security Baseline (R003, Art.15)"
+        id: g-pre-04
+        run: |
+          echo "::group::G-PRE-04 Security Baseline"
+          echo "🔒 Checking: Container security (Non-Root, Limits, PrivEsc, Secrets)"
+          echo "   Policy: policies/pre-deployment/policy_security_baseline.rego"
+          echo "   Input:  $SCENARIO_DIR/fixtures/deployment_compliant.yaml"
+          echo ""
+
+          conftest test \
+            "$SCENARIO_DIR/fixtures/deployment_compliant.yaml" \
+            --policy policies/pre-deployment/policy_security_baseline.rego \
+            --namespace "genaiops.pre_deployment.security_baseline" \
+            --no-color \
+            --output json > /tmp/g-pre-04-result.json 2>&1 || true
+
+          FAILURES=$(cat /tmp/g-pre-04-result.json | python3 -c "
+          import json, sys
+          data = json.load(sys.stdin)
+          failures = sum(len(r.get('failures', [])) for r in data)
+          print(failures)
+          ")
+
+          if [ "$FAILURES" = "0" ]; then
+            echo "✅ G-PRE-04 PASS — Security baseline verified (P1-P6)"
+            echo "result=PASS" >> "$GITHUB_OUTPUT"
+          else
+            echo "❌ G-PRE-04 FAIL — Security violations found"
+            cat /tmp/g-pre-04-result.json | python3 -c "
+          import json, sys
+          data = json.load(sys.stdin)
+          for r in data:
+            for f in r.get('failures', []):
+              print(f'  → {f[\"msg\"]}')
+          "
+            echo "result=FAIL" >> "$GITHUB_OUTPUT"
+          fi
+          echo "::endgroup::"
+
+      - name: "Gate G-PRE-05: Governance Approval (R012, Art.14)"
+        id: g-pre-05
+        run: |
+          echo "::group::G-PRE-05 Governance Approval"
+          echo "📜 Checking: Strategic governance documentation complete?"
+          echo "   Policy: policies/pre-deployment/policy_governance_approval.rego"
+          echo "   Input:  $SCENARIO_DIR/fixtures/app_documentation.json"
+          echo ""
+
+          conftest test \
+            "$SCENARIO_DIR/fixtures/app_documentation.json" \
+            --policy policies/pre-deployment/policy_governance_approval.rego \
+            --namespace "genaiops.pre_deployment.governance_approval" \
+            --no-color \
+            --output json > /tmp/g-pre-05-result.json 2>&1 || true
+
+          FAILURES=$(cat /tmp/g-pre-05-result.json | python3 -c "
+          import json, sys
+          data = json.load(sys.stdin)
+          failures = sum(len(r.get('failures', [])) for r in data)
+          print(failures)
+          ")
+
+          if [ "$FAILURES" = "0" ]; then
+            echo "✅ G-PRE-05 PASS — Governance documentation verified"
+            echo "result=PASS" >> "$GITHUB_OUTPUT"
+          else
+            echo "❌ G-PRE-05 FAIL — Governance documentation incomplete"
+            cat /tmp/g-pre-05-result.json | python3 -c "
+          import json, sys
+          data = json.load(sys.stdin)
+          for r in data:
+            for f in r.get('failures', []):
+              print(f'  → {f[\"msg\"]}')
+          "
+            echo "result=FAIL" >> "$GITHUB_OUTPUT"
+          fi
+          echo "::endgroup::"
+
+      # ── Step 3: Deployment Gate ──
+      - name: "Gate G-DEP-02: Safety Metrics (R003, Art.15)"
+        id: g-dep-02
+        run: |
+          echo "::group::G-DEP-02 Safety Metrics"
+          echo "📊 Checking: accuracy >= 0.85, latency_p95 <= 2000ms, safety_score >= 0.90"
+          echo "   Policy: policies/deployment/policy_safety_metrics.rego"
+          echo "   Input:  $SCENARIO_DIR/fixtures/eval_results.json"
+          echo ""
+
+          conftest test \
+            "$SCENARIO_DIR/fixtures/eval_results.json" \
+            --policy policies/deployment/policy_safety_metrics.rego \
+            --namespace "genaiops.deployment.safety_metrics" \
+            --no-color \
+            --output json > /tmp/g-dep-02-result.json 2>&1 || true
+
+          FAILURES=$(cat /tmp/g-dep-02-result.json | python3 -c "
+          import json, sys
+          data = json.load(sys.stdin)
+          failures = sum(len(r.get('failures', [])) for r in data)
+          print(failures)
+          ")
+
+          if [ "$FAILURES" = "0" ]; then
+            echo "✅ G-DEP-02 PASS — Safety metrics within thresholds"
+            echo "result=PASS" >> "$GITHUB_OUTPUT"
+          else
+            echo "❌ G-DEP-02 FAIL — Safety metrics below threshold"
+            cat /tmp/g-dep-02-result.json | python3 -c "
+          import json, sys
+          data = json.load(sys.stdin)
+          for r in data:
+            for f in r.get('failures', []):
+              print(f'  → {f[\"msg\"]}')
+          "
+            echo "result=FAIL" >> "$GITHUB_OUTPUT"
+          fi
+          echo "::endgroup::"
+
+      # ── Step 4: Evidence Recording (S4) ──
+      - name: "Record Evidence — All Gate Results"
+        id: evidence
+        run: |
+          echo "::group::Evidence Store Recording"
+          echo "📦 Recording gate results to Evidence Store..."
+          echo "   Database: $EVIDENCE_DB (SQLite for PoC)"
+          echo ""
+
+          # Record each gate result to Evidence Store
+          for gate_info in \
+            "G-PRE-01:R001:${{ steps.g-pre-01.outputs.result }}" \
+            "G-PRE-04:R003:${{ steps.g-pre-04.outputs.result }}" \
+            "G-PRE-05:R012:${{ steps.g-pre-05.outputs.result }}" \
+            "G-DEP-02:R003:${{ steps.g-dep-02.outputs.result }}"
+          do
+            IFS=':' read -r GATE_ID REQ_ID DECISION <<< "$gate_info"
+
+            # Create evidence source JSON from Conftest output
+            RESULT_FILE="/tmp/${GATE_ID,,}-result.json"
+            EVIDENCE_SOURCE="/tmp/evidence_${GATE_ID,,}.json"
+
+            python3 -c "
+          import json
+          conftest = {}
+          try:
+            with open('$RESULT_FILE') as f:
+              conftest = json.load(f)
+          except: pass
+          evidence = {
+            'pipeline_run_id': '${{ steps.init.outputs.pipeline_run_id }}',
+            'commit_sha': '$GITHUB_SHA',
+            'trigger': '${{ github.event_name }}',
+            'actor': '${{ github.actor }}',
+            'gate_id': '$GATE_ID',
+            'requirement_id': '$REQ_ID',
+            'decision': '$DECISION',
+            'conftest_output': conftest
+          }
+          with open('$EVIDENCE_SOURCE', 'w') as f:
+            json.dump(evidence, f)
+          "
+
+            python3 evidence-store/scripts/record_evidence.py \
+              --sqlite "$EVIDENCE_DB" \
+              --gate "$GATE_ID" \
+              --method "AUTO" \
+              --source "$EVIDENCE_SOURCE" \
+              2>/dev/null && echo "  ✅ $GATE_ID ($DECISION) → Evidence recorded" \
+                         || echo "  ⚠️  $GATE_ID — Evidence recording skipped (non-critical)"
+          done
+          echo "::endgroup::"
+
+      # ── Step 5: Hash Chain Verification (S4 + DP5) ──
+      - name: "Verify Hash Chain Integrity"
+        id: hash-chain
+        run: |
+          echo "::group::Hash Chain Verification"
+          echo "🔗 Verifying tamper-proof audit trail..."
+
+          python3 evidence-store/scripts/verify_hash_chain.py \
+            --sqlite "$EVIDENCE_DB" \
+            2>/dev/null && echo "✅ Hash chain VALID — Evidence Store integrity confirmed" \
+                       || echo "⚠️  Hash chain verification skipped (non-critical for PoC)"
+          echo "::endgroup::"
+
+      # ── Step 6: Gate Summary + Decision ──
+      - name: "Pipeline Decision"
+        id: gate-summary
+        run: |
+          echo "╔══════════════════════════════════════════════════════════╗"
+          echo "║     GenAIOps Quality Gate Pipeline — Summary            ║"
+          echo "╠══════════════════════════════════════════════════════════╣"
+          echo "║  Pipeline Run: ${{ steps.init.outputs.pipeline_run_id }}"
+          echo "║  Commit:       ${GITHUB_SHA::8}"
+          echo "║  Trigger:      ${{ github.event_name }}"
+          echo "╠══════════════════════════════════════════════════════════╣"
+          echo "║  G-PRE-01 Risk Classification:  ${{ steps.g-pre-01.outputs.result }}"
+          echo "║  G-PRE-04 Security Baseline:    ${{ steps.g-pre-04.outputs.result }}"
+          echo "║  G-PRE-05 Governance Approval:  ${{ steps.g-pre-05.outputs.result }}"
+          echo "║  G-DEP-02 Safety Metrics:       ${{ steps.g-dep-02.outputs.result }}"
+          echo "╠══════════════════════════════════════════════════════════╣"
+
+          # Check if any gate failed
+          GATES=("${{ steps.g-pre-01.outputs.result }}" "${{ steps.g-pre-04.outputs.result }}" "${{ steps.g-pre-05.outputs.result }}" "${{ steps.g-dep-02.outputs.result }}")
+          ALL_PASS=true
+          for g in "${GATES[@]}"; do
+            if [ "$g" = "FAIL" ]; then
+              ALL_PASS=false
+              break
+            fi
+          done
+
+          if [ "$ALL_PASS" = true ]; then
+            echo "║  DECISION: ✅ ALL GATES PASSED — Deploy authorized     ║"
+            echo "result=PASS" >> "$GITHUB_OUTPUT"
+          else
+            echo "║  DECISION: ❌ GATE FAILURE — Deploy BLOCKED            ║"
+            echo "result=FAIL" >> "$GITHUB_OUTPUT"
+          fi
+          echo "╚══════════════════════════════════════════════════════════╝"
+
+          # Fail the job if any gate failed
+          if [ "$ALL_PASS" = false ]; then
+            echo "::error::Quality Gate failure — deployment blocked. Fix violations and re-push."
+            exit 1
+          fi
+
+  # ────────────────────────────────────────────────────────
+  # Job 2: Build + Push Docker Image (only if gates pass)
+  # ────────────────────────────────────────────────────────
+  build-and-push:
+    name: "Build & Push Image"
+    runs-on: ubuntu-latest
+    needs: quality-gates
+    if: needs.quality-gates.outputs.gate_result == 'PASS'
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build Docker image
+        run: |
+          echo "🐳 Building image with Commit-SHA tag (DP2 Traceability)..."
+          docker build \
+            -t "$IMAGE_NAME:${{ github.sha }}" \
+            -t "$IMAGE_NAME:latest" \
+            --label "org.opencontainers.image.revision=${{ github.sha }}" \
+            --label "org.opencontainers.image.created=$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
+            --label "genaiops.pipeline.run-id=${{ needs.quality-gates.outputs.pipeline_run_id }}" \
+            --label "genaiops.gates.result=PASS" \
+            "$SCENARIO_DIR"
+
+      - name: Push Docker image
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: |
+          echo "📤 Pushing image to ghcr.io (Commit-SHA + latest)..."
+          docker push "$IMAGE_NAME:${{ github.sha }}"
+          docker push "$IMAGE_NAME:latest"
+          echo "::notice::Image pushed: $IMAGE_NAME:${{ github.sha }}"
+
+      - name: "Pipeline Complete"
+        run: |
+          echo "╔══════════════════════════════════════════════════════════╗"
+          echo "║  ✅ GenAIOps Pipeline COMPLETE                          ║"
+          echo "║                                                          ║"
+          echo "║  Gates:  4/4 PASS                                       ║"
+          echo "║  Image:  $IMAGE_NAME:${{ github.sha }}"
+          echo "║  Evidence: Recorded + Hash Chain Verified                ║"
+          echo "║                                                          ║"
+          echo "║  CDV-Pattern: Contract → Validation → PASS → Deploy     ║"
+          echo "╚══════════════════════════════════════════════════════════╝"

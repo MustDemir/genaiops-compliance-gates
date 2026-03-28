@@ -190,7 +190,7 @@ psql -f schema/evidence_store_schema_v02_enterprise.sql
 > Strategie: Lokal-first (Phase 1–11 kostenlos auf Minikube), Azure erst Phase 12. Geschaetzter Aufwand: ~30–42h ueber 4–6 Wochen.
 
 <!-- PROGRESS-START -->
-> Gesamtfortschritt: `██████████░░░░░░░░░░` **50%** (6/12 Phasen)
+> Gesamtfortschritt: `█████████████████░░░` **85%** (10/12 Phasen)
 
 | Phase | Beschreibung | Fortschritt | Status |
 |-------|-------------|------------|--------|
@@ -199,11 +199,11 @@ psql -f schema/evidence_store_schema_v02_enterprise.sql
 | **3** | Docker Compose (App + DB + Prometheus + Grafana) | `████████████████████` 100% | done |
 | **4** | K8s-Manifeste (Deployment, Service, ConfigMap, Sidecar) | `████████████████████` 100% | done |
 | **5** | Rego-Policies + Conftest-Tests (6 Gates) | `████████████████████` 100% | done |
-| **6** | Lokaler Cluster (Minikube) + Helm-Basics | `░░░░░░░░░░░░░░░░░░░░` 0% | planned |
-| **7** | Gatekeeper + ConstraintTemplates + OPS-Policies | `░░░░░░░░░░░░░░░░░░░░` 0% | planned |
-| **8** | Evidence Store (PostgreSQL Schema + Scripts) | `████████████████████` 100% | done |
-| **9** | Monitoring-Sidecar (PSI + Jensen-Shannon + Prometheus) | `░░░░░░░░░░░░░░░░░░░░` 0% | planned |
-| **10** | ArgoCD + GitHub Actions Pipeline | `░░░░░░░░░░░░░░░░░░░░` 0% | planned |
+| **6** | Lokaler Cluster (Minikube) + Helm + Gatekeeper | `████████████████████` 100% | done |
+| **7** | Gatekeeper ConstraintTemplates (ADMIT/REJECT live) | `████████████████████` 100% | done |
+| **8** | Evidence Store + Closed-Loop Pipeline | `████████████████████` 100% | done |
+| **9** | Drift Detection (PSI/JSD + Prometheus + Grafana) | `████████████████████` 100% | done |
+| **10** | GitHub Actions Pipeline (Conftest CI + Evidence) | `████████████████████` 100% | done |
 | **11** | Green/Red Path Walkthrough + Screenshots (Kap. 6.3) | `░░░░░░░░░░░░░░░░░░░░` 0% | planned |
 | **12** | Azure AKS Migration (Terraform + ACR + PostgreSQL) | `░░░░░░░░░░░░░░░░░░░░` 0% | planned |
 <!-- PROGRESS-END -->
@@ -226,8 +226,15 @@ psql -f schema/evidence_store_schema_v02_enterprise.sql
 | Tamper-Detection Spec | done | Dokumentiert: 8 erkannte Angriffsvektoren, 6 bekannte Limitationen, 3 Protection Layers |
 | Walkthrough-Dokumentation | done | 13-Schritte Walkthrough für Kap. 6.3 (Pre-Dep → Dep → Ops → HYBRID → Tamper) |
 | Schema-Evolution-Dok | done | v01→v02→v03 Changelog mit Rationale und Hash-Trigger-Details |
-| Terraform/Helm | planned | 0% — Phase 6/12 |
-| GitHub Actions Pipeline | planned | 0% — Phase 10 |
+| Minikube Deployment Scripts | done | 4 scripts: setup-minikube, install-gatekeeper, deploy-app, smoke-test (8/8 PASS) |
+| Helm Values | done | gatekeeper-values.yaml + prometheus-stack-values.yaml |
+| Gatekeeper Live | done | 2 CTs + 2 Constraints, ADMIT/REJECT verified on cluster |
+| Closed-Loop Pipeline | done | gate_orchestrator.py: 3 scenarios (PASS/FAIL/Gatekeeper), tamper detection |
+| Drift Detection | done | drift_detector.py (PSI+JSD), 37 tests, Prometheus/Grafana/AlertManager |
+| GitHub Actions Pipeline | done | gate-pipeline.yml (4 CI gates + Evidence + Hash-Chain), test_pipeline_local.sh |
+| Master Integration Test | done | test_all.py: 22/22 PASS across all 5 pillars |
+| Kolloquium Documentation | done | CLOSED_LOOP_ERKLAERUNG.md: Phase 8–10 with Q&A |
+| Terraform/Helm (Azure) | planned | 0% — Phase 12 (optional) |
 
 ## Academic Foundation
 

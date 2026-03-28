@@ -1,0 +1,158 @@
+# ================================================================
+# prometheus-stack-values.yaml — kube-prometheus-stack Helm Values
+# ================================================================
+# Phase 9: Monitoring & Post-Market Surveillance (Pillar S5)
+# Decision: Option A — kube-prometheus-stack with Grafana
+#
+# What this configures (Kolloquium):
+#   This is the monitoring backbone for our compliance system.
+#   Prometheus SCRAPES metrics from the AI app and drift detector.
+#   Grafana VISUALIZES them in dashboards.
+#   AlertManager NOTIFIES when thresholds are exceeded.
+#
+#   For the PoC, we keep resource limits small (Minikube has 8GB total).
+#
+# Chart: prometheus-community/kube-prometheus-stack
+# Docs: https://github.com/prometheus-community/helm-charts
+# ================================================================
+
+# ── Prometheus ────────────────────────────────────────────────
+
+prometheus:
+  prometheusSpec:
+    # PoC: keep retention short, we don't need long-term storage
+    retention: 7d
+    retentionSize: "2GB"
+
+    # Resource limits for Minikube (8GB total, shared with app)
+    resources:
+      requests:
+        cpu: 200m
+        memory: 512Mi
+      limits:
+        cpu: 500m
+        memory: 1Gi
+
+    # Scrape our genaiops namespace
+    serviceMonitorSelectorNilUsesHelmValues: false
+    ruleSelectorNilUsesHelmValues: false
+    podMonitorSelectorNilUsesHelmValues: false
+
+    # Storage: 5GB PVC for metrics data
+    storageSpec:
+      volumeClaimTemplate:
+        spec:
+          accessModes: ["ReadWriteOnce"]
+          resources:
+            requests:
+              storage: 5Gi
+
+# ── Grafana ───────────────────────────────────────────────────
+
+grafana:
+  enabled: true
+
+  # Admin credentials (PoC only — not for production!)
+  adminUser: admin
+  adminPassword: genaiops-poc
+
+  # Resource limits for Minikube
+  resources:
+    requests:
+      cpu: 100m
+      memory: 256Mi
+    limits:
+      cpu: 300m
+      memory: 512Mi
+
+  # Persistence: save dashboards across restarts
+  persistence:
+    enabled: true
+    size: 1Gi
+
+  # Service: NodePort for easy Minikube access
+  service:
+    type: NodePort
+    nodePort: 30300
+
+  # Default dashboard provider for auto-loading
+  dashboardProviders:
+    dashboardproviders.yaml:
+      apiVersion: 1
+      providers:
+        - name: genaiops
+          orgId: 1
+          folder: GenAIOps
+          type: file
+          disableDeletion: false
+          editable: true
+          options:
+            path: /var/lib/grafana/dashboards/genaiops
+
+  # Sidecar: auto-discover ConfigMap dashboards with label
+  sidecar:
+    dashboards:
+      enabled: true
+      label: grafana_dashboard
+      labelValue: "1"
+      folder: /var/lib/grafana/dashboards/genaiops
+      searchNamespace: genaiops
+
+# ── AlertManager ──────────────────────────────────────────────
+
+alertmanager:
+  alertmanagerSpec:
+    resources:
+      requests:
+        cpu: 50m
+        memory: 64Mi
+      limits:
+        cpu: 100m
+        memory: 128Mi
+
+  # For PoC: log alerts to stdout (no Slack/PagerDuty integration)
+  config:
+    global:
+      resolve_timeout: 5m
+    route:
+      receiver: "null"
+      group_by: ["alertname", "gate_id"]
+      group_wait: 30s
+      group_interval: 5m
+      repeat_interval: 4h
+    receivers:
+      - name: "null"
+
+# ── Node Exporter (minimal for PoC) ──────────────────────────
+
+nodeExporter:
+  enabled: true
+  resources:
+    requests:
+      cpu: 50m
+      memory: 32Mi
+    limits:
+      cpu: 100m
+      memory: 64Mi
+
+# ── kube-state-metrics ────────────────────────────────────────
+
+kube-state-metrics:
+  resources:
+    requests:
+      cpu: 50m
+      memory: 64Mi
+    limits:
+      cpu: 100m
+      memory: 128Mi
+
+# ── Disable components not needed for PoC ─────────────────────
+
+kubeEtcd:
+  enabled: false
+kubeScheduler:
+  enabled: false
+kubeControllerManager:
+  enabled: false
+kubeProxy:
+  enabled: false

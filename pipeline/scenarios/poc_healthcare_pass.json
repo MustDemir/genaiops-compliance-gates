@@ -1,0 +1,83 @@
+{
+  "scenario": {
+    "name": "Healthcare Ambient AI Scribe — Full Compliance (PASS)",
+    "description": "All 6 PoC gates pass: demonstrates the green-path closed loop where every gate records PASS evidence to the Evidence Store.",
+    "version": "1.0.0",
+    "created": "2026-03-28"
+  },
+
+  "pipeline": {
+    "id": "poc-closed-loop",
+    "model_name": "ambient-ai-scribe",
+    "model_version": "1.0.0-mock",
+    "evidence_db": "evidence_closed_loop.db"
+  },
+
+  "gates": [
+    {
+      "gate_id": "G-PRE-01",
+      "gate_name": "Risk Classification",
+      "phase": "pre-deployment",
+      "method": "HYBRID",
+      "fixture": "scenarios/healthcare-ambient-ai-scribe/fixtures/app_documentation.json",
+      "policy": "policies/pre-deployment/policy_risk_classification.rego",
+      "description_de": "Prüft ob Risiko-Klassifikation vollständig ist (Conftest AUTO) + manuelle Bestätigung durch Compliance Officer (MANUAL).",
+      "description_kolloquium": "Zuerst prüft das System automatisch: Ist die Risiko-Klasse angegeben? Gibt es eine Begründung? Ist der Annex-Verweis korrekt? Dann bestätigt ein Mensch (Compliance Officer): Ja, die Klassifikation ist inhaltlich richtig."
+    },
+    {
+      "gate_id": "G-PRE-04",
+      "gate_name": "Security Baseline",
+      "phase": "pre-deployment",
+      "method": "AUTO",
+      "fixture": "scenarios/healthcare-ambient-ai-scribe/fixtures/deployment_compliant.yaml",
+      "policy": "policies/pre-deployment/policy_security_baseline.rego",
+      "description_de": "Prüft 6 Container-Sicherheitschecks (CDV-Contract P1–P6) gegen das K8s-Deployment-Manifest.",
+      "description_kolloquium": "Das System prüft automatisch 6 Sicherheitsregeln: Läuft der Container ohne Root-Rechte? Sind CPU/Memory-Limits gesetzt? Keine Passwörter im Klartext? Kein privilege escalation? Das ist rein maschinell — kein Mensch nötig."
+    },
+    {
+      "gate_id": "G-PRE-05",
+      "gate_name": "Strategic Governance Approval",
+      "phase": "pre-deployment",
+      "method": "HYBRID",
+      "fixture": "scenarios/healthcare-ambient-ai-scribe/fixtures/app_documentation.json",
+      "policy": "policies/pre-deployment/policy_governance_approval.rego",
+      "manual_source": "scenarios/healthcare-ambient-ai-scribe/fixtures/decision_log_gpre05_manual.json",
+      "description_de": "Prüft FRIA, Oversight-Modell, Eskalation, Kill-Switch (AUTO) + strategische Freigabe durch Governance Lead (MANUAL).",
+      "description_kolloquium": "Hier prüft das System: Wurde eine Grundrechte-Folgenabschätzung gemacht? Gibt es einen Notaus-Schalter? Wer überwacht das System? Dann muss ein Governance-Verantwortlicher explizit freigeben — das ist die menschliche Kontrolle nach Art. 14 EU AI Act."
+    },
+    {
+      "gate_id": "G-DEP-02",
+      "gate_name": "Safety Metrics Validation",
+      "phase": "deployment",
+      "method": "AUTO",
+      "fixture": "scenarios/healthcare-ambient-ai-scribe/fixtures/eval_results.json",
+      "policy": "policies/deployment/policy_safety_metrics.rego",
+      "description_de": "Prüft ob Accuracy ≥0.85, Latency P95 ≤2000ms, Safety Score ≥0.90.",
+      "description_kolloquium": "Bevor das KI-System live geht, müssen die Qualitätswerte stimmen: Mindestens 85% Genauigkeit, Antwortzeit unter 2 Sekunden, und ein Sicherheits-Score über 90%. Das System blockiert automatisch, wenn ein Wert unter der Schwelle liegt."
+    },
+    {
+      "gate_id": "G-OPS-03",
+      "gate_name": "Monitoring Configuration",
+      "phase": "operations",
+      "method": "AUTO",
+      "fixture": "scenarios/healthcare-ambient-ai-scribe/fixtures/deployment_compliant.yaml",
+      "policy": "policies/operations/policy_monitoring_configured.rego",
+      "enforcement": "gatekeeper",
+      "constraint_template": "scenarios/healthcare-ambient-ai-scribe/k8s/gatekeeper/constraint-monitoring-configured.yaml",
+      "description_de": "Prüft ob Drift-Detection und Service-Monitor konfiguriert sind (K8s-Annotations).",
+      "description_kolloquium": "Wenn jemand ein KI-System deployen will, prüft der Kubernetes-Admission-Controller: Hat das Deployment die nötigen Monitoring-Annotations? Ohne Drift-Erkennung und Service-Monitor kommt kein Deployment durch."
+    },
+    {
+      "gate_id": "G-OPS-05",
+      "gate_name": "Evidence Completeness",
+      "phase": "operations",
+      "method": "AUTO",
+      "fixture": "scenarios/healthcare-ambient-ai-scribe/fixtures/deployment_compliant.yaml",
+      "policy": "policies/operations/policy_evidence_completeness.rego",
+      "enforcement": "gatekeeper",
+      "constraint_template": "scenarios/healthcare-ambient-ai-scribe/k8s/gatekeeper/constraint-evidence-completeness.yaml",
+      "description_de": "Prüft ob Evidence Store angebunden und Hash-Chain aktiviert ist (K8s-Annotations).",
+      "description_kolloquium": "Das letzte Gate stellt sicher: Ist die Beweissicherung aktiviert? Jede Entscheidung muss in der Datenbank landen — mit einer kryptografischen Kette die Manipulation erkennbar macht. Ohne das kommt kein Deployment durch."
+    }
+  ]
+}

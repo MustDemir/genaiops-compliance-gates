@@ -1,0 +1,11 @@
+{
+  "features": {
+    "latency_distribution": [0.03, 0.08, 0.15, 0.25, 0.30, 0.19],
+    "input_length_distribution": [0.02, 0.05, 0.10, 0.25, 0.35, 0.23],
+    "confidence_distribution": [0.20, 0.25, 0.20, 0.15, 0.12, 0.08]
+  },
+  "source": "healthcare-ambient-ai-scribe/drifted",
+  "captured_at": "2026-03-28T10:00:00Z",
+  "bucket_labels": ["0-100", "100-250", "250-500", "500-1000", "1000-2000", "2000+"],
+  "description": "Heavily drifted distribution simulating rural clinic data. Latency shifted right (slower responses), input lengths shifted right (longer dictations), confidence shifted left (lower confidence). Should produce PSI > 0.3 and JSD > 0.1 — CRITICAL drift."
+}

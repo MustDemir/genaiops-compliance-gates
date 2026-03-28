@@ -1,0 +1,77 @@
+# ================================================================
+# Gatekeeper Helm Values — GenAIOps PoC (Phase 6)
+# ================================================================
+# Upstream chart: https://open-policy-agent.github.io/gatekeeper/charts
+# Decision: D_GATEKEEPER_STANDALONE (replicas=1, auditInterval=60)
+# Decision: E6 (Lokal-first / Minikube)
+#
+# What this does (Kolloquium):
+#   Configures the Gatekeeper Admission Controller for our PoC.
+#   Gatekeeper sits at the "front door" of Kubernetes and checks
+#   every Deployment request against our compliance rules (CTs).
+#   If a Deployment is missing required annotations (like
+#   evidence-store-connected or drift-detection-enabled),
+#   Gatekeeper REJECTS it — the Deployment never starts.
+#
+# Key settings explained:
+#   replicas: 1        → One instance (PoC, not production HA)
+#   auditInterval: 60  → Check existing resources every 60 seconds
+#   logLevel: INFO      → Enough detail for walkthrough screenshots
+#   resources: reduced  → Fits on Minikube (8 GB total)
+# ================================================================
+
+# -- Controller settings
+replicas: 1                    # D_GATEKEEPER_STANDALONE: single replica for PoC
+
+# -- Audit settings
+# Gatekeeper periodically re-checks all existing resources.
+# In production: 300s. For PoC we use 60s so violations show up fast.
+auditInterval: 60              # seconds between audit runs
+auditMatchKindOnly: true       # Only audit resource kinds that have constraints
+constraintViolationsLimit: 20  # Max violations shown per constraint
+
+# -- Logging
+logLevel: INFO                 # DEBUG for troubleshooting, INFO for walkthrough
+
+# -- Webhook configuration
+# Gatekeeper intercepts CREATE and UPDATE requests for Deployments.
+# failurePolicy: Fail means if Gatekeeper is down, requests are BLOCKED.
+# This is the secure default — no "sneaking past" the doorman.
+controllerManager:
+  resources:
+    limits:
+      cpu: 500m
+      memory: 512Mi
+    requests:
+      cpu: 100m
+      memory: 256Mi
+
+audit:
+  resources:
+    limits:
+      cpu: 500m
+      memory: 512Mi
+    requests:
+      cpu: 100m
+      memory: 256Mi
+
+# -- Namespace exemptions
+# These namespaces are NOT checked by Gatekeeper (system namespaces).
+# Our constraints use spec.match.namespaces: ["genaiops"] anyway,
+# but this provides an extra safety net.
+exemptNamespaces:
+  - kube-system
+  - kube-public
+  - kube-node-lease
+  - gatekeeper-system
+  - monitoring
+  - argocd
+
+# -- Emit events for audit violations (useful for walkthrough)
+emitAuditEvents: true
+emitAdmissionEvents: true
+
+# -- Pod disruption budget (disabled for single-replica PoC)
+pdb:
+  controllerManager:
+    minAvailable: 0

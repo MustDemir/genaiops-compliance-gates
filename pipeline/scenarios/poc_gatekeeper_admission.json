@@ -1,0 +1,54 @@
+{
+  "scenario": {
+    "name": "Gatekeeper Admission Control — ADMIT vs REJECT",
+    "description": "Demonstrates Gatekeeper ConstraintTemplate enforcement: compliant deployment gets ADMIT, noncompliant gets REJECT. Both results recorded in Evidence Store.",
+    "version": "1.0.0",
+    "created": "2026-03-28"
+  },
+
+  "pipeline": {
+    "id": "poc-gatekeeper-admission",
+    "model_name": "ambient-ai-scribe",
+    "model_version": "1.0.0-mock",
+    "evidence_db": "evidence_gatekeeper_test.db"
+  },
+
+  "gates": [
+    {
+      "gate_id": "G-OPS-03",
+      "gate_name": "Monitoring Configuration (ADMIT case)",
+      "phase": "operations",
+      "method": "AUTO",
+      "fixture": "scenarios/healthcare-ambient-ai-scribe/fixtures/admission_review_compliant.json",
+      "enforcement": "gatekeeper",
+      "description_kolloquium": "Ein Deployment mit allen nötigen Monitoring-Annotations wird eingereicht. Der Gatekeeper (simuliert) prüft: drift-detection-enabled=true? service-monitor-configured=true? Beides vorhanden → ADMIT."
+    },
+    {
+      "gate_id": "G-OPS-05",
+      "gate_name": "Evidence Completeness (ADMIT case)",
+      "phase": "operations",
+      "method": "AUTO",
+      "fixture": "scenarios/healthcare-ambient-ai-scribe/fixtures/admission_review_compliant.json",
+      "enforcement": "gatekeeper",
+      "description_kolloquium": "Gleiches Deployment: evidence-store-connected=true und hash-chain-enabled=true sind als Annotations gesetzt → ADMIT."
+    },
+    {
+      "gate_id": "G-OPS-03",
+      "gate_name": "Monitoring Configuration (REJECT case)",
+      "phase": "operations",
+      "method": "AUTO",
+      "fixture": "scenarios/healthcare-ambient-ai-scribe/fixtures/admission_review_noncompliant.json",
+      "enforcement": "gatekeeper",
+      "description_kolloquium": "Ein nicht-konformes Deployment: keine Monitoring-Annotations → Gatekeeper REJECT. Das FAIL wird trotzdem im Evidence Store dokumentiert."
+    },
+    {
+      "gate_id": "G-OPS-05",
+      "gate_name": "Evidence Completeness (REJECT case)",
+      "phase": "operations",
+      "method": "AUTO",
+      "fixture": "scenarios/healthcare-ambient-ai-scribe/fixtures/admission_review_noncompliant.json",
+      "enforcement": "gatekeeper",
+      "description_kolloquium": "Gleiches nicht-konformes Deployment: keine Evidence-Store-Annotations → REJECT. Der Audit-Trail zeigt jetzt sowohl erfolgreiche als auch gescheiterte Admission-Versuche."
+    }
+  ]
+}

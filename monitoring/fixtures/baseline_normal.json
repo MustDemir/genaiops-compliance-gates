@@ -1,0 +1,11 @@
+{
+  "features": {
+    "latency_distribution": [0.15, 0.25, 0.30, 0.15, 0.10, 0.05],
+    "input_length_distribution": [0.10, 0.20, 0.35, 0.20, 0.10, 0.05],
+    "confidence_distribution": [0.05, 0.10, 0.15, 0.25, 0.30, 0.15]
+  },
+  "source": "healthcare-ambient-ai-scribe/baseline",
+  "captured_at": "2026-03-15T08:00:00Z",
+  "bucket_labels": ["0-100", "100-250", "250-500", "500-1000", "1000-2000", "2000+"],
+  "description": "Baseline distribution captured during initial deployment. Represents normal operating conditions of the Healthcare Ambient AI Scribe in Berlin hospital setting."
+}
