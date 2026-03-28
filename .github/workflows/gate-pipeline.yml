@@ -67,8 +67,9 @@ jobs:
       - name: Install OPA + Conftest
         run: |
           # Install Conftest (Policy-as-Code tool for CI)
-          CONFTEST_VERSION="0.46.2"
-          wget -q "https://github.com/open-policy-agent/conftest/releases/download/v${CONFTEST_VERSION}/conftest_${CONFTEST_VERSION}_Linux_x86_64.tar.gz"
+          CONFTEST_VERSION="0.56.0"
+          wget -q "https://github.com/open-policy-agent/conftest/releases/download/v${CONFTEST_VERSION}/conftest_${CONFTEST_VERSION}_Linux_x86_64.tar.gz" \
+            || { echo "::error::Failed to download Conftest v${CONFTEST_VERSION}"; exit 1; }
           tar xzf "conftest_${CONFTEST_VERSION}_Linux_x86_64.tar.gz"
           sudo mv conftest /usr/local/bin/
           conftest --version
@@ -98,28 +99,37 @@ jobs:
             --policy policies/pre-deployment/policy_risk_classification.rego \
             --namespace "genaiops.pre_deployment.risk_classification" \
             --no-color \
-            --output json > /tmp/g-pre-01-result.json 2>&1 || true
+            --output json > /tmp/g-pre-01-result.json 2>/dev/null || true
 
-          # Parse result
-          FAILURES=$(cat /tmp/g-pre-01-result.json | python3 -c "
+          # Parse result (robust: fallback to -1 if JSON invalid)
+          FAILURES=$(python3 -c "
           import json, sys
-          data = json.load(sys.stdin)
-          failures = sum(len(r.get('failures', [])) for r in data)
-          print(failures)
+          try:
+            with open('/tmp/g-pre-01-result.json') as f:
+              data = json.load(f)
+            print(sum(len(r.get('failures', [])) for r in data))
+          except Exception as e:
+            print(f'::warning::G-PRE-01 JSON parse error: {e}', file=sys.stderr)
+            print(-1)
           ")
 
           if [ "$FAILURES" = "0" ]; then
             echo "✅ G-PRE-01 PASS — Risk classification valid"
             echo "result=PASS" >> "$GITHUB_OUTPUT"
+          elif [ "$FAILURES" = "-1" ]; then
+            echo "⚠️  G-PRE-01 ERROR — Could not parse Conftest output"
+            cat /tmp/g-pre-01-result.json || true
+            echo "result=FAIL" >> "$GITHUB_OUTPUT"
           else
-            echo "❌ G-PRE-01 FAIL — Risk classification incomplete"
-            cat /tmp/g-pre-01-result.json | python3 -c "
-          import json, sys
-          data = json.load(sys.stdin)
+            echo "❌ G-PRE-01 FAIL — $FAILURES violations found"
+            python3 -c "
+          import json
+          with open('/tmp/g-pre-01-result.json') as f:
+            data = json.load(f)
           for r in data:
             for f in r.get('failures', []):
               print(f'  → {f[\"msg\"]}')
-          "
+          " 2>/dev/null || true
             echo "result=FAIL" >> "$GITHUB_OUTPUT"
           fi
           echo "::endgroup::"
@@ -138,27 +148,36 @@ jobs:
             --policy policies/pre-deployment/policy_security_baseline.rego \
             --namespace "genaiops.pre_deployment.security_baseline" \
             --no-color \
-            --output json > /tmp/g-pre-04-result.json 2>&1 || true
+            --output json > /tmp/g-pre-04-result.json 2>/dev/null || true
 
-          FAILURES=$(cat /tmp/g-pre-04-result.json | python3 -c "
+          FAILURES=$(python3 -c "
           import json, sys
-          data = json.load(sys.stdin)
-          failures = sum(len(r.get('failures', [])) for r in data)
-          print(failures)
+          try:
+            with open('/tmp/g-pre-04-result.json') as f:
+              data = json.load(f)
+            print(sum(len(r.get('failures', [])) for r in data))
+          except Exception as e:
+            print(f'::warning::G-PRE-04 JSON parse error: {e}', file=sys.stderr)
+            print(-1)
           ")
 
           if [ "$FAILURES" = "0" ]; then
             echo "✅ G-PRE-04 PASS — Security baseline verified (P1-P6)"
             echo "result=PASS" >> "$GITHUB_OUTPUT"
+          elif [ "$FAILURES" = "-1" ]; then
+            echo "⚠️  G-PRE-04 ERROR — Could not parse Conftest output"
+            cat /tmp/g-pre-04-result.json || true
+            echo "result=FAIL" >> "$GITHUB_OUTPUT"
           else
-            echo "❌ G-PRE-04 FAIL — Security violations found"
-            cat /tmp/g-pre-04-result.json | python3 -c "
-          import json, sys
-          data = json.load(sys.stdin)
+            echo "❌ G-PRE-04 FAIL — $FAILURES violations found"
+            python3 -c "
+          import json
+          with open('/tmp/g-pre-04-result.json') as f:
+            data = json.load(f)
           for r in data:
             for f in r.get('failures', []):
               print(f'  → {f[\"msg\"]}')
-          "
+          " 2>/dev/null || true
             echo "result=FAIL" >> "$GITHUB_OUTPUT"
           fi
           echo "::endgroup::"
@@ -177,27 +196,36 @@ jobs:
             --policy policies/pre-deployment/policy_governance_approval.rego \
             --namespace "genaiops.pre_deployment.governance_approval" \
             --no-color \
-            --output json > /tmp/g-pre-05-result.json 2>&1 || true
+            --output json > /tmp/g-pre-05-result.json 2>/dev/null || true
 
-          FAILURES=$(cat /tmp/g-pre-05-result.json | python3 -c "
+          FAILURES=$(python3 -c "
           import json, sys
-          data = json.load(sys.stdin)
-          failures = sum(len(r.get('failures', [])) for r in data)
-          print(failures)
+          try:
+            with open('/tmp/g-pre-05-result.json') as f:
+              data = json.load(f)
+            print(sum(len(r.get('failures', [])) for r in data))
+          except Exception as e:
+            print(f'::warning::G-PRE-05 JSON parse error: {e}', file=sys.stderr)
+            print(-1)
           ")
 
           if [ "$FAILURES" = "0" ]; then
             echo "✅ G-PRE-05 PASS — Governance documentation verified"
             echo "result=PASS" >> "$GITHUB_OUTPUT"
+          elif [ "$FAILURES" = "-1" ]; then
+            echo "⚠️  G-PRE-05 ERROR — Could not parse Conftest output"
+            cat /tmp/g-pre-05-result.json || true
+            echo "result=FAIL" >> "$GITHUB_OUTPUT"
           else
-            echo "❌ G-PRE-05 FAIL — Governance documentation incomplete"
-            cat /tmp/g-pre-05-result.json | python3 -c "
-          import json, sys
-          data = json.load(sys.stdin)
+            echo "❌ G-PRE-05 FAIL — $FAILURES violations found"
+            python3 -c "
+          import json
+          with open('/tmp/g-pre-05-result.json') as f:
+            data = json.load(f)
           for r in data:
             for f in r.get('failures', []):
               print(f'  → {f[\"msg\"]}')
-          "
+          " 2>/dev/null || true
             echo "result=FAIL" >> "$GITHUB_OUTPUT"
           fi
           echo "::endgroup::"
@@ -217,27 +245,36 @@ jobs:
             --policy policies/deployment/policy_safety_metrics.rego \
             --namespace "genaiops.deployment.safety_metrics" \
             --no-color \
-            --output json > /tmp/g-dep-02-result.json 2>&1 || true
+            --output json > /tmp/g-dep-02-result.json 2>/dev/null || true
 
-          FAILURES=$(cat /tmp/g-dep-02-result.json | python3 -c "
+          FAILURES=$(python3 -c "
           import json, sys
-          data = json.load(sys.stdin)
-          failures = sum(len(r.get('failures', [])) for r in data)
-          print(failures)
+          try:
+            with open('/tmp/g-dep-02-result.json') as f:
+              data = json.load(f)
+            print(sum(len(r.get('failures', [])) for r in data))
+          except Exception as e:
+            print(f'::warning::G-DEP-02 JSON parse error: {e}', file=sys.stderr)
+            print(-1)
           ")
 
           if [ "$FAILURES" = "0" ]; then
             echo "✅ G-DEP-02 PASS — Safety metrics within thresholds"
             echo "result=PASS" >> "$GITHUB_OUTPUT"
+          elif [ "$FAILURES" = "-1" ]; then
+            echo "⚠️  G-DEP-02 ERROR — Could not parse Conftest output"
+            cat /tmp/g-dep-02-result.json || true
+            echo "result=FAIL" >> "$GITHUB_OUTPUT"
           else
-            echo "❌ G-DEP-02 FAIL — Safety metrics below threshold"
-            cat /tmp/g-dep-02-result.json | python3 -c "
-          import json, sys
-          data = json.load(sys.stdin)
+            echo "❌ G-DEP-02 FAIL — $FAILURES violations found"
+            python3 -c "
+          import json
+          with open('/tmp/g-dep-02-result.json') as f:
+            data = json.load(f)
           for r in data:
             for f in r.get('failures', []):
               print(f'  → {f[\"msg\"]}')
-          "
+          " 2>/dev/null || true
             echo "result=FAIL" >> "$GITHUB_OUTPUT"
           fi
           echo "::endgroup::"
