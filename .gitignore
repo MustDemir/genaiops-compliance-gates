@@ -31,6 +31,9 @@ kubeconfig
 .DS_Store
 Thumbs.db
 
+# Claude/Cowork
+.claude/
+
 # Evidence Store data (runtime artifacts, not committed)
 evidence-store/*.db
 evidence-store/*.db-journal
