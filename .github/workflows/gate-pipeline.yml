@@ -390,6 +390,8 @@ jobs:
   # ────────────────────────────────────────────────────────
   # Job 2: Build + Push Docker Image (only if gates pass)
   # ────────────────────────────────────────────────────────
+  # Requires Dockerfile in SCENARIO_DIR. Skips gracefully if absent.
+  # Docker tags must be lowercase → tr conversion on repository_owner.
   build-and-push:
     name: "Build & Push Image"
     runs-on: ubuntu-latest
@@ -403,7 +405,20 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Check for Dockerfile
+        id: dockerfile-check
+        run: |
+          if [ -f "$SCENARIO_DIR/Dockerfile" ]; then
+            echo "exists=true" >> "$GITHUB_OUTPUT"
+            echo "✅ Dockerfile found in $SCENARIO_DIR"
+          else
+            echo "exists=false" >> "$GITHUB_OUTPUT"
+            echo "ℹ️  No Dockerfile in $SCENARIO_DIR — skipping Docker build"
+            echo "   Quality Gates passed — this is sufficient for PoC demonstration."
+          fi
+
       - name: Log in to GitHub Container Registry
+        if: steps.dockerfile-check.outputs.exists == 'true'
         uses: docker/login-action@v3
         with:
           registry: ghcr.io
@@ -411,11 +426,15 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build Docker image
+        if: steps.dockerfile-check.outputs.exists == 'true'
         run: |
+          # Docker tags MUST be lowercase
+          IMAGE_OWNER=$(echo "${{ github.repository_owner }}" | tr '[:upper:]' '[:lower:]')
+          IMAGE_TAG="ghcr.io/${IMAGE_OWNER}/ambient-ai-scribe"
           echo "🐳 Building image with Commit-SHA tag (DP2 Traceability)..."
           docker build \
-            -t "$IMAGE_NAME:${{ github.sha }}" \
-            -t "$IMAGE_NAME:latest" \
+            -t "${IMAGE_TAG}:${{ github.sha }}" \
+            -t "${IMAGE_TAG}:latest" \
             --label "org.opencontainers.image.revision=${{ github.sha }}" \
             --label "org.opencontainers.image.created=$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
             --label "genaiops.pipeline.run-id=${{ needs.quality-gates.outputs.pipeline_run_id }}" \
@@ -423,12 +442,14 @@ jobs:
             "$SCENARIO_DIR"
 
       - name: Push Docker image
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        if: steps.dockerfile-check.outputs.exists == 'true' && github.event_name == 'push' && github.ref == 'refs/heads/main'
         run: |
+          IMAGE_OWNER=$(echo "${{ github.repository_owner }}" | tr '[:upper:]' '[:lower:]')
+          IMAGE_TAG="ghcr.io/${IMAGE_OWNER}/ambient-ai-scribe"
           echo "📤 Pushing image to ghcr.io (Commit-SHA + latest)..."
-          docker push "$IMAGE_NAME:${{ github.sha }}"
-          docker push "$IMAGE_NAME:latest"
-          echo "::notice::Image pushed: $IMAGE_NAME:${{ github.sha }}"
+          docker push "${IMAGE_TAG}:${{ github.sha }}"
+          docker push "${IMAGE_TAG}:latest"
+          echo "::notice::Image pushed: ${IMAGE_TAG}:${{ github.sha }}"
 
       - name: "Pipeline Complete"
         run: |
@@ -436,7 +457,6 @@ jobs:
           echo "║  ✅ GenAIOps Pipeline COMPLETE                          ║"
           echo "║                                                          ║"
           echo "║  Gates:  4/4 PASS                                       ║"
-          echo "║  Image:  $IMAGE_NAME:${{ github.sha }}"
           echo "║  Evidence: Recorded + Hash Chain Verified                ║"
           echo "║                                                          ║"
           echo "║  CDV-Pattern: Contract → Validation → PASS → Deploy     ║"
