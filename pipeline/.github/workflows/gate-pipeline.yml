@@ -289,17 +289,25 @@ jobs:
           echo ""
 
           # Record each gate result to Evidence Store
+          # Format: GATE_ID:REQ_ID:RESULT:METHOD[:DECISION_LOG]
+          # HYBRID gates include decision_log reference (manual review evidence)
           for gate_info in \
-            "G-PRE-01:R001:${{ steps.g-pre-01.outputs.result }}" \
-            "G-PRE-04:R003:${{ steps.g-pre-04.outputs.result }}" \
-            "G-PRE-05:R012:${{ steps.g-pre-05.outputs.result }}" \
-            "G-DEP-02:R003:${{ steps.g-dep-02.outputs.result }}"
+            "G-PRE-01:R001:${{ steps.g-pre-01.outputs.result }}:HYBRID:decision_log_gpre01_manual.json" \
+            "G-PRE-04:R003:${{ steps.g-pre-04.outputs.result }}:AUTO:" \
+            "G-PRE-05:R012:${{ steps.g-pre-05.outputs.result }}:HYBRID:decision_log_gpre05_manual.json" \
+            "G-DEP-02:R003:${{ steps.g-dep-02.outputs.result }}:AUTO:"
           do
-            IFS=':' read -r GATE_ID REQ_ID DECISION <<< "$gate_info"
+            IFS=':' read -r GATE_ID REQ_ID DECISION METHOD DECISION_LOG <<< "$gate_info"
 
             # Create evidence source JSON from Conftest output
             RESULT_FILE="/tmp/${GATE_ID,,}-result.json"
             EVIDENCE_SOURCE="/tmp/evidence_${GATE_ID,,}.json"
+
+            # Load decision log for HYBRID gates (manual review evidence)
+            DECISION_LOG_PATH=""
+            if [ -n "$DECISION_LOG" ]; then
+              DECISION_LOG_PATH="$SCENARIO_DIR/fixtures/$DECISION_LOG"
+            fi
 
             python3 -c "
           import json
@@ -308,6 +316,12 @@ jobs:
             with open('$RESULT_FILE') as f:
               conftest = json.load(f)
           except: pass
+          decision_log = None
+          if '$DECISION_LOG_PATH':
+            try:
+              with open('$DECISION_LOG_PATH') as f:
+                decision_log = json.load(f)
+            except: pass
           evidence = {
             'pipeline_run_id': '${{ steps.init.outputs.pipeline_run_id }}',
             'commit_sha': '$GITHUB_SHA',
@@ -316,8 +330,12 @@ jobs:
             'gate_id': '$GATE_ID',
             'requirement_id': '$REQ_ID',
             'decision': '$DECISION',
+            'method': '$METHOD',
             'conftest_output': conftest
           }
+          if decision_log:
+            evidence['decision_log'] = decision_log
+            evidence['manual_reviewer'] = decision_log.get('reviewed_by', 'unknown')
           with open('$EVIDENCE_SOURCE', 'w') as f:
             json.dump(evidence, f)
           "
@@ -325,9 +343,9 @@ jobs:
             python3 evidence-store/scripts/record_evidence.py \
               --sqlite "$EVIDENCE_DB" \
               --gate "$GATE_ID" \
-              --method "AUTO" \
+              --method "$METHOD" \
               --source "$EVIDENCE_SOURCE" \
-              2>/dev/null && echo "  ✅ $GATE_ID ($DECISION) → Evidence recorded" \
+              2>/dev/null && echo "  ✅ $GATE_ID ($DECISION) [$METHOD] → Evidence recorded" \
                          || echo "  ⚠️  $GATE_ID — Evidence recording skipped (non-critical)"
           done
           echo "::endgroup::"
