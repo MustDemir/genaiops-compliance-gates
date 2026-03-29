@@ -545,6 +545,7 @@ def check_ci_conftest_errors_visible() -> dict:
     findings = []
     lines = text.splitlines()
 
+    # Check 1: Direct conftest invocations with stderr suppression
     # Join backslash-continuation lines into logical commands and track start line
     logical_commands: list[tuple[int, str]] = []
     i = 0
@@ -562,16 +563,25 @@ def check_ci_conftest_errors_visible() -> dict:
         issues = []
         if "2>/dev/null" in cmd:
             issues.append("stderr suppressed (2>/dev/null)")
-        # || true alone is acceptable when stderr is visible (2>&1),
-        # because the JSON parsing step below will catch real errors.
-        # Only flag || true when combined with stderr suppression.
-        if "|| true" in cmd and "2>/dev/null" in cmd:
-            issues.append("exit code masked with hidden stderr (|| true + 2>/dev/null)")
+        # stdout+stderr to same file makes JSON unparseable if stderr is non-empty
+        if "2>&1" in cmd and (">" in cmd.split("2>&1")[0]):
+            issues.append("stderr merged into JSON output file (> file 2>&1)")
         if issues:
             findings.append(
                 f"{format_file_line(path, start_line)} — Conftest invocation: {', '.join(issues)}. "
-                "A Rego syntax error or missing policy would be invisible in CI logs."
+                "A Rego syntax error or missing policy would be invisible or corrupt JSON output."
             )
+
+    # Check 2: Verify that the pipeline uses separated stderr (run_gate.sh pattern)
+    # If conftest is called via run_gate.sh with separate stderr, that's clean.
+    uses_gate_runner = "run_gate.sh" in text
+    direct_conftest_in_steps = any("conftest test" in line and "run_gate" not in line
+                                   for line in lines)
+    if direct_conftest_in_steps and not uses_gate_runner:
+        findings.append(
+            f"{path.relative_to(REPO_ROOT)} — Conftest called directly in gate steps "
+            "without separated stderr handling"
+        )
 
     return make_result(
         "CI_CONFTEST_ERRORS_VISIBLE",

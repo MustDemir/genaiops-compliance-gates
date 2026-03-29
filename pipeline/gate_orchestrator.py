@@ -468,19 +468,22 @@ def evaluate_gate_from_fixture(fixture_path: str, gate_id: str) -> dict:
 
     elif gate_id == "G-OPS-02":
         # policy_incident_process_exists: check incident-response annotations
+        # Dual-mode: resolve review.object (Gatekeeper) or direct input (Conftest/YAML)
+        obj = data.get("review", {}).get("object", data)
         pod_annotations = (
-            data.get("spec", {}).get("template", {}).get("metadata", {}).get("annotations", {})
+            obj.get("spec", {}).get("template", {}).get("metadata", {}).get("annotations", {})
         )
-        meta_annotations = data.get("metadata", {}).get("annotations", {})
+        meta_annotations = obj.get("metadata", {}).get("annotations", {})
         all_annotations = {**meta_annotations, **pod_annotations}
         failures = []
-        for key in [
-            "genaiops.io/incident-response-configured",
-            "genaiops.io/incident-contact",
-            "genaiops.io/rollback-mechanism",
-        ]:
-            if not all_annotations.get(key):
-                failures.append({"msg": f"annotation '{key}' is missing or empty"})
+        # incident-response-configured and rollback-mechanism must be "true" (not just present)
+        for key in ["genaiops.io/incident-response-configured", "genaiops.io/rollback-mechanism"]:
+            if all_annotations.get(key) != "true":
+                failures.append({"msg": f"annotation '{key}' must be 'true'"})
+        # incident-contact must be present and non-empty
+        contact = all_annotations.get("genaiops.io/incident-contact", "")
+        if not contact:
+            failures.append({"msg": "annotation 'genaiops.io/incident-contact' is missing or empty"})
         return {
             "tool": "fixture-eval",
             "decision": "FAIL" if failures else "PASS",

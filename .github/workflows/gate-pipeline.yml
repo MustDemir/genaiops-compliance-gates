@@ -96,6 +96,67 @@ jobs:
         run: pip install psycopg2-binary
 
       # ════════════════════════════════════════════════════════
+      # Gate runner function (reusable across all 10 gates)
+      # Separates stdout (JSON) from stderr (diagnostics).
+      # Distinguishes Policy-FAIL (violations found) from
+      # Tool-FAIL (Conftest crash, missing policy, syntax error).
+      # ════════════════════════════════════════════════════════
+      - name: "Define gate runner"
+        run: |
+          cat > /tmp/run_gate.sh << 'GATESCRIPT'
+          #!/usr/bin/env bash
+          GATE_ID="$1"; FIXTURE="$2"; POLICY="$3"; NAMESPACE="$4"
+          RESULT_FILE="/tmp/${GATE_ID,,}-result.json"
+          STDERR_FILE="/tmp/${GATE_ID,,}-result.stderr"
+
+          conftest test "$FIXTURE" \
+            --policy "$POLICY" \
+            --namespace "$NAMESPACE" \
+            --no-color --output json \
+            > "$RESULT_FILE" 2> "$STDERR_FILE"
+          CONFTEST_EXIT=$?
+
+          # Check if output is valid JSON (Tool-FAIL vs Policy-FAIL)
+          FAILURES=$(python3 -c "
+          import json, sys
+          try:
+            with open('$RESULT_FILE') as f: data = json.load(f)
+            print(sum(len(r.get('failures', [])) for r in data))
+          except: print(-1)
+          ")
+
+          if [ "$FAILURES" = "-1" ]; then
+            echo "::error::$GATE_ID — Conftest tool error (not a policy violation)"
+            echo "--- stderr ---"
+            cat "$STDERR_FILE"
+            echo "--- stdout ---"
+            cat "$RESULT_FILE"
+            exit 1
+          fi
+
+          # Log stderr if non-empty (warnings, deprecations)
+          if [ -s "$STDERR_FILE" ]; then
+            echo "::warning::$GATE_ID stderr: $(cat "$STDERR_FILE" | head -3)"
+          fi
+
+          if [ "$FAILURES" = "0" ]; then
+            echo "✅ $GATE_ID PASS"
+            echo "result=PASS" >> "$GITHUB_OUTPUT"
+          else
+            echo "❌ $GATE_ID FAIL ($FAILURES violations)"
+            python3 -c "
+          import json
+          with open('$RESULT_FILE') as f: data = json.load(f)
+          for r in data:
+            for f in r.get('failures', []):
+              print(f'  → {f[\"msg\"]}')
+          " 2>/dev/null || true
+            echo "result=FAIL" >> "$GITHUB_OUTPUT"
+          fi
+          GATESCRIPT
+          chmod +x /tmp/run_gate.sh
+
+      # ════════════════════════════════════════════════════════
       # PRE-DEPLOYMENT GATES (5)
       # ════════════════════════════════════════════════════════
 
@@ -103,95 +164,50 @@ jobs:
         id: g-pre-01
         run: |
           echo "::group::G-PRE-01 Risk Classification"
-          conftest test "$SCENARIO_DIR/fixtures/app_documentation.json" \
-            --policy policies/pre-deployment/policy_risk_classification.rego \
-            --namespace "genaiops.pre_deployment.risk_classification" \
-            --no-color --output json > /tmp/g-pre-01-result.json 2>&1 || true
-          FAILURES=$(python3 -c "
-          import json, sys
-          try:
-            with open('/tmp/g-pre-01-result.json') as f: data = json.load(f)
-            print(sum(len(r.get('failures', [])) for r in data))
-          except: print(-1)
-          ")
-          if [ "$FAILURES" = "0" ]; then echo "✅ G-PRE-01 PASS"; echo "result=PASS" >> "$GITHUB_OUTPUT"
-          else echo "❌ G-PRE-01 FAIL ($FAILURES violations)"; echo "result=FAIL" >> "$GITHUB_OUTPUT"; fi
+          bash /tmp/run_gate.sh G-PRE-01 \
+            "$SCENARIO_DIR/fixtures/app_documentation.json" \
+            "policies/pre-deployment/policy_risk_classification.rego" \
+            "genaiops.pre_deployment.risk_classification"
           echo "::endgroup::"
 
       - name: "Gate G-PRE-04: Security Baseline (R003, Art.15) [AUTO]"
         id: g-pre-04
         run: |
           echo "::group::G-PRE-04 Security Baseline"
-          conftest test "$SCENARIO_DIR/fixtures/deployment_compliant.yaml" \
-            --policy policies/pre-deployment/policy_security_baseline.rego \
-            --namespace "genaiops.pre_deployment.security_baseline" \
-            --no-color --output json > /tmp/g-pre-04-result.json 2>&1 || true
-          FAILURES=$(python3 -c "
-          import json, sys
-          try:
-            with open('/tmp/g-pre-04-result.json') as f: data = json.load(f)
-            print(sum(len(r.get('failures', [])) for r in data))
-          except: print(-1)
-          ")
-          if [ "$FAILURES" = "0" ]; then echo "✅ G-PRE-04 PASS"; echo "result=PASS" >> "$GITHUB_OUTPUT"
-          else echo "❌ G-PRE-04 FAIL ($FAILURES violations)"; echo "result=FAIL" >> "$GITHUB_OUTPUT"; fi
+          bash /tmp/run_gate.sh G-PRE-04 \
+            "$SCENARIO_DIR/fixtures/deployment_compliant.yaml" \
+            "policies/pre-deployment/policy_security_baseline.rego" \
+            "genaiops.pre_deployment.security_baseline"
           echo "::endgroup::"
 
       - name: "Gate G-PRE-05: Governance Approval (R012, Art.14) [HYBRID]"
         id: g-pre-05
         run: |
           echo "::group::G-PRE-05 Governance Approval"
-          conftest test "$SCENARIO_DIR/fixtures/app_documentation.json" \
-            --policy policies/pre-deployment/policy_governance_approval.rego \
-            --namespace "genaiops.pre_deployment.governance_approval" \
-            --no-color --output json > /tmp/g-pre-05-result.json 2>&1 || true
-          FAILURES=$(python3 -c "
-          import json, sys
-          try:
-            with open('/tmp/g-pre-05-result.json') as f: data = json.load(f)
-            print(sum(len(r.get('failures', [])) for r in data))
-          except: print(-1)
-          ")
-          if [ "$FAILURES" = "0" ]; then echo "✅ G-PRE-05 PASS"; echo "result=PASS" >> "$GITHUB_OUTPUT"
-          else echo "❌ G-PRE-05 FAIL ($FAILURES violations)"; echo "result=FAIL" >> "$GITHUB_OUTPUT"; fi
+          bash /tmp/run_gate.sh G-PRE-05 \
+            "$SCENARIO_DIR/fixtures/app_documentation.json" \
+            "policies/pre-deployment/policy_governance_approval.rego" \
+            "genaiops.pre_deployment.governance_approval"
           echo "::endgroup::"
 
       - name: "Gate G-DEP-05: Bias Assessment (R013, Art.10) [AUTO]"
         id: g-dep-05
         run: |
           echo "::group::G-DEP-05 Bias Assessment"
-          conftest test "$SCENARIO_DIR/fixtures/model_documentation_bias_pass.json" \
-            --policy policies/pre-deployment/policy_bias_assessment_complete.rego \
-            --namespace "genaiops.pre_deployment.bias_assessment_complete" \
-            --no-color --output json > /tmp/g-dep-05-result.json 2>&1 || true
-          FAILURES=$(python3 -c "
-          import json, sys
-          try:
-            with open('/tmp/g-dep-05-result.json') as f: data = json.load(f)
-            print(sum(len(r.get('failures', [])) for r in data))
-          except: print(-1)
-          ")
-          if [ "$FAILURES" = "0" ]; then echo "✅ G-DEP-05 PASS"; echo "result=PASS" >> "$GITHUB_OUTPUT"
-          else echo "❌ G-DEP-05 FAIL ($FAILURES violations)"; echo "result=FAIL" >> "$GITHUB_OUTPUT"; fi
+          bash /tmp/run_gate.sh G-DEP-05 \
+            "$SCENARIO_DIR/fixtures/model_documentation_bias_pass.json" \
+            "policies/pre-deployment/policy_bias_assessment_complete.rego" \
+            "genaiops.pre_deployment.bias_assessment_complete"
           echo "::endgroup::"
 
       - name: "Gate G-DEP-01: Data Provenance (R002, Art.10) [AUTO]"
         id: g-dep-01
         run: |
           echo "::group::G-DEP-01 Data Provenance"
-          conftest test "$SCENARIO_DIR/fixtures/data_documentation_provenance_pass.json" \
-            --policy policies/pre-deployment/policy_data_provenance_documented.rego \
-            --namespace "genaiops.pre_deployment.data_provenance_documented" \
-            --no-color --output json > /tmp/g-dep-01-result.json 2>&1 || true
-          FAILURES=$(python3 -c "
-          import json, sys
-          try:
-            with open('/tmp/g-dep-01-result.json') as f: data = json.load(f)
-            print(sum(len(r.get('failures', [])) for r in data))
-          except: print(-1)
-          ")
-          if [ "$FAILURES" = "0" ]; then echo "✅ G-DEP-01 PASS"; echo "result=PASS" >> "$GITHUB_OUTPUT"
-          else echo "❌ G-DEP-01 FAIL ($FAILURES violations)"; echo "result=FAIL" >> "$GITHUB_OUTPUT"; fi
+          bash /tmp/run_gate.sh G-DEP-01 \
+            "$SCENARIO_DIR/fixtures/data_documentation_provenance_pass.json" \
+            "policies/pre-deployment/policy_data_provenance_documented.rego" \
+            "genaiops.pre_deployment.data_provenance_documented"
           echo "::endgroup::"
 
       # ════════════════════════════════════════════════════════
@@ -202,38 +218,20 @@ jobs:
         id: g-dep-02
         run: |
           echo "::group::G-DEP-02 Safety Metrics"
-          conftest test "$SCENARIO_DIR/fixtures/eval_results.json" \
-            --policy policies/deployment/policy_safety_metrics.rego \
-            --namespace "genaiops.deployment.safety_metrics" \
-            --no-color --output json > /tmp/g-dep-02-result.json 2>&1 || true
-          FAILURES=$(python3 -c "
-          import json, sys
-          try:
-            with open('/tmp/g-dep-02-result.json') as f: data = json.load(f)
-            print(sum(len(r.get('failures', [])) for r in data))
-          except: print(-1)
-          ")
-          if [ "$FAILURES" = "0" ]; then echo "✅ G-DEP-02 PASS"; echo "result=PASS" >> "$GITHUB_OUTPUT"
-          else echo "❌ G-DEP-02 FAIL ($FAILURES violations)"; echo "result=FAIL" >> "$GITHUB_OUTPUT"; fi
+          bash /tmp/run_gate.sh G-DEP-02 \
+            "$SCENARIO_DIR/fixtures/eval_results.json" \
+            "policies/deployment/policy_safety_metrics.rego" \
+            "genaiops.deployment.safety_metrics"
           echo "::endgroup::"
 
       - name: "Gate G-DEP-03: Transparency Docs (R007, Art.13) [AUTO]"
         id: g-dep-03
         run: |
           echo "::group::G-DEP-03 Transparency Docs"
-          conftest test "$SCENARIO_DIR/fixtures/app_documentation_transparency_pass.json" \
-            --policy policies/deployment/policy_transparency_docs_present.rego \
-            --namespace "genaiops.deployment.transparency_docs_present" \
-            --no-color --output json > /tmp/g-dep-03-result.json 2>&1 || true
-          FAILURES=$(python3 -c "
-          import json, sys
-          try:
-            with open('/tmp/g-dep-03-result.json') as f: data = json.load(f)
-            print(sum(len(r.get('failures', [])) for r in data))
-          except: print(-1)
-          ")
-          if [ "$FAILURES" = "0" ]; then echo "✅ G-DEP-03 PASS"; echo "result=PASS" >> "$GITHUB_OUTPUT"
-          else echo "❌ G-DEP-03 FAIL ($FAILURES violations)"; echo "result=FAIL" >> "$GITHUB_OUTPUT"; fi
+          bash /tmp/run_gate.sh G-DEP-03 \
+            "$SCENARIO_DIR/fixtures/app_documentation_transparency_pass.json" \
+            "policies/deployment/policy_transparency_docs_present.rego" \
+            "genaiops.deployment.transparency_docs_present"
           echo "::endgroup::"
 
       # ════════════════════════════════════════════════════════
@@ -244,57 +242,30 @@ jobs:
         id: g-ops-02
         run: |
           echo "::group::G-OPS-02 Incident Process"
-          conftest test "$SCENARIO_DIR/fixtures/deployment_incident_pass.json" \
-            --policy policies/operations/policy_incident_process_exists.rego \
-            --namespace "genaiops.operations.incident_process_exists" \
-            --no-color --output json > /tmp/g-ops-02-result.json 2>&1 || true
-          FAILURES=$(python3 -c "
-          import json, sys
-          try:
-            with open('/tmp/g-ops-02-result.json') as f: data = json.load(f)
-            print(sum(len(r.get('failures', [])) for r in data))
-          except: print(-1)
-          ")
-          if [ "$FAILURES" = "0" ]; then echo "✅ G-OPS-02 PASS"; echo "result=PASS" >> "$GITHUB_OUTPUT"
-          else echo "❌ G-OPS-02 FAIL ($FAILURES violations)"; echo "result=FAIL" >> "$GITHUB_OUTPUT"; fi
+          bash /tmp/run_gate.sh G-OPS-02 \
+            "$SCENARIO_DIR/fixtures/deployment_incident_pass.json" \
+            "policies/operations/policy_incident_process_exists.rego" \
+            "genaiops.operations.incident_process_exists"
           echo "::endgroup::"
 
       - name: "Gate G-OPS-03: Monitoring Config (R010, Art.72) [AUTO]"
         id: g-ops-03
         run: |
           echo "::group::G-OPS-03 Monitoring Configuration"
-          conftest test "$SCENARIO_DIR/fixtures/deployment_compliant.yaml" \
-            --policy policies/operations/policy_monitoring_configured.rego \
-            --namespace "genaiops.operations.monitoring_configured" \
-            --no-color --output json > /tmp/g-ops-03-result.json 2>&1 || true
-          FAILURES=$(python3 -c "
-          import json, sys
-          try:
-            with open('/tmp/g-ops-03-result.json') as f: data = json.load(f)
-            print(sum(len(r.get('failures', [])) for r in data))
-          except: print(-1)
-          ")
-          if [ "$FAILURES" = "0" ]; then echo "✅ G-OPS-03 PASS"; echo "result=PASS" >> "$GITHUB_OUTPUT"
-          else echo "❌ G-OPS-03 FAIL ($FAILURES violations)"; echo "result=FAIL" >> "$GITHUB_OUTPUT"; fi
+          bash /tmp/run_gate.sh G-OPS-03 \
+            "$SCENARIO_DIR/fixtures/deployment_compliant.yaml" \
+            "policies/operations/policy_monitoring_configured.rego" \
+            "genaiops.operations.monitoring_configured"
           echo "::endgroup::"
 
       - name: "Gate G-OPS-05: Evidence Completeness (R005, Art.15) [AUTO]"
         id: g-ops-05
         run: |
           echo "::group::G-OPS-05 Evidence Completeness"
-          conftest test "$SCENARIO_DIR/fixtures/deployment_compliant.yaml" \
-            --policy policies/operations/policy_evidence_completeness.rego \
-            --namespace "genaiops.operations.evidence_completeness" \
-            --no-color --output json > /tmp/g-ops-05-result.json 2>&1 || true
-          FAILURES=$(python3 -c "
-          import json, sys
-          try:
-            with open('/tmp/g-ops-05-result.json') as f: data = json.load(f)
-            print(sum(len(r.get('failures', [])) for r in data))
-          except: print(-1)
-          ")
-          if [ "$FAILURES" = "0" ]; then echo "✅ G-OPS-05 PASS"; echo "result=PASS" >> "$GITHUB_OUTPUT"
-          else echo "❌ G-OPS-05 FAIL ($FAILURES violations)"; echo "result=FAIL" >> "$GITHUB_OUTPUT"; fi
+          bash /tmp/run_gate.sh G-OPS-05 \
+            "$SCENARIO_DIR/fixtures/deployment_compliant.yaml" \
+            "policies/operations/policy_evidence_completeness.rego" \
+            "genaiops.operations.evidence_completeness"
           echo "::endgroup::"
 
       # ════════════════════════════════════════════════════════
