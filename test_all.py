@@ -288,20 +288,24 @@ from pathlib import Path
 
 repo = Path('%s')
 
-# Load requirements
-req_file = repo / 'requirements' / 'R001-R014.yaml'
-if not req_file.exists():
-    print("Requirements file not found — SKIP")
-    sys.exit(0)
-
-reqs = yaml.safe_load(open(req_file))
+# Load requirements from individual YAML files (R001.yaml, R002.yaml, ...)
+req_dir = repo / 'requirements'
 req_ids = set()
-if isinstance(reqs, dict):
-    for r in reqs.get('requirements', []):
-        req_ids.add(r.get('id', ''))
-elif isinstance(reqs, list):
-    for r in reqs:
-        req_ids.add(r.get('id', ''))
+req_files = sorted(req_dir.glob('R*.yaml'))
+if not req_files:
+    print("ERROR: No requirement files (R*.yaml) found in requirements/")
+    sys.exit(1)
+
+for rf in req_files:
+    r = yaml.safe_load(open(rf))
+    if r and isinstance(r, dict):
+        rid = r.get('id', r.get('requirement_id', ''))
+        if rid:
+            req_ids.add(rid)
+
+if not req_ids:
+    print("ERROR: Could not extract any requirement IDs")
+    sys.exit(1)
 
 # Load gate definitions
 gate_dirs = ['gate-definitions/pre-deployment', 'gate-definitions/deployment', 'gate-definitions/operations']
@@ -322,7 +326,7 @@ for g in gates:
     if isinstance(gate_reqs, str):
         gate_reqs = [gate_reqs]
     for r in (gate_reqs or []):
-        if r and r not in req_ids and req_ids:
+        if r and r not in req_ids:
             print(f"  WARNING: {gate_id} references {r} but not in requirements")
             issues += 1
 

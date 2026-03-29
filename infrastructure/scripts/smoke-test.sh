@@ -42,6 +42,7 @@ FIXTURES_DIR="$REPO_ROOT/scenarios/healthcare-ambient-ai-scribe/fixtures"
 
 TESTS_PASSED=0
 TESTS_FAILED=0
+TESTS_SKIPPED=0
 
 echo -e "\n${BOLD}═══════════════════════════════════════════════════════${RESET}"
 echo -e "${BOLD}  GenAIOps PoC — Smoke Test (Phase 6)${RESET}"
@@ -214,6 +215,7 @@ if [[ -n "$APP_POD" ]]; then
     fi
 else
     warn "App pod not found — skipping health check (deploy-app.sh may not have run)"
+    ((TESTS_SKIPPED++))
 fi
 
 # ── Test 7: Prometheus metrics accessible ──────────────────────
@@ -231,6 +233,7 @@ if [[ -n "$APP_POD" ]]; then
     fi
 else
     warn "App pod not found — skipping metrics check"
+    ((TESTS_SKIPPED++))
 fi
 
 # ── Summary ────────────────────────────────────────────────────
@@ -240,10 +243,10 @@ echo -e "\n${BOLD}════════════════════�
 echo -e "${BOLD}  Smoke Test Results${RESET}"
 echo -e "${BOLD}═══════════════════════════════════════════════════════${RESET}"
 echo ""
-echo -e "  ${GREEN}PASSED: $TESTS_PASSED${RESET}  /  ${RED}FAILED: $TESTS_FAILED${RESET}  /  Total: $TOTAL"
+echo -e "  ${GREEN}PASSED: $TESTS_PASSED${RESET}  /  ${RED}FAILED: $TESTS_FAILED${RESET}  /  ${YELLOW}SKIPPED: $TESTS_SKIPPED${RESET}  /  Total: $TOTAL"
 echo ""
 
-if [[ $TESTS_FAILED -eq 0 ]]; then
+if [[ $TESTS_FAILED -eq 0 && $TESTS_SKIPPED -eq 0 ]]; then
     echo -e "  ${GREEN}${BOLD}✓ ALL TESTS PASSED — Phase 6 complete${RESET}"
     echo ""
     echo -e "  ${BOLD}What was proven:${RESET}"
@@ -256,6 +259,10 @@ if [[ $TESTS_FAILED -eq 0 ]]; then
     echo -e "  Phase 7:  ${BLUE}Test ConstraintTemplates in detail${RESET}"
     echo -e "  Phase 9:  ${BLUE}Deploy Prometheus + drift_detector${RESET}"
     echo -e "  Phase 10: ${BLUE}ArgoCD + GitHub Actions pipeline${RESET}"
+    EXIT_CODE=0
+elif [[ $TESTS_FAILED -eq 0 && $TESTS_SKIPPED -gt 0 ]]; then
+    echo -e "  ${YELLOW}${BOLD}⚠ TESTS PASSED but $TESTS_SKIPPED SKIPPED — not all checks could run${RESET}"
+    echo -e "  ${YELLOW}  Skipped checks do not count as passed. Deploy app first to run full suite.${RESET}"
     EXIT_CODE=0
 else
     echo -e "  ${RED}${BOLD}✗ SOME TESTS FAILED — review output above${RESET}"

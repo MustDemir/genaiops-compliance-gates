@@ -301,9 +301,14 @@ def start_metrics_server(port: int = METRICS_PORT):
 
 def record_drift_evidence(
     psi: float, jsd: float, status: str,
-    sqlite_path: str = None, run_id: str = None,
+    sqlite_path: str = None, db_url: str = None, run_id: str = None,
 ) -> None:
-    """Record drift detection result to Evidence Store."""
+    """Record drift detection result to Evidence Store.
+
+    Supports both SQLite (local) and PostgreSQL (cluster).
+    In cluster mode, the DB URL comes from EVIDENCE_STORE_URL or
+    EVIDENCE_STORE_DB_URL environment variable.
+    """
     import tempfile
     import uuid
 
@@ -325,16 +330,26 @@ def record_drift_evidence(
     json.dump(evidence, tmp, indent=2)
     tmp.close()
 
-    method = "AUTO"
+    # Resolve DB connection: explicit arg > EVIDENCE_STORE_URL > EVIDENCE_STORE_DB_URL
+    resolved_db_url = db_url or os.getenv("EVIDENCE_STORE_URL") or os.getenv("EVIDENCE_STORE_DB_URL")
+
     cmd = [
         sys.executable, str(RECORD_EVIDENCE),
         "--gate", "G-OPS-03",
-        "--method", method,
+        "--method", "AUTO",
         "--source", tmp.name,
     ]
 
     if sqlite_path:
         cmd.extend(["--sqlite", sqlite_path])
+    elif resolved_db_url:
+        cmd.extend(["--db-url", resolved_db_url])
+    else:
+        print("[evidence] ERROR: No Evidence Store connection configured "
+              "(need --sqlite, EVIDENCE_STORE_URL, or EVIDENCE_STORE_DB_URL)")
+        os.unlink(tmp.name)
+        return
+
     if run_id:
         cmd.extend(["--run-id", run_id])
 
@@ -342,12 +357,13 @@ def record_drift_evidence(
     os.unlink(tmp.name)
 
     if result.returncode == 0:
-        print(f"[evidence] Drift result recorded to Evidence Store")
+        print("[evidence] Drift result recorded to Evidence Store")
         for line in result.stdout.split("\n"):
             if "Hash:" in line or "audit_id" in line:
                 print(f"  {line.strip()}")
     else:
-        print(f"[evidence] WARNING: Failed to record: {result.stderr[:200]}")
+        print(f"[evidence] ERROR: Failed to record drift evidence: {result.stderr[:200]}")
+        sys.exit(1)  # Hard fail — evidence recording is mandatory
 
 
 # ──────────────────────────────────────────────────────────────
@@ -445,6 +461,11 @@ def main():
         "--sqlite", help="SQLite path for Evidence Store (local testing)"
     )
     parser.add_argument(
+        "--db-url",
+        default=os.getenv("EVIDENCE_STORE_URL") or os.getenv("EVIDENCE_STORE_DB_URL"),
+        help="PostgreSQL URL for Evidence Store (cluster mode)"
+    )
+    parser.add_argument(
         "--serve-metrics", action="store_true",
         help=f"Start Prometheus metrics server on port {METRICS_PORT}"
     )
@@ -523,6 +544,7 @@ def main():
                 jsd=result["max_jsd"],
                 status=result["overall_status"],
                 sqlite_path=args.sqlite,
+                db_url=args.db_url,
             )
 
         return result["overall_status"]

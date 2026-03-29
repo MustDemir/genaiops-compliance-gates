@@ -20,7 +20,8 @@
       "phase": "pre-deployment",
       "method": "HYBRID",
       "fixture": "scenarios/healthcare-ambient-ai-scribe/fixtures/app_documentation.json",
-      "policy": "policies/pre-deployment/policy_risk_classification.rego"
+      "policy": "policies/pre-deployment/policy_risk_classification.rego",
+      "manual_source": "scenarios/healthcare-ambient-ai-scribe/fixtures/decision_log_gpre01_manual.json"
     },
     {
       "gate_id": "G-PRE-04",

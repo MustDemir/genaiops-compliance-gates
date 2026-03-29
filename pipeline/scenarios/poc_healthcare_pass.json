@@ -21,6 +21,7 @@
       "method": "HYBRID",
       "fixture": "scenarios/healthcare-ambient-ai-scribe/fixtures/app_documentation.json",
       "policy": "policies/pre-deployment/policy_risk_classification.rego",
+      "manual_source": "scenarios/healthcare-ambient-ai-scribe/fixtures/decision_log_gpre01_manual.json",
       "description_de": "Prüft ob Risiko-Klassifikation vollständig ist (Conftest AUTO) + manuelle Bestätigung durch Compliance Officer (MANUAL).",
       "description_kolloquium": "Zuerst prüft das System automatisch: Ist die Risiko-Klasse angegeben? Gibt es eine Begründung? Ist der Annex-Verweis korrekt? Dann bestätigt ein Mensch (Compliance Officer): Ja, die Klassifikation ist inhaltlich richtig."
     },

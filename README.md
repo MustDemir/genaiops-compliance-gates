@@ -139,7 +139,7 @@ The architecture is demonstrated using a **high-risk AI system** (EU AI Act Anne
 - High-risk classification → maximum regulatory requirements
 - Sensitive health data → GDPR Art. 9 + AI Act convergence
 - Stochastic outputs → quality assurance for generative content
-- Full lifecycle coverage → all 16 gates exercised
+- Full lifecycle coverage → 16 gates designed, 10 with Rego policies (local + CI), 4 enforced in GitHub Actions
 
 ## Traceability Chain
 
@@ -234,8 +234,26 @@ psql -f schema/evidence_store_schema_v02_enterprise.sql
 | Drift Detection | done | drift_detector.py (PSI+JSD), 37 tests, Prometheus/Grafana/AlertManager |
 | GitHub Actions Pipeline | done | gate-pipeline.yml (4 CI gates + Evidence + Hash-Chain), test_pipeline_local.sh |
 | Master Integration Test | done | test_all.py: 22/22 PASS across all 5 pillars |
+| Integrity Regression Suite | done | test_integrity_regression.py: credibility checks for fallbacks, evidence strictness, HYBRID consistency, walkthrough drift |
 | Kolloquium Documentation | done | CLOSED_LOOP_ERKLAERUNG.md: Phase 8–10 with Q&A |
 | Terraform/Helm (Azure) | planned | 0% — Phase 12 (optional) |
+
+## Integrity Regression Suite
+
+The repository includes a dedicated integrity-focused regression suite in addition to the functional master test.
+
+```bash
+python3 test_integrity_regression.py
+python3 test_integrity_regression.py --format json
+python3 test_integrity_regression.py --fail-on low
+```
+
+This suite is intended to catch PoC-credibility risks such as:
+
+- demo fallbacks that can mask missing enforcement
+- non-critical treatment of Evidence Store or hash-chain failures
+- HYBRID gate inconsistencies across scripts and scenarios
+- walkthrough/documentation drift against current repo files
 
 ## Academic Foundation
 

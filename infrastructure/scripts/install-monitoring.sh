@@ -183,6 +183,13 @@ spec:
               envFrom:
                 - configMapRef:
                     name: drift-config
+              env:
+                - name: EVIDENCE_STORE_DB_URL
+                  valueFrom:
+                    secretKeyRef:
+                      name: evidence-store-credentials
+                      key: database-url
+                      optional: true
               volumeMounts:
                 - name: baseline
                   mountPath: /data

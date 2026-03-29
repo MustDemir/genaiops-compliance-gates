@@ -93,6 +93,7 @@ run_gate() {
   local FIXTURE="$4"
   local REQ_ID="$5"
   local NAMESPACE="$6"
+  local METHOD="${7:-AUTO}"
 
   echo -e "${BLUE}── $GATE_ID: $GATE_NAME ──${NC}"
   echo "   Policy:  $POLICY"
@@ -143,10 +144,10 @@ except:
     python3 "$REPO_ROOT/evidence-store/scripts/record_evidence.py" \
       --sqlite "$EVIDENCE_DB" \
       --gate "$GATE_ID" \
-      --method "AUTO" \
+      --method "$METHOD" \
       --source "$EVIDENCE_SOURCE" \
-      2>/dev/null && echo -e "   ${YELLOW}📦 Evidence recorded${NC}" \
-                 || echo -e "   ${YELLOW}⚠️  Evidence recording skipped${NC}"
+      && echo -e "   ${YELLOW}📦 Evidence recorded [$METHOD]${NC}" \
+      || { echo -e "   ${RED}❌ Evidence recording FAILED${NC}"; exit 1; }
   fi
   echo ""
 }
@@ -155,9 +156,9 @@ except:
 echo -e "${BLUE}━━━ Pre-Deployment Gates ━━━${NC}"
 echo ""
 
-run_gate "G-PRE-01" "Risk Classification"    "policies/pre-deployment/policy_risk_classification.rego"       "$RISK_FIXTURE"       "R001" "genaiops.pre_deployment.risk_classification"
+run_gate "G-PRE-01" "Risk Classification"    "policies/pre-deployment/policy_risk_classification.rego"       "$RISK_FIXTURE"       "R001" "genaiops.pre_deployment.risk_classification" "HYBRID"
 run_gate "G-PRE-04" "Security Baseline"       "policies/pre-deployment/policy_security_baseline.rego"         "$SECURITY_FIXTURE"   "R003" "genaiops.pre_deployment.security_baseline"
-run_gate "G-PRE-05" "Governance Approval"     "policies/pre-deployment/policy_governance_approval.rego"       "$GOVERNANCE_FIXTURE" "R012" "genaiops.pre_deployment.governance_approval"
+run_gate "G-PRE-05" "Governance Approval"     "policies/pre-deployment/policy_governance_approval.rego"       "$GOVERNANCE_FIXTURE" "R012" "genaiops.pre_deployment.governance_approval" "HYBRID"
 run_gate "G-DEP-05" "Bias Assessment"         "policies/pre-deployment/policy_bias_assessment_complete.rego"  "$BIAS_FIXTURE"       "R013" "genaiops.pre_deployment.bias_assessment_complete"
 run_gate "G-DEP-01" "Data Provenance"         "policies/pre-deployment/policy_data_provenance_documented.rego" "$PROVENANCE_FIXTURE" "R002" "genaiops.pre_deployment.data_provenance_documented"
 

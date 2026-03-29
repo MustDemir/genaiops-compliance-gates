@@ -233,23 +233,25 @@ def evaluate_gate_from_fixture(fixture_path: str, gate_id: str) -> dict:
 
     with open(fixture_abs, "r", encoding="utf-8") as f:
         if fixture_path.endswith(".yaml") or fixture_path.endswith(".yml"):
-            # For YAML fixtures, we can't easily evaluate without conftest
-            # Return PASS based on fixture name convention
-            content = f.read()
-            is_compliant = "compliant" in fixture_path and "noncompliant" not in fixture_path
-            return {
-                "tool": "fixture-eval",
-                "decision": "PASS" if is_compliant else "FAIL",
-                "reason": f"YAML fixture evaluated by naming convention: {'compliant' if is_compliant else 'noncompliant'}",
-                "failures": [] if is_compliant else [{"msg": "noncompliant fixture"}],
-            }
+            try:
+                import yaml
+            except ImportError:
+                log("WARNING: pyyaml not installed — YAML fixtures cannot be evaluated. "
+                    "Install with: pip install pyyaml", YELLOW)
+                return {
+                    "tool": "fixture-eval",
+                    "decision": "FAIL",
+                    "failures": [{"msg": "pyyaml not installed, cannot evaluate YAML fixture"}],
+                }
+            data = yaml.safe_load(f)
         else:
             data = json.load(f)
 
     # Gate-specific evaluation logic (mirrors Rego policies)
     if gate_id == "G-PRE-01":
-        # policy_risk_classification: check risk_class, reasoning, annex_reference
+        # policy_risk_classification: mirrors Rego policy fields
         rc = data.get("risk_classification", {})
+        mr = data.get("manual_review", {})
         failures = []
         if rc.get("risk_class") not in ("high", "limited", "minimal"):
             failures.append({"msg": "risk_class must be high, limited, or minimal"})
@@ -257,6 +259,12 @@ def evaluate_gate_from_fixture(fixture_path: str, gate_id: str) -> dict:
             failures.append({"msg": "classification_reasoning is required"})
         if rc.get("risk_class") == "high" and not rc.get("annex_reference"):
             failures.append({"msg": "annex_reference required for high-risk systems"})
+        if rc.get("risk_class") == "high" and not rc.get("mitigation_measures"):
+            failures.append({"msg": "mitigation_measures required for high-risk systems"})
+        if not mr.get("reviewed_by"):
+            failures.append({"msg": "manual_review.reviewed_by is required"})
+        if not mr.get("review_date"):
+            failures.append({"msg": "manual_review.review_date is required"})
         return {
             "tool": "fixture-eval",
             "decision": "FAIL" if failures else "PASS",
@@ -264,12 +272,16 @@ def evaluate_gate_from_fixture(fixture_path: str, gate_id: str) -> dict:
         }
 
     elif gate_id == "G-PRE-05":
-        # policy_governance_approval: check FRIA, oversight, escalation, kill-switch
+        # policy_governance_approval: mirrors Rego policy fields
         fria = data.get("fundamental_rights_impact_assessment", {})
         ho = data.get("human_oversight", {})
+        ca = data.get("conformity_assessment", {})
+        approval = data.get("approval", {})
         failures = []
         if not fria.get("fria_completed"):
             failures.append({"msg": "FRIA not completed"})
+        if not fria.get("affected_rights"):
+            failures.append({"msg": "affected_rights not documented in FRIA"})
         if not ho.get("oversight_model"):
             failures.append({"msg": "oversight_model not specified"})
         if not ho.get("human_oversight_lead"):
@@ -279,6 +291,10 @@ def evaluate_gate_from_fixture(fixture_path: str, gate_id: str) -> dict:
         intervention = ho.get("intervention_capability", {})
         if not intervention.get("kill_switch"):
             failures.append({"msg": "kill_switch capability not configured"})
+        if not ca.get("declaration_available"):
+            failures.append({"msg": "conformity_assessment.declaration_available not set"})
+        if not approval.get("approved_by"):
+            failures.append({"msg": "approval.approved_by not set"})
         return {
             "tool": "fixture-eval",
             "decision": "FAIL" if failures else "PASS",
@@ -286,10 +302,13 @@ def evaluate_gate_from_fixture(fixture_path: str, gate_id: str) -> dict:
         }
 
     elif gate_id == "G-DEP-02":
-        # policy_safety_metrics: check accuracy, latency_p95, safety_score
+        # policy_safety_metrics: mirrors Rego policy fields
         qm = data.get("quality_metrics", {})
         pm = data.get("performance_metrics", {})
         sm = data.get("safety_metrics", {})
+        ev = data.get("evaluation", {})
+        sg = data.get("subgroup_analysis", {})
+        at = data.get("adversarial_tests", {})
         thresholds = data.get("gate_thresholds", {})
         failures = []
 
@@ -308,6 +327,108 @@ def evaluate_gate_from_fixture(fixture_path: str, gate_id: str) -> dict:
         if ss < ss_min:
             failures.append({"msg": f"safety_score {ss} < {ss_min}"})
 
+        if not ev.get("run_id"):
+            failures.append({"msg": "evaluation.run_id is required"})
+        if not sg.get("performed"):
+            failures.append({"msg": "subgroup_analysis.performed is required"})
+        if not at.get("performed"):
+            failures.append({"msg": "adversarial_tests.performed is required"})
+
+        return {
+            "tool": "fixture-eval",
+            "decision": "FAIL" if failures else "PASS",
+            "failures": failures,
+        }
+
+    elif gate_id == "G-PRE-04":
+        # policy_security_baseline: check 6 container security rules (P1-P6)
+        containers = (
+            data.get("spec", {}).get("template", {}).get("spec", {}).get("containers", [])
+        )
+        failures = []
+        if not containers:
+            failures.append({"msg": "no containers found in deployment spec"})
+        for c in containers:
+            sc = c.get("securityContext", {})
+            # P1: runAsNonRoot
+            if not sc.get("runAsNonRoot"):
+                failures.append({"msg": f"container '{c.get('name', '?')}': runAsNonRoot is not true"})
+            # P2: resource limits
+            limits = c.get("resources", {}).get("limits", {})
+            if not limits.get("cpu") or not limits.get("memory"):
+                failures.append({"msg": f"container '{c.get('name', '?')}': cpu/memory limits not set"})
+            # P3: readOnlyRootFilesystem
+            if not sc.get("readOnlyRootFilesystem"):
+                failures.append({"msg": f"container '{c.get('name', '?')}': readOnlyRootFilesystem is not true"})
+            # P4: no plaintext secrets in env
+            for env in c.get("env", []):
+                env_name = (env.get("name") or "").lower()
+                if any(kw in env_name for kw in ("password", "secret", "key", "token")):
+                    if env.get("value") and not env.get("valueFrom"):
+                        failures.append({"msg": f"container '{c.get('name', '?')}': env '{env.get('name')}' contains plaintext secret"})
+            # P5: allowPrivilegeEscalation
+            if sc.get("allowPrivilegeEscalation") is not False:
+                failures.append({"msg": f"container '{c.get('name', '?')}': allowPrivilegeEscalation is not false"})
+            # P6: capabilities drop ALL
+            caps = sc.get("capabilities", {}).get("drop", [])
+            if "ALL" not in caps:
+                failures.append({"msg": f"container '{c.get('name', '?')}': capabilities.drop does not include ALL"})
+        return {
+            "tool": "fixture-eval",
+            "decision": "FAIL" if failures else "PASS",
+            "failures": failures,
+        }
+
+    elif gate_id == "G-DEP-05":
+        # policy_bias_assessment_complete: check bias detection documentation
+        bd = data.get("bias_detection", {})
+        failures = []
+        if not bd.get("methods"):
+            failures.append({"msg": "bias_detection.methods not documented"})
+        fr = bd.get("fairness_results", {})
+        if not fr.get("metrics"):
+            failures.append({"msg": "bias_detection.fairness_results.metrics not documented"})
+        if not bd.get("protected_attributes"):
+            failures.append({"msg": "bias_detection.protected_attributes not listed"})
+        if fr.get("bias_detected") and not bd.get("mitigation_measures"):
+            failures.append({"msg": "bias detected but no mitigation_measures documented"})
+        return {
+            "tool": "fixture-eval",
+            "decision": "FAIL" if failures else "PASS",
+            "failures": failures,
+        }
+
+    elif gate_id == "G-DEP-01":
+        # policy_data_provenance_documented: check data governance fields
+        dp = data.get("data_provenance", {})
+        failures = []
+        if not dp.get("collection_methods"):
+            failures.append({"msg": "data_provenance.collection_methods not documented"})
+        if not dp.get("sources"):
+            failures.append({"msg": "data_provenance.sources not listed"})
+        if not dp.get("preprocessing_steps"):
+            failures.append({"msg": "data_provenance.preprocessing_steps not documented"})
+        if not dp.get("data_version"):
+            failures.append({"msg": "data_provenance.data_version not set"})
+        return {
+            "tool": "fixture-eval",
+            "decision": "FAIL" if failures else "PASS",
+            "failures": failures,
+        }
+
+    elif gate_id == "G-DEP-03":
+        # policy_transparency_docs_present: check transparency documentation
+        tr = data.get("transparency", {})
+        failures = []
+        if not tr.get("instructions_for_deployers"):
+            failures.append({"msg": "transparency.instructions_for_deployers missing"})
+        if not tr.get("model_capabilities"):
+            failures.append({"msg": "transparency.model_capabilities missing"})
+        if not tr.get("known_limitations"):
+            failures.append({"msg": "transparency.known_limitations missing"})
+        labeling = tr.get("ai_content_labeling", {})
+        if not labeling.get("enabled"):
+            failures.append({"msg": "transparency.ai_content_labeling.enabled is not true"})
         return {
             "tool": "fixture-eval",
             "decision": "FAIL" if failures else "PASS",
@@ -315,27 +436,29 @@ def evaluate_gate_from_fixture(fixture_path: str, gate_id: str) -> dict:
         }
 
     elif gate_id in ("G-OPS-03", "G-OPS-05"):
-        # These are annotation-based gates — check via fixture data OR AdmissionReview
-        # If the fixture is an AdmissionReview, simulate Gatekeeper logic
+        # Annotation-based gates — check via AdmissionReview or K8s annotations
         review_data = data.get("review", {}).get("object", {})
         if review_data:
             return evaluate_gatekeeper_admission(review_data, gate_id)
 
-        # Fallback: check via app_documentation fields
-        es = data.get("evidence_store", {})
-        mon = data.get("monitoring", {})
+        # For K8s manifests: check annotations directly
+        pod_annotations = (
+            data.get("spec", {}).get("template", {}).get("metadata", {}).get("annotations", {})
+        )
+        meta_annotations = data.get("metadata", {}).get("annotations", {})
+        all_annotations = {**meta_annotations, **pod_annotations}
         failures = []
 
         if gate_id == "G-OPS-03":
-            if not mon.get("drift_detection_configured"):
-                failures.append({"msg": "drift_detection not configured"})
-            if not mon.get("service_monitor_deployed"):
-                failures.append({"msg": "service_monitor not deployed"})
+            for key in ["genaiops.io/drift-detection-enabled", "genaiops.io/service-monitor-configured", "prometheus.io/scrape"]:
+                if all_annotations.get(key) != "true":
+                    failures.append({"msg": f"annotation '{key}' is not 'true'"})
         elif gate_id == "G-OPS-05":
-            if not es.get("connected"):
-                failures.append({"msg": "evidence_store not connected"})
-            if not es.get("hash_chain_enabled"):
-                failures.append({"msg": "hash_chain not enabled"})
+            for key in ["genaiops.io/evidence-store-connected", "genaiops.io/hash-chain-enabled"]:
+                if all_annotations.get(key) != "true":
+                    failures.append({"msg": f"annotation '{key}' is not 'true'"})
+            if not all_annotations.get("genaiops.io/evidence-store-type"):
+                failures.append({"msg": "annotation 'genaiops.io/evidence-store-type' is missing"})
 
         return {
             "tool": "fixture-eval",
@@ -343,12 +466,33 @@ def evaluate_gate_from_fixture(fixture_path: str, gate_id: str) -> dict:
             "failures": failures,
         }
 
-    # Fallback: unknown gate
+    elif gate_id == "G-OPS-02":
+        # policy_incident_process_exists: check incident-response annotations
+        pod_annotations = (
+            data.get("spec", {}).get("template", {}).get("metadata", {}).get("annotations", {})
+        )
+        meta_annotations = data.get("metadata", {}).get("annotations", {})
+        all_annotations = {**meta_annotations, **pod_annotations}
+        failures = []
+        for key in [
+            "genaiops.io/incident-response-configured",
+            "genaiops.io/incident-contact",
+            "genaiops.io/rollback-mechanism",
+        ]:
+            if not all_annotations.get(key):
+                failures.append({"msg": f"annotation '{key}' is missing or empty"})
+        return {
+            "tool": "fixture-eval",
+            "decision": "FAIL" if failures else "PASS",
+            "failures": failures,
+        }
+
+    # Strict: unknown gates FAIL (not PASS)
+    log(f"WARNING: No evaluation logic for {gate_id} — treating as FAIL", YELLOW)
     return {
         "tool": "fixture-eval",
-        "decision": "PASS",
-        "failures": [],
-        "reason": f"No specific evaluation logic for {gate_id}, defaulting to PASS",
+        "decision": "FAIL",
+        "failures": [{"msg": f"No evaluation logic implemented for gate {gate_id}"}],
     }
 
 

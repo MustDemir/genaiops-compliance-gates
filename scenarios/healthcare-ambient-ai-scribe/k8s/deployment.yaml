@@ -133,27 +133,8 @@ spec:
             - name: tmp
               mountPath: /tmp
 
-        # --- Monitoring Sidecar Stub ---
-        # Phase 9: Replace with real PSI + Jensen-Shannon drift detector
-        - name: monitoring-sidecar
-          image: busybox:1.37
-          command: ["sh", "-c", "echo 'Monitoring sidecar stub — Phase 9' && sleep infinity"]
-          securityContext:
-            runAsNonRoot: true
-            runAsUser: 1001
-            runAsGroup: 1001
-            allowPrivilegeEscalation: false
-            readOnlyRootFilesystem: true
-            capabilities:
-              drop:
-                - ALL
-          resources:
-            requests:
-              cpu: "50m"
-              memory: "32Mi"
-            limits:
-              cpu: "100m"
-              memory: "64Mi"
+        # Monitoring: Drift detection runs as separate CronJob (cronjob-drift-detector.yaml)
+        # See monitoring/k8s/ for PSI + Jensen-Shannon drift detector deployment
 
       volumes:
         - name: tmp
