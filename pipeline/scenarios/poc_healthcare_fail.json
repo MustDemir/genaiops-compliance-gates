@@ -1,7 +1,7 @@
 {
   "scenario": {
     "name": "Healthcare Ambient AI Scribe — Compliance Violation (FAIL)",
-    "description": "Demonstrates the red-path: G-DEP-02 fails due to insufficient safety metrics, pipeline halts, FAIL evidence is recorded.",
+    "description": "Demonstrates the red-path: G-DEP-02 fails due to insufficient safety metrics, G-DEP-05 fails due to missing bias mitigation, pipeline halts, FAIL evidence is recorded.",
     "version": "1.0.0",
     "created": "2026-03-28"
   },
@@ -65,6 +65,47 @@
       "fixture": "scenarios/healthcare-ambient-ai-scribe/fixtures/deployment_compliant.yaml",
       "policy": "policies/operations/policy_evidence_completeness.rego",
       "skip_reason": "Pipeline halted at G-DEP-02"
+    },
+    {
+      "gate_id": "G-DEP-05",
+      "gate_name": "Bias Assessment Complete",
+      "phase": "pre-deployment",
+      "method": "AUTO",
+      "fixture": "scenarios/healthcare-ambient-ai-scribe/fixtures/model_documentation_bias_fail.json",
+      "policy": "policies/pre-deployment/policy_bias_assessment_complete.rego",
+      "expect_fail": true,
+      "description_kolloquium": "Bias wurde erkannt (demographic_parity=0.18, Schwelle 0.1), aber es fehlen Mitigationsmaßnahmen. Das Gate blockiert — auch gescheiterte Bias-Prüfungen werden im Evidence Store dokumentiert."
+    },
+    {
+      "gate_id": "G-DEP-01",
+      "gate_name": "Data Provenance Documented",
+      "phase": "pre-deployment",
+      "method": "AUTO",
+      "fixture": "scenarios/healthcare-ambient-ai-scribe/fixtures/data_documentation_provenance_fail.json",
+      "policy": "policies/pre-deployment/policy_data_provenance_documented.rego",
+      "expect_fail": true,
+      "description_kolloquium": "Datenquellen-Array ist leer, Vorverarbeitung und Version fehlen. Art. 10 nicht erfüllt."
+    },
+    {
+      "gate_id": "G-DEP-03",
+      "gate_name": "Transparency Docs Present",
+      "phase": "deployment",
+      "method": "AUTO",
+      "fixture": "scenarios/healthcare-ambient-ai-scribe/fixtures/app_documentation_transparency_fail.json",
+      "policy": "policies/deployment/policy_transparency_docs_present.rego",
+      "expect_fail": true,
+      "description_kolloquium": "Deployer-Instruktionen leer, Limitationen und KI-Kennzeichnung fehlen. Art. 13 + Art. 50 nicht erfüllt."
+    },
+    {
+      "gate_id": "G-OPS-02",
+      "gate_name": "Incident Process Exists",
+      "phase": "operations",
+      "method": "AUTO",
+      "fixture": "scenarios/healthcare-ambient-ai-scribe/fixtures/deployment_incident_fail.json",
+      "policy": "policies/operations/policy_incident_process_exists.rego",
+      "enforcement": "gatekeeper",
+      "expect_fail": true,
+      "description_kolloquium": "Incident-Kontakt und Rollback-Mechanismus fehlen. Art. 26(5) nicht erfüllt."
     }
   ]
 }

@@ -4,6 +4,7 @@ dimension: "technisch"
 lifecycle_phase: "deployment"
 trigger: "PR merge to main branch — Conftest evaluiert model_documentation.json und data_documentation.json im CI-Lauf"
 policy_checks:
+  - "policy_data_provenance_documented"
   - "policy_training_documented"
   - "policy_data_lineage_complete"
   - "policy_dataset_description_complete"
@@ -32,4 +33,4 @@ sources:
   - "requirements/R002.yaml"
   - "requirements/R006.yaml"
   - "Thesis Tab. 5.2, 5.3, 5.4"
-notes: "DESIGN-ONLY — Rego-Implementierung als Future Work. AUTO: Co-Mapping R002 + R006 (Art. 10 normiert Datengovernance und Datenqualitaet als komplementaere Pruefgegenstaende). 5 Conftest-Policies pruefen Lucaj Model- und Data-Documentation-Templates auf Vollstaendigkeit."
+notes: "PARTIALLY IMPLEMENTED (2026-03-28) — policy_data_provenance_documented.rego added: 5 Checks, 10 deny-Rules. Fixtures: data_documentation_provenance_pass.json, data_documentation_provenance_fail.json. Remaining 5 policies (training_documented, data_lineage, dataset_description, annotation_quality, data_license) still DESIGN-ONLY."

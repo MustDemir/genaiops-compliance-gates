@@ -26,4 +26,4 @@ links:
 sources:
   - "requirements/R013.yaml"
   - "Thesis Tab. 5.2, 5.3, 5.4"
-notes: "DESIGN-ONLY — Rego-Implementierung als Future Work. AUTO: Conftest prueft ob Bias-Detection-Methoden, Fairness-Ergebnisse und Mitigationsmassnahmen im Model-Documentation-Template dokumentiert sind."
+notes: "IMPLEMENTED (2026-03-28) — policy_bias_assessment_complete.rego: 5 Checks, 10 deny-Rules. Fixtures: model_documentation_bias_pass.json, model_documentation_bias_fail.json."

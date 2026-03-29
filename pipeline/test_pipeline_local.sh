@@ -63,11 +63,23 @@ if [ "$RED_PATH" = true ]; then
   SECURITY_FIXTURE="$SCENARIO_DIR/fixtures/deployment_noncompliant.yaml"
   GOVERNANCE_FIXTURE="$SCENARIO_DIR/fixtures/app_documentation_incomplete.json"
   SAFETY_FIXTURE="$SCENARIO_DIR/fixtures/eval_results_fail.json"
+  BIAS_FIXTURE="$SCENARIO_DIR/fixtures/model_documentation_bias_fail.json"
+  PROVENANCE_FIXTURE="$SCENARIO_DIR/fixtures/data_documentation_provenance_fail.json"
+  TRANSPARENCY_FIXTURE="$SCENARIO_DIR/fixtures/app_documentation_transparency_fail.json"
+  INCIDENT_FIXTURE="$SCENARIO_DIR/fixtures/deployment_incident_fail.json"
+  MONITORING_FIXTURE="$SCENARIO_DIR/fixtures/admission_review_noncompliant.json"
+  EVIDENCE_FIXTURE="$SCENARIO_DIR/fixtures/admission_review_noncompliant.json"
 else
   RISK_FIXTURE="$SCENARIO_DIR/fixtures/app_documentation.json"
   SECURITY_FIXTURE="$SCENARIO_DIR/fixtures/deployment_compliant.yaml"
   GOVERNANCE_FIXTURE="$SCENARIO_DIR/fixtures/app_documentation.json"
   SAFETY_FIXTURE="$SCENARIO_DIR/fixtures/eval_results.json"
+  BIAS_FIXTURE="$SCENARIO_DIR/fixtures/model_documentation_bias_pass.json"
+  PROVENANCE_FIXTURE="$SCENARIO_DIR/fixtures/data_documentation_provenance_pass.json"
+  TRANSPARENCY_FIXTURE="$SCENARIO_DIR/fixtures/app_documentation_transparency_pass.json"
+  INCIDENT_FIXTURE="$SCENARIO_DIR/fixtures/deployment_incident_pass.json"
+  MONITORING_FIXTURE="$SCENARIO_DIR/fixtures/admission_review_compliant.json"
+  EVIDENCE_FIXTURE="$SCENARIO_DIR/fixtures/admission_review_compliant.json"
 fi
 
 # ── Gate execution function ──
@@ -139,18 +151,28 @@ except:
   echo ""
 }
 
-# ── Run all 4 CI gates ──
+# ── Run all 10 gates (7 Conftest + 3 Gatekeeper simulation) ──
 echo -e "${BLUE}━━━ Pre-Deployment Gates ━━━${NC}"
 echo ""
 
-run_gate "G-PRE-01" "Risk Classification"    "policies/pre-deployment/policy_risk_classification.rego" "$RISK_FIXTURE"       "R001" "genaiops.pre_deployment.risk_classification"
-run_gate "G-PRE-04" "Security Baseline"       "policies/pre-deployment/policy_security_baseline.rego"   "$SECURITY_FIXTURE"   "R003" "genaiops.pre_deployment.security_baseline"
-run_gate "G-PRE-05" "Governance Approval"     "policies/pre-deployment/policy_governance_approval.rego" "$GOVERNANCE_FIXTURE" "R012" "genaiops.pre_deployment.governance_approval"
+run_gate "G-PRE-01" "Risk Classification"    "policies/pre-deployment/policy_risk_classification.rego"       "$RISK_FIXTURE"       "R001" "genaiops.pre_deployment.risk_classification"
+run_gate "G-PRE-04" "Security Baseline"       "policies/pre-deployment/policy_security_baseline.rego"         "$SECURITY_FIXTURE"   "R003" "genaiops.pre_deployment.security_baseline"
+run_gate "G-PRE-05" "Governance Approval"     "policies/pre-deployment/policy_governance_approval.rego"       "$GOVERNANCE_FIXTURE" "R012" "genaiops.pre_deployment.governance_approval"
+run_gate "G-DEP-05" "Bias Assessment"         "policies/pre-deployment/policy_bias_assessment_complete.rego"  "$BIAS_FIXTURE"       "R013" "genaiops.pre_deployment.bias_assessment_complete"
+run_gate "G-DEP-01" "Data Provenance"         "policies/pre-deployment/policy_data_provenance_documented.rego" "$PROVENANCE_FIXTURE" "R002" "genaiops.pre_deployment.data_provenance_documented"
 
-echo -e "${BLUE}━━━ Deployment Gate ━━━${NC}"
+echo -e "${BLUE}━━━ Deployment Gates ━━━${NC}"
 echo ""
 
-run_gate "G-DEP-02" "Safety Metrics"          "policies/deployment/policy_safety_metrics.rego"          "$SAFETY_FIXTURE"     "R003" "genaiops.deployment.safety_metrics"
+run_gate "G-DEP-02" "Safety Metrics"          "policies/deployment/policy_safety_metrics.rego"                "$SAFETY_FIXTURE"       "R003" "genaiops.deployment.safety_metrics"
+run_gate "G-DEP-03" "Transparency Docs"       "policies/deployment/policy_transparency_docs_present.rego"     "$TRANSPARENCY_FIXTURE" "R007" "genaiops.deployment.transparency_docs_present"
+
+echo -e "${BLUE}━━━ Operations Gates (Gatekeeper simulation) ━━━${NC}"
+echo ""
+
+run_gate "G-OPS-03" "Monitoring Config"       "policies/operations/policy_monitoring_configured.rego"         "$MONITORING_FIXTURE"   "R010" "genaiops.operations.monitoring_configured"
+run_gate "G-OPS-05" "Evidence Completeness"   "policies/operations/policy_evidence_completeness.rego"         "$EVIDENCE_FIXTURE"     "R005" "genaiops.operations.evidence_completeness"
+run_gate "G-OPS-02" "Incident Process"        "policies/operations/policy_incident_process_exists.rego"       "$INCIDENT_FIXTURE"     "R009" "genaiops.operations.incident_process_exists"
 
 # ── Hash chain verification ──
 if [ "$DRY_RUN" = false ]; then

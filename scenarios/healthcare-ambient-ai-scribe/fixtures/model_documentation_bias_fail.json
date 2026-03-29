@@ -1,0 +1,30 @@
+{
+  "_fixture_meta": {
+    "description": "FAIL scenario for G-DEP-05 Bias Assessment Complete (R013)",
+    "policy": "policies/pre-deployment/policy_bias_assessment_complete.rego",
+    "expected_result": "FAIL — bias detected but mitigation_measures missing",
+    "scenario": "Healthcare Ambient AI Scribe — bias detected in age_group, no mitigation documented"
+  },
+
+  "bias_detection": {
+    "methods": [
+      "counterfactual_fairness_test"
+    ],
+    "protected_attributes": [
+      "gender",
+      "age_group"
+    ],
+    "fairness_results": {
+      "bias_detected": true,
+      "metrics": [
+        {
+          "name": "demographic_parity_difference",
+          "value": 0.18,
+          "threshold": 0.1,
+          "passed": false
+        }
+      ],
+      "evaluation_date": "2026-03-15"
+    }
+  }
+}

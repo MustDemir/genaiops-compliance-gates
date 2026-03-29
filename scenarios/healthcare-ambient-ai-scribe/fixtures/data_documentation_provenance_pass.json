@@ -1,0 +1,35 @@
+{
+  "_fixture_meta": {
+    "description": "PASS scenario for G-DEP-01 Data Provenance Documented (R002)",
+    "policy": "policies/pre-deployment/policy_data_provenance_documented.rego",
+    "expected_result": "PASS — all data provenance fields complete",
+    "scenario": "Healthcare Ambient AI Scribe — training data fully documented"
+  },
+
+  "data_provenance": {
+    "collection_methods": [
+      "clinical_transcription_corpus",
+      "synthetic_augmentation"
+    ],
+    "sources": [
+      {
+        "id": "DS-001",
+        "name": "De-identified Clinical Transcripts",
+        "origin": "Partner Hospital Network (anonymized)",
+        "license": "Data Use Agreement v2.1"
+      },
+      {
+        "id": "DS-002",
+        "name": "Synthetic Medical Dialogues",
+        "origin": "Internal Generation Pipeline",
+        "license": "Internal — no external restrictions"
+      }
+    ],
+    "preprocessing_steps": [
+      "PHI removal via NER pipeline",
+      "Text normalization (lowercase, punctuation standardization)",
+      "Tokenization (SentencePiece, 32k vocab)"
+    ],
+    "data_version": "v2.3.1-2026Q1"
+  }
+}

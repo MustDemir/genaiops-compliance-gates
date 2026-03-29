@@ -1,0 +1,24 @@
+{
+  "_fixture_meta": {
+    "description": "PASS scenario for G-DEP-03 Transparency Docs Present (R007)",
+    "policy": "policies/deployment/policy_transparency_docs_present.rego",
+    "expected_result": "PASS — all transparency fields complete per Art. 13 + Art. 50",
+    "scenario": "Healthcare Ambient AI Scribe — full transparency documentation"
+  },
+
+  "transparency": {
+    "instructions_for_deployers": "The Ambient AI Scribe must be deployed in clinical environments with trained medical staff present. Output summaries must be reviewed by a licensed physician before inclusion in patient records. System operates as decision-support only — not autonomous diagnosis.",
+    "model_capabilities": "Real-time transcription of patient-physician consultations with automated SOAP note generation. Supports English and German. Optimized for outpatient primary care settings.",
+    "known_limitations": [
+      "Accuracy degrades significantly in multi-speaker environments with more than 3 participants",
+      "Medical terminology coverage limited to primary care — specialist jargon (oncology, cardiology) may produce errors",
+      "No support for dialects or heavy accents in current model version",
+      "Latency increases above 3s for consultations exceeding 45 minutes"
+    ],
+    "ai_content_labeling": {
+      "enabled": true,
+      "method": "Metadata tag in FHIR DocumentReference.category",
+      "label_text": "AI-generated summary — review required"
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "_fixture_meta": {
+    "description": "FAIL scenario for G-DEP-01 Data Provenance Documented (R002)",
+    "policy": "policies/pre-deployment/policy_data_provenance_documented.rego",
+    "expected_result": "FAIL — sources empty, preprocessing_steps missing, data_version missing",
+    "scenario": "Healthcare Ambient AI Scribe — incomplete data documentation"
+  },
+
+  "data_provenance": {
+    "collection_methods": [
+      "clinical_transcription_corpus"
+    ],
+    "sources": []
+  }
+}

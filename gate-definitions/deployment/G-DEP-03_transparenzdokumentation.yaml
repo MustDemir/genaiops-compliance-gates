@@ -27,4 +27,4 @@ links:
 sources:
   - "requirements/R007.yaml"
   - "Thesis Tab. 5.2, 5.3, 5.4"
-notes: "DESIGN-ONLY — Rego-Implementierung als Future Work. HYBRID: Conftest prueft ob Deployer-Instruktionen, Limitationen und Erklaerbarkeits-Methode dokumentiert; manueller Review bewertet Verstaendlichkeit und Zugaenglichkeit der Transparenzhinweise. Art. 50 erfordert zusaetzlich KI-generierte-Inhalte-Kennzeichnung."
+notes: "PARTIALLY IMPLEMENTED (2026-03-28) — policy_transparency_docs_present.rego added: 5 Checks (deployer instructions, capabilities, limitations, AI content labeling). Fixtures: app_documentation_transparency_pass.json, app_documentation_transparency_fail.json. policy_explainability_documented still DESIGN-ONLY."

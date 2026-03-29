@@ -1,0 +1,29 @@
+{
+  "_fixture_meta": {
+    "description": "FAIL scenario for G-OPS-02 Incident Process Exists (R009)",
+    "policy": "policies/operations/policy_incident_process_exists.rego",
+    "expected_result": "FAIL — incident-contact missing, rollback-mechanism missing",
+    "scenario": "Healthcare Ambient AI Scribe — Gatekeeper rejects deployment without incident config",
+    "enforcement": "gatekeeper"
+  },
+
+  "review": {
+    "object": {
+      "apiVersion": "apps/v1",
+      "kind": "Deployment",
+      "metadata": {
+        "name": "ambient-ai-scribe",
+        "namespace": "genaiops-healthcare"
+      },
+      "spec": {
+        "template": {
+          "metadata": {
+            "annotations": {
+              "genaiops.io/incident-response-configured": "true"
+            }
+          }
+        }
+      }
+    }
+  }
+}

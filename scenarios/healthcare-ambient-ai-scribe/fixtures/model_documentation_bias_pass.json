@@ -1,0 +1,40 @@
+{
+  "_fixture_meta": {
+    "description": "PASS scenario for G-DEP-05 Bias Assessment Complete (R013)",
+    "policy": "policies/pre-deployment/policy_bias_assessment_complete.rego",
+    "expected_result": "PASS — all bias documentation requirements met",
+    "scenario": "Healthcare Ambient AI Scribe — bias assessment performed with no critical bias detected"
+  },
+
+  "bias_detection": {
+    "methods": [
+      "counterfactual_fairness_test",
+      "disparate_impact_analysis"
+    ],
+    "protected_attributes": [
+      "gender",
+      "age_group",
+      "primary_language"
+    ],
+    "fairness_results": {
+      "bias_detected": false,
+      "metrics": [
+        {
+          "name": "demographic_parity_difference",
+          "value": 0.03,
+          "threshold": 0.1,
+          "passed": true
+        },
+        {
+          "name": "equalized_odds_difference",
+          "value": 0.02,
+          "threshold": 0.1,
+          "passed": true
+        }
+      ],
+      "evaluation_date": "2026-03-15",
+      "evaluated_by": "ML Engineer — Fairness Pipeline v1.0"
+    },
+    "mitigation_measures": []
+  }
+}

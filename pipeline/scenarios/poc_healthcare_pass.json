@@ -78,6 +78,47 @@
       "constraint_template": "scenarios/healthcare-ambient-ai-scribe/k8s/gatekeeper/constraint-evidence-completeness.yaml",
       "description_de": "Prüft ob Evidence Store angebunden und Hash-Chain aktiviert ist (K8s-Annotations).",
       "description_kolloquium": "Das letzte Gate stellt sicher: Ist die Beweissicherung aktiviert? Jede Entscheidung muss in der Datenbank landen — mit einer kryptografischen Kette die Manipulation erkennbar macht. Ohne das kommt kein Deployment durch."
+    },
+    {
+      "gate_id": "G-DEP-05",
+      "gate_name": "Bias Assessment Complete",
+      "phase": "pre-deployment",
+      "method": "AUTO",
+      "fixture": "scenarios/healthcare-ambient-ai-scribe/fixtures/model_documentation_bias_pass.json",
+      "policy": "policies/pre-deployment/policy_bias_assessment_complete.rego",
+      "description_de": "Prüft ob Bias-Detection-Methoden, Fairness-Ergebnisse, geschützte Attribute und ggf. Mitigationsmaßnahmen dokumentiert sind.",
+      "description_kolloquium": "Bevor ein KI-Modell deployed wird, muss nachgewiesen sein: Wurde auf Bias getestet? Welche geschützten Merkmale wurden geprüft? Wenn Bias gefunden wurde — gibt es einen Mitigationsplan? Das System blockiert automatisch, wenn diese Dokumentation fehlt."
+    },
+    {
+      "gate_id": "G-DEP-01",
+      "gate_name": "Data Provenance Documented",
+      "phase": "pre-deployment",
+      "method": "AUTO",
+      "fixture": "scenarios/healthcare-ambient-ai-scribe/fixtures/data_documentation_provenance_pass.json",
+      "policy": "policies/pre-deployment/policy_data_provenance_documented.rego",
+      "description_de": "Prüft ob Datenherkunft, Erhebungsmethoden, Vorverarbeitungsschritte und Datenversion dokumentiert sind.",
+      "description_kolloquium": "Art. 10 EU AI Act fordert dokumentierte Datengovernance. Das Gate prüft automatisch: Woher kommen die Trainingsdaten? Wie wurden sie verarbeitet? Gibt es eine Versionsnummer? Ohne vollständige Daten-Provenienz kein Deployment."
+    },
+    {
+      "gate_id": "G-DEP-03",
+      "gate_name": "Transparency Docs Present",
+      "phase": "deployment",
+      "method": "AUTO",
+      "fixture": "scenarios/healthcare-ambient-ai-scribe/fixtures/app_documentation_transparency_pass.json",
+      "policy": "policies/deployment/policy_transparency_docs_present.rego",
+      "description_de": "Prüft ob Deployer-Instruktionen, Modell-Fähigkeiten, bekannte Limitationen und KI-Inhalte-Kennzeichnung dokumentiert sind.",
+      "description_kolloquium": "Art. 13 EU AI Act verlangt Transparenz: Nutzer müssen wissen, was das System kann und was nicht. Dieses Gate prüft ob Deployer-Anweisungen, Fähigkeiten, Limitationen und die KI-Kennzeichnung nach Art. 50 vorhanden sind."
+    },
+    {
+      "gate_id": "G-OPS-02",
+      "gate_name": "Incident Process Exists",
+      "phase": "operations",
+      "method": "AUTO",
+      "fixture": "scenarios/healthcare-ambient-ai-scribe/fixtures/deployment_incident_pass.json",
+      "policy": "policies/operations/policy_incident_process_exists.rego",
+      "enforcement": "gatekeeper",
+      "description_de": "Prüft ob Incident-Response konfiguriert, ein Meldekontakt hinterlegt und ein Rollback-Mechanismus verfügbar ist.",
+      "description_kolloquium": "Art. 26(5) EU AI Act fordert: Schwerwiegende Vorfälle müssen erkannt und gemeldet werden. Der Gatekeeper blockiert jedes Deployment, das keinen Incident-Kontakt und keinen Rollback-Mechanismus als K8s-Annotation deklariert hat."
     }
   ]
 }

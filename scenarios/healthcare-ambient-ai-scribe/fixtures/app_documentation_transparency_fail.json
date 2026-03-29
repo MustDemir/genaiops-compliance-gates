@@ -1,0 +1,13 @@
+{
+  "_fixture_meta": {
+    "description": "FAIL scenario for G-DEP-03 Transparency Docs Present (R007)",
+    "policy": "policies/deployment/policy_transparency_docs_present.rego",
+    "expected_result": "FAIL — instructions_for_deployers empty, known_limitations missing, ai_content_labeling missing",
+    "scenario": "Healthcare Ambient AI Scribe — incomplete transparency documentation"
+  },
+
+  "transparency": {
+    "instructions_for_deployers": "",
+    "model_capabilities": "Transcription and summarization of medical consultations."
+  }
+}

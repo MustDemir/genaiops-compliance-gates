@@ -16,6 +16,7 @@ Enterprise GenAI systems face a triple challenge: they must be **technically rob
 
 - **16 Quality Gates** across 3 lifecycle phases (Pre-Deployment, Deployment, Operations)
 - **Policy-as-Code** via OPA/Rego with three enforcement pillars (Conftest, Gatekeeper, Decision Logs)
+- **10 implemented Rego Policies** covering Art. 9, 10, 11, 13, 14, 15, 26.5 + Annex IV
 - **Immutable Evidence Store** with SHA-256 hash-chain for audit-proof traceability
 - **Full EU AI Act mapping**: Art. 9–15 → Requirements → Gates → Policies → Evidence
 - **Automated gate decisions** using the CDV Framework (Contract → Validation → Severity → Pipeline-Decision)
@@ -198,7 +199,7 @@ psql -f schema/evidence_store_schema_v02_enterprise.sql
 | **2** | Containerisieren (Dockerfile, Multi-Stage, Non-Root) | `████████████████████` 100% | done |
 | **3** | Docker Compose (App + DB + Prometheus + Grafana) | `████████████████████` 100% | done |
 | **4** | K8s-Manifeste (Deployment, Service, ConfigMap, Sidecar) | `████████████████████` 100% | done |
-| **5** | Rego-Policies + Conftest-Tests (6 Gates) | `████████████████████` 100% | done |
+| **5** | Rego-Policies + Conftest-Tests (10 Gates) | `████████████████████` 100% | done |
 | **6** | Lokaler Cluster (Minikube) + Helm + Gatekeeper | `████████████████████` 100% | done |
 | **7** | Gatekeeper ConstraintTemplates (ADMIT/REJECT live) | `████████████████████` 100% | done |
 | **8** | Evidence Store + Closed-Loop Pipeline | `████████████████████` 100% | done |
@@ -221,7 +222,7 @@ psql -f schema/evidence_store_schema_v02_enterprise.sql
 | Healthcare Scribe App | done | FastAPI Mock-Endpoint, /transcribe, /health, /metrics |
 | Gate-Fixtures | done | app_documentation.json, eval_results.json |
 | K8s-Manifeste | done | 8 YAMLs: Namespace, Deployment, Service, ConfigMap, PostgreSQL, Prometheus |
-| OPA/Rego-Code | done | 6 Policies (3 Conftest PRE + 1 Conftest DEP + 2 Gatekeeper OPS), 71 Regeln, 13 Fixtures |
+| OPA/Rego-Code | done | 10 Policies (5 Conftest PRE + 2 Conftest DEP + 3 Gatekeeper OPS), ~100 Regeln, 21 Fixtures |
 | Integration Tests | done | 8 Tests (HYBRID E2E, Tamper Detection, Chain Linkage, Non-Blocking Semantics) |
 | Tamper-Detection Spec | done | Dokumentiert: 8 erkannte Angriffsvektoren, 6 bekannte Limitationen, 3 Protection Layers |
 | Walkthrough-Dokumentation | done | 13-Schritte Walkthrough für Kap. 6.3 (Pre-Dep → Dep → Ops → HYBRID → Tamper) |

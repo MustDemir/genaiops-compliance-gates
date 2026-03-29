@@ -1,0 +1,31 @@
+{
+  "_fixture_meta": {
+    "description": "PASS scenario for G-OPS-02 Incident Process Exists (R009)",
+    "policy": "policies/operations/policy_incident_process_exists.rego",
+    "expected_result": "PASS — all incident-response annotations present",
+    "scenario": "Healthcare Ambient AI Scribe — Gatekeeper admission with incident config",
+    "enforcement": "gatekeeper"
+  },
+
+  "review": {
+    "object": {
+      "apiVersion": "apps/v1",
+      "kind": "Deployment",
+      "metadata": {
+        "name": "ambient-ai-scribe",
+        "namespace": "genaiops-healthcare"
+      },
+      "spec": {
+        "template": {
+          "metadata": {
+            "annotations": {
+              "genaiops.io/incident-response-configured": "true",
+              "genaiops.io/incident-contact": "ai-governance-team@hospital.example.com",
+              "genaiops.io/rollback-mechanism": "true"
+            }
+          }
+        }
+      }
+    }
+  }
+}

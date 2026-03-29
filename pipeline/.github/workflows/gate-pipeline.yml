@@ -6,10 +6,17 @@
 #
 # Triggered on: push to main, pull_request to main
 # Gates checked (Conftest, S3 Policy Engine):
-#   G-PRE-01: Risk Classification     (R001, Art.9)   — HYBRID
-#   G-PRE-04: Security Baseline       (R003, Art.15)  — AUTO
-#   G-PRE-05: Governance Approval     (R012, Art.14)  — HYBRID
-#   G-DEP-02: Safety Metrics          (R003, Art.15)  — AUTO
+#   G-PRE-01: Risk Classification     (R001, Art.9)      — HYBRID
+#   G-PRE-04: Security Baseline       (R003, Art.15)     — AUTO
+#   G-PRE-05: Governance Approval     (R012, Art.14)     — HYBRID
+#   G-DEP-01: Data Provenance         (R002, Art.10)     — AUTO
+#   G-DEP-02: Safety Metrics          (R003, Art.15)     — AUTO
+#   G-DEP-03: Transparency Docs       (R007, Art.13)     — AUTO
+#   G-DEP-05: Bias Assessment         (R013, Art.10(2f)) — AUTO
+# Gatekeeper Gates (simulated via Conftest + AdmissionReview fixtures):
+#   G-OPS-02: Incident Process        (R009, Art.26.5)   — AUTO (Gatekeeper)
+#   G-OPS-03: Monitoring Config       (R010, Art.11)     — AUTO (Gatekeeper)
+#   G-OPS-05: Evidence Completeness   (R005, Art.11)     — AUTO (Gatekeeper)
 #
 # Evidence: Every gate result → Evidence Store (S4) with hash chain
 # Traceability: Commit-SHA as image tag (DP2)
@@ -279,6 +286,276 @@ jobs:
           fi
           echo "::endgroup::"
 
+      # ── Step 2b: Additional Pre-Deployment Gates (new) ──
+      - name: "Gate G-DEP-05: Bias Assessment (R013, Art.10(2)(f))"
+        id: g-dep-05
+        run: |
+          echo "::group::G-DEP-05 Bias Assessment"
+          echo "⚖️  Checking: Bias assessment complete with mitigation strategy?"
+          echo "   Policy: policies/pre-deployment/policy_bias_assessment_complete.rego"
+          echo "   Input:  $SCENARIO_DIR/fixtures/model_documentation_bias_pass.json"
+          echo ""
+
+          conftest test \
+            "$SCENARIO_DIR/fixtures/model_documentation_bias_pass.json" \
+            --policy policies/pre-deployment/policy_bias_assessment_complete.rego \
+            --namespace "genaiops.pre_deployment.bias_assessment_complete" \
+            --no-color \
+            --output json > /tmp/g-dep-05-result.json 2>/dev/null || true
+
+          FAILURES=$(python3 -c "
+          import json, sys
+          try:
+            with open('/tmp/g-dep-05-result.json') as f:
+              data = json.load(f)
+            print(sum(len(r.get('failures', [])) for r in data))
+          except Exception as e:
+            print(f'::warning::G-DEP-05 JSON parse error: {e}', file=sys.stderr)
+            print(-1)
+          ")
+
+          if [ "$FAILURES" = "0" ]; then
+            echo "✅ G-DEP-05 PASS — Bias assessment verified"
+            echo "result=PASS" >> "$GITHUB_OUTPUT"
+          elif [ "$FAILURES" = "-1" ]; then
+            echo "⚠️  G-DEP-05 ERROR — Could not parse Conftest output"
+            cat /tmp/g-dep-05-result.json || true
+            echo "result=FAIL" >> "$GITHUB_OUTPUT"
+          else
+            echo "❌ G-DEP-05 FAIL — $FAILURES violations found"
+            python3 -c "
+          import json
+          with open('/tmp/g-dep-05-result.json') as f:
+            data = json.load(f)
+          for r in data:
+            for f in r.get('failures', []):
+              print(f'  → {f[\"msg\"]}')
+          " 2>/dev/null || true
+            echo "result=FAIL" >> "$GITHUB_OUTPUT"
+          fi
+          echo "::endgroup::"
+
+      - name: "Gate G-DEP-01: Data Provenance (R002, Art.10)"
+        id: g-dep-01
+        run: |
+          echo "::group::G-DEP-01 Data Provenance"
+          echo "📂 Checking: Data provenance and governance documented?"
+          echo "   Policy: policies/pre-deployment/policy_data_provenance_documented.rego"
+          echo "   Input:  $SCENARIO_DIR/fixtures/data_documentation_provenance_pass.json"
+          echo ""
+
+          conftest test \
+            "$SCENARIO_DIR/fixtures/data_documentation_provenance_pass.json" \
+            --policy policies/pre-deployment/policy_data_provenance_documented.rego \
+            --namespace "genaiops.pre_deployment.data_provenance_documented" \
+            --no-color \
+            --output json > /tmp/g-dep-01-result.json 2>/dev/null || true
+
+          FAILURES=$(python3 -c "
+          import json, sys
+          try:
+            with open('/tmp/g-dep-01-result.json') as f:
+              data = json.load(f)
+            print(sum(len(r.get('failures', [])) for r in data))
+          except Exception as e:
+            print(f'::warning::G-DEP-01 JSON parse error: {e}', file=sys.stderr)
+            print(-1)
+          ")
+
+          if [ "$FAILURES" = "0" ]; then
+            echo "✅ G-DEP-01 PASS — Data provenance documented"
+            echo "result=PASS" >> "$GITHUB_OUTPUT"
+          elif [ "$FAILURES" = "-1" ]; then
+            echo "⚠️  G-DEP-01 ERROR — Could not parse Conftest output"
+            cat /tmp/g-dep-01-result.json || true
+            echo "result=FAIL" >> "$GITHUB_OUTPUT"
+          else
+            echo "❌ G-DEP-01 FAIL — $FAILURES violations found"
+            python3 -c "
+          import json
+          with open('/tmp/g-dep-01-result.json') as f:
+            data = json.load(f)
+          for r in data:
+            for f in r.get('failures', []):
+              print(f'  → {f[\"msg\"]}')
+          " 2>/dev/null || true
+            echo "result=FAIL" >> "$GITHUB_OUTPUT"
+          fi
+          echo "::endgroup::"
+
+      # ── Step 3b: Additional Deployment Gate (new) ──
+      - name: "Gate G-DEP-03: Transparency Documentation (R007, Art.13)"
+        id: g-dep-03
+        run: |
+          echo "::group::G-DEP-03 Transparency Documentation"
+          echo "📖 Checking: Transparency and user documentation present?"
+          echo "   Policy: policies/deployment/policy_transparency_docs_present.rego"
+          echo "   Input:  $SCENARIO_DIR/fixtures/app_documentation_transparency_pass.json"
+          echo ""
+
+          conftest test \
+            "$SCENARIO_DIR/fixtures/app_documentation_transparency_pass.json" \
+            --policy policies/deployment/policy_transparency_docs_present.rego \
+            --namespace "genaiops.deployment.transparency_docs_present" \
+            --no-color \
+            --output json > /tmp/g-dep-03-result.json 2>/dev/null || true
+
+          FAILURES=$(python3 -c "
+          import json, sys
+          try:
+            with open('/tmp/g-dep-03-result.json') as f:
+              data = json.load(f)
+            print(sum(len(r.get('failures', [])) for r in data))
+          except Exception as e:
+            print(f'::warning::G-DEP-03 JSON parse error: {e}', file=sys.stderr)
+            print(-1)
+          ")
+
+          if [ "$FAILURES" = "0" ]; then
+            echo "✅ G-DEP-03 PASS — Transparency documentation verified"
+            echo "result=PASS" >> "$GITHUB_OUTPUT"
+          elif [ "$FAILURES" = "-1" ]; then
+            echo "⚠️  G-DEP-03 ERROR — Could not parse Conftest output"
+            cat /tmp/g-dep-03-result.json || true
+            echo "result=FAIL" >> "$GITHUB_OUTPUT"
+          else
+            echo "❌ G-DEP-03 FAIL — $FAILURES violations found"
+            python3 -c "
+          import json
+          with open('/tmp/g-dep-03-result.json') as f:
+            data = json.load(f)
+          for r in data:
+            for f in r.get('failures', []):
+              print(f'  → {f[\"msg\"]}')
+          " 2>/dev/null || true
+            echo "result=FAIL" >> "$GITHUB_OUTPUT"
+          fi
+          echo "::endgroup::"
+
+      # ── Step 3c: Operations Gates (Gatekeeper — simulated via Conftest) ──
+      - name: "Gate G-OPS-03: Monitoring Configuration (R010, Art.11)"
+        id: g-ops-03
+        run: |
+          echo "::group::G-OPS-03 Monitoring Configuration"
+          echo "📡 Checking: K8s monitoring annotations present (Gatekeeper simulation)?"
+          echo "   Policy: policies/operations/policy_monitoring_configured.rego"
+          echo "   Input:  $SCENARIO_DIR/fixtures/admission_review_compliant.json"
+          echo ""
+
+          conftest test \
+            "$SCENARIO_DIR/fixtures/admission_review_compliant.json" \
+            --policy policies/operations/policy_monitoring_configured.rego \
+            --namespace "genaiops.operations.monitoring_configured" \
+            --no-color \
+            --output json > /tmp/g-ops-03-result.json 2>/dev/null || true
+
+          FAILURES=$(python3 -c "
+          import json, sys
+          try:
+            with open('/tmp/g-ops-03-result.json') as f:
+              data = json.load(f)
+            total = sum(len(r.get('failures', [])) + len(r.get('violations', [])) for r in data)
+            print(total)
+          except Exception as e:
+            print(f'::warning::G-OPS-03 JSON parse error: {e}', file=sys.stderr)
+            print(-1)
+          ")
+
+          if [ "$FAILURES" = "0" ]; then
+            echo "✅ G-OPS-03 PASS — Monitoring configuration verified"
+            echo "result=PASS" >> "$GITHUB_OUTPUT"
+          elif [ "$FAILURES" = "-1" ]; then
+            echo "⚠️  G-OPS-03 ERROR — Could not parse Conftest output"
+            cat /tmp/g-ops-03-result.json || true
+            echo "result=FAIL" >> "$GITHUB_OUTPUT"
+          else
+            echo "❌ G-OPS-03 FAIL — $FAILURES violations found"
+            echo "result=FAIL" >> "$GITHUB_OUTPUT"
+          fi
+          echo "::endgroup::"
+
+      - name: "Gate G-OPS-05: Evidence Completeness (R005, Art.11)"
+        id: g-ops-05
+        run: |
+          echo "::group::G-OPS-05 Evidence Completeness"
+          echo "🗄️  Checking: Evidence store annotations present (Gatekeeper simulation)?"
+          echo "   Policy: policies/operations/policy_evidence_completeness.rego"
+          echo "   Input:  $SCENARIO_DIR/fixtures/admission_review_compliant.json"
+          echo ""
+
+          conftest test \
+            "$SCENARIO_DIR/fixtures/admission_review_compliant.json" \
+            --policy policies/operations/policy_evidence_completeness.rego \
+            --namespace "genaiops.operations.evidence_completeness" \
+            --no-color \
+            --output json > /tmp/g-ops-05-result.json 2>/dev/null || true
+
+          FAILURES=$(python3 -c "
+          import json, sys
+          try:
+            with open('/tmp/g-ops-05-result.json') as f:
+              data = json.load(f)
+            total = sum(len(r.get('failures', [])) + len(r.get('violations', [])) for r in data)
+            print(total)
+          except Exception as e:
+            print(f'::warning::G-OPS-05 JSON parse error: {e}', file=sys.stderr)
+            print(-1)
+          ")
+
+          if [ "$FAILURES" = "0" ]; then
+            echo "✅ G-OPS-05 PASS — Evidence completeness verified"
+            echo "result=PASS" >> "$GITHUB_OUTPUT"
+          elif [ "$FAILURES" = "-1" ]; then
+            echo "⚠️  G-OPS-05 ERROR — Could not parse Conftest output"
+            cat /tmp/g-ops-05-result.json || true
+            echo "result=FAIL" >> "$GITHUB_OUTPUT"
+          else
+            echo "❌ G-OPS-05 FAIL — $FAILURES violations found"
+            echo "result=FAIL" >> "$GITHUB_OUTPUT"
+          fi
+          echo "::endgroup::"
+
+      - name: "Gate G-OPS-02: Incident Process (R009, Art.26.5)"
+        id: g-ops-02
+        run: |
+          echo "::group::G-OPS-02 Incident Process"
+          echo "🚨 Checking: Incident response annotations present (Gatekeeper simulation)?"
+          echo "   Policy: policies/operations/policy_incident_process_exists.rego"
+          echo "   Input:  $SCENARIO_DIR/fixtures/deployment_incident_pass.json"
+          echo ""
+
+          conftest test \
+            "$SCENARIO_DIR/fixtures/deployment_incident_pass.json" \
+            --policy policies/operations/policy_incident_process_exists.rego \
+            --namespace "genaiops.operations.incident_process_exists" \
+            --no-color \
+            --output json > /tmp/g-ops-02-result.json 2>/dev/null || true
+
+          FAILURES=$(python3 -c "
+          import json, sys
+          try:
+            with open('/tmp/g-ops-02-result.json') as f:
+              data = json.load(f)
+            total = sum(len(r.get('failures', [])) + len(r.get('violations', [])) for r in data)
+            print(total)
+          except Exception as e:
+            print(f'::warning::G-OPS-02 JSON parse error: {e}', file=sys.stderr)
+            print(-1)
+          ")
+
+          if [ "$FAILURES" = "0" ]; then
+            echo "✅ G-OPS-02 PASS — Incident process verified"
+            echo "result=PASS" >> "$GITHUB_OUTPUT"
+          elif [ "$FAILURES" = "-1" ]; then
+            echo "⚠️  G-OPS-02 ERROR — Could not parse Conftest output"
+            cat /tmp/g-ops-02-result.json || true
+            echo "result=FAIL" >> "$GITHUB_OUTPUT"
+          else
+            echo "❌ G-OPS-02 FAIL — $FAILURES violations found"
+            echo "result=FAIL" >> "$GITHUB_OUTPUT"
+          fi
+          echo "::endgroup::"
+
       # ── Step 4: Evidence Recording (S4) ──
       - name: "Record Evidence — All Gate Results"
         id: evidence
@@ -295,7 +572,13 @@ jobs:
             "G-PRE-01:R001:${{ steps.g-pre-01.outputs.result }}:HYBRID:decision_log_gpre01_manual.json" \
             "G-PRE-04:R003:${{ steps.g-pre-04.outputs.result }}:AUTO:" \
             "G-PRE-05:R012:${{ steps.g-pre-05.outputs.result }}:HYBRID:decision_log_gpre05_manual.json" \
-            "G-DEP-02:R003:${{ steps.g-dep-02.outputs.result }}:AUTO:"
+            "G-DEP-05:R013:${{ steps.g-dep-05.outputs.result }}:AUTO:" \
+            "G-DEP-01:R002:${{ steps.g-dep-01.outputs.result }}:AUTO:" \
+            "G-DEP-02:R003:${{ steps.g-dep-02.outputs.result }}:AUTO:" \
+            "G-DEP-03:R007:${{ steps.g-dep-03.outputs.result }}:AUTO:" \
+            "G-OPS-03:R010:${{ steps.g-ops-03.outputs.result }}:AUTO:" \
+            "G-OPS-05:R005:${{ steps.g-ops-05.outputs.result }}:AUTO:" \
+            "G-OPS-02:R009:${{ steps.g-ops-02.outputs.result }}:AUTO:"
           do
             IFS=':' read -r GATE_ID REQ_ID DECISION METHOD DECISION_LOG <<< "$gate_info"
 
@@ -374,14 +657,23 @@ jobs:
           echo "║  Commit:       ${GITHUB_SHA::8}"
           echo "║  Trigger:      ${{ github.event_name }}"
           echo "╠══════════════════════════════════════════════════════════╣"
+          echo "║  PRE-DEPLOYMENT                                        ║"
           echo "║  G-PRE-01 Risk Classification:  ${{ steps.g-pre-01.outputs.result }}"
           echo "║  G-PRE-04 Security Baseline:    ${{ steps.g-pre-04.outputs.result }}"
           echo "║  G-PRE-05 Governance Approval:  ${{ steps.g-pre-05.outputs.result }}"
+          echo "║  G-DEP-05 Bias Assessment:      ${{ steps.g-dep-05.outputs.result }}"
+          echo "║  G-DEP-01 Data Provenance:      ${{ steps.g-dep-01.outputs.result }}"
+          echo "║  DEPLOYMENT                                              ║"
           echo "║  G-DEP-02 Safety Metrics:       ${{ steps.g-dep-02.outputs.result }}"
+          echo "║  G-DEP-03 Transparency Docs:    ${{ steps.g-dep-03.outputs.result }}"
+          echo "║  OPERATIONS (Gatekeeper sim.)                            ║"
+          echo "║  G-OPS-03 Monitoring Config:    ${{ steps.g-ops-03.outputs.result }}"
+          echo "║  G-OPS-05 Evidence Complete:    ${{ steps.g-ops-05.outputs.result }}"
+          echo "║  G-OPS-02 Incident Process:     ${{ steps.g-ops-02.outputs.result }}"
           echo "╠══════════════════════════════════════════════════════════╣"
 
           # Check if any gate failed
-          GATES=("${{ steps.g-pre-01.outputs.result }}" "${{ steps.g-pre-04.outputs.result }}" "${{ steps.g-pre-05.outputs.result }}" "${{ steps.g-dep-02.outputs.result }}")
+          GATES=("${{ steps.g-pre-01.outputs.result }}" "${{ steps.g-pre-04.outputs.result }}" "${{ steps.g-pre-05.outputs.result }}" "${{ steps.g-dep-05.outputs.result }}" "${{ steps.g-dep-01.outputs.result }}" "${{ steps.g-dep-02.outputs.result }}" "${{ steps.g-dep-03.outputs.result }}" "${{ steps.g-ops-03.outputs.result }}" "${{ steps.g-ops-05.outputs.result }}" "${{ steps.g-ops-02.outputs.result }}")
           ALL_PASS=true
           for g in "${GATES[@]}"; do
             if [ "$g" = "FAIL" ]; then
@@ -474,7 +766,7 @@ jobs:
           echo "╔══════════════════════════════════════════════════════════╗"
           echo "║  ✅ GenAIOps Pipeline COMPLETE                          ║"
           echo "║                                                          ║"
-          echo "║  Gates:  4/4 PASS                                       ║"
+          echo "║  Gates:  10/10 PASS                                     ║"
           echo "║  Evidence: Recorded + Hash Chain Verified                ║"
           echo "║                                                          ║"
           echo "║  CDV-Pattern: Contract → Validation → PASS → Deploy     ║"
