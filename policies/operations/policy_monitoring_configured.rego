@@ -3,27 +3,28 @@
 # ================================================================
 # Gate:       G-OPS-03 (Performance-Monitoring)
 # Requirement: R010 — EU AI Act Art. 72, Art. 9 Abs. 2
-# Automation:  AUTO (Gatekeeper Admission Controller)
+# Automation:  AUTO (Gatekeeper Admission Controller / Conftest CI)
 # Input:       K8s Deployment manifest (Pod template)
 # Entrypoint:  violation[{"msg": msg}] (Gatekeeper convention)
+#
+# Dual-mode: Works with both Gatekeeper (input.review.object.*)
+# and Conftest CI (input.spec.*) by resolving the object root.
 #
 # Checks:
 #   1. drift-detection-enabled annotation present and "true"
 #   2. service-monitor-configured annotation present and "true"
 #   3. Prometheus scrape annotations present
-#
-# Drift Detection Thresholds (reference, not checked here):
-#   PSI > 0.2 = CRITICAL
-#   JS-Divergence > 0.1 = CRITICAL
-# Thresholds are enforced at runtime via drift-config ConfigMap.
 # ================================================================
 
 package genaiops.operations.monitoring_configured
 
 import rego.v1
 
-# Gatekeeper passes input as input.review.object
-_pod_annotations := input.review.object.spec.template.metadata.annotations
+# Dual-mode: Gatekeeper wraps input in review.object, Conftest passes directly
+_object := input.review.object if { input.review }
+_object := input if { not input.review }
+
+_pod_annotations := _object.spec.template.metadata.annotations
 
 # ================================================================
 # Check 1: Drift detection must be enabled

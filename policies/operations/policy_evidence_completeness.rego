@@ -3,9 +3,12 @@
 # ================================================================
 # Gate:       G-OPS-05 (Evidence-Completeness)
 # Requirement: R005 — EU AI Act Art. 12, Art. 15
-# Automation:  AUTO (Gatekeeper Admission Controller)
+# Automation:  AUTO (Gatekeeper Admission Controller / Conftest CI)
 # Input:       K8s Deployment manifest (Pod template)
 # Entrypoint:  violation[{"msg": msg}] (Gatekeeper convention)
+#
+# Dual-mode: Works with both Gatekeeper (input.review.object.*)
+# and Conftest CI (input.spec.*) by resolving the object root.
 #
 # Checks:
 #   1. evidence-store-connected annotation present and "true"
@@ -24,8 +27,12 @@ package genaiops.operations.evidence_completeness
 
 import rego.v1
 
-# Gatekeeper passes input as input.review.object
-_pod_annotations := input.review.object.spec.template.metadata.annotations
+# Dual-mode: Gatekeeper wraps input in review.object, Conftest passes directly
+_object := input.review.object if { input.review }
+_object := input if { not input.review }
+
+_pod_annotations := _object.spec.template.metadata.annotations
+_deployment_annotations := _object.metadata.annotations
 
 # ================================================================
 # Check 1: Evidence Store connection declared
@@ -58,8 +65,6 @@ violation contains {"msg": msg} if {
 # ================================================================
 # Check 3: Evidence store type specified (for audit documentation)
 # ================================================================
-
-_deployment_annotations := input.review.object.metadata.annotations
 
 violation contains {"msg": msg} if {
 	not _deployment_annotations["genaiops.io/evidence-store-type"]

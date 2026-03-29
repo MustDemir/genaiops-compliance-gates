@@ -22,6 +22,7 @@ metadata:
     genaiops.io/service-monitor-configured: "true"
     genaiops.io/evidence-store-connected: "true"
     genaiops.io/hash-chain-enabled: "true"
+    genaiops.io/evidence-store-type: "postgresql"
     genaiops.io/eval-passed: "true"
     genaiops.io/eval-run-id: "eval-20260325-001"
 spec:

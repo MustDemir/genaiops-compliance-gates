@@ -3,28 +3,30 @@
 # ================================================================
 # Gate:       G-OPS-02 (Incident-Reporting)
 # Requirement: R009 — EU AI Act Art. 26 Abs. 5, Art. 73
-# Automation:  AUTO (Gatekeeper Admission Controller)
-# Input:       K8s Deployment manifest (Pod template)
+# Automation:  AUTO (Gatekeeper Admission Controller / Conftest CI)
+# Input:       K8s Deployment manifest or AdmissionReview JSON
 # Entrypoint:  violation[{"msg": msg}] (Gatekeeper convention)
+#
+# Dual-mode: Works with both Gatekeeper (input.review.object.*)
+# and Conftest CI (input.spec.*) by resolving the object root.
 #
 # Checks:
 #   1. incident-response-configured annotation present and "true"
 #   2. incident-contact annotation present (non-empty)
 #   3. rollback-mechanism annotation present and "true"
 #
-# Art. 26(5): Deployers must report serious incidents to provider
-#             and relevant market surveillance authority.
-# Art. 73:   Defines the notification procedure and timelines.
-#
-# CDV-Pattern: Contract (annotations exist) → Validation (values) → Severity (BLOCK)
+# CDV-Pattern: Contract (annotations exist) -> Validation (values) -> Severity (BLOCK)
 # ================================================================
 
 package genaiops.operations.incident_process_exists
 
 import rego.v1
 
-# Gatekeeper passes input as input.review.object
-_pod_annotations := input.review.object.spec.template.metadata.annotations
+# Dual-mode: Gatekeeper wraps input in review.object, Conftest passes directly
+_object := input.review.object if { input.review }
+_object := input if { not input.review }
+
+_pod_annotations := _object.spec.template.metadata.annotations
 
 # ================================================================
 # Check 1: Incident response must be configured
