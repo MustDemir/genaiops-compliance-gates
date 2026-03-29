@@ -235,7 +235,7 @@ print(f"\n{BOLD}{BLUE}▸ Phase 5: Closed-Loop Pipeline (gate_orchestrator.py){R
 orchestrator = REPO_ROOT / "pipeline" / "gate_orchestrator.py"
 if orchestrator.exists():
     # Scenario 1: PASS
-    run_test("Pipeline", "Scenario: Healthcare PASS (6 gates)",
+    run_test("Pipeline", "Scenario: Healthcare PASS (10 gates)",
              [sys.executable, str(orchestrator),
               "--scenario", str(REPO_ROOT / "pipeline" / "scenarios" / "poc_healthcare_pass.json")])
 
@@ -425,7 +425,7 @@ if failed_tests == 0:
     print(f"  • Cross-Artifact Konsistenz: Requirements ↔ Gates ↔ Annotations")
     print(f"\n  {BOLD}Architektur-Abdeckung:{RESET}")
     print(f"  • Pillar S1 (Design Principles) — Requirements validated")
-    print(f"  • Pillar S2 (Quality Gates) — gate_orchestrator 6 Gates")
+    print(f"  • Pillar S2 (Quality Gates) — gate_orchestrator 10 Gates")
     print(f"  • Pillar S3 (Policy Engine) — Rego structure verified")
     print(f"  • Pillar S4 (Evidence Store) — Record + Hash-Chain + Tamper")
     print(f"  • Pillar S5 (Monitoring) — PSI/JSD Drift Detection")
