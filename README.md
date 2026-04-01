@@ -198,7 +198,7 @@ psql -f schema/evidence_store_schema_v02_enterprise.sql
 | **1** | App entwickeln (FastAPI + Mock-Endpoint) | `████████████████████` 100% | done |
 | **2** | Containerisieren (Dockerfile, Multi-Stage, Non-Root) | `████████████████████` 100% | done |
 | **3** | Docker Compose (App + DB + Prometheus + Grafana) | `████████████████████` 100% | done |
-| **4** | K8s-Manifeste (Deployment, Service, ConfigMap, Sidecar) | `████████████████████` 100% | done |
+| **4** | K8s-Manifeste (Deployment, Service, ConfigMap, Compliance-Annotations) | `████████████████████` 100% | done |
 | **5** | Rego-Policies + Conftest-Tests (10 Gates) | `████████████████████` 100% | done |
 | **6** | Lokaler Cluster (Minikube) + Helm + Gatekeeper | `████████████████████` 100% | done |
 | **7** | Gatekeeper ConstraintTemplates (ADMIT/REJECT live) | `████████████████████` 100% | done |
@@ -231,8 +231,8 @@ psql -f schema/evidence_store_schema_v02_enterprise.sql
 | Helm Values | done | gatekeeper-values.yaml + prometheus-stack-values.yaml |
 | Gatekeeper Live | done | 2 CTs + 2 Constraints, ADMIT/REJECT verified on cluster |
 | Closed-Loop Pipeline | done | gate_orchestrator.py: 3 scenarios (PASS/FAIL/Gatekeeper), tamper detection |
-| Drift Detection | done | drift_detector.py (PSI+JSD), 37 tests, Prometheus/Grafana/AlertManager |
-| GitHub Actions Pipeline | done | gate-pipeline.yml (4 CI gates + Evidence + Hash-Chain), test_pipeline_local.sh |
+| Drift Detection | done | drift_detector.py (PSI+JSD), CronJob + Prometheus/Grafana/AlertManager |
+| GitHub Actions Pipeline | done | gate-pipeline.yml (10 CI gates + Evidence + Hash-Chain + Docker Push), test_pipeline_local.sh |
 | Master Integration Test | done | test_all.py: 22/22 PASS across all 5 pillars |
 | Integrity Regression Suite | done | test_integrity_regression.py: credibility checks for fallbacks, evidence strictness, HYBRID consistency, walkthrough drift |
 | Kolloquium Documentation | done | CLOSED_LOOP_ERKLAERUNG.md: Phase 8–10 with Q&A |

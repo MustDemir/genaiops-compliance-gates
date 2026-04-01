@@ -1,7 +1,7 @@
 {
   "scenario": {
     "name": "Healthcare Ambient AI Scribe — Full Compliance (PASS)",
-    "description": "All 6 PoC gates pass: demonstrates the green-path closed loop where every gate records PASS evidence to the Evidence Store.",
+    "description": "All 10 PoC gates pass: demonstrates the green-path closed loop where every gate records PASS evidence to the Evidence Store.",
     "version": "1.0.0",
     "created": "2026-03-28"
   },

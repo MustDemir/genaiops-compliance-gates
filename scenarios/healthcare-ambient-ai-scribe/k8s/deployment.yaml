@@ -15,8 +15,8 @@
 # G-OPS-03: monitoring annotations for ServiceMonitor discovery
 # G-OPS-05: evidence-store annotations for audit trail
 #
-# Sidecar-Stub: monitoring-sidecar container placeholder
-#               (fully implemented in Phase 9 with PSI + JS metrics)
+# Monitoring runtime is handled by a separate CronJob
+# (see monitoring/k8s/cronjob-drift-detector.yaml for PSI + JSD checks)
 # ================================================================
 apiVersion: apps/v1
 kind: Deployment

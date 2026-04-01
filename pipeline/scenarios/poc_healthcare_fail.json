@@ -1,7 +1,7 @@
 {
   "scenario": {
     "name": "Healthcare Ambient AI Scribe — Compliance Violation (FAIL)",
-    "description": "Demonstrates the red-path: G-DEP-02 fails due to insufficient safety metrics, G-DEP-05 fails due to missing bias mitigation, pipeline halts, FAIL evidence is recorded.",
+    "description": "Demonstrates the red-path: G-DEP-02 fails due to insufficient safety metrics, the pipeline halts at the first hard FAIL, and the failure is still recorded in the Evidence Store.",
     "version": "1.0.0",
     "created": "2026-03-28"
   },
