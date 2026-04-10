@@ -9,7 +9,7 @@
 # Pre-Deployment Gates (5):
 #   G-PRE-01: Risk Classification        (R001, Art.9)   — HYBRID
 #   G-PRE-04: Security Baseline          (R003, Art.15)  — AUTO
-#   G-PRE-05: Governance Approval        (R012, Art.14)  — HYBRID
+#   G-PRE-05: Governance Approval        (R004, Art.14)  — HYBRID
 #   G-DEP-05: Bias Assessment            (R013, Art.10)  — AUTO
 #   G-DEP-01: Data Provenance            (R002, Art.10)  — AUTO
 #
@@ -180,7 +180,7 @@ jobs:
             "genaiops.pre_deployment.security_baseline"
           echo "::endgroup::"
 
-      - name: "Gate G-PRE-05: Governance Approval (R012, Art.14) [HYBRID]"
+      - name: "Gate G-PRE-05: Governance Approval (R004, Art.14) [HYBRID]"
         id: g-pre-05
         run: |
           echo "::group::G-PRE-05 Governance Approval"
@@ -283,7 +283,7 @@ jobs:
           for gate_info in \
             "G-PRE-01:R001:${{ steps.g-pre-01.outputs.result }}:HYBRID:decision_log_gpre01_manual.json" \
             "G-PRE-04:R003:${{ steps.g-pre-04.outputs.result }}:AUTO:" \
-            "G-PRE-05:R012:${{ steps.g-pre-05.outputs.result }}:HYBRID:decision_log_gpre05_manual.json" \
+            "G-PRE-05:R004:${{ steps.g-pre-05.outputs.result }}:HYBRID:decision_log_gpre05_manual.json" \
             "G-DEP-05:R013:${{ steps.g-dep-05.outputs.result }}:AUTO:" \
             "G-DEP-01:R002:${{ steps.g-dep-01.outputs.result }}:AUTO:" \
             "G-DEP-02:R003:${{ steps.g-dep-02.outputs.result }}:AUTO:" \
