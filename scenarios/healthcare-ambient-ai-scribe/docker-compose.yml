@@ -3,16 +3,25 @@
 # ================================================================
 # 4 Services: App + Evidence Store + Monitoring + Dashboard
 #
+# Compliance: Compose-File spiegelt G-PRE-04 Security Baseline
+#             (P1-P6) wo Compose-Syntax es zulaesst.
+#             Pattern-Konsistenz zu k8s/deployment.yaml.
+#
 # Usage:
-#   docker-compose up -d          # Start all services
-#   docker-compose logs -f scribe # Follow app logs
-#   docker-compose down           # Stop and remove
+#   docker compose up -d          # Start all services
+#   docker compose logs -f scribe # Follow app logs
+#   docker compose down           # Stop and remove
+#   docker compose down -v        # Stop and DELETE volumes (Vorsicht!)
 #
 # Endpoints:
 #   App:        http://localhost:8080  (/transcribe, /health, /metrics)
 #   Prometheus: http://localhost:9090
-#   Grafana:    http://localhost:3000  (admin/admin)
-#   PostgreSQL: localhost:5432         (genaiops/genaiops)
+#   Grafana:    http://localhost:3000  (credentials in .env)
+#   PostgreSQL: localhost:5432         (credentials in .env)
+#
+# Secrets:
+#   Postgres + Grafana credentials in .env (gitignored).
+#   Copy .env.example to .env before first run.
 # ================================================================
 
 services:
@@ -28,24 +37,72 @@ services:
       - MODEL_VERSION=mock-v1.0.0
       - PIPELINE_ID=local-compose
     depends_on:
-      - postgres
+      postgres:
+        condition: service_healthy   # Race-frei: wartet auf pg_isready
     restart: unless-stopped
 
-  # --- PostgreSQL (Evidence Store S4 — empty, schema in Phase 8) ---
+    # ─── G-PRE-04 Security Baseline in Compose ──────────
+    # P3: readOnlyRootFilesystem (mit tmpfs fuer /tmp)
+    read_only: true
+    tmpfs:
+      - /tmp
+    # P6: no privilege escalation + drop all capabilities
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    # P2: resource limits (Defense gegen OOM/CPU-Hog)
+    mem_limit: 256m
+    cpus: 0.5
+    # P1 (runAsNonRoot) wird im Dockerfile via "USER appuser" erfuellt
+    # P4 (no secrets in env) wird durch hardcoded MOCK-Werte erfuellt
+    # P5 (slim base) wird durch python:3.11-slim im Dockerfile erfuellt
+
+    # Healthcheck spiegelt K8s livenessProbe/readinessProbe
+    healthcheck:
+      test:
+        - "CMD"
+        - "python"
+        - "-c"
+        - "import urllib.request,sys; sys.exit(0 if urllib.request.urlopen('http://localhost:8080/health').status==200 else 1)"
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+
+  # --- PostgreSQL (Evidence Store S4) ---
   postgres:
     image: postgres:16-alpine
     container_name: postgres-evidence
     ports:
       - "5432:5432"
-    environment:
-      - POSTGRES_DB=genaiops
-      - POSTGRES_USER=genaiops
-      - POSTGRES_PASSWORD=genaiops
+    env_file:
+      - .env                         # POSTGRES_DB/USER/PASSWORD aus .env
     volumes:
       - postgres_data:/var/lib/postgresql/data
     restart: unless-stopped
 
-  # --- Prometheus (Monitoring S5 — scrapes /metrics from scribe) ---
+    # ─── G-PRE-04 (partial) ──────────────────────────────
+    # NOTE: Postgres benoetigt writable rootfs (initdb, pg_wal, etc.)
+    # NOTE: Postgres benoetigt CHOWN/SETUID Capabilities zum Init
+    # → read_only und cap_drop ALL NICHT moeglich.
+    # Diese Ausnahme ist konsistent mit postgres-deployment.yaml
+    # (dort ebenfalls keine readOnlyRootFilesystem).
+    security_opt:
+      - no-new-privileges:true
+    mem_limit: 512m
+    cpus: 1.0
+
+    # Healthcheck: pg_isready prueft echte DB-Bereitschaft
+    # → ermoeglicht "depends_on: condition: service_healthy" oben
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+      start_period: 10s              # Init-Zeit fuer Schema-Erstellung
+
+  # --- Prometheus (Monitoring S5) ---
   prometheus:
     image: prom/prometheus:v3.3.0
     container_name: prometheus
@@ -55,23 +112,42 @@ services:
       - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml:ro
       - prometheus_data:/prometheus
     depends_on:
-      - scribe
+      - scribe                       # nur Start-Reihenfolge, kein health
     restart: unless-stopped
 
-  # --- Grafana (Dashboard — walkthrough screenshots in Phase 11) ---
+    # ─── G-PRE-04 (partial) ──────────────────────────────
+    # NOTE: Prometheus braucht writable /prometheus fuer TSDB
+    # → read_only nicht moeglich. Aber andere Hardening greift.
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    mem_limit: 512m
+    cpus: 0.5
+
+  # --- Grafana (Dashboard) ---
   grafana:
     image: grafana/grafana:11.6.0
     container_name: grafana
     ports:
       - "3000:3000"
-    environment:
-      - GF_SECURITY_ADMIN_USER=admin
-      - GF_SECURITY_ADMIN_PASSWORD=admin
+    env_file:
+      - .env                         # GF_SECURITY_ADMIN_* aus .env
     volumes:
       - grafana_data:/var/lib/grafana
     depends_on:
       - prometheus
     restart: unless-stopped
+
+    # ─── G-PRE-04 (partial) ──────────────────────────────
+    # NOTE: Grafana braucht writable /var/lib/grafana
+    # → read_only nicht moeglich.
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    mem_limit: 256m
+    cpus: 0.5
 
 volumes:
   postgres_data:
