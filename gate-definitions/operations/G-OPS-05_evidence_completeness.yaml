@@ -1,6 +1,6 @@
 id: G-OPS-05
 name: "Evidence-Completeness und Audit-Trail-Integritaet"
-dimension: "compliance"
+dimension: "regulatorisch"
 lifecycle_phase: "operations"
 trigger: "kubectl apply — OPA Gatekeeper Admission Controller + Decision-Log-Validierung bei Cluster-Admission"
 policy_checks:
