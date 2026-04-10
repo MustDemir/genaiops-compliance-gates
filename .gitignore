@@ -47,3 +47,7 @@ evidence-store/data/
 # Secrets
 **/secrets/
 **/credentials/
+
+# Conftest binary
+conftest
+conftest_*.tar.gz

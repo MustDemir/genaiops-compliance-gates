@@ -343,12 +343,17 @@ from pathlib import Path
 
 repo = Path('%s')
 
-# Expected annotations used across the system
+# Expected annotations enforced by Gatekeeper ConstraintTemplates (3 CTs)
+# G-DEP-02: Safety Metrics
+# G-OPS-03: Monitoring Configured
+# G-OPS-05: Evidence Completeness
 expected_annotations = [
-    'genaiops.io/risk-classification',
-    'genaiops.io/human-oversight-level',
-    'genaiops.io/model-eval-passed',
-    'genaiops.io/deployment-approved',
+    'genaiops.io/eval-passed',              # G-DEP-02
+    'genaiops.io/eval-run-id',              # G-DEP-02
+    'genaiops.io/drift-detection-enabled',  # G-OPS-03
+    'genaiops.io/service-monitor-configured',  # G-OPS-03
+    'genaiops.io/evidence-store-connected', # G-OPS-05
+    'genaiops.io/hash-chain-enabled',       # G-OPS-05
 ]
 
 # Check compliant deployment fixture
@@ -373,6 +378,81 @@ for name in ['admission_review_compliant.json', 'admission_review_noncompliant.j
             print(f"{name}: {len(present)}/{len(expected_annotations)} annotations present")
 
 print("Annotation consistency verified")
+""" % str(REPO_ROOT)])
+
+# Validate ConstraintTemplate YAML files (Phase 7)
+run_test("Consistency", "ConstraintTemplate YAML validation (3 CTs)",
+         [sys.executable, "-c", """
+import yaml, sys
+from pathlib import Path
+
+repo = Path('%s')
+ct_dir = repo / 'scenarios' / 'healthcare-ambient-ai-scribe' / 'k8s' / 'gatekeeper'
+
+expected_cts = {
+    'constraint-safety-metrics.yaml': {
+        'gate': 'G-DEP-02',
+        'annotations': ['genaiops.io/eval-passed', 'genaiops.io/eval-run-id'],
+    },
+    'constraint-monitoring-configured.yaml': {
+        'gate': 'G-OPS-03',
+        'annotations': ['genaiops.io/drift-detection-enabled', 'genaiops.io/service-monitor-configured'],
+    },
+    'constraint-evidence-completeness.yaml': {
+        'gate': 'G-OPS-05',
+        'annotations': ['genaiops.io/evidence-store-connected', 'genaiops.io/hash-chain-enabled'],
+    },
+}
+
+errors = 0
+for filename, spec in expected_cts.items():
+    ct_file = ct_dir / filename
+    if not ct_file.exists():
+        print(f"ERROR: {filename} not found")
+        errors += 1
+        continue
+
+    # Parse multi-document YAML (ConstraintTemplate + Constraint)
+    docs = list(yaml.safe_load_all(open(ct_file)))
+    if len(docs) < 2:
+        print(f"ERROR: {filename} should contain ConstraintTemplate + Constraint (got {len(docs)} docs)")
+        errors += 1
+        continue
+
+    ct, constraint = docs[0], docs[1]
+
+    # Verify ConstraintTemplate structure
+    if ct.get('kind') != 'ConstraintTemplate':
+        print(f"ERROR: {filename} first doc is not ConstraintTemplate")
+        errors += 1
+        continue
+
+    # Verify Rego contains gate ID reference
+    rego = ct.get('spec', {}).get('targets', [{}])[0].get('rego', '')
+    gate_id = spec['gate']
+    if gate_id not in rego:
+        print(f"ERROR: {filename} Rego does not reference {gate_id}")
+        errors += 1
+
+    # Verify Constraint targets genaiops namespace
+    namespaces = constraint.get('spec', {}).get('match', {}).get('namespaces', [])
+    if 'genaiops' not in namespaces:
+        print(f"ERROR: {filename} Constraint does not target genaiops namespace")
+        errors += 1
+
+    # Verify required annotations are in parameters
+    params = constraint.get('spec', {}).get('parameters', {})
+    param_keys = [a.get('key', '') for a in params.get('requiredAnnotations', [])]
+    for ann in spec['annotations']:
+        if ann not in param_keys:
+            print(f"ERROR: {filename} missing annotation {ann} in parameters")
+            errors += 1
+
+    print(f"  ✓ {filename} ({gate_id}): valid CT + Constraint, {len(spec['annotations'])} annotations enforced")
+
+print(f"\\n{len(expected_cts)} ConstraintTemplates validated, {errors} errors")
+if errors > 0:
+    sys.exit(1)
 """ % str(REPO_ROOT)])
 
 

@@ -16,7 +16,7 @@
 #
 #   This demonstrates:
 #   - Pillar S3 (Policy Engine) is enforcing rules
-#   - Pillar S2 (Quality Gates) G-OPS-03 and G-OPS-05 are active
+#   - Pillar S2 (Quality Gates) G-DEP-02, G-OPS-03, G-OPS-05 are active
 #   - Non-compliant deployments cannot bypass the system
 #
 # Usage:
@@ -79,11 +79,11 @@ fi
 log "Test 2: ConstraintTemplates registered..."
 
 CT_COUNT=$(kubectl get constrainttemplates --no-headers 2>/dev/null | wc -l | tr -d ' ')
-if [[ "$CT_COUNT" -ge 2 ]]; then
-    ok "ConstraintTemplates: $CT_COUNT registered"
+if [[ "$CT_COUNT" -ge 3 ]]; then
+    ok "ConstraintTemplates: $CT_COUNT registered (G-DEP-02, G-OPS-03, G-OPS-05)"
     ((TESTS_PASSED++))
 else
-    fail "Expected ≥2 ConstraintTemplates, got $CT_COUNT"
+    fail "Expected ≥3 ConstraintTemplates, got $CT_COUNT"
     ((TESTS_FAILED++))
 fi
 
@@ -91,11 +91,11 @@ fi
 log "Test 3: Constraints are active..."
 
 CONSTRAINTS=$(kubectl get constraints --no-headers 2>/dev/null | wc -l | tr -d ' ')
-if [[ "$CONSTRAINTS" -ge 2 ]]; then
+if [[ "$CONSTRAINTS" -ge 3 ]]; then
     ok "Constraints: $CONSTRAINTS active"
     ((TESTS_PASSED++))
 else
-    fail "Expected ≥2 Constraints, got $CONSTRAINTS"
+    fail "Expected ≥3 Constraints, got $CONSTRAINTS"
     ((TESTS_FAILED++))
 fi
 
@@ -122,6 +122,8 @@ spec:
       labels:
         app.kubernetes.io/name: smoke-test-compliant
       annotations:
+        genaiops.io/eval-passed: "true"
+        genaiops.io/eval-run-id: "smoke-test-eval-001"
         genaiops.io/drift-detection-enabled: "true"
         genaiops.io/service-monitor-configured: "true"
         genaiops.io/evidence-store-connected: "true"

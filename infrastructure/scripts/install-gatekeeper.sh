@@ -2,19 +2,24 @@
 # ================================================================
 # install-gatekeeper.sh — Deploy Gatekeeper + ConstraintTemplates
 # ================================================================
-# Phase 6: Step 2 — runs AFTER setup-minikube.sh
+# Phase 6+7: Step 2 — runs AFTER setup-minikube.sh
 #
 # What this does (Kolloquium):
 #   1. Installs Gatekeeper via Helm (the upstream chart from CNCF)
 #   2. Waits until Gatekeeper pods are running
-#   3. Deploys our 2 ConstraintTemplates (the compliance rules)
-#   4. Deploys our 2 Constraints (which namespaces + parameters to enforce)
+#   3. Deploys our 3 ConstraintTemplates (the compliance rules)
+#   4. Deploys our 3 Constraints (which namespaces + parameters to enforce)
 #   5. Verifies everything is active
 #
 #   After this script:
 #   - Any Deployment in namespace "genaiops" WITHOUT the required
 #     annotations will be REJECTED by Kubernetes.
 #   - This is Pillar S3 (Policy Engine) in action.
+#
+#   ConstraintTemplates (3):
+#     G-DEP-02: Safety Metrics   (eval-passed, eval-run-id)
+#     G-OPS-03: Monitoring       (drift-detection, service-monitor)
+#     G-OPS-05: Evidence Store   (evidence-store-connected, hash-chain)
 #
 # Usage:
 #   ./infrastructure/scripts/install-gatekeeper.sh
@@ -41,7 +46,7 @@ HELM_VALUES="$REPO_ROOT/infrastructure/helm/gatekeeper-values.yaml"
 GATEKEEPER_DIR="$REPO_ROOT/scenarios/healthcare-ambient-ai-scribe/k8s/gatekeeper"
 
 echo -e "\n${BOLD}═══════════════════════════════════════════════════════${RESET}"
-echo -e "${BOLD}  GenAIOps PoC — Gatekeeper Installation (Phase 6)${RESET}"
+echo -e "${BOLD}  GenAIOps PoC — Gatekeeper Installation (Phase 6+7)${RESET}"
 echo -e "${BOLD}═══════════════════════════════════════════════════════${RESET}\n"
 
 # ── Pre-flight ─────────────────────────────────────────────────
@@ -148,7 +153,8 @@ echo -e "  Audit interval:  60s"
 echo -e "  Templates:       $(kubectl get constrainttemplates --no-headers 2>/dev/null | wc -l | tr -d ' ')"
 echo -e "  Constraints:     $(kubectl get constraints --no-headers 2>/dev/null | wc -l | tr -d ' ')"
 echo ""
-echo -e "  ${BOLD}Enforced rules:${RESET}"
+echo -e "  ${BOLD}Enforced rules (3 ConstraintTemplates):${RESET}"
+echo -e "  ${GREEN}G-DEP-02${RESET}: Safety Metrics (eval-passed, eval-run-id)"
 echo -e "  ${GREEN}G-OPS-03${RESET}: Monitoring annotations (drift-detection, service-monitor)"
 echo -e "  ${GREEN}G-OPS-05${RESET}: Evidence Store annotations (evidence-store-connected, hash-chain)"
 echo ""

@@ -1,0 +1,110 @@
+# ================================================================
+# GenAIOps PoC — Gatekeeper Constraint: Safety Metrics Verified
+# ================================================================
+# G-DEP-02: Safety-Metriken müssen vor Deployment verifiziert sein
+#
+# Ensures every Deployment in namespace "genaiops" has:
+#   1. genaiops.io/eval-passed: "true"  (CI gate must have passed)
+#   2. genaiops.io/eval-run-id: non-empty (traceability to eval run)
+#
+# DSR Context:
+#   - Requirement: R003 (Robustheit & Cybersicherheit, Art. 15)
+#   - CDV Pattern: Contract (annotations required) → Validation (Rego)
+#                  → Severity CRITICAL → Decision BLOCK
+#   - Enforcement: Dual — Conftest (CI) + Gatekeeper (Admission)
+#     Conftest prüft eval_results.json im CI-Schritt;
+#     Gatekeeper verhindert Deployment ohne bestandenen CI-Gate-Lauf.
+#   - Design Principle: DP2 (Defense-in-Depth), DP4 (Traceability)
+#
+# Trigger: kubectl apply → Gatekeeper Admission Controller
+# ================================================================
+apiVersion: templates.gatekeeper.sh/v1
+kind: ConstraintTemplate
+metadata:
+  name: genaiopssafetymetricsverified
+  labels:
+    app.kubernetes.io/part-of: genaiops-compliance-gates
+    app.kubernetes.io/component: gatekeeper
+spec:
+  crd:
+    spec:
+      names:
+        kind: GenaiopsSafetyMetricsVerified
+      validation:
+        openAPIV3Schema:
+          type: object
+          properties:
+            requiredAnnotations:
+              type: array
+              items:
+                type: object
+                properties:
+                  key:
+                    type: string
+                  value:
+                    type: string
+                    description: "Expected value. Use '*' to require presence with any non-empty value."
+  targets:
+    - target: admission.k8s.gatekeeper.sh
+      rego: |
+        package genaiopssafetymetricsverified
+
+        # ── Rule 1: Annotations block missing entirely ──────────────
+        violation[{"msg": msg}] {
+          input.review.object.kind == "Deployment"
+          not input.review.object.spec.template.metadata.annotations
+          required := input.parameters.requiredAnnotations[_]
+          msg := sprintf("G-DEP-02 FAIL: Pod template has no annotations. Required: '%v'", [required.key])
+        }
+
+        # ── Rule 2: Annotation key missing ──────────────────────────
+        violation[{"msg": msg}] {
+          input.review.object.kind == "Deployment"
+          annotations := input.review.object.spec.template.metadata.annotations
+          required := input.parameters.requiredAnnotations[_]
+          not annotations[required.key]
+          msg := sprintf("G-DEP-02 FAIL: Pod annotation '%v' is missing. Deployment requires passing safety evaluation before admission.", [required.key])
+        }
+
+        # ── Rule 3: eval-passed present but not "true" ──────────────
+        violation[{"msg": msg}] {
+          input.review.object.kind == "Deployment"
+          annotations := input.review.object.spec.template.metadata.annotations
+          required := input.parameters.requiredAnnotations[_]
+          required.value != "*"
+          val := annotations[required.key]
+          val != required.value
+          msg := sprintf("G-DEP-02 FAIL: Pod annotation '%v' must be '%v', got '%v'. Safety evaluation did not pass.", [required.key, required.value, val])
+        }
+
+        # ── Rule 4: eval-run-id present but empty ───────────────────
+        violation[{"msg": msg}] {
+          input.review.object.kind == "Deployment"
+          annotations := input.review.object.spec.template.metadata.annotations
+          required := input.parameters.requiredAnnotations[_]
+          required.value == "*"
+          val := annotations[required.key]
+          val == ""
+          msg := sprintf("G-DEP-02 FAIL: Pod annotation '%v' must not be empty. Provide the evaluation run ID for traceability.", [required.key])
+        }
+---
+apiVersion: constraints.gatekeeper.sh/v1beta1
+kind: GenaiopsSafetyMetricsVerified
+metadata:
+  name: require-safety-eval-annotations
+  labels:
+    app.kubernetes.io/part-of: genaiops-compliance-gates
+    app.kubernetes.io/component: gatekeeper
+spec:
+  enforcementAction: deny
+  match:
+    kinds:
+      - apiGroups: ["apps"]
+        kinds: ["Deployment"]
+    namespaces: ["genaiops"]
+  parameters:
+    requiredAnnotations:
+      - key: "genaiops.io/eval-passed"
+        value: "true"
+      - key: "genaiops.io/eval-run-id"
+        value: "*"
