@@ -58,8 +58,8 @@ HELM_VALUES="$REPO_ROOT/infrastructure/helm"
 # ── Azure Configuration ───────────────────────────────────────
 RG="genaiops-compliance-rg"
 CLUSTER="genaiops-aks"
-ACR_NAME="genaiopsacr$(date +%s | tail -c 5)"  # unique name
-LOCATION="westeurope"
+ACR_NAME="genaiopsacr$(whoami | tr -d '.' | tail -c 8)$(date +%s | tail -c 4)"  # unique name
+LOCATION="swedencentral"  # Azure for Students: only allowed region
 IMAGE_NAME="ambient-ai-scribe"
 IMAGE_TAG="1.0.0"
 
@@ -81,22 +81,8 @@ ok "Azure subscription: $SUBSCRIPTION"
 
 # Check quota (informational)
 log "Checking VM availability in $LOCATION..."
-B4MS_AVAILABLE=$(az vm list-skus --location "$LOCATION" --size Standard_B4ms --query "[0].name" -o tsv 2>/dev/null || echo "")
-B2MS_AVAILABLE=$(az vm list-skus --location "$LOCATION" --size Standard_B2ms --query "[0].name" -o tsv 2>/dev/null || echo "")
-
-if [[ -z "$B4MS_AVAILABLE" ]]; then
-    warn "Standard_B4ms not available in $LOCATION — trying northeurope"
-    LOCATION="northeurope"
-    B4MS_AVAILABLE=$(az vm list-skus --location "$LOCATION" --size Standard_B4ms --query "[0].name" -o tsv 2>/dev/null || echo "")
-    if [[ -z "$B4MS_AVAILABLE" ]]; then
-        warn "Standard_B4ms not available — falling back to Standard_DS2_v2 for user pool"
-        USER_VM_SIZE="Standard_DS2_v2"
-    else
-        USER_VM_SIZE="Standard_B4ms"
-    fi
-else
-    USER_VM_SIZE="Standard_B4ms"
-fi
+# Azure for Students (swedencentral): v2 B-series available
+USER_VM_SIZE="Standard_B2s_v2"
 ok "Location: $LOCATION | User pool VM: $USER_VM_SIZE"
 
 # ══════════════════════════════════════════════════════════════
@@ -127,7 +113,7 @@ az aks create \
     --name "$CLUSTER" \
     --nodepool-name system \
     --node-count 1 \
-    --node-vm-size Standard_B2ms \
+    --node-vm-size Standard_B2s_v2 \
     --network-plugin azure \
     --network-plugin-mode overlay \
     --pod-cidr 192.168.0.0/16 \
@@ -211,23 +197,43 @@ kubectl wait --for=condition=Ready pod \
 sleep 10  # Extra buffer for webhook registration
 ok "Gatekeeper webhook ready"
 
-# ConstraintTemplates (wait between template and constraint)
-log "Deploying 3 ConstraintTemplates..."
+# ConstraintTemplates — deploy in two phases: CTs first, then Constraints
+log "Deploying 3 ConstraintTemplates (Phase 1: Templates)..."
 GATEKEEPER_DIR="$K8S_DIR/gatekeeper"
 
+# Phase 1: Apply only ConstraintTemplates (first document in each file)
 for CT_FILE in "$GATEKEEPER_DIR"/constraint-*.yaml; do
     CT_NAME=$(basename "$CT_FILE")
-
-    # Apply ConstraintTemplate (first document)
-    kubectl apply -f "$CT_FILE" -n genaiops 2>&1 | head -2
-    ok "$CT_NAME applied"
+    # Extract only the first YAML document (ConstraintTemplate)
+    python3 -c "
+import yaml, sys
+docs = list(yaml.safe_load_all(open('$CT_FILE')))
+print(yaml.dump(docs[0]))
+" | kubectl apply -f - 2>&1 | head -2
+    ok "$CT_NAME — ConstraintTemplate applied"
 done
 
-# Wait for CTs to compile
-log "Waiting for ConstraintTemplates to compile (30s)..."
-sleep 30
+# Wait for CTs to compile (critical: Gatekeeper needs time to register CRDs)
+log "Waiting for ConstraintTemplates to compile (45s)..."
+sleep 45
 
 CT_COUNT=$(kubectl get constrainttemplates --no-headers 2>/dev/null | wc -l | tr -d ' ')
+ok "ConstraintTemplates compiled: $CT_COUNT"
+
+# Phase 2: Apply Constraints (second document in each file)
+log "Deploying 3 Constraints (Phase 2: Enforcement)..."
+for CT_FILE in "$GATEKEEPER_DIR"/constraint-*.yaml; do
+    CT_NAME=$(basename "$CT_FILE")
+    python3 -c "
+import yaml, sys
+docs = list(yaml.safe_load_all(open('$CT_FILE')))
+if len(docs) > 1:
+    print(yaml.dump(docs[1]))
+" | kubectl apply -f - 2>&1 | head -2
+    ok "$CT_NAME — Constraint applied"
+done
+
+sleep 5
 CONSTRAINT_COUNT=$(kubectl get constraints --no-headers 2>/dev/null | wc -l | tr -d ' ')
 ok "ConstraintTemplates: $CT_COUNT | Constraints: $CONSTRAINT_COUNT"
 
