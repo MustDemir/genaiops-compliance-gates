@@ -52,3 +52,4 @@ evidence-store/data/
 # Conftest binary
 conftest
 conftest_*.tar.gz
+infrastructure/.aks-config
