@@ -46,7 +46,7 @@ Enterprise GenAI systems face a triple challenge: they must be **technically rob
 
 ### Automation Classification
 
-The architecture achieves a **9:5:0 distribution** — 9 fully automated gates (64.3%), 5 hybrid gates (35.7%), 0 manual-only gates. A dedicated **D3×D2 Override Rule** ensures that gates requiring human oversight (Art. 14) are capped at HYBRID automation, regardless of technical feasibility.
+The architecture achieves a **10:6:0 distribution** — 10 fully automated gates (62.5%), 6 hybrid gates (37.5%), 0 manual-only gates. A dedicated **D3×D2 Override Rule** ensures that gates requiring First-Degree Human Oversight (EU AI Act Art. 14, operationalized following Laux 2024, S. 2857) are capped at HYBRID automation, regardless of technical feasibility.
 
 ```
 Gate Inclusion Rule: D1 (Gate-Eignung) → D3 (Regulatory) → D2 (Technical) → Classification
@@ -85,7 +85,7 @@ genaiops-compliance-gates/
 │   ├── terraform/              # Azure AKS, PostgreSQL, Blob Storage provisioning
 │   └── helm/                   # Kubernetes deployments (OPA Gatekeeper, app, monitoring)
 ├── scenarios/
-│   └── healthcare-ambient-ai-scribe/  # PoC scenario: High-risk AI (Annex III)
+│   └── healthcare-ambient-ai-scribe/  # PoC scenario: High-risk AI (Art. 6 (1) + Annex I No. 11 MDR)
 └── requirements/               # R001–R014 requirement specifications (from EU AI Act)
 ```
 
@@ -127,13 +127,14 @@ waiver_policy: Requires C-level approval with time-bound remediation plan
 
 | Phase | Gates | Automation |
 |-------|-------|-----------|
-| **Pre-Deployment** | G-PRE-01 to G-PRE-05 | 1 AUTO, 4 HYBRID |
-| **Deployment** | G-DEP-01 to G-DEP-06 | 5 AUTO, 1 HYBRID |
-| **Operations** | G-OPS-01 to G-OPS-05 | 3 AUTO, 0 HYBRID (excl. G-OPS-05 = Compliance) |
+| **Pre-Deployment** | G-PRE-01 to G-PRE-05 | 3 AUTO, 2 HYBRID (G-PRE-01 + G-PRE-05 = HYBRID fuer First-Degree-Oversight) |
+| **Deployment** | G-DEP-01 to G-DEP-06 | 4 AUTO, 2 HYBRID |
+| **Operations** | G-OPS-01 to G-OPS-05 | 3 AUTO, 2 HYBRID |
+| **Summe** | **16 Gates** | **10 AUTO, 6 HYBRID, 0 MANUAL** |
 
 ## PoC Scenario: Healthcare Ambient AI Scribe
 
-The architecture is demonstrated using a **high-risk AI system** (EU AI Act Annex III): an Ambient AI Scribe that transcribes and summarizes medical consultations.
+The architecture is demonstrated using a **high-risk AI system** (EU AI Act Art. 6 (1) in conjunction with Annex I No. 11 — safety component of a Clinical Decision Support System classified as a medical device under MDR 2017/745): an Ambient AI Scribe that transcribes and summarizes medical consultations.
 
 **Why this scenario:**
 - High-risk classification → maximum regulatory requirements
@@ -191,7 +192,7 @@ psql -f schema/evidence_store_schema_v02_enterprise.sql
 > Strategie: Lokal-first (Phase 1–11 kostenlos auf Minikube), Azure erst Phase 12. Geschaetzter Aufwand: ~30–42h ueber 4–6 Wochen.
 
 <!-- PROGRESS-START -->
-> Gesamtfortschritt: `█████████████████░░░` **85%** (10/12 Phasen)
+> Gesamtfortschritt: `████████████████████` **100%** (12/12 Phasen)
 
 | Phase | Beschreibung | Fortschritt | Status |
 |-------|-------------|------------|--------|
@@ -205,8 +206,8 @@ psql -f schema/evidence_store_schema_v02_enterprise.sql
 | **8** | Evidence Store + Closed-Loop Pipeline | `████████████████████` 100% | done |
 | **9** | Drift Detection (PSI/JSD + Prometheus + Grafana) | `████████████████████` 100% | done |
 | **10** | GitHub Actions Pipeline (Conftest CI + Evidence) | `████████████████████` 100% | done |
-| **11** | Green/Red Path Walkthrough + Screenshots (Kap. 6.3) | `░░░░░░░░░░░░░░░░░░░░` 0% | planned |
-| **12** | Azure AKS Migration (Terraform + ACR + PostgreSQL) | `░░░░░░░░░░░░░░░░░░░░` 0% | planned |
+| **11** | Green/Red Path Walkthrough + Screenshots (Kap. 6.3) | `████████████████████` 100% | done |
+| **12** | Azure AKS Migration (Sweden Central, LoadBalancer 74.241.179.251) | `████████████████████` 100% | done |
 <!-- PROGRESS-END -->
 
 ### Artefakt-Status
@@ -236,7 +237,7 @@ psql -f schema/evidence_store_schema_v02_enterprise.sql
 | Master Integration Test | done | test_all.py: 22/22 PASS across all 5 pillars |
 | Integrity Regression Suite | done | test_integrity_regression.py: credibility checks for fallbacks, evidence strictness, HYBRID consistency, walkthrough drift |
 | Kolloquium Documentation | done | CLOSED_LOOP_ERKLAERUNG.md: Phase 8–10 with Q&A |
-| Terraform/Helm (Azure) | planned | 0% — Phase 12 (optional) |
+| Terraform/Helm (Azure) | done | AKS Sweden Central live 2026-04-13 (kube-prometheus-stack via Helm, OPA Gatekeeper mit 3 ConstraintTemplates runtime, PostgreSQL + Hash-Chain-Triggern im Cluster-Pod) |
 
 ## Integrity Regression Suite
 
