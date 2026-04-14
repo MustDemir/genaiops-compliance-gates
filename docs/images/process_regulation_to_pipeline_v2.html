@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Prozessmodell: Regulation → Policy-as-Code → CI/CD Pipeline</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  @page { size: A4 portrait; margin: 12mm 10mm; }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: #fff;
+    color: #2c2c3a;
+    width: 210mm;
+    min-height: 297mm;
+    padding: 10mm 8mm;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  :root {
+    --ink: #2c2c3a;
+    --ink-light: #5a5a6e;
+    --ink-muted: #8888a0;
+    --bg-warm: #f8f7f5;
+    --bg-alt: #f2f1ee;
+    --border: #c5c4bf;
+    --border-strong: #8a897f;
+    --accent-blue: #4a6fa5;
+    --accent-blue-light: #e8eef6;
+    --accent-teal: #3d8b7a;
+    --accent-teal-light: #e5f2ef;
+    --accent-amber: #b8963e;
+    --accent-amber-light: #f5f0e0;
+    --accent-rose: #9e5a63;
+    --accent-rose-light: #f5eced;
+  }
+
+  /* ── Title ── */
+  .title-block {
+    text-align: center;
+    margin-bottom: 4mm;
+    padding-bottom: 2.5mm;
+    border-bottom: 0.75pt solid var(--border);
+  }
+
+  .title-block h1 {
+    font-size: 11pt;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 1mm;
+  }
+
+  .title-block .subtitle {
+    font-size: 7.5pt;
+    color: var(--ink-light);
+  }
+
+  /* ── Swimlane Container ── */
+  .swimlanes {
+    display: flex;
+    flex-direction: column;
+    border: 1pt solid var(--border-strong);
+    border-radius: 2pt;
+    overflow: hidden;
+  }
+
+  .lane {
+    display: flex;
+    border-bottom: 0.5pt solid var(--border);
+  }
+  .lane:last-child { border-bottom: none; }
+
+  /* Phase label */
+  .lane-header {
+    width: 20mm;
+    min-width: 20mm;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2mm 1.5mm;
+    border-right: 1pt solid var(--border-strong);
+    text-align: center;
+  }
+
+  .lane-phase {
+    font-size: 5.5pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    margin-bottom: 0.8mm;
+    padding: 0.6mm 2mm;
+    border-radius: 1.5pt;
+    color: #fff;
+  }
+
+  .lane-title {
+    font-size: 6.5pt;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.2;
+  }
+
+  .ph1 .lane-header { background: var(--accent-blue-light); }
+  .ph1 .lane-phase { background: var(--accent-blue); }
+  .ph2 .lane-header { background: #eee9f5; }
+  .ph2 .lane-phase { background: #7c6a9e; }
+  .ph3 .lane-header { background: var(--accent-teal-light); }
+  .ph3 .lane-phase { background: var(--accent-teal); }
+  .ph4 .lane-header { background: var(--accent-amber-light); }
+  .ph4 .lane-phase { background: var(--accent-amber); }
+  .ph5 .lane-header { background: var(--accent-rose-light); }
+  .ph5 .lane-phase { background: var(--accent-rose); }
+  .ph6 .lane-header { background: #e8eaed; }
+  .ph6 .lane-phase { background: #4a5568; }
+  .ph7 .lane-header { background: #e6f0e8; }
+  .ph7 .lane-phase { background: #2d6a3f; }
+  .ph7 .lane-body { background: #f8faf8; }
+
+  /* Flow content */
+  .lane-body {
+    flex: 1;
+    padding: 2mm 2mm;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.2mm;
+  }
+
+  .ph1 .lane-body { background: #fcfbfa; }
+  .ph2 .lane-body { background: #faf9fc; }
+  .ph3 .lane-body { background: #fafcfb; }
+  .ph4 .lane-body { background: #fcfbf8; }
+  .ph5 .lane-body { background: #fcfafb; }
+  .ph6 .lane-body { background: #fafafa; }
+
+  .flow {
+    display: flex;
+    align-items: center;
+    gap: 0.8mm;
+  }
+
+  /* ── BPMN Elements (compact) ── */
+
+  .evt-start {
+    width: 9mm; height: 9mm; min-width: 9mm;
+    border: 1.25pt solid var(--ink);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    text-align: center;
+    font-size: 5pt; font-weight: 600; line-height: 1.05;
+    background: #fff; flex-shrink: 0;
+  }
+
+  .evt-end {
+    width: 7.5mm; height: 7.5mm; min-width: 7.5mm;
+    border: 2pt solid var(--ink);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 5.5pt; font-weight: 700;
+    flex-shrink: 0; background: #fff;
+  }
+
+  .evt-end-fail {
+    border-style: double;
+    border-width: 2.5pt;
+  }
+
+  .task {
+    padding: 1mm 1.5mm;
+    border: 0.5pt solid var(--border-strong);
+    border-radius: 2pt;
+    background: #fff;
+    font-size: 5.5pt;
+    line-height: 1.2;
+    text-align: center;
+    flex-shrink: 1;
+    min-width: 0;
+  }
+
+  .task-label {
+    font-weight: 600;
+    display: block;
+    color: var(--ink);
+    font-size: 5.5pt;
+  }
+
+  .task-detail {
+    font-size: 5pt;
+    color: var(--ink-light);
+  }
+
+  .task code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 5pt;
+    background: var(--bg-alt);
+    padding: 0 0.3mm;
+    border-radius: 0.5pt;
+    color: var(--ink);
+  }
+
+  /* Grouped options */
+  .option-group {
+    display: flex;
+    border: 0.5pt solid var(--border-strong);
+    border-radius: 2pt;
+    overflow: hidden;
+    flex-shrink: 1;
+    min-width: 0;
+  }
+
+  .option {
+    padding: 1mm 1.5mm;
+    font-size: 4.5pt;
+    text-align: center;
+    line-height: 1.15;
+    border-right: 0.3pt solid var(--border);
+  }
+  .option:last-child { border-right: none; }
+
+  .option-label {
+    font-weight: 700;
+    font-size: 5.5pt;
+    display: block;
+    margin-bottom: 0.2mm;
+  }
+
+  .option-auto { background: var(--accent-teal-light); }
+  .option-hybrid { background: var(--accent-amber-light); }
+  .option-manual { background: var(--bg-alt); color: var(--ink-muted); }
+
+  /* Gateway */
+  .gw-wrap {
+    width: 9mm; height: 9mm; min-width: 9mm;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .gw {
+    width: 7mm; height: 7mm;
+    border: 0.5pt solid var(--border-strong);
+    background: #fff;
+    transform: rotate(45deg);
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .gw-text {
+    transform: rotate(-45deg);
+    font-size: 4.5pt;
+    font-weight: 600;
+    text-align: center;
+    line-height: 1.05;
+    color: var(--ink);
+  }
+
+  /* Data Object */
+  .data {
+    padding: 0.8mm 1.2mm;
+    border: 0.4pt solid var(--ink-muted);
+    background: var(--bg-warm);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 4.5pt;
+    line-height: 1.2;
+    text-align: center;
+    position: relative;
+    flex-shrink: 0;
+    color: var(--ink-light);
+  }
+
+  .data::after {
+    content: "";
+    position: absolute;
+    top: 0; right: 0;
+    width: 2mm; height: 2mm;
+    background: linear-gradient(225deg, #fff 48%, var(--border) 50%);
+    border-left: 0.3pt solid var(--ink-muted);
+    border-bottom: 0.3pt solid var(--ink-muted);
+  }
+
+  /* Arrows */
+  .arr {
+    display: flex; align-items: center; flex-shrink: 0;
+  }
+  .arr .l { width: 2mm; border-top: 0.5pt solid var(--border-strong); }
+  .arr .h { width:0; height:0; border-top:0.8mm solid transparent; border-bottom:0.8mm solid transparent; border-left:1.2mm solid var(--border-strong); }
+
+  .darr {
+    display: flex; align-items: center; flex-shrink: 0;
+  }
+  .darr .l { width: 2mm; border-top: 0.4pt dashed var(--ink-muted); }
+  .darr .h { width:0; height:0; border-top:0.6mm solid transparent; border-bottom:0.6mm solid transparent; border-left:1mm solid var(--ink-muted); }
+
+  .or-sep {
+    font-size: 4.5pt; color: var(--ink-muted); flex-shrink: 0; font-weight: 500;
+  }
+
+  /* ── Phase separator ── */
+  .phase-gap {
+    height: 2.5mm;
+    background: #fff;
+    border-bottom: 0.5pt solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .phase-gap-label {
+    font-size: 5pt;
+    color: var(--ink-muted);
+    font-style: italic;
+    letter-spacing: 0.5px;
+  }
+
+  /* ── Footer ── */
+  .footer {
+    margin-top: 3.5mm;
+    padding-top: 2mm;
+    border-top: 0.5pt solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .legend {
+    display: flex;
+    gap: 3.5mm;
+    flex-wrap: wrap;
+    font-size: 6pt;
+    color: var(--ink-light);
+  }
+
+  .legend-item {
+    display: flex; align-items: center; gap: 1mm;
+  }
+
+  .sw { flex-shrink: 0; }
+  .sw-circle { width: 3mm; height: 3mm; border: 0.75pt solid var(--ink); border-radius: 50%; }
+  .sw-circle-end { width: 3mm; height: 3mm; border: 1.5pt solid var(--ink); border-radius: 50%; }
+  .sw-task { width: 4.5mm; height: 3mm; border: 0.5pt solid var(--border-strong); border-radius: 1pt; }
+  .sw-diamond { width: 3mm; height: 3mm; border: 0.5pt solid var(--border-strong); transform: rotate(45deg); }
+  .sw-data { width: 4mm; height: 3mm; border: 0.4pt solid var(--ink-muted); background: var(--bg-warm); }
+
+  .dsr-box {
+    font-size: 5.5pt;
+    color: var(--ink-light);
+    line-height: 1.5;
+    text-align: right;
+  }
+  .dsr-box b { color: var(--ink); font-weight: 600; }
+
+  .caption {
+    text-align: center;
+    font-size: 7pt;
+    color: var(--ink-light);
+    margin-top: 2.5mm;
+  }
+
+  @media print { body { padding: 0; } }
+</style>
+</head>
+<body>
+
+<div class="title-block">
+  <h1>Prozessmodell: Von der Regulierung zum automatisierten Quality Gate</h1>
+  <div class="subtitle">Operationalisierung des EU AI Act (VO 2024/1689) als Policy-as-Code in CI/CD/CT-Pipelines</div>
+</div>
+
+<div class="swimlanes">
+
+  <!-- ═══ Phase 1 ═══ -->
+  <div class="lane ph1">
+    <div class="lane-header">
+      <span class="lane-phase">Phase 1</span>
+      <span class="lane-title">Regulatorische<br/>Analyse</span>
+    </div>
+    <div class="lane-body">
+      <div class="flow">
+        <div class="evt-start">EU AI Act<br/>Art. 9–15,<br/>26, 47, 72, 73</div>
+        <div class="arr"><div class="l"></div><div class="h"></div></div>
+        <div class="task">
+          <span class="task-label">Artikel identifizieren</span>
+          <span class="task-detail">Absatz, Annex-Bezug<br/>z. B. Art. 10(2)(f)</span>
+        </div>
+        <div class="arr"><div class="l"></div><div class="h"></div></div>
+        <div class="task">
+          <span class="task-label">Requirement ableiten</span>
+          <span class="task-detail">R-xxx YAML,<br/>Mapping zu Artikel</span>
+        </div>
+        <div class="arr"><div class="l"></div><div class="h"></div></div>
+        <div class="gw-wrap"><div class="gw"><div class="gw-text">Auto?</div></div></div>
+        <div class="arr"><div class="l"></div><div class="h"></div></div>
+        <div class="option-group">
+          <div class="option option-auto">
+            <span class="option-label">AUTO</span>
+            D1+D2+D3 ✓
+          </div>
+          <div class="option option-hybrid">
+            <span class="option-label">HYBRID</span>
+            D3-Override
+          </div>
+          <div class="option option-manual">
+            <span class="option-label">MANUAL</span>
+            0 im PoC<br/>(10:6:0)
+          </div>
+        </div>
+        <div class="darr"><div class="l"></div><div class="h"></div></div>
+        <div class="data">requirements/<br/>R-xxx.yaml</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ Phase 2 ═══ -->
+  <div class="lane ph2">
+    <div class="lane-header">
+      <span class="lane-phase">Phase 2</span>
+      <span class="lane-title">Gate-<br/>Definition</span>
+    </div>
+    <div class="lane-body">
+      <div class="flow">
+        <div class="task">
+          <span class="task-label">Gate-YAML erstellen</span>
+          <span class="task-detail">7-Attribut-Template</span>
+        </div>
+        <div class="arr"><div class="l"></div><div class="h"></div></div>
+        <div class="task">
+          <span class="task-label">Konfigurieren</span>
+          <span class="task-detail">trigger, criteria, artifacts,<br/>decision, owner, audit, waiver</span>
+        </div>
+        <div class="arr"><div class="l"></div><div class="h"></div></div>
+        <div class="task">
+          <span class="task-label">Phase zuordnen</span>
+          <span class="task-detail">PRE | DEP | OPS</span>
+        </div>
+        <div class="arr"><div class="l"></div><div class="h"></div></div>
+        <div class="gw-wrap"><div class="gw"><div class="gw-text">Enf.?</div></div></div>
+        <div class="arr"><div class="l"></div><div class="h"></div></div>
+        <div class="option-group">
+          <div class="option option-auto">
+            <span class="option-label">Conftest</span>
+            CI: <code style="font-family:'JetBrains Mono',monospace;font-size:4.5pt;">deny</code>
+          </div>
+          <div class="option option-hybrid">
+            <span class="option-label">Dual-Mode</span>
+            CI + K8s: <code style="font-family:'JetBrains Mono',monospace;font-size:4.5pt;">violation</code>
+          </div>
+        </div>
+        <div class="darr"><div class="l"></div><div class="h"></div></div>
+        <div class="data">gate-definitions/<br/>G-xxx.yaml</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ Phase 3 ═══ -->
+  <div class="lane ph3">
+    <div class="lane-header">
+      <span class="lane-phase">Phase 3</span>
+      <span class="lane-title">Rego Policy-<br/>Entwicklung</span>
+    </div>
+    <div class="lane-body">
+      <div class="flow">
+        <div class="task">
+          <span class="task-label">.rego erstellen</span>
+          <span class="task-detail"><code>package</code> deklarieren,<br/><code>import rego.v1</code></span>
+        </div>
+        <div class="arr"><div class="l"></div><div class="h"></div></div>
+        <div class="task">
+          <span class="task-label">Regeln schreiben</span>
+          <span class="task-detail">deny/violation +<br/>Art.-Ref. in <code>msg</code></span>
+        </div>
+        <div class="arr"><div class="l"></div><div class="h"></div></div>
+        <div class="task">
+          <span class="task-label">PASS-Fixture</span>
+          <span class="task-detail">konformes JSON<br/>(0 Failures erw.)</span>
+        </div>
+        <div class="arr"><div class="l"></div><div class="h"></div></div>
+        <div class="task">
+          <span class="task-label">FAIL-Fixture</span>
+          <span class="task-detail">non-konformes JSON<br/>(N Failures erw.)</span>
+        </div>
+        <div class="arr"><div class="l"></div><div class="h"></div></div>
+        <div class="task">
+          <span class="task-label"><code>conftest test</code></span>
+          <span class="task-detail"><code>--policy</code> <code>--namespace</code></span>
+        </div>
+        <div class="arr"><div class="l"></div><div class="h"></div></div>
+        <div class="gw-wrap"><div class="gw"><div class="gw-text">P=0<br/>F&gt;0?</div></div></div>
+        <div class="arr"><div class="l"></div><div class="h"></div></div>
+        <div class="evt-end">✓</div>
+        <div class="darr"><div class="l"></div><div class="h"></div></div>
+        <div class="data">policies/<br/>*.rego<br/>+ 2 Fixtures</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ Phase 4 ═══ -->
+  <div class="lane ph4">
+    <div class="lane-header">
+      <span class="lane-phase">Phase 4</span>
+      <span class="lane-title">Orchestrator-<br/>Integration</span>
+    </div>
+    <div class="lane-body">
+      <div class="flow">
+        <div class="task">
+          <span class="task-label">PASS-Szenario</span>
+          <span class="task-detail">Gate eintragen<br/><code>poc_pass.json</code></span>
+        </div>
+        <div class="arr"><div class="l"></div><div class="h"></div></div>
+        <div class="task">
+          <span class="task-label">FAIL-Szenario</span>
+          <span class="task-detail"><code>expect_fail</code> setzen<br/><code>poc_fail.json</code></span>
+        </div>
+        <div class="arr"><div class="l"></div><div class="h"></div></div>
+        <div class="task">
+          <span class="task-label">Orchestrator prüfen</span>
+          <span class="task-detail"><code>gate_orchestrator.py</code><br/>Fixture-Fallback</span>
+        </div>
+        <div class="arr"><div class="l"></div><div class="h"></div></div>
+        <div class="task">
+          <span class="task-label">Master-Test</span>
+          <span class="task-detail"><code>test_all.py</code></span>
+        </div>
+        <div class="arr"><div class="l"></div><div class="h"></div></div>
+        <div class="gw-wrap"><div class="gw"><div class="gw-text">Alle<br/>grün?</div></div></div>
+        <div class="arr"><div class="l"></div><div class="h"></div></div>
+        <div class="evt-end">✓</div>
+        <div class="darr"><div class="l"></div><div class="h"></div></div>
+        <div class="data">pipeline/scenarios/<br/>poc_*.json</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ Phase 5 ═══ -->
+  <div class="lane ph5">
+    <div class="lane-header">
+      <span class="lane-phase">Phase 5</span>
+      <span class="lane-title">CI/CD-Pipeline-<br/>Integration</span>
+    </div>
+    <div class="lane-body">
+      <div class="flow">
+        <div class="task">
+          <span class="task-label">Gate-Step in GHA</span>
+          <span class="task-detail"><code>gate-pipeline.yml</code><br/>Conftest-Step</span>
+        </div>
+        <div class="arr"><div class="l"></div><div class="h"></div></div>
+        <div class="task">
+          <span class="task-label">Evidence-Eintrag</span>
+          <span class="task-detail">GATE:REQ:RESULT<br/>:METHOD</span>
+        </div>
+        <div class="arr"><div class="l"></div><div class="h"></div></div>
+        <div class="task">
+          <span class="task-label">Summary &amp; Decision</span>
+          <span class="task-detail">Gate-Aggregation,<br/>Pass/Fail-Logik</span>
+        </div>
+        <div class="arr"><div class="l"></div><div class="h"></div></div>
+        <div class="task">
+          <span class="task-label">Lokaler Test</span>
+          <span class="task-detail"><code>--green-path</code><br/><code>--red-path</code></span>
+        </div>
+        <div class="arr"><div class="l"></div><div class="h"></div></div>
+        <div class="gw-wrap"><div class="gw"><div class="gw-text">Beide<br/>OK?</div></div></div>
+        <div class="arr"><div class="l"></div><div class="h"></div></div>
+        <div class="evt-end">✓</div>
+        <div class="darr"><div class="l"></div><div class="h"></div></div>
+        <div class="data">.github/workflows/<br/>gate-pipeline.yml</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ Phase 6 ═══ -->
+  <div class="lane ph6">
+    <div class="lane-header">
+      <span class="lane-phase">Phase 6</span>
+      <span class="lane-title">Deployment<br/>&amp; Evidence</span>
+    </div>
+    <div class="lane-body">
+      <div class="flow">
+        <div class="task">
+          <span class="task-label"><code>git push</code></span>
+          <span class="task-detail">→ origin/main</span>
+        </div>
+        <div class="arr"><div class="l"></div><div class="h"></div></div>
+        <div class="task">
+          <span class="task-label">GitHub Actions</span>
+          <span class="task-detail">10 Gate-Policies<br/>(Conftest)</span>
+        </div>
+        <div class="arr"><div class="l"></div><div class="h"></div></div>
+        <div class="task">
+          <span class="task-label">Evidence Store</span>
+          <span class="task-detail">Record pro Gate<br/>(Säule S4)</span>
+        </div>
+        <div class="arr"><div class="l"></div><div class="h"></div></div>
+        <div class="gw-wrap"><div class="gw"><div class="gw-text">HY?</div></div></div>
+        <div class="arr"><div class="l"></div><div class="h"></div></div>
+        <div class="task">
+          <span class="task-label" style="font-size:5pt;">HYBRID: Decision Log</span>
+          <span class="task-detail">Manual Review<br/>aufzeichnen (Art. 14)</span>
+        </div>
+        <div class="arr"><div class="l"></div><div class="h"></div></div>
+        <div class="task">
+          <span class="task-label">Hash-Chain</span>
+          <span class="task-detail">SHA-256<br/>Tamper-Proof</span>
+        </div>
+        <div class="arr"><div class="l"></div><div class="h"></div></div>
+        <div class="gw-wrap"><div class="gw"><div class="gw-text">Alle<br/>PASS?</div></div></div>
+        <div class="arr"><div class="l"></div><div class="h"></div></div>
+        <div class="evt-end">✓</div>
+        <div class="or-sep">/</div>
+        <div class="evt-end evt-end-fail">✗</div>
+        <div class="darr"><div class="l"></div><div class="h"></div></div>
+        <div class="data">Evidence Store<br/>+ Docker Image</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ Gap between CI/CD and K8s ═══ -->
+  <div class="phase-gap">
+    <span class="phase-gap-label">CI/CD ───── Deployment Boundary ───── Kubernetes</span>
+  </div>
+
+  <!-- ═══ Phase 7 ═══ -->
+  <div class="lane ph7">
+    <div class="lane-header">
+      <span class="lane-phase">Phase 7</span>
+      <span class="lane-title">K8s Runtime<br/>Enforcement</span>
+    </div>
+    <div class="lane-body">
+      <div class="flow">
+        <div class="task">
+          <span class="task-label"><code>kubectl apply</code></span>
+          <span class="task-detail">Deployment-<br/>Manifest</span>
+        </div>
+        <div class="arr"><div class="l"></div><div class="h"></div></div>
+        <div class="task">
+          <span class="task-label">Gatekeeper</span>
+          <span class="task-detail">Admission Controller<br/>3 ConstraintTemplates,<br/><code>violation</code> Rego</span>
+        </div>
+        <div class="arr"><div class="l"></div><div class="h"></div></div>
+        <div class="gw-wrap"><div class="gw"><div class="gw-text">Admit<br/>?</div></div></div>
+        <div class="arr"><div class="l"></div><div class="h"></div></div>
+        <div class="task">
+          <span class="task-label">Pod Running</span>
+          <span class="task-detail">App + Annotations<br/>compliant</span>
+        </div>
+        <div class="arr"><div class="l"></div><div class="h"></div></div>
+        <div class="task">
+          <span class="task-label">Drift Detector</span>
+          <span class="task-detail">CronJob: PSI + JSD<br/>→ Evidence Store</span>
+        </div>
+        <div class="arr"><div class="l"></div><div class="h"></div></div>
+        <div class="task">
+          <span class="task-label">Hash-Chain Verify</span>
+          <span class="task-detail">CronJob 6h<br/>Tamper Check</span>
+        </div>
+        <div class="arr"><div class="l"></div><div class="h"></div></div>
+        <div class="evt-end">✓</div>
+        <div class="or-sep">/</div>
+        <div class="evt-end evt-end-fail">✗</div>
+        <div class="darr"><div class="l"></div><div class="h"></div></div>
+        <div class="data">K8s Cluster<br/>+ Prometheus<br/>+ Evidence</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ── Footer ── -->
+<div class="footer">
+  <div class="legend">
+    <div class="legend-item"><div class="sw sw-circle"></div>Start</div>
+    <div class="legend-item"><div class="sw sw-circle-end"></div>End</div>
+    <div class="legend-item"><div class="sw sw-task"></div>Aktivität</div>
+    <div class="legend-item"><div class="sw sw-diamond"></div>Gateway</div>
+    <div class="legend-item"><div class="sw sw-data"></div>Artefakt</div>
+  </div>
+  <div class="dsr-box">
+    <b>Relevance Cycle:</b> Phase 1 (EU AI Act → Anforderungen)<br/>
+    <b>Design Cycle:</b> Phase 2–5 (Gate → Policy → Pipeline)<br/>
+    <b>Rigor Cycle:</b> Phase 6–7 (Evidence + Hash Chain + K8s Enforcement → Audit)
+  </div>
+</div>
+
+<div class="caption">
+  Abbildung: Prozessmodell der Operationalisierung regulatorischer Anforderungen als automatisierte Quality Gates
+  in CI/CD-Pipelines mit Kubernetes Runtime Enforcement. Notation angelehnt an BPMN 2.0. Quelle: Eigene Darstellung.
+</div>
+
+</body>
+</html>
