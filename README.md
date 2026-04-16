@@ -63,8 +63,8 @@ Gate Inclusion Rule: D1 (Gate-Eignung) → D3 (Regulatory) → D2 (Technical) �
 <a href="docs/images/process_regulation_to_pipeline_v2_export.png">
   <img src="docs/images/process_regulation_to_pipeline_v2_export.png" width="100%" alt="Process Model: Regulation → Policy-as-Code → CI/CD Pipeline → K8s Runtime Enforcement" />
 </a>
-/Users/mustafademir/Projects/genaiops-compliance-gates/docs/images/process_regulation_to_pipeline_v2.html
-*7-phase operationalization process: EU AI Act (Art. 9–15) → Requirements → Gate Definition → Rego Policy → Orchestrator → CI/CD Pipeline → Evidence Store → K8s Runtime Enforcement. BPMN 2.0 notation. **Click image to view full resolution (3176×2600).***
+
+*7-phase operationalization process: EU AI Act (Art. 9–15) → Requirements → Gate Definition → Rego Policy → Orchestrator → CI/CD Pipeline → Evidence Store → K8s Runtime Enforcement. BPMN 2.0 notation. Legend (Start / End / Activity / Gateway / Artefact) and DSR cycle annotations (Relevance / Design / Rigor) shown at the bottom. **Click image to view full resolution (3176×3200).****
 
 ## Repository Structure
 
