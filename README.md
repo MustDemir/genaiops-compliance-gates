@@ -54,16 +54,12 @@ Gate Inclusion Rule: D1 (Gate-Eignung) → D3 (Regulatory) → D2 (Technical) �
                      D3=FIRST-DEGREE → D2 max HYBRID (Automation Ceiling)
 ```
 
-### Enforcement Flow
-
-![GenAIOps Quality Gate Enforcement Flow](docs/images/enforcement-flow.svg)
 
 ### Process Model: From Regulation to Automated Quality Gate
 
 <a href="docs/images/process_regulation_to_pipeline_v2_export.png">
   <img src="docs/images/process_regulation_to_pipeline_v2_export.png" width="100%" alt="Process Model: Regulation → Policy-as-Code → CI/CD Pipeline → K8s Runtime Enforcement" />
 </a>
-
 *7-phase operationalization process: EU AI Act (Art. 9–15) → Requirements → Gate Definition → Rego Policy → Orchestrator → CI/CD Pipeline → Evidence Store → K8s Runtime Enforcement. BPMN 2.0 notation. Legend (Start / End / Activity / Gateway / Artefact) and DSR cycle annotations (Relevance / Design / Rigor) shown at the bottom. **Click image to view full resolution (3176×3200).****
 
 ## Repository Structure
