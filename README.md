@@ -3,6 +3,8 @@
 A cloud-native reference architecture for operationalizing regulatory, technical, and strategic requirements in GenAI systems through automated Quality Gates — with full EU AI Act (Regulation 2024/1689) compliance built into CI/CD/CT pipelines.
 
 [![License: CC BY-NC 4.0](https://img.shields.io/badge/License-CC%20BY--NC%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc/4.0/)
+[![Changelog](https://img.shields.io/badge/Changelog-Phase%201--12-blue)](CHANGELOG.md)
+[![Documentation](https://img.shields.io/badge/Docs-published-brightgreen)](docs/README.md)
 
 ---
 
@@ -170,29 +172,41 @@ This six-level traceability chain ensures that for any audit finding, the path b
 
 ### Quick Start
 
-```bash
-# 0. Install Conftest (Linux/macOS, x86_64/arm64)
-./infrastructure/scripts/install-conftest.sh         # → /usr/local/bin (sudo)
-# or: NO_SUDO=1 ./infrastructure/scripts/install-conftest.sh  # → ~/.local/bin
+**Fast path via Makefile** — see all targets with `make help`. The most common workflows:
 
+```bash
+# Install Conftest CLI (cross-platform, Linux/macOS, x86_64/arm64)
+make install-conftest                 # → /usr/local/bin (sudo)
+NO_SUDO=1 make install-conftest       # → ~/.local/bin
+
+# Run the full PoC stack on a local Minikube (~5 min on a laptop)
+make local-up                         # minikube + gatekeeper + monitoring + app + smoke
+make verify                           # master integration + integrity regression + smoke
+
+# Tear down
+make local-down
+
+# Cloud variant: provision AKS in Sweden Central
+make aks-up
+make aks-down
+```
+
+**Detailed manual flow** (if you want to run the steps individually):
+
+```bash
 # 1. Provision infrastructure
-cd infrastructure/terraform
-terraform init && terraform apply
+cd infrastructure/terraform && terraform init && terraform apply
 
 # 2. Deploy OPA Gatekeeper
-cd ../helm
-helm install gatekeeper gatekeeper/gatekeeper --namespace gatekeeper-system
+cd ../helm && helm install gatekeeper gatekeeper/gatekeeper --namespace gatekeeper-system
 
 # 3. Apply policies
-cd ../../policies
-conftest test --policy pre-deployment/ scenarios/healthcare-ambient-ai-scribe/
+cd ../../policies && conftest test --policy pre-deployment/ scenarios/healthcare-ambient-ai-scribe/
 
 # 4. Initialize Evidence Store
-cd ../evidence-store
-psql -f schema/evidence_store_schema_v02_enterprise.sql
+cd ../evidence-store && psql -f schema/evidence_store_schema_v02_enterprise.sql
 
-# 5. Run pipeline with gates
-# (see pipeline/.github/workflows/ for CI/CD integration)
+# 5. Run pipeline with gates — see pipeline/.github/workflows/ for CI/CD integration
 ```
 
 ## Implementierungsfortschritt
