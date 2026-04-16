@@ -36,7 +36,7 @@ import sys
 from pathlib import Path
 
 
-REPO_ROOT = Path(__file__).resolve().parent
+REPO_ROOT = Path(__file__).resolve().parent.parent  # tests/ -> repo root
 
 GREEN = "\033[92m"
 RED = "\033[91m"
@@ -245,7 +245,7 @@ def check_local_pipeline_hybrid_semantics() -> dict:
 
 
 def check_requirements_mapping_test() -> dict:
-    path = REPO_ROOT / "test_all.py"
+    path = REPO_ROOT / "tests" / "test_all.py"
     text = read_text(path)
     findings = []
 

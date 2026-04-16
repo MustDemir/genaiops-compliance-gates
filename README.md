@@ -242,8 +242,8 @@ psql -f schema/evidence_store_schema_v02_enterprise.sql
 | Closed-Loop Pipeline | done | gate_orchestrator.py: 3 scenarios (PASS/FAIL/Gatekeeper), tamper detection |
 | Drift Detection | done | drift_detector.py (PSI+JSD), CronJob + Prometheus/Grafana/AlertManager |
 | GitHub Actions Pipeline | done | gate-pipeline.yml (10 CI gates + Evidence + Hash-Chain + Docker Push), test_pipeline_local.sh |
-| Master Integration Test | done | test_all.py: 22/22 PASS across all 5 pillars |
-| Integrity Regression Suite | done | test_integrity_regression.py: credibility checks for fallbacks, evidence strictness, HYBRID consistency, walkthrough drift |
+| Master Integration Test | done | tests/test_all.py: 22/22 PASS across all 5 pillars |
+| Integrity Regression Suite | done | tests/test_integrity_regression.py: credibility checks for fallbacks, evidence strictness, HYBRID consistency, walkthrough drift |
 | Kolloquium Documentation | done | CLOSED_LOOP_ERKLAERUNG.md: Phase 8–10 with Q&A |
 | Terraform/Helm (Azure) | done | AKS Sweden Central live 2026-04-13 (kube-prometheus-stack via Helm, OPA Gatekeeper mit 3 ConstraintTemplates runtime, PostgreSQL + Hash-Chain-Triggern im Cluster-Pod) |
 
@@ -252,9 +252,9 @@ psql -f schema/evidence_store_schema_v02_enterprise.sql
 The repository includes a dedicated integrity-focused regression suite in addition to the functional master test.
 
 ```bash
-python3 test_integrity_regression.py
-python3 test_integrity_regression.py --format json
-python3 test_integrity_regression.py --fail-on low
+python3 tests/test_integrity_regression.py
+python3 tests/test_integrity_regression.py --format json
+python3 tests/test_integrity_regression.py --fail-on low
 ```
 
 This suite is intended to catch PoC-credibility risks such as:

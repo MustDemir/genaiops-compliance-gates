@@ -31,7 +31,7 @@ from pathlib import Path
 # Setup
 # ══════════════════════════════════════════════════════════════
 
-REPO_ROOT = Path(__file__).resolve().parent
+REPO_ROOT = Path(__file__).resolve().parent.parent  # tests/ -> repo root
 
 GREEN = "\033[92m"
 RED = "\033[91m"
