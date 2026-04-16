@@ -39,7 +39,8 @@ Thumbs.db
 evidence-store/*.db
 evidence-store/*.db-journal
 evidence-store/pipeline_report_*.json
-evidence-store/data/
+evidence-store/data/*
+!evidence-store/data/README.md
 
 # Internal working documents (not for public repo)
 *_INTERNAL.md
