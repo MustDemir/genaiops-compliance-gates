@@ -25,5 +25,5 @@ links:
 sources:
   - "requirements/R003.yaml"
   - "Thesis Tab. 5.2, 5.3, 5.4"
-  - "docs/knowledge-base/Docker/kap4-docker-images.md"
+  - "docs/knowledge-base/docker/kap4-docker-images.md"
 notes: "PoC-Gate (★, E10). AUTO: Einziges Gate das technische Infrastruktur-Konfiguration prueft (Dockerfile + K8s-Manifest) statt Doku-Metadaten. 6 Pruefungen (CDV-Contract): P1 runAsNonRoot (MUST), P2 resource.limits (MUST), P3 readOnlyRootFilesystem (SHOULD), P4 keine Secrets in ENV (MUST), P5 slim/alpine Base-Image (SHOULD), P6 allowPrivilegeEscalation:false (MUST). R003 wird zusaetzlich durch G-DEP-02 und G-OPS-04 operationalisiert (Mehrfachzuordnung phasenuebergreifend)."

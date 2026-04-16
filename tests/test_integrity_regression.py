@@ -300,7 +300,7 @@ def check_smoke_test_false_green() -> dict:
 
 
 def check_walkthrough_policy_paths() -> dict:
-    path = REPO_ROOT / "docs" / "WALKTHROUGH_KAP63.md"
+    path = REPO_ROOT / "docs" / "reference" / "WALKTHROUGH_KAP63.md"
     text = read_text(path)
     missing = []
 

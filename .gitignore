@@ -44,7 +44,7 @@ evidence-store/data/*
 
 # Internal working documents (not for public repo)
 *_INTERNAL.md
-/docs/
+# Note: /docs/ is now public — internal-only material lives in legacy/docs/
 
 # Secrets
 **/secrets/

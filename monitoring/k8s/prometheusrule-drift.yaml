@@ -51,7 +51,7 @@ spec:
               for {{ $labels.instance }}.
               Investigate input distribution shift.
               Gate: G-OPS-03 (Performance Monitoring & Drift Detection)
-            runbook_url: "https://github.com/MustDemir/genaiops-compliance-gates/blob/main/docs/CLOSED_LOOP_ERKLAERUNG.md"
+            runbook_url: "https://github.com/MustDemir/genaiops-compliance-gates/blob/main/docs/reference/CLOSED_LOOP_ERKLAERUNG.md"
 
         # ── PSI Critical ─────────────────────────────────────
         - alert: GenAIOps_DriftCritical_PSI
@@ -69,7 +69,7 @@ spec:
               for {{ $labels.instance }}.
               Gate G-OPS-03 re-evaluation REQUIRED.
               Action: Investigate root cause, consider model retraining.
-            runbook_url: "https://github.com/MustDemir/genaiops-compliance-gates/blob/main/docs/CLOSED_LOOP_ERKLAERUNG.md"
+            runbook_url: "https://github.com/MustDemir/genaiops-compliance-gates/blob/main/docs/reference/CLOSED_LOOP_ERKLAERUNG.md"
 
         # ── JSD Warning ──────────────────────────────────────
         - alert: GenAIOps_DriftWarning_JSD
