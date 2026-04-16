@@ -58,6 +58,12 @@ Gate Inclusion Rule: D1 (Gate-Eignung) → D3 (Regulatory) → D2 (Technical) �
 
 ![GenAIOps Quality Gate Enforcement Flow](docs/images/enforcement-flow.svg)
 
+### Process Model: From Regulation to Automated Quality Gate
+
+![Process Model: Regulation → Policy-as-Code → CI/CD Pipeline](docs/images/process_regulation_to_pipeline_enterprise_adaptation.png)
+
+*6-phase operationalization process: EU AI Act (Art. 9–15) → Requirements → Gate Definition → Rego Policy → Orchestrator → CI/CD Pipeline → Evidence Store. Sections marked "ANPASSEN" indicate enterprise-specific adaptation points. BPMN 2.0 notation.*
+
 ## Repository Structure
 
 ```
