@@ -165,12 +165,16 @@ This six-level traceability chain ensures that for any audit finding, the path b
 - Azure subscription with AKS enabled
 - Terraform >= 1.5
 - Helm >= 3.12
-- OPA/Conftest CLI
+- OPA/Conftest CLI — install via `./infrastructure/scripts/install-conftest.sh`
 - kubectl configured for AKS cluster
 
 ### Quick Start
 
 ```bash
+# 0. Install Conftest (Linux/macOS, x86_64/arm64)
+./infrastructure/scripts/install-conftest.sh         # → /usr/local/bin (sudo)
+# or: NO_SUDO=1 ./infrastructure/scripts/install-conftest.sh  # → ~/.local/bin
+
 # 1. Provision infrastructure
 cd infrastructure/terraform
 terraform init && terraform apply

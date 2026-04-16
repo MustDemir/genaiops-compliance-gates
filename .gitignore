@@ -53,3 +53,6 @@ evidence-store/data/
 conftest
 conftest_*.tar.gz
 infrastructure/.aks-config
+
+# Legacy / archived artifacts (never tracked, see legacy/README.md)
+/legacy/
