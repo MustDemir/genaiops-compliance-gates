@@ -1,8 +1,12 @@
 # ================================================================
 # Test Fixture: Compliant Deployment (PASS case)
 # ================================================================
-# Used by Conftest to validate G-PRE-04 security baseline.
-# All P1-P6 checks should PASS against this manifest.
+# Shared PASS fixture for Conftest CI across multiple quality gates:
+#   G-PRE-04 (security baseline), G-OPS-02 (incident process),
+#   G-OPS-03 (monitoring), G-OPS-05 (evidence completeness),
+#   G-DEP-02 (safety metrics).
+# All declared annotations are required for the Healthcare Ambient AI
+# Scribe to be considered fully EU AI Act Art. 9–15, 26 compliant.
 # ================================================================
 apiVersion: apps/v1
 kind: Deployment
@@ -25,6 +29,9 @@ metadata:
     genaiops.io/evidence-store-type: "postgresql"
     genaiops.io/eval-passed: "true"
     genaiops.io/eval-run-id: "eval-20260325-001"
+    genaiops.io/incident-response-configured: "true"
+    genaiops.io/incident-contact: "ai-governance-team@hospital.example.com"
+    genaiops.io/rollback-mechanism: "true"
 spec:
   replicas: 1
   selector:
@@ -46,6 +53,9 @@ spec:
         genaiops.io/hash-chain-enabled: "true"
         genaiops.io/eval-passed: "true"
         genaiops.io/eval-run-id: "eval-20260325-001"
+        genaiops.io/incident-response-configured: "true"
+        genaiops.io/incident-contact: "ai-governance-team@hospital.example.com"
+        genaiops.io/rollback-mechanism: "true"
         prometheus.io/scrape: "true"
         prometheus.io/port: "8080"
         prometheus.io/path: "/metrics"
