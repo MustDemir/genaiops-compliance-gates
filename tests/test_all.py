@@ -4,11 +4,18 @@ test_all.py — GenAIOps PoC Master Integration Test
 
 Runs ALL local tests across all implemented phases:
 
+  Phase 3:  Rego Policies (Structure + OPA Unit Tests + Conftest)
   Phase 5:  Rego Policy Validation (conftest --verify)
   Phase 8:  Closed-Loop Pipeline (3 scenarios + tamper detection)
   Phase 9:  Drift Detection (21 unit tests + 16 E2E tests)
   Infra:    YAML validation + Bash syntax check
   Evidence: Hybrid Gate Integration test
+
+Rego Test Layers (Shift-Left, fail-fast):
+  Layer 1 — OPA Unit Tests: 103 tests across 10 policies
+            (tests/run_all_rego_tests.sh, ground-truth 2026-04-17).
+            Runs BEFORE Conftest to catch rule-semantic drift.
+  Layer 2 — Conftest against fixtures (integration check).
 
 What this proves (Kolloquium):
   This single command validates the ENTIRE PoC — all 5 architecture
@@ -172,7 +179,7 @@ if scripts_dir.exists():
 # ══════════════════════════════════════════════════════════════
 # Phase 3: Rego Policy Validation
 # ══════════════════════════════════════════════════════════════
-print(f"\n{BOLD}{BLUE}▸ Phase 3: Rego Policies (Structure Check){RESET}")
+print(f"\n{BOLD}{BLUE}▸ Phase 3: Rego Policies (Structure + Unit Tests + Conftest){RESET}")
 
 rego_files = list((REPO_ROOT / "policies").rglob("*.rego"))
 run_test("Rego", f"Rego Policy Files ({len(rego_files)} found)",
@@ -189,7 +196,21 @@ for f in files:
 print(f"{{len(files)}} Rego policies have valid structure")
 """])
 
-# Check conftest availability and run if possible
+# ── Layer 1: OPA Unit Tests (fail-fast, rule-semantic check) ──
+# Runner:    tests/run_all_rego_tests.sh
+# Scope:     103 tests / 10 policies (ground-truth baseline 2026-04-17)
+# Purpose:   catch rule-semantic drift BEFORE Conftest evaluates fixtures
+opa_available = shutil.which("opa") is not None or Path("/tmp/opa").is_file()
+runner = REPO_ROOT / "tests" / "run_all_rego_tests.sh"
+if opa_available and runner.is_file():
+    run_test("Rego", "OPA Unit Tests (10 policies, 103 tests)",
+             ["bash", str(runner), "--quiet"])
+else:
+    missing = "opa binary" if not opa_available else "runner script"
+    print(f"  {DIM}[SKIP] OPA Unit Tests — {missing} not available{RESET}")
+    print(f"  {DIM}       (Install OPA: https://www.openpolicyagent.org/docs/latest/#running-opa){RESET}")
+
+# ── Layer 2: Conftest integration against fixtures ──
 conftest_available = shutil.which("conftest") is not None
 if conftest_available:
     # Test Rego policies against fixtures
