@@ -15,7 +15,11 @@ acceptance_criteria:
 - Owner fuer Oversight ist benannt und freigegeben.
 - Eskalationsprozess ist versioniert und fuer den Betriebsfall abrufbar.
 linked_gates:
-- G-PRE-05
+  - G-PRE-05
+design_principles:
+  - DP4
+deployer_implication: "Oversight-Konzept mit dokumentierter strategischer Governance-Freigabe vor Deployment bereitstellen."
+audit_trigger: "Pre-Deployment (Governance-Approval)"
 sources:
 - EU AI Act (VO 2024/1689) Art. 14
 - Ho-Dac & Martinez (2024) [Zotero] — Art. 14 Human Oversight Standardisierung

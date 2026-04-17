@@ -17,7 +17,11 @@ acceptance_criteria:
   - "Schwellenwert-Ueberschreitungen loesen dokumentierte Alerts aus."
   - "Periodische PMS-Berichte werden erstellt und archiviert."
 linked_gates:
-  - "tbd_5.3"
+  - G-OPS-03
+design_principles:
+  - DP2
+deployer_implication: "Performance-Metriken und Drift-Indikatoren kontinuierlich erfassen; bei Schwellenwertverletzung eskalieren."
+audit_trigger: "Runtime (kontinuierlich) + Post-Market (Art. 72)"
 sources:
   - "EU AI Act (VO 2024/1689) Art. 72, Art. 9 Abs. 2"
   - "Finch & Butt (2025) [HU5B664Q] — Systematic Review: Gap bei continuous monitoring practices, lifecycle risk management Art. 9"

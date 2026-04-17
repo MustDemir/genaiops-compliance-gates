@@ -9,5 +9,22 @@ description: ""
 evidence_expected: []
 acceptance_criteria: []
 linked_gates: []
+# design_principles: Liste der adressierten Design Principles (DP1-DP5 aus K5.1).
+# Konvention: erste Position = primaere DP (staerkster Bezug). Weitere Eintraege
+# = sekundaere DPs bei Mehrfach-Adressierung. Kanonische DP-Namen siehe K5.1
+# Tabelle 5.1 (DP1 Compliance-Lifecycle, DP2 Traceability, DP3 Gate-Template,
+# DP4 Governance-Ebenen, DP5 Cloud-native).
+design_principles: []
+# deployer_implication: 1-Satz-Zusammenfassung der konkreten Nachweis-Anforderung
+# an den Deployer (Art. 26). Wird als Spalte in Tab A.1 (Anhang K4) gerendert.
+# Inhalt muss aus description + kontrollmechanismus + acceptance_criteria
+# ableitbar sein — keine neuen Claims.
+deployer_implication: ""
+# audit_trigger: Wann wird die Evidenz ausgewertet? (Lifecycle-Phase + ggf.
+# Post-Market-Verweis). Wird als Spalte in Tab A.1 gerendert. Mapping-Konvention:
+# pre-deployment -> "Pre-Deployment CI/CD"
+# deployment -> "Deployment CI/CD"
+# operation -> "Runtime + Post-Market (Art. 72)"
+audit_trigger: ""
 sources: []
 notes: ""

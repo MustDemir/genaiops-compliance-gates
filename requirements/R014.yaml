@@ -17,7 +17,11 @@ acceptance_criteria:
   - "Aufbewahrungsfrist entspricht den gesetzlichen Anforderungen."
   - "Logs sind fuer berechtigte Stellen zugaenglich und auswertbar."
 linked_gates:
-  - "tbd_5.3"
+  - G-DEP-06
+design_principles:
+  - DP5
+deployer_implication: "Logging-Konfiguration gemäß Provider-Vorgaben einrichten; Aufbewahrung und Immutability sicherstellen."
+audit_trigger: "Deployment CI/CD + Runtime (kontinuierlich)"
 sources:
   - "EU AI Act (VO 2024/1689) Art. 12, Art. 26 Abs. 3"
   - "Lucaj et al. (2025) [5Y79UTJ9] — TechOps Templates, Logging-Konfiguration als PaC-Template"

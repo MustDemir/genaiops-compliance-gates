@@ -15,7 +15,11 @@ acceptance_criteria:
   - "Betroffene Grundrechte sind identifiziert und bewertet."
   - "Mitigationsmassnahmen fuer identifizierte Risiken sind dokumentiert."
 linked_gates:
-  - "tbd_5.3"
+  - G-PRE-02
+design_principles:
+  - DP2
+deployer_implication: "Zweckbestimmung und Einsatzgrenzen schriftlich dokumentieren und im Deployer-Kontext verankern."
+audit_trigger: "Pre-Deployment (einmalig pro Use-Case)"
 sources:
   - "EU AI Act (VO 2024/1689) Art. 27"
   - "Huwyler (2025) [UE5LVI97] — Phase 4 Action 4.3: FRIA als Pre-Deployment-Pflicht, Stakeholder-Impact-Bewertung"

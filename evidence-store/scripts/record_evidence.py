@@ -21,7 +21,9 @@ Usage:
 Design decisions:
     - E13: Unified table with decision_method column (no separate tables)
     - Hash computed client-side AND verified against DB trigger (double-write)
-    - Genesis hash: SHA256("GENESIS|genaiops-compliance-gates|v1.0")
+    - Genesis-Eintrag: previous_hash ist leer (NULL in DB, "" im Hash-Payload);
+      die DB-Trigger-Funktion compliance.set_hash_chain() setzt den Wert auf
+      NULL beim Genesis-Eintrag und kodiert via coalesce(NEW.previous_hash, '').
     - Client sends timestamp; DB DEFAULT as fallback
 """
 
@@ -33,11 +35,6 @@ import sqlite3
 import sys
 import uuid
 from datetime import datetime, timezone
-
-# Genesis hash — first record in any new chain
-GENESIS_HASH = hashlib.sha256(
-    b"GENESIS|genaiops-compliance-gates|v1.0"
-).hexdigest()
 
 # Default model info for PoC scenario
 POC_DEFAULTS = {
@@ -119,11 +116,11 @@ def init_sqlite(db_path: str) -> sqlite3.Connection:
 
 
 def get_previous_hash_sqlite(conn: sqlite3.Connection) -> str:
-    """Get the last hash in the chain, or GENESIS_HASH if empty."""
+    """Get the last hash in the chain, or empty string for the Genesis-Eintrag."""
     row = conn.execute(
         "SELECT hash_value FROM quality_gate_results ORDER BY audit_id DESC LIMIT 1"
     ).fetchone()
-    return row[0] if row else GENESIS_HASH
+    return row[0] if row else ""
 
 
 def insert_sqlite(conn: sqlite3.Connection, record: dict) -> int:
@@ -170,14 +167,14 @@ def get_pg_connection(db_url: str):
 
 
 def get_previous_hash_pg(conn) -> str:
-    """Get the last hash from PostgreSQL, or GENESIS_HASH if empty."""
+    """Get the last hash from PostgreSQL, or empty string for the Genesis-Eintrag."""
     with conn.cursor() as cur:
         cur.execute(
             "SELECT hash_value FROM compliance.quality_gate_results "
             "ORDER BY audit_id DESC LIMIT 1"
         )
         row = cur.fetchone()
-    return row[0] if row else GENESIS_HASH
+    return row[0] if row else ""
 
 
 def insert_pg(conn, record: dict) -> int:
@@ -386,7 +383,8 @@ def main():
         sys.exit(1)
 
     print(f"[record_evidence] Decision: {record['decision']} | Hash: {record['hash_value'][:16]}...")
-    print(f"[record_evidence] Previous: {record['previous_hash'][:16]}...")
+    prev = record['previous_hash']
+    print(f"[record_evidence] Previous: {prev[:16] + '...' if prev else '<empty> (Genesis-Eintrag)'}")
 
 
 if __name__ == "__main__":

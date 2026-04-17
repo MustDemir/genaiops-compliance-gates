@@ -17,7 +17,11 @@ acceptance_criteria:
   - "Plausibilitaetschecks sind definiert und werden automatisch ausgefuehrt."
   - "Validierungsergebnisse werden im Evidence Store persistiert."
 linked_gates:
-  - "tbd_5.3"
+  - G-DEP-01
+design_principles:
+  - DP3
+deployer_implication: "Automatisierte Schema- und Plausibilitätsvalidierung der Eingabedaten vor jeder Modellinferenz ausführen."
+audit_trigger: "Deployment CI/CD + Runtime (pro Inferenz-Batch)"
 sources:
   - "EU AI Act (VO 2024/1689) Art. 10, Art. 26 Abs. 4"
   - "Guldimann et al. (2025) COMPL-AI [QTQJ92VY] — Privacy and Data Governance Dimension, Training Data Suitability Benchmark"

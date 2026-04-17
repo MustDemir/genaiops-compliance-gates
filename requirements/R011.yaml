@@ -20,7 +20,11 @@ acceptance_criteria:
 - CE-Kennzeichnung ist vorhanden.
 - Pruefergebnis ist im Evidence Store dokumentiert.
 linked_gates:
-- G-DEP-04
+  - G-DEP-04
+design_principles:
+  - DP3
+deployer_implication: "Konformitätserklärung und CE-Kennzeichnung vor Inbetriebnahme prüfen und dokumentieren."
+audit_trigger: "Deployment CI/CD + Re-Audit bei Substantial Modification"
 sources:
 - EU AI Act (VO 2024/1689) Art. 26 Abs. 1, Art. 47, Art. 48
 - Kiejnich-Kruk (2025) [D6526468] — Deployer-Obligations-Analyse, Art. 26 Abs. 1 CE-Pruefpflicht

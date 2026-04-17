@@ -17,7 +17,11 @@ acceptance_criteria:
   - "Eingriffe durch Oversight-Rollen werden protokolliert."
   - "Defizite in den Sterz-Bedingungen loesen Eskalation aus."
 linked_gates:
-  - "tbd_5.3"
+  - G-OPS-01
+design_principles:
+  - DP3
+deployer_implication: "Wirksamkeit der Human-Oversight-Maßnahmen im Betrieb dokumentieren und periodisch überprüfen."
+audit_trigger: "Runtime (kontinuierlich) + Post-Market"
 sources:
   - "EU AI Act (VO 2024/1689) Art. 14, Art. 26 Abs. 2"
   - "Sterz et al. (2024) - Effektivitaetsbedingungen Human Oversight"

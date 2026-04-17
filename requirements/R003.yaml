@@ -17,9 +17,13 @@ acceptance_criteria:
 - Alle verpflichtenden Metriken liegen ueber den definierten Mindestwerten.
 - Fehlgeschlagene Safety-Checks fuehren zu blockierendem Gate-Entscheid.
 linked_gates:
-- G-PRE-04
-- G-DEP-02
-- G-OPS-04
+  - G-PRE-04
+  - G-DEP-02
+  - G-OPS-04
+design_principles:
+  - DP1
+deployer_implication: "Security-Baseline pre-deploy nachweisen, Safety-Metriken deploy-time validieren, Cybersecurity-Operations kontinuierlich überwachen."
+audit_trigger: "Pre-Deployment + Deployment + Runtime (kontinuierlich)"
 sources:
 - EU AI Act (VO 2024/1689) Art. 15
 - Elia (2025) MQG4AI [QRW95D4X] — Robustness-Gate-Konzept, technische Qualitaetssicherung

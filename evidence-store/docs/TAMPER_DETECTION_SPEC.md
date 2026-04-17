@@ -9,9 +9,9 @@
 
 The Evidence Store uses a **sequential SHA-256 hash chain** where each record's hash is computed from:
 - 12 business fields (model_name, model_version, pipeline_id, run_id, gate_type, decision, decision_method, gate_name, policy_version, payload_id, checked_at, inserted_by)
-- The previous record's hash_value (or GENESIS_HASH for the first record)
+- The previous record's hash_value (or an **empty string** for the Genesis-Eintrag)
 
-Genesis Hash: `SHA256("GENESIS|genaiops-compliance-gates|v1.0")`
+Genesis convention: The first record (audit_id = 1) has no predecessor; its `previous_hash` column remains empty (NULL in PostgreSQL, "" in SQLite). The DB trigger `compliance.set_hash_chain()` encodes this as an empty string in the hash payload via `coalesce(NEW.previous_hash, '')`.
 
 ## 2. Three Protection Layers
 
@@ -48,7 +48,7 @@ Genesis Hash: `SHA256("GENESIS|genaiops-compliance-gates|v1.0")`
 ## 5. Detection Capabilities of verify_hash_chain.py
 
 ### Checks Performed:
-1. **Genesis linkage**: First record's previous_hash must equal GENESIS_HASH
+1. **Genesis linkage**: First record's previous_hash must be empty (NULL or "") per Genesis-Eintrag convention
 2. **Sequential linkage**: Each record[i].previous_hash == record[i-1].hash_value
 3. **Hash recomputation**: Recompute hash from fields, compare to stored hash_value
 4. **Gap detection**: Detect missing audit_ids (deleted records)

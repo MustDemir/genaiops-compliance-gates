@@ -17,7 +17,11 @@ acceptance_criteria:
 - Evidence-Referenzen sind fuer jeden Gate-Lauf vorhanden.
 - Aenderungen an bestehenden Evidence-Eintraegen sind technisch eingeschraenkt.
 linked_gates:
-- G-OPS-05
+  - G-OPS-05
+design_principles:
+  - DP1
+deployer_implication: "Audit-Trail vollständig und manipulationssicher (Hash-Chain) im Evidence Store persistieren."
+audit_trigger: "Runtime (kontinuierlich) + Post-Market"
 sources:
 - EU AI Act (VO 2024/1689) Art. 12, Art. 15
 - Eisenberg (2025) UCF [JUK36XAW] — Unified Control Framework, Evidence-Store-Konzept

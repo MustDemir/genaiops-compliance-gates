@@ -18,7 +18,11 @@ acceptance_criteria:
   - "Fairness-Schwellenwerte sind konfiguriert."
   - "Abweichungen ueber Schwellenwert loesen dokumentierte Alerts aus."
 linked_gates:
-  - "tbd_5.3"
+  - G-DEP-05
+design_principles:
+  - DP5
+deployer_implication: "Bias-/Fairness-Report vor Deployment bereitstellen; Mitigationsplan und Re-Evaluation dokumentieren."
+audit_trigger: "Deployment CI/CD + Runtime (periodische Re-Evaluation)"
 sources:
   - "EU AI Act (VO 2024/1689) Art. 9, Art. 10, Art. 15"
   - "Díaz-Rodríguez et al. (2023) [NWJFNALE] — Trustworthy AI Requirements: Diversity, Non-Discrimination and Fairness Dimension, Lifecycle-Monitoring"

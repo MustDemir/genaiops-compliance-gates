@@ -29,10 +29,10 @@ import sqlite3
 import sys
 from datetime import datetime, timezone
 
-# Must match record_evidence.py
-GENESIS_HASH = hashlib.sha256(
-    b"GENESIS|genaiops-compliance-gates|v1.0"
-).hexdigest()
+# Genesis-Eintrag: previous_hash ist leer (NULL in DB, "" im Hash-Payload).
+# Die DB-Trigger-Funktion compliance.set_hash_chain() setzt NEW.previous_hash auf
+# den hash_value des Vorgaenger-Datensatzes oder auf NULL beim Genesis-Eintrag.
+# concat_ws('|', ..., coalesce(NEW.previous_hash, '')) kodiert NULL als "".
 
 
 def compute_hash(
@@ -109,7 +109,8 @@ def verify_chain(records: list[dict], verbose: bool = False) -> tuple[bool, int,
     if not records:
         return True, 0, "Empty store — nothing to verify"
 
-    expected_previous = GENESIS_HASH
+    # Genesis-Eintrag: previous_hash ist leer ("" in Payload, NULL in DB).
+    expected_previous = ""
     errors = []
 
     # Gap detection: check for deleted records (missing audit_ids)
@@ -132,10 +133,11 @@ def verify_chain(records: list[dict], verbose: bool = False) -> tuple[bool, int,
         # Check 1: previous_hash links correctly
         stored_previous = rec.get("previous_hash") or ""
         if i == 0:
-            # First record: previous_hash should be GENESIS or None/empty
-            if stored_previous and stored_previous != GENESIS_HASH:
+            # Genesis-Eintrag: previous_hash muss leer sein (NULL oder "").
+            if stored_previous:
                 errors.append(
-                    f"  audit_id={audit_id}: first record previous_hash != GENESIS_HASH"
+                    f"  audit_id={audit_id}: first record previous_hash must be empty "
+                    f"(got {stored_previous[:16]}...)"
                 )
         else:
             if stored_previous != expected_previous:
@@ -249,7 +251,7 @@ def main():
         sys.exit(0)
     elif is_valid:
         print(f"Result: VALID — {count} records verified, chain intact")
-        print(f"Genesis: {GENESIS_HASH[:16]}...")
+        print("Genesis: previous_hash=<empty> (audit_id=1)")
         if records:
             print(f"Latest:  {records[-1]['hash_value'][:16]}... (audit_id={records[-1]['audit_id']})")
         sys.exit(0)

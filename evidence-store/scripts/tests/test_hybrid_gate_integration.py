@@ -33,7 +33,6 @@ SCRIPT_DIR = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(SCRIPT_DIR))
 
 from record_evidence import (
-    GENESIS_HASH,
     POC_DEFAULTS,
     build_record,
     compute_hash,
@@ -190,13 +189,14 @@ class TestHybridGateIntegration(unittest.TestCase):
         self.assertIn("audit_id=2", error_msg)
 
     def test_chain_linkage_genesis(self):
-        """First record's previous_hash should be GENESIS_HASH."""
+        """First record's previous_hash must be empty (Genesis-Eintrag convention)."""
         self._record("G-PRE-01", "AUTO", self._auto_source("G-PRE-01"))
 
         records = fetch_records_sqlite(self.db_path)
         self.assertEqual(len(records), 1)
-        self.assertEqual(records[0]["previous_hash"], GENESIS_HASH,
-                         "First record must reference GENESIS_HASH")
+        # Genesis-Eintrag: previous_hash ist leer ("" in SQLite-Payload, NULL in PG).
+        self.assertIn(records[0]["previous_hash"], ("", None),
+                      "First record previous_hash must be empty (Genesis convention)")
 
     def test_chain_linkage_sequential(self):
         """Each record's previous_hash must equal the prior record's hash_value."""

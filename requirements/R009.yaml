@@ -20,7 +20,11 @@ acceptance_criteria:
 - Meldung erfolgt innerhalb der gesetzlichen Frist.
 - Incident-Reports sind im Evidence Store versioniert.
 linked_gates:
-- G-OPS-02
+  - G-OPS-02
+design_principles:
+  - DP4
+deployer_implication: "Incidents fristgerecht (Art. 73) an Behörden und Provider melden und Root-Cause-Analyse dokumentieren."
+audit_trigger: "Runtime (Event-getriggert) + Post-Market"
 sources:
 - EU AI Act (VO 2024/1689) Art. 26 Abs. 5, Art. 73
 - Kiejnich-Kruk (2025) [D6526468] — Deployer-Obligations-Analyse, Art. 26 Abs. 5 Incident

@@ -19,7 +19,11 @@ acceptance_criteria:
 - Dokumentation verweist eindeutig auf Modellversion und Release.
 - Log-Referenzen sind im Evidence Store auffindbar.
 linked_gates:
-- G-DEP-01
+  - G-DEP-01
+design_principles:
+  - DP4
+deployer_implication: "Technische Dokumentation (Annex-IV-Umfang) im Evidence Store hinterlegen und bei Deployment mitliefern."
+audit_trigger: "Deployment CI/CD; Re-Audit bei Model-Update"
 sources:
 - EU AI Act (VO 2024/1689) Art. 11
 - Guldimann et al. (2025) COMPL-AI [QTQJ92VY] — Technische Dokumentations-Benchmarks
