@@ -1,0 +1,232 @@
+================================================================
+  GenAIOps Compliance Gates — Rego Unit Test Suite
+  FIX-K6.3-012: 10 Policies / 105 Rules → verifiable evidence
+================================================================
+  Repo:         /sessions/tender-busy-gates/mnt/genaiops-compliance-gates
+  OPA binary:   /tmp/opa (Version: 1.15.2)
+  Test files:   10 (policies/**/*_test.rego)
+  Fixtures:     1 (tests/fixtures/*.rego)
+================================================================
+
+Running: /tmp/opa test policies/ tests/fixtures/ -v 
+----------------------------------------------------------------
+policies/operations/policy_evidence_completeness_test.rego:34:
+data.genaiops.operations.evidence_completeness_test.test_pass_compliant_deployment: PASS (286.958µs)
+policies/operations/policy_evidence_completeness_test.rego:44:
+data.genaiops.operations.evidence_completeness_test.test_fail_missing_evidence_store_connected_annotation: PASS (362.958µs)
+policies/operations/policy_evidence_completeness_test.rego:73:
+data.genaiops.operations.evidence_completeness_test.test_fail_empty_evidence_store_type: PASS (1.117958ms)
+policies/operations/policy_evidence_completeness_test.rego:59:
+data.genaiops.operations.evidence_completeness_test.test_fail_hash_chain_disabled_value: PASS (2.059375ms)
+
+policies/pre-deployment/policy_data_provenance_documented_test.rego:39:
+data.genaiops.pre_deployment.data_provenance_documented_test.test_pass_full_data_provenance: PASS (400.458µs)
+policies/pre-deployment/policy_data_provenance_documented_test.rego:50:
+data.genaiops.pre_deployment.data_provenance_documented_test.test_fail_realistic_incomplete_documentation_multi_rule: PASS (298.417µs)
+policies/pre-deployment/policy_data_provenance_documented_test.rego:65:
+data.genaiops.pre_deployment.data_provenance_documented_test.test_fail_missing_data_provenance_section: PASS (162.417µs)
+policies/pre-deployment/policy_data_provenance_documented_test.rego:76:
+data.genaiops.pre_deployment.data_provenance_documented_test.test_fail_missing_collection_methods_field: PASS (576.084µs)
+policies/pre-deployment/policy_data_provenance_documented_test.rego:88:
+data.genaiops.pre_deployment.data_provenance_documented_test.test_fail_missing_sources_field: PASS (558.917µs)
+policies/pre-deployment/policy_data_provenance_documented_test.rego:99:
+data.genaiops.pre_deployment.data_provenance_documented_test.test_fail_missing_preprocessing_steps_field: PASS (586.459µs)
+policies/pre-deployment/policy_data_provenance_documented_test.rego:115:
+data.genaiops.pre_deployment.data_provenance_documented_test.test_fail_empty_collection_methods_array: PASS (670.666µs)
+policies/pre-deployment/policy_data_provenance_documented_test.rego:125:
+data.genaiops.pre_deployment.data_provenance_documented_test.test_fail_empty_preprocessing_steps_array: PASS (772.417µs)
+policies/pre-deployment/policy_data_provenance_documented_test.rego:139:
+data.genaiops.pre_deployment.data_provenance_documented_test.test_fail_empty_data_version_string: PASS (697.417µs)
+
+policies/deployment/policy_safety_metrics_test.rego:60:
+data.genaiops.deployment.safety_metrics_test.test_fail_realistic_multi_rule_eval_failure: PASS (533.25µs)
+policies/deployment/policy_safety_metrics_test.rego:49:
+data.genaiops.deployment.safety_metrics_test.test_pass_full_eval_results: PASS (628.333µs)
+policies/deployment/policy_safety_metrics_test.rego:87:
+data.genaiops.deployment.safety_metrics_test.test_fail_accuracy_below_threshold: PASS (218.583µs)
+policies/deployment/policy_safety_metrics_test.rego:102:
+data.genaiops.deployment.safety_metrics_test.test_fail_latency_p95_missing: PASS (199.291µs)
+policies/deployment/policy_safety_metrics_test.rego:112:
+data.genaiops.deployment.safety_metrics_test.test_fail_latency_p95_above_threshold: PASS (231.584µs)
+policies/deployment/policy_safety_metrics_test.rego:127:
+data.genaiops.deployment.safety_metrics_test.test_fail_safety_score_missing: PASS (192.5µs)
+policies/deployment/policy_safety_metrics_test.rego:137:
+data.genaiops.deployment.safety_metrics_test.test_fail_safety_score_below_threshold: PASS (239.833µs)
+policies/deployment/policy_safety_metrics_test.rego:76:
+data.genaiops.deployment.safety_metrics_test.test_fail_accuracy_missing: PASS (958.083µs)
+policies/deployment/policy_safety_metrics_test.rego:151:
+data.genaiops.deployment.safety_metrics_test.test_fail_gate_result_all_passed_false: PASS (217.208µs)
+policies/deployment/policy_safety_metrics_test.rego:166:
+data.genaiops.deployment.safety_metrics_test.test_fail_run_id_missing: PASS (205.875µs)
+policies/deployment/policy_safety_metrics_test.rego:176:
+data.genaiops.deployment.safety_metrics_test.test_fail_run_id_empty_string: PASS (187.708µs)
+policies/deployment/policy_safety_metrics_test.rego:198:
+data.genaiops.deployment.safety_metrics_test.test_fail_subgroup_analysis_performed_field_missing: PASS (194.875µs)
+policies/deployment/policy_safety_metrics_test.rego:209:
+data.genaiops.deployment.safety_metrics_test.test_fail_subgroup_analysis_performed_false: PASS (215.334µs)
+policies/deployment/policy_safety_metrics_test.rego:219:
+data.genaiops.deployment.safety_metrics_test.test_fail_subgroup_analysis_empty_subgroups: PASS (214.167µs)
+policies/deployment/policy_safety_metrics_test.rego:191:
+data.genaiops.deployment.safety_metrics_test.test_fail_subgroup_analysis_section_missing: PASS (375.083µs)
+policies/deployment/policy_safety_metrics_test.rego:234:
+data.genaiops.deployment.safety_metrics_test.test_fail_adversarial_tests_section_missing: PASS (168.958µs)
+policies/deployment/policy_safety_metrics_test.rego:241:
+data.genaiops.deployment.safety_metrics_test.test_fail_adversarial_tests_performed_field_missing: PASS (187.459µs)
+policies/deployment/policy_safety_metrics_test.rego:252:
+data.genaiops.deployment.safety_metrics_test.test_fail_adversarial_tests_performed_false: PASS (190.709µs)
+
+policies/operations/policy_monitoring_configured_test.rego:45:
+data.genaiops.operations.monitoring_configured_test.test_fail_missing_drift_detection_annotation: PASS (163.833µs)
+policies/operations/policy_monitoring_configured_test.rego:61:
+data.genaiops.operations.monitoring_configured_test.test_fail_service_monitor_disabled_value: PASS (172.25µs)
+policies/operations/policy_monitoring_configured_test.rego:34:
+data.genaiops.operations.monitoring_configured_test.test_pass_compliant_deployment: PASS (279.209µs)
+policies/operations/policy_monitoring_configured_test.rego:75:
+data.genaiops.operations.monitoring_configured_test.test_fail_prometheus_scrape_missing_annotation: PASS (153.083µs)
+
+policies/pre-deployment/policy_security_baseline_test.rego:73:
+data.genaiops.pre_deployment.security_baseline_test.test_pass_compliant_deployment: PASS (529.916µs)
+policies/pre-deployment/policy_security_baseline_test.rego:111:
+data.genaiops.pre_deployment.security_baseline_test.test_fail_runAsNonRoot_explicit_false: PASS (673.708µs)
+policies/pre-deployment/policy_security_baseline_test.rego:84:
+data.genaiops.pre_deployment.security_baseline_test.test_fail_realistic_multi_rule_noncompliant: PASS (1.556291ms)
+policies/pre-deployment/policy_security_baseline_test.rego:136:
+data.genaiops.pre_deployment.security_baseline_test.test_fail_no_resources_limits: PASS (715.833µs)
+policies/pre-deployment/policy_security_baseline_test.rego:144:
+data.genaiops.pre_deployment.security_baseline_test.test_fail_missing_limits_cpu: PASS (584.666µs)
+policies/pre-deployment/policy_security_baseline_test.rego:121:
+data.genaiops.pre_deployment.security_baseline_test.test_fail_runAsUser_zero: PASS (1.769ms)
+policies/pre-deployment/policy_security_baseline_test.rego:151:
+data.genaiops.pre_deployment.security_baseline_test.test_fail_missing_limits_memory: PASS (603.792µs)
+policies/pre-deployment/policy_security_baseline_test.rego:162:
+data.genaiops.pre_deployment.security_baseline_test.test_fail_readOnlyRootFilesystem_not_set: PASS (511.5µs)
+policies/pre-deployment/policy_security_baseline_test.rego:205:
+data.genaiops.pre_deployment.security_baseline_test.test_fail_allowPrivilegeEscalation_not_false: PASS (894.792µs)
+policies/pre-deployment/policy_security_baseline_test.rego:175:
+data.genaiops.pre_deployment.security_baseline_test.test_fail_readOnlyRootFilesystem_explicit_false: PASS (1.24775ms)
+policies/pre-deployment/policy_security_baseline_test.rego:189:
+data.genaiops.pre_deployment.security_baseline_test.test_fail_plain_secret_in_env: PASS (1.112625ms)
+policies/pre-deployment/policy_security_baseline_test.rego:219:
+data.genaiops.pre_deployment.security_baseline_test.test_fail_capabilities_missing: PASS (306.834µs)
+policies/pre-deployment/policy_security_baseline_test.rego:232:
+data.genaiops.pre_deployment.security_baseline_test.test_fail_capabilities_drop_not_all: PASS (284.958µs)
+policies/pre-deployment/policy_security_baseline_test.rego:98:
+data.genaiops.pre_deployment.security_baseline_test.test_fail_runAsNonRoot_not_set: PASS (4.482542ms)
+
+policies/pre-deployment/policy_risk_classification_test.rego:82:
+data.genaiops.pre_deployment.risk_classification_test.test_fail_high_risk_without_annex_reference: PASS (623.958µs)
+policies/pre-deployment/policy_risk_classification_test.rego:27:
+data.genaiops.pre_deployment.risk_classification_test.test_pass_valid_high_risk_scenario: PASS (162.291µs)
+policies/pre-deployment/policy_risk_classification_test.rego:32:
+data.genaiops.pre_deployment.risk_classification_test.test_pass_minimal_risk_without_annex_or_mitigation: PASS (152.041µs)
+policies/pre-deployment/policy_risk_classification_test.rego:45:
+data.genaiops.pre_deployment.risk_classification_test.test_fail_missing_risk_class: PASS (115.208µs)
+policies/pre-deployment/policy_risk_classification_test.rego:58:
+data.genaiops.pre_deployment.risk_classification_test.test_fail_empty_risk_class_string: PASS (128µs)
+policies/pre-deployment/policy_risk_classification_test.rego:68:
+data.genaiops.pre_deployment.risk_classification_test.test_fail_invalid_risk_class_value: PASS (326.084µs)
+policies/pre-deployment/policy_risk_classification_test.rego:112:
+data.genaiops.pre_deployment.risk_classification_test.test_fail_missing_manual_review_section: PASS (131.5µs)
+policies/pre-deployment/policy_risk_classification_test.rego:98:
+data.genaiops.pre_deployment.risk_classification_test.test_fail_high_risk_empty_mitigation_measures: PASS (171.584µs)
+
+policies/deployment/policy_transparency_docs_present_test.rego:38:
+data.genaiops.deployment.transparency_docs_present_test.test_pass_full_transparency_documentation: PASS (168.667µs)
+policies/deployment/policy_transparency_docs_present_test.rego:48:
+data.genaiops.deployment.transparency_docs_present_test.test_fail_realistic_incomplete_transparency_multi_rule: PASS (95.458µs)
+policies/deployment/policy_transparency_docs_present_test.rego:61:
+data.genaiops.deployment.transparency_docs_present_test.test_fail_missing_transparency_section: PASS (61.875µs)
+policies/deployment/policy_transparency_docs_present_test.rego:72:
+data.genaiops.deployment.transparency_docs_present_test.test_fail_missing_instructions_for_deployers_field: PASS (139.458µs)
+policies/deployment/policy_transparency_docs_present_test.rego:84:
+data.genaiops.deployment.transparency_docs_present_test.test_fail_empty_instructions_for_deployers_string: PASS (160.708µs)
+policies/deployment/policy_transparency_docs_present_test.rego:98:
+data.genaiops.deployment.transparency_docs_present_test.test_fail_missing_model_capabilities_field: PASS (156.792µs)
+policies/deployment/policy_transparency_docs_present_test.rego:110:
+data.genaiops.deployment.transparency_docs_present_test.test_fail_empty_model_capabilities_string: PASS (160.208µs)
+policies/deployment/policy_transparency_docs_present_test.rego:124:
+data.genaiops.deployment.transparency_docs_present_test.test_fail_missing_known_limitations_field: PASS (161.958µs)
+policies/deployment/policy_transparency_docs_present_test.rego:136:
+data.genaiops.deployment.transparency_docs_present_test.test_fail_empty_known_limitations_array: PASS (190.083µs)
+policies/deployment/policy_transparency_docs_present_test.rego:150:
+data.genaiops.deployment.transparency_docs_present_test.test_fail_missing_ai_content_labeling_object: PASS (158.209µs)
+policies/deployment/policy_transparency_docs_present_test.rego:162:
+data.genaiops.deployment.transparency_docs_present_test.test_fail_missing_ai_content_labeling_enabled_subfield: PASS (164.667µs)
+
+policies/pre-deployment/policy_bias_assessment_complete_test.rego:116:
+data.genaiops.pre_deployment.bias_assessment_complete_test.test_fail_missing_fairness_results_field: PASS (269.125µs)
+policies/pre-deployment/policy_bias_assessment_complete_test.rego:64:
+data.genaiops.pre_deployment.bias_assessment_complete_test.test_fail_realistic_missing_mitigation_single_rule: PASS (244.25µs)
+policies/pre-deployment/policy_bias_assessment_complete_test.rego:168:
+data.genaiops.pre_deployment.bias_assessment_complete_test.test_fail_missing_protected_attributes_field: PASS (173.834µs)
+policies/pre-deployment/policy_bias_assessment_complete_test.rego:149:
+data.genaiops.pre_deployment.bias_assessment_complete_test.test_fail_empty_metrics_array: PASS (198.25µs)
+policies/pre-deployment/policy_bias_assessment_complete_test.rego:179:
+data.genaiops.pre_deployment.bias_assessment_complete_test.test_fail_empty_protected_attributes_array: PASS (183.084µs)
+policies/pre-deployment/policy_bias_assessment_complete_test.rego:134:
+data.genaiops.pre_deployment.bias_assessment_complete_test.test_fail_missing_metrics_field: PASS (596.25µs)
+policies/pre-deployment/policy_bias_assessment_complete_test.rego:91:
+data.genaiops.pre_deployment.bias_assessment_complete_test.test_fail_missing_methods_field: PASS (451.375µs)
+policies/pre-deployment/policy_bias_assessment_complete_test.rego:213:
+data.genaiops.pre_deployment.bias_assessment_complete_test.test_fail_bias_detected_with_empty_mitigation: PASS (542.875µs)
+policies/pre-deployment/policy_bias_assessment_complete_test.rego:79:
+data.genaiops.pre_deployment.bias_assessment_complete_test.test_fail_missing_bias_detection_section: PASS (558µs)
+policies/pre-deployment/policy_bias_assessment_complete_test.rego:198:
+data.genaiops.pre_deployment.bias_assessment_complete_test.test_fail_bias_detected_without_mitigation: PASS (1.066584ms)
+policies/pre-deployment/policy_bias_assessment_complete_test.rego:52:
+data.genaiops.pre_deployment.bias_assessment_complete_test.test_pass_full_bias_assessment: PASS (142.5µs)
+policies/pre-deployment/policy_bias_assessment_complete_test.rego:102:
+data.genaiops.pre_deployment.bias_assessment_complete_test.test_fail_empty_methods_array: PASS (168.667µs)
+
+policies/pre-deployment/policy_governance_approval_test.rego:202:
+data.genaiops.pre_deployment.governance_approval_test.test_fail_kill_switch_false_for_high_risk: PASS (173.541µs)
+policies/pre-deployment/policy_governance_approval_test.rego:54:
+data.genaiops.pre_deployment.governance_approval_test.test_pass_full_governance_approval: PASS (126.917µs)
+policies/pre-deployment/policy_governance_approval_test.rego:76:
+data.genaiops.pre_deployment.governance_approval_test.test_fail_fria_completed_missing: PASS (174.041µs)
+policies/pre-deployment/policy_governance_approval_test.rego:90:
+data.genaiops.pre_deployment.governance_approval_test.test_fail_fria_completed_false: PASS (141.125µs)
+policies/pre-deployment/policy_governance_approval_test.rego:105:
+data.genaiops.pre_deployment.governance_approval_test.test_fail_affected_rights_missing: PASS (167.709µs)
+policies/pre-deployment/policy_governance_approval_test.rego:65:
+data.genaiops.pre_deployment.governance_approval_test.test_fail_realistic_multi_rule_incomplete_governance: PASS (308.75µs)
+policies/pre-deployment/policy_governance_approval_test.rego:134:
+data.genaiops.pre_deployment.governance_approval_test.test_fail_oversight_model_missing: PASS (173µs)
+policies/pre-deployment/policy_governance_approval_test.rego:119:
+data.genaiops.pre_deployment.governance_approval_test.test_fail_affected_rights_empty_array: PASS (200.125µs)
+policies/pre-deployment/policy_governance_approval_test.rego:144:
+data.genaiops.pre_deployment.governance_approval_test.test_fail_oversight_model_empty_string: PASS (167.041µs)
+policies/pre-deployment/policy_governance_approval_test.rego:168:
+data.genaiops.pre_deployment.governance_approval_test.test_fail_oversight_lead_empty_string: PASS (175.5µs)
+policies/pre-deployment/policy_governance_approval_test.rego:184:
+data.genaiops.pre_deployment.governance_approval_test.test_fail_kill_switch_missing_for_high_risk: PASS (196.125µs)
+policies/pre-deployment/policy_governance_approval_test.rego:219:
+data.genaiops.pre_deployment.governance_approval_test.test_fail_conformity_declaration_missing: PASS (200.667µs)
+policies/pre-deployment/policy_governance_approval_test.rego:158:
+data.genaiops.pre_deployment.governance_approval_test.test_fail_oversight_lead_missing: PASS (356.75µs)
+policies/pre-deployment/policy_governance_approval_test.rego:229:
+data.genaiops.pre_deployment.governance_approval_test.test_fail_conformity_declaration_false: PASS (163.709µs)
+policies/pre-deployment/policy_governance_approval_test.rego:245:
+data.genaiops.pre_deployment.governance_approval_test.test_fail_approval_section_missing: PASS (138.083µs)
+policies/pre-deployment/policy_governance_approval_test.rego:252:
+data.genaiops.pre_deployment.governance_approval_test.test_fail_approval_approved_by_missing: PASS (174.917µs)
+policies/pre-deployment/policy_governance_approval_test.rego:272:
+data.genaiops.pre_deployment.governance_approval_test.test_fail_approval_approved_at_missing: PASS (191.708µs)
+policies/pre-deployment/policy_governance_approval_test.rego:282:
+data.genaiops.pre_deployment.governance_approval_test.test_fail_approval_approved_at_empty_string: PASS (188.75µs)
+policies/pre-deployment/policy_governance_approval_test.rego:262:
+data.genaiops.pre_deployment.governance_approval_test.test_fail_approval_approved_by_empty_string: PASS (327µs)
+
+policies/operations/policy_incident_process_exists_test.rego:70:
+data.genaiops.operations.incident_process_exists_test.test_fail_rollback_mechanism_wrong_value: PASS (243.208µs)
+policies/operations/policy_incident_process_exists_test.rego:37:
+data.genaiops.operations.incident_process_exists_test.test_pass_conftest_mode_compliant_deployment: PASS (131.083µs)
+policies/operations/policy_incident_process_exists_test.rego:44:
+data.genaiops.operations.incident_process_exists_test.test_pass_gatekeeper_mode_incident_annotations_present: PASS (240µs)
+policies/operations/policy_incident_process_exists_test.rego:54:
+data.genaiops.operations.incident_process_exists_test.test_fail_missing_incident_contact_annotation: PASS (318.041µs)
+--------------------------------------------------------------------------------
+PASS: 103/103
+----------------------------------------------------------------
+SUCCESS — all tests passed.
+================================================================

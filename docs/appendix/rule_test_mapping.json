@@ -1,0 +1,1360 @@
+{
+  "generated_at": "2026-04-18",
+  "baseline": "103/103 PASS",
+  "gates": [
+    {
+      "gate_id": "G-DEP-02",
+      "requirement_id": "R003",
+      "article": "EU AI Act Art. 15",
+      "method": "AUTO",
+      "policy_file": "policies/deployment/policy_safety_metrics.rego",
+      "test_file": "policies/deployment/policy_safety_metrics_test.rego",
+      "package": "genaiops.deployment.safety_metrics",
+      "test_package": "genaiops.deployment.safety_metrics_test",
+      "rules": [
+        {
+          "kind": "deny",
+          "line": 31,
+          "signature": "deny contains msg if {",
+          "hint": "Check 1: Accuracy threshold"
+        },
+        {
+          "kind": "deny",
+          "line": 36,
+          "signature": "deny contains msg if {",
+          "hint": "Check 1: Accuracy threshold"
+        },
+        {
+          "kind": "deny",
+          "line": 46,
+          "signature": "deny contains msg if {",
+          "hint": "Check 2: Latency P95 threshold"
+        },
+        {
+          "kind": "deny",
+          "line": 51,
+          "signature": "deny contains msg if {",
+          "hint": "Check 2: Latency P95 threshold"
+        },
+        {
+          "kind": "deny",
+          "line": 61,
+          "signature": "deny contains msg if {",
+          "hint": "Check 3: Safety score threshold"
+        },
+        {
+          "kind": "deny",
+          "line": 66,
+          "signature": "deny contains msg if {",
+          "hint": "Check 3: Safety score threshold"
+        },
+        {
+          "kind": "deny",
+          "line": 76,
+          "signature": "deny contains msg if {",
+          "hint": "Check 4: gate_result.all_passed consistency"
+        },
+        {
+          "kind": "deny",
+          "line": 85,
+          "signature": "deny contains msg if {",
+          "hint": "Check 5: Eval run metadata must be present"
+        },
+        {
+          "kind": "deny",
+          "line": 90,
+          "signature": "deny contains msg if {",
+          "hint": "Check 5: Eval run metadata must be present"
+        },
+        {
+          "kind": "deny",
+          "line": 100,
+          "signature": "deny contains msg if {",
+          "hint": "Ref: Lucaj Template — subgroup sensitivity testing"
+        },
+        {
+          "kind": "deny",
+          "line": 105,
+          "signature": "deny contains msg if {",
+          "hint": "Ref: Lucaj Template — subgroup sensitivity testing"
+        },
+        {
+          "kind": "deny",
+          "line": 111,
+          "signature": "deny contains msg if {",
+          "hint": ""
+        },
+        {
+          "kind": "deny",
+          "line": 116,
+          "signature": "deny contains msg if {",
+          "hint": ""
+        },
+        {
+          "kind": "deny",
+          "line": 127,
+          "signature": "deny contains msg if {",
+          "hint": "Ref: Lucaj Template — adversarial robustness testing"
+        },
+        {
+          "kind": "deny",
+          "line": 132,
+          "signature": "deny contains msg if {",
+          "hint": "Ref: Lucaj Template — adversarial robustness testing"
+        },
+        {
+          "kind": "deny",
+          "line": 138,
+          "signature": "deny contains msg if {",
+          "hint": ""
+        }
+      ],
+      "tests": [
+        {
+          "name": "test_pass_full_eval_results",
+          "line": 49,
+          "pattern": "PASS"
+        },
+        {
+          "name": "test_fail_realistic_multi_rule_eval_failure",
+          "line": 60,
+          "pattern": "FAIL-basic"
+        },
+        {
+          "name": "test_fail_accuracy_missing",
+          "line": 76,
+          "pattern": "FAIL-basic"
+        },
+        {
+          "name": "test_fail_accuracy_below_threshold",
+          "line": 87,
+          "pattern": "FAIL-basic"
+        },
+        {
+          "name": "test_fail_latency_p95_missing",
+          "line": 102,
+          "pattern": "FAIL-basic"
+        },
+        {
+          "name": "test_fail_latency_p95_above_threshold",
+          "line": 112,
+          "pattern": "FAIL-basic"
+        },
+        {
+          "name": "test_fail_safety_score_missing",
+          "line": 127,
+          "pattern": "FAIL-basic"
+        },
+        {
+          "name": "test_fail_safety_score_below_threshold",
+          "line": 137,
+          "pattern": "FAIL-basic"
+        },
+        {
+          "name": "test_fail_gate_result_all_passed_false",
+          "line": 151,
+          "pattern": "PASS"
+        },
+        {
+          "name": "test_fail_run_id_missing",
+          "line": 166,
+          "pattern": "FAIL-basic"
+        },
+        {
+          "name": "test_fail_run_id_empty_string",
+          "line": 176,
+          "pattern": "FAIL-edge"
+        },
+        {
+          "name": "test_fail_subgroup_analysis_section_missing",
+          "line": 191,
+          "pattern": "FAIL-basic"
+        },
+        {
+          "name": "test_fail_subgroup_analysis_performed_field_missing",
+          "line": 198,
+          "pattern": "FAIL-basic"
+        },
+        {
+          "name": "test_fail_subgroup_analysis_performed_false",
+          "line": 209,
+          "pattern": "FAIL-basic"
+        },
+        {
+          "name": "test_fail_subgroup_analysis_empty_subgroups",
+          "line": 219,
+          "pattern": "FAIL-edge"
+        },
+        {
+          "name": "test_fail_adversarial_tests_section_missing",
+          "line": 234,
+          "pattern": "FAIL-basic"
+        },
+        {
+          "name": "test_fail_adversarial_tests_performed_field_missing",
+          "line": 241,
+          "pattern": "FAIL-basic"
+        },
+        {
+          "name": "test_fail_adversarial_tests_performed_false",
+          "line": 252,
+          "pattern": "FAIL-basic"
+        }
+      ],
+      "pattern_counts": {
+        "PASS": 2,
+        "FAIL-basic": 14,
+        "FAIL-edge": 2
+      },
+      "rule_count": 16,
+      "test_count": 18
+    },
+    {
+      "gate_id": "G-DEP-03",
+      "requirement_id": "R007",
+      "article": "EU AI Act Art. 13",
+      "method": "AUTO",
+      "policy_file": "policies/deployment/policy_transparency_docs_present.rego",
+      "test_file": "policies/deployment/policy_transparency_docs_present_test.rego",
+      "package": "genaiops.deployment.transparency_docs_present",
+      "test_package": "genaiops.deployment.transparency_docs_present_test",
+      "rules": [
+        {
+          "kind": "deny",
+          "line": 29,
+          "signature": "deny contains msg if {",
+          "hint": "Check 1: transparency section must exist"
+        },
+        {
+          "kind": "deny",
+          "line": 38,
+          "signature": "deny contains msg if {",
+          "hint": "Check 2: Instructions for deployers must be present"
+        },
+        {
+          "kind": "deny",
+          "line": 44,
+          "signature": "deny contains msg if {",
+          "hint": ""
+        },
+        {
+          "kind": "deny",
+          "line": 53,
+          "signature": "deny contains msg if {",
+          "hint": "Check 3: Model capabilities must be documented"
+        },
+        {
+          "kind": "deny",
+          "line": 59,
+          "signature": "deny contains msg if {",
+          "hint": ""
+        },
+        {
+          "kind": "deny",
+          "line": 68,
+          "signature": "deny contains msg if {",
+          "hint": "Check 4: Known limitations must be documented"
+        },
+        {
+          "kind": "deny",
+          "line": 74,
+          "signature": "deny contains msg if {",
+          "hint": ""
+        },
+        {
+          "kind": "deny",
+          "line": 84,
+          "signature": "deny contains msg if {",
+          "hint": "Check 5: AI content labeling must be configured (Art. 50 GenAI)"
+        },
+        {
+          "kind": "deny",
+          "line": 90,
+          "signature": "deny contains msg if {",
+          "hint": ""
+        }
+      ],
+      "tests": [
+        {
+          "name": "test_pass_full_transparency_documentation",
+          "line": 38,
+          "pattern": "PASS"
+        },
+        {
+          "name": "test_fail_realistic_incomplete_transparency_multi_rule",
+          "line": 48,
+          "pattern": "FAIL-basic"
+        },
+        {
+          "name": "test_fail_missing_transparency_section",
+          "line": 61,
+          "pattern": "FAIL-basic"
+        },
+        {
+          "name": "test_fail_missing_instructions_for_deployers_field",
+          "line": 72,
+          "pattern": "FAIL-basic"
+        },
+        {
+          "name": "test_fail_empty_instructions_for_deployers_string",
+          "line": 84,
+          "pattern": "FAIL-edge"
+        },
+        {
+          "name": "test_fail_missing_model_capabilities_field",
+          "line": 98,
+          "pattern": "FAIL-basic"
+        },
+        {
+          "name": "test_fail_empty_model_capabilities_string",
+          "line": 110,
+          "pattern": "FAIL-edge"
+        },
+        {
+          "name": "test_fail_missing_known_limitations_field",
+          "line": 124,
+          "pattern": "FAIL-basic"
+        },
+        {
+          "name": "test_fail_empty_known_limitations_array",
+          "line": 136,
+          "pattern": "FAIL-edge"
+        },
+        {
+          "name": "test_fail_missing_ai_content_labeling_object",
+          "line": 150,
+          "pattern": "FAIL-basic"
+        },
+        {
+          "name": "test_fail_missing_ai_content_labeling_enabled_subfield",
+          "line": 162,
+          "pattern": "FAIL-basic"
+        }
+      ],
+      "pattern_counts": {
+        "PASS": 1,
+        "FAIL-basic": 7,
+        "FAIL-edge": 3
+      },
+      "rule_count": 9,
+      "test_count": 11
+    },
+    {
+      "gate_id": "G-OPS-05",
+      "requirement_id": "R005",
+      "article": "EU AI Act Art. 11",
+      "method": "AUTO",
+      "policy_file": "policies/operations/policy_evidence_completeness.rego",
+      "test_file": "policies/operations/policy_evidence_completeness_test.rego",
+      "package": "genaiops.operations.evidence_completeness",
+      "test_package": "genaiops.operations.evidence_completeness_test",
+      "rules": [
+        {
+          "kind": "violation",
+          "line": 41,
+          "signature": "violation contains {\"msg\": msg} if {",
+          "hint": "Check 1: Evidence Store connection declared"
+        },
+        {
+          "kind": "violation",
+          "line": 46,
+          "signature": "violation contains {\"msg\": msg} if {",
+          "hint": "Check 1: Evidence Store connection declared"
+        },
+        {
+          "kind": "violation",
+          "line": 55,
+          "signature": "violation contains {\"msg\": msg} if {",
+          "hint": "Check 2: Hash-chain integrity enabled"
+        },
+        {
+          "kind": "violation",
+          "line": 60,
+          "signature": "violation contains {\"msg\": msg} if {",
+          "hint": "Check 2: Hash-chain integrity enabled"
+        },
+        {
+          "kind": "violation",
+          "line": 69,
+          "signature": "violation contains {\"msg\": msg} if {",
+          "hint": "Check 3: Evidence store type specified (for audit documentation)"
+        },
+        {
+          "kind": "violation",
+          "line": 74,
+          "signature": "violation contains {\"msg\": msg} if {",
+          "hint": "Check 3: Evidence store type specified (for audit documentation)"
+        }
+      ],
+      "tests": [
+        {
+          "name": "test_pass_compliant_deployment",
+          "line": 34,
+          "pattern": "PASS"
+        },
+        {
+          "name": "test_fail_missing_evidence_store_connected_annotation",
+          "line": 44,
+          "pattern": "FAIL-basic"
+        },
+        {
+          "name": "test_fail_hash_chain_disabled_value",
+          "line": 59,
+          "pattern": "FAIL-basic"
+        },
+        {
+          "name": "test_fail_empty_evidence_store_type",
+          "line": 73,
+          "pattern": "FAIL-edge"
+        }
+      ],
+      "pattern_counts": {
+        "PASS": 1,
+        "FAIL-basic": 2,
+        "FAIL-edge": 1
+      },
+      "rule_count": 6,
+      "test_count": 4
+    },
+    {
+      "gate_id": "G-OPS-02",
+      "requirement_id": "R009",
+      "article": "EU AI Act Art. 26(5)",
+      "method": "AUTO",
+      "policy_file": "policies/operations/policy_incident_process_exists.rego",
+      "test_file": "policies/operations/policy_incident_process_exists_test.rego",
+      "package": "genaiops.operations.incident_process_exists",
+      "test_package": "genaiops.operations.incident_process_exists_test",
+      "rules": [
+        {
+          "kind": "violation",
+          "line": 35,
+          "signature": "violation contains {\"msg\": msg} if {",
+          "hint": "Check 1: Incident response must be configured"
+        },
+        {
+          "kind": "violation",
+          "line": 40,
+          "signature": "violation contains {\"msg\": msg} if {",
+          "hint": "Check 1: Incident response must be configured"
+        },
+        {
+          "kind": "violation",
+          "line": 49,
+          "signature": "violation contains {\"msg\": msg} if {",
+          "hint": "Check 2: Incident contact must be specified"
+        },
+        {
+          "kind": "violation",
+          "line": 54,
+          "signature": "violation contains {\"msg\": msg} if {",
+          "hint": "Check 2: Incident contact must be specified"
+        },
+        {
+          "kind": "violation",
+          "line": 63,
+          "signature": "violation contains {\"msg\": msg} if {",
+          "hint": "Check 3: Rollback mechanism must be available"
+        },
+        {
+          "kind": "violation",
+          "line": 68,
+          "signature": "violation contains {\"msg\": msg} if {",
+          "hint": "Check 3: Rollback mechanism must be available"
+        }
+      ],
+      "tests": [
+        {
+          "name": "test_pass_conftest_mode_compliant_deployment",
+          "line": 37,
+          "pattern": "PASS"
+        },
+        {
+          "name": "test_pass_gatekeeper_mode_incident_annotations_present",
+          "line": 44,
+          "pattern": "PASS"
+        },
+        {
+          "name": "test_fail_missing_incident_contact_annotation",
+          "line": 54,
+          "pattern": "FAIL-basic"
+        },
+        {
+          "name": "test_fail_rollback_mechanism_wrong_value",
+          "line": 70,
+          "pattern": "FAIL-edge"
+        }
+      ],
+      "pattern_counts": {
+        "PASS": 2,
+        "FAIL-basic": 1,
+        "FAIL-edge": 1
+      },
+      "rule_count": 6,
+      "test_count": 4
+    },
+    {
+      "gate_id": "G-OPS-03",
+      "requirement_id": "R010",
+      "article": "EU AI Act Art. 11",
+      "method": "AUTO",
+      "policy_file": "policies/operations/policy_monitoring_configured.rego",
+      "test_file": "policies/operations/policy_monitoring_configured_test.rego",
+      "package": "genaiops.operations.monitoring_configured",
+      "test_package": "genaiops.operations.monitoring_configured_test",
+      "rules": [
+        {
+          "kind": "violation",
+          "line": 33,
+          "signature": "violation contains {\"msg\": msg} if {",
+          "hint": "Check 1: Drift detection must be enabled"
+        },
+        {
+          "kind": "violation",
+          "line": 38,
+          "signature": "violation contains {\"msg\": msg} if {",
+          "hint": "Check 1: Drift detection must be enabled"
+        },
+        {
+          "kind": "violation",
+          "line": 47,
+          "signature": "violation contains {\"msg\": msg} if {",
+          "hint": "Check 2: ServiceMonitor must be configured"
+        },
+        {
+          "kind": "violation",
+          "line": 52,
+          "signature": "violation contains {\"msg\": msg} if {",
+          "hint": "Check 2: ServiceMonitor must be configured"
+        },
+        {
+          "kind": "violation",
+          "line": 61,
+          "signature": "violation contains {\"msg\": msg} if {",
+          "hint": "Check 3: Prometheus scrape config present"
+        },
+        {
+          "kind": "violation",
+          "line": 66,
+          "signature": "violation contains {\"msg\": msg} if {",
+          "hint": "Check 3: Prometheus scrape config present"
+        }
+      ],
+      "tests": [
+        {
+          "name": "test_pass_compliant_deployment",
+          "line": 34,
+          "pattern": "PASS"
+        },
+        {
+          "name": "test_fail_missing_drift_detection_annotation",
+          "line": 45,
+          "pattern": "FAIL-basic"
+        },
+        {
+          "name": "test_fail_service_monitor_disabled_value",
+          "line": 61,
+          "pattern": "FAIL-basic"
+        },
+        {
+          "name": "test_fail_prometheus_scrape_missing_annotation",
+          "line": 75,
+          "pattern": "FAIL-basic"
+        }
+      ],
+      "pattern_counts": {
+        "PASS": 1,
+        "FAIL-basic": 3
+      },
+      "rule_count": 6,
+      "test_count": 4
+    },
+    {
+      "gate_id": "G-DEP-05",
+      "requirement_id": "R013",
+      "article": "EU AI Act Art. 10(2)(f)",
+      "method": "AUTO",
+      "policy_file": "policies/pre-deployment/policy_bias_assessment_complete.rego",
+      "test_file": "policies/pre-deployment/policy_bias_assessment_complete_test.rego",
+      "package": "genaiops.pre_deployment.bias_assessment_complete",
+      "test_package": "genaiops.pre_deployment.bias_assessment_complete_test",
+      "rules": [
+        {
+          "kind": "deny",
+          "line": 29,
+          "signature": "deny contains msg if {",
+          "hint": "Check 1: bias_detection section must exist"
+        },
+        {
+          "kind": "deny",
+          "line": 38,
+          "signature": "deny contains msg if {",
+          "hint": "Check 2: At least one bias detection method must be defined"
+        },
+        {
+          "kind": "deny",
+          "line": 44,
+          "signature": "deny contains msg if {",
+          "hint": ""
+        },
+        {
+          "kind": "deny",
+          "line": 54,
+          "signature": "deny contains msg if {",
+          "hint": "Check 3: Fairness results must be present with at least one metric"
+        },
+        {
+          "kind": "deny",
+          "line": 60,
+          "signature": "deny contains msg if {",
+          "hint": ""
+        },
+        {
+          "kind": "deny",
+          "line": 66,
+          "signature": "deny contains msg if {",
+          "hint": ""
+        },
+        {
+          "kind": "deny",
+          "line": 76,
+          "signature": "deny contains msg if {",
+          "hint": "Check 4: Protected attributes must be explicitly listed"
+        },
+        {
+          "kind": "deny",
+          "line": 82,
+          "signature": "deny contains msg if {",
+          "hint": ""
+        },
+        {
+          "kind": "deny",
+          "line": 92,
+          "signature": "deny contains msg if {",
+          "hint": "Check 5: Mitigation measures required if bias was detected"
+        },
+        {
+          "kind": "deny",
+          "line": 99,
+          "signature": "deny contains msg if {",
+          "hint": ""
+        }
+      ],
+      "tests": [
+        {
+          "name": "test_pass_full_bias_assessment",
+          "line": 52,
+          "pattern": "PASS"
+        },
+        {
+          "name": "test_fail_realistic_missing_mitigation_single_rule",
+          "line": 64,
+          "pattern": "FAIL-basic"
+        },
+        {
+          "name": "test_fail_missing_bias_detection_section",
+          "line": 79,
+          "pattern": "FAIL-basic"
+        },
+        {
+          "name": "test_fail_missing_methods_field",
+          "line": 91,
+          "pattern": "FAIL-basic"
+        },
+        {
+          "name": "test_fail_empty_methods_array",
+          "line": 102,
+          "pattern": "FAIL-edge"
+        },
+        {
+          "name": "test_fail_missing_fairness_results_field",
+          "line": 116,
+          "pattern": "FAIL-basic"
+        },
+        {
+          "name": "test_fail_missing_metrics_field",
+          "line": 134,
+          "pattern": "FAIL-basic"
+        },
+        {
+          "name": "test_fail_empty_metrics_array",
+          "line": 149,
+          "pattern": "FAIL-edge"
+        },
+        {
+          "name": "test_fail_missing_protected_attributes_field",
+          "line": 168,
+          "pattern": "FAIL-basic"
+        },
+        {
+          "name": "test_fail_empty_protected_attributes_array",
+          "line": 179,
+          "pattern": "FAIL-edge"
+        },
+        {
+          "name": "test_fail_bias_detected_without_mitigation",
+          "line": 198,
+          "pattern": "FAIL-basic"
+        },
+        {
+          "name": "test_fail_bias_detected_with_empty_mitigation",
+          "line": 213,
+          "pattern": "FAIL-edge"
+        }
+      ],
+      "pattern_counts": {
+        "PASS": 1,
+        "FAIL-basic": 7,
+        "FAIL-edge": 4
+      },
+      "rule_count": 10,
+      "test_count": 12
+    },
+    {
+      "gate_id": "G-DEP-01",
+      "requirement_id": "R002",
+      "article": "EU AI Act Art. 10",
+      "method": "AUTO",
+      "policy_file": "policies/pre-deployment/policy_data_provenance_documented.rego",
+      "test_file": "policies/pre-deployment/policy_data_provenance_documented_test.rego",
+      "package": "genaiops.pre_deployment.data_provenance_documented",
+      "test_package": "genaiops.pre_deployment.data_provenance_documented_test",
+      "rules": [
+        {
+          "kind": "deny",
+          "line": 29,
+          "signature": "deny contains msg if {",
+          "hint": "Check 1: data_provenance section must exist"
+        },
+        {
+          "kind": "deny",
+          "line": 38,
+          "signature": "deny contains msg if {",
+          "hint": "Check 2: Collection methods must be documented"
+        },
+        {
+          "kind": "deny",
+          "line": 44,
+          "signature": "deny contains msg if {",
+          "hint": ""
+        },
+        {
+          "kind": "deny",
+          "line": 54,
+          "signature": "deny contains msg if {",
+          "hint": "Check 3: Data sources must be listed"
+        },
+        {
+          "kind": "deny",
+          "line": 60,
+          "signature": "deny contains msg if {",
+          "hint": ""
+        },
+        {
+          "kind": "deny",
+          "line": 70,
+          "signature": "deny contains msg if {",
+          "hint": "Check 4: Preprocessing steps must be documented"
+        },
+        {
+          "kind": "deny",
+          "line": 76,
+          "signature": "deny contains msg if {",
+          "hint": ""
+        },
+        {
+          "kind": "deny",
+          "line": 86,
+          "signature": "deny contains msg if {",
+          "hint": "Check 5: Data version must be specified"
+        },
+        {
+          "kind": "deny",
+          "line": 92,
+          "signature": "deny contains msg if {",
+          "hint": ""
+        }
+      ],
+      "tests": [
+        {
+          "name": "test_pass_full_data_provenance",
+          "line": 39,
+          "pattern": "PASS"
+        },
+        {
+          "name": "test_fail_realistic_incomplete_documentation_multi_rule",
+          "line": 50,
+          "pattern": "FAIL-basic"
+        },
+        {
+          "name": "test_fail_missing_data_provenance_section",
+          "line": 65,
+          "pattern": "FAIL-basic"
+        },
+        {
+          "name": "test_fail_missing_collection_methods_field",
+          "line": 76,
+          "pattern": "FAIL-basic"
+        },
+        {
+          "name": "test_fail_missing_sources_field",
+          "line": 88,
+          "pattern": "FAIL-basic"
+        },
+        {
+          "name": "test_fail_missing_preprocessing_steps_field",
+          "line": 99,
+          "pattern": "FAIL-basic"
+        },
+        {
+          "name": "test_fail_empty_collection_methods_array",
+          "line": 115,
+          "pattern": "FAIL-edge"
+        },
+        {
+          "name": "test_fail_empty_preprocessing_steps_array",
+          "line": 125,
+          "pattern": "FAIL-edge"
+        },
+        {
+          "name": "test_fail_empty_data_version_string",
+          "line": 139,
+          "pattern": "FAIL-edge"
+        }
+      ],
+      "pattern_counts": {
+        "PASS": 1,
+        "FAIL-basic": 5,
+        "FAIL-edge": 3
+      },
+      "rule_count": 9,
+      "test_count": 9
+    },
+    {
+      "gate_id": "G-PRE-05",
+      "requirement_id": "R012",
+      "article": "EU AI Act Art. 14",
+      "method": "HYBRID",
+      "policy_file": "policies/pre-deployment/policy_governance_approval.rego",
+      "test_file": "policies/pre-deployment/policy_governance_approval_test.rego",
+      "package": "genaiops.pre_deployment.governance_approval",
+      "test_package": "genaiops.pre_deployment.governance_approval_test",
+      "rules": [
+        {
+          "kind": "deny",
+          "line": 27,
+          "signature": "deny contains msg if {",
+          "hint": "D3-Override: Art. 14 = First-Degree Oversight → max HYBRID"
+        },
+        {
+          "kind": "deny",
+          "line": 32,
+          "signature": "deny contains msg if {",
+          "hint": ""
+        },
+        {
+          "kind": "deny",
+          "line": 38,
+          "signature": "deny contains msg if {",
+          "hint": ""
+        },
+        {
+          "kind": "deny",
+          "line": 44,
+          "signature": "deny contains msg if {",
+          "hint": ""
+        },
+        {
+          "kind": "deny",
+          "line": 51,
+          "signature": "deny contains msg if {",
+          "hint": ""
+        },
+        {
+          "kind": "deny",
+          "line": 56,
+          "signature": "deny contains msg if {",
+          "hint": ""
+        },
+        {
+          "kind": "deny",
+          "line": 62,
+          "signature": "deny contains msg if {",
+          "hint": ""
+        },
+        {
+          "kind": "deny",
+          "line": 67,
+          "signature": "deny contains msg if {",
+          "hint": ""
+        },
+        {
+          "kind": "deny",
+          "line": 73,
+          "signature": "deny contains msg if {",
+          "hint": ""
+        },
+        {
+          "kind": "deny",
+          "line": 79,
+          "signature": "deny contains msg if {",
+          "hint": ""
+        },
+        {
+          "kind": "deny",
+          "line": 86,
+          "signature": "deny contains msg if {",
+          "hint": ""
+        },
+        {
+          "kind": "deny",
+          "line": 91,
+          "signature": "deny contains msg if {",
+          "hint": ""
+        },
+        {
+          "kind": "deny",
+          "line": 101,
+          "signature": "deny contains msg if {",
+          "hint": "The actual approval decision is made by a human — Conftest only checks evidence."
+        },
+        {
+          "kind": "deny",
+          "line": 106,
+          "signature": "deny contains msg if {",
+          "hint": "The actual approval decision is made by a human — Conftest only checks evidence."
+        },
+        {
+          "kind": "deny",
+          "line": 112,
+          "signature": "deny contains msg if {",
+          "hint": ""
+        },
+        {
+          "kind": "deny",
+          "line": 117,
+          "signature": "deny contains msg if {",
+          "hint": ""
+        },
+        {
+          "kind": "deny",
+          "line": 123,
+          "signature": "deny contains msg if {",
+          "hint": ""
+        }
+      ],
+      "tests": [
+        {
+          "name": "test_pass_full_governance_approval",
+          "line": 54,
+          "pattern": "PASS"
+        },
+        {
+          "name": "test_fail_realistic_multi_rule_incomplete_governance",
+          "line": 65,
+          "pattern": "HYBRID"
+        },
+        {
+          "name": "test_fail_fria_completed_missing",
+          "line": 76,
+          "pattern": "HYBRID"
+        },
+        {
+          "name": "test_fail_fria_completed_false",
+          "line": 90,
+          "pattern": "HYBRID"
+        },
+        {
+          "name": "test_fail_affected_rights_missing",
+          "line": 105,
+          "pattern": "HYBRID"
+        },
+        {
+          "name": "test_fail_affected_rights_empty_array",
+          "line": 119,
+          "pattern": "HYBRID"
+        },
+        {
+          "name": "test_fail_oversight_model_missing",
+          "line": 134,
+          "pattern": "HYBRID"
+        },
+        {
+          "name": "test_fail_oversight_model_empty_string",
+          "line": 144,
+          "pattern": "HYBRID"
+        },
+        {
+          "name": "test_fail_oversight_lead_missing",
+          "line": 158,
+          "pattern": "HYBRID"
+        },
+        {
+          "name": "test_fail_oversight_lead_empty_string",
+          "line": 168,
+          "pattern": "HYBRID"
+        },
+        {
+          "name": "test_fail_kill_switch_missing_for_high_risk",
+          "line": 184,
+          "pattern": "HYBRID"
+        },
+        {
+          "name": "test_fail_kill_switch_false_for_high_risk",
+          "line": 202,
+          "pattern": "HYBRID"
+        },
+        {
+          "name": "test_fail_conformity_declaration_missing",
+          "line": 219,
+          "pattern": "HYBRID"
+        },
+        {
+          "name": "test_fail_conformity_declaration_false",
+          "line": 229,
+          "pattern": "HYBRID"
+        },
+        {
+          "name": "test_fail_approval_section_missing",
+          "line": 245,
+          "pattern": "HYBRID"
+        },
+        {
+          "name": "test_fail_approval_approved_by_missing",
+          "line": 252,
+          "pattern": "HYBRID"
+        },
+        {
+          "name": "test_fail_approval_approved_by_empty_string",
+          "line": 262,
+          "pattern": "HYBRID"
+        },
+        {
+          "name": "test_fail_approval_approved_at_missing",
+          "line": 272,
+          "pattern": "HYBRID"
+        },
+        {
+          "name": "test_fail_approval_approved_at_empty_string",
+          "line": 282,
+          "pattern": "HYBRID"
+        }
+      ],
+      "pattern_counts": {
+        "PASS": 1,
+        "HYBRID": 18
+      },
+      "rule_count": 17,
+      "test_count": 19
+    },
+    {
+      "gate_id": "G-PRE-01",
+      "requirement_id": "R001",
+      "article": "EU AI Act Art. 9",
+      "method": "HYBRID",
+      "policy_file": "policies/pre-deployment/policy_risk_classification.rego",
+      "test_file": "policies/pre-deployment/policy_risk_classification_test.rego",
+      "package": "genaiops.pre_deployment.risk_classification",
+      "test_package": "genaiops.pre_deployment.risk_classification_test",
+      "rules": [
+        {
+          "kind": "deny",
+          "line": 26,
+          "signature": "deny contains msg if {",
+          "hint": ""
+        },
+        {
+          "kind": "deny",
+          "line": 32,
+          "signature": "deny contains msg if {",
+          "hint": ""
+        },
+        {
+          "kind": "deny",
+          "line": 38,
+          "signature": "deny contains msg if {",
+          "hint": ""
+        },
+        {
+          "kind": "deny",
+          "line": 46,
+          "signature": "deny contains msg if {",
+          "hint": ""
+        },
+        {
+          "kind": "deny",
+          "line": 51,
+          "signature": "deny contains msg if {",
+          "hint": ""
+        },
+        {
+          "kind": "deny",
+          "line": 57,
+          "signature": "deny contains msg if {",
+          "hint": ""
+        },
+        {
+          "kind": "deny",
+          "line": 63,
+          "signature": "deny contains msg if {",
+          "hint": ""
+        },
+        {
+          "kind": "deny",
+          "line": 70,
+          "signature": "deny contains msg if {",
+          "hint": ""
+        },
+        {
+          "kind": "deny",
+          "line": 76,
+          "signature": "deny contains msg if {",
+          "hint": ""
+        },
+        {
+          "kind": "deny",
+          "line": 86,
+          "signature": "deny contains msg if {",
+          "hint": "These rules check that the MANUAL review step has been documented."
+        },
+        {
+          "kind": "deny",
+          "line": 91,
+          "signature": "deny contains msg if {",
+          "hint": "These rules check that the MANUAL review step has been documented."
+        },
+        {
+          "kind": "deny",
+          "line": 97,
+          "signature": "deny contains msg if {",
+          "hint": ""
+        },
+        {
+          "kind": "deny",
+          "line": 102,
+          "signature": "deny contains msg if {",
+          "hint": ""
+        },
+        {
+          "kind": "deny",
+          "line": 108,
+          "signature": "deny contains msg if {",
+          "hint": ""
+        }
+      ],
+      "tests": [
+        {
+          "name": "test_pass_valid_high_risk_scenario",
+          "line": 27,
+          "pattern": "PASS"
+        },
+        {
+          "name": "test_pass_minimal_risk_without_annex_or_mitigation",
+          "line": 32,
+          "pattern": "PASS"
+        },
+        {
+          "name": "test_fail_missing_risk_class",
+          "line": 45,
+          "pattern": "FAIL-basic"
+        },
+        {
+          "name": "test_fail_empty_risk_class_string",
+          "line": 58,
+          "pattern": "FAIL-edge"
+        },
+        {
+          "name": "test_fail_invalid_risk_class_value",
+          "line": 68,
+          "pattern": "FAIL-basic"
+        },
+        {
+          "name": "test_fail_high_risk_without_annex_reference",
+          "line": 82,
+          "pattern": "FAIL-basic"
+        },
+        {
+          "name": "test_fail_high_risk_empty_mitigation_measures",
+          "line": 98,
+          "pattern": "FAIL-edge"
+        },
+        {
+          "name": "test_fail_missing_manual_review_section",
+          "line": 112,
+          "pattern": "HYBRID"
+        }
+      ],
+      "pattern_counts": {
+        "PASS": 2,
+        "FAIL-basic": 3,
+        "FAIL-edge": 2,
+        "HYBRID": 1
+      },
+      "rule_count": 14,
+      "test_count": 8
+    },
+    {
+      "gate_id": "G-PRE-04",
+      "requirement_id": "R003",
+      "article": "EU AI Act Art. 15",
+      "method": "AUTO",
+      "policy_file": "policies/pre-deployment/policy_security_baseline.rego",
+      "test_file": "policies/pre-deployment/policy_security_baseline_test.rego",
+      "package": "genaiops.pre_deployment.security_baseline",
+      "test_package": "genaiops.pre_deployment.security_baseline_test",
+      "rules": [
+        {
+          "kind": "deny",
+          "line": 35,
+          "signature": "deny contains msg if {",
+          "hint": "P1: Non-Root Enforcement (CIS 5.2.6) [MUST]"
+        },
+        {
+          "kind": "deny",
+          "line": 41,
+          "signature": "deny contains msg if {",
+          "hint": ""
+        },
+        {
+          "kind": "deny",
+          "line": 47,
+          "signature": "deny contains msg if {",
+          "hint": ""
+        },
+        {
+          "kind": "deny",
+          "line": 57,
+          "signature": "deny contains msg if {",
+          "hint": "P2: Resource Limits (CIS 5.4.x) [MUST]"
+        },
+        {
+          "kind": "deny",
+          "line": 63,
+          "signature": "deny contains msg if {",
+          "hint": ""
+        },
+        {
+          "kind": "deny",
+          "line": 70,
+          "signature": "deny contains msg if {",
+          "hint": ""
+        },
+        {
+          "kind": "deny",
+          "line": 83,
+          "signature": "deny contains msg if {",
+          "hint": "Waiverable with Security Lead approval (14 days)."
+        },
+        {
+          "kind": "deny",
+          "line": 89,
+          "signature": "deny contains msg if {",
+          "hint": "Waiverable with Security Lead approval (14 days)."
+        },
+        {
+          "kind": "deny",
+          "line": 101,
+          "signature": "deny contains msg if {",
+          "hint": "P4: No Secrets in Plain ENV [MUST]"
+        },
+        {
+          "kind": "deny",
+          "line": 116,
+          "signature": "deny contains msg if {",
+          "hint": "P6: No Privilege Escalation (CIS 5.2.5) [MUST]"
+        },
+        {
+          "kind": "deny",
+          "line": 127,
+          "signature": "deny contains msg if {",
+          "hint": "P6b: Drop ALL Capabilities (CIS 5.2.7) [MUST]"
+        },
+        {
+          "kind": "deny",
+          "line": 133,
+          "signature": "deny contains msg if {",
+          "hint": ""
+        }
+      ],
+      "tests": [
+        {
+          "name": "test_pass_compliant_deployment",
+          "line": 73,
+          "pattern": "PASS"
+        },
+        {
+          "name": "test_fail_realistic_multi_rule_noncompliant",
+          "line": 84,
+          "pattern": "FAIL-basic"
+        },
+        {
+          "name": "test_fail_runAsNonRoot_not_set",
+          "line": 98,
+          "pattern": "FAIL-basic"
+        },
+        {
+          "name": "test_fail_runAsNonRoot_explicit_false",
+          "line": 111,
+          "pattern": "FAIL-basic"
+        },
+        {
+          "name": "test_fail_runAsUser_zero",
+          "line": 121,
+          "pattern": "FAIL-edge"
+        },
+        {
+          "name": "test_fail_no_resources_limits",
+          "line": 136,
+          "pattern": "FAIL-basic"
+        },
+        {
+          "name": "test_fail_missing_limits_cpu",
+          "line": 144,
+          "pattern": "FAIL-basic"
+        },
+        {
+          "name": "test_fail_missing_limits_memory",
+          "line": 151,
+          "pattern": "FAIL-basic"
+        },
+        {
+          "name": "test_fail_readOnlyRootFilesystem_not_set",
+          "line": 162,
+          "pattern": "FAIL-basic"
+        },
+        {
+          "name": "test_fail_readOnlyRootFilesystem_explicit_false",
+          "line": 175,
+          "pattern": "FAIL-basic"
+        },
+        {
+          "name": "test_fail_plain_secret_in_env",
+          "line": 189,
+          "pattern": "FAIL-basic"
+        },
+        {
+          "name": "test_fail_allowPrivilegeEscalation_not_false",
+          "line": 205,
+          "pattern": "FAIL-basic"
+        },
+        {
+          "name": "test_fail_capabilities_missing",
+          "line": 219,
+          "pattern": "FAIL-basic"
+        },
+        {
+          "name": "test_fail_capabilities_drop_not_all",
+          "line": 232,
+          "pattern": "FAIL-basic"
+        }
+      ],
+      "pattern_counts": {
+        "PASS": 1,
+        "FAIL-basic": 12,
+        "FAIL-edge": 1
+      },
+      "rule_count": 12,
+      "test_count": 14
+    }
+  ]
+}

@@ -42,6 +42,9 @@ evidence-store/pipeline_report_*.json
 evidence-store/data/*
 !evidence-store/data/README.md
 
+# Pipeline run logs (runtime artifacts)
+docs/walkthrough/pipeline_run_*.log
+
 # Internal working documents (not for public repo)
 *_INTERNAL.md
 # Note: /docs/ is now public — internal-only material lives in legacy/docs/
