@@ -7,7 +7,7 @@
   },
 
   "risk_classification": {
-    "risk_class": "high",
+    "risk_class": "invalid",
     "classification_reasoning": "Healthcare AI system that processes sensitive patient data during medical consultations. Classified as high-risk under EU AI Act Annex III, Nr. 5 lit. a — AI systems intended to be used as safety components in the management and operation of critical digital infrastructure, road traffic, or in the supply of water, gas, heating or electricity. The system assists medical professionals in documenting patient encounters, which directly impacts patient care quality and safety.",
     "annex_reference": "Annex III, Nr. 5 lit. a",
     "mitigation_measures": [
