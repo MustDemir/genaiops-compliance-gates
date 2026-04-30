@@ -49,6 +49,9 @@ abstract: >-
   AI Scribe scenario. The architecture is the technical instantiation
   (DSR artefact) of a Master's thesis at SRH Fernhochschule.
 identifiers:
+  - type: doi
+    value: "10.5281/zenodo.19917414"
+    description: "Zenodo DOI for v1.0.0"
   - type: url
     value: "https://github.com/MustDemir/genaiops-compliance-gates"
     description: "GitHub repository"
