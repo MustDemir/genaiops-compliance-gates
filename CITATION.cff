@@ -1,0 +1,65 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it using the metadata from this file."
+type: software
+title: "GenAIOps Compliance Gates: A Cloud-native Reference Architecture for Lifecycle-integrated Operationalization of Regulatory, Technical and Strategic Requirements in Generative AI — Demonstrated on the EU AI Act"
+version: 1.0.0
+date-released: "2026-04-30"
+authors:
+  - family-names: Demir
+    given-names: Mustafa
+    email: kontakt@mustafa-demir.com
+    affiliation: "SRH Fernhochschule"
+    orcid: "https://orcid.org/0009-0007-6860-3771"
+url: "https://github.com/MustDemir/genaiops-compliance-gates"
+repository-code: "https://github.com/MustDemir/genaiops-compliance-gates"
+license: CC-BY-NC-4.0
+keywords:
+  - genaiops
+  - eu-ai-act
+  - ai-compliance
+  - policy-as-code
+  - opa
+  - rego
+  - gatekeeper
+  - quality-gates
+  - reference-architecture
+  - design-science-research
+  - mlops
+  - llmops
+  - healthcare-ai
+  - audit-trail
+  - hash-chain
+abstract: >-
+  GenAIOps Compliance Gates is a domain-agnostic cloud-native reference
+  architecture for lifecycle-integrated operationalization of regulatory,
+  technical and strategic requirements in Generative AI systems. It
+  provides a normative-source-independent blueprint built on 16 lifecycle
+  quality gates, Policy-as-Code (OPA/Rego, Conftest, Gatekeeper) and an
+  immutable SHA-256 hash-chain evidence store, enabling enterprises to
+  map any normative source — regulations, internal policies, technical
+  standards, contractual obligations or risk frameworks — to enforceable,
+  auditable controls along the GenAI lifecycle. The v1.0.0 release
+  demonstrates the architecture on the EU AI Act (Articles 9-15, 26, 27,
+  47, 48, 50, 72, 73 and Annex IV) as a high-stakes instantiation, with
+  10 implemented Rego policies, 105 deny/violation rules and 103 unit
+  tests organised in a 3-layer test architecture (Layer-1 OPA unit tests,
+  Layer-2 Conftest gate evaluations, Layer-3 hash-chain verification),
+  reproducible end-to-end in 39 seconds per pipeline run and validated
+  on Azure Kubernetes Service (Sweden Central) with a Healthcare Ambient
+  AI Scribe scenario. The architecture is the technical instantiation
+  (DSR artefact) of a Master's thesis at SRH Fernhochschule.
+identifiers:
+  - type: url
+    value: "https://github.com/MustDemir/genaiops-compliance-gates"
+    description: "GitHub repository"
+references:
+  - type: thesis
+    title: "Cloud-native Referenzarchitektur für GenAIOps mit Quality-Gate-Kontrollsystem zur lifecycle-integrierten Operationalisierung normativer Anforderungen — auf Basis des EU AI Act"
+    authors:
+      - family-names: Demir
+        given-names: Mustafa
+        orcid: "https://orcid.org/0009-0007-6860-3771"
+    institution:
+      name: "SRH Fernhochschule"
+    year: 2026
+    thesis-type: "Master's thesis"
