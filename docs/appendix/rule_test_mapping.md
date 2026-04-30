@@ -15,11 +15,11 @@ Dieser Anhang belegt die Rule-Level-Isolation der PoC-Policy-Engine: Jede der **
 | G-DEP-03 | R007 | EU AI Act Art. 13 | AUTO | 9 | 11 | 1 | 7 | 3 | 0 |
 | G-DEP-05 | R013 | EU AI Act Art. 10(2)(f) | AUTO | 10 | 12 | 1 | 7 | 4 | 0 |
 | G-OPS-02 | R009 | EU AI Act Art. 26(5) | AUTO | 6 | 4 | 2 | 1 | 1 | 0 |
-| G-OPS-03 | R010 | EU AI Act Art. 11 | AUTO | 6 | 4 | 1 | 3 | 0 | 0 |
-| G-OPS-05 | R005 | EU AI Act Art. 11 | AUTO | 6 | 4 | 1 | 2 | 1 | 0 |
+| G-OPS-03 | R010 | EU AI Act Art. 72 | AUTO | 6 | 4 | 1 | 3 | 0 | 0 |
+| G-OPS-05 | R005 | EU AI Act Art. 12 | AUTO | 6 | 4 | 1 | 2 | 1 | 0 |
 | G-PRE-01 | R001 | EU AI Act Art. 9 | HYBRID | 14 | 8 | 2 | 3 | 2 | 1 |
 | G-PRE-04 | R003 | EU AI Act Art. 15 | AUTO | 12 | 14 | 1 | 12 | 1 | 0 |
-| G-PRE-05 | R012 | EU AI Act Art. 14 | HYBRID | 17 | 19 | 1 | 0 | 0 | 18 |
+| G-PRE-05 | R004 | EU AI Act Art. 14 | HYBRID | 17 | 19 | 1 | 0 | 0 | 18 |
 | **Gesamt** | — | — | — | **105** | **103** | 13 | 54 | 17 | 19 |
 
 **Legende Muster-Klassen:**
@@ -223,7 +223,7 @@ Dieser Anhang belegt die Rule-Level-Isolation der PoC-Policy-Engine: Jede der **
 | 3 | 54 | `test_fail_missing_incident_contact_annotation` | FAIL-basic |
 | 4 | 70 | `test_fail_rollback_mechanism_wrong_value` | FAIL-edge |
 
-## F.2 G-OPS-03 — R010 (EU AI Act Art. 11)
+## F.2 G-OPS-03 — R010 (EU AI Act Art. 72)
 
 **Policy-Datei:** `policies/operations/policy_monitoring_configured.rego`  
 **Test-Datei:** `policies/operations/policy_monitoring_configured_test.rego`  
@@ -251,7 +251,7 @@ Dieser Anhang belegt die Rule-Level-Isolation der PoC-Policy-Engine: Jede der **
 | 3 | 61 | `test_fail_service_monitor_disabled_value` | FAIL-basic |
 | 4 | 75 | `test_fail_prometheus_scrape_missing_annotation` | FAIL-basic |
 
-## F.2 G-OPS-05 — R005 (EU AI Act Art. 11)
+## F.2 G-OPS-05 — R005 (EU AI Act Art. 12)
 
 **Policy-Datei:** `policies/operations/policy_evidence_completeness.rego`  
 **Test-Datei:** `policies/operations/policy_evidence_completeness_test.rego`  
@@ -363,7 +363,7 @@ Dieser Anhang belegt die Rule-Level-Isolation der PoC-Policy-Engine: Jede der **
 | 13 | 219 | `test_fail_capabilities_missing` | FAIL-basic |
 | 14 | 232 | `test_fail_capabilities_drop_not_all` | FAIL-basic |
 
-## F.2 G-PRE-05 — R012 (EU AI Act Art. 14)
+## F.2 G-PRE-05 — R004 (EU AI Act Art. 14)
 
 **Policy-Datei:** `policies/pre-deployment/policy_governance_approval.rego`  
 **Test-Datei:** `policies/pre-deployment/policy_governance_approval_test.rego`  

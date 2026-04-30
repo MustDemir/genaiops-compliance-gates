@@ -27,14 +27,14 @@ POLICIES = [p for p in POLICIES if not p.name.endswith("_test.rego")]
 GATE_MAP = {
     "policy_risk_classification.rego":       ("G-PRE-01", "R001", "EU AI Act Art. 9", "HYBRID"),
     "policy_security_baseline.rego":         ("G-PRE-04", "R003", "EU AI Act Art. 15", "AUTO"),
-    "policy_governance_approval.rego":       ("G-PRE-05", "R012", "EU AI Act Art. 14", "HYBRID"),
+    "policy_governance_approval.rego":       ("G-PRE-05", "R004", "EU AI Act Art. 14", "HYBRID"),
     "policy_data_provenance_documented.rego":("G-DEP-01", "R002", "EU AI Act Art. 10", "AUTO"),
     "policy_safety_metrics.rego":            ("G-DEP-02", "R003", "EU AI Act Art. 15", "AUTO"),
     "policy_transparency_docs_present.rego": ("G-DEP-03", "R007", "EU AI Act Art. 13", "AUTO"),
     "policy_bias_assessment_complete.rego":  ("G-DEP-05", "R013", "EU AI Act Art. 10(2)(f)", "AUTO"),
     "policy_incident_process_exists.rego":   ("G-OPS-02", "R009", "EU AI Act Art. 26(5)", "AUTO"),
-    "policy_monitoring_configured.rego":     ("G-OPS-03", "R010", "EU AI Act Art. 11", "AUTO"),
-    "policy_evidence_completeness.rego":     ("G-OPS-05", "R005", "EU AI Act Art. 11", "AUTO"),
+    "policy_monitoring_configured.rego":     ("G-OPS-03", "R010", "EU AI Act Art. 72", "AUTO"),
+    "policy_evidence_completeness.rego":     ("G-OPS-05", "R005", "EU AI Act Art. 12", "AUTO"),
 }
 
 # Rule detection: "deny contains msg if { ... }" or "violation[...] { ... }"

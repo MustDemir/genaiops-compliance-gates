@@ -342,7 +342,7 @@
     {
       "gate_id": "G-OPS-05",
       "requirement_id": "R005",
-      "article": "EU AI Act Art. 11",
+      "article": "EU AI Act Art. 12",
       "method": "AUTO",
       "policy_file": "policies/operations/policy_evidence_completeness.rego",
       "test_file": "policies/operations/policy_evidence_completeness_test.rego",
@@ -496,7 +496,7 @@
     {
       "gate_id": "G-OPS-03",
       "requirement_id": "R010",
-      "article": "EU AI Act Art. 11",
+      "article": "EU AI Act Art. 72",
       "method": "AUTO",
       "policy_file": "policies/operations/policy_monitoring_configured.rego",
       "test_file": "policies/operations/policy_monitoring_configured_test.rego",
@@ -832,7 +832,7 @@
     },
     {
       "gate_id": "G-PRE-05",
-      "requirement_id": "R012",
+      "requirement_id": "R004",
       "article": "EU AI Act Art. 14",
       "method": "HYBRID",
       "policy_file": "policies/pre-deployment/policy_governance_approval.rego",
