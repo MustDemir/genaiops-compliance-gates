@@ -65,7 +65,7 @@ Genesis convention: The first record (audit_id = 1) has no predecessor; its `pre
 | Production (K8s) | Every 6 hours | CronJob `cronjob-hash-chain-verify` |
 | Pre-audit | On demand | Manual run before compliance audit |
 | Post-incident | Immediate | Incident response procedure |
-| PoC Walkthrough | Single run | Kap. 6.3 demonstration |
+| PoC Walkthrough | Single run | End-to-end demonstration run |
 
 ## 7. Traceability
 

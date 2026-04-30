@@ -5,7 +5,7 @@
 # Decision: D_GATEKEEPER_STANDALONE (replicas=1, auditInterval=60)
 # Decision: E6 (Lokal-first / Minikube)
 #
-# What this does (Kolloquium):
+# What this does (Overview):
 #   Configures the Gatekeeper Admission Controller for our PoC.
 #   Gatekeeper sits at the "front door" of Kubernetes and checks
 #   every Deployment request against our compliance rules (CTs).

@@ -25,5 +25,4 @@ links:
     - "Art. 26 Abs. 3"
 sources:
   - "requirements/R014.yaml"
-  - "Thesis Tab. 5.2, 5.3, 5.4"
 notes: "DESIGN-ONLY — Rego-Implementierung als Future Work. AUTO: Conftest prueft ob Modell-Versionierung dokumentiert und Audit-Trail-Immutabilitaet konfiguriert. Aufbewahrungsfrist mind. 6 Monate gemaess Art. 26 Abs. 3."

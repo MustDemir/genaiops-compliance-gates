@@ -37,7 +37,7 @@ Usage:
     python drift_detector.py --source fixtures/current_drifted.json \
         --record-evidence --sqlite /tmp/evidence.db
 
-What this does (Kolloquium):
+What this does (Overview):
     This script is the "early warning system" for AI model degradation.
     Imagine a medical AI that was trained on data from Berlin hospitals.
     After 3 months, it starts receiving data from rural clinics with

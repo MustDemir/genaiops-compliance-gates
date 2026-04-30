@@ -3,7 +3,7 @@
 # ================================================================
 # Phase 9.6: Tells Prometheus to scrape metrics from the AI Scribe app.
 #
-# What this does (Kolloquium):
+# What this does (Overview):
 #   Without this file, Prometheus doesn't know our AI app exists.
 #   The ServiceMonitor is like a "subscription" — it tells Prometheus:
 #   "Hey, there's an app called 'ambient-ai-scribe' in the 'genaiops'

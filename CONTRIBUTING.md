@@ -1,6 +1,6 @@
 # Contributing
 
-Thank you for your interest in this project. **Important context:** this repository is the technical instantiation of an academic Design Science Research (DSR) artifact developed as part of a master's thesis at SRH Fernhochschule. Until thesis defense (expected mid-2026), the scope of changes that can be accepted is necessarily limited.
+Thank you for your interest in this project. **Important context:** this repository is a Design Science Research (DSR) reference artifact. The architecture (5-pillar design, 16 quality gates) is currently scope-fixed; only additive, compatibility, and bug-fix contributions are accepted while the v1.x branch is active.
 
 ## What contributions are welcome
 
@@ -10,8 +10,8 @@ Thank you for your interest in this project. **Important context:** this reposit
 | **Documentation fixes** | ✅ Yes | Typos, broken links, clarifications — small PRs preferred. |
 | **Compatibility patches** | ✅ Yes | E.g. newer Conftest / OPA versions, alternative cluster runtimes. Keep changes minimal and additive. |
 | **New Quality Gates** | 🟡 Discuss first | Open an issue describing the regulatory anchor and the gate template fields before submitting code. |
-| **Architectural changes** | 🔴 No | The 5-pillar design and 16-gate set are part of the thesis scope and cannot accept structural rewrites until after defense. |
-| **Scope expansion (e.g. NIST AI RMF coverage)** | 🔴 No | Same reason — the thesis scope is fixed. After defense, this may open up. |
+| **Architectural changes** | 🔴 No | The 5-pillar design and 16-gate set are scope-fixed in the v1.x branch. |
+| **Scope expansion (e.g. NIST AI RMF coverage)** | 🔴 No | Out of scope for the v1.x branch. |
 
 ## Before opening a pull request
 

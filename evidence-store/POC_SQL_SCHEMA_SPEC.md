@@ -1,7 +1,7 @@
 # Evidence Store — SQL Schema Specification
 
 **Version:** 2026-03-13
-**Purpose:** Design rationale and DDL component mapping for the Evidence Store (Chapter 5.4)
+**Purpose:** Design rationale and DDL component mapping for the Evidence Store
 **Inputs:** v01.sql (minimal), v02_enterprise.sql (enterprise), architecture specification
 
 ---

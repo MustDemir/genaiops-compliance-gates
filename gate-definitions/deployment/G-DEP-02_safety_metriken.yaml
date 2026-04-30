@@ -24,5 +24,4 @@ links:
     - "Art. 15"
 sources:
   - "requirements/R003.yaml"
-  - "Thesis Tab. 5.2, 5.3, 5.4"
 notes: "PoC-Gate (★). AUTO: Conftest prueft ob accuracy >= 0.85, latency_p95 <= 2000ms, safety_score >= 0.90 (Schwellenwerte aus eval_results.json). R003 wird zusaetzlich durch G-PRE-04 (Security-Baseline) und G-OPS-04 (Cybersecurity-Operations) operationalisiert (Mehrfachzuordnung phasenuebergreifend)."

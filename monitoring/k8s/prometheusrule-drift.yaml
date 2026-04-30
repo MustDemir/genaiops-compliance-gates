@@ -3,7 +3,7 @@
 # ================================================================
 # Phase 9.6: Defines alerting rules for data drift.
 #
-# What this does (Kolloquium):
+# What this does (Overview):
 #   These rules tell Prometheus: "If PSI exceeds 0.1 for 5 minutes,
 #   fire a WARNING alert. If it exceeds 0.2 for 5 minutes, fire a
 #   CRITICAL alert."
@@ -51,7 +51,7 @@ spec:
               for {{ $labels.instance }}.
               Investigate input distribution shift.
               Gate: G-OPS-03 (Performance Monitoring & Drift Detection)
-            runbook_url: "https://github.com/MustDemir/genaiops-compliance-gates/blob/main/docs/reference/CLOSED_LOOP_ERKLAERUNG.md"
+            runbook_url: "https://github.com/MustDemir/genaiops-compliance-gates#monitoring"
 
         # ── PSI Critical ─────────────────────────────────────
         - alert: GenAIOps_DriftCritical_PSI
@@ -69,7 +69,7 @@ spec:
               for {{ $labels.instance }}.
               Gate G-OPS-03 re-evaluation REQUIRED.
               Action: Investigate root cause, consider model retraining.
-            runbook_url: "https://github.com/MustDemir/genaiops-compliance-gates/blob/main/docs/reference/CLOSED_LOOP_ERKLAERUNG.md"
+            runbook_url: "https://github.com/MustDemir/genaiops-compliance-gates#monitoring"
 
         # ── JSD Warning ──────────────────────────────────────
         - alert: GenAIOps_DriftWarning_JSD

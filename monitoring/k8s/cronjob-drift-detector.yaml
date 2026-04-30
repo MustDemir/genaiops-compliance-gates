@@ -3,7 +3,7 @@
 # ================================================================
 # Phase 9.6: Runs drift_detector.py every 5 minutes in the cluster.
 #
-# What this does (Kolloquium):
+# What this does (Overview):
 #   This CronJob is the automated "watchdog" for model quality.
 #   Every 5 minutes, Kubernetes creates a new Pod that:
 #   1. Fetches current metrics from the AI Scribe app

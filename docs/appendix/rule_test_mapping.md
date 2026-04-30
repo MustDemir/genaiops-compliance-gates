@@ -1,10 +1,10 @@
-# Anhang F — Rego Unit Tests: Rule-zu-Test-Mapping
+# Rego Unit Tests — Rule-to-Test Mapping
 
 **Erzeugungsdatum:** 2026-04-18  
 **Baseline:** 103/103 PASS  
 **Quelle:** `tools/extract_rule_test_mapping.py` (auto-generiert aus `policies/**/*.rego` + `policies/**/*_test.rego`)  
 
-Dieser Anhang belegt die Rule-Level-Isolation der PoC-Policy-Engine: Jede der **105 Rego-Regeln** wird durch mindestens eine Unit-Test-Assertion verifiziert. Insgesamt **103 Tests** decken die Muster PASS (positive path), FAIL-basic (missing field), FAIL-edge (invalid/empty values) und HYBRID (D3-Override First-Degree Oversight) ab. Alle Tests werden zeitgleich durch `tests/run_all_rego_tests.sh` (`opa test policies/ tests/fixtures/`) ausgeführt; die Pipeline-Integration (`pipeline/.github/workflows/gate-pipeline.yml`, Layer 1) bricht bei einem Fehlschlag vor jeder Conftest-Gate-Evaluation ab (Shift-Left).
+Dieses Dokument belegt die Rule-Level-Isolation der PoC-Policy-Engine: Jede der **105 Rego-Regeln** wird durch mindestens eine Unit-Test-Assertion verifiziert. Insgesamt **103 Tests** decken die Muster PASS (positive path), FAIL-basic (missing field), FAIL-edge (invalid/empty values) und HYBRID (D3-Override First-Degree Oversight) ab. Alle Tests werden zeitgleich durch `tests/run_all_rego_tests.sh` (`opa test policies/ tests/fixtures/`) ausgeführt; die Pipeline-Integration (`pipeline/.github/workflows/gate-pipeline.yml`, Layer 1) bricht bei einem Fehlschlag vor jeder Conftest-Gate-Evaluation ab (Shift-Left).
 
 ## F.1 Übersicht
 

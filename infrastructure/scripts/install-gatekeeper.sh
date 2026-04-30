@@ -4,7 +4,7 @@
 # ================================================================
 # Phase 6+7: Step 2 — runs AFTER setup-minikube.sh
 #
-# What this does (Kolloquium):
+# What this does (Overview):
 #   1. Installs Gatekeeper via Helm (the upstream chart from CNCF)
 #   2. Waits until Gatekeeper pods are running
 #   3. Deploys our 3 ConstraintTemplates (the compliance rules)

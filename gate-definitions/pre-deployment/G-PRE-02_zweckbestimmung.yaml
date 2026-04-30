@@ -25,5 +25,4 @@ links:
     - "Art. 27"
 sources:
   - "requirements/R012.yaml"
-  - "Thesis Tab. 5.2, 5.3, 5.4"
 notes: "DESIGN-ONLY — Rego-Implementierung als Future Work. HYBRID: Conftest prueft Pflichtfelder (intended_purpose, sector, prohibited_uses, model_type, intended_use, out_of_scope_uses); manueller Review bewertet inhaltliche Vollstaendigkeit der FRIA."

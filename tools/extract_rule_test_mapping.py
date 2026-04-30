@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-extract_rule_test_mapping.py — Generate rule-to-test mapping for thesis appendix.
+extract_rule_test_mapping.py — Generate rule-to-test mapping appendix.
 
 Scans all 10 Rego policy files + their *_test.rego counterparts, extracts:
   - Rule signatures (deny contains msg if { ... }) with line numbers
@@ -9,7 +9,7 @@ Scans all 10 Rego policy files + their *_test.rego counterparts, extracts:
 
 Output:
   - JSON (ground truth) at docs/appendix/rule_test_mapping.json
-  - Markdown (thesis appendix) at docs/appendix/rule_test_mapping.md
+  - Markdown appendix at docs/appendix/rule_test_mapping.md
 
 Usage:
   python3 tools/extract_rule_test_mapping.py
@@ -142,21 +142,16 @@ def get_package(rego_path: Path) -> str:
 
 
 def render_markdown(out: dict) -> str:
-    """Render JSON data as thesis-appendix Markdown.
-
-    Thesis convention: Anhang F (Anhänge A/B/C/D/E already assigned —
-    A=Requirements-Katalog, B=Coverage-Matrix, C=Screenshot-Mapping Kap 6.3,
-    D=Deployment-Schwierigkeiten+Integrity-Fixes, E=USP/KPI-Mapping).
-    """
+    """Render JSON data as appendix Markdown."""
     lines = []
-    lines.append("# Anhang F — Rego Unit Tests: Rule-zu-Test-Mapping")
+    lines.append("# Rego Unit Tests — Rule-to-Test Mapping")
     lines.append("")
     lines.append(f"**Erzeugungsdatum:** {out['generated_at']}  ")
     lines.append(f"**Baseline:** {out['baseline']}  ")
     lines.append(f"**Quelle:** `tools/extract_rule_test_mapping.py` (auto-generiert aus "
                  f"`policies/**/*.rego` + `policies/**/*_test.rego`)  ")
     lines.append("")
-    lines.append("Dieser Anhang belegt die Rule-Level-Isolation der PoC-Policy-Engine: "
+    lines.append("Dieses Dokument belegt die Rule-Level-Isolation der PoC-Policy-Engine: "
                  "Jede der **105 Rego-Regeln** wird durch mindestens eine Unit-Test-Assertion "
                  "verifiziert. Insgesamt **103 Tests** decken die Muster "
                  "PASS (positive path), FAIL-basic (missing field), FAIL-edge "
@@ -282,7 +277,7 @@ def main():
     out_json.write_text(json.dumps(out, indent=2, ensure_ascii=False))
     print(f"✅ JSON written: {out_json}")
 
-    # Markdown (thesis appendix)
+    # Markdown appendix
     out_md = REPO_ROOT / "docs" / "appendix" / "rule_test_mapping.md"
     out_md.write_text(render_markdown(out))
     print(f"✅ Markdown written: {out_md}")

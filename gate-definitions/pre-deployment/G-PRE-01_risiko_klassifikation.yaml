@@ -24,5 +24,4 @@ links:
     - "Art. 9"
 sources:
   - "requirements/R001.yaml"
-  - "Thesis Tab. 5.2, 5.3, 5.4"
 notes: "PoC-Gate (★). HYBRID: Conftest prueft ob risk_class in {high, limited, minimal} und classification_reasoning vorhanden; manueller Review bewertet inhaltliche Angemessenheit der Klassifikation. R001 wird zusaetzlich durch G-PRE-03 operationalisiert (Mehrfachzuordnung)."

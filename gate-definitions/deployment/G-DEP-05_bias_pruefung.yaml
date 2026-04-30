@@ -25,5 +25,4 @@ links:
     - "Art. 15"
 sources:
   - "requirements/R013.yaml"
-  - "Thesis Tab. 5.2, 5.3, 5.4"
 notes: "IMPLEMENTED (2026-03-28) — policy_bias_assessment_complete.rego: 5 Checks, 10 deny-Rules. Fixtures: model_documentation_bias_pass.json, model_documentation_bias_fail.json."

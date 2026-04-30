@@ -5,7 +5,7 @@
 # Phase 6: Minikube + Helm-Basics
 # Decision: E6 (Lokal-first), 8 GB RAM, 4 CPUs
 #
-# What this does (Kolloquium):
+# What this does (Overview):
 #   Creates a local Kubernetes cluster on your computer using Minikube.
 #   Think of it as a "mini data center" running on your laptop.
 #   We allocate 8 GB RAM so that all components fit:

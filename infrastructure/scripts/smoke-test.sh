@@ -4,7 +4,7 @@
 # ================================================================
 # Phase 6: Final verification — proves the Quality Gate system works
 #
-# What this does (Kolloquium):
+# What this does (Overview):
 #   This is the "proof" that our admission control works.
 #   We try two things:
 #

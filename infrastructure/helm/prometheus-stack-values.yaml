@@ -4,7 +4,7 @@
 # Phase 9: Monitoring & Post-Market Surveillance (Pillar S5)
 # Decision: Option A — kube-prometheus-stack with Grafana
 #
-# What this configures (Kolloquium):
+# What this configures (Overview):
 #   This is the monitoring backbone for our compliance system.
 #   Prometheus SCRAPES metrics from the AI app and drift detector.
 #   Grafana VISUALIZES them in dashboards.

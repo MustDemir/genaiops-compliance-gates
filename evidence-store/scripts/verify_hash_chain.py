@@ -4,7 +4,7 @@ verify_hash_chain.py — Verify tamper-evidence of the Quality Gate audit trail.
 
 Part of the GenAIOps Compliance Gates PoC (Phase 8).
 Used by the CronJob (cronjob-hash-chain-verify.yaml) every 6 hours,
-and manually during the Kap. 6.3 walkthrough.
+and manually during PoC walkthrough demonstrations.
 
 Exit codes:
     0 = Chain is valid (all hashes match)

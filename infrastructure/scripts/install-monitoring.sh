@@ -4,7 +4,7 @@
 # ================================================================
 # Phase 9: Monitoring & Post-Market Surveillance (Pillar S5)
 #
-# What this does (Kolloquium):
+# What this does (Overview):
 #   This script sets up the complete monitoring stack:
 #
 #   1. kube-prometheus-stack (Helm chart)

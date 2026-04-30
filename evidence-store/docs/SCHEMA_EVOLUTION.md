@@ -1,14 +1,14 @@
 # Schema Evolution — Evidence Store
 
-> **Zweck:** Dokumentiert die Schema-Versionen des Evidence Store für Nachvollziehbarkeit in Kap. 6.
+> **Zweck:** Dokumentiert die Schema-Versionen des Evidence Store.
 > **Entscheidung:** E13 (Schema v03 mit decision_method)
 
 ## Versionsübersicht
 
 | Version | Datum | Änderung | Entscheidung |
 |---------|-------|----------|-------------|
-| v01 | 2026-03 | Initial: quality_gate_results + hash-chain trigger + immutability trigger | Kap. 5.4 (D_DSR_EVIDENCE_STORE) |
-| v02 | 2026-03 | Privacy Views, RBAC+RLS, Composite Indexes, Materialized View | Kap. 5.4/5.5 |
+| v01 | 2026-03 | Initial: quality_gate_results + hash-chain trigger + immutability trigger | D_DSR_EVIDENCE_STORE |
+| v02 | 2026-03 | Privacy Views, RBAC+RLS, Composite Indexes, Materialized View | D_DSR_EVIDENCE_STORE |
 | v03 | 2026-03-27 | `decision_method` Spalte (AUTO/MANUAL/HYBRID) + Hash-Trigger-Update | E13 |
 
 ## v01 → v02: Privacy & Performance
@@ -48,9 +48,8 @@ inserted_by | previous_hash
 
 **Rückwärtskompatibilität:** `DEFAULT 'AUTO'` stellt sicher, dass bestehende Records valide bleiben. Der Hash-Trigger berechnet neue Hashes nur für neue Inserts (bestehende Chain bleibt intakt).
 
-## Thesis-Relevanz
+## Design-Prinzipien-Bezug
 
-- **Kap. 5.4:** Schema v01/v02 spezifiziert als DSR-Artefakt
-- **Kap. 6.3:** Schema v03 demonstriert im PoC-Walkthrough
-- **Kap. 7 (Diskussion):** Schema-Evolution als Beispiel für iteratives DSR-Design
-- **DP5.2/DP5.3:** Hash-Chain und Immutability über alle Schema-Versionen konsistent
+- **DP5.2 (Append-Only):** Immutability über alle Schema-Versionen konsistent
+- **DP5.3 (Tamper Evidence):** Hash-Chain über alle Schema-Versionen konsistent
+- Schema-Evolution v01 → v02 → v03 illustriert iteratives Build-Evaluate Design

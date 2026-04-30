@@ -60,3 +60,19 @@ infrastructure/.aks-config
 
 # Legacy / archived artifacts (never tracked, see legacy/README.md)
 /legacy/
+**/legacy/
+
+# Internal-only narrative material (kept locally, never published)
+docs/knowledge-base/
+docs/related-work/
+docs/reference/
+docs/reports/
+docs/SESSION_HANDOFF_*.md
+docs/walkthrough/kap*.md
+docs/walkthrough/poc_phasen_*.md
+docs/walkthrough/poc_strategie_*.docx
+docs/walkthrough/poc_strategie_*.pdf
+docs/walkthrough/phase12_*_walkthrough.md
+docs/walkthrough/phase12_*_ergebnis.md
+evidence-store/POC_SQL_SCHEMA_SPEC_INTERNAL.md
+policies/POLICY_CANDIDATES_*.md

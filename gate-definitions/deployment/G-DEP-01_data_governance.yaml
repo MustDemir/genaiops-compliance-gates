@@ -32,5 +32,4 @@ links:
 sources:
   - "requirements/R002.yaml"
   - "requirements/R006.yaml"
-  - "Thesis Tab. 5.2, 5.3, 5.4"
 notes: "PARTIALLY IMPLEMENTED (2026-03-28) — policy_data_provenance_documented.rego added: 5 Checks, 10 deny-Rules. Fixtures: data_documentation_provenance_pass.json, data_documentation_provenance_fail.json. Remaining 5 policies (training_documented, data_lineage, dataset_description, annotation_quality, data_license) still DESIGN-ONLY."

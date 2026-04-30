@@ -2,7 +2,7 @@ cff-version: 1.2.0
 message: "If you use this software, please cite it using the metadata from this file."
 type: software
 title: "GenAIOps Compliance Gates: A Cloud-native Reference Architecture for Lifecycle-integrated Operationalization of Regulatory, Technical and Strategic Requirements in Generative AI — Demonstrated on the EU AI Act"
-version: 1.0.0
+version: 1.1.0
 date-released: "2026-04-30"
 authors:
   - family-names: Demir
@@ -49,9 +49,6 @@ abstract: >-
   AI Scribe scenario. The architecture is the technical instantiation
   (DSR artefact) of a Master's thesis at SRH Fernhochschule.
 identifiers:
-  - type: doi
-    value: "10.5281/zenodo.19917414"
-    description: "Zenodo DOI for v1.0.0"
   - type: url
     value: "https://github.com/MustDemir/genaiops-compliance-gates"
     description: "GitHub repository"

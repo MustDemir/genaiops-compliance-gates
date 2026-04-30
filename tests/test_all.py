@@ -17,7 +17,7 @@ Rego Test Layers (Shift-Left, fail-fast):
             Runs BEFORE Conftest to catch rule-semantic drift.
   Layer 2 — Conftest against fixtures (integration check).
 
-What this proves (Kolloquium):
+What this proves:
   This single command validates the ENTIRE PoC — all 5 architecture
   pillars working together. If this passes, the system is consistent
   and ready for Minikube deployment.
@@ -477,11 +477,11 @@ if errors > 0:
 """ % str(REPO_ROOT)])
 
 # ══════════════════════════════════════════════════════════════
-# THESIS ALIGNMENT — Gate-Definitions ↔ Pipeline ↔ Rego ↔ Thesis
+# ARCHITECTURE ALIGNMENT — Gate-Definitions ↔ Pipeline ↔ Rego
 # ══════════════════════════════════════════════════════════════
 
-# Thesis-Alignment: Gate-Definition YAMLs ↔ Rego Policies ↔ Pipeline Steps
-run_test("Thesis-Alignment", "Gate-Definitions ↔ Rego ↔ Pipeline (10 PoC Gates)",
+# Architecture-Alignment: Gate-Definition YAMLs ↔ Rego Policies ↔ Pipeline Steps
+run_test("Architecture-Alignment", "Gate-Definitions ↔ Rego ↔ Pipeline (10 PoC Gates)",
          [sys.executable, "-c", """
 import yaml, re, sys
 from pathlib import Path
@@ -601,7 +601,7 @@ if missing_phases:
     errors += 1
 
 # ── Summary ──
-print(f"\\nThesis-Alignment Results:")
+print(f"\\nArchitecture-Alignment Results:")
 print(f"  Gate-Definitions:  {len(all_gates)} total, {len(poc_gates)} in PoC")
 print(f"  Rego Policies:     {sum(1 for p in poc_gates.values() if (repo / p).exists())}/{len(poc_gates)} present")
 print(f"  Pipeline Steps:    10 gates referenced")
@@ -611,11 +611,11 @@ print(f"  Errors:            {errors}")
 
 if errors > 0:
     sys.exit(1)
-print("\\nThesis ↔ Code alignment VERIFIED")
+print("\\nDefinition ↔ Code alignment VERIFIED")
 """ % str(REPO_ROOT)])
 
-# Thesis-Alignment: Automation-Ratio (10 AUTO : 6 HYBRID : 0 MANUAL)
-run_test("Thesis-Alignment", "Automation-Ratio 10:6:0 (Thesis Kap. 5.2.2)",
+# Architecture invariant: Automation-Ratio (10 AUTO : 6 HYBRID : 0 MANUAL)
+run_test("Architecture-Invariant", "Automation-Ratio 10:6:0",
          [sys.executable, "-c", """
 import yaml, sys
 from pathlib import Path
@@ -639,7 +639,7 @@ for d in gate_dirs:
             print(f"  WARNING: {gate['id']} unknown decision={decision}")
             auto += 1  # conservative: count as AUTO
 
-# Thesis claims: 10 AUTO + 6 HYBRID + 0 MANUAL = 16 gates
+# Architecture invariant: 10 AUTO + 6 HYBRID + 0 MANUAL = 16 gates
 # Gate-definitions use 'automated' and 'manual_review' as decision values
 total = auto + hybrid + manual
 print(f"Automation distribution: {auto} AUTO + {hybrid} HYBRID + {manual} MANUAL = {total} gates")
@@ -651,14 +651,14 @@ if total != 16:
 # Note: exact ratio may differ based on how decision field is set
 # The key invariant: no MANUAL-only gates exist
 if manual > 0:
-    print(f"ERROR: Found {manual} MANUAL-only gates (thesis claims 0)")
+    print(f"ERROR: Found {manual} MANUAL-only gates (architecture invariant: 0)")
     sys.exit(1)
 
 print("Automation-Ratio verified (0 MANUAL-only gates)")
 """ % str(REPO_ROOT)])
 
-# Thesis-Alignment: Evidence Store traceability (R → G → Evidence)
-run_test("Thesis-Alignment", "Traceability chain R-xx → G-xx → Evidence (DP2)",
+# Architecture-Alignment: Evidence Store traceability (R → G → Evidence)
+run_test("Architecture-Alignment", "Traceability chain R-xx → G-xx → Evidence (DP2)",
          [sys.executable, "-c", """
 import yaml, sys
 from pathlib import Path
@@ -749,7 +749,7 @@ print(f"{total_tests} tests  |  {total_time:.1f}s")
 
 if failed_tests == 0:
     print(f"\n  {GREEN}{BOLD}✓ ALL TESTS PASSED — PoC is consistent and complete{RESET}")
-    print(f"\n  {BOLD}Was hiermit bewiesen wurde (Kolloquium):{RESET}")
+    print(f"\n  {BOLD}Was hiermit bewiesen wurde:{RESET}")
     print(f"  • Alle YAML/JSON Konfigurationen sind syntaktisch korrekt")
     print(f"  • Alle Infrastructure-Scripts sind valide Bash")
     print(f"  • Rego-Policies haben gültige Struktur")

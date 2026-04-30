@@ -24,5 +24,4 @@ links:
     - "Art. 26 Abs. 2"
 sources:
   - "requirements/R008.yaml"
-  - "Thesis Tab. 5.2, 5.3, 5.4"
 notes: "DESIGN-ONLY — Rego-Implementierung als Future Work. HYBRID: Gatekeeper validiert dass HITL-Mechanismen und Override-Prozeduren als K8s-Ressourcen konfiguriert sind; manueller Review prueft Wirksamkeit der Sterz-Bedingungen (Causal Power, Epistemic Access, Self-Control, Fitting Intentions). D3-Override (Laux, 2024): First-Degree Oversight → max. HYBRID."

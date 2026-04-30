@@ -11,7 +11,7 @@ Simulates the complete drift detection lifecycle:
 This proves the full G-OPS-03 pipeline:
   drift_detector.py → Evidence Store → Hash-Chain Verification
 
-What this proves (Kolloquium):
+What this proves (Overview):
   1. Baseline initialization works
   2. Normal operation does NOT trigger false alarms
   3. Drifted data IS detected as CRITICAL
@@ -165,7 +165,7 @@ print(f"  {GREEN}PASSED: {passed}{RESET}  /  {RED}FAILED: {failed}{RESET}  /  To
 
 if failed == 0:
     print(f"\n  {GREEN}{BOLD}✓ ALL TESTS PASSED — Full drift pipeline verified{RESET}")
-    print(f"\n  {BOLD}What was proven (Kolloquium):{RESET}")
+    print(f"\n  {BOLD}What was proven (Overview):{RESET}")
     print(f"  1. Baseline can be initialized from fixture data")
     print(f"  2. Normal data → OK status, NO false alarms, NO evidence recorded")
     print(f"  3. Drifted data → CRITICAL status, pipeline returns exit code 1")

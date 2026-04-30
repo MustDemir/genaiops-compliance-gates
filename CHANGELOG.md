@@ -8,15 +8,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
-(no changes since v1.0.0)
+(no changes since v1.1.0)
 
 ---
 
-## [1.0.0] — 2026-04-30 — First Stable Release
+## [1.1.0] — 2026-04-30 — First Stable Public Release
 
 ### Highlights
 
-This is the first stable release of the GenAIOps Compliance Gates reference architecture. All 12 implementation phases are complete, the AKS cluster is live in Sweden Central, and the full PoC is reproducible end-to-end in 39 seconds per pipeline run. The release marks the technical instantiation of a Master's Thesis (Design Science Research, EU AI Act, Healthcare Ambient AI Scribe scenario).
+First stable public release of the GenAIOps Compliance Gates reference architecture. All 12 implementation phases are complete, the AKS cluster is live in Sweden Central, and the full PoC is reproducible end-to-end in 39 seconds per pipeline run. Repository scope tightened to PoC source code, infrastructure, and technical specs only — non-code narrative material (knowledge-base notes, related-work analysis, walkthrough essays, internal reports) is kept locally and gitignored.
 
 ### Added — Layer-1 Rego Unit Tests (Shift-Left)
 
@@ -40,7 +40,7 @@ This is the first stable release of the GenAIOps Compliance Gates reference arch
 
 - Pipeline `pipeline-20260430-091901-cde6cb8a`: explicitly injected invalid `risk_class: "invalid"` to demonstrate Deploy BLOCKED.
 - All 10 gates evaluated, G-PRE-01 caught the violation, decision banner shows `❌ GATE FAILURE — Deploy BLOCKED`, exit code 1.
-- Reproducibility anchor for Walkthrough Kapitel 6.3 Red-Path scenarios.
+- Reproducibility anchor for Red-Path walkthrough scenarios.
 
 ### Fixed — GATE_MAP corrections (`tools/extract_rule_test_mapping.py`)
 
@@ -60,7 +60,7 @@ This is the first stable release of the GenAIOps Compliance Gates reference arch
 - **Runtime/source separation.** Defined a proper layout under `evidence-store/data/{reports,sqlite}/` for runtime outputs (gitignored). Old runtime artifacts (93 pipeline reports, 5 SQLite DBs, 2 journals) archived in `legacy/runtime-artifacts/`.
 - **Test reorganization.** Moved `test_all.py` and `test_integrity_regression.py` from repo root into `tests/`. Updated `REPO_ROOT` resolution and cross-references. Added `tests/README.md`.
 - **Documentation publication.** Removed `/docs/` from `.gitignore` and reorganized by audience: `docs/{reference,reports,related-work,walkthrough,knowledge-base,images,architecture}/`. Internal-only material (session summaries, marketing drafts, internal review notes, strategy `.docx`/`.pdf`, older diagram versions) moved to `legacy/docs/`.
-- **Naming consistency.** `docs/knowledge-base/` subfolders renamed to kebab-case (`Docker/`→`docker/`, `Kubernetes/`→`kubernetes/`, `cloud computing/`→`cloud-computing/`). Stale path references in `gate-definitions/G-PRE-04`, `monitoring/k8s/prometheusrule-drift.yaml`, `tests/test_integrity_regression.py`, and several Markdown cross-references fixed accordingly.
+- **Naming consistency.** Stale path references in `gate-definitions/G-PRE-04`, `monitoring/k8s/prometheusrule-drift.yaml`, `tests/test_integrity_regression.py`, and several Markdown cross-references fixed.
 
 ---
 
@@ -82,9 +82,9 @@ This is the first stable release of the GenAIOps Compliance Gates reference arch
 ## [Phase 11] — 2026-03-29 — Walkthrough + Integrity Suite
 
 ### Added
-- 13-step Green/Red-Path walkthrough for Kapitel 6.3 (`docs/reference/WALKTHROUGH_KAP63.md`).
+- 13-step Green/Red-Path walkthrough demonstration.
 - **Integrity Regression Suite** (`tests/test_integrity_regression.py`): 14 static credibility checks covering demo fallbacks, soft-skip patterns, evidence-store strictness, hash-chain failure handling, HYBRID gate consistency, walkthrough drift, and CI conftest error visibility.
-- Integrity Fix Report (`docs/reports/INTEGRITY_FIX_REPORT_2026-03-29.md`) documenting 14 credibility issues identified and fixed.
+- Integrity Fix Report documenting 14 credibility issues identified and fixed.
 
 ### Fixed
 - 14 credibility risks (F-01 to F-14) closed: among them missing `R001-R014.yaml` files surfaced by Requirements-Mapping test, soft-skip patterns in master test, false-green smoke test behavior, monitoring stub remnants in deployments.
@@ -126,7 +126,7 @@ This is the first stable release of the GenAIOps Compliance Gates reference arch
 - Tamper detection (`pipeline/test_tamper_detection.py`): SHA-256 hash-chain integrity verification across evidence-store rows.
 - Schema v02 (enterprise): role-based access control, schema separation.
 - Schema v03: `decision_method` field + extended evidence row (E13 contract).
-- Closed-Loop architecture documentation (`docs/reference/CLOSED_LOOP_ERKLAERUNG.md`) for Kolloquium Q&A preparation.
+- Closed-Loop architecture documentation for demonstration Q&A preparation.
 
 ---
 
@@ -153,7 +153,6 @@ This is the first stable release of the GenAIOps Compliance Gates reference arch
 - 10 OPA/Rego policies (5 pre-deployment Conftest, 2 deployment Conftest, 3 operations Gatekeeper).
 - ~100 Rego rules across the policy set.
 - 21 fixtures for policy testing.
-- Walkthrough doc for Kap. 5.3 Policy-as-Code (`docs/walkthrough/kap5_3_policy_as_code_ergaenzung.md`).
 
 ### Changed
 - Initial 6 policies expanded to 10 to cover all 14 requirements (R001–R014).
@@ -164,7 +163,7 @@ This is the first stable release of the GenAIOps Compliance Gates reference arch
 
 ### Added
 - 8 K8s YAMLs for the Healthcare Ambient AI Scribe scenario: Namespace, Deployment, Service, ConfigMap, PostgreSQL, Prometheus.
-- Kolloquium-friendly explanation of Phases 1–4 (`docs/walkthrough/poc_phasen_1_bis_4_erklaerung.md`).
+- Non-technical explanation of Phases 1–4.
 
 ---
 

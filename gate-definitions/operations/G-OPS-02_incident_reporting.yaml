@@ -24,5 +24,4 @@ links:
     - "Art. 73"
 sources:
   - "requirements/R009.yaml"
-  - "Thesis Tab. 5.2, 5.3, 5.4"
 notes: "IMPLEMENTED (2026-03-28) — policy_incident_process_exists.rego: 3 Checks (incident-response-configured, incident-contact, rollback-mechanism), 6 violation-Rules. Fixtures: deployment_incident_pass.json, deployment_incident_fail.json."

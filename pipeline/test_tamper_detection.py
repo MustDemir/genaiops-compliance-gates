@@ -3,7 +3,7 @@
 test_tamper_detection.py — Demonstrates that the Evidence Store hash chain
 detects tampering (manipulation of stored gate decisions).
 
-This is the "smoking gun" test for the Kolloquium: it proves that if someone
+This is the "smoking gun" test for the demonstration: it proves that if someone
 changes a FAIL to PASS in the database, the hash-chain verification catches it.
 
 Part of the GenAIOps Compliance Gates PoC — Closed Loop Pipeline.
@@ -176,7 +176,7 @@ def main():
         print(f"  {RED}  The hash chain did NOT detect the manipulation!{RESET}")
         test_passed = False
 
-    print(f"\n{BOLD}  Kolloquium-Erklärung:{RESET}")
+    print(f"\n{BOLD}  Demonstration:{RESET}")
     print(f"  Jeder Eintrag im Evidence Store enthält einen SHA-256 Hash,")
     print(f"  der aus allen Feldern des Eintrags PLUS dem Hash des vorherigen")
     print(f"  Eintrags berechnet wird (Hash-Kette). Wenn jemand einen Eintrag")

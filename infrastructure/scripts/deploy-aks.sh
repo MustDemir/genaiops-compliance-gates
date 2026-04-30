@@ -9,7 +9,7 @@
 #   4. Deploy App + Evidence Store + Monitoring
 #   5. Run smoke-test
 #
-# Architecture (Thesis Kap. 5):
+# Architecture:
 #   - 3 Nodes: 1x B2ms (System) + 2x B4ms (User/Workloads)
 #   - Azure CNI Overlay (Microsoft-recommended, kubenet retiring 2028)
 #   - System-Assigned Managed Identity (no Service Principal)

@@ -4,7 +4,7 @@
 # ================================================================
 # Phase 6: Step 3 — runs AFTER install-gatekeeper.sh
 #
-# What this does (Kolloquium):
+# What this does (Overview):
 #   1. Builds the Docker image for the AI Scribe app (inside Minikube)
 #   2. Deploys PostgreSQL (Evidence Store database)
 #   3. Initializes the Evidence Store schema (v03)

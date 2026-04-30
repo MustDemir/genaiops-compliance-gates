@@ -23,5 +23,4 @@ links:
     - "Art. 15"
 sources:
   - "requirements/R003.yaml"
-  - "Thesis Tab. 5.2, 5.3, 5.4"
 notes: "DESIGN-ONLY — Rego-Implementierung als Future Work. AUTO: Gatekeeper validiert dass Zugriffskontrolle, Verschluesselung und Audit-Logs als Cluster-Ressourcen konfiguriert sind. R003 wird zusaetzlich durch G-PRE-04 (Security-Baseline) und G-DEP-02 (Safety-Metriken) operationalisiert (Mehrfachzuordnung phasenuebergreifend)."

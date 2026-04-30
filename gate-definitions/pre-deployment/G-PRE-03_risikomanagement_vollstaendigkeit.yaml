@@ -24,5 +24,4 @@ links:
     - "Art. 9"
 sources:
   - "requirements/R001.yaml"
-  - "Thesis Tab. 5.2, 5.3, 5.4"
 notes: "DESIGN-ONLY — Rego-Implementierung als Future Work. HYBRID: Conftest prueft ob Risiken identifiziert und Mitigationen vorhanden; manueller Review bewertet Qualitaet des Risikoregisters. R001 wird zusaetzlich durch G-PRE-01 operationalisiert (Mehrfachzuordnung)."
