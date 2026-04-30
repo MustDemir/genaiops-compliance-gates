@@ -8,6 +8,52 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+(no changes since v1.0.0)
+
+---
+
+## [1.0.0] — 2026-04-30 — First Stable Release
+
+### Highlights
+
+This is the first stable release of the GenAIOps Compliance Gates reference architecture. All 12 implementation phases are complete, the AKS cluster is live in Sweden Central, and the full PoC is reproducible end-to-end in 39 seconds per pipeline run. The release marks the technical instantiation of a Master's Thesis (Design Science Research, EU AI Act, Healthcare Ambient AI Scribe scenario).
+
+### Added — Layer-1 Rego Unit Tests (Shift-Left)
+
+- **103/103 OPA Rego unit tests** across all 10 Quality-Gate policies (`tests/run_all_rego_tests.sh`).
+- Test pattern coverage: 13 PASS / 54 FAIL-basic / 17 FAIL-edge / 19 HYBRID (D3-Override scenarios).
+- Layer-1 runs *before* Conftest-Gate-Checks in the CI pipeline (`feat(pipeline): add Layer-1 Rego unit tests (103/103) before Conftest gates`, commit `1ea378c6`).
+
+### Added — Appendix F (Rule-to-Test-Mapping)
+
+- `tools/extract_rule_test_mapping.py`: auto-generator for the rule-to-test mapping appendix (JSON + Markdown).
+- `docs/appendix/rule_test_mapping.{json,md}`: ground-truth artefact for academic reproducibility.
+- 10 per-gate sections with full rule inventory + test inventory + pattern classification.
+
+### Added — Genesis-Eintrag-Konvention (Hash-Chain v03)
+
+- Schema v03 migration `v02_to_v03_add_decision_method.sql`: adds `decision_method` column (AUTO / MANUAL / HYBRID).
+- Genesis-block convention for first hash-chain entry (`coalesce(NEW.previous_hash, '')` for `audit_id = 1`).
+- 13-field SHA-256 payload sequence documented in `docs/appendix/` and Schema-File comments.
+
+### Added — Red-Path Demonstration Test
+
+- Pipeline `pipeline-20260430-091901-cde6cb8a`: explicitly injected invalid `risk_class: "invalid"` to demonstrate Deploy BLOCKED.
+- All 10 gates evaluated, G-PRE-01 caught the violation, decision banner shows `❌ GATE FAILURE — Deploy BLOCKED`, exit code 1.
+- Reproducibility anchor for Walkthrough Kapitel 6.3 Red-Path scenarios.
+
+### Fixed — GATE_MAP corrections (`tools/extract_rule_test_mapping.py`)
+
+- **G-PRE-05**: requirement reference `R012` → `R004` (Human Oversight, Art. 14 — corrects historical drift between gate-YAML, policy-file, and Top-Level-Workflow vs. tooling map).
+- **G-OPS-03**: article reference `Art. 11` → `Art. 72` (Post-Market Surveillance — aligns with gate-YAML).
+- **G-OPS-05**: article reference `Art. 11` → `Art. 12` (Logging / Manipulation security — aligns with gate-YAML).
+- Appendix F regenerated against corrected GATE_MAP.
+
+### Cleanup — Repo Hygiene
+
+- Drift workflow `pipeline/.github/workflows/gate-pipeline.yml` archived to `legacy/pipeline_workflow/` with explanatory README. GitHub Actions reads only top-level `.github/workflows/`; the nested path was dead code with stale `R012` mapping.
+- Branch `claude/plan-phase-4-poc-BDn8W` deleted (was 52 commits behind main, no unmerged work).
+
 ### Repo Hygiene — 2026-04-16
 
 - **Repo-root cleanup.** Moved 56 MB of Conftest binaries (`conftest`, `conftest_*.tar.gz`) out of the repo root into `legacy/binaries/` (gitignored). Added `infrastructure/scripts/install-conftest.sh` — cross-platform (Linux/macOS, x86_64/arm64) installer that pulls the release artifact directly from GitHub.
