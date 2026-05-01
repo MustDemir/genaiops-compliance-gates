@@ -5,6 +5,7 @@ A cloud-native reference architecture for operationalizing regulatory, technical
 [![License: CC BY-NC 4.0](https://img.shields.io/badge/License-CC%20BY--NC%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc/4.0/)
 [![Changelog](https://img.shields.io/badge/Changelog-Phase%201--12-blue)](CHANGELOG.md)
 [![Documentation](https://img.shields.io/badge/Docs-published-brightgreen)](docs/README.md)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19920310.svg)](https://doi.org/10.5281/zenodo.19920310)
 
 ---
 
@@ -300,7 +301,8 @@ The thesis provides the full academic rationale including: DSR methodology (Hevn
   title        = {GenAIOps Compliance Gates: A Cloud-native Reference Architecture for EU AI Act Operationalization},
   version      = {v1.1.0},
   date         = {2026-04-30},
-  url          = {https://github.com/MustDemir/genaiops-compliance-gates},
+  doi          = {10.5281/zenodo.19920310},
+  url          = {https://doi.org/10.5281/zenodo.19920310},
   license      = {CC-BY-NC-4.0}
 }
 ```
