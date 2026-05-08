@@ -6,6 +6,14 @@
 #
 # Triggered on: push to main, pull_request to main
 #
+# Test Layers (Shift-Left, fail-fast ordering):
+#   Layer 1 — Rego Unit Tests (OPA): 103 tests across 10 policies.
+#             Runs BEFORE any Gate-Conftest-Check. Any failure aborts the
+#             pipeline immediately → prevents Conftest from evaluating
+#             policies whose rule-semantics are broken.
+#   Layer 2 — Gate Conftest Checks: 10 gates against scenario fixtures.
+#   Layer 3 — Evidence + Hash-Chain: audit-trail integrity.
+#
 # Pre-Deployment Gates (5):
 #   G-PRE-01: Risk Classification        (R001, Art.9)   — HYBRID
 #   G-PRE-04: Security Baseline          (R003, Art.15)  — AUTO
@@ -79,6 +87,16 @@ jobs:
 
       - name: Install OPA + Conftest
         run: |
+          # ── Install OPA binary (for Rego unit tests, Layer 1) ──
+          OPA_VERSION="1.15.2"
+          wget -q "https://github.com/open-policy-agent/opa/releases/download/v${OPA_VERSION}/opa_linux_amd64_static" -O opa \
+            || { echo "::error::Failed to download OPA v${OPA_VERSION}"; exit 1; }
+          chmod +x opa
+          sudo mv opa /usr/local/bin/
+          opa version
+          echo "::notice::OPA v${OPA_VERSION} installed"
+
+          # ── Install Conftest (Policy-as-Code tool for CI, Layer 2) ──
           CONFTEST_VERSION="0.56.0"
           wget -q "https://github.com/open-policy-agent/conftest/releases/download/v${CONFTEST_VERSION}/conftest_${CONFTEST_VERSION}_Linux_x86_64.tar.gz" \
             || { echo "::error::Failed to download Conftest v${CONFTEST_VERSION}"; exit 1; }
@@ -155,6 +173,34 @@ jobs:
           fi
           GATESCRIPT
           chmod +x /tmp/run_gate.sh
+
+      # ════════════════════════════════════════════════════════
+      # LAYER 1 — Rego Unit Tests (OPA, fail-fast)
+      # Runs BEFORE any Conftest gate check. Any rule-semantic failure
+      # aborts the pipeline before Gates evaluate → prevents silent
+      # rule drift. Scope: 10 policies / 103 tests
+      # (tests/run_all_rego_tests.sh).
+      # ════════════════════════════════════════════════════════
+      - name: "Rego Unit Tests (Layer 1 — 10 policies, 103 tests)"
+        id: rego-unit-tests
+        run: |
+          echo "::group::Rego Unit Tests (OPA)"
+          echo "🧪 Running OPA unit tests for all 10 Rego policies..."
+          echo "   Runner: tests/run_all_rego_tests.sh"
+          echo "   Expected: 103/103 PASS (ground-truth baseline 2026-04-17)"
+          echo ""
+
+          if ./tests/run_all_rego_tests.sh --quiet; then
+            echo "✅ Rego Unit Tests PASS — 103/103 green"
+            echo "result=PASS" >> "$GITHUB_OUTPUT"
+            echo "count=103" >> "$GITHUB_OUTPUT"
+          else
+            echo "❌ Rego Unit Tests FAIL — pipeline aborted before Gate-Checks"
+            echo "::error::Rego rule-semantics broken. Fix unit tests before re-running pipeline."
+            echo "result=FAIL" >> "$GITHUB_OUTPUT"
+            exit 1
+          fi
+          echo "::endgroup::"
 
       # ════════════════════════════════════════════════════════
       # PRE-DEPLOYMENT GATES (5)
