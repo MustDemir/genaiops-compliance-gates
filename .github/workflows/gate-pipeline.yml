@@ -23,7 +23,7 @@
 #
 # Deployment Gates (2):
 #   G-DEP-02: Safety Metrics             (R003, Art.15)  — AUTO
-#   G-DEP-03: Transparency Docs          (R007, Art.13)  — AUTO
+#   G-DEP-03: Transparency Docs          (R007, Art.13)  — HYBRID
 #
 # Operations Gates (3):
 #   G-OPS-02: Incident Process           (R009, Art.26)  — AUTO
@@ -270,7 +270,7 @@ jobs:
             "genaiops.deployment.safety_metrics"
           echo "::endgroup::"
 
-      - name: "Gate G-DEP-03: Transparency Docs (R007, Art.13) [AUTO]"
+      - name: "Gate G-DEP-03: Transparency Docs (R007, Art.13) [HYBRID]"
         id: g-dep-03
         run: |
           echo "::group::G-DEP-03 Transparency Docs"
@@ -333,7 +333,7 @@ jobs:
             "G-DEP-05:R013:${{ steps.g-dep-05.outputs.result }}:AUTO:" \
             "G-DEP-01:R002:${{ steps.g-dep-01.outputs.result }}:AUTO:" \
             "G-DEP-02:R003:${{ steps.g-dep-02.outputs.result }}:AUTO:" \
-            "G-DEP-03:R007:${{ steps.g-dep-03.outputs.result }}:AUTO:" \
+            "G-DEP-03:R007:${{ steps.g-dep-03.outputs.result }}:HYBRID:decision_log_gdep03_manual.json" \
             "G-OPS-02:R009:${{ steps.g-ops-02.outputs.result }}:AUTO:" \
             "G-OPS-03:R010:${{ steps.g-ops-03.outputs.result }}:AUTO:" \
             "G-OPS-05:R005:${{ steps.g-ops-05.outputs.result }}:AUTO:"
@@ -415,7 +415,7 @@ jobs:
           echo "║    G-DEP-01 Data Provenance:      ${{ steps.g-dep-01.outputs.result }}  [AUTO]"
           echo "║  DEPLOYMENT:"
           echo "║    G-DEP-02 Safety Metrics:       ${{ steps.g-dep-02.outputs.result }}  [AUTO]"
-          echo "║    G-DEP-03 Transparency Docs:    ${{ steps.g-dep-03.outputs.result }}  [AUTO]"
+          echo "║    G-DEP-03 Transparency Docs:    ${{ steps.g-dep-03.outputs.result }}  [HYBRID]"
           echo "║  OPERATIONS:"
           echo "║    G-OPS-02 Incident Process:     ${{ steps.g-ops-02.outputs.result }}  [AUTO]"
           echo "║    G-OPS-03 Monitoring Config:    ${{ steps.g-ops-03.outputs.result }}  [AUTO]"
@@ -518,7 +518,7 @@ jobs:
           echo "║                                                          ║"
           echo "║  Gates:  10/10 PASS (5 PRE + 2 DEP + 3 OPS)            ║"
           echo "║  Evidence: 10 records + Hash Chain Verified              ║"
-          echo "║  HYBRID: G-PRE-01, G-PRE-05 (AUTO + Manual Decision)   ║"
+          echo "║  HYBRID: G-PRE-01, G-PRE-05, G-DEP-03 (AUTO + Manual)  ║"
           echo "║                                                          ║"
           echo "║  CDV-Pattern: Contract → Validation → PASS → Deploy     ║"
           echo "╚══════════════════════════════════════════════════════════╝"
