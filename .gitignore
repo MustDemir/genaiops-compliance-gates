@@ -49,6 +49,9 @@ docs/walkthrough/pipeline_run_*.log
 *_INTERNAL.md
 # Note: /docs/ is now public — internal-only material lives in legacy/docs/
 
+# License backups
+LICENSE_pre_*.bak
+
 # Secrets
 **/secrets/
 **/credentials/
