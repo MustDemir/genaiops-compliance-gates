@@ -201,16 +201,13 @@ ok "Gatekeeper webhook ready"
 log "Deploying 3 ConstraintTemplates (Phase 1: Templates)..."
 GATEKEEPER_DIR="$K8S_DIR/gatekeeper"
 
-# Phase 1: Apply only ConstraintTemplates (first document in each file)
+# Pass 1: Apply full files. ConstraintTemplates register immediately; the
+# Constraints in the same files fail (their CRD does not exist yet) — that is
+# expected and tolerated. No Python/PyYAML dependency (system python may lack it).
 for CT_FILE in "$GATEKEEPER_DIR"/constraint-*.yaml; do
     CT_NAME=$(basename "$CT_FILE")
-    # Extract only the first YAML document (ConstraintTemplate)
-    python3 -c "
-import yaml, sys
-docs = list(yaml.safe_load_all(open('$CT_FILE')))
-print(yaml.dump(docs[0]))
-" | kubectl apply -f - 2>&1 | head -2
-    ok "$CT_NAME — ConstraintTemplate applied"
+    kubectl apply -f "$CT_FILE" 2>&1 | sed 's/^/    /' || true
+    ok "$CT_NAME — ConstraintTemplate applied (Constraint deferred to pass 2)"
 done
 
 # Wait for CTs to compile (critical: Gatekeeper needs time to register CRDs)
@@ -220,16 +217,12 @@ sleep 45
 CT_COUNT=$(kubectl get constrainttemplates --no-headers 2>/dev/null | wc -l | tr -d ' ')
 ok "ConstraintTemplates compiled: $CT_COUNT"
 
-# Phase 2: Apply Constraints (second document in each file)
+# Pass 2: Re-apply full files. CTs are unchanged; the Constraints now succeed
+# because their CRDs exist after compilation.
 log "Deploying 3 Constraints (Phase 2: Enforcement)..."
 for CT_FILE in "$GATEKEEPER_DIR"/constraint-*.yaml; do
     CT_NAME=$(basename "$CT_FILE")
-    python3 -c "
-import yaml, sys
-docs = list(yaml.safe_load_all(open('$CT_FILE')))
-if len(docs) > 1:
-    print(yaml.dump(docs[1]))
-" | kubectl apply -f - 2>&1 | head -2
+    kubectl apply -f "$CT_FILE" 2>&1 | sed 's/^/    /'
     ok "$CT_NAME — Constraint applied"
 done
 
@@ -268,13 +261,15 @@ ok "PostgreSQL ready"
 
 # Schema initialization
 log "Initializing Evidence Store schema..."
-PG_POD=$(kubectl get pod -n genaiops -l app=postgres -o jsonpath='{.items[0].metadata.name}')
+# Pod label is app.kubernetes.io/name=postgres-evidence (not app=postgres);
+# DB superuser is genaiops (POSTGRES_USER from the secret), not postgres.
+PG_POD=$(kubectl get pod -n genaiops -l app.kubernetes.io/name=postgres-evidence -o jsonpath='{.items[0].metadata.name}')
 
 if [[ -f "$SCHEMA_DIR/evidence_store_schema_v02_enterprise.sql" ]]; then
     kubectl cp "$SCHEMA_DIR/evidence_store_schema_v02_enterprise.sql" \
         "genaiops/$PG_POD:/tmp/schema_v02.sql"
     kubectl exec -n genaiops "$PG_POD" -- \
-        psql -U postgres -d genaiops -f /tmp/schema_v02.sql 2>/dev/null || \
+        psql -U genaiops -d genaiops -f /tmp/schema_v02.sql 2>/dev/null || \
         warn "Schema v02 may already exist"
     ok "Evidence Store schema v02 applied"
 fi
@@ -283,7 +278,7 @@ if [[ -f "$SCHEMA_DIR/../migrations/v02_to_v03_add_decision_method.sql" ]]; then
     kubectl cp "$SCHEMA_DIR/../migrations/v02_to_v03_add_decision_method.sql" \
         "genaiops/$PG_POD:/tmp/migration_v03.sql"
     kubectl exec -n genaiops "$PG_POD" -- \
-        psql -U postgres -d genaiops -f /tmp/migration_v03.sql 2>/dev/null || \
+        psql -U genaiops -d genaiops -f /tmp/migration_v03.sql 2>/dev/null || \
         warn "Migration v03 may already be applied"
     ok "Evidence Store migration v03 applied"
 fi
