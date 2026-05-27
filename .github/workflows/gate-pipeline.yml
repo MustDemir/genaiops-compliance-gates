@@ -19,7 +19,7 @@
 #   G-PRE-04: Security Baseline          (R003, Art.15)  — AUTO
 #   G-PRE-05: Governance Approval        (R004, Art.14)  — HYBRID
 #   G-DEP-05: Bias Assessment            (R013, Art.10)  — AUTO
-#   G-DEP-01: Data Provenance            (R002, Art.10)  — AUTO
+#   G-DEP-01: Data Provenance            (R002, Art.11; R006, Art.10 — Co-Mapping) — AUTO
 #
 # Deployment Gates (2):
 #   G-DEP-02: Safety Metrics             (R003, Art.15)  — AUTO
@@ -246,7 +246,7 @@ jobs:
             "genaiops.pre_deployment.bias_assessment_complete"
           echo "::endgroup::"
 
-      - name: "Gate G-DEP-01: Data Provenance (R002, Art.10) [AUTO]"
+      - name: "Gate G-DEP-01: Data Provenance (R002, Art.11; R006, Art.10) [AUTO]"
         id: g-dep-01
         run: |
           echo "::group::G-DEP-01 Data Provenance"

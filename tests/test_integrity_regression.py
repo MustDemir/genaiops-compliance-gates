@@ -7,19 +7,21 @@ Static regression checks for credibility risks in the GenAIOps Compliance Gates 
 This suite intentionally focuses on "does the PoC prove what it claims to prove?"
 instead of only checking functional green paths.
 
-What it checks:
-  1. Demo fallbacks that can mask missing real enforcement
-  2. Optional/non-critical handling of Evidence Store and hash-chain verification
-  3. Drift detection wiring to the Evidence Store
-  4. HYBRID gate consistency signals
-  5. Soft-skip patterns in core tests
-  6. False-green smoke test behavior
-  7. Walkthrough reproducibility against current policy paths
-  8. Monitoring stub remnants in the main deployment
-  9. Scope-claim mismatches between README and CI enforcement
-  10. Fallback coverage gaps — gates that silently default to PASS
-  11. Rego-to-fallback field parity — same gate, different checks
-  12. CI Conftest error visibility — stderr/exit code suppression
+What it checks (14 checks, fail-fast ordering):
+  1.  Demo fallbacks that can mask missing real enforcement (check_orchestrator_fallbacks)
+  2.  Optional/non-critical handling of Evidence Store recording (check_ci_evidence_mandatory)
+  3.  Drift detection wiring to the Evidence Store (check_drift_evidence_wiring)
+  4.  Inline monitoring fallback patterns (check_inline_monitoring_fallback)
+  5.  HYBRID gate manual-source consistency (check_hybrid_manual_sources)
+  6.  Local pipeline HYBRID semantics (check_local_pipeline_hybrid_semantics)
+  7.  Requirements-mapping test reads R0xx.yaml files (check_requirements_mapping_test)
+  8.  False-green smoke test behavior (check_smoke_test_false_green)
+  9.  Walkthrough reproducibility against current policy paths (check_walkthrough_policy_paths)
+  10. Monitoring stub remnants in the main deployment (check_monitoring_stub_removed)
+  11. Scope-claim mismatches between README and CI enforcement (check_scope_claims)
+  12. Fallback coverage gaps — gates that silently default to PASS (check_fallback_coverage_gaps)
+  13. Rego-to-fallback field parity — same gate, different checks (check_rego_fallback_parity)
+  14. CI Conftest error visibility — stderr/exit code suppression (check_ci_conftest_errors_visible)
 
 Usage:
   python3 test_integrity_regression.py
