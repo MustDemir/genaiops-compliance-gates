@@ -276,10 +276,18 @@ def build_record(
     inserted_by = source_data.get("reviewed_by", "pipeline_automation") if method == "MANUAL" else "pipeline_automation"
     payload_id = source_data.get("payload_id", str(uuid.uuid4()))
 
-    # Notes: include rationale for MANUAL decisions
+    # Notes: rationale for MANUAL decisions, and SHOULD advisories (warn).
+    # `notes` is NOT part of the hashed payload, so advisory findings are
+    # persisted for the auditor without affecting hash-chain integrity.
     notes = ""
     if method == "MANUAL" and "rationale" in source_data:
         notes = source_data["rationale"]
+    advisories = source_data.get("warnings", [])
+    if advisories:
+        advisory_text = "; ".join(
+            w.get("msg", str(w)) if isinstance(w, dict) else str(w) for w in advisories
+        )
+        notes = (notes + " | " if notes else "") + f"ADVISORY [SHOULD]: {advisory_text}"
 
     hash_value = compute_hash(
         previous_hash=previous_hash,

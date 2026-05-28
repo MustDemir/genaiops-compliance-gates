@@ -113,6 +113,17 @@ print(f"{BOLD}  GenAIOps PoC — Master Integration Test{RESET}")
 print(f"{BOLD}  Validating ALL phases locally{RESET}")
 print(f"{BOLD}{'═' * 65}{RESET}\n")
 
+# Preflight: the consistency/traceability checks (Phase 7) parse YAML in
+# subprocesses. Without PyYAML they fail with an opaque ModuleNotFoundError
+# that looks like a real defect — surface a clear hint instead.
+_yaml_probe = subprocess.run(
+    [sys.executable, "-c", "import yaml"], capture_output=True, text=True
+)
+if _yaml_probe.returncode != 0:
+    print(f"{YELLOW}{BOLD}⚠ PyYAML is not installed for {sys.executable}.{RESET}")
+    print(f"{YELLOW}  Phase 7 consistency/traceability checks will fail spuriously.{RESET}")
+    print(f"{YELLOW}  Fix: pip install -r requirements.txt  (see repo root){RESET}\n")
+
 
 # ══════════════════════════════════════════════════════════════
 # Phase 1: YAML Validation (Gate Definitions, K8s Manifests)
@@ -246,6 +257,12 @@ hybrid_test = REPO_ROOT / "evidence-store" / "scripts" / "tests" / "test_hybrid_
 if hybrid_test.exists():
     run_test("Evidence", "Hybrid Gate Integration Test",
              [sys.executable, str(hybrid_test)])
+
+# Hash-payload field parity (record_evidence ↔ verify_hash_chain ↔ v03 SQL trigger)
+parity_test = REPO_ROOT / "tests" / "test_hash_parity.py"
+if parity_test.exists():
+    run_test("Evidence", "Hash-Payload Parity (Python ↔ SQL trigger)",
+             [sys.executable, str(parity_test)])
 
 
 # ══════════════════════════════════════════════════════════════

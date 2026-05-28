@@ -92,7 +92,8 @@ genaiops-compliance-gates/
 │   └── migrations/             # Schema migration scripts
 ├── monitoring/                 # Drift detection, PMS, sidecar configuration
 ├── infrastructure/
-│   ├── terraform/              # Azure AKS, PostgreSQL, Blob Storage provisioning
+│   ├── scripts/                # AKS/Minikube provisioning via Azure CLI (deploy-aks.sh etc.)
+│   ├── terraform/              # Reserved for declarative IaC (not part of PoC; see terraform/README.md)
 │   └── helm/                   # Kubernetes deployments (OPA Gatekeeper, app, monitoring)
 ├── scenarios/
 │   └── healthcare-ambient-ai-scribe/  # PoC scenario: High-risk AI (Art. 6 (1) + Annex I No. 11 MDR)
@@ -109,7 +110,7 @@ genaiops-compliance-gates/
 | **CI/CD** | GitHub Actions | Pipeline orchestration with gate stages |
 | **Evidence Store** | Azure PostgreSQL + Blob Storage | Structured metadata + unstructured artifacts |
 | **Monitoring** | Prometheus, Grafana, OpenTelemetry | Metrics, drift detection, alerting |
-| **IaC** | Terraform, Helm | Infrastructure provisioning + app deployment |
+| **IaC** | Azure CLI scripts, Helm | Infrastructure provisioning + app deployment (Terraform reserved, not in PoC) |
 | **GenAI Runtime** | Azure OpenAI Service, LangChain | LLM inference, RAG pipeline |
 
 ## Quality Gate Framework
@@ -169,7 +170,7 @@ This six-level traceability chain ensures that for any audit finding, the path b
 ### Prerequisites
 
 - Azure subscription with AKS enabled
-- Terraform >= 1.5
+- Azure CLI (`az`) >= 2.50 — used by `infrastructure/scripts/deploy-aks.sh`
 - Helm >= 3.12
 - OPA/Conftest CLI — install via `./infrastructure/scripts/install-conftest.sh`
 - kubectl configured for AKS cluster
@@ -198,17 +199,18 @@ make aks-down
 **Detailed manual flow** (if you want to run the steps individually):
 
 ```bash
-# 1. Provision infrastructure
-cd infrastructure/terraform && terraform init && terraform apply
+# 1. Provision infrastructure (AKS + ACR + stack) via Azure CLI
+bash infrastructure/scripts/deploy-aks.sh
 
 # 2. Deploy OPA Gatekeeper
-cd ../helm && helm install gatekeeper gatekeeper/gatekeeper --namespace gatekeeper-system
+cd infrastructure/helm && helm install gatekeeper gatekeeper/gatekeeper --namespace gatekeeper-system
 
 # 3. Apply policies
 cd ../../policies && conftest test --policy pre-deployment/ scenarios/healthcare-ambient-ai-scribe/
 
-# 4. Initialize Evidence Store
-cd ../evidence-store && psql -f schema/evidence_store_schema_v02_enterprise.sql
+# 4. Initialize Evidence Store (v02 base schema + v03 decision_method migration)
+cd ../evidence-store && psql -f schema/evidence_store_schema_v02_enterprise.sql \
+  && psql -f migrations/v02_to_v03_add_decision_method.sql
 
 # 5. Run pipeline with gates — see pipeline/.github/workflows/ for CI/CD integration
 ```
@@ -268,9 +270,9 @@ cd ../evidence-store && psql -f schema/evidence_store_schema_v02_enterprise.sql
 | Closed-Loop Pipeline | done | gate_orchestrator.py: 3 scenarios (PASS/FAIL/Gatekeeper), tamper detection |
 | Drift Detection | done | drift_detector.py (PSI+JSD), CronJob + Prometheus/Grafana/AlertManager |
 | GitHub Actions Pipeline | done | gate-pipeline.yml (10 CI gates + Evidence + Hash-Chain + Docker Push), test_pipeline_local.sh |
-| Master Integration Test | done | tests/test_all.py: 22/22 PASS across all 5 pillars |
+| Master Integration Test | done | tests/test_all.py: 31/31 PASS across all 5 pillars |
 | Integrity Regression Suite | done | tests/test_integrity_regression.py: credibility checks for fallbacks, evidence strictness, HYBRID consistency, walkthrough drift |
-| Terraform/Helm (Azure) | done | AKS Sweden Central live 2026-04-13 (kube-prometheus-stack via Helm, OPA Gatekeeper mit 3 ConstraintTemplates runtime, PostgreSQL + Hash-Chain-Triggern im Cluster-Pod) |
+| Azure CLI/Helm (Azure) | done | AKS Sweden Central live 2026-04-13 (kube-prometheus-stack via Helm, OPA Gatekeeper mit 3 ConstraintTemplates runtime, PostgreSQL + Hash-Chain-Triggern im Cluster-Pod) |
 
 ## Integrity Regression Suite
 

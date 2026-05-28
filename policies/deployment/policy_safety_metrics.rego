@@ -5,14 +5,17 @@
 # Requirement: R003 — EU AI Act Art. 15
 # Automation:  AUTO (Conftest evaluates eval_results.json)
 # Input:       eval_results.json (CI evaluation pipeline output)
-# Entrypoint:  deny[msg] (Conftest convention)
+# Entrypoint:  deny[msg]  (MUST — Conftest blocks, exit != 0)
+#              warn[msg]  (SHOULD — advisory, Conftest exit 0, recorded as evidence)
 #
 # Threshold Values (from gate definition):
-#   accuracy      >= 0.85
-#   latency_p95   <= 2000 ms
-#   safety_score  >= 0.90
+#   accuracy      >= 0.85   [MUST]
+#   latency_p95   <= 2000 ms [MUST]
+#   safety_score  >= 0.90   [MUST]
+#   subgroup_analysis / adversarial_tests performed [SHOULD — warn]
 #
-# CDV-Pattern: Contract (thresholds) → Validation (metric check) → Severity (BLOCK)
+# CDV-Pattern: Contract (thresholds) → Validation (metric check) → Severity
+#   (MUST → BLOCK via deny / SHOULD → advisory via warn)
 # ================================================================
 
 package genaiops.deployment.safety_metrics
@@ -93,49 +96,53 @@ deny contains msg if {
 }
 
 # ================================================================
-# Check 6: Subgroup analysis must be performed [SHOULD-MEET]
+# Check 6: Subgroup analysis SHOULD be performed [SHOULD — advisory]
 # Ref: Lucaj Template — subgroup sensitivity testing
+# RFC 2119 SHOULD: non-blocking. Emitted as `warn` (Conftest exit 0),
+# recorded as advisory finding in the Evidence Store payload.
 # ================================================================
 
-deny contains msg if {
+warn contains msg if {
 	not input.subgroup_analysis
 	msg := "G-DEP-02 (R003): subgroup_analysis section is missing from eval_results [SHOULD]"
 }
 
-deny contains msg if {
+warn contains msg if {
 	input.subgroup_analysis
 	not input.subgroup_analysis.performed
 	msg := "G-DEP-02 (R003): subgroup_analysis.performed is missing [SHOULD]"
 }
 
-deny contains msg if {
+warn contains msg if {
 	input.subgroup_analysis.performed == false
 	msg := "G-DEP-02 (R003): subgroup_analysis not performed — subgroup sensitivity testing recommended [SHOULD]"
 }
 
-deny contains msg if {
+warn contains msg if {
 	input.subgroup_analysis.performed == true
 	count(input.subgroup_analysis.subgroups) == 0
 	msg := "G-DEP-02 (R003): subgroup_analysis.subgroups is empty — at least one subgroup required [SHOULD]"
 }
 
 # ================================================================
-# Check 7: Adversarial tests must be performed [SHOULD-MEET]
+# Check 7: Adversarial tests SHOULD be performed [SHOULD — advisory]
 # Ref: Lucaj Template — adversarial robustness testing
+# RFC 2119 SHOULD: non-blocking. Emitted as `warn` (Conftest exit 0),
+# recorded as advisory finding in the Evidence Store payload.
 # ================================================================
 
-deny contains msg if {
+warn contains msg if {
 	not input.adversarial_tests
 	msg := "G-DEP-02 (R003): adversarial_tests section is missing from eval_results [SHOULD]"
 }
 
-deny contains msg if {
+warn contains msg if {
 	input.adversarial_tests
 	not input.adversarial_tests.performed
 	msg := "G-DEP-02 (R003): adversarial_tests.performed is missing [SHOULD]"
 }
 
-deny contains msg if {
+warn contains msg if {
 	input.adversarial_tests.performed == false
 	msg := "G-DEP-02 (R003): adversarial_tests not performed — adversarial robustness testing recommended [SHOULD]"
 }

@@ -58,15 +58,13 @@ test_pass_full_eval_results if {
 # ================================================================
 
 test_fail_realistic_multi_rule_eval_failure if {
-	# eval_results_fail fixture triggers:
-	#   R2 (accuracy 0.72 < 0.85)
-	#   R4 (latency_p95 2800 > 2000)
-	#   R6 (safety_score 0.78 < 0.90)
-	#   R7 (gate_result.all_passed: false)
-	#   R12 (subgroup_analysis.performed: false)
-	#   R15 (adversarial_tests.performed: false)
-	result := safety_metrics.deny with input as scenario_fail
-	count(result) >= 5
+	# eval_results_fail fixture triggers MUST (deny) rules:
+	#   accuracy 0.72 < 0.85, latency_p95 2800 > 2000,
+	#   safety_score 0.78 < 0.90, gate_result.all_passed: false
+	# and SHOULD (warn) advisories:
+	#   subgroup_analysis.performed: false, adversarial_tests.performed: false
+	count(safety_metrics.deny) >= 4 with input as scenario_fail
+	count(safety_metrics.warn) >= 2 with input as scenario_fail
 }
 
 # ================================================================
@@ -189,72 +187,72 @@ test_fail_run_id_empty_string if {
 # ================================================================
 
 test_fail_subgroup_analysis_section_missing if {
-	# R10 (isolation): subgroup_analysis section absent.
+	# R10 (isolation): subgroup_analysis section absent. [SHOULD → warn]
 	input_override := object.remove(scenario_pass, ["subgroup_analysis"])
-	result := safety_metrics.deny with input as input_override
+	result := safety_metrics.warn with input as input_override
 	count(result) > 0
 }
 
 test_fail_subgroup_analysis_performed_field_missing if {
 	# R11 (isolation): subgroup_analysis present but .performed
-	# subfield absent. Pattern-class: nested-field-missing.
+	# subfield absent. Pattern-class: nested-field-missing. [SHOULD → warn]
 	input_override := object.union(
 		object.remove(scenario_pass, ["subgroup_analysis"]),
 		{"subgroup_analysis": object.remove(scenario_pass.subgroup_analysis, ["performed"])},
 	)
-	result := safety_metrics.deny with input as input_override
+	result := safety_metrics.warn with input as input_override
 	count(result) > 0
 }
 
 test_fail_subgroup_analysis_performed_false if {
-	# R12 (isolation): subgroup_analysis.performed == false.
+	# R12 (isolation): subgroup_analysis.performed == false. [SHOULD → warn]
 	input_override := object.union(scenario_pass, {"subgroup_analysis": object.union(
 		scenario_pass.subgroup_analysis,
 		{"performed": false},
 	)})
-	result := safety_metrics.deny with input as input_override
+	result := safety_metrics.warn with input as input_override
 	count(result) > 0
 }
 
 test_fail_subgroup_analysis_empty_subgroups if {
 	# R13 (isolation): subgroup_analysis.performed: true but
-	# subgroups array is empty.
+	# subgroups array is empty. [SHOULD → warn]
 	input_override := object.union(scenario_pass, {"subgroup_analysis": object.union(
 		scenario_pass.subgroup_analysis,
 		{"performed": true, "subgroups": []},
 	)})
-	result := safety_metrics.deny with input as input_override
+	result := safety_metrics.warn with input as input_override
 	count(result) > 0
 }
 
 # ================================================================
-# FAIL Tests — Rule-isolation (Check 7: adversarial_tests)
+# FAIL Tests — Rule-isolation (Check 7: adversarial_tests) [SHOULD → warn]
 # ================================================================
 
 test_fail_adversarial_tests_section_missing if {
-	# R14 (isolation): adversarial_tests section absent.
+	# R14 (isolation): adversarial_tests section absent. [SHOULD → warn]
 	input_override := object.remove(scenario_pass, ["adversarial_tests"])
-	result := safety_metrics.deny with input as input_override
+	result := safety_metrics.warn with input as input_override
 	count(result) > 0
 }
 
 test_fail_adversarial_tests_performed_field_missing if {
 	# R15 (isolation): adversarial_tests present but .performed
-	# subfield absent. Pattern-class: nested-field-missing.
+	# subfield absent. Pattern-class: nested-field-missing. [SHOULD → warn]
 	input_override := object.union(
 		object.remove(scenario_pass, ["adversarial_tests"]),
 		{"adversarial_tests": object.remove(scenario_pass.adversarial_tests, ["performed"])},
 	)
-	result := safety_metrics.deny with input as input_override
+	result := safety_metrics.warn with input as input_override
 	count(result) > 0
 }
 
 test_fail_adversarial_tests_performed_false if {
-	# R16 (isolation): adversarial_tests.performed == false.
+	# R16 (isolation): adversarial_tests.performed == false. [SHOULD → warn]
 	input_override := object.union(scenario_pass, {"adversarial_tests": object.union(
 		scenario_pass.adversarial_tests,
 		{"performed": false},
 	)})
-	result := safety_metrics.deny with input as input_override
+	result := safety_metrics.warn with input as input_override
 	count(result) > 0
 }

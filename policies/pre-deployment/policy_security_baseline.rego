@@ -10,7 +10,7 @@
 # CDV-Contract (6 checks):
 #   P1: runAsNonRoot + runAsUser > 0          [MUST]  — CIS 5.2.6
 #   P2: resources.limits (CPU + Memory)        [MUST]  — CIS 5.4.x
-#   P3: readOnlyRootFilesystem: true           [SHOULD] — CIS 5.2.9
+#   P3: readOnlyRootFilesystem: true           [MUST] — CIS 5.2.9
 #   P4: no secrets in env (plain values)       [MUST]
 #   P5: (slim base image — checked via Dockerfile, not here)
 #   P6: allowPrivilegeEscalation: false        [MUST]  — CIS 5.2.5
@@ -75,21 +75,21 @@ deny contains msg if {
 }
 
 # ================================================================
-# P3: Read-Only Root Filesystem (CIS 5.2.9) [SHOULD]
+# P3: Read-Only Root Filesystem (CIS 5.2.9) [MUST]
 # ================================================================
-# Note: SHOULD-level — generates warning-style denial.
-# Waiverable with Security Lead approval (14 days).
+# One of the six enforced container-security rules of the G-PRE-04
+# contract (blocking). Waiverable with Security Lead approval (14 days).
 
 deny contains msg if {
 	some container in _containers
 	not container.securityContext.readOnlyRootFilesystem
-	msg := sprintf("G-PRE-04/P3 (R003): container '%s' should set readOnlyRootFilesystem: true [SHOULD]", [container.name])
+	msg := sprintf("G-PRE-04/P3 (R003): container '%s' must set readOnlyRootFilesystem: true", [container.name])
 }
 
 deny contains msg if {
 	some container in _containers
 	container.securityContext.readOnlyRootFilesystem == false
-	msg := sprintf("G-PRE-04/P3 (R003): container '%s' has readOnlyRootFilesystem: false — writable root filesystem [SHOULD]", [container.name])
+	msg := sprintf("G-PRE-04/P3 (R003): container '%s' has readOnlyRootFilesystem: false — writable root filesystem", [container.name])
 }
 
 # ================================================================

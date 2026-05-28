@@ -1,0 +1,24 @@
+# ================================================================
+# Dev / test dependencies for the GenAIOps Compliance Gates PoC
+# ================================================================
+# Install (Python 3.10–3.13 recommended):
+#   python3 -m venv .venv && source .venv/bin/activate
+#   pip install -r requirements.txt
+#
+# Then run the full local suite (no Kubernetes needed):
+#   python tests/test_all.py
+#   bash   tests/run_all_rego_tests.sh   # requires `opa` on PATH
+#
+# Notes:
+#   - PyYAML is REQUIRED: gate-definitions, scenarios and the
+#     consistency/traceability checks in tests/test_all.py parse YAML.
+#   - psycopg2-binary is OPTIONAL: only needed to run the Evidence Store
+#     against PostgreSQL. Local tests use SQLite and do not need it.
+#   - The runtime application has its own pinned deps in
+#     scenarios/healthcare-ambient-ai-scribe/app/requirements.txt
+#   - OPA and Conftest are external binaries (not pip): see
+#     infrastructure/scripts/install-conftest.sh
+# ================================================================
+
+PyYAML>=6.0
+psycopg2-binary>=2.9 ; python_version < "3.13"

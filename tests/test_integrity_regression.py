@@ -302,7 +302,7 @@ def check_smoke_test_false_green() -> dict:
 
 
 def check_walkthrough_policy_paths() -> dict:
-    path = REPO_ROOT / "docs" / "reference" / "WALKTHROUGH_KAP63.md"
+    path = REPO_ROOT / "docs" / "walkthrough" / "WALKTHROUGH_KAP63.md"
     text = read_text(path)
     missing = []
 
@@ -597,23 +597,38 @@ def check_ci_conftest_errors_visible() -> dict:
 
 
 def collect_results() -> list[dict]:
-    return [
-        check_orchestrator_fallbacks(),
-        check_ci_evidence_mandatory(),
-        check_drift_evidence_wiring(),
-        check_inline_monitoring_fallback(),
-        check_hybrid_manual_sources(),
-        check_local_pipeline_hybrid_semantics(),
-        check_requirements_mapping_test(),
-        check_smoke_test_false_green(),
-        check_walkthrough_policy_paths(),
-        check_monitoring_stub_removed(),
-        check_scope_claims(),
+    checks = [
+        check_orchestrator_fallbacks,
+        check_ci_evidence_mandatory,
+        check_drift_evidence_wiring,
+        check_inline_monitoring_fallback,
+        check_hybrid_manual_sources,
+        check_local_pipeline_hybrid_semantics,
+        check_requirements_mapping_test,
+        check_smoke_test_false_green,
+        check_walkthrough_policy_paths,
+        check_monitoring_stub_removed,
+        check_scope_claims,
         # Additional checks from cross-analysis review
-        check_fallback_coverage_gaps(),
-        check_rego_fallback_parity(),
-        check_ci_conftest_errors_visible(),
+        check_fallback_coverage_gaps,
+        check_rego_fallback_parity,
+        check_ci_conftest_errors_visible,
     ]
+    results = []
+    for check in checks:
+        try:
+            results.append(check())
+        except Exception as exc:
+            # A single broken check (e.g. a moved file) must not crash the
+            # whole suite — report it as a high-severity failure instead.
+            results.append(make_result(
+                check.__name__,
+                f"{check.__name__} raised an exception",
+                "high",
+                False,
+                f"Check could not run: {type(exc).__name__}: {exc}",
+            ))
+    return results
 
 
 def failing_results(results: list[dict], fail_on: str) -> list[dict]:

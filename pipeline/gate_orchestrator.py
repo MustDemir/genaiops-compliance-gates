@@ -121,18 +121,23 @@ def evaluate_gate_with_conftest(policy_path: str, fixture_path: str) -> dict:
         )
         output = json.loads(result.stdout) if result.stdout.strip() else []
 
-        # Conftest JSON output: list of file results
+        # Conftest JSON output: list of file results.
+        # `failures` = deny (MUST, blocking); `warnings` = warn (SHOULD, advisory).
         failures = []
+        warnings = []
         successes = []
         for file_result in output:
             failures.extend(file_result.get("failures", []))
+            warnings.extend(file_result.get("warnings", []))
             successes.extend(file_result.get("successes", []))
 
         return {
             "tool": "conftest",
             "failures": failures,
+            "warnings": warnings,
             "successes": successes,
             "failure_count": len(failures),
+            "warning_count": len(warnings),
             "success_count": len(successes),
             "decision": "FAIL" if failures else "PASS",
             "raw_output": output,
@@ -329,15 +334,19 @@ def evaluate_gate_from_fixture(fixture_path: str, gate_id: str) -> dict:
 
         if not ev.get("run_id"):
             failures.append({"msg": "evaluation.run_id is required"})
+
+        # SHOULD criteria (RFC 2119): advisory, non-blocking — mirror Rego `warn`.
+        warnings = []
         if not sg.get("performed"):
-            failures.append({"msg": "subgroup_analysis.performed is required"})
+            warnings.append({"msg": "subgroup_analysis.performed is missing [SHOULD]"})
         if not at.get("performed"):
-            failures.append({"msg": "adversarial_tests.performed is required"})
+            warnings.append({"msg": "adversarial_tests.performed is missing [SHOULD]"})
 
         return {
             "tool": "fixture-eval",
             "decision": "FAIL" if failures else "PASS",
             "failures": failures,
+            "warnings": warnings,
         }
 
     elif gate_id == "G-PRE-04":
@@ -534,6 +543,7 @@ def record_to_evidence_store(
             "decision": eval_result.get("decision", "PASS"),
             "tool": eval_result.get("tool", "fixture-eval"),
             "failures": eval_result.get("failures", []),
+            "warnings": eval_result.get("warnings", []),
             "source_fixture": fixture_path,
             "evaluated_at": datetime.now(timezone.utc).isoformat(),
         }
