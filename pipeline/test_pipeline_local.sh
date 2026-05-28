@@ -138,7 +138,10 @@ except:
   # Record evidence (unless --dry-run)
   if [ "$DRY_RUN" = false ]; then
     # Create temp JSON source for record_evidence.py
-    local EVIDENCE_SOURCE="/tmp/evidence_${GATE_ID,,}.json"
+    # (portable lowercase via tr — macOS ships bash 3.2 without ${VAR,,})
+    local GATE_ID_LC
+    GATE_ID_LC=$(printf '%s' "$GATE_ID" | tr '[:upper:]' '[:lower:]')
+    local EVIDENCE_SOURCE="/tmp/evidence_${GATE_ID_LC}.json"
     echo "{\"pipeline_run_id\": \"$PIPELINE_RUN_ID\", \"commit_sha\": \"$COMMIT_SHA\", \"gate_id\": \"$GATE_ID\", \"requirement_id\": \"$REQ_ID\", \"decision\": \"$DECISION\", \"conftest_failures\": $FAILURES}" > "$EVIDENCE_SOURCE"
 
     python3 "$REPO_ROOT/evidence-store/scripts/record_evidence.py" \
