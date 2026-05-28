@@ -239,7 +239,7 @@ cd ../evidence-store && psql -f schema/evidence_store_schema_v02_enterprise.sql
 | **9** | Drift Detection (PSI/JSD + Prometheus + Grafana) | `████████████████████` 100% | done |
 | **10** | GitHub Actions Pipeline (Conftest CI + Evidence) | `████████████████████` 100% | done |
 | **11** | Green/Red Path Walkthrough + Screenshots | `████████████████████` 100% | done |
-| **12** | Azure AKS Migration (Sweden Central, LoadBalancer 74.241.179.251) | `████████████████████` 100% | done |
+| **12** | Azure AKS Migration (Sweden Central, LoadBalancer) | `████████████████████` 100% | done |
 <!-- PROGRESS-END -->
 
 ### Artefakt-Status
