@@ -68,7 +68,7 @@ First stable public release of the GenAIOps Compliance Gates reference architect
 
 ### Added
 - AKS deployment scripts: `infrastructure/scripts/deploy-aks.sh`, `teardown-aks.sh`.
-- 3-node AKS cluster in Sweden Central, LoadBalancer at `74.241.179.251`.
+- 3-node AKS cluster in Sweden Central, exposed via LoadBalancer service.
 - OPA Gatekeeper installed cluster-wide with 3 ConstraintTemplates enforced at runtime.
 - PostgreSQL evidence store deployed in-cluster with hash-chain triggers.
 - `kube-prometheus-stack` installed via Helm for monitoring.
