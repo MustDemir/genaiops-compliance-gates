@@ -218,6 +218,10 @@ cd ../evidence-store && psql -f schema/evidence_store_schema_v02_enterprise.sql
 > Strategie: Lokal-first (Phase 1–11 kostenlos auf Minikube), Azure erst Phase 12. Geschaetzter Aufwand: ~30–42h ueber 4–6 Wochen.
 >
 > **Reproduzierbarkeits-Anker:** [GitHub Actions Run #21](https://github.com/MustDemir/genaiops-compliance-gates/actions/runs/24589487911) (2026-04-17, success in 39 s, all 10 gates PASS, hash-chain verified).
+>
+> **AKS-Verifikation – 1. Lauf:** 2026-04-13, Erst-Instanziierung (Green/Red Path, 24 Screenshots → Thesis Anhang C).
+>
+> **AKS-Verifikation – 2. Lauf:** 2026-05-27, unabhängiges Re-Deployment zur Bestätigung der Reproduzierbarkeit (Green-Path ADMIT, Red-Path REJECT, Evidence Store v02+v03, Monitoring); zwei `deploy-aks.sh`-Defekte behoben → Instanziierung in einem Durchlauf. Details: [docs/session-logs/2026-05-27-aks-redeploy-verification.md](docs/session-logs/2026-05-27-aks-redeploy-verification.md).
 
 <!-- PROGRESS-START -->
 > Gesamtfortschritt: `████████████████████` **100%** (12/12 Phasen)
@@ -289,7 +293,7 @@ This suite is intended to catch PoC-credibility risks such as:
 
 This implementation is the technical instantiation of a Design Science Research (DSR) artifact developed as part of a master's thesis:
 
-> **Demir, M. (2026).** *Cloud-native Referenzarchitektur für GenAIOps mit Quality-Gate-Kontrollsystem zur lifecycle-integrierten Operationalisierung normativer Anforderungen — auf Basis des EU AI Act.* M.Sc. Thesis, SRH Fernhochschule. [Thesis Repository →](https://github.com/MustDemir/Masterarbeit-GenAIOps-Referenzarchitektur)
+> **Demir, M. (2026).** *Cloud-native Referenzarchitektur für GenAIOps mit Quality-Gate-Kontrollsystem zur lifecycle-integrierten Operationalisierung regulatorischer, technischer und strategischer Anforderungen.* M.Sc. Thesis, SRH Fernhochschule. [Thesis Repository →](https://github.com/MustDemir/Masterarbeit-GenAIOps-Referenzarchitektur)
 
 The thesis provides the full academic rationale including: DSR methodology (Hevner/Peffers/vom Brocke), requirements derivation from EU AI Act, convergence analysis with NIST AI RMF, and expert evaluation.
 

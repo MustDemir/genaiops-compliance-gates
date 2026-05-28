@@ -57,7 +57,7 @@ identifiers:
     description: "GitHub repository"
 references:
   - type: thesis
-    title: "Cloud-native Referenzarchitektur für GenAIOps mit Quality-Gate-Kontrollsystem zur lifecycle-integrierten Operationalisierung normativer Anforderungen — auf Basis des EU AI Act"
+    title: "Cloud-native Referenzarchitektur für GenAIOps mit Quality-Gate-Kontrollsystem zur lifecycle-integrierten Operationalisierung regulatorischer, technischer und strategischer Anforderungen"
     authors:
       - family-names: Demir
         given-names: Mustafa
