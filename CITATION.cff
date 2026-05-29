@@ -50,12 +50,15 @@ abstract: >-
   Ambient AI Scribe scenario. The architecture is the technical
   instantiation (DSR artefact) of a Master's thesis at SRH Fernhochschule.
 identifiers:
-  # PREFERRED CITATION: replace the value below with the Zenodo CONCEPT DOI
-  # ("Cite all versions" box on the Zenodo record) — it always resolves to the
-  # latest version, incl. v2.0.0 once the GitHub release is published.
+  - type: doi
+    value: "10.5281/zenodo.19917413"
+    description: "Zenodo Concept DOI (all versions) — preferred citation; always resolves to the latest version."
+  - type: doi
+    value: "10.5281/zenodo.20450339"
+    description: "Zenodo version DOI (v2.0.0)"
   - type: doi
     value: "10.5281/zenodo.19920310"
-    description: "Zenodo version DOI for v1.1.0 (historical). TODO post-release: set Concept DOI as primary + add v2.0.0 version DOI."
+    description: "Zenodo version DOI (v1.1.0, historical)"
   - type: url
     value: "https://github.com/MustDemir/genaiops-compliance-gates"
     description: "GitHub repository"
