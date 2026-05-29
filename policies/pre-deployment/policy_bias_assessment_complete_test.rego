@@ -1,7 +1,7 @@
 # ================================================================
 # G-DEP-05: Bias Assessment Complete — UNIT TESTS
 # ================================================================
-# Tests:       policy_bias_assessment_complete.rego (10 deny-rules)
+# Tests:       policy_bias_assessment_complete.rego (10 warn-rules; R013 = SHOULD)
 # Convention:  OPA Rego Unit Tests (opa test policies/ tests/fixtures/ -v)
 # Pattern:     PASS + realistic-single-rule-FAIL (fixture, count == 1)
 #              + 10× rule-isolation-FAIL
@@ -54,7 +54,7 @@ test_pass_full_bias_assessment if {
 	# methods + protected_attributes + fairness_results (metrics,
 	# bias_detected=false) + mitigation_measures=[] (permitted
 	# because R10 only triggers when bias_detected=true).
-	count(bias_assessment_complete.deny) == 0 with input as scenario_pass
+	count(bias_assessment_complete.warn) == 0 with input as scenario_pass
 }
 
 # ================================================================
@@ -68,7 +68,7 @@ test_fail_realistic_missing_mitigation_single_rule if {
 	# Strengthened assertion count==1 verifies exclusivity —
 	# any future rule addition that trips this fixture breaks
 	# the test intentionally.
-	result := bias_assessment_complete.deny with input as scenario_fail
+	result := bias_assessment_complete.warn with input as scenario_fail
 	count(result) == 1
 }
 
@@ -80,7 +80,7 @@ test_fail_missing_bias_detection_section if {
 	# R1 (isolation): entire bias_detection section absent.
 	# Art. 10(2)(f) + Art. 9 Abs. 2 lit. a violation.
 	input_override := {}
-	result := bias_assessment_complete.deny with input as input_override
+	result := bias_assessment_complete.warn with input as input_override
 	count(result) > 0
 }
 
@@ -95,7 +95,7 @@ test_fail_missing_methods_field if {
 		"protected_attributes": scenario_pass.bias_detection.protected_attributes,
 		"fairness_results": scenario_pass.bias_detection.fairness_results,
 	}}
-	result := bias_assessment_complete.deny with input as input_override
+	result := bias_assessment_complete.warn with input as input_override
 	count(result) > 0
 }
 
@@ -105,7 +105,7 @@ test_fail_empty_methods_array if {
 		scenario_pass.bias_detection,
 		{"methods": []},
 	)})
-	result := bias_assessment_complete.deny with input as input_override
+	result := bias_assessment_complete.warn with input as input_override
 	count(result) > 0
 }
 
@@ -120,7 +120,7 @@ test_fail_missing_fairness_results_field if {
 		"methods": scenario_pass.bias_detection.methods,
 		"protected_attributes": scenario_pass.bias_detection.protected_attributes,
 	}}
-	result := bias_assessment_complete.deny with input as input_override
+	result := bias_assessment_complete.warn with input as input_override
 	count(result) > 0
 }
 
@@ -142,7 +142,7 @@ test_fail_missing_metrics_field if {
 			"evaluation_date": "2026-03-15",
 		},
 	}}
-	result := bias_assessment_complete.deny with input as input_override
+	result := bias_assessment_complete.warn with input as input_override
 	count(result) > 0
 }
 
@@ -157,7 +157,7 @@ test_fail_empty_metrics_array if {
 			"metrics": [],
 		},
 	}}
-	result := bias_assessment_complete.deny with input as input_override
+	result := bias_assessment_complete.warn with input as input_override
 	count(result) > 0
 }
 
@@ -172,7 +172,7 @@ test_fail_missing_protected_attributes_field if {
 		"methods": scenario_pass.bias_detection.methods,
 		"fairness_results": scenario_pass.bias_detection.fairness_results,
 	}}
-	result := bias_assessment_complete.deny with input as input_override
+	result := bias_assessment_complete.warn with input as input_override
 	count(result) > 0
 }
 
@@ -182,7 +182,7 @@ test_fail_empty_protected_attributes_array if {
 		scenario_pass.bias_detection,
 		{"protected_attributes": []},
 	)})
-	result := bias_assessment_complete.deny with input as input_override
+	result := bias_assessment_complete.warn with input as input_override
 	count(result) > 0
 }
 
@@ -206,7 +206,7 @@ test_fail_bias_detected_without_mitigation if {
 			"metrics": scenario_pass.bias_detection.fairness_results.metrics,
 		},
 	}}
-	result := bias_assessment_complete.deny with input as input_override
+	result := bias_assessment_complete.warn with input as input_override
 	count(result) > 0
 }
 
@@ -222,6 +222,6 @@ test_fail_bias_detected_with_empty_mitigation if {
 		},
 		"mitigation_measures": [],
 	}}
-	result := bias_assessment_complete.deny with input as input_override
+	result := bias_assessment_complete.warn with input as input_override
 	count(result) > 0
 }

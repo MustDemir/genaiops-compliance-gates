@@ -650,7 +650,9 @@ for d in gate_dirs:
         decision = gate.get('decision', '')
         if decision in ('manual_review', 'manual_approval'):
             hybrid += 1
-        elif decision in ('automated', 'auto', 'block'):
+        elif decision in ('automated', 'auto', 'block', 'warn'):
+            # 'warn' = AUTO gate with SHOULD/advisory severity (e.g. G-DEP-05/R013):
+            # automated evaluation, non-blocking. Still counts as AUTO.
             auto += 1
         else:
             print(f"  WARNING: {gate['id']} unknown decision={decision}")

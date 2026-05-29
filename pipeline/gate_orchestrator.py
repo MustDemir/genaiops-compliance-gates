@@ -389,22 +389,24 @@ def evaluate_gate_from_fixture(fixture_path: str, gate_id: str) -> dict:
         }
 
     elif gate_id == "G-DEP-05":
-        # policy_bias_assessment_complete: check bias detection documentation
+        # policy_bias_assessment_complete: R013 is SHOULD (see requirements/R013.yaml)
+        # → all checks are advisory (warn), non-blocking. Decision stays PASS.
         bd = data.get("bias_detection", {})
-        failures = []
+        warnings = []
         if not bd.get("methods"):
-            failures.append({"msg": "bias_detection.methods not documented"})
+            warnings.append({"msg": "bias_detection.methods not documented [SHOULD]"})
         fr = bd.get("fairness_results", {})
         if not fr.get("metrics"):
-            failures.append({"msg": "bias_detection.fairness_results.metrics not documented"})
+            warnings.append({"msg": "bias_detection.fairness_results.metrics not documented [SHOULD]"})
         if not bd.get("protected_attributes"):
-            failures.append({"msg": "bias_detection.protected_attributes not listed"})
+            warnings.append({"msg": "bias_detection.protected_attributes not listed [SHOULD]"})
         if fr.get("bias_detected") and not bd.get("mitigation_measures"):
-            failures.append({"msg": "bias detected but no mitigation_measures documented"})
+            warnings.append({"msg": "bias detected but no mitigation_measures documented [SHOULD]"})
         return {
             "tool": "fixture-eval",
-            "decision": "FAIL" if failures else "PASS",
-            "failures": failures,
+            "decision": "PASS",
+            "failures": [],
+            "warnings": warnings,
         }
 
     elif gate_id == "G-DEP-01":
