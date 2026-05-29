@@ -6,9 +6,38 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ---
 
-## [Unreleased]
+## [2.0.0] — 2026-05-29 — Severity Model, Integrity-Suite Repair & Consistency Hardening
 
-(no changes since v1.1.0)
+### Highlights
+
+Post-archival consistency release that aligns the artefact with the thesis text and hardens credibility mechanisms. **Major bump** because the enforcement severity model changed: SHOULD-criteria are now non-blocking advisories (`warn`) instead of hard blocks (`deny`). Headline invariants are preserved: **105 rules, 103 OPA unit tests, 14/14 integrity checks, 16 gates, 10 AUTO / 6 HYBRID / 0 MANUAL**.
+
+### Changed (BREAKING) — CDV Severity: SHOULD → `warn`
+
+- **G-DEP-05 (Bias, R013)** is `SHOULD` per `requirements/R013.yaml`; its 10 rules changed from `deny` to `warn` (advisory, non-blocking). Gate `decision: block` → `warn`. A missing bias documentation no longer blocks a deployment — it is recorded as an advisory in the Evidence Store (`notes`).
+- **G-DEP-02 (Safety Metrics)** SHOULD-criteria `subgroup_analysis` / `adversarial_tests` (7 rules) changed `deny` → `warn`; MUST thresholds (accuracy/latency/safety) stay `deny`.
+- Rule inventory now **70 deny + 18 violation + 17 warn = 105** (was 105 deny/violation). `decision_method` distribution unchanged (10 AUTO / 6 HYBRID / 0 MANUAL).
+- `gate_orchestrator.py` + `record_evidence.py` collect and persist advisory `warnings` (Evidence `notes`, outside the hashed payload — hash chain untouched).
+
+### Fixed — Integrity-Regression Suite (was crashing in v1.1.0)
+
+- Restored `WALKTHROUGH_KAP63.md` to the tracked path `docs/walkthrough/` (v1.1.0 referenced the git-ignored `docs/reference/`, so the suite crashed). Test path corrected; per-check exception guard added in `collect_results()` so a single broken check no longer aborts the suite. → **14/14**.
+
+### Added — Cross-Implementation Hash Parity Guard
+
+- `tests/test_hash_parity.py`: build-time guard asserting identical 13-field SHA-256 payload order across `record_evidence.py` ↔ `verify_hash_chain.py` ↔ v03 SQL trigger (wired into `tests/test_all.py`).
+
+### Fixed — Evidence Store RBAC (privacy by design)
+
+- `auditor_role` no longer has base-table `SELECT` (could read `notes`/`inserted_by`/`payload_id`); access restricted to the privacy view `vw_quality_gate_reporting`. Dead RLS policy `pol_select_auditor` removed.
+
+### Added / Fixed — Reproducibility & Docs
+
+- Root `requirements.txt` (PyYAML required, psycopg2-binary optional); `test_all.py` PyYAML preflight warning.
+- README: corrected non-existent Terraform workflow → `deploy-aks.sh` (Azure CLI) + Helm; `infrastructure/terraform/` marked as reserved placeholder; status counts updated.
+- `pipeline/test_pipeline_local.sh`: portable lowercase (`tr`) — runs on macOS bash 3.2.
+
+> **Citation note:** cite the Zenodo **Concept DOI** ("all versions"), which resolves to this release. v1.1.0 (DOI 10.5281/zenodo.19920310) remains archived and unchanged.
 
 ---
 
