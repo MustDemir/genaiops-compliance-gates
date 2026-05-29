@@ -124,12 +124,12 @@ FOR INSERT
 TO app_ingest_role
 WITH CHECK (true);
 
+-- Note: auditor_role intentionally has NO row-level SELECT policy on the base
+-- table. Audit access is restricted to the privacy view
+-- vw_quality_gate_reporting (excludes notes / inserted_by / payload_id), so
+-- auditors never read PHI-linking columns directly (privacy by design,
+-- Art. 9 DSGVO; Nweke & Yeng 2026). Dropped here for idempotent re-apply.
 DROP POLICY IF EXISTS pol_select_auditor ON compliance.quality_gate_results;
-CREATE POLICY pol_select_auditor
-ON compliance.quality_gate_results
-FOR SELECT
-TO auditor_role
-USING (true);
 
 DROP POLICY IF EXISTS pol_all_admin ON compliance.quality_gate_results;
 CREATE POLICY pol_all_admin
@@ -145,7 +145,8 @@ REVOKE ALL ON ALL TABLES IN SCHEMA compliance FROM PUBLIC;
 
 GRANT USAGE ON SCHEMA compliance TO app_ingest_role, auditor_role, admin_compliance_role;
 GRANT INSERT ON compliance.quality_gate_results TO app_ingest_role;
-GRANT SELECT ON compliance.quality_gate_results TO auditor_role, admin_compliance_role;
+-- auditor_role gets NO base-table SELECT — only the privacy view (granted below).
+GRANT SELECT ON compliance.quality_gate_results TO admin_compliance_role;
 GRANT USAGE, SELECT ON SEQUENCE compliance.quality_gate_results_audit_id_seq TO app_ingest_role, admin_compliance_role;
 
 -- 9) Reporting optimization (performance)
