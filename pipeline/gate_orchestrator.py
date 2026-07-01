@@ -29,7 +29,6 @@ Exit codes:
 """
 
 import argparse
-import hashlib
 import json
 import os
 import subprocess
@@ -610,7 +609,7 @@ def print_banner(scenario_name: str) -> None:
     print(f"{BOLD}{'═' * 70}{RESET}")
     print(f"  Scenario:  {scenario_name}")
     print(f"  Started:   {datetime.now(timezone.utc).isoformat()}")
-    print(f"  Run ID:    (generated per execution)")
+    print("  Run ID:    (generated per execution)")
     print(f"{BOLD}{'═' * 70}{RESET}")
     print()
 

@@ -46,9 +46,7 @@ test_fail_missing_risk_class if {
 	# Rule 1: risk_class field missing entirely
 	# Note: object.union does deep-merge in OPA v1.x — we rebuild the sub-object explicitly.
 	input_override := {
-		"risk_classification": {
-			"classification_reasoning": scenario.risk_classification.classification_reasoning,
-		},
+		"risk_classification": {"classification_reasoning": scenario.risk_classification.classification_reasoning},
 		"manual_review": scenario.manual_review,
 	}
 	result := risk_classification.deny with input as input_override

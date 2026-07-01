@@ -26,8 +26,6 @@ Usage:
   python3 test_all.py
 """
 
-import json
-import os
 import subprocess
 import sys
 import time
@@ -769,20 +767,20 @@ print(f"{total_tests} tests  |  {total_time:.1f}s")
 if failed_tests == 0:
     print(f"\n  {GREEN}{BOLD}✓ ALL TESTS PASSED — PoC is consistent and complete{RESET}")
     print(f"\n  {BOLD}Was hiermit bewiesen wurde:{RESET}")
-    print(f"  • Alle YAML/JSON Konfigurationen sind syntaktisch korrekt")
-    print(f"  • Alle Infrastructure-Scripts sind valide Bash")
-    print(f"  • Rego-Policies haben gültige Struktur")
-    print(f"  • Evidence Store: Record + Verify + Hybrid funktionieren")
-    print(f"  • Closed-Loop Pipeline: PASS, FAIL und Gatekeeper-Szenarien korrekt")
-    print(f"  • Tamper Detection: Hash-Chain erkennt Manipulation")
-    print(f"  • Drift Detection: PSI/JSD mathematisch korrekt + E2E Pipeline")
-    print(f"  • Cross-Artifact Konsistenz: Requirements ↔ Gates ↔ Annotations")
+    print("  • Alle YAML/JSON Konfigurationen sind syntaktisch korrekt")
+    print("  • Alle Infrastructure-Scripts sind valide Bash")
+    print("  • Rego-Policies haben gültige Struktur")
+    print("  • Evidence Store: Record + Verify + Hybrid funktionieren")
+    print("  • Closed-Loop Pipeline: PASS, FAIL und Gatekeeper-Szenarien korrekt")
+    print("  • Tamper Detection: Hash-Chain erkennt Manipulation")
+    print("  • Drift Detection: PSI/JSD mathematisch korrekt + E2E Pipeline")
+    print("  • Cross-Artifact Konsistenz: Requirements ↔ Gates ↔ Annotations")
     print(f"\n  {BOLD}Architektur-Abdeckung:{RESET}")
-    print(f"  • Pillar S1 (Design Principles) — Requirements validated")
-    print(f"  • Pillar S2 (Quality Gates) — gate_orchestrator 10 Gates")
-    print(f"  • Pillar S3 (Policy Engine) — Rego structure verified")
-    print(f"  • Pillar S4 (Evidence Store) — Record + Hash-Chain + Tamper")
-    print(f"  • Pillar S5 (Monitoring) — PSI/JSD Drift Detection")
+    print("  • Pillar S1 (Design Principles) — Requirements validated")
+    print("  • Pillar S2 (Quality Gates) — gate_orchestrator 10 Gates")
+    print("  • Pillar S3 (Policy Engine) — Rego structure verified")
+    print("  • Pillar S4 (Evidence Store) — Record + Hash-Chain + Tamper")
+    print("  • Pillar S5 (Monitoring) — PSI/JSD Drift Detection")
     print(f"\n  {BOLD}Nächster Schritt:{RESET} Minikube starten → Phase 6 Scripts → Live Deployment")
 else:
     print(f"\n  {RED}{BOLD}✗ {failed_tests} TEST(S) FAILED — fix issues above{RESET}")

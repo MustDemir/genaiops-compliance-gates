@@ -27,8 +27,8 @@ package genaiops.deployment.transparency_docs_present_test
 
 import rego.v1
 
-import data.fixtures.healthcare.app_documentation_transparency_pass as scenario_pass
 import data.fixtures.healthcare.app_documentation_transparency_fail as scenario_fail
+import data.fixtures.healthcare.app_documentation_transparency_pass as scenario_pass
 import data.genaiops.deployment.transparency_docs_present
 
 # ================================================================

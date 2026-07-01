@@ -166,15 +166,15 @@ print(f"  {GREEN}PASSED: {passed}{RESET}  /  {RED}FAILED: {failed}{RESET}  /  To
 if failed == 0:
     print(f"\n  {GREEN}{BOLD}✓ ALL TESTS PASSED — Full drift pipeline verified{RESET}")
     print(f"\n  {BOLD}What was proven (Overview):{RESET}")
-    print(f"  1. Baseline can be initialized from fixture data")
-    print(f"  2. Normal data → OK status, NO false alarms, NO evidence recorded")
-    print(f"  3. Drifted data → CRITICAL status, pipeline returns exit code 1")
-    print(f"  4. CRITICAL drift → automatic FAIL recording in Evidence Store")
-    print(f"  5. Evidence Store hash chain remains VALID (tamper-proof)")
-    print(f"  6. Complete pipeline: drift_detector → Evidence Store → Hash-Chain")
+    print("  1. Baseline can be initialized from fixture data")
+    print("  2. Normal data → OK status, NO false alarms, NO evidence recorded")
+    print("  3. Drifted data → CRITICAL status, pipeline returns exit code 1")
+    print("  4. CRITICAL drift → automatic FAIL recording in Evidence Store")
+    print("  5. Evidence Store hash chain remains VALID (tamper-proof)")
+    print("  6. Complete pipeline: drift_detector → Evidence Store → Hash-Chain")
     print(f"\n  {BOLD}Architecture verification:{RESET}")
-    print(f"  Pillar S5 (Monitoring) → Pillar S4 (Evidence Store) → DP5 (Tamper Evidence)")
-    print(f"  G-OPS-03 operationalized through automated drift detection")
+    print("  Pillar S5 (Monitoring) → Pillar S4 (Evidence Store) → DP5 (Tamper Evidence)")
+    print("  G-OPS-03 operationalized through automated drift detection")
 else:
     print(f"\n  {RED}{BOLD}✗ SOME TESTS FAILED — review above{RESET}")
 

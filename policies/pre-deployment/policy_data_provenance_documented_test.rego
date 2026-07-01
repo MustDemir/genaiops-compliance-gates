@@ -28,8 +28,8 @@ package genaiops.pre_deployment.data_provenance_documented_test
 
 import rego.v1
 
-import data.fixtures.healthcare.data_documentation_provenance_pass as scenario_pass
 import data.fixtures.healthcare.data_documentation_provenance_fail as scenario_fail
+import data.fixtures.healthcare.data_documentation_provenance_pass as scenario_pass
 import data.genaiops.pre_deployment.data_provenance_documented
 
 # ================================================================
