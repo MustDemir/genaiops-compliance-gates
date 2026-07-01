@@ -75,7 +75,7 @@ jobs:
     steps:
       # ── Setup ──
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Initialize pipeline run
         id: init
@@ -106,7 +106,7 @@ jobs:
           echo "::notice::Conftest v${CONFTEST_VERSION} installed"
 
       - name: Set up Python 3.11
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: '3.11'
 
@@ -467,7 +467,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Check for Dockerfile
         id: dockerfile-check
@@ -481,7 +481,7 @@ jobs:
 
       - name: Log in to GitHub Container Registry
         if: steps.dockerfile-check.outputs.exists == 'true'
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
