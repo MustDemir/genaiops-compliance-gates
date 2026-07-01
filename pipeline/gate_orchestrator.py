@@ -767,7 +767,9 @@ def run_pipeline(scenario_path: str, use_conftest: bool = False, dry_run: bool =
         # For HYBRID gates with manual source, also record the manual decision
         if method == "HYBRID" and gate.get("manual_source") and not dry_run:
             log(f"  Recording manual decision for {gate_id}...", BLUE)
-            manual_evidence = record_to_evidence_store(
+            # Side effect only: the MANUAL record is persisted to the Evidence
+            # Store; its return value is intentionally not consumed here.
+            record_to_evidence_store(
                 gate_id=gate_id,
                 method="MANUAL",
                 fixture_path=gate["manual_source"],
