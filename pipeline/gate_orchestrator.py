@@ -212,6 +212,27 @@ def evaluate_gatekeeper_admission(k8s_object: dict, gate_id: str) -> dict:
                     "type": "gatekeeper_violation",
                 })
 
+    elif gate_id == "G-OPS-04":
+        # GenaiopsCybersecurityOperations: require runtime security-control annotations
+        required = {
+            "genaiops.io/image-scanning-enabled": "true",
+            "genaiops.io/network-policies-specified": "true",
+            "genaiops.io/encryption-at-rest": "true",
+            "genaiops.io/encryption-in-transit": "true",
+        }
+        for key, expected in required.items():
+            actual = pod_annotations.get(key)
+            if actual is None:
+                violations.append({
+                    "msg": f"G-OPS-04 FAIL: Pod annotation '{key}' is missing",
+                    "type": "gatekeeper_violation",
+                })
+            elif actual != expected:
+                violations.append({
+                    "msg": f"G-OPS-04 FAIL: Pod annotation '{key}' must be '{expected}', got '{actual}'",
+                    "type": "gatekeeper_violation",
+                })
+
     decision = "FAIL" if violations else "PASS"
     admission_action = "REJECT" if violations else "ADMIT"
 
@@ -445,7 +466,7 @@ def evaluate_gate_from_fixture(fixture_path: str, gate_id: str) -> dict:
             "failures": failures,
         }
 
-    elif gate_id in ("G-OPS-03", "G-OPS-05"):
+    elif gate_id in ("G-OPS-03", "G-OPS-04", "G-OPS-05"):
         # Annotation-based gates — check via AdmissionReview or K8s annotations
         review_data = data.get("review", {}).get("object", {})
         if review_data:
@@ -461,6 +482,15 @@ def evaluate_gate_from_fixture(fixture_path: str, gate_id: str) -> dict:
 
         if gate_id == "G-OPS-03":
             for key in ["genaiops.io/drift-detection-enabled", "genaiops.io/service-monitor-configured", "prometheus.io/scrape"]:
+                if all_annotations.get(key) != "true":
+                    failures.append({"msg": f"annotation '{key}' is not 'true'"})
+        elif gate_id == "G-OPS-04":
+            for key in [
+                "genaiops.io/image-scanning-enabled",
+                "genaiops.io/network-policies-specified",
+                "genaiops.io/encryption-at-rest",
+                "genaiops.io/encryption-in-transit",
+            ]:
                 if all_annotations.get(key) != "true":
                     failures.append({"msg": f"annotation '{key}' is not 'true'"})
         elif gate_id == "G-OPS-05":

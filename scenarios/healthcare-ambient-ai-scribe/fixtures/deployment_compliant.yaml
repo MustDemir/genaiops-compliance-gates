@@ -3,7 +3,8 @@
 # ================================================================
 # Shared PASS fixture for Conftest CI across multiple quality gates:
 #   G-PRE-04 (security baseline), G-OPS-02 (incident process),
-#   G-OPS-03 (monitoring), G-OPS-05 (evidence completeness),
+#   G-OPS-03 (monitoring), G-OPS-04 (cybersecurity operations),
+#   G-OPS-05 (evidence completeness),
 #   G-DEP-02 (safety metrics).
 # All declared annotations are required for the Healthcare Ambient AI
 # Scribe to be considered fully EU AI Act Art. 9–15, 26 compliant.
@@ -32,6 +33,10 @@ metadata:
     genaiops.io/incident-response-configured: "true"
     genaiops.io/incident-contact: "ai-governance-team@hospital.example.com"
     genaiops.io/rollback-mechanism: "true"
+    genaiops.io/image-scanning-enabled: "true"
+    genaiops.io/network-policies-specified: "true"
+    genaiops.io/encryption-at-rest: "true"
+    genaiops.io/encryption-in-transit: "true"
 spec:
   replicas: 1
   selector:
@@ -56,6 +61,10 @@ spec:
         genaiops.io/incident-response-configured: "true"
         genaiops.io/incident-contact: "ai-governance-team@hospital.example.com"
         genaiops.io/rollback-mechanism: "true"
+        genaiops.io/image-scanning-enabled: "true"
+        genaiops.io/network-policies-specified: "true"
+        genaiops.io/encryption-at-rest: "true"
+        genaiops.io/encryption-in-transit: "true"
         prometheus.io/scrape: "true"
         prometheus.io/port: "8080"
         prometheus.io/path: "/metrics"

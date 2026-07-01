@@ -253,7 +253,7 @@ cd ../evidence-store && psql -f schema/evidence_store_schema_v02_enterprise.sql 
 | Evidence Store Scripts | done | record_evidence.py + verify_hash_chain.py, SQLite + PostgreSQL, Hash-Chain verified |
 | Decision-Log-Fixtures | done | G-PRE-01 (manual_review) + G-PRE-05 (governance_approval), HYBRID-Demo ready |
 | Gate Template | done | 7-Attribut-Template, 3 Beispiel-Gates |
-| Policy-Kandidaten | done | 29 Kandidaten dokumentiert (22 Conftest, **3 Gatekeeper-ConstraintTemplates**, 3 Decision Logs); 108 deny/violation-Regeln total |
+| Policy-Kandidaten | done | 29 Kandidaten dokumentiert (22 Conftest, **4 Gatekeeper-ConstraintTemplates**, 3 Decision Logs); 108 deny/violation-Regeln total |
 | Healthcare Scribe App | done | FastAPI Mock-Endpoint, /transcribe, /health, /metrics |
 | Gate-Fixtures | done | app_documentation.json, eval_results.json |
 | K8s-Manifeste | done | 8 YAMLs: Namespace, Deployment, Service, ConfigMap, PostgreSQL, Prometheus |
@@ -266,13 +266,13 @@ cd ../evidence-store && psql -f schema/evidence_store_schema_v02_enterprise.sql 
 | Schema-Evolution-Dok | done | v01→v02→v03 Changelog mit Rationale und Hash-Trigger-Details |
 | Minikube Deployment Scripts | done | 4 scripts: setup-minikube, install-gatekeeper, deploy-app, smoke-test (8/8 PASS) |
 | Helm Values | done | gatekeeper-values.yaml + prometheus-stack-values.yaml |
-| Gatekeeper Live | done | **3 ConstraintTemplates + 3 Constraints** (require-safety-eval, require-monitoring, require-evidence), enforcementAction: deny, ADMIT/REJECT verified on AKS Sweden Central |
+| Gatekeeper Live | done | **4 ConstraintTemplates + 4 Constraints** configured (require-safety-eval, require-monitoring, require-cybersecurity-operations, require-evidence), enforcementAction: deny; first 3 ADMIT/REJECT verified on AKS Sweden Central, G-OPS-04 verified locally via Gatekeeper fixture path |
 | Closed-Loop Pipeline | done | gate_orchestrator.py: 3 scenarios (PASS/FAIL/Gatekeeper), tamper detection |
 | Drift Detection | done | drift_detector.py (PSI+JSD), CronJob + Prometheus/Grafana/AlertManager |
 | GitHub Actions Pipeline | done | gate-pipeline.yml (16 CI gates + Evidence + Hash-Chain + Docker Push), test_pipeline_local.sh |
 | Master Integration Test | done | tests/test_all.py: 31/31 PASS across all 5 pillars |
 | Integrity Regression Suite | done | tests/test_integrity_regression.py: credibility checks for fallbacks, evidence strictness, HYBRID consistency, walkthrough drift |
-| Azure CLI/Helm (Azure) | done | AKS Sweden Central live 2026-04-13 (kube-prometheus-stack via Helm, OPA Gatekeeper mit 3 ConstraintTemplates runtime, PostgreSQL + Hash-Chain-Triggern im Cluster-Pod) |
+| Azure CLI/Helm (Azure) | done | AKS Sweden Central live 2026-04-13 (kube-prometheus-stack via Helm, OPA Gatekeeper mit 3 live verifizierten + 1 lokal ergaenzten ConstraintTemplate, PostgreSQL + Hash-Chain-Triggern im Cluster-Pod) |
 
 ## Integrity Regression Suite
 

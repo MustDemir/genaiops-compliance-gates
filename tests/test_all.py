@@ -379,15 +379,20 @@ from pathlib import Path
 
 repo = Path('%s')
 
-# Expected annotations enforced by Gatekeeper ConstraintTemplates (3 CTs)
+# Expected annotations enforced by Gatekeeper ConstraintTemplates (4 CTs)
 # G-DEP-02: Safety Metrics
 # G-OPS-03: Monitoring Configured
+# G-OPS-04: Cybersecurity Operations
 # G-OPS-05: Evidence Completeness
 expected_annotations = [
     'genaiops.io/eval-passed',              # G-DEP-02
     'genaiops.io/eval-run-id',              # G-DEP-02
     'genaiops.io/drift-detection-enabled',  # G-OPS-03
     'genaiops.io/service-monitor-configured',  # G-OPS-03
+    'genaiops.io/image-scanning-enabled',    # G-OPS-04
+    'genaiops.io/network-policies-specified',  # G-OPS-04
+    'genaiops.io/encryption-at-rest',        # G-OPS-04
+    'genaiops.io/encryption-in-transit',     # G-OPS-04
     'genaiops.io/evidence-store-connected', # G-OPS-05
     'genaiops.io/hash-chain-enabled',       # G-OPS-05
 ]
@@ -417,7 +422,7 @@ print("Annotation consistency verified")
 """ % str(REPO_ROOT)])
 
 # Validate ConstraintTemplate YAML files (Phase 7)
-run_test("Consistency", "ConstraintTemplate YAML validation (3 CTs)",
+run_test("Consistency", "ConstraintTemplate YAML validation (4 CTs)",
          [sys.executable, "-c", """
 import yaml, sys
 from pathlib import Path
@@ -433,6 +438,15 @@ expected_cts = {
     'constraint-monitoring-configured.yaml': {
         'gate': 'G-OPS-03',
         'annotations': ['genaiops.io/drift-detection-enabled', 'genaiops.io/service-monitor-configured'],
+    },
+    'constraint-cybersecurity-operations.yaml': {
+        'gate': 'G-OPS-04',
+        'annotations': [
+            'genaiops.io/image-scanning-enabled',
+            'genaiops.io/network-policies-specified',
+            'genaiops.io/encryption-at-rest',
+            'genaiops.io/encryption-in-transit',
+        ],
     },
     'constraint-evidence-completeness.yaml': {
         'gate': 'G-OPS-05',
@@ -496,7 +510,7 @@ if errors > 0:
 # ══════════════════════════════════════════════════════════════
 
 # Architecture-Alignment: Gate-Definition YAMLs ↔ Rego Policies ↔ Pipeline Steps
-run_test("Architecture-Alignment", "Gate-Definitions ↔ Rego ↔ Pipeline (10 PoC Gates)",
+run_test("Architecture-Alignment", "Gate-Definitions ↔ Rego ↔ Pipeline (16 Gates)",
          [sys.executable, "-c", """
 import yaml, re, sys
 from pathlib import Path
@@ -524,17 +538,23 @@ print(f"Gate-Definitions: {len(all_gates)} gates found")
 if len(all_gates) != 16:
     print(f"WARNING: expected 16 gates, found {len(all_gates)}")
 
-# ── 2. PoC-Subset (10 gates with Rego policies) ──
+# ── 2. PoC gates with Rego policies ──
 poc_gates = {
     'G-PRE-01': 'policies/pre-deployment/policy_risk_classification.rego',
+    'G-PRE-02': 'policies/pre-deployment/policy_purpose_declaration.rego',
+    'G-PRE-03': 'policies/pre-deployment/policy_risk_management_complete.rego',
     'G-PRE-04': 'policies/pre-deployment/policy_security_baseline.rego',
     'G-PRE-05': 'policies/pre-deployment/policy_governance_approval.rego',
     'G-DEP-01': 'policies/pre-deployment/policy_data_provenance_documented.rego',
     'G-DEP-02': 'policies/deployment/policy_safety_metrics.rego',
     'G-DEP-03': 'policies/deployment/policy_transparency_docs_present.rego',
+    'G-DEP-04': 'policies/deployment/policy_conformity_verified.rego',
     'G-DEP-05': 'policies/pre-deployment/policy_bias_assessment_complete.rego',
+    'G-DEP-06': 'policies/deployment/policy_logging_configured.rego',
+    'G-OPS-01': 'policies/operations/policy_human_oversight_operational.rego',
     'G-OPS-02': 'policies/operations/policy_incident_process_exists.rego',
     'G-OPS-03': 'policies/operations/policy_monitoring_configured.rego',
+    'G-OPS-04': 'policies/operations/policy_data_security_controls.rego',
     'G-OPS-05': 'policies/operations/policy_evidence_completeness.rego',
 }
 
@@ -552,7 +572,7 @@ for gate_id, rego_path in poc_gates.items():
         print(f"ERROR: {gate_id} Rego policy missing: {rego_path}")
         errors += 1
 
-# ── 5. Check: Pipeline references all 10 PoC gates ──
+# ── 5. Check: Pipeline references all policy-backed PoC gates ──
 pipeline_file = repo / '.github' / 'workflows' / 'gate-pipeline.yml'
 if not pipeline_file.exists():
     print("ERROR: gate-pipeline.yml not found")
@@ -619,7 +639,7 @@ if missing_phases:
 print(f"\\nArchitecture-Alignment Results:")
 print(f"  Gate-Definitions:  {len(all_gates)} total, {len(poc_gates)} in PoC")
 print(f"  Rego Policies:     {sum(1 for p in poc_gates.values() if (repo / p).exists())}/{len(poc_gates)} present")
-print(f"  Pipeline Steps:    10 gates referenced")
+print(f"  Pipeline Steps:    {len(poc_gates)} policy-backed gates referenced")
 print(f"  Dimensions:        {sorted(poc_dimensions)} (3/3)")
 print(f"  Phases:            {sorted(poc_phases)} (3/3)")
 print(f"  Errors:            {errors}")
@@ -777,7 +797,7 @@ if failed_tests == 0:
     print("  • Cross-Artifact Konsistenz: Requirements ↔ Gates ↔ Annotations")
     print(f"\n  {BOLD}Architektur-Abdeckung:{RESET}")
     print("  • Pillar S1 (Design Principles) — Requirements validated")
-    print("  • Pillar S2 (Quality Gates) — gate_orchestrator 10 Gates")
+    print("  • Pillar S2 (Quality Gates) — gate_orchestrator 16 Gates")
     print("  • Pillar S3 (Policy Engine) — Rego structure verified")
     print("  • Pillar S4 (Evidence Store) — Record + Hash-Chain + Tamper")
     print("  • Pillar S5 (Monitoring) — PSI/JSD Drift Detection")

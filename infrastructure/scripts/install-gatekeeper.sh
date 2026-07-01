@@ -7,8 +7,8 @@
 # What this does (Overview):
 #   1. Installs Gatekeeper via Helm (the upstream chart from CNCF)
 #   2. Waits until Gatekeeper pods are running
-#   3. Deploys our 3 ConstraintTemplates (the compliance rules)
-#   4. Deploys our 3 Constraints (which namespaces + parameters to enforce)
+#   3. Deploys our 4 ConstraintTemplates (the compliance rules)
+#   4. Deploys our 4 Constraints (which namespaces + parameters to enforce)
 #   5. Verifies everything is active
 #
 #   After this script:
@@ -16,9 +16,10 @@
 #     annotations will be REJECTED by Kubernetes.
 #   - This is Pillar S3 (Policy Engine) in action.
 #
-#   ConstraintTemplates (3):
+#   ConstraintTemplates (4):
 #     G-DEP-02: Safety Metrics   (eval-passed, eval-run-id)
 #     G-OPS-03: Monitoring       (drift-detection, service-monitor)
+#     G-OPS-04: Cybersecurity    (image scanning, NetworkPolicies, encryption)
 #     G-OPS-05: Evidence Store   (evidence-store-connected, hash-chain)
 #
 # Usage:
@@ -153,9 +154,10 @@ echo -e "  Audit interval:  60s"
 echo -e "  Templates:       $(kubectl get constrainttemplates --no-headers 2>/dev/null | wc -l | tr -d ' ')"
 echo -e "  Constraints:     $(kubectl get constraints --no-headers 2>/dev/null | wc -l | tr -d ' ')"
 echo ""
-echo -e "  ${BOLD}Enforced rules (3 ConstraintTemplates):${RESET}"
+echo -e "  ${BOLD}Enforced rules (4 ConstraintTemplates):${RESET}"
 echo -e "  ${GREEN}G-DEP-02${RESET}: Safety Metrics (eval-passed, eval-run-id)"
 echo -e "  ${GREEN}G-OPS-03${RESET}: Monitoring annotations (drift-detection, service-monitor)"
+echo -e "  ${GREEN}G-OPS-04${RESET}: Cybersecurity operations (image scanning, NetworkPolicies, encryption)"
 echo -e "  ${GREEN}G-OPS-05${RESET}: Evidence Store annotations (evidence-store-connected, hash-chain)"
 echo ""
 echo -e "  ${BOLD}Next step:${RESET}"

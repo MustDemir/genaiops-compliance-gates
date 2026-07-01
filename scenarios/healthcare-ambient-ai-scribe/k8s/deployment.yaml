@@ -13,6 +13,7 @@
 # G-PRE-05: governance annotations for documentation reference
 # G-DEP-02: eval-passed + eval-run-id for safety metrics gate
 # G-OPS-03: monitoring annotations for ServiceMonitor discovery
+# G-OPS-04: cybersecurity operations controls for runtime admission
 # G-OPS-05: evidence-store annotations for audit trail
 #
 # Monitoring runtime is handled by a separate CronJob
@@ -40,6 +41,11 @@ metadata:
     genaiops.io/drift-detection-enabled: "true"
     genaiops.io/service-monitor-configured: "true"
     genaiops.io/psi-critical-threshold: "0.2"
+    # G-OPS-04: Cybersecurity Operations
+    genaiops.io/image-scanning-enabled: "true"
+    genaiops.io/network-policies-specified: "true"
+    genaiops.io/encryption-at-rest: "true"
+    genaiops.io/encryption-in-transit: "true"
     # G-DEP-02: Safety Metrics (CI eval gate passed)
     genaiops.io/eval-passed: "true"
     genaiops.io/eval-run-id: "eval-20260325-001"
@@ -69,6 +75,11 @@ spec:
         # G-OPS-03: Monitoring & Drift Detection
         genaiops.io/drift-detection-enabled: "true"
         genaiops.io/service-monitor-configured: "true"
+        # G-OPS-04: Cybersecurity Operations
+        genaiops.io/image-scanning-enabled: "true"
+        genaiops.io/network-policies-specified: "true"
+        genaiops.io/encryption-at-rest: "true"
+        genaiops.io/encryption-in-transit: "true"
         # G-DEP-02: Safety Metrics (CI eval gate passed)
         genaiops.io/eval-passed: "true"
         genaiops.io/eval-run-id: "eval-20260325-001"

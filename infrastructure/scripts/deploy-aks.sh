@@ -198,7 +198,7 @@ sleep 10  # Extra buffer for webhook registration
 ok "Gatekeeper webhook ready"
 
 # ConstraintTemplates — deploy in two phases: CTs first, then Constraints
-log "Deploying 3 ConstraintTemplates (Phase 1: Templates)..."
+log "Deploying 4 ConstraintTemplates (Phase 1: Templates)..."
 GATEKEEPER_DIR="$K8S_DIR/gatekeeper"
 
 # Pass 1: Apply full files. ConstraintTemplates register immediately; the
@@ -219,7 +219,7 @@ ok "ConstraintTemplates compiled: $CT_COUNT"
 
 # Pass 2: Re-apply full files. CTs are unchanged; the Constraints now succeed
 # because their CRDs exist after compilation.
-log "Deploying 3 Constraints (Phase 2: Enforcement)..."
+log "Deploying 4 Constraints (Phase 2: Enforcement)..."
 for CT_FILE in "$GATEKEEPER_DIR"/constraint-*.yaml; do
     CT_NAME=$(basename "$CT_FILE")
     kubectl apply -f "$CT_FILE" 2>&1 | sed 's/^/    /'
@@ -425,6 +425,7 @@ echo ""
 echo -e "  ${BOLD}Gatekeeper:${RESET}"
 echo -e "  ${GREEN}G-DEP-02${RESET}: Safety Metrics (eval-passed, eval-run-id)"
 echo -e "  ${GREEN}G-OPS-03${RESET}: Monitoring (drift-detection, service-monitor)"
+echo -e "  ${GREEN}G-OPS-04${RESET}: Cybersecurity Operations (image scanning, NetworkPolicies, encryption)"
 echo -e "  ${GREEN}G-OPS-05${RESET}: Evidence Store (evidence-store-connected, hash-chain)"
 echo ""
 echo -e "  ${BOLD}Next:${RESET} Take screenshots, then run:"
