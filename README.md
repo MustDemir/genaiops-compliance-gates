@@ -19,12 +19,12 @@ Enterprise GenAI systems face a triple challenge: they must be **technically rob
 
 - **16 Quality Gates** across 3 lifecycle phases (Pre-Deployment, Deployment, Operations)
 - **Policy-as-Code** via OPA/Rego with three enforcement pillars (Conftest, Gatekeeper, Decision Logs)
-- **10 implemented Rego Policies** with **105 deny/violation rules + 103 unit tests** covering Art. 9, 10, 11, 12, 13, 14, 15, 26 (1+5+7), 27, 47, 48, 50, 72, 73 + Annex IV
+- **16 implemented Rego Policies** with **108 deny/violation rules + 141 unit tests** covering Art. 9, 10, 11, 12, 13, 14, 15, 26 (1+5+7), 27, 47, 48, 50, 72, 73 + Annex IV
 - **Immutable Evidence Store** with SHA-256 hash-chain for audit-proof traceability
 - **Full EU AI Act mapping**: Art. 9–15 → Requirements → Gates → Policies → Evidence
 - **Automated gate decisions** using the CDV Framework (Contract → Validation → Severity → Pipeline-Decision)
 - **Post-Market Surveillance** with drift detection and incident reporting (Art. 72, Art. 26.5)
-- **3-layer test architecture** — Layer 1: 103 Rego unit tests (OPA, fail-fast); Layer 2: 10 Conftest gate evaluations; Layer 3: SHA-256 hash-chain verification per pipeline run (39 s end-to-end)
+- **3-layer test architecture** — Layer 1: 141 Rego unit tests (OPA, fail-fast); Layer 2: 16 Conftest gate evaluations; Layer 3: SHA-256 hash-chain verification per pipeline run (39 s end-to-end)
 
 ## Architecture Overview
 
@@ -151,7 +151,7 @@ The architecture is demonstrated using a **high-risk AI system** (EU AI Act Art.
 - High-risk classification → maximum regulatory requirements
 - Sensitive health data → GDPR Art. 9 + AI Act convergence
 - Stochastic outputs → quality assurance for generative content
-- Full lifecycle coverage → 16 gates designed, 10 with Rego policies (local + CI), **10 enforced in GitHub Actions** (3-layer architecture: 103 OPA unit tests + 10 Conftest gates + hash-chain verify)
+- Full lifecycle coverage → 16 gates designed, **16 with Rego policies** (local + CI), **16 enforced in GitHub Actions** (3-layer architecture: 141 OPA unit tests + 16 Conftest gates + hash-chain verify)
 
 ## Traceability Chain
 
@@ -234,7 +234,7 @@ cd ../evidence-store && psql -f schema/evidence_store_schema_v02_enterprise.sql 
 | **2** | Containerisieren (Dockerfile, Multi-Stage, Non-Root) | `████████████████████` 100% | done |
 | **3** | Docker Compose (App + DB + Prometheus + Grafana) | `████████████████████` 100% | done |
 | **4** | K8s-Manifeste (Deployment, Service, ConfigMap, Compliance-Annotations) | `████████████████████` 100% | done |
-| **5** | Rego-Policies + Conftest-Tests (10 Gates) | `████████████████████` 100% | done |
+| **5** | Rego-Policies + Conftest-Tests (16 Gates) | `████████████████████` 100% | done |
 | **6** | Lokaler Cluster (Minikube) + Helm + Gatekeeper | `████████████████████` 100% | done |
 | **7** | Gatekeeper ConstraintTemplates (ADMIT/REJECT live) | `████████████████████` 100% | done |
 | **8** | Evidence Store + Closed-Loop Pipeline | `████████████████████` 100% | done |
@@ -253,13 +253,13 @@ cd ../evidence-store && psql -f schema/evidence_store_schema_v02_enterprise.sql 
 | Evidence Store Scripts | done | record_evidence.py + verify_hash_chain.py, SQLite + PostgreSQL, Hash-Chain verified |
 | Decision-Log-Fixtures | done | G-PRE-01 (manual_review) + G-PRE-05 (governance_approval), HYBRID-Demo ready |
 | Gate Template | done | 7-Attribut-Template, 3 Beispiel-Gates |
-| Policy-Kandidaten | done | 29 Kandidaten dokumentiert (22 Conftest, **3 Gatekeeper-ConstraintTemplates**, 3 Decision Logs); 105 deny/violation-Regeln total |
+| Policy-Kandidaten | done | 29 Kandidaten dokumentiert (22 Conftest, **3 Gatekeeper-ConstraintTemplates**, 3 Decision Logs); 108 deny/violation-Regeln total |
 | Healthcare Scribe App | done | FastAPI Mock-Endpoint, /transcribe, /health, /metrics |
 | Gate-Fixtures | done | app_documentation.json, eval_results.json |
 | K8s-Manifeste | done | 8 YAMLs: Namespace, Deployment, Service, ConfigMap, PostgreSQL, Prometheus |
-| OPA/Rego-Code | done | 10 Policies, **105 deny/violation-Regeln** (auditierbar via tools/extract_rule_test_mapping.py), 19 Fixtures (17 JSON + 2 YAML) |
+| OPA/Rego-Code | done | 16 Policies, **108 deny/violation-Regeln** (auditierbar via tools/extract_rule_test_mapping.py), 19 Fixtures (17 JSON + 2 YAML) |
 | Integration Tests | done | tests/test_integration_*.py — covered via Master Integration Test (22/22 PASS) |
-| **Layer-1 Rego Unit Tests** | done | **103/103 PASS** via `tests/run_all_rego_tests.sh` (OPA v1.15.2); Shift-Left vor Conftest-Gate-Checks; Coverage-Klassen: 13 PASS / 54 FAIL-basic / 17 FAIL-edge / 19 HYBRID |
+| **Layer-1 Rego Unit Tests** | done | **141/141 PASS** via `tests/run_all_rego_tests.sh` (OPA v1.15.2); Shift-Left vor Conftest-Gate-Checks; Coverage-Klassen: 18 PASS / 69 FAIL-basic / 34 FAIL-edge / 20 HYBRID |
 | **Rule-to-Test-Mapping (Appendix)** | done | Auto-generiert via `tools/extract_rule_test_mapping.py` → `docs/appendix/rule_test_mapping.{json,md}` (10 Policies × Per-Gate-Sektionen) |
 | Tamper-Detection Spec | done | Dokumentiert: 8 erkannte Angriffsvektoren, 6 bekannte Limitationen, 3 Protection Layers |
 | Walkthrough-Dokumentation | done | 13-Schritte Walkthrough (Pre-Dep → Dep → Ops → HYBRID → Tamper) |
@@ -269,7 +269,7 @@ cd ../evidence-store && psql -f schema/evidence_store_schema_v02_enterprise.sql 
 | Gatekeeper Live | done | **3 ConstraintTemplates + 3 Constraints** (require-safety-eval, require-monitoring, require-evidence), enforcementAction: deny, ADMIT/REJECT verified on AKS Sweden Central |
 | Closed-Loop Pipeline | done | gate_orchestrator.py: 3 scenarios (PASS/FAIL/Gatekeeper), tamper detection |
 | Drift Detection | done | drift_detector.py (PSI+JSD), CronJob + Prometheus/Grafana/AlertManager |
-| GitHub Actions Pipeline | done | gate-pipeline.yml (10 CI gates + Evidence + Hash-Chain + Docker Push), test_pipeline_local.sh |
+| GitHub Actions Pipeline | done | gate-pipeline.yml (16 CI gates + Evidence + Hash-Chain + Docker Push), test_pipeline_local.sh |
 | Master Integration Test | done | tests/test_all.py: 31/31 PASS across all 5 pillars |
 | Integrity Regression Suite | done | tests/test_integrity_regression.py: credibility checks for fallbacks, evidence strictness, HYBRID consistency, walkthrough drift |
 | Azure CLI/Helm (Azure) | done | AKS Sweden Central live 2026-04-13 (kube-prometheus-stack via Helm, OPA Gatekeeper mit 3 ConstraintTemplates runtime, PostgreSQL + Hash-Chain-Triggern im Cluster-Pod) |

@@ -1,5 +1,5 @@
 # ================================================================
-# GenAIOps Compliance Gates — CI/CD Pipeline (10 Quality Gates)
+# GenAIOps Compliance Gates — CI/CD Pipeline (16 Quality Gates)
 # ================================================================
 # Operationalizes Compliance-as-Code (D_CAC_AAC_DIFF):
 #   EU AI Act Art. 9–15 → R001–R014 → Rego Policies → Pipeline Enforcement
@@ -7,27 +7,33 @@
 # Triggered on: push to main, pull_request to main
 #
 # Test Layers (Shift-Left, fail-fast ordering):
-#   Layer 1 — Rego Unit Tests (OPA): 103 tests across 10 policies.
+#   Layer 1 — Rego Unit Tests (OPA): 141 tests across 16 policies.
 #             Runs BEFORE any Gate-Conftest-Check. Any failure aborts the
 #             pipeline immediately → prevents Conftest from evaluating
 #             policies whose rule-semantics are broken.
-#   Layer 2 — Gate Conftest Checks: 10 gates against scenario fixtures.
+#   Layer 2 — Gate Conftest Checks: 16 gates against scenario fixtures.
 #   Layer 3 — Evidence + Hash-Chain: audit-trail integrity.
 #
-# Pre-Deployment Gates (5):
+# Pre-Deployment Gates (7):
 #   G-PRE-01: Risk Classification        (R001, Art.9)   — HYBRID
+#   G-PRE-02: Zweckbestimmung            (R012, Art.27)  — HYBRID
+#   G-PRE-03: Risk Management Complete   (R001, Art.9)   — HYBRID
 #   G-PRE-04: Security Baseline          (R003, Art.15)  — AUTO
 #   G-PRE-05: Governance Approval        (R004, Art.14)  — HYBRID
 #   G-DEP-05: Bias Assessment            (R013, Art.10)  — AUTO
 #   G-DEP-01: Data Provenance            (R002, Art.11; R006, Art.10 — Co-Mapping) — AUTO
 #
-# Deployment Gates (2):
+# Deployment Gates (4):
 #   G-DEP-02: Safety Metrics             (R003, Art.15)  — AUTO
 #   G-DEP-03: Transparency Docs          (R007, Art.13)  — HYBRID
+#   G-DEP-04: Conformity Verification    (R011, Art.26.1) — AUTO
+#   G-DEP-06: Logging Configuration      (R014, Art.12)  — AUTO
 #
-# Operations Gates (3):
+# Operations Gates (5):
+#   G-OPS-01: Human Oversight            (R008, Art.14)  — HYBRID
 #   G-OPS-02: Incident Process           (R009, Art.26)  — AUTO
 #   G-OPS-03: Monitoring Configuration   (R010, Art.72)  — AUTO
+#   G-OPS-04: Cybersecurity Operations   (R003, Art.15)  — AUTO
 #   G-OPS-05: Evidence Completeness      (R005, Art.15)  — AUTO
 #
 # Evidence: Every gate result → Evidence Store (S4) with hash chain
@@ -63,10 +69,10 @@ env:
 
 jobs:
   # ────────────────────────────────────────────────────────
-  # Job 1: Quality Gate Checks (S2 + S3) — All 10 Gates
+  # Job 1: Quality Gate Checks (S2 + S3) — All 16 Gates
   # ────────────────────────────────────────────────────────
   quality-gates:
-    name: "Quality Gate Checks (10 Gates)"
+    name: "Quality Gate Checks (16 Gates)"
     runs-on: ubuntu-latest
     outputs:
       gate_result: ${{ steps.gate-summary.outputs.result }}
@@ -114,7 +120,7 @@ jobs:
         run: pip install psycopg2-binary
 
       # ════════════════════════════════════════════════════════
-      # Gate runner function (reusable across all 10 gates)
+      # Gate runner function (reusable across all 16 gates)
       # Separates stdout (JSON) from stderr (diagnostics).
       # Distinguishes Policy-FAIL (violations found) from
       # Tool-FAIL (Conftest crash, missing policy, syntax error).
@@ -178,22 +184,22 @@ jobs:
       # LAYER 1 — Rego Unit Tests (OPA, fail-fast)
       # Runs BEFORE any Conftest gate check. Any rule-semantic failure
       # aborts the pipeline before Gates evaluate → prevents silent
-      # rule drift. Scope: 10 policies / 103 tests
+      # rule drift. Scope: 16 policies / 141 tests
       # (tests/run_all_rego_tests.sh).
       # ════════════════════════════════════════════════════════
-      - name: "Rego Unit Tests (Layer 1 — 10 policies, 103 tests)"
+      - name: "Rego Unit Tests (Layer 1 — 16 policies, 141 tests)"
         id: rego-unit-tests
         run: |
           echo "::group::Rego Unit Tests (OPA)"
-          echo "🧪 Running OPA unit tests for all 10 Rego policies..."
+          echo "🧪 Running OPA unit tests for all 16 Rego policies..."
           echo "   Runner: tests/run_all_rego_tests.sh"
-          echo "   Expected: 103/103 PASS (ground-truth baseline 2026-04-17)"
+          echo "   Expected: 141/141 PASS (16 policies, updated 2026-07-01)"
           echo ""
 
           if ./tests/run_all_rego_tests.sh --quiet; then
-            echo "✅ Rego Unit Tests PASS — 103/103 green"
+            echo "✅ Rego Unit Tests PASS — 141/141 green"
             echo "result=PASS" >> "$GITHUB_OUTPUT"
-            echo "count=103" >> "$GITHUB_OUTPUT"
+            echo "count=141" >> "$GITHUB_OUTPUT"
           else
             echo "❌ Rego Unit Tests FAIL — pipeline aborted before Gate-Checks"
             echo "::error::Rego rule-semantics broken. Fix unit tests before re-running pipeline."
@@ -378,11 +384,11 @@ jobs:
       # EVIDENCE RECORDING (S4)
       # ════════════════════════════════════════════════════════
 
-      - name: "Record Evidence — All 10 Gate Results"
+      - name: "Record Evidence — All 16 Gate Results"
         id: evidence
         run: |
           echo "::group::Evidence Store Recording"
-          echo "📦 Recording all 10 gate results to Evidence Store..."
+          echo "📦 Recording all 16 gate results to Evidence Store..."
           echo "   Database: $EVIDENCE_DB (SQLite for PoC)"
           echo ""
 
@@ -468,7 +474,7 @@ jobs:
         id: gate-summary
         run: |
           echo "╔══════════════════════════════════════════════════════════╗"
-          echo "║  GenAIOps Quality Gate Pipeline — 10 Gate Summary       ║"
+          echo "║  GenAIOps Quality Gate Pipeline — 16 Gate Summary       ║"
           echo "╠══════════════════════════════════════════════════════════╣"
           echo "║  Pipeline: ${{ steps.init.outputs.pipeline_run_id }}"
           echo "║  Commit:   ${GITHUB_SHA::8}"
@@ -518,7 +524,7 @@ jobs:
           done
 
           if [ "$ALL_PASS" = true ]; then
-            echo "║  DECISION: ✅ ALL 10 GATES PASSED — Deploy authorized  ║"
+            echo "║  DECISION: ✅ ALL 16 GATES PASSED — Deploy authorized  ║"
             echo "result=PASS" >> "$GITHUB_OUTPUT"
           else
             echo "║  DECISION: ❌ GATE FAILURE — Deploy BLOCKED            ║"
@@ -532,7 +538,7 @@ jobs:
           fi
 
   # ────────────────────────────────────────────────────────
-  # Job 2: Build + Push Docker Image (only if all 10 gates pass)
+  # Job 2: Build + Push Docker Image (only if all 16 gates pass)
   # ────────────────────────────────────────────────────────
   build-and-push:
     name: "Build & Push Image"
@@ -594,9 +600,9 @@ jobs:
           echo "╔══════════════════════════════════════════════════════════╗"
           echo "║  ✅ GenAIOps Pipeline COMPLETE                          ║"
           echo "║                                                          ║"
-          echo "║  Gates:  10/10 PASS (5 PRE + 2 DEP + 3 OPS)            ║"
-          echo "║  Evidence: 10 records + Hash Chain Verified              ║"
-          echo "║  HYBRID: G-PRE-01, G-PRE-05, G-DEP-03 (AUTO + Manual)  ║"
+          echo "║  Gates:  16/16 PASS (7 PRE + 4 DEP + 5 OPS)            ║"
+          echo "║  Evidence: 16 records + Hash Chain Verified              ║"
+          echo "║  HYBRID: 6 gates (AUTO + Manual Decision-Log)          ║"
           echo "║                                                          ║"
           echo "║  CDV-Pattern: Contract → Validation → PASS → Deploy     ║"
           echo "╚══════════════════════════════════════════════════════════╝"
