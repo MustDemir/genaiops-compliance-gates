@@ -280,6 +280,16 @@ jobs:
             "genaiops.deployment.transparency_docs_present"
           echo "::endgroup::"
 
+      - name: "Gate G-DEP-06: Logging Configuration (R014, Art.12) [AUTO]"
+        id: g-dep-06
+        run: |
+          echo "::group::G-DEP-06 Logging Configuration"
+          bash /tmp/run_gate.sh G-DEP-06 \
+            "$SCENARIO_DIR/fixtures/app_documentation.json" \
+            "policies/deployment/policy_logging_configured.rego" \
+            "genaiops.deployment.logging_configured"
+          echo "::endgroup::"
+
       # ════════════════════════════════════════════════════════
       # OPERATIONS GATES (3)
       # ════════════════════════════════════════════════════════
@@ -334,6 +344,7 @@ jobs:
             "G-DEP-01:R002:${{ steps.g-dep-01.outputs.result }}:AUTO:" \
             "G-DEP-02:R003:${{ steps.g-dep-02.outputs.result }}:AUTO:" \
             "G-DEP-03:R007:${{ steps.g-dep-03.outputs.result }}:HYBRID:decision_log_gdep03_manual.json" \
+            "G-DEP-06:R014:${{ steps.g-dep-06.outputs.result }}:AUTO:" \
             "G-OPS-02:R009:${{ steps.g-ops-02.outputs.result }}:AUTO:" \
             "G-OPS-03:R010:${{ steps.g-ops-03.outputs.result }}:AUTO:" \
             "G-OPS-05:R005:${{ steps.g-ops-05.outputs.result }}:AUTO:"
@@ -416,6 +427,7 @@ jobs:
           echo "║  DEPLOYMENT:"
           echo "║    G-DEP-02 Safety Metrics:       ${{ steps.g-dep-02.outputs.result }}  [AUTO]"
           echo "║    G-DEP-03 Transparency Docs:    ${{ steps.g-dep-03.outputs.result }}  [HYBRID]"
+          echo "║    G-DEP-06 Logging Config:       ${{ steps.g-dep-06.outputs.result }}  [AUTO]"
           echo "║  OPERATIONS:"
           echo "║    G-OPS-02 Incident Process:     ${{ steps.g-ops-02.outputs.result }}  [AUTO]"
           echo "║    G-OPS-03 Monitoring Config:    ${{ steps.g-ops-03.outputs.result }}  [AUTO]"
@@ -430,6 +442,7 @@ jobs:
             "${{ steps.g-dep-01.outputs.result }}"
             "${{ steps.g-dep-02.outputs.result }}"
             "${{ steps.g-dep-03.outputs.result }}"
+            "${{ steps.g-dep-06.outputs.result }}"
             "${{ steps.g-ops-02.outputs.result }}"
             "${{ steps.g-ops-03.outputs.result }}"
             "${{ steps.g-ops-05.outputs.result }}"
