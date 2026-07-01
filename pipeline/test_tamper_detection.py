@@ -20,7 +20,6 @@ Steps:
 
 import json
 import os
-import shutil
 import sqlite3
 import subprocess
 import sys
@@ -177,14 +176,14 @@ def main():
         test_passed = False
 
     print(f"\n{BOLD}  Demonstration:{RESET}")
-    print(f"  Jeder Eintrag im Evidence Store enthält einen SHA-256 Hash,")
-    print(f"  der aus allen Feldern des Eintrags PLUS dem Hash des vorherigen")
-    print(f"  Eintrags berechnet wird (Hash-Kette). Wenn jemand einen Eintrag")
-    print(f"  nachträglich ändert (z.B. FAIL→PASS), stimmt der gespeicherte Hash")
-    print(f"  nicht mehr mit dem neu berechneten Hash überein.")
-    print(f"  Das System erkennt: 'Dieser Eintrag wurde manipuliert.'")
-    print(f"  Das entspricht Art. 12 EU AI Act (automatische Protokollierung)")
-    print(f"  und DP5.3 unserer Architektur (Tamper Evidence).")
+    print("  Jeder Eintrag im Evidence Store enthält einen SHA-256 Hash,")
+    print("  der aus allen Feldern des Eintrags PLUS dem Hash des vorherigen")
+    print("  Eintrags berechnet wird (Hash-Kette). Wenn jemand einen Eintrag")
+    print("  nachträglich ändert (z.B. FAIL→PASS), stimmt der gespeicherte Hash")
+    print("  nicht mehr mit dem neu berechneten Hash überein.")
+    print("  Das System erkennt: 'Dieser Eintrag wurde manipuliert.'")
+    print("  Das entspricht Art. 12 EU AI Act (automatische Protokollierung)")
+    print("  und DP5.3 unserer Architektur (Tamper Evidence).")
 
     print(f"\n{BOLD}{'═' * 70}{RESET}\n")
 

@@ -61,9 +61,7 @@ test_fail_missing_drift_detection_annotation if {
 test_fail_service_monitor_disabled_value if {
 	# Rule 4: service-monitor-configured present but not "true".
 	# Prometheus ServiceMonitor CR required for metrics collection.
-	input_override := object.union(scenario, {"spec": {"template": {"metadata": {"annotations": {
-		"genaiops.io/service-monitor-configured": "false",
-	}}}}})
+	input_override := object.union(scenario, {"spec": {"template": {"metadata": {"annotations": {"genaiops.io/service-monitor-configured": "false"}}}}})
 	result := monitoring_configured.violation with input as input_override
 	count(result) > 0
 }

@@ -4,7 +4,7 @@
 # Used by Conftest to validate G-PRE-04 security baseline.
 # Deliberately violates: P1 (root), P2 (no limits), P3 (no readOnly),
 # P4 (secret in env), P6 (privilege escalation allowed).
-# Also missing: G-PRE-05, G-OPS-03, G-OPS-05, G-DEP-02 annotations.
+# Also missing: G-PRE-05, G-DEP-02, G-OPS-03, G-OPS-04, G-OPS-05 annotations.
 # ================================================================
 apiVersion: apps/v1
 kind: Deployment
@@ -27,6 +27,7 @@ spec:
       annotations:
         # FAIL G-PRE-05: governance-doc missing
         # FAIL G-OPS-03: drift-detection-enabled missing
+        # FAIL G-OPS-04: cybersecurity operations annotations missing
         # FAIL G-OPS-05: evidence-store-connected missing
         # FAIL G-DEP-02: eval-passed missing
         prometheus.io/scrape: "true"

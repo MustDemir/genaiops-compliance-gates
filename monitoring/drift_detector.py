@@ -310,7 +310,6 @@ def record_drift_evidence(
     EVIDENCE_STORE_DB_URL environment variable.
     """
     import tempfile
-    import uuid
 
     evidence = {
         "gate_id": "G-OPS-03",
@@ -499,7 +498,7 @@ def main():
     baseline_path = Path(args.baseline)
     if not baseline_path.exists():
         print(f"ERROR: Baseline not found: {baseline_path}")
-        print(f"  Run with --init-baseline first to create it.")
+        print("  Run with --init-baseline first to create it.")
         sys.exit(2)
 
     baseline_data = load_distribution_from_file(str(baseline_path))

@@ -148,8 +148,8 @@ def render_markdown(out: dict) -> str:
     lines.append("")
     lines.append(f"**Erzeugungsdatum:** {out['generated_at']}  ")
     lines.append(f"**Baseline:** {out['baseline']}  ")
-    lines.append(f"**Quelle:** `tools/extract_rule_test_mapping.py` (auto-generiert aus "
-                 f"`policies/**/*.rego` + `policies/**/*_test.rego`)  ")
+    lines.append("**Quelle:** `tools/extract_rule_test_mapping.py` (auto-generiert aus "
+                 "`policies/**/*.rego` + `policies/**/*_test.rego`)  ")
     lines.append("")
     lines.append("Dieses Dokument belegt die Rule-Level-Isolation der PoC-Policy-Engine: "
                  "Jede der **105 Rego-Regeln** wird durch mindestens eine Unit-Test-Assertion "

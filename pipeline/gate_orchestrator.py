@@ -29,7 +29,6 @@ Exit codes:
 """
 
 import argparse
-import hashlib
 import json
 import os
 import subprocess
@@ -210,6 +209,27 @@ def evaluate_gatekeeper_admission(k8s_object: dict, gate_id: str) -> dict:
             elif actual != expected:
                 violations.append({
                     "msg": f"G-OPS-05 FAIL: Annotation '{key}' must be '{expected}', got '{actual}'",
+                    "type": "gatekeeper_violation",
+                })
+
+    elif gate_id == "G-OPS-04":
+        # GenaiopsCybersecurityOperations: require runtime security-control annotations
+        required = {
+            "genaiops.io/image-scanning-enabled": "true",
+            "genaiops.io/network-policies-specified": "true",
+            "genaiops.io/encryption-at-rest": "true",
+            "genaiops.io/encryption-in-transit": "true",
+        }
+        for key, expected in required.items():
+            actual = pod_annotations.get(key)
+            if actual is None:
+                violations.append({
+                    "msg": f"G-OPS-04 FAIL: Pod annotation '{key}' is missing",
+                    "type": "gatekeeper_violation",
+                })
+            elif actual != expected:
+                violations.append({
+                    "msg": f"G-OPS-04 FAIL: Pod annotation '{key}' must be '{expected}', got '{actual}'",
                     "type": "gatekeeper_violation",
                 })
 
@@ -446,7 +466,7 @@ def evaluate_gate_from_fixture(fixture_path: str, gate_id: str) -> dict:
             "failures": failures,
         }
 
-    elif gate_id in ("G-OPS-03", "G-OPS-05"):
+    elif gate_id in ("G-OPS-03", "G-OPS-04", "G-OPS-05"):
         # Annotation-based gates — check via AdmissionReview or K8s annotations
         review_data = data.get("review", {}).get("object", {})
         if review_data:
@@ -462,6 +482,15 @@ def evaluate_gate_from_fixture(fixture_path: str, gate_id: str) -> dict:
 
         if gate_id == "G-OPS-03":
             for key in ["genaiops.io/drift-detection-enabled", "genaiops.io/service-monitor-configured", "prometheus.io/scrape"]:
+                if all_annotations.get(key) != "true":
+                    failures.append({"msg": f"annotation '{key}' is not 'true'"})
+        elif gate_id == "G-OPS-04":
+            for key in [
+                "genaiops.io/image-scanning-enabled",
+                "genaiops.io/network-policies-specified",
+                "genaiops.io/encryption-at-rest",
+                "genaiops.io/encryption-in-transit",
+            ]:
                 if all_annotations.get(key) != "true":
                     failures.append({"msg": f"annotation '{key}' is not 'true'"})
         elif gate_id == "G-OPS-05":
@@ -610,7 +639,7 @@ def print_banner(scenario_name: str) -> None:
     print(f"{BOLD}{'═' * 70}{RESET}")
     print(f"  Scenario:  {scenario_name}")
     print(f"  Started:   {datetime.now(timezone.utc).isoformat()}")
-    print(f"  Run ID:    (generated per execution)")
+    print("  Run ID:    (generated per execution)")
     print(f"{BOLD}{'═' * 70}{RESET}")
     print()
 
@@ -768,7 +797,9 @@ def run_pipeline(scenario_path: str, use_conftest: bool = False, dry_run: bool =
         # For HYBRID gates with manual source, also record the manual decision
         if method == "HYBRID" and gate.get("manual_source") and not dry_run:
             log(f"  Recording manual decision for {gate_id}...", BLUE)
-            manual_evidence = record_to_evidence_store(
+            # Side effect only: the MANUAL record is persisted to the Evidence
+            # Store; its return value is intentionally not consumed here.
+            record_to_evidence_store(
                 gate_id=gate_id,
                 method="MANUAL",
                 fixture_path=gate["manual_source"],

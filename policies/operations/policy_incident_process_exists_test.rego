@@ -70,9 +70,7 @@ test_fail_missing_incident_contact_annotation if {
 test_fail_rollback_mechanism_wrong_value if {
 	# Rule 6: rollback-mechanism present but not "true" (e.g. "false").
 	# object.union deep-merges at leaf level — other annotations preserved.
-	input_override := object.union(scenario_conftest, {"spec": {"template": {"metadata": {"annotations": {
-		"genaiops.io/rollback-mechanism": "false",
-	}}}}})
+	input_override := object.union(scenario_conftest, {"spec": {"template": {"metadata": {"annotations": {"genaiops.io/rollback-mechanism": "false"}}}}})
 	result := incident_process_exists.violation with input as input_override
 	count(result) > 0
 }

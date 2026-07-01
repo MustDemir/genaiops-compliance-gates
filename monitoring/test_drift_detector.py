@@ -9,7 +9,6 @@ Phase 9.3: Verifies mathematical correctness before live deployment.
 """
 
 import sys
-import math
 from pathlib import Path
 
 # Add parent to path so we can import drift_detector functions
@@ -158,7 +157,7 @@ assert_true(result_normal["max_psi"] < 0.1,
 assert_true(result_normal["max_jsd"] < 0.05,
             f"JSD < 0.05 warning threshold (actual: {result_normal['max_jsd']:.6f})")
 
-print(f"  Details per feature:")
+print("  Details per feature:")
 for fname, fdata in result_normal["features"].items():
     print(f"    {fname}: PSI={fdata['psi']:.6f} JSD={fdata['jsd']:.6f} [{fdata['status']}]")
 
@@ -177,7 +176,7 @@ assert_true(result_drifted["max_psi"] > 0.2,
 assert_true(result_drifted["max_jsd"] > 0.1,
             f"JSD > 0.1 critical threshold (actual: {result_drifted['max_jsd']:.6f})")
 
-print(f"  Details per feature:")
+print("  Details per feature:")
 for fname, fdata in result_drifted["features"].items():
     color = {"ok": GREEN, "warning": YELLOW, "critical": RED}.get(fdata["status"], "")
     print(f"    {fname}: PSI={fdata['psi']:.6f} JSD={fdata['jsd']:.6f} [{color}{fdata['status']}{RESET}]")
@@ -195,11 +194,11 @@ print(f"  {GREEN}PASSED: {passed}{RESET}  /  {RED}FAILED: {failed}{RESET}  /  To
 if failed == 0:
     print(f"\n  {GREEN}{BOLD}✓ ALL TESTS PASSED — PSI/JSD computations verified{RESET}")
     print(f"\n  {BOLD}What was proven:{RESET}")
-    print(f"  1. PSI = 0 for identical distributions (mathematically correct)")
-    print(f"  2. JSD is symmetric (JSD(P,Q) == JSD(Q,P))")
-    print(f"  3. Small variations → status OK (no false alarms)")
-    print(f"  4. Large drift → status CRITICAL (drift detected)")
-    print(f"  5. Input validation works (length mismatch caught)")
+    print("  1. PSI = 0 for identical distributions (mathematically correct)")
+    print("  2. JSD is symmetric (JSD(P,Q) == JSD(Q,P))")
+    print("  3. Small variations → status OK (no false alarms)")
+    print("  4. Large drift → status CRITICAL (drift detected)")
+    print("  5. Input validation works (length mismatch caught)")
 else:
     print(f"\n  {RED}{BOLD}✗ SOME TESTS FAILED — review above{RESET}")
 
