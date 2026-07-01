@@ -14,19 +14,19 @@
 #   Layer 2 — Gate Conftest Checks: 16 gates against scenario fixtures.
 #   Layer 3 — Evidence + Hash-Chain: audit-trail integrity.
 #
-# Pre-Deployment Gates (7):
+# Pre-Deployment Gates (5):
 #   G-PRE-01: Risk Classification        (R001, Art.9)   — HYBRID
 #   G-PRE-02: Zweckbestimmung            (R012, Art.27)  — HYBRID
 #   G-PRE-03: Risk Management Complete   (R001, Art.9)   — HYBRID
 #   G-PRE-04: Security Baseline          (R003, Art.15)  — AUTO
 #   G-PRE-05: Governance Approval        (R004, Art.14)  — HYBRID
-#   G-DEP-05: Bias Assessment            (R013, Art.10)  — AUTO
-#   G-DEP-01: Data Provenance            (R002, Art.11; R006, Art.10 — Co-Mapping) — AUTO
 #
-# Deployment Gates (4):
+# Deployment Gates (6):
+#   G-DEP-01: Data Provenance            (R002, Art.11; R006, Art.10 — Co-Mapping) — AUTO
 #   G-DEP-02: Safety Metrics             (R003, Art.15)  — AUTO
 #   G-DEP-03: Transparency Docs          (R007, Art.13)  — HYBRID
 #   G-DEP-04: Conformity Verification    (R011, Art.26.1) — AUTO
+#   G-DEP-05: Bias Assessment            (R013, Art.10)  — AUTO
 #   G-DEP-06: Logging Configuration      (R014, Art.12)  — AUTO
 #
 # Operations Gates (5):
@@ -262,15 +262,9 @@ jobs:
             "genaiops.pre_deployment.risk_management_complete"
           echo "::endgroup::"
 
-      - name: "Gate G-DEP-05: Bias Assessment (R013, Art.10) [AUTO]"
-        id: g-dep-05
-        run: |
-          echo "::group::G-DEP-05 Bias Assessment"
-          bash /tmp/run_gate.sh G-DEP-05 \
-            "$SCENARIO_DIR/fixtures/model_documentation_bias_pass.json" \
-            "policies/pre-deployment/policy_bias_assessment_complete.rego" \
-            "genaiops.pre_deployment.bias_assessment_complete"
-          echo "::endgroup::"
+      # ════════════════════════════════════════════════════════
+      # DEPLOYMENT GATES (6)
+      # ════════════════════════════════════════════════════════
 
       - name: "Gate G-DEP-01: Data Provenance (R002, Art.11; R006, Art.10) [AUTO]"
         id: g-dep-01
@@ -281,10 +275,6 @@ jobs:
             "policies/pre-deployment/policy_data_provenance_documented.rego" \
             "genaiops.pre_deployment.data_provenance_documented"
           echo "::endgroup::"
-
-      # ════════════════════════════════════════════════════════
-      # DEPLOYMENT GATES (2)
-      # ════════════════════════════════════════════════════════
 
       - name: "Gate G-DEP-02: Safety Metrics (R003, Art.15) [AUTO]"
         id: g-dep-02
@@ -306,16 +296,6 @@ jobs:
             "genaiops.deployment.transparency_docs_present"
           echo "::endgroup::"
 
-      - name: "Gate G-DEP-06: Logging Configuration (R014, Art.12) [AUTO]"
-        id: g-dep-06
-        run: |
-          echo "::group::G-DEP-06 Logging Configuration"
-          bash /tmp/run_gate.sh G-DEP-06 \
-            "$SCENARIO_DIR/fixtures/app_documentation.json" \
-            "policies/deployment/policy_logging_configured.rego" \
-            "genaiops.deployment.logging_configured"
-          echo "::endgroup::"
-
       - name: "Gate G-DEP-04: Konformitaets-Eingangspruefung (R011, Art.26.1) [AUTO]"
         id: g-dep-04
         run: |
@@ -326,9 +306,39 @@ jobs:
             "genaiops.deployment.conformity_verified"
           echo "::endgroup::"
 
+      - name: "Gate G-DEP-05: Bias Assessment (R013, Art.10) [AUTO]"
+        id: g-dep-05
+        run: |
+          echo "::group::G-DEP-05 Bias Assessment"
+          bash /tmp/run_gate.sh G-DEP-05 \
+            "$SCENARIO_DIR/fixtures/model_documentation_bias_pass.json" \
+            "policies/pre-deployment/policy_bias_assessment_complete.rego" \
+            "genaiops.pre_deployment.bias_assessment_complete"
+          echo "::endgroup::"
+
+      - name: "Gate G-DEP-06: Logging Configuration (R014, Art.12) [AUTO]"
+        id: g-dep-06
+        run: |
+          echo "::group::G-DEP-06 Logging Configuration"
+          bash /tmp/run_gate.sh G-DEP-06 \
+            "$SCENARIO_DIR/fixtures/app_documentation.json" \
+            "policies/deployment/policy_logging_configured.rego" \
+            "genaiops.deployment.logging_configured"
+          echo "::endgroup::"
+
       # ════════════════════════════════════════════════════════
-      # OPERATIONS GATES (3)
+      # OPERATIONS GATES (5)
       # ════════════════════════════════════════════════════════
+
+      - name: "Gate G-OPS-01: Human Oversight (R008, Art.14) [HYBRID]"
+        id: g-ops-01
+        run: |
+          echo "::group::G-OPS-01 Human Oversight"
+          bash /tmp/run_gate.sh G-OPS-01 \
+            "$SCENARIO_DIR/fixtures/app_documentation.json" \
+            "policies/operations/policy_human_oversight_operational.rego" \
+            "genaiops.operations.human_oversight_operational"
+          echo "::endgroup::"
 
       - name: "Gate G-OPS-02: Incident Process (R009, Art.26) [AUTO]"
         id: g-ops-02
@@ -350,26 +360,6 @@ jobs:
             "genaiops.operations.monitoring_configured"
           echo "::endgroup::"
 
-      - name: "Gate G-OPS-05: Evidence Completeness (R005, Art.15) [AUTO]"
-        id: g-ops-05
-        run: |
-          echo "::group::G-OPS-05 Evidence Completeness"
-          bash /tmp/run_gate.sh G-OPS-05 \
-            "$SCENARIO_DIR/fixtures/deployment_compliant.yaml" \
-            "policies/operations/policy_evidence_completeness.rego" \
-            "genaiops.operations.evidence_completeness"
-          echo "::endgroup::"
-
-      - name: "Gate G-OPS-01: Human Oversight (R008, Art.14) [HYBRID]"
-        id: g-ops-01
-        run: |
-          echo "::group::G-OPS-01 Human Oversight"
-          bash /tmp/run_gate.sh G-OPS-01 \
-            "$SCENARIO_DIR/fixtures/app_documentation.json" \
-            "policies/operations/policy_human_oversight_operational.rego" \
-            "genaiops.operations.human_oversight_operational"
-          echo "::endgroup::"
-
       - name: "Gate G-OPS-04: Cybersecurity-Operations (R003, Art.15) [AUTO]"
         id: g-ops-04
         run: |
@@ -378,6 +368,16 @@ jobs:
             "$SCENARIO_DIR/fixtures/app_documentation.json" \
             "policies/operations/policy_data_security_controls.rego" \
             "genaiops.operations.data_security_controls"
+          echo "::endgroup::"
+
+      - name: "Gate G-OPS-05: Evidence Completeness (R005, Art.15) [AUTO]"
+        id: g-ops-05
+        run: |
+          echo "::group::G-OPS-05 Evidence Completeness"
+          bash /tmp/run_gate.sh G-OPS-05 \
+            "$SCENARIO_DIR/fixtures/deployment_compliant.yaml" \
+            "policies/operations/policy_evidence_completeness.rego" \
+            "genaiops.operations.evidence_completeness"
           echo "::endgroup::"
 
       # ════════════════════════════════════════════════════════
@@ -394,20 +394,20 @@ jobs:
 
           for gate_info in \
             "G-PRE-01:R001:${{ steps.g-pre-01.outputs.result }}:HYBRID:decision_log_gpre01_manual.json" \
+            "G-PRE-02:R012:${{ steps.g-pre-02.outputs.result }}:HYBRID:" \
+            "G-PRE-03:R001:${{ steps.g-pre-03.outputs.result }}:HYBRID:" \
             "G-PRE-04:R003:${{ steps.g-pre-04.outputs.result }}:AUTO:" \
             "G-PRE-05:R004:${{ steps.g-pre-05.outputs.result }}:HYBRID:decision_log_gpre05_manual.json" \
-            "G-DEP-05:R013:${{ steps.g-dep-05.outputs.result }}:AUTO:" \
             "G-DEP-01:R002:${{ steps.g-dep-01.outputs.result }}:AUTO:" \
             "G-DEP-02:R003:${{ steps.g-dep-02.outputs.result }}:AUTO:" \
             "G-DEP-03:R007:${{ steps.g-dep-03.outputs.result }}:HYBRID:decision_log_gdep03_manual.json" \
-            "G-DEP-06:R014:${{ steps.g-dep-06.outputs.result }}:AUTO:" \
             "G-DEP-04:R011:${{ steps.g-dep-04.outputs.result }}:AUTO:" \
-            "G-PRE-02:R012:${{ steps.g-pre-02.outputs.result }}:HYBRID:" \
-            "G-PRE-03:R001:${{ steps.g-pre-03.outputs.result }}:HYBRID:" \
+            "G-DEP-05:R013:${{ steps.g-dep-05.outputs.result }}:AUTO:" \
+            "G-DEP-06:R014:${{ steps.g-dep-06.outputs.result }}:AUTO:" \
             "G-OPS-01:R008:${{ steps.g-ops-01.outputs.result }}:HYBRID:" \
-            "G-OPS-04:R003:${{ steps.g-ops-04.outputs.result }}:AUTO:" \
             "G-OPS-02:R009:${{ steps.g-ops-02.outputs.result }}:AUTO:" \
             "G-OPS-03:R010:${{ steps.g-ops-03.outputs.result }}:AUTO:" \
+            "G-OPS-04:R003:${{ steps.g-ops-04.outputs.result }}:AUTO:" \
             "G-OPS-05:R005:${{ steps.g-ops-05.outputs.result }}:AUTO:"
           do
             IFS=':' read -r GATE_ID REQ_ID DECISION METHOD DECISION_LOG <<< "$gate_info"
@@ -462,7 +462,7 @@ jobs:
         id: hash-chain
         run: |
           echo "::group::Hash Chain Verification"
-          echo "🔗 Verifying tamper-proof audit trail (10 records)..."
+          echo "🔗 Verifying tamper-proof audit trail (16 records)..."
           python3 evidence-store/scripts/verify_hash_chain.py \
             --sqlite "$EVIDENCE_DB" \
             && echo "✅ Hash chain VALID — Evidence Store integrity confirmed" \
@@ -481,41 +481,41 @@ jobs:
           echo "╠══════════════════════════════════════════════════════════╣"
           echo "║  PRE-DEPLOYMENT:"
           echo "║    G-PRE-01 Risk Classification:  ${{ steps.g-pre-01.outputs.result }}  [HYBRID]"
-          echo "║    G-PRE-04 Security Baseline:    ${{ steps.g-pre-04.outputs.result }}  [AUTO]"
-          echo "║    G-PRE-05 Governance Approval:  ${{ steps.g-pre-05.outputs.result }}  [HYBRID]"
           echo "║    G-PRE-02 Zweckbestimmung:      ${{ steps.g-pre-02.outputs.result }}  [HYBRID]"
           echo "║    G-PRE-03 Risikomanagement:     ${{ steps.g-pre-03.outputs.result }}  [HYBRID]"
-          echo "║    G-DEP-05 Bias Assessment:      ${{ steps.g-dep-05.outputs.result }}  [AUTO]"
-          echo "║    G-DEP-01 Data Provenance:      ${{ steps.g-dep-01.outputs.result }}  [AUTO]"
+          echo "║    G-PRE-04 Security Baseline:    ${{ steps.g-pre-04.outputs.result }}  [AUTO]"
+          echo "║    G-PRE-05 Governance Approval:  ${{ steps.g-pre-05.outputs.result }}  [HYBRID]"
           echo "║  DEPLOYMENT:"
+          echo "║    G-DEP-01 Data Provenance:      ${{ steps.g-dep-01.outputs.result }}  [AUTO]"
           echo "║    G-DEP-02 Safety Metrics:       ${{ steps.g-dep-02.outputs.result }}  [AUTO]"
           echo "║    G-DEP-03 Transparency Docs:    ${{ steps.g-dep-03.outputs.result }}  [HYBRID]"
-          echo "║    G-DEP-06 Logging Config:       ${{ steps.g-dep-06.outputs.result }}  [AUTO]"
           echo "║    G-DEP-04 Konformitaetspruefung:${{ steps.g-dep-04.outputs.result }}  [AUTO]"
+          echo "║    G-DEP-05 Bias Assessment:      ${{ steps.g-dep-05.outputs.result }}  [AUTO]"
+          echo "║    G-DEP-06 Logging Config:       ${{ steps.g-dep-06.outputs.result }}  [AUTO]"
           echo "║  OPERATIONS:"
+          echo "║    G-OPS-01 Human Oversight:      ${{ steps.g-ops-01.outputs.result }}  [HYBRID]"
           echo "║    G-OPS-02 Incident Process:     ${{ steps.g-ops-02.outputs.result }}  [AUTO]"
           echo "║    G-OPS-03 Monitoring Config:    ${{ steps.g-ops-03.outputs.result }}  [AUTO]"
-          echo "║    G-OPS-05 Evidence Complete:    ${{ steps.g-ops-05.outputs.result }}  [AUTO]"
-          echo "║    G-OPS-01 Human Oversight:      ${{ steps.g-ops-01.outputs.result }}  [HYBRID]"
           echo "║    G-OPS-04 Cybersecurity Ops:    ${{ steps.g-ops-04.outputs.result }}  [AUTO]"
+          echo "║    G-OPS-05 Evidence Complete:    ${{ steps.g-ops-05.outputs.result }}  [AUTO]"
           echo "╠══════════════════════════════════════════════════════════╣"
 
           GATES=(
             "${{ steps.g-pre-01.outputs.result }}"
+            "${{ steps.g-pre-02.outputs.result }}"
+            "${{ steps.g-pre-03.outputs.result }}"
             "${{ steps.g-pre-04.outputs.result }}"
             "${{ steps.g-pre-05.outputs.result }}"
-            "${{ steps.g-dep-05.outputs.result }}"
             "${{ steps.g-dep-01.outputs.result }}"
             "${{ steps.g-dep-02.outputs.result }}"
             "${{ steps.g-dep-03.outputs.result }}"
-            "${{ steps.g-dep-06.outputs.result }}"
             "${{ steps.g-dep-04.outputs.result }}"
-            "${{ steps.g-pre-02.outputs.result }}"
-            "${{ steps.g-pre-03.outputs.result }}"
+            "${{ steps.g-dep-05.outputs.result }}"
+            "${{ steps.g-dep-06.outputs.result }}"
             "${{ steps.g-ops-01.outputs.result }}"
-            "${{ steps.g-ops-04.outputs.result }}"
             "${{ steps.g-ops-02.outputs.result }}"
             "${{ steps.g-ops-03.outputs.result }}"
+            "${{ steps.g-ops-04.outputs.result }}"
             "${{ steps.g-ops-05.outputs.result }}"
           )
           ALL_PASS=true
