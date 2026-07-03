@@ -1,0 +1,45 @@
+# ================================================================
+# PROSPEKTIV — NICHT Teil des 16-Gate-Katalogs (F5-Forschungsanschluss)
+# ================================================================
+# Diese Gate-Definition liegt bewusst außerhalb von gate-definitions/,
+# damit keine Konsistenz-/Zähl-Prüfung sie als 17. Gate erfasst.
+# ================================================================
+id: "G-OPS-XX-prospektiv"
+name: "Rollenwechsel-Monitoring (Betreiber-zu-Anbieter-Aufstieg)"
+status: "prospektiv — nicht im aktuellen 14er-/16er-Katalog (F5)"
+dimension: "regulatorisch"
+lifecycle_phase: "operations"
+trigger: "Post-Deployment-Änderungsereignis (Fine-Tuning-Job, RAG-Konfigurationsänderung, Zweckänderungs-Vermerk)"
+policy_checks:
+  - check: "namensaenderung_oder_marke"
+    artikel: "Art. 25 Abs. 1 lit. a"
+  - check: "wesentliche_veraenderung_hochrisiko_system"
+    artikel: "Art. 25 Abs. 1 lit. b"
+  - check: "zweckaenderung_zu_hochrisiko"
+    artikel: "Art. 25 Abs. 1 lit. c"
+evidence_required:
+  - "change_log_record"
+  - "fine_tuning_manifest"
+  - "rag_config_diff"
+decision_logic:
+  contract: "Schwellenwerte gemäß Art. 97 delegierte Rechtsakte / CEN-CENELEC-Standards (aktuell nicht final definiert)"
+  validation: "Abgleich Change-Manifest gegen Contract-Schwellenwerte"
+  severity: "SHOULD (Advisory, kein Blocking, da Schwellenwerte offen)"
+  decision: "HYBRID — Compliance-Officer-Review"
+decision: "advisory"
+owner: "Compliance Officer"
+audit_trail:
+  enabled: true
+  note: "Decision-Log-Eintrag mit Hash-Chain-Anker"
+waiver:
+  allowed: false
+  requires: "nicht anwendbar (Advisory-Charakter)"
+links:
+  requirements:
+    - "R0XX-prospektiv (nicht im 14er-Katalog)"
+  eu_ai_act_refs:
+    - "Art. 25 Abs. 1 lit. a"
+    - "Art. 25 Abs. 1 lit. b"
+    - "Art. 25 Abs. 1 lit. c"
+    - "Art. 97 (delegierte Rechtsakte — Schwellenwerte ausstehend)"
+notes: "Prospektive Skizze zu F5. warn statt deny (advisory). Rego-Überführung zu enforcement erst nach Art.-97-Konkretisierung."
