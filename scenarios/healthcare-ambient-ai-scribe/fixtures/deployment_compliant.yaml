@@ -37,6 +37,10 @@ metadata:
     genaiops.io/network-policies-specified: "true"
     genaiops.io/encryption-at-rest: "true"
     genaiops.io/encryption-in-transit: "true"
+    genaiops.io/human-oversight-roles-assigned: "true"
+    genaiops.io/escalation-procedure-defined: "true"
+    genaiops.io/output-override-enabled: "true"
+    genaiops.io/real-time-monitoring-enabled: "true"
 spec:
   replicas: 1
   selector:
@@ -65,6 +69,10 @@ spec:
         genaiops.io/network-policies-specified: "true"
         genaiops.io/encryption-at-rest: "true"
         genaiops.io/encryption-in-transit: "true"
+        genaiops.io/human-oversight-roles-assigned: "true"
+        genaiops.io/escalation-procedure-defined: "true"
+        genaiops.io/output-override-enabled: "true"
+        genaiops.io/real-time-monitoring-enabled: "true"
         prometheus.io/scrape: "true"
         prometheus.io/port: "8080"
         prometheus.io/path: "/metrics"

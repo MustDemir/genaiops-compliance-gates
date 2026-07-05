@@ -1,0 +1,95 @@
+# ================================================================
+# GenAIOps PoC — Gatekeeper Constraint: Human Oversight (Operational)
+# ================================================================
+# G-OPS-01: Operational human-oversight controls must be active at runtime.
+#
+# Ensures every Deployment in namespace "genaiops" has:
+#   1. genaiops.io/human-oversight-roles-assigned: "true"
+#   2. genaiops.io/escalation-procedure-defined: "true"
+#   3. genaiops.io/output-override-enabled: "true"
+#   4. genaiops.io/real-time-monitoring-enabled: "true"
+#
+# Trigger: kubectl apply -> Gatekeeper Admission Controller
+# Policy:  policy_human_oversight_operational (R008, Art. 14 / 26 Abs. 2)
+# ================================================================
+apiVersion: templates.gatekeeper.sh/v1
+kind: ConstraintTemplate
+metadata:
+  name: genaiopshumanoversight
+  labels:
+    app.kubernetes.io/part-of: genaiops-compliance-gates
+    app.kubernetes.io/component: gatekeeper
+spec:
+  crd:
+    spec:
+      names:
+        kind: GenaiopsHumanOversight
+      validation:
+        openAPIV3Schema:
+          type: object
+          properties:
+            requiredAnnotations:
+              type: array
+              items:
+                type: object
+                properties:
+                  key:
+                    type: string
+                  value:
+                    type: string
+  targets:
+    - target: admission.k8s.gatekeeper.sh
+      rego: |
+        package genaiopshumanoversight
+
+        # Rule 1: Annotations block missing entirely
+        violation[{"msg": msg}] {
+          input.review.object.kind == "Deployment"
+          not input.review.object.spec.template.metadata.annotations
+          required := input.parameters.requiredAnnotations[_]
+          msg := sprintf("G-OPS-01 FAIL: Pod template has no annotations. Required: '%v'='%v'", [required.key, required.value])
+        }
+
+        # Rule 2: Annotation key missing
+        violation[{"msg": msg}] {
+          input.review.object.kind == "Deployment"
+          annotations := input.review.object.spec.template.metadata.annotations
+          required := input.parameters.requiredAnnotations[_]
+          not annotations[required.key]
+          msg := sprintf("G-OPS-01 FAIL: Pod annotation '%v' is missing. Operational human-oversight controls must be verified before admission.", [required.key])
+        }
+
+        # Rule 3: Annotation present but wrong value
+        violation[{"msg": msg}] {
+          input.review.object.kind == "Deployment"
+          annotations := input.review.object.spec.template.metadata.annotations
+          required := input.parameters.requiredAnnotations[_]
+          val := annotations[required.key]
+          val != required.value
+          msg := sprintf("G-OPS-01 FAIL: Pod annotation '%v' must be '%v', got '%v'", [required.key, required.value, val])
+        }
+---
+apiVersion: constraints.gatekeeper.sh/v1beta1
+kind: GenaiopsHumanOversight
+metadata:
+  name: require-human-oversight-annotations
+  labels:
+    app.kubernetes.io/part-of: genaiops-compliance-gates
+    app.kubernetes.io/component: gatekeeper
+spec:
+  enforcementAction: deny
+  match:
+    kinds:
+      - apiGroups: ["apps"]
+        kinds: ["Deployment"]
+    namespaces: ["genaiops"]
+  parameters:
+    requiredAnnotations:
+      - key: "genaiops.io/human-oversight-roles-assigned"
+        value: "true"
+      - key: "genaiops.io/escalation-procedure-defined"
+        value: "true"
+      - key: "genaiops.io/output-override-enabled"
+        value: "true"
+      - key: "genaiops.io/real-time-monitoring-enabled"
+        value: "true"
