@@ -8,7 +8,7 @@
   },
 
   "quality_metrics": {
-    "accuracy": 0.72,
+    "accuracy": 0.91,
     "faithfulness_score": 0.94,
     "relevance_score": 0.89,
     "coherence_score": 0.92
