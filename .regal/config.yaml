@@ -1,0 +1,15 @@
+# Regal linter configuration
+# https://docs.styra.com/regal
+#
+# The Rego *_test.rego files import scenario fixtures via
+#   import data.fixtures.healthcare.<name>
+# These fixtures are supplied at test time by the official harness
+# (tests/run_all_rego_tests.sh loads tests/fixtures/ + scenarios/.../fixtures/
+# alongside the policies). Regal lints statically and cannot see those data
+# documents, so it reports them as unresolved. They are false positives here.
+rules:
+  imports:
+    unresolved-import:
+      level: ignore
+    unresolved-reference:
+      level: ignore

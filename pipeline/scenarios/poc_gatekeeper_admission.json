@@ -15,6 +15,16 @@
 
   "gates": [
     {
+      "gate_id": "G-OPS-04",
+      "gate_name": "Cybersecurity Operations (ADMIT case)",
+      "phase": "operations",
+      "method": "AUTO",
+      "fixture": "scenarios/healthcare-ambient-ai-scribe/fixtures/admission_review_compliant.json",
+      "enforcement": "gatekeeper",
+      "constraint_template": "scenarios/healthcare-ambient-ai-scribe/k8s/gatekeeper/constraint-cybersecurity-operations.yaml",
+      "description_kolloquium": "Gleiches Deployment: Image-Scanning, NetworkPolicies sowie Verschluesselung at-rest und in-transit sind als Runtime-Sicherheitskontrollen nachgewiesen -> ADMIT."
+    },
+    {
       "gate_id": "G-OPS-03",
       "gate_name": "Monitoring Configuration (ADMIT case)",
       "phase": "operations",
@@ -31,6 +41,16 @@
       "fixture": "scenarios/healthcare-ambient-ai-scribe/fixtures/admission_review_compliant.json",
       "enforcement": "gatekeeper",
       "description_kolloquium": "Gleiches Deployment: evidence-store-connected=true und hash-chain-enabled=true sind als Annotations gesetzt → ADMIT."
+    },
+    {
+      "gate_id": "G-OPS-04",
+      "gate_name": "Cybersecurity Operations (REJECT case)",
+      "phase": "operations",
+      "method": "AUTO",
+      "fixture": "scenarios/healthcare-ambient-ai-scribe/fixtures/admission_review_noncompliant.json",
+      "enforcement": "gatekeeper",
+      "constraint_template": "scenarios/healthcare-ambient-ai-scribe/k8s/gatekeeper/constraint-cybersecurity-operations.yaml",
+      "description_kolloquium": "Gleiches nicht-konformes Deployment: Runtime-Sicherheitskontrollen fehlen -> Gatekeeper REJECT."
     },
     {
       "gate_id": "G-OPS-03",

@@ -41,8 +41,8 @@ package genaiops.pre_deployment.bias_assessment_complete_test
 
 import rego.v1
 
-import data.fixtures.healthcare.model_documentation_bias_pass as scenario_pass
 import data.fixtures.healthcare.model_documentation_bias_fail as scenario_fail
+import data.fixtures.healthcare.model_documentation_bias_pass as scenario_pass
 import data.genaiops.pre_deployment.bias_assessment_complete
 
 # ================================================================

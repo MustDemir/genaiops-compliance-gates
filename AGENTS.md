@@ -39,7 +39,7 @@ Dieses Projekt ist die **technische Implementierung** einer Enterprise-Referenza
 
 ### Was das Repo enthält:
 - **14 Requirements** (R001–R014) → EU AI Act Art. 9–15 mappings
-- **16 Quality Gates** (G-PRE-01 bis G-OPS-05) → 9 AUTOMATED : 5 HYBRID
+- **16 Quality Gates** (G-PRE-01 bis G-OPS-05) → 10 AUTO : 6 HYBRID : 0 MANUAL
 - **29 OPA/Rego Policy-Kandidaten** → Conftest (CI) + Gatekeeper (K8s)
 - **Evidence Store** → PostgreSQL v02 Enterprise Schema (RLS, Hash-Chain, RBAC)
 - **PoC-Szenario:** Healthcare Ambient AI Scribe auf Azure AKS

@@ -508,6 +508,22 @@ def check_rego_fallback_parity() -> dict:
     }
 
     findings = []
+
+    # Guard against fallback_fields drifting from the real code: every field
+    # declared here must actually be referenced in gate_orchestrator.py.
+    # Annotation keys (containing '/') are matched whole; dotted config paths
+    # by their leaf segment (which is how the fallback accesses them).
+    def _leaf(field: str) -> str:
+        return field if "/" in field else field.split(".")[-1]
+
+    for gate_id, fallback in fallback_fields.items():
+        for field in fallback:
+            if _leaf(field) not in orch_text:
+                findings.append(
+                    f"{gate_id} — fallback_fields declares '{field}' but it is not "
+                    f"referenced in gate_orchestrator.py (map drifted from code)."
+                )
+
     for gate_id, rego in rego_fields.items():
         fallback = fallback_fields.get(gate_id, [])
         # Normalize: strip annotation prefixes for comparison

@@ -109,6 +109,29 @@ app_documentation := {
 				"Continuous drift monitoring with alerting (PSI > 0.2)",
 			],
 		},
+		"risk_management": {
+			"risk_register_versioned": true,
+			"risk_register_version": "v1.2.0",
+			"identified_risks": [
+				{
+					"risk": "Hallucinated clinical content in generated summaries",
+					"likelihood": "medium",
+					"impact": "high",
+					"mitigation": "Human-in-the-loop review + faithfulness scoring before clinical use",
+				},
+				{
+					"risk": "PII leakage during LLM inference",
+					"likelihood": "low",
+					"impact": "high",
+					"mitigation": "Input PII detection and redaction before processing",
+				},
+			],
+			"data_risk_assessment": {
+				"assessed": true,
+				"data_classification": "special_category_personal_data",
+				"residual_risk_level": "low",
+			},
+		},
 		"manual_review": {
 			"reviewed_by": "Dr. Sarah Chen (Compliance Officer)",
 			"review_date": "2026-03-27T14:00:00Z",
@@ -536,6 +559,28 @@ data_documentation_provenance_pass := {
 			],
 			"data_version": "v2.3.1-2026Q1",
 		},
+	}
+
+# --- decision_log_gdep03_manual.json ---
+decision_log_gdep03_manual := {
+		"gate_id": "G-DEP-03",
+		"decision": "PASS",
+		"decision_method": "MANUAL",
+		"reviewed_by": "Compliance Officer",
+		"review_date": "2026-04-13T10:00:00Z",
+		"review_outcome": "Transparency documentation verified for plausibility and completeness",
+		"rationale": "Manual review of Art. 13 transparency disclosures: Modellfähigkeiten, Limitationen, KI-Kennzeichnung und Deployer-Instruktionen wurden auf inhaltliche Verständlichkeit für betroffene Personen geprüft. Die Conftest-Vollständigkeitsprüfung sichert die Strukturkonformität, der manuelle Review die inhaltliche Angemessenheit gemäß D3-First-Degree-Oversight nach Laux (2024).",
+		"evidence_refs": [
+			"transparency_docs_review_2026-04-13.pdf",
+		],
+		"payload_id": "c3d4e5f6-a7b8-9012-cdef-234567890123",
+		"reviewer_role": "Compliance Officer",
+		"review_type": "transparency_plausibility_review",
+		"approval_conditions": [
+			"Quartalsweise Re-Validierung der Transparenzdokumente",
+			"Update bei Modell-Versionsänderungen",
+		],
+		"comment": "HYBRID-Klassifikation entspricht D_GATE_INCLUSION_RULE-Anwendung: Art. 13 erfordert First-Degree Oversight wegen konstitutivem Einfluss der Transparenz-Information auf die nach Art. 14 erforderliche Human Oversight.",
 	}
 
 # --- decision_log_gpre01_manual.json ---

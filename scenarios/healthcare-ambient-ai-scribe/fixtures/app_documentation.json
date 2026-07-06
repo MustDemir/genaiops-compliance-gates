@@ -18,6 +18,30 @@
     ]
   },
 
+  "risk_management": {
+    "risk_register_versioned": true,
+    "risk_register_version": "v1.2.0",
+    "identified_risks": [
+      {
+        "risk": "Hallucinated clinical content in generated summaries",
+        "likelihood": "medium",
+        "impact": "high",
+        "mitigation": "Human-in-the-loop review + faithfulness scoring before clinical use"
+      },
+      {
+        "risk": "PII leakage during LLM inference",
+        "likelihood": "low",
+        "impact": "high",
+        "mitigation": "Input PII detection and redaction before processing"
+      }
+    ],
+    "data_risk_assessment": {
+      "assessed": true,
+      "data_classification": "special_category_personal_data",
+      "residual_risk_level": "low"
+    }
+  },
+
   "manual_review": {
     "reviewed_by": "Dr. Sarah Chen (Compliance Officer)",
     "review_date": "2026-03-27T14:00:00Z",

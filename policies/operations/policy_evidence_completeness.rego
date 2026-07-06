@@ -28,8 +28,8 @@ package genaiops.operations.evidence_completeness
 import rego.v1
 
 # Dual-mode: Gatekeeper wraps input in review.object, Conftest passes directly
-_object := input.review.object if { input.review }
-_object := input if { not input.review }
+_object := input.review.object if input.review
+_object := input if not input.review
 
 _pod_annotations := _object.spec.template.metadata.annotations
 _deployment_annotations := _object.metadata.annotations

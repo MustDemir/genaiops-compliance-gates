@@ -1,0 +1,22 @@
+{
+  "change_event": {
+    "type": "purpose_change",
+    "system_already_on_market": true,
+    "rebranding": {
+      "own_name_or_trademark_applied": false
+    },
+    "substantial_modification": {
+      "modified": false,
+      "remains_high_risk_art6": false
+    },
+    "purpose_change": {
+      "changed": true,
+      "becomes_high_risk_art6": true
+    },
+    "evidence": {
+      "change_log_record": "CHG-2026-0042",
+      "fine_tuning_manifest": null,
+      "rag_config_diff": "rag-config@v3 -> v4 (new clinical-decision-support retrieval corpus)"
+    }
+  }
+}

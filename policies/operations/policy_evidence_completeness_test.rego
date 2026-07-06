@@ -59,9 +59,7 @@ test_fail_missing_evidence_store_connected_annotation if {
 test_fail_hash_chain_disabled_value if {
 	# Rule 4: hash-chain-enabled present but not "true" (e.g. "false")
 	# object.union deep-merges at leaf level — other annotations preserved.
-	input_override := object.union(scenario, {"spec": {"template": {"metadata": {"annotations": {
-		"genaiops.io/hash-chain-enabled": "false",
-	}}}}})
+	input_override := object.union(scenario, {"spec": {"template": {"metadata": {"annotations": {"genaiops.io/hash-chain-enabled": "false"}}}}})
 	result := evidence_completeness.violation with input as input_override
 	count(result) > 0
 }
@@ -73,9 +71,7 @@ test_fail_hash_chain_disabled_value if {
 test_fail_empty_evidence_store_type if {
 	# Rule 6: evidence-store-type present but empty string
 	# Deployment-level annotation (metadata.annotations, not pod template).
-	input_override := object.union(scenario, {"metadata": {"annotations": {
-		"genaiops.io/evidence-store-type": "",
-	}}})
+	input_override := object.union(scenario, {"metadata": {"annotations": {"genaiops.io/evidence-store-type": ""}}})
 	result := evidence_completeness.violation with input as input_override
 	count(result) > 0
 }

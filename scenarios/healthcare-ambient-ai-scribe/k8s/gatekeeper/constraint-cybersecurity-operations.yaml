@@ -1,0 +1,95 @@
+# ================================================================
+# GenAIOps PoC — Gatekeeper Constraint: Cybersecurity Operations
+# ================================================================
+# G-OPS-04: Runtime cybersecurity controls must be active.
+#
+# Ensures every Deployment in namespace "genaiops" has:
+#   1. genaiops.io/image-scanning-enabled: "true"
+#   2. genaiops.io/network-policies-specified: "true"
+#   3. genaiops.io/encryption-at-rest: "true"
+#   4. genaiops.io/encryption-in-transit: "true"
+#
+# Trigger: kubectl apply -> Gatekeeper Admission Controller
+# Policy:  policy_data_security_controls
+# ================================================================
+apiVersion: templates.gatekeeper.sh/v1
+kind: ConstraintTemplate
+metadata:
+  name: genaiopscybersecurityoperations
+  labels:
+    app.kubernetes.io/part-of: genaiops-compliance-gates
+    app.kubernetes.io/component: gatekeeper
+spec:
+  crd:
+    spec:
+      names:
+        kind: GenaiopsCybersecurityOperations
+      validation:
+        openAPIV3Schema:
+          type: object
+          properties:
+            requiredAnnotations:
+              type: array
+              items:
+                type: object
+                properties:
+                  key:
+                    type: string
+                  value:
+                    type: string
+  targets:
+    - target: admission.k8s.gatekeeper.sh
+      rego: |
+        package genaiopscybersecurityoperations
+
+        # Rule 1: Annotations block missing entirely
+        violation[{"msg": msg}] {
+          input.review.object.kind == "Deployment"
+          not input.review.object.spec.template.metadata.annotations
+          required := input.parameters.requiredAnnotations[_]
+          msg := sprintf("G-OPS-04 FAIL: Pod template has no annotations. Required: '%v'='%v'", [required.key, required.value])
+        }
+
+        # Rule 2: Annotation key missing
+        violation[{"msg": msg}] {
+          input.review.object.kind == "Deployment"
+          annotations := input.review.object.spec.template.metadata.annotations
+          required := input.parameters.requiredAnnotations[_]
+          not annotations[required.key]
+          msg := sprintf("G-OPS-04 FAIL: Pod annotation '%v' is missing. Cybersecurity operations controls must be verified before admission.", [required.key])
+        }
+
+        # Rule 3: Annotation present but wrong value
+        violation[{"msg": msg}] {
+          input.review.object.kind == "Deployment"
+          annotations := input.review.object.spec.template.metadata.annotations
+          required := input.parameters.requiredAnnotations[_]
+          val := annotations[required.key]
+          val != required.value
+          msg := sprintf("G-OPS-04 FAIL: Pod annotation '%v' must be '%v', got '%v'", [required.key, required.value, val])
+        }
+---
+apiVersion: constraints.gatekeeper.sh/v1beta1
+kind: GenaiopsCybersecurityOperations
+metadata:
+  name: require-cybersecurity-operations-annotations
+  labels:
+    app.kubernetes.io/part-of: genaiops-compliance-gates
+    app.kubernetes.io/component: gatekeeper
+spec:
+  enforcementAction: deny
+  match:
+    kinds:
+      - apiGroups: ["apps"]
+        kinds: ["Deployment"]
+    namespaces: ["genaiops"]
+  parameters:
+    requiredAnnotations:
+      - key: "genaiops.io/image-scanning-enabled"
+        value: "true"
+      - key: "genaiops.io/network-policies-specified"
+        value: "true"
+      - key: "genaiops.io/encryption-at-rest"
+        value: "true"
+      - key: "genaiops.io/encryption-in-transit"
+        value: "true"

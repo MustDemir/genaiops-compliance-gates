@@ -4,7 +4,7 @@ dimension: "regulatorisch"
 lifecycle_phase: "operations"
 trigger: "kubectl apply — OPA Gatekeeper Admission Controller evaluiert Deployment-Manifest bei Cluster-Admission"
 policy_checks:
-  - "policy_human_oversight_defined"
+  - "policy_human_oversight_operational"
 evidence_required:
   - "hitl_role_assignment_document"
   - "override_procedure_document"
@@ -24,4 +24,4 @@ links:
     - "Art. 26 Abs. 2"
 sources:
   - "requirements/R008.yaml"
-notes: "DESIGN-ONLY — Rego-Implementierung als Future Work. HYBRID: Gatekeeper validiert dass HITL-Mechanismen und Override-Prozeduren als K8s-Ressourcen konfiguriert sind; manueller Review prueft Wirksamkeit der Sterz-Bedingungen (Causal Power, Epistemic Access, Self-Control, Fitting Intentions). D3-Override (Laux, 2024): First-Degree Oversight → max. HYBRID."
+notes: "IMPLEMENTED (2026-07-01) — policy_human_oversight_operational.rego (Conftest gegen app_documentation.json: oversight_roles, escalation_procedure, output_override, real_time_monitoring) + Gatekeeper ConstraintTemplate constraint-human-oversight.yaml (Runtime-Admission auf Pod-Annotationen). HYBRID: Gatekeeper validiert dass HITL-Mechanismen und Override-Prozeduren als K8s-Ressourcen konfiguriert sind; manueller Review prueft Wirksamkeit der Sterz-Bedingungen (Causal Power, Epistemic Access, Self-Control, Fitting Intentions). D3-Override (Laux, 2024): First-Degree Oversight → max. HYBRID."
