@@ -26,4 +26,4 @@ links:
     - "Art. 15"
 sources:
   - "requirements/R005.yaml"
-notes: "PoC-Gate (★). AUTO: Dediziertes Gate fuer Evidence-Persistierung. Gatekeeper + Decision Logs pruefen Vollstaendigkeit aller Gate-Records (16/16) und Hash-Chain-Integritaet. Jede Gate-Entscheidung — automatisiert oder manuell — wird als signierter, inhaltsadressierter Evidence-Record persistiert (Butt et al., 2026: Evidence Backbone)."
+notes: "PoC-Gate (★). AUTO: Dediziertes Gate fuer Evidence-Persistierung. Gatekeeper + Decision Logs pruefen Vollstaendigkeit aller Gate-Records (16/16) und Hash-Chain-Integritaet. Jede Gate-Entscheidung — automatisiert oder manuell — wird als signierter, inhaltsadressierter Evidence-Record persistiert (Butt et al., 2026: Evidence Backbone). Hinweis: policy_checks listet konzeptionelle Policy-Kandidaten (Anhang M, Tab. M.3); policy_evidence_completeness, policy_hash_chain_integrity und policy_audit_trail_immutability sind gebuendelt in policies/operations/policy_evidence_completeness.rego implementiert (eine Datei, mehrere Checks)."

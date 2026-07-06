@@ -25,4 +25,4 @@ links:
     - "Art. 9 Abs. 2"
 sources:
   - "requirements/R010.yaml"
-notes: "PoC-Gate (★). AUTO: Gatekeeper prueft ob Monitoring-Endpoints und -Metriken als aktive ServiceMonitor-Objekte im Cluster registriert sind, und ob Drift-Detection-Pipelines (PSI > 0.2 = critical, JS-Divergenz > 0.1 = critical) konfiguriert und aktiv sind. Schwellenwert-Ueberschreitungen loesen automatische Alerts und ggf. Gate-Re-Evaluation aus."
+notes: "PoC-Gate (★). AUTO: Gatekeeper prueft ob Monitoring-Endpoints und -Metriken als aktive ServiceMonitor-Objekte im Cluster registriert sind, und ob Drift-Detection-Pipelines (PSI > 0.2 = critical, JS-Divergenz > 0.1 = critical) konfiguriert und aktiv sind. Schwellenwert-Ueberschreitungen loesen automatische Alerts und ggf. Gate-Re-Evaluation aus. Hinweis: policy_checks listet konzeptionelle Policy-Kandidaten (Anhang M, Tab. M.3); policy_monitoring_configured und policy_data_drift_monitoring sind gebuendelt in policies/operations/policy_monitoring_configured.rego implementiert (eine Datei, mehrere Checks)."
