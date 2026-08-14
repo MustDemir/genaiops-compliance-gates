@@ -47,6 +47,31 @@
 # Der Rollenuebergang ist damit ein zweiseitiger, dokumentierter Vorgang,
 # kein einseitiger Statuswechsel.
 #
+# ----------------------------------------------------------------
+# ABGRENZUNG — wen Art. 25 Abs. 2/4 traegt, und wen nicht
+# ----------------------------------------------------------------
+# Art. 25 Abs. 2 n.F. verpflichtet den ERSTANBIETER gegenueber den NEUEN
+# ANBIETERN; der Anspruch entsteht erst NACH einem Rollenuebergang.
+# Art. 25 Abs. 4 n.F. regelt Anbieter <-> Drittzulieferer; der Betreiber
+# ist dort nicht Partei.
+#
+# Fuer den REINEN Betreiber — also die Lieferantenpruefung ohne jeden
+# Rollenwechsel — tragen diese Absaetze daher NICHT. Wer Lieferanten-
+# nachweise im Regelfall pruefen will, muss das ueber Art. 13 und
+# Art. 26 Abs. 1/5/6/9 begruenden (Vollstaendigkeit der Betriebsanleitung),
+# nicht ueber Art. 25.
+#
+# DIESES GATE IST DAVON NICHT BETROFFEN: C-25d feuert ausschliesslich,
+# nachdem ein bindender Ausloeser (C-25a oder C-25c) gegriffen hat — also
+# nachdem der Rollenuebergang stattgefunden hat und der Betreiber selbst
+# zum neuen Anbieter geworden ist. Genau dann ist er Anspruchsberechtigter
+# nach Abs. 2. Die Verankerung ist korrekt; bitte nicht "wegkorrigieren".
+#
+# NICHT hier zu pruefen: die technische Dokumentation nach Art. 11 /
+# Anhang IV. Sie ist Anbieterpflicht GEGENUEBER BEHOERDEN, kein Anspruch
+# des Betreibers. Ein Check, der sie vom Betreiber verlangt, pruefte eine
+# Pflicht, die es nicht gibt.
+#
 # ***** BEFUND UEBER SPEC-03 HINAUS — CARVE-OUT IN ART. 25 ABS. 2 *****
 # Der letzte Satz des neuen Abs. 2 lautet sinngemaess: der Absatz gilt
 # NICHT, wenn der urspruengliche Anbieter klar festgelegt hat, dass sein
@@ -56,6 +81,14 @@
 # ohne ihn Uebergabeartefakte einfordern, die rechtlich gar nicht
 # geschuldet sind. Er ist daher als Ausnahme implementiert und muss
 # im Manifest ausdruecklich belegt werden.
+#
+# GRENZE DIESES GATES (bewusst, nicht behebbar durch mehr Rego):
+# Der Anbieter kann sich die Kooperationspflicht EINSEITIG UND VORAB
+# wegbedingen. Die wirksame Pruefung liegt damit VOR VERTRAGSSCHLUSS,
+# nicht in der Deployment-Pipeline. Dieses Gate meldet den fehlenden
+# Uebergabeanspruch erst beim Rollout — also zu spaet, um ihn noch zu
+# verhandeln. Es bleibt als Nachweis- und Eskalationspunkt sinnvoll,
+# ersetzt aber keine Beschaffungspruefung.
 # ********************************************************************
 # ================================================================
 
