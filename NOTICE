@@ -1,0 +1,50 @@
+GenAIOps Compliance Gates
+Copyright 2026 Mustafa Demir
+
+This product includes software developed by Mustafa Demir.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+--------------------------------------------------------------------------
+Licence history
+--------------------------------------------------------------------------
+
+Releases up to and including the tag `thesis-v1.0` — the state archived
+under Zenodo DOI 10.5281/zenodo.19920310 and cited in the underlying
+Master's thesis — were published under Creative Commons
+Attribution-NonCommercial 4.0 International (CC BY-NC 4.0). That archived
+release remains available under its original terms; relicensing is not
+retroactive and does not withdraw the earlier grant.
+
+From 15 August 2026 onwards this repository is licensed under the Apache
+License 2.0. The reason for the change is that CC BY-NC is not an
+open-source licence under the OSI definition: the non-commercial
+restriction prevents use in commercial settings, which is precisely where
+a compliance control system has to be usable. The previous licence text is
+retained for reference as LICENSE_CC-BY-NC-4.0_until_2026-08-15.txt.
+
+--------------------------------------------------------------------------
+Third-party components
+--------------------------------------------------------------------------
+
+This repository contains no vendored third-party source code. It depends
+on, but does not redistribute, the following external tools and libraries,
+each governed by its own licence:
+
+  - Open Policy Agent (OPA) and Conftest — Apache 2.0
+  - OPA Gatekeeper — Apache 2.0
+  - Kubernetes, Helm, ArgoCD — Apache 2.0
+  - PostgreSQL — PostgreSQL Licence
+  - PyYAML — MIT
+  - psycopg2 — LGPL with exceptions
+  - Prometheus, Grafana, OpenTelemetry — Apache 2.0 / AGPL (Grafana)
+
+Documents under docs/legal/ are official publications of the European
+Union (Official Journal). Reuse of Commission documents is governed by
+Decision 2011/833/EU; the Official Journal text is reproduced here
+unaltered for verification purposes and is not covered by the licence
+above.

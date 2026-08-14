@@ -48,4 +48,4 @@ If you discover a security vulnerability (e.g. in the gate orchestrator's eviden
 
 ## License of contributions
 
-By submitting a pull request, you agree that your contribution is licensed under the same [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/) license that covers the rest of the repository.
+By submitting a pull request, you agree that your contribution is licensed under the same [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0) that covers the rest of the repository.

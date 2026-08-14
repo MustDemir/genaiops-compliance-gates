@@ -2,7 +2,7 @@
 
 A cloud-native reference architecture for operationalizing regulatory, technical, and strategic requirements in GenAI systems through automated Quality Gates — with full EU AI Act (Regulation 2024/1689) compliance built into CI/CD/CT pipelines.
 
-[![License: CC BY-NC 4.0](https://img.shields.io/badge/License-CC%20BY--NC%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc/4.0/)
+[![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 [![Changelog](https://img.shields.io/badge/Changelog-Phase%201--12-blue)](CHANGELOG.md)
 [![Documentation](https://img.shields.io/badge/Docs-published-brightgreen)](docs/README.md)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19920310.svg)](https://doi.org/10.5281/zenodo.19920310)
@@ -485,7 +485,7 @@ This implementation is the technical instantiation of a Design Science Research 
 
 The thesis provides the full academic rationale including: DSR methodology (Hevner/Peffers/vom Brocke), requirements derivation from EU AI Act, convergence analysis with NIST AI RMF, and expert evaluation.
 
-**Citation (this release):**
+**Citation (archived Zenodo release — the state cited in the thesis):**
 
 ```bibtex
 @software{demir2026genaiopscompliancegates,
@@ -499,9 +499,13 @@ The thesis provides the full academic rationale including: DSR methodology (Hevn
 }
 ```
 
+> The `license` field above is deliberately **not** `Apache-2.0`: it describes the archived artefact, which was published under CC BY-NC 4.0 and stays available under those terms. The current repository is Apache 2.0 — see [License](#license).
+
 ## License
 
-This work is licensed under [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/). You may share and adapt for non-commercial purposes with attribution.
+Licensed under the [Apache License 2.0](LICENSE) — use, modification and distribution are permitted, including commercially, subject to attribution and the patent-grant terms of the licence. See [NOTICE](NOTICE).
+
+**Licence change, 15 August 2026.** This repository was previously published under CC BY-NC 4.0. The non-commercial clause makes that licence non-open-source under the OSI definition — and a compliance control system that may not be used commercially misses the setting it exists for. The change is **not retroactive**: the release archived under Zenodo DOI [10.5281/zenodo.19920310](https://doi.org/10.5281/zenodo.19920310) and the tag `thesis-v1.0` remain available under their original CC BY-NC 4.0 terms, and that earlier grant is not withdrawn. The previous licence text is kept as `LICENSE_CC-BY-NC-4.0_until_2026-08-15.txt`.
 
 ## Author
 

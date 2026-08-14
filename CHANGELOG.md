@@ -10,6 +10,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased] — Post-Thesis Development (schema_version 2)
 
+### Changed (BREAKING) — Licence: CC BY-NC 4.0 → Apache 2.0 (2026-08-15)
+
+- The repository is now licensed under the **Apache License 2.0**. CC BY-NC is not an open-source licence under the OSI definition: the non-commercial restriction bars exactly the setting a compliance control system is built for.
+- **Not retroactive.** The release archived under Zenodo DOI 10.5281/zenodo.19920310 and the tag `thesis-v1.0` stay available under CC BY-NC 4.0; that grant is not withdrawn. Anyone who received the work under the old terms keeps them.
+- Relicensing is clean: the repository vendors no third-party source code and carries no foreign copyright headers, so the sole copyright holder can relicense. External tools (OPA, Gatekeeper, Kubernetes, PostgreSQL, …) are depended on, not redistributed — see `NOTICE`.
+- Added `NOTICE` (Apache convention) with the licence history and the third-party dependency list. The previous licence text is retained as `LICENSE_CC-BY-NC-4.0_until_2026-08-15.txt`.
+- `CITATION.cff`, `.zenodo.json`, `CONTRIBUTING.md` and the README badge updated to `Apache-2.0`.
+- Official Journal documents under `docs/legal/` are EU publications reproduced unaltered for verification; their reuse follows Decision 2011/833/EU and is not covered by the repository licence.
+
 ### Changed (BREAKING) — Gate count 16 → 17 (SPEC-03)
 
 - **`G-OPS-06` (Rollenwechsel) added to the enforced catalogue**, transferred from `prospective/art25-role-change/` where it deliberately sat outside the counted catalogue. **This changes the headline figures cited in the Master's thesis** (Kap. 7.4 / 8.1): the catalogue now holds **17 gates**, and the Rego unit-test count rises accordingly.

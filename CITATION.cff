@@ -12,7 +12,7 @@ authors:
     orcid: "https://orcid.org/0009-0007-6860-3771"
 url: "https://github.com/MustDemir/genaiops-compliance-gates"
 repository-code: "https://github.com/MustDemir/genaiops-compliance-gates"
-license: CC-BY-NC-4.0
+license: Apache-2.0
 keywords:
   - genaiops
   - eu-ai-act
