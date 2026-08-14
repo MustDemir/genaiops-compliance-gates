@@ -1,15 +1,35 @@
+schema_version: 2
 id: G-PRE-03
 name: "Risikomanagement-Vollstaendigkeit"
 dimension: "regulatorisch"
 lifecycle_phase: "pre-deployment"
 trigger: "PR merge to main branch — Conftest evaluiert app_documentation.json und data_documentation.json im CI-Lauf"
+
+evidence_level:
+  current: "E-0"
+  target: "E-1"
+  rationale: "Conftest prueft Selbstauskunft (Risiken/Mitigationen im Dokumentationsmanifest); keine signierte Attestierung."
+
 policy_checks:
-  - "policy_risk_management_complete"
-  - "policy_data_risk_assessed"
+  - id: "C-01"
+    policy: "policy_risk_management_complete"
+    description: "risk_management-Sektion vorhanden, Risikoregister versioniert, mindestens ein Risiko identifiziert, jedes Risiko traegt eine Mitigation"
+    severity: "MUST"
+    legal_refs: ["Art. 9"]
+    evidence_level: null
+  - id: "C-02"
+    policy: "policy_risk_management_complete"
+    description: "data_risk_assessment.assessed und data_classification dokumentiert"
+    severity: "MUST"
+    legal_refs: ["Art. 9"]
+    evidence_level: null
+
 evidence_required:
   - "risk_register"
   - "data_risk_assessment_document"
-decision: "manual_review"
+
+decision: "derived"
+automation: "HYBRID"
 owner: "AI Governance Lead"
 audit_trail:
   enabled: true
@@ -24,4 +44,4 @@ links:
     - "Art. 9"
 sources:
   - "requirements/R001.yaml"
-notes: "DESIGN-ONLY — Rego-Implementierung als Future Work. HYBRID: Conftest prueft ob Risiken identifiziert und Mitigationen vorhanden; manueller Review bewertet Qualitaet des Risikoregisters. R001 wird zusaetzlich durch G-PRE-01 operationalisiert (Mehrfachzuordnung)."
+notes: "HYBRID: Conftest prueft ob Risiken identifiziert und Mitigationen vorhanden; manueller Review bewertet Qualitaet des Risikoregisters. R001 wird zusaetzlich durch G-PRE-01 operationalisiert (Mehrfachzuordnung); Redundanz-Abgrenzung laut Rego-Kommentar: G-PRE-01 deckt risk_classification.* ab, dieses Gate das davon distincte Risikomanagement-Register und die Daten-Risikobewertung. UPDATE (2026-08-14, schema_version 2 / SPEC-01): policy_checks auf Objektform migriert, Severity aus R001 (MUST) uebernommen. KORREKTUR EINER STALEN NOTIZ: die alte Notiz 'DESIGN-ONLY — Rego-Implementierung als Future Work' war veraltet/falsch — policies/pre-deployment/policy_risk_management_complete.rego existiert bereits mit 7 deny-Rules; policy_data_risk_assessed war nie eine eigene Datei, sondern ist als Rule-Untergruppe (data_risk_assessment.assessed/data_classification) in derselben Datei enthalten, daher C-02 mit demselben policy-Dateinamen."

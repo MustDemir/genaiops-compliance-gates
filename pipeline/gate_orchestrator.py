@@ -31,6 +31,7 @@ Exit codes:
 import argparse
 import json
 import os
+import re
 import subprocess
 import sys
 import uuid
@@ -64,6 +65,65 @@ def log(msg: str, color: str = "") -> None:
     ts = datetime.now(timezone.utc).strftime("%H:%M:%S")
     prefix = f"{color}[{ts}]{RESET}" if color else f"[{ts}]"
     print(f"{prefix} {msg}")
+
+
+# ──────────────────────────────────────────────────────────────
+# schema_version 2 (SPEC-01): decision derivation + check-ID parsing
+# ──────────────────────────────────────────────────────────────
+
+# Rego messages that already follow the SPEC-01 convention look like:
+#   "G-PRE-04/P1 (R003): container 'x' must set runAsNonRoot: true"
+# Older, pre-SPEC-01 messages have no "<GATE-ID>/<CHECK-ID>" prefix
+# (e.g. "G-DEP-02 (R003): accuracy is missing") and yield check_id=None —
+# this is expected until those Rego files are individually revisited.
+_CHECK_ID_RE = re.compile(r"^([A-Z][A-Z0-9-]*)/([A-Za-z0-9-]+)\s*\(")
+
+
+def parse_check_id(msg: str) -> str:
+    """
+    Extract the CHECK-ID from a Rego message of the form
+    '<GATE-ID>/<CHECK-ID> (<Requirement>, <Legal-Ref>): <message>'.
+    Returns None if the message does not follow this convention.
+    """
+    if not msg:
+        return None
+    m = _CHECK_ID_RE.match(msg.strip())
+    return m.group(2) if m else None
+
+
+def annotate_check_ids(items: list) -> list:
+    """Attach a parsed 'check_id' field to each failure/warning dict."""
+    annotated = []
+    for item in items or []:
+        if isinstance(item, dict):
+            msg = item.get("msg", "")
+            annotated.append({**item, "check_id": parse_check_id(msg)})
+        else:
+            annotated.append({"msg": str(item), "check_id": parse_check_id(str(item))})
+    return annotated
+
+
+def derive_decision(failures: list, warnings: list, method: str) -> str:
+    """
+    Derive the gate decision from check results (SPEC-01 Abschnitt 5).
+
+    Evaluation order (do not reorder):
+      1. At least one MUST check violated (failures non-empty) -> "block"
+      2. Gate is HYBRID (D3xD2-Override)                        -> "manual_review"
+      3. At least one SHOULD check violated (warnings non-empty) -> "warn"
+      4. Otherwise                                               -> "approve"
+
+    A HYBRID gate with a violated MUST still blocks — the automation
+    classification never overrides a MUST violation, so step 1 precedes
+    step 2.
+    """
+    if failures:
+        return "block"
+    if method == "HYBRID":
+        return "manual_review"
+    if warnings:
+        return "warn"
+    return "approve"
 
 
 def load_scenario(path: str) -> dict:
@@ -569,12 +629,18 @@ def record_to_evidence_store(
         temp_json = tempfile.NamedTemporaryFile(
             mode="w", suffix=".json", delete=False, prefix=f"gate_{gate_id}_"
         )
+        failures = annotate_check_ids(eval_result.get("failures", []))
+        warnings = annotate_check_ids(eval_result.get("warnings", []))
         gate_evidence = {
             "gate_id": gate_id,
             "decision": eval_result.get("decision", "PASS"),
+            # schema_version 2 (SPEC-01 Abschnitt 5): derived gate decision
+            # (block/manual_review/warn/approve), independent from the
+            # PASS/FAIL persisted in the 'decision' DB column above.
+            "derived_decision": derive_decision(failures, warnings, method),
             "tool": eval_result.get("tool", "fixture-eval"),
-            "failures": eval_result.get("failures", []),
-            "warnings": eval_result.get("warnings", []),
+            "failures": failures,
+            "warnings": warnings,
             "source_fixture": fixture_path,
             "evaluated_at": datetime.now(timezone.utc).isoformat(),
         }
@@ -650,13 +716,25 @@ def print_gate_result(gate: dict, result: dict, evidence: dict, index: int, tota
     color = GREEN if decision == "PASS" else RED
     method = gate["method"]
     method_badge = f"{BLUE}[{method}]{RESET}"
+    derived_decision = derive_decision(
+        result.get("failures", []), result.get("warnings", []), method
+    )
 
     print(f"  {BOLD}Gate {index}/{total}: {gate['gate_id']} — {gate['gate_name']}{RESET}")
-    print(f"  Method: {method_badge}  |  Decision: {color}{BOLD}{decision}{RESET}")
+    print(f"  Method: {method_badge}  |  Decision: {color}{BOLD}{decision}{RESET}"
+          f"  |  Derived: {BLUE}{derived_decision}{RESET}")
 
     if result.get("failures"):
         for f in result["failures"]:
-            print(f"    {RED}✗ {f.get('msg', str(f))}{RESET}")
+            check_id = f.get("check_id") or parse_check_id(f.get("msg", ""))
+            tag = f"{check_id}: " if check_id else ""
+            print(f"    {RED}✗ {tag}{f.get('msg', str(f))}{RESET}")
+
+    if result.get("warnings"):
+        for w in result["warnings"]:
+            check_id = w.get("check_id") or parse_check_id(w.get("msg", ""))
+            tag = f"{check_id}: " if check_id else ""
+            print(f"    {YELLOW}⚠ {tag}{w.get('msg', str(w))}{RESET}")
 
     if evidence.get("stdout"):
         # Extract hash info from record_evidence output
@@ -777,6 +855,12 @@ def run_pipeline(scenario_path: str, use_conftest: bool = False, dry_run: bool =
             eval_result = evaluate_gate_from_fixture(fixture, gate_id)
 
         decision = eval_result["decision"]
+        # schema_version 2 (SPEC-01 Abschnitt 5): derived gate decision,
+        # informational alongside the persisted PASS/FAIL — does not change
+        # the pipeline-halt control flow below, which stays on PASS/FAIL.
+        derived_decision = derive_decision(
+            eval_result.get("failures", []), eval_result.get("warnings", []), method
+        )
 
         # Step 2: Record to Evidence Store
         # For HYBRID gates: record the AUTO part first
@@ -815,6 +899,7 @@ def run_pipeline(scenario_path: str, use_conftest: bool = False, dry_run: bool =
         results.append({
             "gate_id": gate_id,
             "decision": decision,
+            "derived_decision": derived_decision,
             "method": method,
             "failures": eval_result.get("failures", []),
         })

@@ -7,6 +7,8 @@ A cloud-native reference architecture for operationalizing regulatory, technical
 [![Documentation](https://img.shields.io/badge/Docs-published-brightgreen)](docs/README.md)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19920310.svg)](https://doi.org/10.5281/zenodo.19920310)
 
+> **Reproducibility:** the exact state cited in the submitted and graded Master's thesis (14 requirements, 16 gates, 10 AUTO / 6 HYBRID / 0 MANUAL, 108 rules, 141 unit tests) is frozen under the Git tag `thesis-v1.0` and archived under the Zenodo DOI above. Everything from that tag forward is post-thesis further development (see [CHANGELOG.md](CHANGELOG.md)) and may report different counts.
+
 ---
 
 ## What This Is

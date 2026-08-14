@@ -1,20 +1,60 @@
+schema_version: 2
 id: G-DEP-01
 name: "Data Governance"
 dimension: "technisch"
 lifecycle_phase: "deployment"
 trigger: "PR merge to main branch — Conftest evaluiert model_documentation.json und data_documentation.json im CI-Lauf"
+
+evidence_level:
+  current: "E-0"
+  target: "E-1"
+  rationale: "Conftest prueft Selbstauskunft (data_documentation.json/model_documentation.json); keine signierte Attestierung der Datenherkunft."
+
 policy_checks:
-  - "policy_data_provenance_documented"
-  - "policy_training_documented"
-  - "policy_data_lineage_complete"
-  - "policy_dataset_description_complete"
-  - "policy_annotation_quality_verified"
-  - "policy_data_license_valid"
+  - id: "C-01"
+    policy: "policy_data_provenance_documented"
+    description: "Datenherkunft (collection_methods, sources, preprocessing_steps, data_version) dokumentiert"
+    severity: "MUST"
+    legal_refs: ["Art. 10", "Art. 11"]
+    evidence_level: null
+  - id: "C-02"
+    policy: "policy_training_documented"
+    description: "Trainingsprozess dokumentiert"
+    severity: "MUST"
+    legal_refs: ["Art. 10", "Art. 11"]
+    evidence_level: null
+  - id: "C-03"
+    policy: "policy_data_lineage_complete"
+    description: "Data Lineage vollstaendig"
+    severity: "MUST"
+    legal_refs: ["Art. 10", "Art. 11"]
+    evidence_level: null
+  - id: "C-04"
+    policy: "policy_dataset_description_complete"
+    description: "Dataset-Beschreibung vollstaendig"
+    severity: "MUST"
+    legal_refs: ["Art. 10", "Art. 11"]
+    evidence_level: null
+  - id: "C-05"
+    policy: "policy_annotation_quality_verified"
+    description: "Annotationsqualitaet verifiziert"
+    severity: "MUST"
+    legal_refs: ["Art. 10", "Art. 11"]
+    evidence_level: null
+  - id: "C-06"
+    policy: "policy_data_license_valid"
+    description: "Datenlizenz gueltig"
+    severity: "MUST"
+    legal_refs: ["Art. 10", "Art. 11"]
+    evidence_level: null
+
 evidence_required:
   - "data_governance_documentation"
   - "data_lineage_record"
   - "dataset_description_document"
-decision: "block"
+
+decision: "derived"
+automation: "AUTO"
 owner: "Data Engineer"
 audit_trail:
   enabled: true
@@ -32,4 +72,4 @@ links:
 sources:
   - "requirements/R002.yaml"
   - "requirements/R006.yaml"
-notes: "PARTIALLY IMPLEMENTED (2026-03-28) — policy_data_provenance_documented.rego added: 5 Checks, 10 deny-Rules. Fixtures: data_documentation_provenance_pass.json, data_documentation_provenance_fail.json. Remaining 5 policies (training_documented, data_lineage, dataset_description, annotation_quality, data_license) still DESIGN-ONLY. UPDATE (2026-08-14): Art. 10 Abs. 5 wurde durch VO (EU) 2026/1744 (Digital Omnibus on AI) gestrichen und die Rechtsgrundlage fuer Verarbeitung besonderer Datenkategorien zur Bias-Erkennung/-Korrektur in einen neuen Art. 4a ueberfuehrt (erweitert auf Deployer/weitere KI-Systeme). Art. 11 Abs. 1 UAbs. 2 neu gefasst plus neue vereinfachte Doku-Form fuer SMEs/SMCs — fuer dieses Projekt nicht einschlaegig (kein SME-Fall). Materielle Data-Governance-Pflichten (Art. 10 Abs. 1/6) unveraendert; Anwendungsfrist fuer Annex-III-Hochrisiko-Systeme von 2. August 2026 auf 2. Dezember 2027 verschoben. policy_data_provenance_documented.rego bleibt gueltig, keine Code-Aenderung noetig."
+notes: "PARTIALLY IMPLEMENTED (2026-03-28) — policy_data_provenance_documented.rego added: 5 Checks, 10 deny-Rules. Fixtures: data_documentation_provenance_pass.json, data_documentation_provenance_fail.json. Remaining 5 policies (C-02..C-06: training_documented, data_lineage, dataset_description, annotation_quality, data_license) still DESIGN-ONLY, severity konservativ MUST gesetzt (R002/R006 sind beide MUST). UPDATE (2026-08-14): Art. 10 Abs. 5 wurde durch VO (EU) 2026/1744 (Digital Omnibus on AI) gestrichen und die Rechtsgrundlage fuer Verarbeitung besonderer Datenkategorien zur Bias-Erkennung/-Korrektur in einen neuen Art. 4a ueberfuehrt (erweitert auf Deployer/weitere KI-Systeme). Art. 11 Abs. 1 UAbs. 2 neu gefasst plus neue vereinfachte Doku-Form fuer SMEs/SMCs — fuer dieses Projekt nicht einschlaegig (kein SME-Fall). Materielle Data-Governance-Pflichten (Art. 10 Abs. 1/6) unveraendert; Anwendungsfrist fuer Annex-III-Hochrisiko-Systeme von 2. August 2026 auf 2. Dezember 2027 verschoben. policy_data_provenance_documented.rego bleibt gueltig, keine Code-Aenderung noetig. UPDATE (2026-08-14, schema_version 2 / SPEC-01): policy_checks auf Objektform migriert."

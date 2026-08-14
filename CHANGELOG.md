@@ -6,6 +6,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ---
 
+> **Reproducibility note (2026-08-14):** Git tag `thesis-v1.0` (commit `32804b5`) freezes the exact state cited in the submitted and graded Master's thesis and archived under Zenodo DOI [10.5281/zenodo.19920310](https://doi.org/10.5281/zenodo.19920310) — 14 requirements, 16 gates, 10 AUTO / 6 HYBRID / 0 MANUAL, 108 rules, 141 unit tests. That state remains reproducible via `git checkout thesis-v1.0`. All changes from this point forward (starting with the `schema_version: 2` gate-template migration, SPEC-01/02/03) are **post-thesis further development** and may change gate counts, rule counts, and the severity/automation model described above.
+
+## [Unreleased] — Post-Thesis Development (schema_version 2)
+
+### Changed (BREAKING) — Gate-Template Schema v2 (SPEC-01)
+
+- `policy_checks` on every gate definition moves from a flat string list to a list of check objects (`id`, `policy`, `description`, `severity`, `legal_refs`, `evidence_level`) — severity now lives on the individual check, not on the whole gate, so a gate with heterogeneous checks is no longer forced onto its weakest severity.
+- New `evidence_level` axis (`current`/`target`/`rationale`, values `E-0`…`E-3`) makes the evidentiary strength of each gate explicit, orthogonal to the existing AUTO/HYBRID/MANUAL automation classification.
+- Gate-level `decision` is no longer authored directly; it is derived from check results (MUST violated → `block`; HYBRID → `manual_review`; SHOULD violated → `warn`; else `approve`).
+
 ## [2.0.0] — 2026-05-29 — Severity Model, Integrity-Suite Repair & Consistency Hardening
 
 ### Highlights

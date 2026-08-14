@@ -1,15 +1,29 @@
+schema_version: 2
 id: G-DEP-06
 name: "Protokollierungskonfiguration"
 dimension: "technisch"
 lifecycle_phase: "deployment"
 trigger: "PR merge to main branch — Conftest evaluiert app_documentation.json und model_documentation.json im CI-Lauf"
+
+evidence_level:
+  current: "E-0"
+  target: "E-1"
+  rationale: "Conftest prueft Selbstauskunft in app_documentation.json (Logging-Konfigurationsfelder); keine Pruefung des tatsaechlichen Laufzeit-Loggings."
+
 policy_checks:
-  - "policy_model_versioning"
-  - "policy_audit_trail_immutability"
+  - id: "C-01"
+    policy: "policy_logging_configured"
+    description: "Logging aktiviert, Event-Typen erfasst, Aufbewahrung >= 180 Tage, Logs auditierbar"
+    severity: "MUST"
+    legal_refs: ["Art. 12", "Art. 26 Abs. 3"]
+    evidence_level: null
+
 evidence_required:
   - "versioning_protocol_document"
   - "log_configuration_verification"
-decision: "block"
+
+decision: "derived"
+automation: "AUTO"
 owner: "DevOps Engineer"
 audit_trail:
   enabled: true
@@ -25,4 +39,4 @@ links:
     - "Art. 26 Abs. 3"
 sources:
   - "requirements/R014.yaml"
-notes: "DESIGN-ONLY — Rego-Implementierung als Future Work. AUTO: Conftest prueft ob Modell-Versionierung dokumentiert und Audit-Trail-Immutabilitaet konfiguriert. Aufbewahrungsfrist mind. 6 Monate gemaess Art. 26 Abs. 3."
+notes: "AUTO: Conftest prueft ob Logging aktiviert, alle vorgesehenen Event-Typen erfasst, Aufbewahrungsfrist >= 6 Monate (180 Tage) eingehalten und Logs auditierbar/zugaenglich sind. Aufbewahrungsfrist mind. 6 Monate gemaess Art. 26 Abs. 3. UPDATE (2026-08-14, schema_version 2 / SPEC-01): policy_checks auf Objektform migriert, Severity aus R014 (MUST) uebernommen. KORREKTUR EINER STALEN NOTIZ: die alte Notiz 'DESIGN-ONLY — Rego-Implementierung als Future Work' war veraltet/falsch — policies/deployment/policy_logging_configured.rego existiert bereits mit 8 deny-Rules (die alten Policy-Namen 'policy_model_versioning'/'policy_audit_trail_immutability' waren nie eingeloeste Platzhalter-Namen, die tatsaechliche Implementierung heisst policy_logging_configured)."

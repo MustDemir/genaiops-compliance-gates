@@ -276,18 +276,29 @@ def build_record(
     inserted_by = source_data.get("reviewed_by", "pipeline_automation") if method == "MANUAL" else "pipeline_automation"
     payload_id = source_data.get("payload_id", str(uuid.uuid4()))
 
-    # Notes: rationale for MANUAL decisions, and SHOULD advisories (warn).
-    # `notes` is NOT part of the hashed payload, so advisory findings are
-    # persisted for the auditor without affecting hash-chain integrity.
+    # Notes: rationale for MANUAL decisions, derived decision (schema_version 2,
+    # SPEC-01 Abschnitt 5) and SHOULD advisories (warn). `notes` is NOT part of
+    # the hashed payload, so this can carry richer detail without affecting
+    # hash-chain integrity.
     notes = ""
     if method == "MANUAL" and "rationale" in source_data:
         notes = source_data["rationale"]
+    if "derived_decision" in source_data:
+        notes = (notes + " | " if notes else "") + f"DERIVED_DECISION: {source_data['derived_decision']}"
+
+    # SPEC-01 Abschnitt 5: violated SHOULD-checks are persisted individually
+    # with their check-id, not bundled into one sentence, so an auditor can
+    # trace each advisory back to the specific check that raised it.
     advisories = source_data.get("warnings", [])
-    if advisories:
-        advisory_text = "; ".join(
-            w.get("msg", str(w)) if isinstance(w, dict) else str(w) for w in advisories
-        )
-        notes = (notes + " | " if notes else "") + f"ADVISORY [SHOULD]: {advisory_text}"
+    for w in advisories:
+        if isinstance(w, dict):
+            check_id = w.get("check_id")
+            msg = w.get("msg", str(w))
+        else:
+            check_id = None
+            msg = str(w)
+        tag = f"C={check_id}" if check_id else "C=unmapped"
+        notes = (notes + " | " if notes else "") + f"ADVISORY [SHOULD, {tag}]: {msg}"
 
     hash_value = compute_hash(
         previous_hash=previous_hash,

@@ -1,11 +1,38 @@
+schema_version: 2
 id: G-XXX-00
 name: ""
 dimension: "regulatorisch|technisch|strategisch"
 lifecycle_phase: "pre-deployment|deployment|operations"
 trigger: ""
-policy_checks: []
+
+# Beweiskraft — IST und ZIEL (orthogonal zur Automatisierbarkeit)
+evidence_level:
+  current: "E-0"          # E-0 | E-1 | E-2 | E-3
+  target: "E-1"           # E-0 | E-1 | E-2 | E-3
+  rationale: ""           # warum dieses Ziel, was fehlt bis dahin
+
+# Liste von Objekten statt Liste von Strings — Severity gehoert an den Check
+policy_checks:
+  - id: "C-01"                        # gate-lokal eindeutig
+    policy: "policy_xxx"              # Rego-Package bzw. Dateiname
+    description: ""
+    severity: "MUST"                  # MUST -> deny (blockierend)
+                                      # SHOULD -> warn (advisory)
+    legal_refs: []                    # z. B. ["Art. 26 Abs. 4"]
+    evidence_level: null              # optional; null = Gate-Default aus evidence_level.current
+
 evidence_required: []
-decision: "approve|block|manual_review"
+
+# Nicht mehr gesetzt, sondern abgeleitet (siehe SPEC-01 Abschnitt 5):
+# 1. Mindestens ein MUST-Check verletzt      -> block
+# 2. Gate ist HYBRID (D3xD2-Override greift) -> manual_review
+# 3. Mindestens ein SHOULD-Check verletzt     -> warn
+# 4. Sonst                                    -> approve
+decision: "derived"
+
+# Automatisierungsklassifikation bleibt auf Gate-Ebene
+automation: "AUTO|HYBRID|MANUAL"
+
 owner: ""
 audit_trail:
   enabled: true

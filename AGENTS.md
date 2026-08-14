@@ -166,6 +166,26 @@ genaiops-compliance-gates/
 
 ---
 
+## Architektur-Grundsätze (ab schema_version 2)
+
+- **Severity gehört an den Check, nicht an das Gate.** Ein Gate mit heterogenen
+  Prüfgegenständen darf nicht auf die schwächste Severity gezogen werden.
+- **Beweiskraft ist eine eigene Achse.** Jedes Gate führt `evidence_level.current`
+  und `.target` (E-0 Selbstauskunft, E-1 signierte Attestierung, E-2 beobachteter
+  Systemzustand, E-3 Messung über Zeit). Automatisierbarkeit und Beweiskraft sind
+  orthogonal — die D3xD2-Automation-Ceiling bleibt unberührt.
+- **Pod-Annotationen sind E-0, nicht E-2.** Eine Annotation behauptet einen
+  Zustand, sie beweist ihn nicht.
+- **Die Gate-Entscheidung wird abgeleitet, nicht gesetzt.** Reihenfolge:
+  MUST verletzt -> block; HYBRID -> manual_review; SHOULD verletzt -> warn;
+  sonst approve.
+- **Rego-Meldungen führen die Check-ID** im Format
+  `<GATE-ID>/<CHECK-ID> (<Requirement>, <Legal-Ref>): <Meldung>`.
+- **Der Thesis-Stand ist unter dem Tag `thesis-v1.0` eingefroren** und muss
+  reproduzierbar bleiben (Zenodo-DOI 10.5281/zenodo.19920310).
+
+---
+
 ## Recurring Tasks (Vorschläge für Scheduled Tasks)
 
 1. **Wöchentlicher Fortschritts-Check** — Meilensteine gegen Timeline prüfen

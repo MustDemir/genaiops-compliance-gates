@@ -1,14 +1,29 @@
+schema_version: 2
 id: G-DEP-05
 name: "Bias-Pruefung"
 dimension: "technisch"
 lifecycle_phase: "deployment"
 trigger: "PR merge to main branch — Conftest evaluiert model_documentation.json im CI-Lauf"
+
+evidence_level:
+  current: "E-0"
+  target: "E-1"
+  rationale: "Conftest prueft Selbstauskunft in model_documentation.json; keine signierte Attestierung der Bias-Metriken."
+
 policy_checks:
-  - "policy_bias_assessment_complete"
+  - id: "C-01"
+    policy: "policy_bias_assessment_complete"
+    description: "Bias-/Fairness-Assessment vollstaendig (5 Checks, 10 warn-Rules)"
+    severity: "SHOULD"
+    legal_refs: ["Art. 9 Abs. 2 lit. a", "Art. 10 Abs. 2 lit. f", "Art. 15"]
+    evidence_level: null
+
 evidence_required:
   - "bias_fairness_report"
   - "mitigation_plan_document"
-decision: "warn"
+
+decision: "derived"
+automation: "AUTO"
 owner: "ML Engineer"
 audit_trail:
   enabled: true
@@ -25,4 +40,4 @@ links:
     - "Art. 15"
 sources:
   - "requirements/R013.yaml"
-notes: "IMPLEMENTED (2026-03-28) — policy_bias_assessment_complete.rego: 5 Checks, 10 warn-Rules. R013 ist SHOULD: Verletzungen sind advisory (WARN, nicht-blockierend), als Advisory im Evidence-Record persistiert. Fixtures: model_documentation_bias_pass.json, model_documentation_bias_fail.json."
+notes: "IMPLEMENTED (2026-03-28) — policy_bias_assessment_complete.rego: 5 Checks, 10 warn-Rules. R013 ist SHOULD: Verletzungen sind advisory (WARN, nicht-blockierend), als Advisory im Evidence-Record persistiert. Fixtures: model_documentation_bias_pass.json, model_documentation_bias_fail.json. UPDATE (2026-08-14, schema_version 2 / SPEC-01): policy_checks auf Objektform migriert. Gemaess SPEC-01 Abschnitt 6 (Migrationsbedarf-Hinweis) hier NUR die Struktur geschaffen, severity bleibt SHOULD fuer den einzigen Check — KEINE Aufteilung auf gemischt MUST/SHOULD in dieser SPEC, das haengt an einer separaten Neubewertung von R013 im Lichte des neuen Art. 4a EU AI Act (VO (EU) 2026/1744) und ist explizit ausgeklammert."

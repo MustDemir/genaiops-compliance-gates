@@ -1,15 +1,35 @@
+schema_version: 2
 id: G-DEP-02
 name: "Safety-Metriken"
 dimension: "technisch"
 lifecycle_phase: "deployment"
 trigger: "PR merge to main branch — Conftest evaluiert eval_results.json im CI-Lauf"
+
+evidence_level:
+  current: "E-0"
+  target: "E-1"
+  rationale: "Conftest prueft eval_results.json als vom Werkzeug erzeugte, aber unsignierte Datei; keine Signatur-/Erzeuger-Identitaetspruefung."
+
 policy_checks:
-  - "policy_accuracy_threshold_met"
-  - "policy_robustness_tested"
+  - id: "C-01"
+    policy: "policy_safety_metrics"
+    description: "accuracy >= 0.85, latency_p95 <= 2000ms, safety_score >= 0.90, run_id vorhanden"
+    severity: "MUST"
+    legal_refs: ["Art. 15"]
+    evidence_level: null
+  - id: "C-02"
+    policy: "policy_safety_metrics"
+    description: "subgroup_analysis und adversarial_tests durchgefuehrt"
+    severity: "SHOULD"
+    legal_refs: ["Art. 15"]
+    evidence_level: null
+
 evidence_required:
   - "evaluation_metrics_report"
   - "adversarial_test_report"
-decision: "block"
+
+decision: "derived"
+automation: "AUTO"
 owner: "ML Engineer"
 audit_trail:
   enabled: true
@@ -24,4 +44,4 @@ links:
     - "Art. 15"
 sources:
   - "requirements/R003.yaml"
-notes: "PoC-Gate (★). AUTO: Conftest prueft ob accuracy >= 0.85, latency_p95 <= 2000ms, safety_score >= 0.90 (Schwellenwerte aus eval_results.json). R003 wird zusaetzlich durch G-PRE-04 (Security-Baseline) und G-OPS-04 (Cybersecurity-Operations) operationalisiert (Mehrfachzuordnung phasenuebergreifend)."
+notes: "PoC-Gate (★). AUTO: Conftest prueft ob accuracy >= 0.85, latency_p95 <= 2000ms, safety_score >= 0.90 (Schwellenwerte aus eval_results.json). R003 wird zusaetzlich durch G-PRE-04 (Security-Baseline) und G-OPS-04 (Cybersecurity-Operations) operationalisiert (Mehrfachzuordnung phasenuebergreifend). UPDATE (2026-08-14, schema_version 2 / SPEC-01): Dies ist einer der beiden in SPEC-01 Abschnitt 3 dokumentierten Faelle mit heterogener Severity (Thesis-Limitation L12) — policy_robustness_tested (subgroup_analysis, adversarial_tests) war im Rego bereits korrekt als 'warn'/SHOULD implementiert (policies/deployment/policy_safety_metrics.rego), waehrend das alte Gate-weite decision:block dies auf MUST gezogen hat. Mit Check-Ebene-Severity ist das jetzt strukturell korrekt abgebildet: C-01 MUST (deny), C-02 SHOULD (warn). Keine Rego-Aenderung noetig, die Rego-Regeln waren schon richtig."

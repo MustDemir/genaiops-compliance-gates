@@ -1,14 +1,29 @@
+schema_version: 2
 id: G-OPS-01
 name: "Human Oversight"
 dimension: "regulatorisch"
 lifecycle_phase: "operations"
 trigger: "kubectl apply — OPA Gatekeeper Admission Controller evaluiert Deployment-Manifest bei Cluster-Admission"
+
+evidence_level:
+  current: "E-0"
+  target: "E-1"
+  rationale: "Gatekeeper prueft Pod-Annotationen bei Cluster-Admission — eine Annotation behauptet einen Zustand, sie beweist ihn nicht (SPEC-01 Abschnitt 2: Pod-Annotationen sind E-0, nicht E-2)."
+
 policy_checks:
-  - "policy_human_oversight_operational"
+  - id: "C-01"
+    policy: "policy_human_oversight_operational"
+    description: "oversight_roles, escalation_procedure, output_override, real_time_monitoring dokumentiert (Conftest) + HITL-Mechanismen als K8s-Ressourcen konfiguriert (Gatekeeper constraint-human-oversight.yaml)"
+    severity: "MUST"
+    legal_refs: ["Art. 14", "Art. 26 Abs. 2"]
+    evidence_level: null
+
 evidence_required:
   - "hitl_role_assignment_document"
   - "override_procedure_document"
-decision: "manual_review"
+
+decision: "derived"
+automation: "HYBRID"
 owner: "AI Governance Lead"
 audit_trail:
   enabled: true
@@ -24,4 +39,4 @@ links:
     - "Art. 26 Abs. 2"
 sources:
   - "requirements/R008.yaml"
-notes: "IMPLEMENTED (2026-07-01) — policy_human_oversight_operational.rego (Conftest gegen app_documentation.json: oversight_roles, escalation_procedure, output_override, real_time_monitoring) + Gatekeeper ConstraintTemplate constraint-human-oversight.yaml (Runtime-Admission auf Pod-Annotationen). HYBRID: Gatekeeper validiert dass HITL-Mechanismen und Override-Prozeduren als K8s-Ressourcen konfiguriert sind; manueller Review prueft Wirksamkeit der Sterz-Bedingungen (Causal Power, Epistemic Access, Self-Control, Fitting Intentions). D3-Override (Laux, 2024): First-Degree Oversight → max. HYBRID."
+notes: "IMPLEMENTED (2026-07-01) — policy_human_oversight_operational.rego (Conftest gegen app_documentation.json: oversight_roles, escalation_procedure, output_override, real_time_monitoring) + Gatekeeper ConstraintTemplate constraint-human-oversight.yaml (Runtime-Admission auf Pod-Annotationen). HYBRID: Gatekeeper validiert dass HITL-Mechanismen und Override-Prozeduren als K8s-Ressourcen konfiguriert sind; manueller Review prueft Wirksamkeit der Sterz-Bedingungen (Causal Power, Epistemic Access, Self-Control, Fitting Intentions). D3-Override (Laux, 2024): First-Degree Oversight → max. HYBRID. UPDATE (2026-08-14, schema_version 2 / SPEC-01): policy_checks auf Objektform migriert, Severity aus R008 (MUST) uebernommen. Siehe SPEC-02 Abschnitt 6: G-PRE-01/C-A7 verweist auf dieses Gate als Wirksamkeitsnachweis fuer Human-Oversight-Aufsicht."

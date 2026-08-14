@@ -1,15 +1,35 @@
+schema_version: 2
 id: G-DEP-03
 name: "Transparenzdokumentation"
 dimension: "regulatorisch"
 lifecycle_phase: "deployment"
 trigger: "PR merge to main branch — Conftest evaluiert app_documentation.json und model_documentation.json im CI-Lauf"
+
+evidence_level:
+  current: "E-0"
+  target: "E-1"
+  rationale: "Conftest prueft Selbstauskunft in app_documentation.json/model_documentation.json; keine signierte Attestierung."
+
 policy_checks:
-  - "policy_transparency_docs_present"
-  - "policy_explainability_documented"
+  - id: "C-01"
+    policy: "policy_transparency_docs_present"
+    description: "Deployer-Anleitung, Faehigkeiten, Limitationen, KI-Content-Kennzeichnung dokumentiert"
+    severity: "MUST"
+    legal_refs: ["Art. 13", "Art. 26 Abs. 7", "Art. 50"]
+    evidence_level: null
+  - id: "C-02"
+    policy: "policy_explainability_documented"
+    description: "Erklaerbarkeit (XAI) dokumentiert"
+    severity: "MUST"
+    legal_refs: ["Art. 13", "Art. 26 Abs. 7", "Art. 50"]
+    evidence_level: null
+
 evidence_required:
   - "transparency_report"
   - "xai_documentation"
-decision: "manual_review"
+
+decision: "derived"
+automation: "HYBRID"
 owner: "AI Governance Lead"
 audit_trail:
   enabled: true
@@ -26,4 +46,4 @@ links:
     - "Art. 50"
 sources:
   - "requirements/R007.yaml"
-notes: "PARTIALLY IMPLEMENTED (2026-03-28) — policy_transparency_docs_present.rego added: 5 Checks (deployer instructions, capabilities, limitations, AI content labeling). Fixtures: app_documentation_transparency_pass.json, app_documentation_transparency_fail.json. policy_explainability_documented still DESIGN-ONLY."
+notes: "PARTIALLY IMPLEMENTED (2026-03-28) — policy_transparency_docs_present.rego added: 5 Checks (deployer instructions, capabilities, limitations, AI content labeling). Fixtures: app_documentation_transparency_pass.json, app_documentation_transparency_fail.json. policy_explainability_documented still DESIGN-ONLY, severity konservativ MUST gesetzt (R007 ist MUST). UPDATE (2026-08-14, schema_version 2 / SPEC-01): policy_checks auf Objektform migriert."

@@ -1,14 +1,29 @@
+schema_version: 2
 id: G-OPS-04
 name: "Cybersecurity-Operations"
 dimension: "technisch"
 lifecycle_phase: "operations"
 trigger: "kubectl apply — OPA Gatekeeper Admission Controller evaluiert Deployment-Manifest bei Cluster-Admission"
+
+evidence_level:
+  current: "E-0"
+  target: "E-1"
+  rationale: "Gatekeeper prueft Pod-Annotationen (Image-Scanning, NetworkPolicies, Verschluesselung at-rest/in-transit) bei Cluster-Admission — eine Annotation behauptet einen Zustand, sie beweist ihn nicht (SPEC-01 Abschnitt 2)."
+
 policy_checks:
-  - "policy_data_security_controls"
+  - id: "C-01"
+    policy: "policy_data_security_controls"
+    description: "Runtime-Nachweise fuer Image-Scanning, NetworkPolicies, Verschluesselung at-rest und in-transit"
+    severity: "MUST"
+    legal_refs: ["Art. 15"]
+    evidence_level: null
+
 evidence_required:
   - "access_control_audit_record"
   - "incident_response_plan"
-decision: "block"
+
+decision: "derived"
+automation: "AUTO"
 owner: "Security Engineer"
 audit_trail:
   enabled: true
@@ -23,4 +38,4 @@ links:
     - "Art. 15"
 sources:
   - "requirements/R003.yaml"
-notes: "IMPLEMENTED (2026-07-01) — policy_data_security_controls.rego + Gatekeeper ConstraintTemplate constraint-cybersecurity-operations.yaml. AUTO: Conftest prueft app_documentation.json; Gatekeeper blockiert Deployments ohne Runtime-Nachweise fuer Image-Scanning, NetworkPolicies sowie Verschluesselung at-rest und in-transit. R003 wird zusaetzlich durch G-PRE-04 (Security-Baseline) und G-DEP-02 (Safety-Metriken) operationalisiert (Mehrfachzuordnung phasenuebergreifend)."
+notes: "IMPLEMENTED (2026-07-01) — policy_data_security_controls.rego + Gatekeeper ConstraintTemplate constraint-cybersecurity-operations.yaml. AUTO: Conftest prueft app_documentation.json; Gatekeeper blockiert Deployments ohne Runtime-Nachweise fuer Image-Scanning, NetworkPolicies sowie Verschluesselung at-rest und in-transit. R003 wird zusaetzlich durch G-PRE-04 (Security-Baseline) und G-DEP-02 (Safety-Metriken) operationalisiert (Mehrfachzuordnung phasenuebergreifend). UPDATE (2026-08-14, schema_version 2 / SPEC-01): policy_checks auf Objektform migriert, Severity aus R003 (MUST) uebernommen."

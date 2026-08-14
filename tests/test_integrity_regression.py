@@ -7,7 +7,7 @@ Static regression checks for credibility risks in the GenAIOps Compliance Gates 
 This suite intentionally focuses on "does the PoC prove what it claims to prove?"
 instead of only checking functional green paths.
 
-What it checks (14 checks, fail-fast ordering):
+What it checks (17 checks, fail-fast ordering):
   1.  Demo fallbacks that can mask missing real enforcement (check_orchestrator_fallbacks)
   2.  Optional/non-critical handling of Evidence Store recording (check_ci_evidence_mandatory)
   3.  Drift detection wiring to the Evidence Store (check_drift_evidence_wiring)
@@ -22,6 +22,9 @@ What it checks (14 checks, fail-fast ordering):
   12. Fallback coverage gaps — gates that silently default to PASS (check_fallback_coverage_gaps)
   13. Rego-to-fallback field parity — same gate, different checks (check_rego_fallback_parity)
   14. CI Conftest error visibility — stderr/exit code suppression (check_ci_conftest_errors_visible)
+  15. schema_version 2: policy_checks[].id is gate-locally unique (check_gate_check_ids_unique)
+  16. schema_version 2: policy_checks[].policy resolves to an existing Rego file (check_gate_policy_files_exist)
+  17. schema_version 2: evidence_level.current/.target valid and non-regressing (check_gate_evidence_level_valid)
 
 Usage:
   python3 test_integrity_regression.py
@@ -612,6 +615,139 @@ def check_ci_conftest_errors_visible() -> dict:
     )
 
 
+# ── schema_version 2 / SPEC-01 checks ──────────────────────────────
+
+GATE_DIRS = ["gate-definitions/pre-deployment", "gate-definitions/deployment", "gate-definitions/operations"]
+
+GATE_DIR_TO_POLICY_DIR = {
+    "gate-definitions/pre-deployment": "policies/pre-deployment",
+    "gate-definitions/deployment": "policies/deployment",
+    "gate-definitions/operations": "policies/operations",
+}
+
+VALID_EVIDENCE_LEVELS = ["E-0", "E-1", "E-2", "E-3"]
+
+
+def _load_gate_files() -> list[tuple[Path, dict]]:
+    """Load every gate-definitions/**/G-*.yaml as (path, parsed_dict)."""
+    import yaml
+
+    gates = []
+    for d in GATE_DIRS:
+        for f in sorted((REPO_ROOT / d).glob("G-*.yaml")):
+            gates.append((f, yaml.safe_load(read_text(f)) or {}))
+    return gates
+
+
+def check_gate_check_ids_unique() -> dict:
+    """SPEC-01 Abschnitt 4/9: policy_checks[].id must be unique within each gate."""
+    findings = []
+    for f, gate in _load_gate_files():
+        checks = gate.get("policy_checks") or []
+        if checks and not isinstance(checks[0], dict):
+            findings.append(
+                f"{f.relative_to(REPO_ROOT)}: policy_checks is still a string list "
+                "(not migrated to schema_version 2 check objects)"
+            )
+            continue
+        ids = [c.get("id") for c in checks if isinstance(c, dict)]
+        dupes = sorted({i for i in ids if i and ids.count(i) > 1})
+        if dupes:
+            findings.append(f"{f.relative_to(REPO_ROOT)}: duplicate check id(s) {dupes}")
+        missing = [i for i, c in enumerate(checks) if isinstance(c, dict) and not c.get("id")]
+        if missing:
+            findings.append(f"{f.relative_to(REPO_ROOT)}: policy_checks entr(y/ies) at index {missing} missing an 'id'")
+
+    return make_result(
+        "GATE_CHECK_ID_UNIQUE",
+        "policy_checks[].id is gate-locally unique (schema_version 2)",
+        "high",
+        not findings,
+        "Duplicate or missing check IDs break check-level traceability and the "
+        "'<GATE-ID>/<CHECK-ID>' message convention (SPEC-01 Abschnitt 6)." if findings
+        else "All policy_checks[].id values are present and unique within their gate.",
+        findings,
+    )
+
+
+def check_gate_policy_files_exist() -> dict:
+    """SPEC-01 Abschnitt 9: every policy_checks[].policy must resolve to a Rego file.
+
+    Severity is deliberately "low": several checks are intentionally
+    DESIGN-ONLY (documented as future work in the gate's notes field) and are
+    expected to fail this check today. Low severity keeps this check below
+    the default --fail-on medium threshold while still surfacing every gap
+    for tracking, per SPEC-01's instruction to migrate structure now and
+    implement the remaining Rego files as separate future work.
+    """
+    # Policies are looked up across ALL policy directories, not just the one
+    # matching the gate's own lifecycle phase: a handful of pre-existing
+    # implementations (e.g. G-DEP-01, G-DEP-05) are filed under
+    # policies/pre-deployment/ even though their gate is a deployment-phase
+    # gate. That placement predates this SPEC and is out of scope to move.
+    all_policy_dirs = [REPO_ROOT / d for d in GATE_DIR_TO_POLICY_DIR.values()]
+
+    findings = []
+    for f, gate in _load_gate_files():
+        checks = gate.get("policy_checks") or []
+        if not checks or not isinstance(checks[0], dict):
+            continue
+        for c in checks:
+            policy_name = c.get("policy")
+            if not policy_name:
+                continue
+            if not any((pdir / f"{policy_name}.rego").exists() for pdir in all_policy_dirs):
+                findings.append(
+                    f"{f.relative_to(REPO_ROOT)}: check {c.get('id')} references "
+                    f"missing policy '{policy_name}.rego'"
+                )
+
+    return make_result(
+        "GATE_POLICY_FILE_EXISTS",
+        "policy_checks[].policy resolves to an existing Rego file",
+        "low",
+        not findings,
+        f"{len(findings)} check(s) reference a Rego policy file that does not exist yet "
+        "(expected for DESIGN-ONLY gates, tracked here for visibility)." if findings
+        else "Every referenced policy file exists.",
+        findings,
+    )
+
+
+def check_gate_evidence_level_valid() -> dict:
+    """SPEC-01 Abschnitt 4/9: evidence_level.current/.target must be valid
+    E-0..E-3 values, and target must be >= current (never regress the goal
+    below the already-achieved level)."""
+    findings = []
+    for f, gate in _load_gate_files():
+        el = gate.get("evidence_level")
+        if not isinstance(el, dict):
+            findings.append(f"{f.relative_to(REPO_ROOT)}: evidence_level block missing (schema_version 2)")
+            continue
+        current = el.get("current")
+        target = el.get("target")
+        if current not in VALID_EVIDENCE_LEVELS:
+            findings.append(f"{f.relative_to(REPO_ROOT)}: evidence_level.current '{current}' is not one of {VALID_EVIDENCE_LEVELS}")
+            continue
+        if target not in VALID_EVIDENCE_LEVELS:
+            findings.append(f"{f.relative_to(REPO_ROOT)}: evidence_level.target '{target}' is not one of {VALID_EVIDENCE_LEVELS}")
+            continue
+        if VALID_EVIDENCE_LEVELS.index(target) < VALID_EVIDENCE_LEVELS.index(current):
+            findings.append(f"{f.relative_to(REPO_ROOT)}: evidence_level.target '{target}' is below .current '{current}'")
+        if not (el.get("rationale") or "").strip():
+            findings.append(f"{f.relative_to(REPO_ROOT)}: evidence_level.rationale is empty")
+
+    return make_result(
+        "GATE_EVIDENCE_LEVEL_VALID",
+        "evidence_level.current/.target are valid and target >= current",
+        "medium",
+        not findings,
+        "Invalid or regressing evidence_level values undermine the E-0..E-3 evidentiary-strength axis (SPEC-01 Abschnitt 2)." if findings
+        else "All gates carry a valid, non-regressing evidence_level.",
+        findings,
+    )
+
+
 def collect_results() -> list[dict]:
     checks = [
         check_orchestrator_fallbacks,
@@ -629,6 +765,10 @@ def collect_results() -> list[dict]:
         check_fallback_coverage_gaps,
         check_rego_fallback_parity,
         check_ci_conftest_errors_visible,
+        # schema_version 2 / SPEC-01
+        check_gate_check_ids_unique,
+        check_gate_policy_files_exist,
+        check_gate_evidence_level_valid,
     ]
     results = []
     for check in checks:

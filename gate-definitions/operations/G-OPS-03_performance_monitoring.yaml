@@ -1,15 +1,35 @@
+schema_version: 2
 id: G-OPS-03
 name: "Performance-Monitoring und Drift-Detection"
 dimension: "technisch"
 lifecycle_phase: "operations"
 trigger: "kubectl apply — OPA Gatekeeper Admission Controller evaluiert Deployment-Manifest bei Cluster-Admission"
+
+evidence_level:
+  current: "E-0"
+  target: "E-1"
+  rationale: "Gatekeeper prueft Pod-Annotationen (genaiops.io/drift-detection-enabled, .../service-monitor-configured) bei Cluster-Admission — eine Annotation behauptet einen Zustand, sie beweist ihn nicht (SPEC-01 Abschnitt 2). Die Referenzimplementierung monitoring/drift_detector.py misst PSI/Jensen-Shannon tatsaechlich (E-3-faehig), ist aber noch nicht als automatisierte Evidenzquelle in dieses Gate verdrahtet."
+
 policy_checks:
-  - "policy_monitoring_configured"
-  - "policy_data_drift_monitoring"
+  - id: "C-01"
+    policy: "policy_monitoring_configured"
+    description: "Monitoring-Endpoints/-Metriken als aktive ServiceMonitor-Objekte registriert"
+    severity: "MUST"
+    legal_refs: ["Art. 72", "Art. 9 Abs. 2"]
+    evidence_level: null
+  - id: "C-02"
+    policy: "policy_monitoring_configured"
+    description: "Drift-Detection-Pipelines konfiguriert und aktiv (PSI > 0.2 = critical, JS-Divergenz > 0.1 = critical)"
+    severity: "MUST"
+    legal_refs: ["Art. 72", "Art. 9 Abs. 2"]
+    evidence_level: null
+
 evidence_required:
   - "monitoring_configuration_record"
   - "drift_detection_report"
-decision: "block"
+
+decision: "derived"
+automation: "AUTO"
 owner: "ML Engineer"
 audit_trail:
   enabled: true
@@ -25,4 +45,4 @@ links:
     - "Art. 9 Abs. 2"
 sources:
   - "requirements/R010.yaml"
-notes: "PoC-Gate (★). AUTO: Gatekeeper prueft ob Monitoring-Endpoints und -Metriken als aktive ServiceMonitor-Objekte im Cluster registriert sind, und ob Drift-Detection-Pipelines (PSI > 0.2 = critical, JS-Divergenz > 0.1 = critical) konfiguriert und aktiv sind. Schwellenwert-Ueberschreitungen loesen automatische Alerts und ggf. Gate-Re-Evaluation aus. Hinweis: policy_checks listet konzeptionelle Policy-Kandidaten (Anhang M, Tab. M.3); policy_monitoring_configured und policy_data_drift_monitoring sind gebuendelt in policies/operations/policy_monitoring_configured.rego implementiert (eine Datei, mehrere Checks)."
+notes: "PoC-Gate (★). AUTO: Gatekeeper prueft ob Monitoring-Endpoints und -Metriken als aktive ServiceMonitor-Objekte im Cluster registriert sind, und ob Drift-Detection-Pipelines (PSI > 0.2 = critical, JS-Divergenz > 0.1 = critical) konfiguriert und aktiv sind. Schwellenwert-Ueberschreitungen loesen automatische Alerts und ggf. Gate-Re-Evaluation aus. policy_monitoring_configured und policy_data_drift_monitoring sind gebuendelt in policies/operations/policy_monitoring_configured.rego implementiert (eine Datei, mehrere Checks, hier als C-01/C-02 auf dieselbe Datei abgebildet). UPDATE (2026-08-14, schema_version 2 / SPEC-01): policy_checks auf Objektform migriert, Severity aus R010 (MUST) uebernommen; evidence_level.current bewusst streng als E-0 eingestuft (Annotation, nicht Live-Messung) trotz vorhandener E-3-faehiger Referenzimplementierung."

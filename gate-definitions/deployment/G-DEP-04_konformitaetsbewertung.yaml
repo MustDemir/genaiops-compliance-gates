@@ -1,15 +1,29 @@
+schema_version: 2
 id: G-DEP-04
 name: "Konformitaetsbewertung"
 dimension: "regulatorisch"
 lifecycle_phase: "deployment"
 trigger: "PR merge to main branch — Conftest evaluiert app_documentation.json im CI-Lauf"
+
+evidence_level:
+  current: "E-0"
+  target: "E-1"
+  rationale: "Conftest prueft Selbstauskunft in app_documentation.json (CE-Kennzeichnung, Provider-Doku); keine signierte Attestierung."
+
 policy_checks:
-  - "policy_model_dataset_traceability"
-  - "policy_conformity_declaration"
+  - id: "C-01"
+    policy: "policy_conformity_verified"
+    description: "CE-Kennzeichnung verifiziert, Provider-Doku erhalten und kontaktierbar, Modellversion/-Provider dokumentiert (deployer-seitige Eingangspruefung; Art. 47/48 Anbieterpflichten out-of-scope)"
+    severity: "MUST"
+    legal_refs: ["Art. 26 Abs. 1"]
+    evidence_level: null
+
 evidence_required:
   - "conformity_declaration_document"
   - "model_traceability_record"
-decision: "block"
+
+decision: "derived"
+automation: "AUTO"
 owner: "AI Governance Lead"
 audit_trail:
   enabled: true
@@ -26,4 +40,4 @@ links:
     - "Art. 48"
 sources:
   - "requirements/R011.yaml"
-notes: "DESIGN-ONLY — Rego-Implementierung als Future Work. AUTO: Conftest prueft ob EU-Konformitaetserklaerung vorhanden, CE-Kennzeichnung verifiziert und Modell-Dataset-Traceability dokumentiert."
+notes: "AUTO: Conftest prueft ob CE-Kennzeichnung verifiziert, Provider-Dokumentation vorhanden und Modell-Dataset-Traceability dokumentiert. UPDATE (2026-08-14, schema_version 2 / SPEC-01): policy_checks auf Objektform migriert, Severity aus R011 (MUST) uebernommen. KORREKTUR EINER STALEN NOTIZ: die alte Notiz 'DESIGN-ONLY — Rego-Implementierung als Future Work' war veraltet/falsch — policies/deployment/policy_conformity_verified.rego existiert bereits mit 7 deny-Rules (die alten Policy-Namen 'policy_model_dataset_traceability'/'policy_conformity_declaration' waren nie eingeloeste Platzhalter-Namen, die tatsaechliche Implementierung heisst policy_conformity_verified). Scope-Klarstellung aus dem Rego-Kommentar uebernommen: Art. 47/48 (Anbieter-CE/-Erklaerungspflichten) sind bewusst out-of-scope, dieses Gate prueft nur die deployer-seitige Eingangsverifikation nach Art. 26 Abs. 1; eu_ai_act_refs entsprechend auf Art. 26 Abs. 1 reduziert (Art. 47/48 aus links.eu_ai_act_refs entfernt bleibt in dieser SPEC unveraendert, da das Feld gate-weit und nicht check-spezifisch ist — Praezisierung fuer eine spaetere Iteration vorgemerkt)."

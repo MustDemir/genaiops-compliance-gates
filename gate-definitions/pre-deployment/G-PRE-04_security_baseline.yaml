@@ -1,15 +1,59 @@
+schema_version: 2
 id: G-PRE-04
 name: "Security-Baseline"
 dimension: "technisch"
 lifecycle_phase: "pre-deployment"
 trigger: "Docker-Image-Build in CI-Pipeline (GitHub Actions Build-Stage) — Conftest evaluiert K8s-Deployment-Manifest und Dockerfile"
+
+evidence_level:
+  current: "E-0"
+  target: "E-1"
+  rationale: "Conftest prueft das K8s-Deployment-Manifest und Dockerfile als Build-Artefakte vor Deployment — ein von Menschen verfasstes Manifest, keine signierte Attestierung und kein beobachteter Live-Clusterzustand (der waere E-2, siehe Abschnitt 2 SPEC-01)."
+
 policy_checks:
-  - "policy_deployment_security_baseline"
-  - "policy_cybersecurity_controls"
+  - id: "P1"
+    policy: "policy_security_baseline"
+    description: "securityContext.runAsNonRoot: true, kein UID 0"
+    severity: "MUST"
+    legal_refs: ["Art. 15"]
+    evidence_level: null
+  - id: "P2"
+    policy: "policy_security_baseline"
+    description: "resources.limits (cpu, memory) gesetzt"
+    severity: "MUST"
+    legal_refs: ["Art. 15"]
+    evidence_level: null
+  - id: "P3"
+    policy: "policy_security_baseline"
+    description: "readOnlyRootFilesystem: true"
+    severity: "MUST"
+    legal_refs: ["Art. 15"]
+    evidence_level: null
+  - id: "P4"
+    policy: "policy_security_baseline"
+    description: "keine Secrets als Klartext-ENV (secretKeyRef erforderlich)"
+    severity: "MUST"
+    legal_refs: ["Art. 15"]
+    evidence_level: null
+  - id: "P5"
+    policy: "policy_cybersecurity_controls"
+    description: "slim/alpine Base-Image"
+    severity: "SHOULD"
+    legal_refs: ["Art. 15"]
+    evidence_level: null
+  - id: "P6"
+    policy: "policy_security_baseline"
+    description: "allowPrivilegeEscalation: false, capabilities.drop: [ALL]"
+    severity: "MUST"
+    legal_refs: ["Art. 15"]
+    evidence_level: null
+
 evidence_required:
   - "security_baseline_report"
   - "encryption_verification_record"
-decision: "block"
+
+decision: "derived"
+automation: "AUTO"
 owner: "DevOps Engineer"
 audit_trail:
   enabled: true
@@ -24,4 +68,4 @@ links:
     - "Art. 15"
 sources:
   - "requirements/R003.yaml"
-notes: "PoC-Gate (★, E10). AUTO: Einziges Gate das technische Infrastruktur-Konfiguration prueft (Dockerfile + K8s-Manifest) statt Doku-Metadaten. 6 Pruefungen (CDV-Contract): P1 runAsNonRoot (MUST), P2 resource.limits (MUST), P3 readOnlyRootFilesystem (SHOULD), P4 keine Secrets in ENV (MUST), P5 slim/alpine Base-Image (SHOULD), P6 allowPrivilegeEscalation:false (MUST). R003 wird zusaetzlich durch G-DEP-02 und G-OPS-04 operationalisiert (Mehrfachzuordnung phasenuebergreifend)."
+notes: "PoC-Gate (★, E10). AUTO: Einziges Gate das technische Infrastruktur-Konfiguration prueft (Dockerfile + K8s-Manifest) statt Doku-Metadaten. R003 wird zusaetzlich durch G-DEP-02 und G-OPS-04 operationalisiert (Mehrfachzuordnung phasenuebergreifend). UPDATE (2026-08-14, schema_version 2 / SPEC-01): policy_checks auf die tatsaechliche P1-P6-Pruefgranularitaet aus den Rego-Meldungen (policies/pre-deployment/policy_security_baseline.rego, Format 'G-PRE-04/P<n>') abgebildet statt der beiden alten Grobeintraege. DISKREPANZ ENTDECKT, NICHT BEHOBEN: (1) P3 (readOnlyRootFilesystem) ist im Rego als 'deny' (MUST) implementiert, obwohl der urspruengliche Gate-Text es als SHOULD auswies — hier severity: MUST gesetzt, weil das die tatsaechlich durchgesetzte Regel ist; Klaerung ob Rego oder Design-Intent falsch liegt ist offen. (2) P5 (slim/alpine Base-Image) ist NICHT implementiert (kein Rego-Rule dazu) — weiterhin DESIGN-ONLY. (3) Der policy-Name 'policy_cybersecurity_controls' aus dem alten Schema existiert nicht als eigene Datei; P1-P4/P6 liegen tatsaechlich in policy_security_baseline.rego (Package genaiops.pre_deployment.security_baseline), 'policy_deployment_security_baseline' aus dem alten Schema war ein Namens-Mismatch. Rego-Dateien in dieser SPEC bewusst nicht angefasst — nur Metadaten-Migration."

@@ -1,15 +1,29 @@
+schema_version: 2
 id: G-PRE-01
 name: "Risiko-Klassifikation"
 dimension: "regulatorisch"
 lifecycle_phase: "pre-deployment"
 trigger: "PR merge to main branch — Conftest evaluiert app_documentation.json im CI-Lauf"
+
+evidence_level:
+  current: "E-0"
+  target: "E-1"
+  rationale: "Conftest prueft Selbstauskunft (risk_class, classification_reasoning) im Dokumentationsmanifest; keine signierte Attestierung."
+
 policy_checks:
-  - "policy_risk_classification_valid"
-  - "policy_risk_classification_reasoning"
+  - id: "C-01"
+    policy: "policy_risk_classification"
+    description: "risk_class gueltig, classification_reasoning nicht leer, bei 'high' zusaetzlich annex_reference und mitigation_measures; manual_review-Nachweis (reviewed_by, review_date) vorhanden"
+    severity: "MUST"
+    legal_refs: ["Art. 9"]
+    evidence_level: null
+
 evidence_required:
   - "risk_classification_record"
   - "classification_reasoning_document"
-decision: "manual_review"
+
+decision: "derived"
+automation: "HYBRID"
 owner: "AI Governance Lead"
 audit_trail:
   enabled: true
@@ -24,4 +38,4 @@ links:
     - "Art. 9"
 sources:
   - "requirements/R001.yaml"
-notes: "PoC-Gate (★). HYBRID: Conftest prueft ob risk_class in {high, limited, minimal} und classification_reasoning vorhanden; manueller Review bewertet inhaltliche Angemessenheit der Klassifikation. R001 wird zusaetzlich durch G-PRE-03 operationalisiert (Mehrfachzuordnung)."
+notes: "PoC-Gate (★). HYBRID: Conftest prueft ob risk_class in {high, limited, minimal} und classification_reasoning vorhanden; manueller Review bewertet inhaltliche Angemessenheit der Klassifikation. R001 wird zusaetzlich durch G-PRE-03 operationalisiert (Mehrfachzuordnung). UPDATE (2026-08-14, schema_version 2 / SPEC-01): policy_checks auf Objektform migriert, Severity aus R001 (MUST) uebernommen. KORREKTUR: die alten Policy-Namen 'policy_risk_classification_valid'/'policy_risk_classification_reasoning' waren nie eingeloeste Platzhalter — die tatsaechliche Implementierung liegt in einer einzigen Datei policies/pre-deployment/policy_risk_classification.rego (14 deny-Rules, inkl. manual_review-Nachweis fuer den HYBRID-Anteil), daher hier zu einem Check C-01 konsolidiert. Siehe SPEC-02 fuer die geplante Erweiterung um C-A1..C-A7 (Art. 6 Abs. 1a/1b Pruefbaum) mit evidence_level.target E-2."

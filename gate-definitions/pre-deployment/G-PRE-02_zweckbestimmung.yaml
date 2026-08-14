@@ -1,16 +1,29 @@
+schema_version: 2
 id: G-PRE-02
 name: "Zweckbestimmung"
 dimension: "regulatorisch"
 lifecycle_phase: "pre-deployment"
 trigger: "PR merge to main branch — Conftest evaluiert app_documentation.json und model_documentation.json im CI-Lauf"
+
+evidence_level:
+  current: "E-0"
+  target: "E-1"
+  rationale: "Conftest prueft Pflichtfelder im Dokumentationsmanifest (Selbstauskunft); keine signierte Attestierung."
+
 policy_checks:
-  - "policy_purpose_declaration_complete"
-  - "policy_model_description_complete"
-  - "policy_intended_use_boundaries"
+  - id: "C-01"
+    policy: "policy_purpose_declaration"
+    description: "application.description und application.domain deklariert; FRIA-Vervollstaendigung: stakeholder_groups und mitigation_documented (die Felder, die G-PRE-05 nicht abdeckt)"
+    severity: "MUST"
+    legal_refs: ["Art. 27"]
+    evidence_level: null
+
 evidence_required:
   - "purpose_declaration_document"
   - "intended_use_boundaries_document"
-decision: "manual_review"
+
+decision: "derived"
+automation: "HYBRID"
 owner: "AI Governance Lead"
 audit_trail:
   enabled: true
@@ -25,4 +38,4 @@ links:
     - "Art. 27"
 sources:
   - "requirements/R012.yaml"
-notes: "DESIGN-ONLY — Rego-Implementierung als Future Work. HYBRID: Conftest prueft Pflichtfelder (intended_purpose, sector, prohibited_uses, model_type, intended_use, out_of_scope_uses); manueller Review bewertet inhaltliche Vollstaendigkeit der FRIA."
+notes: "HYBRID: Conftest prueft Pflichtfelder (application.description, application.domain, FRIA stakeholder_groups, FRIA mitigation_documented); manueller Review bewertet inhaltliche Vollstaendigkeit der FRIA. Redundanz-Hinweis (Anhang M/H, aus dem Rego-Kommentar uebernommen): fria_completed und affected_rights werden von G-PRE-05 geprueft, dieses Gate deckt die davon nicht erfassten FRIA-Vollstaendigkeitsfelder ab. UPDATE (2026-08-14, schema_version 2 / SPEC-01): policy_checks auf Objektform migriert, Severity aus R012 (MUST) uebernommen. KORREKTUR EINER STALEN NOTIZ: die alte Notiz 'DESIGN-ONLY — Rego-Implementierung als Future Work' war veraltet/falsch — policies/pre-deployment/policy_purpose_declaration.rego existiert bereits mit 6 deny-Rules (die alten Policy-Namen 'policy_purpose_declaration_complete'/'policy_model_description_complete'/'policy_intended_use_boundaries' waren nie eingeloeste Platzhalter-Namen, die tatsaechliche Implementierung heisst policy_purpose_declaration und ist zu einem Check C-01 konsolidiert)."

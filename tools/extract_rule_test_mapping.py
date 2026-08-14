@@ -2,8 +2,10 @@
 """
 extract_rule_test_mapping.py — Generate rule-to-test mapping appendix.
 
-Scans all 10 Rego policy files + their *_test.rego counterparts, extracts:
+Scans all Rego policy files + their *_test.rego counterparts, extracts:
   - Rule signatures (deny contains msg if { ... }) with line numbers
+  - Check-IDs parsed from rule messages (schema_version 2, SPEC-01 Abschnitt 6)
+  - Declared policy_checks from the gate definitions, matched against those IDs
   - Test function names (test_*) with line numbers
   - Pattern class inferred from test naming convention
 
@@ -26,14 +28,20 @@ POLICIES = [p for p in POLICIES if not p.name.endswith("_test.rego")]
 # Gate → Policy filename mapping (based on repo convention)
 GATE_MAP = {
     "policy_risk_classification.rego":       ("G-PRE-01", "R001", "EU AI Act Art. 9", "HYBRID"),
+    "policy_purpose_declaration.rego":       ("G-PRE-02", "R012", "EU AI Act Art. 27", "HYBRID"),
+    "policy_risk_management_complete.rego":  ("G-PRE-03", "R001", "EU AI Act Art. 9", "HYBRID"),
     "policy_security_baseline.rego":         ("G-PRE-04", "R003", "EU AI Act Art. 15", "AUTO"),
     "policy_governance_approval.rego":       ("G-PRE-05", "R004", "EU AI Act Art. 14", "HYBRID"),
     "policy_data_provenance_documented.rego":("G-DEP-01", "R002", "EU AI Act Art. 10", "AUTO"),
     "policy_safety_metrics.rego":            ("G-DEP-02", "R003", "EU AI Act Art. 15", "AUTO"),
     "policy_transparency_docs_present.rego": ("G-DEP-03", "R007", "EU AI Act Art. 13", "AUTO"),
+    "policy_conformity_verified.rego":       ("G-DEP-04", "R011", "EU AI Act Art. 26(1)", "AUTO"),
     "policy_bias_assessment_complete.rego":  ("G-DEP-05", "R013", "EU AI Act Art. 10(2)(f)", "AUTO"),
+    "policy_logging_configured.rego":        ("G-DEP-06", "R014", "EU AI Act Art. 12", "AUTO"),
+    "policy_human_oversight_operational.rego":("G-OPS-01", "R008", "EU AI Act Art. 14", "HYBRID"),
     "policy_incident_process_exists.rego":   ("G-OPS-02", "R009", "EU AI Act Art. 26(5)", "AUTO"),
     "policy_monitoring_configured.rego":     ("G-OPS-03", "R010", "EU AI Act Art. 72", "AUTO"),
+    "policy_data_security_controls.rego":    ("G-OPS-04", "R003", "EU AI Act Art. 15", "AUTO"),
     "policy_evidence_completeness.rego":     ("G-OPS-05", "R005", "EU AI Act Art. 12", "AUTO"),
 }
 
@@ -91,8 +99,24 @@ def classify_test(name: str) -> str:
     return "OTHER"
 
 
+# schema_version 2 (SPEC-01 Abschnitt 6): Rego messages carry the check-id as
+#   "<GATE-ID>/<CHECK-ID> (<Requirement>, <Legal-Ref>): <message>"
+# Messages written before this convention have no "/<CHECK-ID>" part and yield
+# check_id=None, which is surfaced as "unmapped" in the appendix.
+MSG_CHECK_ID_RE = re.compile(r'"\s*([A-Z][A-Z0-9-]*)/([A-Za-z0-9-]+)\s*\(')
+
+
+def extract_rule_check_id(body_lines: list[str]) -> str | None:
+    """Find the check-id inside a rule body's msg assignment, if present."""
+    for line in body_lines:
+        m = MSG_CHECK_ID_RE.search(line)
+        if m:
+            return m.group(2)
+    return None
+
+
 def extract_rules(policy_path: Path) -> list[dict]:
-    """Extract rule signatures with surrounding comment hint."""
+    """Extract rule signatures with surrounding comment hint and check-id."""
     lines = policy_path.read_text().splitlines()
     rules = []
     for i, line in enumerate(lines):
@@ -108,13 +132,41 @@ def extract_rules(policy_path: Path) -> list[dict]:
                     txt = c.lstrip("#").strip()
                     if not txt.startswith("--") and not txt.startswith("=="):
                         hint = txt
+            # Scan forward to the rule's closing brace for the msg assignment
+            body = []
+            for k in range(i + 1, len(lines)):
+                if re.match(r'^\}', lines[k]):
+                    break
+                body.append(lines[k])
             rules.append({
                 "kind": kind,
                 "line": i + 1,
                 "signature": line.strip(),
                 "hint": hint,
+                "check_id": extract_rule_check_id(body),
             })
     return rules
+
+
+def load_gate_checks(gate_id: str) -> list[dict]:
+    """Load the declared policy_checks of a gate definition (schema_version 2).
+
+    Returns [] when PyYAML is unavailable or the gate file cannot be found, so
+    the appendix still generates (without the check dimension) rather than
+    failing.
+    """
+    if gate_id in ("?", None):
+        return []
+    try:
+        import yaml
+    except ImportError:
+        return []
+    for d in ("pre-deployment", "deployment", "operations"):
+        for f in (REPO_ROOT / "gate-definitions" / d).glob(f"{gate_id}_*.yaml"):
+            gate = yaml.safe_load(f.read_text()) or {}
+            checks = gate.get("policy_checks") or []
+            return [c for c in checks if isinstance(c, dict)]
+    return []
 
 
 def extract_tests(test_path: Path) -> list[dict]:
@@ -145,6 +197,8 @@ def render_markdown(out: dict) -> str:
     """Render JSON data as appendix Markdown."""
     lines = []
     lines.append("# Rego Unit Tests — Rule-to-Test Mapping")
+    total_rules = sum(g["rule_count"] for g in out["gates"])
+    total_tests = sum(g["test_count"] for g in out["gates"])
     lines.append("")
     lines.append(f"**Erzeugungsdatum:** {out['generated_at']}  ")
     lines.append(f"**Baseline:** {out['baseline']}  ")
@@ -152,8 +206,8 @@ def render_markdown(out: dict) -> str:
                  "`policies/**/*.rego` + `policies/**/*_test.rego`)  ")
     lines.append("")
     lines.append("Dieses Dokument belegt die Rule-Level-Isolation der PoC-Policy-Engine: "
-                 "Jede der **105 Rego-Regeln** wird durch mindestens eine Unit-Test-Assertion "
-                 "verifiziert. Insgesamt **103 Tests** decken die Muster "
+                 f"Jede der **{total_rules} Rego-Regeln** wird durch mindestens eine Unit-Test-Assertion "
+                 f"verifiziert. Insgesamt **{total_tests} Tests** decken die Muster "
                  "PASS (positive path), FAIL-basic (missing field), FAIL-edge "
                  "(invalid/empty values) und HYBRID (D3-Override First-Degree Oversight) ab. "
                  "Alle Tests werden zeitgleich durch `tests/run_all_rego_tests.sh` "
@@ -163,21 +217,19 @@ def render_markdown(out: dict) -> str:
     lines.append("")
 
     # ── Summary table ──
-    total_rules = sum(g["rule_count"] for g in out["gates"])
-    total_tests = sum(g["test_count"] for g in out["gates"])
     lines.append("## F.1 Übersicht")
     lines.append("")
-    lines.append("| Gate | Req. | EU-AI-Act | Methode | Regeln | Tests | PASS | FAIL-basic | FAIL-edge | HYBRID |")
-    lines.append("|------|------|-----------|---------|:-----:|:-----:|:----:|:----------:|:---------:|:------:|")
+    lines.append("| Gate | Req. | EU-AI-Act | Methode | Checks | Regeln | Tests | PASS | FAIL-basic | FAIL-edge | HYBRID |")
+    lines.append("|------|------|-----------|---------|:-----:|:-----:|:-----:|:----:|:----------:|:---------:|:------:|")
     for g in sorted(out["gates"], key=lambda x: x["gate_id"]):
         pc = g["pattern_counts"]
         lines.append(
             f"| {g['gate_id']} | {g['requirement_id']} | {g['article']} | "
-            f"{g['method']} | {g['rule_count']} | {g['test_count']} | "
+            f"{g['method']} | {g.get('check_count', 0)} | {g['rule_count']} | {g['test_count']} | "
             f"{pc.get('PASS', 0)} | {pc.get('FAIL-basic', 0)} | "
             f"{pc.get('FAIL-edge', 0)} | {pc.get('HYBRID', 0)} |"
         )
-    lines.append(f"| **Gesamt** | — | — | — | **{total_rules}** | **{total_tests}** | "
+    lines.append(f"| **Gesamt** | — | — | — | **{sum(g.get('check_count', 0) for g in out['gates'])}** | **{total_rules}** | **{total_tests}** | "
                  f"{sum(g['pattern_counts'].get('PASS', 0) for g in out['gates'])} | "
                  f"{sum(g['pattern_counts'].get('FAIL-basic', 0) for g in out['gates'])} | "
                  f"{sum(g['pattern_counts'].get('FAIL-edge', 0) for g in out['gates'])} | "
@@ -205,14 +257,40 @@ def render_markdown(out: dict) -> str:
         lines.append(f"**Coverage:** {g['rule_count']} Regeln, {g['test_count']} Tests ({counts_str})")
         lines.append("")
 
+        # Declared checks block (schema_version 2)
+        if g.get("checks"):
+            lines.append(f"### F.2.{g['gate_id'][-2:]}.0 Check-Inventar ({g['check_count']} Checks, schema_version 2)")
+            lines.append("")
+            lines.append("| Check-ID | Severity | Legal-Refs | Policy | Regeln mit dieser Check-ID |")
+            lines.append("|----------|:--------:|------------|--------|---------------------------:|")
+            for c in g["checks"]:
+                refs = ", ".join(c["legal_refs"]) if c["legal_refs"] else "—"
+                lines.append(
+                    f"| {c['id']} | {c['severity']} | {refs} | `{c['policy']}` | {c['rules_matched']} |"
+                )
+            lines.append("")
+            lines.append(
+                f"*Regeln mit Check-ID im Meldungstext: {g['rules_with_check_id']} / {g['rule_count']}"
+                f" — ohne: {g['rules_without_check_id']} (Meldungen aus der Zeit vor der "
+                f"`<GATE-ID>/<CHECK-ID>`-Konvention nach SPEC-01 Abschnitt 6).*"
+            )
+            if g.get("orphan_check_ids"):
+                lines.append("")
+                lines.append(
+                    f"*⚠ Check-IDs in Rego-Meldungen ohne Entsprechung in der Gate-Definition: "
+                    f"{', '.join(g['orphan_check_ids'])}*"
+                )
+            lines.append("")
+
         # Rules block
         lines.append(f"### F.2.{g['gate_id'][-2:]}.1 Regel-Inventar ({g['rule_count']} Regeln)")
         lines.append("")
-        lines.append("| Nr. | Zeile | Art | Hinweis-Kommentar (nächstliegend) |")
-        lines.append("|----:|------:|-----|-----------------------------------|")
+        lines.append("| Nr. | Zeile | Art | Check-ID | Hinweis-Kommentar (nächstliegend) |")
+        lines.append("|----:|------:|-----|----------|-----------------------------------|")
         for idx, r in enumerate(g["rules"], 1):
             hint = r["hint"].replace("|", "\\|")[:80] if r["hint"] else "—"
-            lines.append(f"| {idx} | {r['line']} | `{r['kind']}` | {hint} |")
+            check_id = r["check_id"] or "—"
+            lines.append(f"| {idx} | {r['line']} | `{r['kind']}` | {check_id} | {hint} |")
         lines.append("")
 
         # Tests block
@@ -227,11 +305,11 @@ def render_markdown(out: dict) -> str:
     # ── Footer ──
     lines.append("## F.3 Reproduzierbarkeit")
     lines.append("")
-    lines.append("Zur Verifikation der obigen Zahlen (10 Policies / 105 Regeln / 103 Tests):")
+    lines.append(f"Zur Verifikation der obigen Zahlen ({len(out['gates'])} Policies / {total_rules} Regeln / {total_tests} Tests):")
     lines.append("")
     lines.append("```bash")
     lines.append("# OPA ≥ 1.15.2 vorausgesetzt")
-    lines.append("./tests/run_all_rego_tests.sh --quiet   # Erwartet: 'PASS: 103/103'")
+    lines.append(f"./tests/run_all_rego_tests.sh --quiet   # Erwartet: 'PASS: {total_tests}/{total_tests}'")
     lines.append("python3 tools/extract_rule_test_mapping.py")
     lines.append("```")
     lines.append("")
@@ -242,7 +320,7 @@ def render_markdown(out: dict) -> str:
 
 
 def main():
-    out = {"generated_at": "2026-04-18", "baseline": "103/103 PASS", "gates": []}
+    out = {"generated_at": "2026-08-14", "baseline": "141/141 PASS", "gates": []}
     for policy in POLICIES:
         test_path = policy.with_name(policy.stem + "_test.rego")
         gate_info = GATE_MAP.get(policy.name, ("?", "?", "?", "?"))
@@ -256,6 +334,23 @@ def main():
         for t in tests:
             pattern_counts[t["pattern"]] = pattern_counts.get(t["pattern"], 0) + 1
 
+        # schema_version 2: declared checks vs. check-ids actually carried by
+        # the Rego messages. A declared check with no rule referencing its id
+        # is a traceability gap; rules with check_id=None predate SPEC-01's
+        # message convention.
+        declared_checks = load_gate_checks(gate_id)
+        rule_check_ids = {r["check_id"] for r in rules if r["check_id"]}
+        checks_summary = [
+            {
+                "id": c.get("id"),
+                "policy": c.get("policy"),
+                "severity": c.get("severity"),
+                "legal_refs": c.get("legal_refs") or [],
+                "rules_matched": sum(1 for r in rules if r["check_id"] == c.get("id")),
+            }
+            for c in declared_checks
+        ]
+
         out["gates"].append({
             "gate_id": gate_id,
             "requirement_id": req_id,
@@ -267,6 +362,11 @@ def main():
             "test_package": get_package(test_path) if test_path.exists() else None,
             "rules": rules,
             "tests": tests,
+            "checks": checks_summary,
+            "check_count": len(checks_summary),
+            "rules_with_check_id": len([r for r in rules if r["check_id"]]),
+            "rules_without_check_id": len([r for r in rules if not r["check_id"]]),
+            "orphan_check_ids": sorted(rule_check_ids - {c.get("id") for c in declared_checks}),
             "pattern_counts": pattern_counts,
             "rule_count": len(rules),
             "test_count": len(tests),

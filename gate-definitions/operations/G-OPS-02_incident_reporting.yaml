@@ -1,14 +1,29 @@
+schema_version: 2
 id: G-OPS-02
 name: "Incident Reporting"
 dimension: "regulatorisch"
 lifecycle_phase: "operations"
 trigger: "kubectl apply — OPA Gatekeeper Admission Controller evaluiert Deployment-Manifest bei Cluster-Admission"
+
+evidence_level:
+  current: "E-0"
+  target: "E-1"
+  rationale: "Gatekeeper prueft Pod-Annotationen bei Cluster-Admission — eine Annotation behauptet einen Zustand, sie beweist ihn nicht (SPEC-01 Abschnitt 2)."
+
 policy_checks:
-  - "policy_incident_process_exists"
+  - id: "C-01"
+    policy: "policy_incident_process_exists"
+    description: "incident-response-configured, incident-contact, rollback-mechanism (3 Checks, 6 violation-Rules)"
+    severity: "MUST"
+    legal_refs: ["Art. 26 Abs. 5", "Art. 73"]
+    evidence_level: null
+
 evidence_required:
   - "incident_process_documentation"
   - "rollback_verification_record"
-decision: "block"
+
+decision: "derived"
+automation: "AUTO"
 owner: "DevOps Engineer"
 audit_trail:
   enabled: true
@@ -24,4 +39,4 @@ links:
     - "Art. 73"
 sources:
   - "requirements/R009.yaml"
-notes: "IMPLEMENTED (2026-03-28) — policy_incident_process_exists.rego: 3 Checks (incident-response-configured, incident-contact, rollback-mechanism), 6 violation-Rules. Fixtures: deployment_incident_pass.json, deployment_incident_fail.json."
+notes: "IMPLEMENTED (2026-03-28) — policy_incident_process_exists.rego: 3 Checks (incident-response-configured, incident-contact, rollback-mechanism), 6 violation-Rules (Gatekeeper-Konvention 'violation', nicht Conftest-'deny'). Fixtures: deployment_incident_pass.json, deployment_incident_fail.json. UPDATE (2026-08-14, schema_version 2 / SPEC-01): policy_checks auf Objektform migriert, Severity aus R009 (MUST) uebernommen."
