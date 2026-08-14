@@ -22,9 +22,9 @@ linked_gates:
 design_principles:
   - DP5
 deployer_implication: "Bias-/Fairness-Report vor Deployment bereitstellen; Mitigationsplan und Re-Evaluation dokumentieren."
-audit_trigger: "Deployment CI/CD + Runtime (periodische Re-Evaluation)"
+audit_trigger: "Deployment CI/CD + Runtime (periodische Re-Evaluation); Anwendungsfrist Art. 9/10/15 (Annex-III-Systeme) ab 2. Dezember 2027 gemaess VO (EU) 2026/1744"
 sources:
-  - "EU AI Act (VO 2024/1689) Art. 9, Art. 10, Art. 15"
+  - "EU AI Act (VO 2024/1689) Art. 9, Art. 10 Abs. 2 lit. f, Art. 15"
   - "Díaz-Rodríguez et al. (2023) [NWJFNALE] — Trustworthy AI Requirements: Diversity, Non-Discrimination and Fairness Dimension, Lifecycle-Monitoring"
   - "Guldimann et al. (2025) COMPL-AI [QTQJ92VY] — Bias/Fairness-Benchmarks: alle LLMs zeigen Defizite bei Diversity/Non-Discrimination/Fairness"
-notes: "v0.4 - SHOULD statt MUST da Deployer-Pflicht hier weniger explizit. Art. 10 primaer Provider, Deployer via Risikomanagement Art. 9. Díaz-Rodríguez liefert Taxonomie der Fairness-Dimensionen. Guldimann zeigt empirisch Bias-Defizite aller getesteten LLMs."
+notes: "v0.4 - SHOULD statt MUST da Deployer-Pflicht hier weniger explizit. Art. 10 primaer Provider, Deployer via Risikomanagement Art. 9. Díaz-Rodríguez liefert Taxonomie der Fairness-Dimensionen. Guldimann zeigt empirisch Bias-Defizite aller getesteten LLMs. v0.5 (2026-08-14): Gepruefte Artikel-Referenzen gegen VO (EU) 2026/1744 (Digital Omnibus on AI) — Art. 9, Art. 10 Abs. 2 lit. f und Art. 15 inhaltlich unveraendert; nur Anwendungsfrist verschoben."

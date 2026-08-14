@@ -4,7 +4,7 @@ kontrollmechanismus: "Automatisierte Datenvalidierung mit Schema- und Plausibili
 lifecycle_phase: "deployment"
 governance_dimension: "technisch"
 eu_ai_act_refs:
-  - "Art. 10"
+  - "Art. 10 Abs. 1, Abs. 6"
   - "Art. 26 Abs. 4"
 must_should: "MUST"
 description: "Deployer muessen sicherstellen, dass Eingabedaten den vom Provider definierten Spezifikationen entsprechen. Automatisierte Validierung prueft Schema-Konformitaet, Wertebereichs-Plausibilitaet und Vollstaendigkeit vor jeder Modellinferenz."
@@ -21,9 +21,9 @@ linked_gates:
 design_principles:
   - DP3
 deployer_implication: "Automatisierte Schema- und Plausibilitätsvalidierung der Eingabedaten vor jeder Modellinferenz ausführen."
-audit_trigger: "Deployment CI/CD + Runtime (pro Inferenz-Batch)"
+audit_trigger: "Deployment CI/CD + Runtime (pro Inferenz-Batch); Anwendungsfrist Art. 10 (Annex-III-Systeme) ab 2. Dezember 2027 gemaess VO (EU) 2026/1744"
 sources:
-  - "EU AI Act (VO 2024/1689) Art. 10, Art. 26 Abs. 4"
+  - "EU AI Act (VO 2024/1689) Art. 10 Abs. 1/Abs. 6, Art. 26 Abs. 4, geaendert durch VO (EU) 2026/1744 (Digital Omnibus on AI)"
   - "Guldimann et al. (2025) COMPL-AI [QTQJ92VY] — Privacy and Data Governance Dimension, Training Data Suitability Benchmark"
   - "Golpayegani et al. (2024) AICat [7BF458GD] — Ontologie-basiertes Requirement-Mapping fuer Data Governance"
-notes: "v0.4 - Art. 10 primaer Provider-Pflicht, fuer Deployer relevant via Art. 26 Abs. 4 (Eingabedaten-Relevanz). Guldimann definiert Data Governance als eine von 6 Compliance-Dimensionen mit messbaren Benchmarks."
+notes: "v0.4 - Art. 10 primaer Provider-Pflicht, fuer Deployer relevant via Art. 26 Abs. 4 (Eingabedaten-Relevanz). Guldimann definiert Data Governance als eine von 6 Compliance-Dimensionen mit messbaren Benchmarks. v0.5 (2026-08-14): Art. 10 Abs. 5 wurde durch VO (EU) 2026/1744 gestrichen und die Rechtsgrundlage fuer Verarbeitung besonderer Datenkategorien zur Bias-Erkennung/-Korrektur in einen neuen Art. 4a ueberfuehrt (erweitert auf Deployer und weitere KI-Systeme). Fuer R006 nicht direkt einschlaegig, da hier nur Abs. 1/6 (Datenqualitaetskriterien) relevant sind; Referenz praezisiert. Anwendungsfrist fuer Annex-III-Hochrisiko-Systeme von 2. August 2026 auf 2. Dezember 2027 verschoben."
