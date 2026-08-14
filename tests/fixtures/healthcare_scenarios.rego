@@ -513,6 +513,169 @@ app_documentation_transparency_pass := {
 		},
 	}
 
+# --- art25_benign_change.json ---
+art25_benign_change := {
+		"_comment": "SPEC-03 Fixture 1/5 — erwartetes Ergebnis: kein Trigger, keine Verstoesse. Reine Wartungsaenderung ohne Rollenwechsel.",
+		"change_event": {
+			"type": "maintenance",
+			"system_already_on_market": true,
+			"rebranding": {
+				"own_name_or_trademark_applied": false,
+			},
+			"substantial_modification": {
+				"modified": false,
+				"remains_high_risk_art6": false,
+			},
+			"purpose_change": {
+				"changed": false,
+			},
+			"evidence": {
+				"change_log_record": "CHG-2026-0101",
+			},
+		},
+	}
+
+# --- art25_purpose_change_to_high_risk.json ---
+art25_purpose_change_to_high_risk := {
+		"_comment": "SPEC-03 Fixture 5/5 — erwartetes Ergebnis: C-25c deny. Der Kernfall: purpose_change.before und .after werden durch die classification-Regel aus SPEC-02 (G-PRE-01) geschickt. Vorher NOT_IN_SCOPE (Buerokommunikation, kein Anhang-III-Nr.-2-Kontext), nachher SAFETY_COMPONENT (Netzbetrieb, Arm B bejaht). Das Manifest liefert nur die Zweckangaben, NICHT das Ergebnis — eine Selbstauskunft 'wird nicht hochriskant' kann den Check nicht aushebeln. Uebergabeartefakte liegen vor, daher kein C-25d.",
+		"change_event": {
+			"type": "purpose_change",
+			"system_already_on_market": true,
+			"rebranding": {
+				"own_name_or_trademark_applied": false,
+			},
+			"substantial_modification": {
+				"modified": false,
+				"remains_high_risk_art6": false,
+			},
+			"purpose_change": {
+				"changed": true,
+				"before": {
+					"system": {
+						"name": "assistenz-dialogsystem",
+						"version": "1.0.0",
+						"deployment_context": "internal_office_communication",
+						"annex_iii_candidate": "none",
+					},
+					"risk_classification": {
+						"risk_class": "minimal",
+						"classification_reasoning": "Internes Assistenzsystem ohne Bezug zu kritischer Infrastruktur.",
+					},
+				},
+				"after": {
+					"system": {
+						"name": "assistenz-dialogsystem",
+						"version": "2.0.0",
+						"deployment_context": "electricity_supply_operation",
+						"annex_iii_candidate": "no2_critical_infrastructure",
+					},
+					"risk_classification": {
+						"risk_class": "high",
+						"classification_reasoning": "Zweckaenderung: das System gibt jetzt Schaltempfehlungen fuer den Netzbetrieb aus.",
+						"annex_reference": "Anhang III Nr. 2",
+						"mitigation_measures": [
+							"Vier-Augen-Freigabe vor Schalthandlung",
+						],
+					},
+					"art6_assessment": {
+						"self_declared_classification": "SAFETY_COMPONENT",
+						"arm_a_intended_purpose": {
+							"prevents_or_mitigates_risk_to_health_safety_or_property": false,
+							"justification": "Zweck ist die Entscheidungsunterstuetzung, nicht die Risikominderung als solche",
+						},
+						"art6_1a_exclusion_claimed": {
+							"claimed": false,
+							"sole_use_categories": [],
+						},
+						"arm_b_failure_impact": {
+							"assessed": true,
+							"endangers_health_safety_persons_or_property": true,
+							"justification": "Fehlerhafte Schaltempfehlung kann zu Betriebsmittelueberlastung fuehren",
+							"human_control_between_output_and_action": true,
+							"human_control_effectiveness_evidence_ref": "evidence://gates/operations/G-OPS-01",
+						},
+					},
+				},
+			},
+			"evidence": {
+				"change_log_record": "CHG-2026-0045",
+				"rag_config_diff": "rag-config@v3 -> v4 (Aufnahme des Netzleitsystem-Korpus)",
+				"provider_handover_record": "HANDOVER-2026-0045",
+				"cooperation_commitment_ref": "evidence://contracts/cooperation-2026-0045",
+				"written_agreement_ref": "evidence://contracts/written-agreement-2026-0045",
+			},
+		},
+	}
+
+# --- art25_rebranding_with_handover.json ---
+art25_rebranding_with_handover := {
+		"_comment": "SPEC-03 Fixture 2/5 — erwartetes Ergebnis: C-25a deny (binaerer Tatbestand), aber KEIN C-25d, weil alle drei Uebergabeartefakte vorliegen.",
+		"change_event": {
+			"type": "rebranding",
+			"system_already_on_market": true,
+			"rebranding": {
+				"own_name_or_trademark_applied": true,
+			},
+			"substantial_modification": {
+				"modified": false,
+				"remains_high_risk_art6": false,
+			},
+			"purpose_change": {
+				"changed": false,
+			},
+			"evidence": {
+				"change_log_record": "CHG-2026-0042",
+				"provider_handover_record": "HANDOVER-2026-0042",
+				"cooperation_commitment_ref": "evidence://contracts/cooperation-2026-0042",
+				"written_agreement_ref": "evidence://contracts/written-agreement-2026-0042",
+			},
+		},
+	}
+
+# --- art25_substantial_modification.json ---
+art25_substantial_modification := {
+		"_comment": "SPEC-03 Fixture 4/5 — erwartetes Ergebnis: C-25b warn (advisory, weil die Wesentlichkeitsschwelle an den ausstehenden Art.-97-Rechtsakten haengt), KEIN deny.",
+		"change_event": {
+			"type": "substantial_modification",
+			"system_already_on_market": true,
+			"rebranding": {
+				"own_name_or_trademark_applied": false,
+			},
+			"substantial_modification": {
+				"modified": true,
+				"remains_high_risk_art6": true,
+			},
+			"purpose_change": {
+				"changed": false,
+			},
+			"evidence": {
+				"change_log_record": "CHG-2026-0044",
+			},
+		},
+	}
+
+# --- art25_trigger_without_handover.json ---
+art25_trigger_without_handover := {
+		"_comment": "SPEC-03 Fixture 3/5 — erwartetes Ergebnis: C-25a deny UND C-25d deny (dreifach: handover, written agreement, cooperation). Der Uebergang ist ohne die Uebergabeartefakte nicht wirksam dokumentiert.",
+		"change_event": {
+			"type": "rebranding",
+			"system_already_on_market": true,
+			"rebranding": {
+				"own_name_or_trademark_applied": true,
+			},
+			"substantial_modification": {
+				"modified": false,
+				"remains_high_risk_art6": false,
+			},
+			"purpose_change": {
+				"changed": false,
+			},
+			"evidence": {
+				"change_log_record": "CHG-2026-0043",
+			},
+		},
+	}
+
 # --- art6_chatbot_out_of_scope.json ---
 art6_chatbot_out_of_scope := {
 		"_comment": "SPEC-02 Fixture 4/6 — erwartetes Ergebnis: NOT_IN_SCOPE. Schritt 1 des Pruefbaums scheidet aus: kein Einsatz in einem Kontext nach Anhang III Nr. 2.",

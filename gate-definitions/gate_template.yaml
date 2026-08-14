@@ -33,6 +33,11 @@ decision: "derived"
 # Automatisierungsklassifikation bleibt auf Gate-Ebene
 automation: "AUTO|HYBRID|MANUAL"
 
+# Rollenparameter (SPEC-03): welche Pflichtenmenge dieses Gate bedient.
+# Der Anbieter schuldet die Beschaffenheit des Systems (Art. 8-15),
+# der Betreiber die Beschaffenheit der Verwendung (Art. 26).
+role_scope: ["deployer"]     # ["provider"] | ["deployer"] | ["provider","deployer"]
+
 owner: ""
 audit_trail:
   enabled: true

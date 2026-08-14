@@ -1,0 +1,16 @@
+{
+  "_comment": "SPEC-03 Fixture 2/5 — erwartetes Ergebnis: C-25a deny (binaerer Tatbestand), aber KEIN C-25d, weil alle drei Uebergabeartefakte vorliegen.",
+  "change_event": {
+    "type": "rebranding",
+    "system_already_on_market": true,
+    "rebranding": { "own_name_or_trademark_applied": true },
+    "substantial_modification": { "modified": false, "remains_high_risk_art6": false },
+    "purpose_change": { "changed": false },
+    "evidence": {
+      "change_log_record": "CHG-2026-0042",
+      "provider_handover_record": "HANDOVER-2026-0042",
+      "cooperation_commitment_ref": "evidence://contracts/cooperation-2026-0042",
+      "written_agreement_ref": "evidence://contracts/written-agreement-2026-0042"
+    }
+  }
+}

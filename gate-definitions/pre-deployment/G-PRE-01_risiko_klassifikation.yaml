@@ -67,6 +67,7 @@ evidence_required:
 
 decision: "derived"
 automation: "HYBRID"
+role_scope: ["deployer"]
 owner: "AI Governance Lead"
 audit_trail:
   enabled: true

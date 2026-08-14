@@ -43,6 +43,7 @@ GATE_MAP = {
     "policy_monitoring_configured.rego":     ("G-OPS-03", "R010", "EU AI Act Art. 72", "AUTO"),
     "policy_data_security_controls.rego":    ("G-OPS-04", "R003", "EU AI Act Art. 15", "AUTO"),
     "policy_evidence_completeness.rego":     ("G-OPS-05", "R005", "EU AI Act Art. 12", "AUTO"),
+    "policy_role_change_monitoring.rego":    ("G-OPS-06", "R001", "EU AI Act Art. 25", "HYBRID"),
 }
 
 # Rule detection: "deny contains msg if { ... }" or "violation[...] { ... }"

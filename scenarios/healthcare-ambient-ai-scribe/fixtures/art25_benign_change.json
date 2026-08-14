@@ -1,0 +1,11 @@
+{
+  "_comment": "SPEC-03 Fixture 1/5 — erwartetes Ergebnis: kein Trigger, keine Verstoesse. Reine Wartungsaenderung ohne Rollenwechsel.",
+  "change_event": {
+    "type": "maintenance",
+    "system_already_on_market": true,
+    "rebranding": { "own_name_or_trademark_applied": false },
+    "substantial_modification": { "modified": false, "remains_high_risk_art6": false },
+    "purpose_change": { "changed": false },
+    "evidence": { "change_log_record": "CHG-2026-0101" }
+  }
+}

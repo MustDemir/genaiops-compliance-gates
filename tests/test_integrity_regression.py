@@ -7,7 +7,7 @@ Static regression checks for credibility risks in the GenAIOps Compliance Gates 
 This suite intentionally focuses on "does the PoC prove what it claims to prove?"
 instead of only checking functional green paths.
 
-What it checks (17 checks, fail-fast ordering):
+What it checks (18 checks, fail-fast ordering):
   1.  Demo fallbacks that can mask missing real enforcement (check_orchestrator_fallbacks)
   2.  Optional/non-critical handling of Evidence Store recording (check_ci_evidence_mandatory)
   3.  Drift detection wiring to the Evidence Store (check_drift_evidence_wiring)
@@ -25,6 +25,7 @@ What it checks (17 checks, fail-fast ordering):
   15. schema_version 2: policy_checks[].id is gate-locally unique (check_gate_check_ids_unique)
   16. schema_version 2: policy_checks[].policy resolves to an existing Rego file (check_gate_policy_files_exist)
   17. schema_version 2: evidence_level.current/.target valid and non-regressing (check_gate_evidence_level_valid)
+  18. SPEC-03: every gate carries a valid role_scope (check_gate_role_scope_valid)
 
 Usage:
   python3 test_integrity_regression.py
@@ -748,6 +749,42 @@ def check_gate_evidence_level_valid() -> dict:
     )
 
 
+VALID_ROLE_SCOPES = {"provider", "deployer"}
+
+
+def check_gate_role_scope_valid() -> dict:
+    """SPEC-03 Abschnitt 7: every gate must carry a valid, non-empty role_scope.
+
+    Without it the AI_ACT_ROLE filter in gate_orchestrator silently falls back
+    to "deployer", which would hide a mis-scoped gate rather than surface it.
+    """
+    findings = []
+    for f, gate in _load_gate_files():
+        scope = gate.get("role_scope")
+        if scope is None:
+            findings.append(f"{f.relative_to(REPO_ROOT)}: role_scope is missing")
+            continue
+        if not isinstance(scope, list) or not scope:
+            findings.append(f"{f.relative_to(REPO_ROOT)}: role_scope must be a non-empty list, got {scope!r}")
+            continue
+        invalid = [s for s in scope if str(s).lower() not in VALID_ROLE_SCOPES]
+        if invalid:
+            findings.append(
+                f"{f.relative_to(REPO_ROOT)}: invalid role_scope entr(y/ies) {invalid} — "
+                f"allowed: {sorted(VALID_ROLE_SCOPES)}"
+            )
+
+    return make_result(
+        "GATE_ROLE_SCOPE_VALID",
+        "every gate carries a valid role_scope (SPEC-03)",
+        "medium",
+        not findings,
+        "A missing or invalid role_scope makes the AI_ACT_ROLE gate filter fall back silently." if findings
+        else "All gates carry a valid role_scope.",
+        findings,
+    )
+
+
 def collect_results() -> list[dict]:
     checks = [
         check_orchestrator_fallbacks,
@@ -769,6 +806,7 @@ def collect_results() -> list[dict]:
         check_gate_check_ids_unique,
         check_gate_policy_files_exist,
         check_gate_evidence_level_valid,
+        check_gate_role_scope_valid,
     ]
     results = []
     for check in checks:

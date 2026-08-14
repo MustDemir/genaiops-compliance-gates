@@ -22,7 +22,9 @@ linked_gates:
   - G-DEP-01
 design_principles:
   - DP4
+role: deployer
 deployer_implication: "Technische Dokumentation (Annex-IV-Umfang) im Evidence Store hinterlegen und bei Deployment mitliefern."
+provider_implication: ""
 audit_trigger: "Deployment CI/CD; Re-Audit bei Model-Update"
 sources:
 - EU AI Act (VO 2024/1689) Art. 11

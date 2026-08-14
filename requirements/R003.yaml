@@ -22,7 +22,9 @@ linked_gates:
   - G-OPS-04
 design_principles:
   - DP1
+role: deployer
 deployer_implication: "Security-Baseline pre-deploy nachweisen, Safety-Metriken deploy-time validieren, Cybersecurity-Operations kontinuierlich überwachen."
+provider_implication: ""
 audit_trigger: "Pre-Deployment + Deployment + Runtime (kontinuierlich)"
 sources:
 - EU AI Act (VO 2024/1689) Art. 15

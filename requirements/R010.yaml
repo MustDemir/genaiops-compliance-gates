@@ -20,7 +20,9 @@ linked_gates:
   - G-OPS-03
 design_principles:
   - DP2
+role: deployer
 deployer_implication: "Performance-Metriken und Drift-Indikatoren kontinuierlich erfassen; bei Schwellenwertverletzung eskalieren."
+provider_implication: ""
 audit_trigger: "Runtime (kontinuierlich) + Post-Market (Art. 72)"
 sources:
   - "EU AI Act (VO 2024/1689) Art. 72, Art. 9 Abs. 2"

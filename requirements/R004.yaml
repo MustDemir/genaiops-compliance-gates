@@ -18,7 +18,9 @@ linked_gates:
   - G-PRE-05
 design_principles:
   - DP4
+role: deployer
 deployer_implication: "Oversight-Konzept mit dokumentierter strategischer Governance-Freigabe vor Deployment bereitstellen."
+provider_implication: ""
 audit_trigger: "Pre-Deployment (Governance-Approval)"
 sources:
 - EU AI Act (VO 2024/1689) Art. 14

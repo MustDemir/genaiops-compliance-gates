@@ -1,0 +1,11 @@
+{
+  "_comment": "SPEC-03 Fixture 3/5 — erwartetes Ergebnis: C-25a deny UND C-25d deny (dreifach: handover, written agreement, cooperation). Der Uebergang ist ohne die Uebergabeartefakte nicht wirksam dokumentiert.",
+  "change_event": {
+    "type": "rebranding",
+    "system_already_on_market": true,
+    "rebranding": { "own_name_or_trademark_applied": true },
+    "substantial_modification": { "modified": false, "remains_high_risk_art6": false },
+    "purpose_change": { "changed": false },
+    "evidence": { "change_log_record": "CHG-2026-0043" }
+  }
+}

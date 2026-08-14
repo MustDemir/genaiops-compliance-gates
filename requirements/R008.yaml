@@ -20,7 +20,9 @@ linked_gates:
   - G-OPS-01
 design_principles:
   - DP3
+role: deployer
 deployer_implication: "Wirksamkeit der Human-Oversight-Maßnahmen im Betrieb dokumentieren und periodisch überprüfen."
+provider_implication: ""
 audit_trigger: "Runtime (kontinuierlich) + Post-Market"
 sources:
   - "EU AI Act (VO 2024/1689) Art. 14, Art. 26 Abs. 2"

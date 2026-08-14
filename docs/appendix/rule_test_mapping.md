@@ -4,7 +4,7 @@
 **Baseline:** 141/141 PASS  
 **Quelle:** `tools/extract_rule_test_mapping.py` (auto-generiert aus `policies/**/*.rego` + `policies/**/*_test.rego`)  
 
-Dieses Dokument belegt die Rule-Level-Isolation der PoC-Policy-Engine: Jede der **157 Rego-Regeln** wird durch mindestens eine Unit-Test-Assertion verifiziert. Insgesamt **160 Tests** decken die Muster PASS (positive path), FAIL-basic (missing field), FAIL-edge (invalid/empty values) und HYBRID (D3-Override First-Degree Oversight) ab. Alle Tests werden zeitgleich durch `tests/run_all_rego_tests.sh` (`opa test policies/ tests/fixtures/`) ausgeführt; die Pipeline-Integration (`pipeline/.github/workflows/gate-pipeline.yml`, Layer 1) bricht bei einem Fehlschlag vor jeder Conftest-Gate-Evaluation ab (Shift-Left).
+Dieses Dokument belegt die Rule-Level-Isolation der PoC-Policy-Engine: Jede der **166 Rego-Regeln** wird durch mindestens eine Unit-Test-Assertion verifiziert. Insgesamt **173 Tests** decken die Muster PASS (positive path), FAIL-basic (missing field), FAIL-edge (invalid/empty values) und HYBRID (D3-Override First-Degree Oversight) ab. Alle Tests werden zeitgleich durch `tests/run_all_rego_tests.sh` (`opa test policies/ tests/fixtures/`) ausgeführt; die Pipeline-Integration (`pipeline/.github/workflows/gate-pipeline.yml`, Layer 1) bricht bei einem Fehlschlag vor jeder Conftest-Gate-Evaluation ab (Shift-Left).
 
 ## F.1 Übersicht
 
@@ -21,12 +21,13 @@ Dieses Dokument belegt die Rule-Level-Isolation der PoC-Policy-Engine: Jede der 
 | G-OPS-03 | R010 | EU AI Act Art. 72 | AUTO | 2 | 6 | 4 | 1 | 3 | 0 | 0 |
 | G-OPS-04 | R003 | EU AI Act Art. 15 | AUTO | 1 | 4 | 5 | 1 | 4 | 0 | 0 |
 | G-OPS-05 | R005 | EU AI Act Art. 12 | AUTO | 3 | 6 | 4 | 1 | 2 | 1 | 0 |
+| G-OPS-06 | R001 | EU AI Act Art. 25 | HYBRID | 4 | 9 | 13 | 4 | 6 | 0 | 0 |
 | G-PRE-01 | R001 | EU AI Act Art. 9 | HYBRID | 8 | 28 | 27 | 8 | 11 | 4 | 4 |
 | G-PRE-02 | R012 | EU AI Act Art. 27 | HYBRID | 1 | 6 | 6 | 1 | 4 | 1 | 0 |
 | G-PRE-03 | R001 | EU AI Act Art. 9 | HYBRID | 2 | 7 | 7 | 1 | 5 | 1 | 0 |
 | G-PRE-04 | R003 | EU AI Act Art. 15 | AUTO | 6 | 12 | 14 | 1 | 12 | 1 | 0 |
 | G-PRE-05 | R004 | EU AI Act Art. 14 | HYBRID | 1 | 17 | 19 | 1 | 0 | 0 | 18 |
-| **Gesamt** | — | — | — | **39** | **157** | **160** | 25 | 87 | 22 | 26 |
+| **Gesamt** | — | — | — | **43** | **166** | **173** | 29 | 93 | 22 | 26 |
 
 **Legende Muster-Klassen:**
 
@@ -505,6 +506,57 @@ Dieses Dokument belegt die Rule-Level-Isolation der PoC-Policy-Engine: Jede der 
 | 3 | 59 | `test_fail_hash_chain_disabled_value` | FAIL-basic |
 | 4 | 71 | `test_fail_empty_evidence_store_type` | FAIL-edge |
 
+## F.2 G-OPS-06 — R001 (EU AI Act Art. 25)
+
+**Policy-Datei:** `policies/operations/policy_role_change_monitoring.rego`  
+**Test-Datei:** `policies/operations/policy_role_change_monitoring_test.rego`  
+**Package:** `genaiops.operations.role_change_monitoring`  
+**Automatisierung:** HYBRID  
+**Coverage:** 9 Regeln, 13 Tests (FAIL-basic: 6 | OTHER: 3 | PASS: 4)
+
+### F.2.06.0 Check-Inventar (4 Checks, schema_version 2)
+
+| Check-ID | Severity | Legal-Refs | Policy | Regeln mit dieser Check-ID |
+|----------|:--------:|------------|--------|---------------------------:|
+| C-25a | MUST | Art. 25 Abs. 1 lit. a | `policy_role_change_monitoring` | 1 |
+| C-25b | SHOULD | Art. 25 Abs. 1 lit. b, Art. 3 Nr. 23, Art. 97 | `policy_role_change_monitoring` | 1 |
+| C-25c | MUST | Art. 25 Abs. 1 lit. c, Art. 6 | `policy_role_change_monitoring` | 3 |
+| C-25d | MUST | Art. 25 Abs. 2, Art. 25 Abs. 4 UAbs. 1 | `policy_role_change_monitoring` | 4 |
+
+*Regeln mit Check-ID im Meldungstext: 9 / 9 — ohne: 0 (Meldungen aus der Zeit vor der `<GATE-ID>/<CHECK-ID>`-Konvention nach SPEC-01 Abschnitt 6).*
+
+### F.2.06.1 Regel-Inventar (9 Regeln)
+
+| Nr. | Zeile | Art | Check-ID | Hinweis-Kommentar (nächstliegend) |
+|----:|------:|-----|----------|-----------------------------------|
+| 1 | 78 | `deny` | C-25a | in Verkehr gebrachten Hochrisiko-System. Kein Schwellenwertproblem. |
+| 2 | 94 | `warn` | C-25b | Rechtsakten nach Art. 97, die noch ausstehen. Daher advisory. |
+| 3 | 123 | `deny` | C-25c | — |
+| 4 | 130 | `deny` | C-25c | vor UND nach der Aenderung mitliefern, sonst ist C-25c nicht auswertbar. |
+| 5 | 136 | `deny` | C-25c | vor UND nach der Aenderung mitliefern, sonst ist C-25c nicht auswertbar. |
+| 6 | 164 | `deny` | C-25d | — |
+| 7 | 171 | `deny` | C-25d | — |
+| 8 | 178 | `deny` | C-25d | — |
+| 9 | 186 | `warn` | C-25d | Der Carve-out wird behauptet, aber nicht belegt. |
+
+### F.2.06.2 Test-Inventar (13 Tests)
+
+| Nr. | Zeile | Test-Name | Muster |
+|----:|------:|-----------|:------:|
+| 1 | 27 | `test_pass_benign_change_no_trigger` | PASS |
+| 2 | 36 | `test_fail_c25a_rebranding_triggers_deny` | FAIL-basic |
+| 3 | 41 | `test_pass_c25a_with_handover_no_c25d` | PASS |
+| 4 | 51 | `test_warn_c25b_substantial_modification_is_advisory` | OTHER |
+| 5 | 56 | `test_pass_c25b_does_not_block` | PASS |
+| 6 | 66 | `test_fail_c25c_purpose_change_to_high_risk` | FAIL-basic |
+| 7 | 71 | `test_c25c_uses_spec02_classification_not_a_boolean` | OTHER |
+| 8 | 82 | `test_fail_c25c_missing_before_state` | FAIL-basic |
+| 9 | 89 | `test_fail_c25c_missing_after_state` | FAIL-basic |
+| 10 | 100 | `test_fail_c25d_trigger_without_handover_artifacts` | FAIL-basic |
+| 11 | 106 | `test_fail_c25d_names_all_three_artifacts` | FAIL-basic |
+| 12 | 119 | `test_pass_c25d_carve_out_lifts_handover_duty` | PASS |
+| 13 | 134 | `test_warn_c25d_carve_out_claimed_without_evidence` | OTHER |
+
 ## F.2 G-PRE-01 — R001 (EU AI Act Art. 9)
 
 **Policy-Datei:** `policies/pre-deployment/policy_risk_classification.rego`  
@@ -793,11 +845,11 @@ Dieses Dokument belegt die Rule-Level-Isolation der PoC-Policy-Engine: Jede der 
 
 ## F.3 Reproduzierbarkeit
 
-Zur Verifikation der obigen Zahlen (16 Policies / 157 Regeln / 160 Tests):
+Zur Verifikation der obigen Zahlen (17 Policies / 166 Regeln / 173 Tests):
 
 ```bash
 # OPA ≥ 1.15.2 vorausgesetzt
-./tests/run_all_rego_tests.sh --quiet   # Erwartet: 'PASS: 160/160'
+./tests/run_all_rego_tests.sh --quiet   # Erwartet: 'PASS: 173/173'
 python3 tools/extract_rule_test_mapping.py
 ```
 

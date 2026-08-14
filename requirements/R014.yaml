@@ -20,7 +20,9 @@ linked_gates:
   - G-DEP-06
 design_principles:
   - DP5
+role: deployer
 deployer_implication: "Logging-Konfiguration gemäß Provider-Vorgaben einrichten; Aufbewahrung und Immutability sicherstellen."
+provider_implication: ""
 audit_trigger: "Deployment CI/CD + Runtime (kontinuierlich)"
 sources:
   - "EU AI Act (VO 2024/1689) Art. 12, Art. 26 Abs. 6"

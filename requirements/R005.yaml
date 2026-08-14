@@ -20,7 +20,9 @@ linked_gates:
   - G-OPS-05
 design_principles:
   - DP1
+role: deployer
 deployer_implication: "Audit-Trail vollständig und manipulationssicher (Hash-Chain) im Evidence Store persistieren."
+provider_implication: ""
 audit_trigger: "Runtime (kontinuierlich) + Post-Market"
 sources:
 - EU AI Act (VO 2024/1689) Art. 12, Art. 15

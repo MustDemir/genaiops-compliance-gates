@@ -649,8 +649,19 @@ if errors > 0:
 print("\\nDefinition ↔ Code alignment VERIFIED")
 """ % str(REPO_ROOT)])
 
-# Architecture invariant: Automation-Ratio (10 AUTO : 6 HYBRID : 0 MANUAL)
-run_test("Architecture-Invariant", "Automation-Ratio 10:6:0",
+# Architecture invariant: Automation-Ratio (10 AUTO : 7 HYBRID : 0 MANUAL)
+#
+# Counted from the `automation` field introduced with schema_version 2
+# (SPEC-01). Before that migration this check read `decision`, which now
+# carries the literal "derived" on every gate — so every gate silently fell
+# into the else-branch and was counted as AUTO. The total-count assertion
+# was doing all the work; the ratio was not actually verified.
+#
+# Expected total is 17 since SPEC-03 moved the Art.-25 role-change gate from
+# prospective/ into the enforced catalogue as G-OPS-06 (HYBRID). The thesis
+# figures (16 gates, 10 AUTO / 6 HYBRID / 0 MANUAL) stay reproducible under
+# the git tag thesis-v1.0 — see CHANGELOG.
+run_test("Architecture-Invariant", "Automation-Ratio 10:7:0",
          [sys.executable, "-c", """
 import yaml, sys
 from pathlib import Path
@@ -658,40 +669,50 @@ from pathlib import Path
 repo = Path('%s')
 gate_dirs = ['pre-deployment', 'deployment', 'operations']
 
+EXPECTED_TOTAL = 17
+EXPECTED_AUTO = 10
+EXPECTED_HYBRID = 7
+
 auto = hybrid = manual = 0
+unknown = []
 for d in gate_dirs:
     gdir = repo / 'gate-definitions' / d
     if not gdir.exists():
         continue
     for f in sorted(gdir.glob('G-*.yaml')):
         gate = yaml.safe_load(open(f))
-        decision = gate.get('decision', '')
-        if decision in ('manual_review', 'manual_approval'):
-            hybrid += 1
-        elif decision in ('automated', 'auto', 'block', 'warn'):
-            # 'warn' = AUTO gate with SHOULD/advisory severity (e.g. G-DEP-05/R013):
-            # automated evaluation, non-blocking. Still counts as AUTO.
+        automation = (gate.get('automation') or '').strip().upper()
+        if automation == 'AUTO':
             auto += 1
+        elif automation == 'HYBRID':
+            hybrid += 1
+        elif automation == 'MANUAL':
+            manual += 1
         else:
-            print(f"  WARNING: {gate['id']} unknown decision={decision}")
-            auto += 1  # conservative: count as AUTO
+            unknown.append(f"{gate.get('id', f.name)}={automation or '<missing>'}")
 
-# Architecture invariant: 10 AUTO + 6 HYBRID + 0 MANUAL = 16 gates
-# Gate-definitions use 'automated' and 'manual_review' as decision values
-total = auto + hybrid + manual
+total = auto + hybrid + manual + len(unknown)
 print(f"Automation distribution: {auto} AUTO + {hybrid} HYBRID + {manual} MANUAL = {total} gates")
 
-if total != 16:
-    print(f"ERROR: Expected 16 gates, got {total}")
+if unknown:
+    print(f"ERROR: gate(s) without a valid automation field: {', '.join(unknown)}")
     sys.exit(1)
 
-# Note: exact ratio may differ based on how decision field is set
-# The key invariant: no MANUAL-only gates exist
+if total != EXPECTED_TOTAL:
+    print(f"ERROR: Expected {EXPECTED_TOTAL} gates, got {total}")
+    sys.exit(1)
+
+if (auto, hybrid) != (EXPECTED_AUTO, EXPECTED_HYBRID):
+    print(f"ERROR: Expected {EXPECTED_AUTO} AUTO / {EXPECTED_HYBRID} HYBRID, "
+          f"got {auto} AUTO / {hybrid} HYBRID")
+    sys.exit(1)
+
+# The key invariant of the D3xD2 automation ceiling: no MANUAL-only gates.
 if manual > 0:
     print(f"ERROR: Found {manual} MANUAL-only gates (architecture invariant: 0)")
     sys.exit(1)
 
-print("Automation-Ratio verified (0 MANUAL-only gates)")
+print(f"Automation-Ratio verified ({auto}:{hybrid}:{manual}, 0 MANUAL-only gates)")
 """ % str(REPO_ROOT)])
 
 # Architecture-Alignment: Evidence Store traceability (R → G → Evidence)

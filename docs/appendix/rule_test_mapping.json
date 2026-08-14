@@ -1188,6 +1188,201 @@
       "test_count": 4
     },
     {
+      "gate_id": "G-OPS-06",
+      "requirement_id": "R001",
+      "article": "EU AI Act Art. 25",
+      "method": "HYBRID",
+      "policy_file": "policies/operations/policy_role_change_monitoring.rego",
+      "test_file": "policies/operations/policy_role_change_monitoring_test.rego",
+      "package": "genaiops.operations.role_change_monitoring",
+      "test_package": "genaiops.operations.role_change_monitoring_test",
+      "rules": [
+        {
+          "kind": "deny",
+          "line": 78,
+          "signature": "deny contains msg if {",
+          "hint": "in Verkehr gebrachten Hochrisiko-System. Kein Schwellenwertproblem.",
+          "check_id": "C-25a"
+        },
+        {
+          "kind": "warn",
+          "line": 94,
+          "signature": "warn contains msg if {",
+          "hint": "Rechtsakten nach Art. 97, die noch ausstehen. Daher advisory.",
+          "check_id": "C-25b"
+        },
+        {
+          "kind": "deny",
+          "line": 123,
+          "signature": "deny contains msg if {",
+          "hint": "",
+          "check_id": "C-25c"
+        },
+        {
+          "kind": "deny",
+          "line": 130,
+          "signature": "deny contains msg if {",
+          "hint": "vor UND nach der Aenderung mitliefern, sonst ist C-25c nicht auswertbar.",
+          "check_id": "C-25c"
+        },
+        {
+          "kind": "deny",
+          "line": 136,
+          "signature": "deny contains msg if {",
+          "hint": "vor UND nach der Aenderung mitliefern, sonst ist C-25c nicht auswertbar.",
+          "check_id": "C-25c"
+        },
+        {
+          "kind": "deny",
+          "line": 164,
+          "signature": "deny contains msg if {",
+          "hint": "",
+          "check_id": "C-25d"
+        },
+        {
+          "kind": "deny",
+          "line": 171,
+          "signature": "deny contains msg if {",
+          "hint": "",
+          "check_id": "C-25d"
+        },
+        {
+          "kind": "deny",
+          "line": 178,
+          "signature": "deny contains msg if {",
+          "hint": "",
+          "check_id": "C-25d"
+        },
+        {
+          "kind": "warn",
+          "line": 186,
+          "signature": "warn contains msg if {",
+          "hint": "Der Carve-out wird behauptet, aber nicht belegt.",
+          "check_id": "C-25d"
+        }
+      ],
+      "tests": [
+        {
+          "name": "test_pass_benign_change_no_trigger",
+          "line": 27,
+          "pattern": "PASS"
+        },
+        {
+          "name": "test_fail_c25a_rebranding_triggers_deny",
+          "line": 36,
+          "pattern": "FAIL-basic"
+        },
+        {
+          "name": "test_pass_c25a_with_handover_no_c25d",
+          "line": 41,
+          "pattern": "PASS"
+        },
+        {
+          "name": "test_warn_c25b_substantial_modification_is_advisory",
+          "line": 51,
+          "pattern": "OTHER"
+        },
+        {
+          "name": "test_pass_c25b_does_not_block",
+          "line": 56,
+          "pattern": "PASS"
+        },
+        {
+          "name": "test_fail_c25c_purpose_change_to_high_risk",
+          "line": 66,
+          "pattern": "FAIL-basic"
+        },
+        {
+          "name": "test_c25c_uses_spec02_classification_not_a_boolean",
+          "line": 71,
+          "pattern": "OTHER"
+        },
+        {
+          "name": "test_fail_c25c_missing_before_state",
+          "line": 82,
+          "pattern": "FAIL-basic"
+        },
+        {
+          "name": "test_fail_c25c_missing_after_state",
+          "line": 89,
+          "pattern": "FAIL-basic"
+        },
+        {
+          "name": "test_fail_c25d_trigger_without_handover_artifacts",
+          "line": 100,
+          "pattern": "FAIL-basic"
+        },
+        {
+          "name": "test_fail_c25d_names_all_three_artifacts",
+          "line": 106,
+          "pattern": "FAIL-basic"
+        },
+        {
+          "name": "test_pass_c25d_carve_out_lifts_handover_duty",
+          "line": 119,
+          "pattern": "PASS"
+        },
+        {
+          "name": "test_warn_c25d_carve_out_claimed_without_evidence",
+          "line": 134,
+          "pattern": "OTHER"
+        }
+      ],
+      "checks": [
+        {
+          "id": "C-25a",
+          "policy": "policy_role_change_monitoring",
+          "severity": "MUST",
+          "legal_refs": [
+            "Art. 25 Abs. 1 lit. a"
+          ],
+          "rules_matched": 1
+        },
+        {
+          "id": "C-25b",
+          "policy": "policy_role_change_monitoring",
+          "severity": "SHOULD",
+          "legal_refs": [
+            "Art. 25 Abs. 1 lit. b",
+            "Art. 3 Nr. 23",
+            "Art. 97"
+          ],
+          "rules_matched": 1
+        },
+        {
+          "id": "C-25c",
+          "policy": "policy_role_change_monitoring",
+          "severity": "MUST",
+          "legal_refs": [
+            "Art. 25 Abs. 1 lit. c",
+            "Art. 6"
+          ],
+          "rules_matched": 3
+        },
+        {
+          "id": "C-25d",
+          "policy": "policy_role_change_monitoring",
+          "severity": "MUST",
+          "legal_refs": [
+            "Art. 25 Abs. 2",
+            "Art. 25 Abs. 4 UAbs. 1"
+          ],
+          "rules_matched": 4
+        }
+      ],
+      "check_count": 4,
+      "rules_with_check_id": 9,
+      "rules_without_check_id": 0,
+      "orphan_check_ids": [],
+      "pattern_counts": {
+        "PASS": 4,
+        "FAIL-basic": 6,
+        "OTHER": 3
+      },
+      "rule_count": 9,
+      "test_count": 13
+    },
+    {
       "gate_id": "G-DEP-05",
       "requirement_id": "R013",
       "article": "EU AI Act Art. 10(2)(f)",

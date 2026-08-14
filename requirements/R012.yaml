@@ -18,7 +18,9 @@ linked_gates:
   - G-PRE-02
 design_principles:
   - DP2
+role: deployer
 deployer_implication: "Zweckbestimmung und Einsatzgrenzen schriftlich dokumentieren und im Deployer-Kontext verankern."
+provider_implication: ""
 audit_trigger: "Pre-Deployment (einmalig pro Use-Case)"
 sources:
   - "EU AI Act (VO 2024/1689) Art. 27"

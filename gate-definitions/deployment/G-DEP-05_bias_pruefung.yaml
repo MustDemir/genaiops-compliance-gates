@@ -24,6 +24,7 @@ evidence_required:
 
 decision: "derived"
 automation: "AUTO"
+role_scope: ["deployer"]
 owner: "ML Engineer"
 audit_trail:
   enabled: true

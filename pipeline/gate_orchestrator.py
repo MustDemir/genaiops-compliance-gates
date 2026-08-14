@@ -103,6 +103,90 @@ def annotate_check_ids(items: list) -> list:
     return annotated
 
 
+# ──────────────────────────────────────────────────────────────
+# Rollenparameter PROVIDER / DEPLOYER / BOTH (SPEC-03)
+# ──────────────────────────────────────────────────────────────
+
+VALID_AI_ACT_ROLES = ("PROVIDER", "DEPLOYER", "BOTH")
+
+# Gate-Verzeichnisse, aus denen role_scope gelesen wird
+GATE_DEF_DIRS = (
+    REPO_ROOT / "gate-definitions" / "pre-deployment",
+    REPO_ROOT / "gate-definitions" / "deployment",
+    REPO_ROOT / "gate-definitions" / "operations",
+)
+
+
+def resolve_ai_act_role(config: dict) -> str:
+    """
+    Resolve the active EU AI Act role, in this precedence order
+    (SPEC-03 Abschnitt 4):
+
+      1. environment variable AI_ACT_ROLE
+      2. field `role` in the scenario manifest
+      3. default DEPLOYER (backwards compatible with the existing catalogue)
+
+    The merkformel behind the split: the provider owes the properties of
+    the SYSTEM (Art. 8-15 via Art. 16 lit. a), the deployer owes the
+    properties of its USE (Art. 26).
+    """
+    raw = os.environ.get("AI_ACT_ROLE") or config.get("role") or "DEPLOYER"
+    role = str(raw).strip().upper()
+    if role not in VALID_AI_ACT_ROLES:
+        log(f"ERROR: invalid AI_ACT_ROLE '{raw}' — must be one of: "
+            f"{', '.join(VALID_AI_ACT_ROLES)}", RED)
+        sys.exit(2)
+    return role
+
+
+def load_gate_role_scopes() -> dict:
+    """
+    Map gate_id -> role_scope list, read from the gate definitions.
+
+    Gates without an explicit role_scope default to ["deployer"], matching
+    the documented state of the catalogue before SPEC-03.
+    """
+    try:
+        import yaml
+    except ImportError:
+        log("WARNING: pyyaml not installed — role filtering falls back to "
+            "'deployer' for every gate", YELLOW)
+        return {}
+
+    scopes = {}
+    for d in GATE_DEF_DIRS:
+        if not d.is_dir():
+            continue
+        for f in sorted(d.glob("G-*.yaml")):
+            try:
+                gate = yaml.safe_load(f.read_text(encoding="utf-8")) or {}
+            except yaml.YAMLError as exc:
+                log(f"WARNING: could not parse {f.name}: {exc}", YELLOW)
+                continue
+            gate_id = gate.get("id")
+            if gate_id:
+                scopes[gate_id] = gate.get("role_scope") or ["deployer"]
+    return scopes
+
+
+def gate_matches_role(gate_id: str, role: str, scopes: dict) -> bool:
+    """
+    Filter rule (SPEC-03 Abschnitt 4):
+
+      AI_ACT_ROLE = DEPLOYER  -> only gates with "deployer" in role_scope
+      AI_ACT_ROLE = PROVIDER  -> only gates with "provider" in role_scope
+      AI_ACT_ROLE = BOTH      -> all gates (union, no double execution)
+
+    Under BOTH a gate carrying both roles still runs exactly once and
+    produces exactly one evidence record — the union is over the gate set,
+    not over role-gate pairs.
+    """
+    if role == "BOTH":
+        return True
+    scope = scopes.get(gate_id, ["deployer"])
+    return role.lower() in [str(s).lower() for s in scope]
+
+
 def derive_decision(failures: list, warnings: list, method: str) -> str:
     """
     Derive the gate decision from check results (SPEC-01 Abschnitt 5).
@@ -821,9 +905,33 @@ def run_pipeline(scenario_path: str, use_conftest: bool = False, dry_run: bool =
             except PermissionError:
                 log(f"Could not remove {p} (permission denied, using fresh /tmp path)", YELLOW)
 
+    # ── Resolve role and filter the gate set (SPEC-03) ──
+    ai_act_role = resolve_ai_act_role(config)
+    role_scopes = load_gate_role_scopes()
+    total_gates_before_filter = len(gates)
+    filtered_out = [g["gate_id"] for g in gates
+                    if not gate_matches_role(g["gate_id"], ai_act_role, role_scopes)]
+    gates = [g for g in gates if gate_matches_role(g["gate_id"], ai_act_role, role_scopes)]
+
     log(f"Run ID: {run_id}", BLUE)
     log(f"Evidence DB: {pipeline['evidence_db']}", BLUE)
+    log(f"AI Act role: {ai_act_role} — {len(gates)}/{total_gates_before_filter} gates in scope", BLUE)
+    if filtered_out:
+        log(f"  Out of role scope: {', '.join(filtered_out)}", YELLOW)
     log(f"Mode: {'Conftest' if use_conftest else 'Fixture-based'} | {'DRY-RUN' if dry_run else 'LIVE'}", BLUE)
+
+    # An empty gate set is a legitimate outcome, not an error: the catalogue
+    # is currently deployer-only, so AI_ACT_ROLE=PROVIDER selects nothing.
+    # This must exit cleanly with a comprehensible message (SPEC-03 Abschnitt 7).
+    if not gates:
+        print()
+        log(f"No gate in the catalogue declares role_scope '{ai_act_role.lower()}' — "
+            f"nothing to evaluate.", YELLOW)
+        log("The 16 gates of this catalogue are deployer-scoped (Art. 26). "
+            "Provider requirements (Art. 16 lit. a-l) are not yet derived — "
+            "see SPEC-03 Abschnitt 6.", YELLOW)
+        return 0
+
     print()
 
     # ── Execute gates sequentially ──
@@ -932,6 +1040,8 @@ def run_pipeline(scenario_path: str, use_conftest: bool = False, dry_run: bool =
         "timestamp": datetime.now(timezone.utc).isoformat(),
         "evidence_db": pipeline["evidence_db"],
         "mode": "conftest" if use_conftest else "fixture-eval",
+        "ai_act_role": ai_act_role,
+        "gates_filtered_out": filtered_out,
         "gates": results,
         "pipeline_halted": pipeline_halted,
         "halt_gate": halt_gate if pipeline_halted else None,

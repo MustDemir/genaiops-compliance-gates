@@ -20,7 +20,9 @@ linked_gates:
   - G-DEP-01
 design_principles:
   - DP3
+role: deployer
 deployer_implication: "Automatisierte Schema- und Plausibilitätsvalidierung der Eingabedaten vor jeder Modellinferenz ausführen."
+provider_implication: ""
 audit_trigger: "Deployment CI/CD + Runtime (pro Inferenz-Batch); Anwendungsfrist Art. 10 (Annex-III-Systeme) ab 2. Dezember 2027 gemaess VO (EU) 2026/1744"
 sources:
   - "EU AI Act (VO 2024/1689) Art. 10 Abs. 1/Abs. 6, Art. 26 Abs. 4, geaendert durch VO (EU) 2026/1744 (Digital Omnibus on AI)"

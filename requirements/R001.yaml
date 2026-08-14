@@ -20,7 +20,9 @@ linked_gates:
   - G-PRE-03
 design_principles:
   - DP1
+role: deployer
 deployer_implication: "Versioniertes Risiko-Assessment mit Mitigationsplan pro identifiziertem High-Risk-Risiko vor Release-Freigabe bereitstellen."
+provider_implication: ""
 audit_trigger: "Pre-Deployment CI/CD; Re-Audit bei Release"
 sources:
 - EU AI Act (VO 2024/1689) Art. 9

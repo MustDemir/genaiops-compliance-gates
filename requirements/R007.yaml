@@ -21,7 +21,9 @@ linked_gates:
   - G-DEP-03
 design_principles:
   - DP5
+role: deployer
 deployer_implication: "Transparenzhinweise für Endnutzer bereitstellen; KI-generierte Inhalte gemäß Art. 50 kennzeichnen."
+provider_implication: ""
 audit_trigger: "Deployment CI/CD + Runtime (User-Interface-Checks)"
 sources:
   - "EU AI Act (VO 2024/1689) Art. 13, Art. 26 Abs. 7, Art. 50"

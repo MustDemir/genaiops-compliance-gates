@@ -10,6 +10,19 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased] — Post-Thesis Development (schema_version 2)
 
+### Changed (BREAKING) — Gate count 16 → 17 (SPEC-03)
+
+- **`G-OPS-06` (Rollenwechsel) added to the enforced catalogue**, transferred from `prospective/art25-role-change/` where it deliberately sat outside the counted catalogue. **This changes the headline figures cited in the Master's thesis** (Kap. 7.4 / 8.1): the catalogue now holds **17 gates**, and the Rego unit-test count rises accordingly.
+- The published figures — **14 requirements, 16 gates, 10 AUTO / 6 HYBRID / 0 MANUAL, 108 rules, 141 unit tests** — remain reproducible under the Git tag `thesis-v1.0` (`git checkout thesis-v1.0`) and in the Zenodo archive. They are **not** silently overwritten.
+- Severity is no longer uniform across the Art. 25 triggers: C-25a (rebranding) and C-25c (purpose change) are binary offences and became MUST; only C-25b (substantial modification) stays SHOULD, because its threshold depends on Art. 3(23) and the pending Art. 97 delegated acts.
+- C-25c now evaluates the `classification` rule from G-PRE-01 (SPEC-02) on the before/after purpose state instead of trusting a `becomes_high_risk_art6` boolean in the manifest.
+
+### Added — AI Act role parameter PROVIDER / DEPLOYER / BOTH (SPEC-03)
+
+- Every gate definition carries `role_scope`; all existing gates are marked `["deployer"]`, which is the correct label for the status quo rather than a downgrade (the architecture was deliberately deployer-scoped, thesis limitation L2).
+- `AI_ACT_ROLE` resolves in three steps: environment variable → `role` field in the scenario manifest → default `DEPLOYER`. `PROVIDER` currently selects an empty gate set and exits 0 with an explanatory message instead of raising.
+- Requirement template gains `role` and `provider_implication`; the 14 existing requirements are set to `role: deployer` with an empty `provider_implication`. Deriving the provider requirements from Art. 16(a)–(l) is explicitly **not** part of this change.
+
 ### Changed (BREAKING) — Gate-Template Schema v2 (SPEC-01)
 
 - `policy_checks` on every gate definition moves from a flat string list to a list of check objects (`id`, `policy`, `description`, `severity`, `legal_refs`, `evidence_level`) — severity now lives on the individual check, not on the whole gate, so a gate with heterogeneous checks is no longer forced onto its weakest severity.

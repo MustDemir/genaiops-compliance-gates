@@ -1,0 +1,11 @@
+{
+  "_comment": "SPEC-03 Fixture 4/5 — erwartetes Ergebnis: C-25b warn (advisory, weil die Wesentlichkeitsschwelle an den ausstehenden Art.-97-Rechtsakten haengt), KEIN deny.",
+  "change_event": {
+    "type": "substantial_modification",
+    "system_already_on_market": true,
+    "rebranding": { "own_name_or_trademark_applied": false },
+    "substantial_modification": { "modified": true, "remains_high_risk_art6": true },
+    "purpose_change": { "changed": false },
+    "evidence": { "change_log_record": "CHG-2026-0044" }
+  }
+}

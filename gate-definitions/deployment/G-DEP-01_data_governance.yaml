@@ -55,6 +55,7 @@ evidence_required:
 
 decision: "derived"
 automation: "AUTO"
+role_scope: ["deployer"]
 owner: "Data Engineer"
 audit_trail:
   enabled: true

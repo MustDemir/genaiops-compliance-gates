@@ -21,7 +21,9 @@ linked_gates:
   - G-DEP-05
 design_principles:
   - DP5
+role: deployer
 deployer_implication: "Bias-/Fairness-Report vor Deployment bereitstellen; Mitigationsplan und Re-Evaluation dokumentieren."
+provider_implication: ""
 audit_trigger: "Deployment CI/CD + Runtime (periodische Re-Evaluation); Anwendungsfrist Art. 9/10/15 (Annex-III-Systeme) ab 2. Dezember 2027 gemaess VO (EU) 2026/1744"
 sources:
   - "EU AI Act (VO 2024/1689) Art. 9, Art. 10 Abs. 2 lit. f, Art. 15"

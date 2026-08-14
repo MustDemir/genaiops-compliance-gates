@@ -1,0 +1,70 @@
+schema_version: 2
+id: G-OPS-06
+name: "Rollenwechsel (Betreiber-zu-Anbieter-Aufstieg)"
+dimension: "regulatorisch"
+lifecycle_phase: "operations"
+trigger: "Post-Deployment-Aenderungsereignis (Fine-Tuning-Job, RAG-Konfigurationsaenderung, Rebranding, Zweckaenderungs-Vermerk) — Conftest evaluiert das change_event-Manifest"
+
+evidence_level:
+  current: "E-0"
+  target: "E-1"
+  rationale: "Conftest prueft ein vom Betreiber gepflegtes Aenderungsmanifest (Selbstauskunft). E-1 waere erreicht, wenn das Aenderungsereignis aus einem signierten CI-Artefakt stammt (Fine-Tuning-Job-Attestierung, signierter RAG-Config-Diff) statt aus einem handgepflegten Vermerk."
+
+policy_checks:
+  - id: "C-25a"
+    policy: "policy_role_change_monitoring"
+    description: "Art. 25 Abs. 1 lit. a — eigener Name oder eigene Marke auf einem bereits in Verkehr gebrachten Hochrisiko-System"
+    severity: "MUST"
+    legal_refs: ["Art. 25 Abs. 1 lit. a"]
+    evidence_level: null
+  - id: "C-25b"
+    policy: "policy_role_change_monitoring"
+    description: "Art. 25 Abs. 1 lit. b — wesentliche Veraenderung, System bleibt Hochrisiko"
+    severity: "SHOULD"
+    legal_refs: ["Art. 25 Abs. 1 lit. b", "Art. 3 Nr. 23", "Art. 97"]
+    evidence_level: null
+  - id: "C-25c"
+    policy: "policy_role_change_monitoring"
+    description: "Art. 25 Abs. 1 lit. c — Zweckaenderung macht das System zum Hochrisiko-System; ausgewertet gegen die classification-Regel aus G-PRE-01 (SPEC-02), nicht gegen ein Manifest-Boolean"
+    severity: "MUST"
+    legal_refs: ["Art. 25 Abs. 1 lit. c", "Art. 6"]
+    evidence_level: null
+  - id: "C-25d"
+    policy: "policy_role_change_monitoring"
+    description: "Art. 25 Abs. 2 / Abs. 4 UAbs. 1 n.F. — ein bindender Ausloeser (C-25a oder C-25c) ist gefeuert, aber die Uebergabeartefakte fehlen; Carve-out nach Abs. 2 letzter Satz muss belegt sein"
+    severity: "MUST"
+    legal_refs: ["Art. 25 Abs. 2", "Art. 25 Abs. 4 UAbs. 1"]
+    evidence_level: null
+
+evidence_required:
+  - "change_log_record"
+  - "fine_tuning_manifest"
+  - "rag_config_diff"
+  - "provider_handover_record"
+  - "cooperation_commitment_ref"
+  - "written_agreement_ref"
+
+decision: "derived"
+automation: "HYBRID"
+role_scope: ["deployer"]
+owner: "Compliance Officer"
+audit_trail:
+  enabled: true
+  evidence_store_ref: "evidence://gates/operations/G-OPS-06"
+waiver:
+  allowed: false
+  requires: "Kein Waiver moeglich fuer C-25a/C-25c/C-25d — der Aufstieg zum Anbieter ist ein gesetzlicher Statuswechsel, kein organisatorischer Ermessensspielraum. C-25b ist ohnehin advisory."
+links:
+  requirements:
+    - "R001"
+  eu_ai_act_refs:
+    - "Art. 25 Abs. 1 lit. a"
+    - "Art. 25 Abs. 1 lit. b"
+    - "Art. 25 Abs. 1 lit. c"
+    - "Art. 25 Abs. 2"
+    - "Art. 25 Abs. 4 UAbs. 1"
+    - "Art. 97"
+sources:
+  - "requirements/R001.yaml"
+  - "specs/SPEC-03-rollenparameter.md"
+notes: "UEBERFUEHRT (2026-08-14, SPEC-03 Abschnitt 5) aus prospective/art25-role-change/, wo das Gate bewusst ausserhalb des Katalogs lag und durchgaengig advisory war. Beides aendert sich: (1) Severity je Check statt gate-weit — die urspruengliche Begruendung 'alles advisory, weil die Art.-97-Schwellenwerte fehlen' trifft AUSSCHLIESSLICH auf lit. b zu; lit. a (Rebranding) und lit. c (Zweckaenderung) sind binaere Tatbestaende ohne Schwellenwertproblem und daher MUST. (2) C-25c wertet die classification-Regel aus G-PRE-01/SPEC-02 aus, einmal auf den Zustand vor und einmal nach der Zweckaenderung — das Manifest liefert die Zweckangaben, nicht das Ergebnis. Richtung: Art. 25 regelt den Aufstieg Betreiber/Haendler/Einfuehrer/Dritter -> Anbieter; beobachtet wird er vom Betreiber aus, daher role_scope ['deployer']. BEFUND UEBER SPEC-03 HINAUS: Art. 25 Abs. 2 n.F. enthaelt im letzten Satz einen Carve-out — hat der urspruengliche Anbieter klar festgelegt, dass sein System nicht in ein Hochrisiko-System umgewandelt werden soll, entfaellt die Kooperations- und Uebergabepflicht. SPEC-03 Abschnitt 5.3 erwaehnt ihn nicht; C-25d wuerde ohne ihn Artefakte einfordern, die rechtlich nicht geschuldet sind. Implementiert als belegpflichtige Ausnahme (initial_provider_exclusion_ref), eine blosse Behauptung genuegt nicht (dann warn). ZAEHLSTAND: mit diesem Gate steigt der Katalog von 16 auf 17 Gates — die in der Masterarbeit zitierten Kennzahlen (16 Gates, 10 AUTO / 6 HYBRID / 0 MANUAL) bleiben unter dem Tag thesis-v1.0 reproduzierbar, siehe CHANGELOG."
