@@ -16,30 +16,30 @@
 # CDV-Pattern: Contract (valid class) → Validation (reasoning) → Severity (BLOCK)
 #
 # ----------------------------------------------------------------
-# Art.-6-Pruefbaum "Sicherheitskomponente" (SPEC-02, ab 2026-08-14)
+# Art.-6-Pruefbaum "Sicherheitsbauteil" (SPEC-02, ab 2026-08-14)
 # ----------------------------------------------------------------
 # Zusaetzlich zu den Regeln 1-7 oben bildet diese Datei den Pruefbaum
 # nach Art. 3 Nr. 14 und Art. 6 Abs. 1a/1b i.d.F. der VO (EU) 2026/1744
 # (Digital Omnibus on AI, in Kraft seit 27.07.2026) ab. Checks C-A1..C-A7.
 #
-# Rechtsstand (primaerquellenverifiziert gegen EUR-Lex, engl. Fassung):
+# Rechtsstand (primaerquellenverifiziert, beide verbindlichen Fassungen):
 #
 #   Art. 3 Nr. 14 n.F. — zwei ODER-verknuepfte Arme:
-#     Arm A (Zweckbestimmung): bestimmungsgemaesser Zweck ist es, Risiken
-#            fuer Gesundheit und Sicherheit von Personen ODER SACHEN zu
-#            verhindern oder zu mindern.
-#     Arm B (Ausfallfolge): Ausfall oder Fehlfunktion gefaehrdet Gesundheit
-#            und Sicherheit von Personen ODER SACHEN.
-#     Nicht verkuerzen: geschuetzt sind Personen ODER Sachen. Betriebsmittel
-#     eines Netzes sind Sachen.
+#     Arm A (Zweckbestimmung): bestimmungsgemaesse Zweckbestimmung besteht
+#            darin, Risiken fuer die Gesundheit und Sicherheit von Personen
+#            ODER EIGENTUM abzuwenden oder zu mindern.
+#     Arm B (Ausfallfolge): Ausfall oder Stoerung gefaehrdet die Gesundheit
+#            und Sicherheit von Personen ODER EIGENTUM.
+#     Nicht verkuerzen: geschuetzt sind Personen ODER Eigentum. Betriebsmittel
+#     eines Netzes stehen im Eigentum des Netzbetreibers.
 #
 #   Art. 6 Abs. 1a n.F.: Systeme, die AUSSCHLIESSLICH nicht-sicherheits-
 #     bezogene Aspekte von Nutzerunterstuetzung, Leistungsoptimierung,
-#     Serviceeffizienz, Automatisierung, Komfort oder Qualitaetskontrolle
-#     erfuellen, gelten NICHT als Sicherheitskomponente.
+#     Leistungseffizienz, Automatisierung, Benutzerfreundlichkeit oder Qualitaetskontrolle
+#     erfuellen, gelten NICHT als Sicherheitsbauteil.
 #   Art. 6 Abs. 1b n.F.: Ungeachtet Abs. 1a gelten Systeme, deren Ausfall
 #     oder Fehlfunktion Gesundheit und Sicherheit gefaehrden wuerde, DOCH
-#     als Sicherheitskomponente.
+#     als Sicherheitsbauteil.
 #
 # ***** AUSLEGUNGSHYPOTHESE — KEINE LEITLINIEN, KEINE RECHTSPRECHUNG *****
 # Zu Art. 6 Abs. 1a/1b liegen weder Leitlinien der Kommission noch
@@ -53,11 +53,34 @@
 # ist NICHT ueberspringbar, wenn Abs. 1a geltend gemacht wurde (Check C-A3).
 # ************************************************************************
 #
-# Weitere Einschraenkungen:
-#   - Nur die ENGLISCHE Sprachfassung wurde geprueft. Die deutsche Fassung
-#     gilt gleichermassen verbindlich; bei "safety function", "intended
-#     purpose" und "endangers" koennen Nuancen abweichen. Vor einer
-#     Veroeffentlichung abzugleichen.
+# Sprachfassungs-Abgleich (2026-08-15, ERLEDIGT):
+#   Beide verbindlichen Fassungen wurden gegen das Amtsblatt geprueft
+#   (docs/legal/OJ_L_202601744_DE.pdf, ABl. L vom 24.7.2026, sowie die
+#   englische Fassung ueber EUR-Lex). Befunde:
+#
+#   - Amtlicher deutscher Terminus ist "Sicherheitsbauteil", NICHT
+#     "Sicherheitskomponente" (so aber SPEC-02 durchgaengig). Die Kommentare
+#     hier folgen dem amtlichen Begriff.
+#   - Art. 3 Nr. 14 DE schuetzt "Gesundheit und Sicherheit von Personen oder
+#     EIGENTUM" (EN: "persons or property"). SPEC-02 argumentiert mit
+#     "Sachen" — das ist nicht der amtliche Wortlaut. Betriebsmittel eines
+#     Netzes stehen im Eigentum des Netzbetreibers, das Ergebnis traegt
+#     also weiterhin; die Begruendung ist aber ueber Eigentum zu fuehren.
+#   - Art. 6 Abs. 1a Kategorien weichen zwischen den Fassungen ab:
+#       EN user assistance          = DE Nutzerunterstuetzung
+#       EN performance optimisation = DE Leistungsoptimierung
+#       EN service efficiency       = DE LEISTUNGSeffizienz (nicht Service-)
+#       EN automation               = DE Automatisierung
+#       EN convenience              = DE BENUTZERFREUNDLICHKEIT (nicht Komfort)
+#       EN quality control          = DE Qualitaetskontrolle
+#     Die Enum-Werte in sole_use_categories bleiben englisch, weil sie an der
+#     englischen Fassung gebildet wurden; die Zuordnung steht hier.
+#   - BESTAETIGT: Abs. 1a gilt "Fuer die Zwecke dieser Verordnung,
+#     EINSCHLIESSLICH DES ABSATZES 1 dieses Artikels" — also allgemein und
+#     damit auch fuer Annex III Nr. 2. Die Auslegung in SPEC-02 Abschnitt 2.2
+#     ist durch den deutschen Wortlaut gedeckt.
+#   - Art. 6 Abs. 1b sagt in BEIDEN Fassungen nur "Gesundheit und Sicherheit"
+#     ohne den Zusatz "von Personen oder Eigentum", anders als Art. 3 Nr. 14.
 #   - Art. 6 Abs. 1c ist BEWUSST NICHT umgesetzt: er verweist ausdruecklich
 #     auf "the condition in paragraph 1, point (b)" und ist damit auf den
 #     Annex-I-Pfad beschraenkt. Abs. 1a und 1b sind dagegen allgemein
@@ -170,7 +193,7 @@ deny contains msg if {
 }
 
 # ================================================================
-# Art.-6-Pruefbaum: Sicherheitskomponente nach Art. 3 Nr. 14,
+# Art.-6-Pruefbaum: Sicherheitsbauteil nach Art. 3 Nr. 14,
 # Art. 6 Abs. 1a/1b, Anhang III Nr. 2 (SPEC-02)
 # ================================================================
 
@@ -206,12 +229,12 @@ _in_scope if {
 	input.system.deployment_context in _valid_deployment_contexts
 }
 
-# Arm A — Zweckbestimmung (Personen ODER Sachen)
+# Arm A — Zweckbestimmung (Personen ODER Eigentum)
 _arm_a_positive if {
 	_a6.arm_a_intended_purpose.prevents_or_mitigates_risk_to_health_safety_or_property == true
 }
 
-# Arm B — Ausfallfolge (Personen ODER Sachen)
+# Arm B — Ausfallfolge (Personen ODER Eigentum)
 _arm_b_positive if {
 	_a6.arm_b_failure_impact.endangers_health_safety_persons_or_property == true
 }
