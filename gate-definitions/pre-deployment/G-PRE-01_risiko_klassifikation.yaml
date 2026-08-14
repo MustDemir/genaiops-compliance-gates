@@ -7,8 +7,8 @@ trigger: "PR merge to main branch — Conftest evaluiert app_documentation.json 
 
 evidence_level:
   current: "E-0"
-  target: "E-1"
-  rationale: "Conftest prueft Selbstauskunft (risk_class, classification_reasoning) im Dokumentationsmanifest; keine signierte Attestierung."
+  target: "E-2"
+  rationale: "Ob ein System Schalthandlungen ausloest, ist am Systemzustand pruefbar (Leitsystem-Anbindung, Schnittstellen, Berechtigungen) und muss nicht der Selbstauskunft ueberlassen bleiben. Aktuell prueft Conftest ausschliesslich Selbstauskunft im Dokumentationsmanifest (risk_class, classification_reasoning, art6_assessment) — das ist E-0."
 
 policy_checks:
   - id: "C-01"
@@ -17,10 +17,53 @@ policy_checks:
     severity: "MUST"
     legal_refs: ["Art. 9"]
     evidence_level: null
+  - id: "C-A1"
+    policy: "policy_risk_classification"
+    description: "art6_assessment-Sektion vorhanden (Pflicht fuer Annex-III-Nr.-2-Kandidaten)"
+    severity: "MUST"
+    legal_refs: ["Art. 3 Nr. 14", "Anhang III Nr. 2"]
+    evidence_level: null
+  - id: "C-A2"
+    policy: "policy_risk_classification"
+    description: "deployment_context vorhanden und innerhalb der zulaessigen Werte aus Anhang III Nr. 2"
+    severity: "MUST"
+    legal_refs: ["Anhang III Nr. 2"]
+    evidence_level: null
+  - id: "C-A3"
+    policy: "policy_risk_classification"
+    description: "Art. 6 Abs. 1a geltend gemacht, aber Arm B (Ausfallfolge) nicht bewertet — Schritt 4 des Pruefbaums ist nicht ueberspringbar"
+    severity: "MUST"
+    legal_refs: ["Art. 6 Abs. 1a", "Art. 6 Abs. 1b"]
+    evidence_level: null
+  - id: "C-A4"
+    policy: "policy_risk_classification"
+    description: "Bei geltend gemachter Abs.-1a-Ausnahme: sole_use_categories nicht leer und nur zulaessige Kategorien"
+    severity: "MUST"
+    legal_refs: ["Art. 6 Abs. 1a"]
+    evidence_level: null
+  - id: "C-A5"
+    policy: "policy_risk_classification"
+    description: "Bejahter Arm A oder Arm B traegt eine nicht-leere justification"
+    severity: "MUST"
+    legal_refs: ["Art. 3 Nr. 14"]
+    evidence_level: null
+  - id: "C-A6"
+    policy: "policy_risk_classification"
+    description: "Selbsteinstufung NO_SAFETY_COMPONENT trotz bejahter Ausfallgefaehrdung — Art. 6 Abs. 1b ueberschreibt"
+    severity: "MUST"
+    legal_refs: ["Art. 6 Abs. 1b"]
+    evidence_level: null
+  - id: "C-A7"
+    policy: "policy_risk_classification"
+    description: "Menschliche Kontrolle zwischen Ausgabe und Wirkung behauptet, aber kein Wirksamkeitsnachweis referenziert (Ziel: G-OPS-01)"
+    severity: "SHOULD"
+    legal_refs: ["Art. 26 Abs. 2"]
+    evidence_level: null
 
 evidence_required:
   - "risk_classification_record"
   - "classification_reasoning_document"
+  - "art6_assessment_record"
 
 decision: "derived"
 automation: "HYBRID"
@@ -36,6 +79,12 @@ links:
     - "R001"
   eu_ai_act_refs:
     - "Art. 9"
+    - "Art. 3 Nr. 14"
+    - "Art. 6 Abs. 1a"
+    - "Art. 6 Abs. 1b"
+    - "Art. 26 Abs. 2"
+    - "Anhang III Nr. 2"
 sources:
   - "requirements/R001.yaml"
-notes: "PoC-Gate (★). HYBRID: Conftest prueft ob risk_class in {high, limited, minimal} und classification_reasoning vorhanden; manueller Review bewertet inhaltliche Angemessenheit der Klassifikation. R001 wird zusaetzlich durch G-PRE-03 operationalisiert (Mehrfachzuordnung). UPDATE (2026-08-14, schema_version 2 / SPEC-01): policy_checks auf Objektform migriert, Severity aus R001 (MUST) uebernommen. KORREKTUR: die alten Policy-Namen 'policy_risk_classification_valid'/'policy_risk_classification_reasoning' waren nie eingeloeste Platzhalter — die tatsaechliche Implementierung liegt in einer einzigen Datei policies/pre-deployment/policy_risk_classification.rego (14 deny-Rules, inkl. manual_review-Nachweis fuer den HYBRID-Anteil), daher hier zu einem Check C-01 konsolidiert. Siehe SPEC-02 fuer die geplante Erweiterung um C-A1..C-A7 (Art. 6 Abs. 1a/1b Pruefbaum) mit evidence_level.target E-2."
+  - "specs/SPEC-02-gpre01-art6-pruefbaum.md"
+notes: "PoC-Gate (★). HYBRID: Conftest prueft ob risk_class in {high, limited, minimal} und classification_reasoning vorhanden; manueller Review bewertet inhaltliche Angemessenheit der Klassifikation. R001 wird zusaetzlich durch G-PRE-03 operationalisiert (Mehrfachzuordnung). UPDATE (2026-08-14, schema_version 2 / SPEC-01): policy_checks auf Objektform migriert, Severity aus R001 (MUST) uebernommen. KORREKTUR: die alten Policy-Namen 'policy_risk_classification_valid'/'policy_risk_classification_reasoning' waren nie eingeloeste Platzhalter — die tatsaechliche Implementierung liegt in einer einzigen Datei policies/pre-deployment/policy_risk_classification.rego, daher zu C-01 konsolidiert. UPDATE (2026-08-14, SPEC-02): Art.-6-Pruefbaum 'Sicherheitskomponente' nach Art. 3 Nr. 14 und Art. 6 Abs. 1a/1b i.d.F. der VO (EU) 2026/1744 als C-A1..C-A7 ergaenzt; berechnete classification-Regel (NOT_IN_SCOPE / SAFETY_COMPONENT / NO_SAFETY_COMPONENT) gehoert in den Evidence-Record. WICHTIG — die Auslegung von Art. 6 Abs. 1a/1b ist eine HYPOTHESE: es liegen weder Leitlinien der Kommission noch Rechtsprechung vor (Kennzeichnung im Kopfkommentar der Rego-Datei). Arm B gilt als dominanter Test, daher ist C-A3 (Schritt 4 nicht ueberspringbar) der Kern-Check. Art. 6 Abs. 1c bewusst nicht umgesetzt (nur Annex-I-Pfad). Nur die englische Sprachfassung wurde geprueft; die deutsche ist gleichermassen verbindlich und vor einer Veroeffentlichung abzugleichen. UMSETZUNGSENTSCHEIDUNG: der C-A-Block greift nur bei system.annex_iii_candidate == 'no2_critical_infrastructure', sonst wuerde C-A1 jedes Manifest ausserhalb kritischer Infrastruktur blockieren. Fixtures liegen nach der Fallback-Regel aus SPEC-02 Abschnitt 7 unter scenarios/healthcare-ambient-ai-scribe/fixtures/art6_*.json, bis der Szenario-Rahmen grid-redispatch aus SPEC-03 existiert."

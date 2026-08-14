@@ -1,0 +1,17 @@
+{
+  "_comment": "SPEC-02 Fixture 4/6 — erwartetes Ergebnis: NOT_IN_SCOPE. Schritt 1 des Pruefbaums scheidet aus: kein Einsatz in einem Kontext nach Anhang III Nr. 2.",
+  "system": {
+    "name": "kundenservice-chatbot",
+    "version": "3.0.1",
+    "deployment_context": "customer_service",
+    "annex_iii_candidate": "none"
+  },
+  "risk_classification": {
+    "risk_class": "minimal",
+    "classification_reasoning": "Allgemeiner Kundenservice-Chatbot ohne Bezug zu kritischer Infrastruktur; Anhang III Nr. 2 nicht einschlaegig."
+  },
+  "manual_review": {
+    "reviewed_by": "AI Governance Lead",
+    "review_date": "2026-08-14"
+  }
+}

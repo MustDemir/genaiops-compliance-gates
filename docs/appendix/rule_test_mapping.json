@@ -1919,79 +1919,16 @@
       "rules": [
         {
           "kind": "deny",
-          "line": 26,
+          "line": 85,
           "signature": "deny contains msg if {",
           "hint": "",
-          "check_id": null
-        },
-        {
-          "kind": "deny",
-          "line": 32,
-          "signature": "deny contains msg if {",
-          "hint": "",
-          "check_id": null
-        },
-        {
-          "kind": "deny",
-          "line": 38,
-          "signature": "deny contains msg if {",
-          "hint": "",
-          "check_id": null
-        },
-        {
-          "kind": "deny",
-          "line": 46,
-          "signature": "deny contains msg if {",
-          "hint": "",
-          "check_id": null
-        },
-        {
-          "kind": "deny",
-          "line": 51,
-          "signature": "deny contains msg if {",
-          "hint": "",
-          "check_id": null
-        },
-        {
-          "kind": "deny",
-          "line": 57,
-          "signature": "deny contains msg if {",
-          "hint": "",
-          "check_id": null
-        },
-        {
-          "kind": "deny",
-          "line": 63,
-          "signature": "deny contains msg if {",
-          "hint": "",
-          "check_id": null
-        },
-        {
-          "kind": "deny",
-          "line": 70,
-          "signature": "deny contains msg if {",
-          "hint": "",
-          "check_id": null
-        },
-        {
-          "kind": "deny",
-          "line": 76,
-          "signature": "deny contains msg if {",
-          "hint": "",
-          "check_id": null
-        },
-        {
-          "kind": "deny",
-          "line": 86,
-          "signature": "deny contains msg if {",
-          "hint": "These rules check that the MANUAL review step has been documented.",
           "check_id": null
         },
         {
           "kind": "deny",
           "line": 91,
           "signature": "deny contains msg if {",
-          "hint": "These rules check that the MANUAL review step has been documented.",
+          "hint": "",
           "check_id": null
         },
         {
@@ -2003,59 +1940,315 @@
         },
         {
           "kind": "deny",
-          "line": 102,
+          "line": 105,
           "signature": "deny contains msg if {",
           "hint": "",
           "check_id": null
         },
         {
           "kind": "deny",
-          "line": 108,
+          "line": 110,
           "signature": "deny contains msg if {",
           "hint": "",
           "check_id": null
+        },
+        {
+          "kind": "deny",
+          "line": 116,
+          "signature": "deny contains msg if {",
+          "hint": "",
+          "check_id": null
+        },
+        {
+          "kind": "deny",
+          "line": 122,
+          "signature": "deny contains msg if {",
+          "hint": "",
+          "check_id": null
+        },
+        {
+          "kind": "deny",
+          "line": 129,
+          "signature": "deny contains msg if {",
+          "hint": "",
+          "check_id": null
+        },
+        {
+          "kind": "deny",
+          "line": 135,
+          "signature": "deny contains msg if {",
+          "hint": "",
+          "check_id": null
+        },
+        {
+          "kind": "deny",
+          "line": 145,
+          "signature": "deny contains msg if {",
+          "hint": "These rules check that the MANUAL review step has been documented.",
+          "check_id": null
+        },
+        {
+          "kind": "deny",
+          "line": 150,
+          "signature": "deny contains msg if {",
+          "hint": "These rules check that the MANUAL review step has been documented.",
+          "check_id": null
+        },
+        {
+          "kind": "deny",
+          "line": 156,
+          "signature": "deny contains msg if {",
+          "hint": "",
+          "check_id": null
+        },
+        {
+          "kind": "deny",
+          "line": 161,
+          "signature": "deny contains msg if {",
+          "hint": "",
+          "check_id": null
+        },
+        {
+          "kind": "deny",
+          "line": 167,
+          "signature": "deny contains msg if {",
+          "hint": "",
+          "check_id": null
+        },
+        {
+          "kind": "deny",
+          "line": 251,
+          "signature": "deny contains msg if {",
+          "hint": "C-A1 (MUST) — art6_assessment fehlt vollstaendig",
+          "check_id": "C-A1"
+        },
+        {
+          "kind": "deny",
+          "line": 260,
+          "signature": "deny contains msg if {",
+          "hint": "C-A2 (MUST) — deployment_context fehlt oder unzulaessig",
+          "check_id": "C-A2"
+        },
+        {
+          "kind": "deny",
+          "line": 266,
+          "signature": "deny contains msg if {",
+          "hint": "C-A2 (MUST) — deployment_context fehlt oder unzulaessig",
+          "check_id": "C-A2"
+        },
+        {
+          "kind": "deny",
+          "line": 280,
+          "signature": "deny contains msg if {",
+          "hint": "Ausfallfolge geprueft zu haben. Wichtigster Check dieser SPEC.",
+          "check_id": "C-A3"
+        },
+        {
+          "kind": "deny",
+          "line": 291,
+          "signature": "deny contains msg if {",
+          "hint": "leer oder mit unzulaessigen Werten",
+          "check_id": "C-A4"
+        },
+        {
+          "kind": "deny",
+          "line": 298,
+          "signature": "deny contains msg if {",
+          "hint": "",
+          "check_id": "C-A4"
+        },
+        {
+          "kind": "deny",
+          "line": 305,
+          "signature": "deny contains msg if {",
+          "hint": "",
+          "check_id": "C-A4"
+        },
+        {
+          "kind": "deny",
+          "line": 316,
+          "signature": "deny contains msg if {",
+          "hint": "C-A5 (MUST) — Arm A oder Arm B bejaht, aber justification fehlt",
+          "check_id": "C-A5"
+        },
+        {
+          "kind": "deny",
+          "line": 323,
+          "signature": "deny contains msg if {",
+          "hint": "",
+          "check_id": "C-A5"
+        },
+        {
+          "kind": "deny",
+          "line": 330,
+          "signature": "deny contains msg if {",
+          "hint": "",
+          "check_id": "C-A5"
+        },
+        {
+          "kind": "deny",
+          "line": 337,
+          "signature": "deny contains msg if {",
+          "hint": "",
+          "check_id": "C-A5"
+        },
+        {
+          "kind": "deny",
+          "line": 355,
+          "signature": "deny contains msg if {",
+          "hint": "art6_assessment.self_declared_classification eingefuehrt.",
+          "check_id": "C-A6"
+        },
+        {
+          "kind": "warn",
+          "line": 380,
+          "signature": "warn contains msg if {",
+          "hint": "eine Folge-Iteration, sobald die Reihenfolge geklaert ist.",
+          "check_id": "C-A7"
+        },
+        {
+          "kind": "warn",
+          "line": 387,
+          "signature": "warn contains msg if {",
+          "hint": "",
+          "check_id": "C-A7"
         }
       ],
       "tests": [
         {
           "name": "test_pass_valid_high_risk_scenario",
-          "line": 27,
+          "line": 28,
           "pattern": "PASS"
         },
         {
           "name": "test_pass_minimal_risk_without_annex_or_mitigation",
-          "line": 32,
+          "line": 33,
           "pattern": "PASS"
         },
         {
           "name": "test_fail_missing_risk_class",
-          "line": 45,
+          "line": 46,
           "pattern": "FAIL-basic"
         },
         {
           "name": "test_fail_empty_risk_class_string",
-          "line": 56,
+          "line": 57,
           "pattern": "FAIL-edge"
         },
         {
           "name": "test_fail_invalid_risk_class_value",
-          "line": 66,
+          "line": 67,
           "pattern": "FAIL-basic"
         },
         {
           "name": "test_fail_high_risk_without_annex_reference",
-          "line": 80,
+          "line": 81,
           "pattern": "FAIL-basic"
         },
         {
           "name": "test_fail_high_risk_empty_mitigation_measures",
-          "line": 96,
+          "line": 97,
           "pattern": "FAIL-edge"
         },
         {
           "name": "test_fail_missing_manual_review_section",
-          "line": 110,
+          "line": 111,
           "pattern": "HYBRID"
+        },
+        {
+          "name": "test_pass_art6_redispatch_no_violations",
+          "line": 133,
+          "pattern": "PASS"
+        },
+        {
+          "name": "test_pass_art6_redispatch_classified_safety_component",
+          "line": 138,
+          "pattern": "PASS"
+        },
+        {
+          "name": "test_hybrid_art6_lastprognose_classified_via_arm_b",
+          "line": 147,
+          "pattern": "HYBRID"
+        },
+        {
+          "name": "test_hybrid_art6_lastprognose_warns_missing_oversight_evidence",
+          "line": 152,
+          "pattern": "HYBRID"
+        },
+        {
+          "name": "test_hybrid_art6_lastprognose_does_not_block",
+          "line": 158,
+          "pattern": "HYBRID"
+        },
+        {
+          "name": "test_pass_art6_predictive_maintenance_no_violations",
+          "line": 168,
+          "pattern": "PASS"
+        },
+        {
+          "name": "test_pass_art6_predictive_maintenance_classified_no_safety_component",
+          "line": 172,
+          "pattern": "PASS"
+        },
+        {
+          "name": "test_pass_art6_chatbot_not_in_scope",
+          "line": 180,
+          "pattern": "PASS"
+        },
+        {
+          "name": "test_pass_art6_chatbot_no_art6_violations",
+          "line": 184,
+          "pattern": "PASS"
+        },
+        {
+          "name": "test_fail_art6_optimization_claim_without_failure_assessment",
+          "line": 195,
+          "pattern": "FAIL-basic"
+        },
+        {
+          "name": "test_fail_art6_contradiction_self_declaration",
+          "line": 204,
+          "pattern": "FAIL-basic"
+        },
+        {
+          "name": "test_fail_art6_contradiction_classified_safety_component",
+          "line": 209,
+          "pattern": "FAIL-basic"
+        },
+        {
+          "name": "test_fail_art6_missing_assessment_section",
+          "line": 218,
+          "pattern": "FAIL-basic"
+        },
+        {
+          "name": "test_fail_art6_missing_deployment_context",
+          "line": 228,
+          "pattern": "FAIL-basic"
+        },
+        {
+          "name": "test_fail_art6_invalid_deployment_context",
+          "line": 236,
+          "pattern": "FAIL-basic"
+        },
+        {
+          "name": "test_fail_art6_exclusion_claimed_with_empty_categories",
+          "line": 249,
+          "pattern": "FAIL-edge"
+        },
+        {
+          "name": "test_fail_art6_exclusion_claimed_with_invalid_category",
+          "line": 258,
+          "pattern": "FAIL-basic"
+        },
+        {
+          "name": "test_fail_art6_arm_a_positive_without_justification",
+          "line": 274,
+          "pattern": "FAIL-basic"
+        },
+        {
+          "name": "test_fail_art6_arm_b_positive_with_empty_justification",
+          "line": 284,
+          "pattern": "FAIL-edge"
         }
       ],
       "checks": [
@@ -2067,20 +2260,85 @@
             "Art. 9"
           ],
           "rules_matched": 0
+        },
+        {
+          "id": "C-A1",
+          "policy": "policy_risk_classification",
+          "severity": "MUST",
+          "legal_refs": [
+            "Art. 3 Nr. 14",
+            "Anhang III Nr. 2"
+          ],
+          "rules_matched": 1
+        },
+        {
+          "id": "C-A2",
+          "policy": "policy_risk_classification",
+          "severity": "MUST",
+          "legal_refs": [
+            "Anhang III Nr. 2"
+          ],
+          "rules_matched": 2
+        },
+        {
+          "id": "C-A3",
+          "policy": "policy_risk_classification",
+          "severity": "MUST",
+          "legal_refs": [
+            "Art. 6 Abs. 1a",
+            "Art. 6 Abs. 1b"
+          ],
+          "rules_matched": 1
+        },
+        {
+          "id": "C-A4",
+          "policy": "policy_risk_classification",
+          "severity": "MUST",
+          "legal_refs": [
+            "Art. 6 Abs. 1a"
+          ],
+          "rules_matched": 3
+        },
+        {
+          "id": "C-A5",
+          "policy": "policy_risk_classification",
+          "severity": "MUST",
+          "legal_refs": [
+            "Art. 3 Nr. 14"
+          ],
+          "rules_matched": 4
+        },
+        {
+          "id": "C-A6",
+          "policy": "policy_risk_classification",
+          "severity": "MUST",
+          "legal_refs": [
+            "Art. 6 Abs. 1b"
+          ],
+          "rules_matched": 1
+        },
+        {
+          "id": "C-A7",
+          "policy": "policy_risk_classification",
+          "severity": "SHOULD",
+          "legal_refs": [
+            "Art. 26 Abs. 2"
+          ],
+          "rules_matched": 2
         }
       ],
-      "check_count": 1,
-      "rules_with_check_id": 0,
+      "check_count": 8,
+      "rules_with_check_id": 14,
       "rules_without_check_id": 14,
       "orphan_check_ids": [],
       "pattern_counts": {
-        "PASS": 2,
-        "FAIL-basic": 3,
-        "FAIL-edge": 2,
-        "HYBRID": 1
+        "PASS": 8,
+        "FAIL-basic": 11,
+        "FAIL-edge": 4,
+        "HYBRID": 4
       },
-      "rule_count": 14,
-      "test_count": 8
+      "rule_count": 28,
+      "test_count": 27
     },
     {
       "gate_id": "G-PRE-03",

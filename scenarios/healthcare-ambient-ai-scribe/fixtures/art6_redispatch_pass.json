@@ -1,0 +1,41 @@
+{
+  "_comment": "SPEC-02 Fixture 1/6 — erwartetes Ergebnis: SAFETY_COMPONENT ueber Arm A UND Arm B, keine Verstoesse. Redispatch-Optimierer eines Uebertragungsnetzbetreibers.",
+  "system": {
+    "name": "redispatch-optimizer",
+    "version": "1.4.2",
+    "deployment_context": "electricity_supply_operation",
+    "annex_iii_candidate": "no2_critical_infrastructure"
+  },
+  "risk_classification": {
+    "risk_class": "high",
+    "classification_reasoning": "Sicherheitskomponente im Betrieb der Elektrizitaetsversorgung nach Anhang III Nr. 2; Einstufung ueber Art. 3 Nr. 14 Arm A und Arm B.",
+    "annex_reference": "Anhang III Nr. 2",
+    "mitigation_measures": [
+      "Vier-Augen-Freigabe vor Schalthandlung",
+      "Redundante Zustandsschaetzung als Plausibilitaetspruefung",
+      "Automatischer Rueckfall auf n-1-sicheren Fahrplan bei Ausfall"
+    ]
+  },
+  "art6_assessment": {
+    "self_declared_classification": "SAFETY_COMPONENT",
+    "arm_a_intended_purpose": {
+      "prevents_or_mitigates_risk_to_health_safety_or_property": true,
+      "justification": "Verhinderung von Betriebsmittelueberlastung im Uebertragungsnetz"
+    },
+    "art6_1a_exclusion_claimed": {
+      "claimed": false,
+      "sole_use_categories": []
+    },
+    "arm_b_failure_impact": {
+      "assessed": true,
+      "endangers_health_safety_persons_or_property": true,
+      "justification": "Fehlentscheidung laesst Engpass bestehen -> Betriebsmittelschaden, Versorgungsunterbrechung",
+      "human_control_between_output_and_action": true,
+      "human_control_effectiveness_evidence_ref": "evidence://gates/operations/G-OPS-01"
+    }
+  },
+  "manual_review": {
+    "reviewed_by": "AI Governance Lead",
+    "review_date": "2026-08-14"
+  }
+}

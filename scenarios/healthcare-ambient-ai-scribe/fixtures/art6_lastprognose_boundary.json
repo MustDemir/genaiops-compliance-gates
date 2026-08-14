@@ -1,0 +1,38 @@
+{
+  "_comment": "SPEC-02 Fixture 2/6 — erwartetes Ergebnis: SAFETY_COMPONENT ueber Arm B; C-A7 als warn, weil kein Aufsichtsnachweis referenziert ist. Grenzfall: Lastprognose mit halbautomatischer Schalthandlung.",
+  "system": {
+    "name": "lastprognose-halbautomatik",
+    "version": "0.9.0",
+    "deployment_context": "electricity_supply_operation",
+    "annex_iii_candidate": "no2_critical_infrastructure"
+  },
+  "risk_classification": {
+    "risk_class": "high",
+    "classification_reasoning": "Ausgabe wirkt erst ueber eine menschliche Schalthandlung; Einstufung folgt Arm B, da die Wirksamkeit der Zwischenkontrolle nicht nachgewiesen ist.",
+    "annex_reference": "Anhang III Nr. 2",
+    "mitigation_measures": [
+      "Manuelle Freigabe jeder Schalthandlung durch Netzfuehrung"
+    ]
+  },
+  "art6_assessment": {
+    "self_declared_classification": "SAFETY_COMPONENT",
+    "arm_a_intended_purpose": {
+      "prevents_or_mitigates_risk_to_health_safety_or_property": false,
+      "justification": "Zweck ist die Prognose des Lastgangs, nicht die Risikominderung als solche"
+    },
+    "art6_1a_exclusion_claimed": {
+      "claimed": false,
+      "sole_use_categories": []
+    },
+    "arm_b_failure_impact": {
+      "assessed": true,
+      "endangers_health_safety_persons_or_property": true,
+      "justification": "Fehlprognose fuehrt zu falscher Schalthandlung -> Betriebsmittelueberlastung moeglich",
+      "human_control_between_output_and_action": true
+    }
+  },
+  "manual_review": {
+    "reviewed_by": "AI Governance Lead",
+    "review_date": "2026-08-14"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "_comment": "SPEC-02 Fixture 3/6 — erwartetes Ergebnis: NO_SAFETY_COMPONENT. Abs. 1a geltend gemacht UND Arm B bewertet und verneint — muss sauber durchlaufen (keine deny). Das ist der Positivfall zu C-A3.",
+  "system": {
+    "name": "predictive-maintenance-advisor",
+    "version": "2.1.0",
+    "deployment_context": "electricity_supply_operation",
+    "annex_iii_candidate": "no2_critical_infrastructure"
+  },
+  "risk_classification": {
+    "risk_class": "limited",
+    "classification_reasoning": "Reines Instandhaltungs-Planungswerkzeug ohne Eingriff in den Netzbetrieb; Ausfallfolge geprueft und als unkritisch bewertet.",
+    "annex_reference": "Anhang III Nr. 2 geprueft, nicht einschlaegig"
+  },
+  "art6_assessment": {
+    "self_declared_classification": "NO_SAFETY_COMPONENT",
+    "arm_a_intended_purpose": {
+      "prevents_or_mitigates_risk_to_health_safety_or_property": false,
+      "justification": "Zweck ist die Optimierung von Wartungsintervallen, nicht die Verhinderung oder Minderung von Risiken"
+    },
+    "art6_1a_exclusion_claimed": {
+      "claimed": true,
+      "sole_use_categories": [
+        "performance_optimisation",
+        "service_efficiency"
+      ]
+    },
+    "arm_b_failure_impact": {
+      "assessed": true,
+      "endangers_health_safety_persons_or_property": false,
+      "justification": "Ausfall verzoegert lediglich die Wartungsplanung; der n-1-sichere Netzbetrieb ist davon unabhaengig und wird durch bestehende Schutztechnik getragen",
+      "human_control_between_output_and_action": false
+    }
+  },
+  "manual_review": {
+    "reviewed_by": "AI Governance Lead",
+    "review_date": "2026-08-14"
+  }
+}

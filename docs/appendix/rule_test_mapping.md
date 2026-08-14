@@ -4,7 +4,7 @@
 **Baseline:** 141/141 PASS  
 **Quelle:** `tools/extract_rule_test_mapping.py` (auto-generiert aus `policies/**/*.rego` + `policies/**/*_test.rego`)  
 
-Dieses Dokument belegt die Rule-Level-Isolation der PoC-Policy-Engine: Jede der **143 Rego-Regeln** wird durch mindestens eine Unit-Test-Assertion verifiziert. Insgesamt **141 Tests** decken die Muster PASS (positive path), FAIL-basic (missing field), FAIL-edge (invalid/empty values) und HYBRID (D3-Override First-Degree Oversight) ab. Alle Tests werden zeitgleich durch `tests/run_all_rego_tests.sh` (`opa test policies/ tests/fixtures/`) ausgeführt; die Pipeline-Integration (`pipeline/.github/workflows/gate-pipeline.yml`, Layer 1) bricht bei einem Fehlschlag vor jeder Conftest-Gate-Evaluation ab (Shift-Left).
+Dieses Dokument belegt die Rule-Level-Isolation der PoC-Policy-Engine: Jede der **157 Rego-Regeln** wird durch mindestens eine Unit-Test-Assertion verifiziert. Insgesamt **160 Tests** decken die Muster PASS (positive path), FAIL-basic (missing field), FAIL-edge (invalid/empty values) und HYBRID (D3-Override First-Degree Oversight) ab. Alle Tests werden zeitgleich durch `tests/run_all_rego_tests.sh` (`opa test policies/ tests/fixtures/`) ausgeführt; die Pipeline-Integration (`pipeline/.github/workflows/gate-pipeline.yml`, Layer 1) bricht bei einem Fehlschlag vor jeder Conftest-Gate-Evaluation ab (Shift-Left).
 
 ## F.1 Übersicht
 
@@ -21,12 +21,12 @@ Dieses Dokument belegt die Rule-Level-Isolation der PoC-Policy-Engine: Jede der 
 | G-OPS-03 | R010 | EU AI Act Art. 72 | AUTO | 2 | 6 | 4 | 1 | 3 | 0 | 0 |
 | G-OPS-04 | R003 | EU AI Act Art. 15 | AUTO | 1 | 4 | 5 | 1 | 4 | 0 | 0 |
 | G-OPS-05 | R005 | EU AI Act Art. 12 | AUTO | 3 | 6 | 4 | 1 | 2 | 1 | 0 |
-| G-PRE-01 | R001 | EU AI Act Art. 9 | HYBRID | 1 | 14 | 8 | 2 | 3 | 2 | 1 |
+| G-PRE-01 | R001 | EU AI Act Art. 9 | HYBRID | 8 | 28 | 27 | 8 | 11 | 4 | 4 |
 | G-PRE-02 | R012 | EU AI Act Art. 27 | HYBRID | 1 | 6 | 6 | 1 | 4 | 1 | 0 |
 | G-PRE-03 | R001 | EU AI Act Art. 9 | HYBRID | 2 | 7 | 7 | 1 | 5 | 1 | 0 |
 | G-PRE-04 | R003 | EU AI Act Art. 15 | AUTO | 6 | 12 | 14 | 1 | 12 | 1 | 0 |
 | G-PRE-05 | R004 | EU AI Act Art. 14 | HYBRID | 1 | 17 | 19 | 1 | 0 | 0 | 18 |
-| **Gesamt** | — | — | — | **32** | **143** | **141** | 19 | 79 | 20 | 23 |
+| **Gesamt** | — | — | — | **39** | **157** | **160** | 25 | 87 | 22 | 26 |
 
 **Legende Muster-Klassen:**
 
@@ -511,47 +511,87 @@ Dieses Dokument belegt die Rule-Level-Isolation der PoC-Policy-Engine: Jede der 
 **Test-Datei:** `policies/pre-deployment/policy_risk_classification_test.rego`  
 **Package:** `genaiops.pre_deployment.risk_classification`  
 **Automatisierung:** HYBRID  
-**Coverage:** 14 Regeln, 8 Tests (FAIL-basic: 3 | FAIL-edge: 2 | HYBRID: 1 | PASS: 2)
+**Coverage:** 28 Regeln, 27 Tests (FAIL-basic: 11 | FAIL-edge: 4 | HYBRID: 4 | PASS: 8)
 
-### F.2.01.0 Check-Inventar (1 Checks, schema_version 2)
+### F.2.01.0 Check-Inventar (8 Checks, schema_version 2)
 
 | Check-ID | Severity | Legal-Refs | Policy | Regeln mit dieser Check-ID |
 |----------|:--------:|------------|--------|---------------------------:|
 | C-01 | MUST | Art. 9 | `policy_risk_classification` | 0 |
+| C-A1 | MUST | Art. 3 Nr. 14, Anhang III Nr. 2 | `policy_risk_classification` | 1 |
+| C-A2 | MUST | Anhang III Nr. 2 | `policy_risk_classification` | 2 |
+| C-A3 | MUST | Art. 6 Abs. 1a, Art. 6 Abs. 1b | `policy_risk_classification` | 1 |
+| C-A4 | MUST | Art. 6 Abs. 1a | `policy_risk_classification` | 3 |
+| C-A5 | MUST | Art. 3 Nr. 14 | `policy_risk_classification` | 4 |
+| C-A6 | MUST | Art. 6 Abs. 1b | `policy_risk_classification` | 1 |
+| C-A7 | SHOULD | Art. 26 Abs. 2 | `policy_risk_classification` | 2 |
 
-*Regeln mit Check-ID im Meldungstext: 0 / 14 — ohne: 14 (Meldungen aus der Zeit vor der `<GATE-ID>/<CHECK-ID>`-Konvention nach SPEC-01 Abschnitt 6).*
+*Regeln mit Check-ID im Meldungstext: 14 / 28 — ohne: 14 (Meldungen aus der Zeit vor der `<GATE-ID>/<CHECK-ID>`-Konvention nach SPEC-01 Abschnitt 6).*
 
-### F.2.01.1 Regel-Inventar (14 Regeln)
+### F.2.01.1 Regel-Inventar (28 Regeln)
 
 | Nr. | Zeile | Art | Check-ID | Hinweis-Kommentar (nächstliegend) |
 |----:|------:|-----|----------|-----------------------------------|
-| 1 | 26 | `deny` | — | — |
-| 2 | 32 | `deny` | — | — |
-| 3 | 38 | `deny` | — | — |
-| 4 | 46 | `deny` | — | — |
-| 5 | 51 | `deny` | — | — |
-| 6 | 57 | `deny` | — | — |
-| 7 | 63 | `deny` | — | — |
-| 8 | 70 | `deny` | — | — |
-| 9 | 76 | `deny` | — | — |
-| 10 | 86 | `deny` | — | These rules check that the MANUAL review step has been documented. |
-| 11 | 91 | `deny` | — | These rules check that the MANUAL review step has been documented. |
-| 12 | 97 | `deny` | — | — |
-| 13 | 102 | `deny` | — | — |
-| 14 | 108 | `deny` | — | — |
+| 1 | 85 | `deny` | — | — |
+| 2 | 91 | `deny` | — | — |
+| 3 | 97 | `deny` | — | — |
+| 4 | 105 | `deny` | — | — |
+| 5 | 110 | `deny` | — | — |
+| 6 | 116 | `deny` | — | — |
+| 7 | 122 | `deny` | — | — |
+| 8 | 129 | `deny` | — | — |
+| 9 | 135 | `deny` | — | — |
+| 10 | 145 | `deny` | — | These rules check that the MANUAL review step has been documented. |
+| 11 | 150 | `deny` | — | These rules check that the MANUAL review step has been documented. |
+| 12 | 156 | `deny` | — | — |
+| 13 | 161 | `deny` | — | — |
+| 14 | 167 | `deny` | — | — |
+| 15 | 251 | `deny` | C-A1 | C-A1 (MUST) — art6_assessment fehlt vollstaendig |
+| 16 | 260 | `deny` | C-A2 | C-A2 (MUST) — deployment_context fehlt oder unzulaessig |
+| 17 | 266 | `deny` | C-A2 | C-A2 (MUST) — deployment_context fehlt oder unzulaessig |
+| 18 | 280 | `deny` | C-A3 | Ausfallfolge geprueft zu haben. Wichtigster Check dieser SPEC. |
+| 19 | 291 | `deny` | C-A4 | leer oder mit unzulaessigen Werten |
+| 20 | 298 | `deny` | C-A4 | — |
+| 21 | 305 | `deny` | C-A4 | — |
+| 22 | 316 | `deny` | C-A5 | C-A5 (MUST) — Arm A oder Arm B bejaht, aber justification fehlt |
+| 23 | 323 | `deny` | C-A5 | — |
+| 24 | 330 | `deny` | C-A5 | — |
+| 25 | 337 | `deny` | C-A5 | — |
+| 26 | 355 | `deny` | C-A6 | art6_assessment.self_declared_classification eingefuehrt. |
+| 27 | 380 | `warn` | C-A7 | eine Folge-Iteration, sobald die Reihenfolge geklaert ist. |
+| 28 | 387 | `warn` | C-A7 | — |
 
-### F.2.01.2 Test-Inventar (8 Tests)
+### F.2.01.2 Test-Inventar (27 Tests)
 
 | Nr. | Zeile | Test-Name | Muster |
 |----:|------:|-----------|:------:|
-| 1 | 27 | `test_pass_valid_high_risk_scenario` | PASS |
-| 2 | 32 | `test_pass_minimal_risk_without_annex_or_mitigation` | PASS |
-| 3 | 45 | `test_fail_missing_risk_class` | FAIL-basic |
-| 4 | 56 | `test_fail_empty_risk_class_string` | FAIL-edge |
-| 5 | 66 | `test_fail_invalid_risk_class_value` | FAIL-basic |
-| 6 | 80 | `test_fail_high_risk_without_annex_reference` | FAIL-basic |
-| 7 | 96 | `test_fail_high_risk_empty_mitigation_measures` | FAIL-edge |
-| 8 | 110 | `test_fail_missing_manual_review_section` | HYBRID |
+| 1 | 28 | `test_pass_valid_high_risk_scenario` | PASS |
+| 2 | 33 | `test_pass_minimal_risk_without_annex_or_mitigation` | PASS |
+| 3 | 46 | `test_fail_missing_risk_class` | FAIL-basic |
+| 4 | 57 | `test_fail_empty_risk_class_string` | FAIL-edge |
+| 5 | 67 | `test_fail_invalid_risk_class_value` | FAIL-basic |
+| 6 | 81 | `test_fail_high_risk_without_annex_reference` | FAIL-basic |
+| 7 | 97 | `test_fail_high_risk_empty_mitigation_measures` | FAIL-edge |
+| 8 | 111 | `test_fail_missing_manual_review_section` | HYBRID |
+| 9 | 133 | `test_pass_art6_redispatch_no_violations` | PASS |
+| 10 | 138 | `test_pass_art6_redispatch_classified_safety_component` | PASS |
+| 11 | 147 | `test_hybrid_art6_lastprognose_classified_via_arm_b` | HYBRID |
+| 12 | 152 | `test_hybrid_art6_lastprognose_warns_missing_oversight_evidence` | HYBRID |
+| 13 | 158 | `test_hybrid_art6_lastprognose_does_not_block` | HYBRID |
+| 14 | 168 | `test_pass_art6_predictive_maintenance_no_violations` | PASS |
+| 15 | 172 | `test_pass_art6_predictive_maintenance_classified_no_safety_component` | PASS |
+| 16 | 180 | `test_pass_art6_chatbot_not_in_scope` | PASS |
+| 17 | 184 | `test_pass_art6_chatbot_no_art6_violations` | PASS |
+| 18 | 195 | `test_fail_art6_optimization_claim_without_failure_assessment` | FAIL-basic |
+| 19 | 204 | `test_fail_art6_contradiction_self_declaration` | FAIL-basic |
+| 20 | 209 | `test_fail_art6_contradiction_classified_safety_component` | FAIL-basic |
+| 21 | 218 | `test_fail_art6_missing_assessment_section` | FAIL-basic |
+| 22 | 228 | `test_fail_art6_missing_deployment_context` | FAIL-basic |
+| 23 | 236 | `test_fail_art6_invalid_deployment_context` | FAIL-basic |
+| 24 | 249 | `test_fail_art6_exclusion_claimed_with_empty_categories` | FAIL-edge |
+| 25 | 258 | `test_fail_art6_exclusion_claimed_with_invalid_category` | FAIL-basic |
+| 26 | 274 | `test_fail_art6_arm_a_positive_without_justification` | FAIL-basic |
+| 27 | 284 | `test_fail_art6_arm_b_positive_with_empty_justification` | FAIL-edge |
 
 ## F.2 G-PRE-02 — R012 (EU AI Act Art. 27)
 
@@ -753,11 +793,11 @@ Dieses Dokument belegt die Rule-Level-Isolation der PoC-Policy-Engine: Jede der 
 
 ## F.3 Reproduzierbarkeit
 
-Zur Verifikation der obigen Zahlen (16 Policies / 143 Regeln / 141 Tests):
+Zur Verifikation der obigen Zahlen (16 Policies / 157 Regeln / 160 Tests):
 
 ```bash
 # OPA ≥ 1.15.2 vorausgesetzt
-./tests/run_all_rego_tests.sh --quiet   # Erwartet: 'PASS: 141/141'
+./tests/run_all_rego_tests.sh --quiet   # Erwartet: 'PASS: 160/160'
 python3 tools/extract_rule_test_mapping.py
 ```
 

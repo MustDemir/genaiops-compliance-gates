@@ -47,6 +47,10 @@ admission_review_compliant := {
 								"genaiops.io/service-monitor-configured": "true",
 								"genaiops.io/evidence-store-connected": "true",
 								"genaiops.io/hash-chain-enabled": "true",
+								"genaiops.io/image-scanning-enabled": "true",
+								"genaiops.io/network-policies-specified": "true",
+								"genaiops.io/encryption-at-rest": "true",
+								"genaiops.io/encryption-in-transit": "true",
 								"genaiops.io/eval-passed": "true",
 								"genaiops.io/eval-run-id": "eval-20260325-001",
 								"prometheus.io/scrape": "true",
@@ -509,6 +513,224 @@ app_documentation_transparency_pass := {
 		},
 	}
 
+# --- art6_chatbot_out_of_scope.json ---
+art6_chatbot_out_of_scope := {
+		"_comment": "SPEC-02 Fixture 4/6 — erwartetes Ergebnis: NOT_IN_SCOPE. Schritt 1 des Pruefbaums scheidet aus: kein Einsatz in einem Kontext nach Anhang III Nr. 2.",
+		"system": {
+			"name": "kundenservice-chatbot",
+			"version": "3.0.1",
+			"deployment_context": "customer_service",
+			"annex_iii_candidate": "none",
+		},
+		"risk_classification": {
+			"risk_class": "minimal",
+			"classification_reasoning": "Allgemeiner Kundenservice-Chatbot ohne Bezug zu kritischer Infrastruktur; Anhang III Nr. 2 nicht einschlaegig.",
+		},
+		"manual_review": {
+			"reviewed_by": "AI Governance Lead",
+			"review_date": "2026-08-14",
+		},
+	}
+
+# --- art6_contradiction.json ---
+art6_contradiction := {
+		"_comment": "SPEC-02 Fixture 6/6 — erwartetes Ergebnis: C-A6 deny. Selbsteinstufung als NO_SAFETY_COMPONENT, obwohl die Ausfallgefaehrdung ausdruecklich bejaht wurde. Art. 6 Abs. 1b ueberschreibt die Abs.-1a-Berufung.",
+		"system": {
+			"name": "netzstabilitaets-assistent",
+			"version": "0.4.0",
+			"deployment_context": "electricity_supply_operation",
+			"annex_iii_candidate": "no2_critical_infrastructure",
+		},
+		"risk_classification": {
+			"risk_class": "limited",
+			"classification_reasoning": "Anbieter beruft sich auf Art. 6 Abs. 1a trotz bejahter Ausfallgefaehrdung.",
+			"annex_reference": "Anhang III Nr. 2 als nicht einschlaegig behauptet",
+		},
+		"art6_assessment": {
+			"self_declared_classification": "NO_SAFETY_COMPONENT",
+			"arm_a_intended_purpose": {
+				"prevents_or_mitigates_risk_to_health_safety_or_property": false,
+				"justification": "Zweck ist die Komfortverbesserung der Netzfuehrungsoberflaeche",
+			},
+			"art6_1a_exclusion_claimed": {
+				"claimed": true,
+				"sole_use_categories": [
+					"convenience",
+					"user_assistance",
+				],
+			},
+			"arm_b_failure_impact": {
+				"assessed": true,
+				"endangers_health_safety_persons_or_property": true,
+				"justification": "Ausfall der Stabilitaetshinweise kann zu verspaeteter Reaktion auf Frequenzabweichungen fuehren -> Betriebsmittelschaden",
+				"human_control_between_output_and_action": false,
+			},
+		},
+		"manual_review": {
+			"reviewed_by": "AI Governance Lead",
+			"review_date": "2026-08-14",
+		},
+	}
+
+# --- art6_lastprognose_boundary.json ---
+art6_lastprognose_boundary := {
+		"_comment": "SPEC-02 Fixture 2/6 — erwartetes Ergebnis: SAFETY_COMPONENT ueber Arm B; C-A7 als warn, weil kein Aufsichtsnachweis referenziert ist. Grenzfall: Lastprognose mit halbautomatischer Schalthandlung.",
+		"system": {
+			"name": "lastprognose-halbautomatik",
+			"version": "0.9.0",
+			"deployment_context": "electricity_supply_operation",
+			"annex_iii_candidate": "no2_critical_infrastructure",
+		},
+		"risk_classification": {
+			"risk_class": "high",
+			"classification_reasoning": "Ausgabe wirkt erst ueber eine menschliche Schalthandlung; Einstufung folgt Arm B, da die Wirksamkeit der Zwischenkontrolle nicht nachgewiesen ist.",
+			"annex_reference": "Anhang III Nr. 2",
+			"mitigation_measures": [
+				"Manuelle Freigabe jeder Schalthandlung durch Netzfuehrung",
+			],
+		},
+		"art6_assessment": {
+			"self_declared_classification": "SAFETY_COMPONENT",
+			"arm_a_intended_purpose": {
+				"prevents_or_mitigates_risk_to_health_safety_or_property": false,
+				"justification": "Zweck ist die Prognose des Lastgangs, nicht die Risikominderung als solche",
+			},
+			"art6_1a_exclusion_claimed": {
+				"claimed": false,
+				"sole_use_categories": [],
+			},
+			"arm_b_failure_impact": {
+				"assessed": true,
+				"endangers_health_safety_persons_or_property": true,
+				"justification": "Fehlprognose fuehrt zu falscher Schalthandlung -> Betriebsmittelueberlastung moeglich",
+				"human_control_between_output_and_action": true,
+			},
+		},
+		"manual_review": {
+			"reviewed_by": "AI Governance Lead",
+			"review_date": "2026-08-14",
+		},
+	}
+
+# --- art6_optimization_claim_without_failure_assessment.json ---
+art6_optimization_claim_without_failure_assessment := {
+		"_comment": "SPEC-02 Fixture 5/6 — WICHTIGSTER NEGATIVTEST DER SPEC. Erwartetes Ergebnis: C-A3 deny. Art. 6 Abs. 1a wird geltend gemacht ('ist doch nur Optimierung'), aber Arm B (Ausfallfolge, Art. 6 Abs. 1b) wurde NICHT bewertet. Schritt 4 des Pruefbaums ist nicht ueberspringbar.",
+		"system": {
+			"name": "netz-effizienz-optimierer",
+			"version": "1.0.0",
+			"deployment_context": "electricity_supply_operation",
+			"annex_iii_candidate": "no2_critical_infrastructure",
+		},
+		"risk_classification": {
+			"risk_class": "limited",
+			"classification_reasoning": "Anbieter stuft als reine Leistungsoptimierung nach Art. 6 Abs. 1a ein.",
+			"annex_reference": "Anhang III Nr. 2 als nicht einschlaegig behauptet",
+		},
+		"art6_assessment": {
+			"self_declared_classification": "NO_SAFETY_COMPONENT",
+			"arm_a_intended_purpose": {
+				"prevents_or_mitigates_risk_to_health_safety_or_property": false,
+				"justification": "Zweck ist die Effizienzsteigerung des Netzbetriebs",
+			},
+			"art6_1a_exclusion_claimed": {
+				"claimed": true,
+				"sole_use_categories": [
+					"performance_optimisation",
+				],
+			},
+			"arm_b_failure_impact": {
+				"assessed": false,
+			},
+		},
+		"manual_review": {
+			"reviewed_by": "AI Governance Lead",
+			"review_date": "2026-08-14",
+		},
+	}
+
+# --- art6_predictive_maintenance.json ---
+art6_predictive_maintenance := {
+		"_comment": "SPEC-02 Fixture 3/6 — erwartetes Ergebnis: NO_SAFETY_COMPONENT. Abs. 1a geltend gemacht UND Arm B bewertet und verneint — muss sauber durchlaufen (keine deny). Das ist der Positivfall zu C-A3.",
+		"system": {
+			"name": "predictive-maintenance-advisor",
+			"version": "2.1.0",
+			"deployment_context": "electricity_supply_operation",
+			"annex_iii_candidate": "no2_critical_infrastructure",
+		},
+		"risk_classification": {
+			"risk_class": "limited",
+			"classification_reasoning": "Reines Instandhaltungs-Planungswerkzeug ohne Eingriff in den Netzbetrieb; Ausfallfolge geprueft und als unkritisch bewertet.",
+			"annex_reference": "Anhang III Nr. 2 geprueft, nicht einschlaegig",
+		},
+		"art6_assessment": {
+			"self_declared_classification": "NO_SAFETY_COMPONENT",
+			"arm_a_intended_purpose": {
+				"prevents_or_mitigates_risk_to_health_safety_or_property": false,
+				"justification": "Zweck ist die Optimierung von Wartungsintervallen, nicht die Verhinderung oder Minderung von Risiken",
+			},
+			"art6_1a_exclusion_claimed": {
+				"claimed": true,
+				"sole_use_categories": [
+					"performance_optimisation",
+					"service_efficiency",
+				],
+			},
+			"arm_b_failure_impact": {
+				"assessed": true,
+				"endangers_health_safety_persons_or_property": false,
+				"justification": "Ausfall verzoegert lediglich die Wartungsplanung; der n-1-sichere Netzbetrieb ist davon unabhaengig und wird durch bestehende Schutztechnik getragen",
+				"human_control_between_output_and_action": false,
+			},
+		},
+		"manual_review": {
+			"reviewed_by": "AI Governance Lead",
+			"review_date": "2026-08-14",
+		},
+	}
+
+# --- art6_redispatch_pass.json ---
+art6_redispatch_pass := {
+		"_comment": "SPEC-02 Fixture 1/6 — erwartetes Ergebnis: SAFETY_COMPONENT ueber Arm A UND Arm B, keine Verstoesse. Redispatch-Optimierer eines Uebertragungsnetzbetreibers.",
+		"system": {
+			"name": "redispatch-optimizer",
+			"version": "1.4.2",
+			"deployment_context": "electricity_supply_operation",
+			"annex_iii_candidate": "no2_critical_infrastructure",
+		},
+		"risk_classification": {
+			"risk_class": "high",
+			"classification_reasoning": "Sicherheitskomponente im Betrieb der Elektrizitaetsversorgung nach Anhang III Nr. 2; Einstufung ueber Art. 3 Nr. 14 Arm A und Arm B.",
+			"annex_reference": "Anhang III Nr. 2",
+			"mitigation_measures": [
+				"Vier-Augen-Freigabe vor Schalthandlung",
+				"Redundante Zustandsschaetzung als Plausibilitaetspruefung",
+				"Automatischer Rueckfall auf n-1-sicheren Fahrplan bei Ausfall",
+			],
+		},
+		"art6_assessment": {
+			"self_declared_classification": "SAFETY_COMPONENT",
+			"arm_a_intended_purpose": {
+				"prevents_or_mitigates_risk_to_health_safety_or_property": true,
+				"justification": "Verhinderung von Betriebsmittelueberlastung im Uebertragungsnetz",
+			},
+			"art6_1a_exclusion_claimed": {
+				"claimed": false,
+				"sole_use_categories": [],
+			},
+			"arm_b_failure_impact": {
+				"assessed": true,
+				"endangers_health_safety_persons_or_property": true,
+				"justification": "Fehlentscheidung laesst Engpass bestehen -> Betriebsmittelschaden, Versorgungsunterbrechung",
+				"human_control_between_output_and_action": true,
+				"human_control_effectiveness_evidence_ref": "evidence://gates/operations/G-OPS-01",
+			},
+		},
+		"manual_review": {
+			"reviewed_by": "AI Governance Lead",
+			"review_date": "2026-08-14",
+		},
+	}
+
 # --- data_documentation_provenance_fail.json ---
 data_documentation_provenance_fail := {
 		"_fixture_meta": {
@@ -654,6 +876,14 @@ deployment_compliant := {
 				"genaiops.io/incident-response-configured": "true",
 				"genaiops.io/incident-contact": "ai-governance-team@hospital.example.com",
 				"genaiops.io/rollback-mechanism": "true",
+				"genaiops.io/image-scanning-enabled": "true",
+				"genaiops.io/network-policies-specified": "true",
+				"genaiops.io/encryption-at-rest": "true",
+				"genaiops.io/encryption-in-transit": "true",
+				"genaiops.io/human-oversight-roles-assigned": "true",
+				"genaiops.io/escalation-procedure-defined": "true",
+				"genaiops.io/output-override-enabled": "true",
+				"genaiops.io/real-time-monitoring-enabled": "true",
 			},
 		},
 		"spec": {
@@ -683,6 +913,14 @@ deployment_compliant := {
 						"genaiops.io/incident-response-configured": "true",
 						"genaiops.io/incident-contact": "ai-governance-team@hospital.example.com",
 						"genaiops.io/rollback-mechanism": "true",
+						"genaiops.io/image-scanning-enabled": "true",
+						"genaiops.io/network-policies-specified": "true",
+						"genaiops.io/encryption-at-rest": "true",
+						"genaiops.io/encryption-in-transit": "true",
+						"genaiops.io/human-oversight-roles-assigned": "true",
+						"genaiops.io/escalation-procedure-defined": "true",
+						"genaiops.io/output-override-enabled": "true",
+						"genaiops.io/real-time-monitoring-enabled": "true",
 						"prometheus.io/scrape": "true",
 						"prometheus.io/port": "8080",
 						"prometheus.io/path": "/metrics",
@@ -875,7 +1113,7 @@ eval_results := {
 			"evaluated_at": "2026-03-25T10:00:00Z",
 		},
 		"quality_metrics": {
-			"accuracy": 0.91,
+			"accuracy": 0.89,
 			"faithfulness_score": 0.94,
 			"relevance_score": 0.89,
 			"coherence_score": 0.92,
