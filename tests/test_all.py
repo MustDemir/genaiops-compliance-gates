@@ -256,11 +256,18 @@ if hybrid_test.exists():
     run_test("Evidence", "Hybrid Gate Integration Test",
              [sys.executable, str(hybrid_test)])
 
-# Hash-payload field parity (record_evidence ↔ verify_hash_chain ↔ v03 SQL trigger)
+# Hash-payload field parity (record_evidence ↔ verify_hash_chain ↔ v04 SQL trigger)
 parity_test = REPO_ROOT / "tests" / "test_hash_parity.py"
 if parity_test.exists():
     run_test("Evidence", "Hash-Payload Parity (Python ↔ SQL trigger)",
              [sys.executable, str(parity_test)])
+
+# v03 → v04 migration: a chain spanning the cutoff must still verify, and
+# ai_act_role must be tamper-protected from the cutoff onwards (SPEC-03).
+migration_test = REPO_ROOT / "tests" / "test_hash_chain_migration.py"
+if migration_test.exists():
+    run_test("Evidence", "Hash-Chain Migration v03→v04 (cutoff variant)",
+             [sys.executable, str(migration_test)])
 
 
 # ══════════════════════════════════════════════════════════════

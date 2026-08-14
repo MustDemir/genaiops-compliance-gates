@@ -53,6 +53,29 @@ POC_DEFAULTS = {
 }
 
 
+# ────────────────────────────────────────────────────────────────
+# Schema v04 (SPEC-03): ai_act_role in der Hash-Payload
+# ────────────────────────────────────────────────────────────────
+# Die Rolle (PROVIDER/DEPLOYER/BOTH) entscheidet, welche Gates ueberhaupt
+# laufen, und ist damit auditrelevant: sie gehoert in die gehashte Payload,
+# nicht in das ungehashte `notes`-Feld.
+#
+# Migrationsvariante (abgestimmt): das Feld wird NICHT rueckwirkend Teil der
+# Payload, sondern erst ab einem pro Datenbank festgelegten audit_id. Records
+# davor bleiben mit 13 Feldern verifizierbar, Records danach mit 14. Damit
+# bricht die Aufnahme des Feldes keine bestehende Kette — auch nicht in einer
+# langlebigen PostgreSQL-Instanz, die ueber die Migration hinweg fortgeschrieben
+# wird.
+#
+# Der Schwellenwert steht in der Tabelle schema_metadata und wird gesetzt:
+#   - bei einer frischen DB auf 1  (alle Records tragen die Rolle)
+#   - bei der Migration einer bestehenden DB auf max(audit_id) + 1
+# Fehlt der Eintrag, gilt der Default unten — das entspricht einer DB, die
+# noch nie migriert wurde, also reines v03-Verhalten.
+AI_ACT_ROLE_CUTOFF_KEY = "ai_act_role_payload_from_audit_id"
+AI_ACT_ROLE_CUTOFF_DEFAULT = None  # None = Feld nie Teil der Payload (v03)
+
+
 def compute_hash(
     previous_hash: str,
     model_name: str,
@@ -67,9 +90,19 @@ def compute_hash(
     payload_id: str,
     checked_at: str,
     inserted_by: str,
+    ai_act_role: str = "",
+    include_ai_act_role: bool = False,
 ) -> str:
-    """Compute SHA-256 hash matching the PostgreSQL trigger logic (v03)."""
-    payload = "|".join([
+    """
+    Compute the SHA-256 chain hash.
+
+    Field order must stay identical across record_evidence.py,
+    verify_hash_chain.py and the SQL trigger (guarded by
+    tests/test_hash_parity.py). `ai_act_role` sits directly before
+    previous_hash and is only present from the migration cutoff onwards —
+    see the comment block above.
+    """
+    fields = [
         model_name,
         model_version,
         pipeline_id,
@@ -82,9 +115,11 @@ def compute_hash(
         payload_id,
         checked_at,
         inserted_by,
-        previous_hash or "",
-    ])
-    return hashlib.sha256(payload.encode("utf-8")).hexdigest()
+    ]
+    if include_ai_act_role:
+        fields.append(ai_act_role or "")
+    fields.append(previous_hash or "")
+    return hashlib.sha256("|".join(fields).encode("utf-8")).hexdigest()
 
 
 def init_sqlite(db_path: str) -> sqlite3.Connection:
@@ -106,13 +141,55 @@ def init_sqlite(db_path: str) -> sqlite3.Connection:
             payload_id TEXT NOT NULL,
             checked_at TEXT NOT NULL,
             inserted_by TEXT NOT NULL DEFAULT 'poc_local',
+            ai_act_role TEXT NOT NULL DEFAULT 'DEPLOYER',
             hash_value TEXT NOT NULL,
             previous_hash TEXT,
             notes TEXT
         )
     """)
+    conn.execute("""
+        CREATE TABLE IF NOT EXISTS schema_metadata (
+            key TEXT PRIMARY KEY,
+            value TEXT NOT NULL
+        )
+    """)
+    # Fresh database: the cutoff is 1, so every record carries ai_act_role
+    # in its payload. An existing v03 database gets its cutoff from the
+    # migration script instead (max(audit_id) + 1), which is why this is an
+    # INSERT OR IGNORE and never overwrites an existing value.
+    conn.execute(
+        "INSERT OR IGNORE INTO schema_metadata (key, value) VALUES (?, ?)",
+        (AI_ACT_ROLE_CUTOFF_KEY, "1"),
+    )
     conn.commit()
     return conn
+
+
+def get_ai_act_role_cutoff_sqlite(conn: sqlite3.Connection):
+    """Read the audit_id from which ai_act_role is part of the hash payload."""
+    try:
+        row = conn.execute(
+            "SELECT value FROM schema_metadata WHERE key = ?",
+            (AI_ACT_ROLE_CUTOFF_KEY,),
+        ).fetchone()
+    except sqlite3.OperationalError:
+        # schema_metadata does not exist -> never migrated -> v03 behaviour
+        return AI_ACT_ROLE_CUTOFF_DEFAULT
+    return int(row[0]) if row else AI_ACT_ROLE_CUTOFF_DEFAULT
+
+
+def get_next_audit_id_sqlite(conn: sqlite3.Connection) -> int:
+    """
+    Predict the audit_id the next INSERT will receive.
+
+    Needed because the hash is computed before the row exists. Safe here
+    because the Evidence Store has a single writer per run; the same
+    assumption already underpins get_previous_hash_sqlite().
+    """
+    row = conn.execute(
+        "SELECT COALESCE(MAX(audit_id), 0) + 1 FROM quality_gate_results"
+    ).fetchone()
+    return int(row[0])
 
 
 def get_previous_hash_sqlite(conn: sqlite3.Connection) -> str:
@@ -130,8 +207,8 @@ def insert_sqlite(conn: sqlite3.Connection, record: dict) -> int:
         INSERT INTO quality_gate_results
             (model_name, model_version, pipeline_id, run_id, gate_type,
              decision, decision_method, gate_name, policy_version, payload_id,
-             checked_at, inserted_by, hash_value, previous_hash, notes)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+             checked_at, inserted_by, ai_act_role, hash_value, previous_hash, notes)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         """,
         (
             record["model_name"],
@@ -146,6 +223,7 @@ def insert_sqlite(conn: sqlite3.Connection, record: dict) -> int:
             record["payload_id"],
             record["checked_at"],
             record["inserted_by"],
+            record.get("ai_act_role", "DEPLOYER"),
             record["hash_value"],
             record["previous_hash"],
             record.get("notes", ""),
@@ -177,6 +255,32 @@ def get_previous_hash_pg(conn) -> str:
     return row[0] if row else ""
 
 
+def get_ai_act_role_cutoff_pg(conn):
+    """Read the schema-v04 cutoff from PostgreSQL (None if never migrated)."""
+    with conn.cursor() as cur:
+        try:
+            cur.execute(
+                "SELECT value FROM compliance.schema_metadata WHERE key = %s",
+                (AI_ACT_ROLE_CUTOFF_KEY,),
+            )
+            row = cur.fetchone()
+        except Exception:
+            # Table absent -> v03 database -> keep the 13-field payload
+            conn.rollback()
+            return AI_ACT_ROLE_CUTOFF_DEFAULT
+    return int(row[0]) if row else AI_ACT_ROLE_CUTOFF_DEFAULT
+
+
+def get_next_audit_id_pg(conn) -> int:
+    """Predict the audit_id the next INSERT will receive (single writer)."""
+    with conn.cursor() as cur:
+        cur.execute(
+            "SELECT COALESCE(MAX(audit_id), 0) + 1 FROM compliance.quality_gate_results"
+        )
+        row = cur.fetchone()
+    return int(row[0])
+
+
 def insert_pg(conn, record: dict) -> int:
     """Insert into PostgreSQL. DB trigger computes hash — we verify match."""
     with conn.cursor() as cur:
@@ -185,8 +289,8 @@ def insert_pg(conn, record: dict) -> int:
             INSERT INTO compliance.quality_gate_results
                 (model_name, model_version, pipeline_id, run_id, gate_type,
                  decision, decision_method, gate_name, policy_version, payload_id,
-                 checked_at, inserted_by, hash_value, previous_hash, notes)
-            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s::uuid, %s, %s, %s, %s, %s)
+                 checked_at, inserted_by, ai_act_role, hash_value, previous_hash, notes)
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s::uuid, %s, %s, %s, %s, %s, %s)
             RETURNING audit_id, hash_value
             """,
             (
@@ -267,8 +371,19 @@ def build_record(
     source_data: dict,
     previous_hash: str,
     run_id: str = None,
+    ai_act_role: str = "DEPLOYER",
+    next_audit_id: int = None,
+    role_cutoff: int = None,
 ) -> dict:
-    """Build a complete evidence record from gate + method + source."""
+    """
+    Build a complete evidence record from gate + method + source.
+
+    `next_audit_id` and `role_cutoff` drive the schema-v04 payload switch:
+    ai_act_role only enters the hashed payload once the record's audit_id
+    has reached the cutoff recorded for this database. Passing None for
+    either keeps the v03 payload, so a database that was never migrated
+    behaves exactly as before.
+    """
     now = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%S.%f+00:00")
     run_id = run_id or str(uuid.uuid4())
     gate_type = POC_DEFAULTS["gate_type_map"].get(gate, "Technisch")
@@ -300,6 +415,12 @@ def build_record(
         tag = f"C={check_id}" if check_id else "C=unmapped"
         notes = (notes + " | " if notes else "") + f"ADVISORY [SHOULD, {tag}]: {msg}"
 
+    include_role = (
+        role_cutoff is not None
+        and next_audit_id is not None
+        and next_audit_id >= role_cutoff
+    )
+
     hash_value = compute_hash(
         previous_hash=previous_hash,
         model_name=POC_DEFAULTS["model_name"],
@@ -314,6 +435,8 @@ def build_record(
         payload_id=payload_id,
         checked_at=now,
         inserted_by=inserted_by,
+        ai_act_role=ai_act_role,
+        include_ai_act_role=include_role,
     )
 
     return {
@@ -329,6 +452,7 @@ def build_record(
         "payload_id": payload_id,
         "checked_at": now,
         "inserted_by": inserted_by,
+        "ai_act_role": ai_act_role,
         "hash_value": hash_value,
         "previous_hash": previous_hash,
         "notes": notes,
@@ -355,6 +479,12 @@ def main():
         help="PostgreSQL connection URL (or set EVIDENCE_STORE_URL env var)"
     )
     parser.add_argument("--run-id", help="Override run UUID (default: auto-generated)")
+    parser.add_argument(
+        "--ai-act-role",
+        default=os.environ.get("AI_ACT_ROLE", "DEPLOYER"),
+        choices=["PROVIDER", "DEPLOYER", "BOTH"],
+        help="EU AI Act role this gate ran under (or set AI_ACT_ROLE env var; default: DEPLOYER)",
+    )
     parser.add_argument("--dry-run", action="store_true", help="Show record without persisting")
 
     args = parser.parse_args()
@@ -372,7 +502,12 @@ def main():
         # SQLite mode
         conn = init_sqlite(args.sqlite)
         previous_hash = get_previous_hash_sqlite(conn)
-        record = build_record(args.gate, args.method, source_data, previous_hash, args.run_id)
+        record = build_record(
+            args.gate, args.method, source_data, previous_hash, args.run_id,
+            ai_act_role=args.ai_act_role,
+            next_audit_id=get_next_audit_id_sqlite(conn),
+            role_cutoff=get_ai_act_role_cutoff_sqlite(conn),
+        )
 
         if args.dry_run:
             print(json.dumps(record, indent=2))
@@ -386,7 +521,12 @@ def main():
         # PostgreSQL mode
         conn = get_pg_connection(args.db_url)
         previous_hash = get_previous_hash_pg(conn)
-        record = build_record(args.gate, args.method, source_data, previous_hash, args.run_id)
+        record = build_record(
+            args.gate, args.method, source_data, previous_hash, args.run_id,
+            ai_act_role=args.ai_act_role,
+            next_audit_id=get_next_audit_id_pg(conn),
+            role_cutoff=get_ai_act_role_cutoff_pg(conn),
+        )
 
         if args.dry_run:
             print(json.dumps(record, indent=2))

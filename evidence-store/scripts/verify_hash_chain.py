@@ -35,6 +35,14 @@ from datetime import datetime, timezone
 # concat_ws('|', ..., coalesce(NEW.previous_hash, '')) kodiert NULL als "".
 
 
+# Schema v04 (SPEC-03): ai_act_role ist erst ab einem pro Datenbank
+# festgelegten audit_id Teil der Payload — siehe den Kommentarblock in
+# record_evidence.py. Diese Datei MUSS dieselbe Fallunterscheidung treffen,
+# sonst schlaegt die Verifikation genau an der Migrationsgrenze fehl.
+AI_ACT_ROLE_CUTOFF_KEY = "ai_act_role_payload_from_audit_id"
+AI_ACT_ROLE_CUTOFF_DEFAULT = None  # None = Feld nie Teil der Payload (v03)
+
+
 def compute_hash(
     previous_hash: str,
     model_name: str,
@@ -49,9 +57,11 @@ def compute_hash(
     payload_id: str,
     checked_at: str,
     inserted_by: str,
+    ai_act_role: str = "",
+    include_ai_act_role: bool = False,
 ) -> str:
     """Compute SHA-256 hash — identical logic to record_evidence.py and DB trigger."""
-    payload = "|".join([
+    fields = [
         model_name,
         model_version,
         pipeline_id,
@@ -64,9 +74,11 @@ def compute_hash(
         payload_id,
         checked_at,
         inserted_by,
-        previous_hash or "",
-    ])
-    return hashlib.sha256(payload.encode("utf-8")).hexdigest()
+    ]
+    if include_ai_act_role:
+        fields.append(ai_act_role or "")
+    fields.append(previous_hash or "")
+    return hashlib.sha256("|".join(fields).encode("utf-8")).hexdigest()
 
 
 def fetch_records_sqlite(db_path: str) -> list[dict]:
@@ -99,9 +111,50 @@ def fetch_records_pg(db_url: str) -> list[dict]:
     return [dict(r) for r in rows]
 
 
-def verify_chain(records: list[dict], verbose: bool = False) -> tuple[bool, int, str]:
+def fetch_role_cutoff_sqlite(db_path: str):
+    """Read the schema-v04 cutoff from SQLite (None if never migrated)."""
+    conn = sqlite3.connect(db_path)
+    try:
+        row = conn.execute(
+            "SELECT value FROM schema_metadata WHERE key = ?",
+            (AI_ACT_ROLE_CUTOFF_KEY,),
+        ).fetchone()
+    except sqlite3.OperationalError:
+        return AI_ACT_ROLE_CUTOFF_DEFAULT
+    finally:
+        conn.close()
+    return int(row[0]) if row else AI_ACT_ROLE_CUTOFF_DEFAULT
+
+
+def fetch_role_cutoff_pg(db_url: str):
+    """Read the schema-v04 cutoff from PostgreSQL (None if never migrated)."""
+    try:
+        import psycopg2
+    except ImportError:
+        return AI_ACT_ROLE_CUTOFF_DEFAULT
+    conn = psycopg2.connect(db_url)
+    try:
+        with conn.cursor() as cur:
+            cur.execute(
+                "SELECT value FROM compliance.schema_metadata WHERE key = %s",
+                (AI_ACT_ROLE_CUTOFF_KEY,),
+            )
+            row = cur.fetchone()
+    except Exception:
+        return AI_ACT_ROLE_CUTOFF_DEFAULT
+    finally:
+        conn.close()
+    return int(row[0]) if row else AI_ACT_ROLE_CUTOFF_DEFAULT
+
+
+def verify_chain(records: list[dict], verbose: bool = False, role_cutoff=None) -> tuple[bool, int, str]:
     """
     Verify the hash chain integrity.
+
+    `role_cutoff` is the audit_id from which ai_act_role belongs to the
+    hashed payload (schema v04, SPEC-03). Records below it are verified
+    with the 13-field v03 payload, records at or above it with 14 fields.
+    Passing None verifies everything as v03.
 
     Returns:
         (is_valid, records_checked, error_message)
@@ -161,6 +214,8 @@ def verify_chain(records: list[dict], verbose: bool = False) -> tuple[bool, int,
             payload_id=str(rec.get("payload_id", "")),
             checked_at=str(rec.get("checked_at", "")),
             inserted_by=rec.get("inserted_by", ""),
+            ai_act_role=rec.get("ai_act_role", "") or "",
+            include_ai_act_role=(role_cutoff is not None and audit_id >= role_cutoff),
         )
 
         stored_hash = rec.get("hash_value", "")
@@ -210,10 +265,12 @@ def main():
     print("=" * 60)
 
     # Fetch records
+    role_cutoff = None
     if args.sqlite:
         print(f"Source: SQLite ({args.sqlite})")
         try:
             records = fetch_records_sqlite(args.sqlite)
+            role_cutoff = fetch_role_cutoff_sqlite(args.sqlite)
         except Exception as e:
             print(f"ERROR: Could not read SQLite DB: {e}")
             sys.exit(2)
@@ -221,6 +278,7 @@ def main():
         print("Source: PostgreSQL")
         try:
             records = fetch_records_pg(args.db_url)
+            role_cutoff = fetch_role_cutoff_pg(args.db_url)
         except Exception as e:
             print(f"ERROR: Could not connect to PostgreSQL: {e}")
             sys.exit(2)
@@ -234,15 +292,21 @@ def main():
         print(f"Source: PostgreSQL ({host}:{port}/{db})")
         try:
             records = fetch_records_pg(db_url)
+            role_cutoff = fetch_role_cutoff_pg(db_url)
         except Exception as e:
             print(f"ERROR: Could not connect to PostgreSQL: {e}")
             sys.exit(2)
 
     print(f"Records found: {len(records)}")
+    if role_cutoff is None:
+        print("Payload schema: v03 (13 fields) — ai_act_role not in the hashed payload")
+    else:
+        print(f"Payload schema: v03 below audit_id {role_cutoff}, "
+              f"v04 (14 fields, incl. ai_act_role) from audit_id {role_cutoff}")
     print("-" * 60)
 
     # Verify
-    is_valid, count, error_msg = verify_chain(records, args.verbose)
+    is_valid, count, error_msg = verify_chain(records, args.verbose, role_cutoff)
 
     print("-" * 60)
     if count == 0:

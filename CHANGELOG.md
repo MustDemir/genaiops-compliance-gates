@@ -17,6 +17,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Severity is no longer uniform across the Art. 25 triggers: C-25a (rebranding) and C-25c (purpose change) are binary offences and became MUST; only C-25b (substantial modification) stays SHOULD, because its threshold depends on Art. 3(23) and the pending Art. 97 delegated acts.
 - C-25c now evaluates the `classification` rule from G-PRE-01 (SPEC-02) on the before/after purpose state instead of trusting a `becomes_high_risk_art6` boolean in the manifest.
 
+### Added — Evidence Store schema v04: `ai_act_role` in the hashed payload (SPEC-03)
+
+- New column `ai_act_role` on `compliance.quality_gate_results`, plus a `compliance.schema_metadata` table. Migration: `evidence-store/migrations/v03_to_v04_add_ai_act_role.sql`.
+- The role decides which gates run at all and is therefore audit-relevant, so it goes into the **hashed** payload rather than the unhashed `notes` column.
+- **Migration variant: cutoff instead of chain break.** Existing records were hashed without the field. Rather than rehashing them or starting a new chain, the field enters the payload only from a per-database cutoff `audit_id` (written by the migration as `max(audit_id) + 1`, and `1` for a fresh database). Records below the cutoff keep the 13-field v03 payload; records at or above it use the 14-field v04 payload. A chain spanning the cutoff verifies end-to-end, so no existing chain is broken — including in a long-lived PostgreSQL instance carried across the migration.
+- All three hash implementations (`record_evidence.py`, `verify_hash_chain.py`, the `set_hash_chain()` trigger) apply the same cutoff. `tests/test_hash_parity.py` now compares the two Python implementations **behaviourally** in both variants instead of regex-parsing their source, and checks both SQL branches.
+- New `tests/test_hash_chain_migration.py` proves the four properties that make the variant sound: a pure v03 chain verifies, a chain spanning the cutoff verifies, tampering below the cutoff is still detected, and tampering with `ai_act_role` above the cutoff is detected — the last one being the point of hashing the field at all.
+
 ### Added — AI Act role parameter PROVIDER / DEPLOYER / BOTH (SPEC-03)
 
 - Every gate definition carries `role_scope`; all existing gates are marked `["deployer"]`, which is the correct label for the status quo rather than a downgrade (the architecture was deliberately deployer-scoped, thesis limitation L2).

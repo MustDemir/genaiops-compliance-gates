@@ -691,6 +691,7 @@ def record_to_evidence_store(
     run_id: str,
     eval_result: dict = None,
     dry_run: bool = False,
+    ai_act_role: str = "DEPLOYER",
 ) -> dict:
     """
     Call record_evidence.py to persist a gate decision to the Evidence Store.
@@ -740,6 +741,7 @@ def record_to_evidence_store(
         "--source", source_path,
         "--sqlite", db_path,
         "--run-id", run_id,
+        "--ai-act-role", ai_act_role,
     ]
 
     if dry_run:
@@ -984,6 +986,7 @@ def run_pipeline(scenario_path: str, use_conftest: bool = False, dry_run: bool =
             run_id=run_id,
             eval_result=eval_result,
             dry_run=dry_run,
+            ai_act_role=ai_act_role,
         )
 
         # For HYBRID gates with manual source, also record the manual decision
@@ -998,6 +1001,7 @@ def run_pipeline(scenario_path: str, use_conftest: bool = False, dry_run: bool =
                 db_path=db_path,
                 run_id=run_id,
                 dry_run=dry_run,
+                ai_act_role=ai_act_role,
             )
 
         # Print gate result
