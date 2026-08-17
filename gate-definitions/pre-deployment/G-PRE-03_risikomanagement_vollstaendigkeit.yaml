@@ -17,12 +17,14 @@ policy_checks:
     severity: "MUST"
     legal_refs: ["Art. 9"]
     evidence_level: null
+    implementation: "implemented"
   - id: "C-02"
     policy: "policy_risk_management_complete"
     description: "data_risk_assessment.assessed und data_classification dokumentiert"
     severity: "MUST"
     legal_refs: ["Art. 9"]
     evidence_level: null
+    implementation: "implemented"
 
 evidence_required:
   - "risk_register"

@@ -17,6 +17,7 @@ policy_checks:
     severity: "MUST"
     legal_refs: ["Art. 26 Abs. 1"]
     evidence_level: null
+    implementation: "implemented"
 
 evidence_required:
   - "conformity_declaration_document"

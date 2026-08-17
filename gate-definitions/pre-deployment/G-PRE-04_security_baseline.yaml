@@ -17,36 +17,42 @@ policy_checks:
     severity: "MUST"
     legal_refs: ["Art. 15"]
     evidence_level: null
+    implementation: "implemented"
   - id: "P2"
     policy: "policy_security_baseline"
     description: "resources.limits (cpu, memory) gesetzt"
     severity: "MUST"
     legal_refs: ["Art. 15"]
     evidence_level: null
+    implementation: "implemented"
   - id: "P3"
     policy: "policy_security_baseline"
     description: "readOnlyRootFilesystem: true"
     severity: "MUST"
     legal_refs: ["Art. 15"]
     evidence_level: null
+    implementation: "implemented"
   - id: "P4"
     policy: "policy_security_baseline"
     description: "keine Secrets als Klartext-ENV (secretKeyRef erforderlich)"
     severity: "MUST"
     legal_refs: ["Art. 15"]
     evidence_level: null
+    implementation: "implemented"
   - id: "P5"
     policy: "policy_cybersecurity_controls"
     description: "slim/alpine Base-Image"
     severity: "SHOULD"
     legal_refs: ["Art. 15"]
     evidence_level: null
+    implementation: "design_only"
   - id: "P6"
     policy: "policy_security_baseline"
     description: "allowPrivilegeEscalation: false, capabilities.drop: [ALL]"
     severity: "MUST"
     legal_refs: ["Art. 15"]
     evidence_level: null
+    implementation: "implemented"
 
 evidence_required:
   - "security_baseline_report"

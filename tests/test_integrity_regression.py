@@ -23,7 +23,7 @@ What it checks (19 checks, fail-fast ordering):
   13. Rego-to-fallback field parity — same gate, different checks (check_rego_fallback_parity)
   14. CI Conftest error visibility — stderr/exit code suppression (check_ci_conftest_errors_visible)
   15. schema_version 2: policy_checks[].id is gate-locally unique (check_gate_check_ids_unique)
-  16. schema_version 2: policy_checks[].policy resolves to an existing Rego file (check_gate_policy_files_exist)
+  16. Audit F-3: policy_checks[].implementation matches reality (check_gate_implementation_honest)
   17. schema_version 2: evidence_level.current/.target valid and non-regressing (check_gate_evidence_level_valid)
   18. SPEC-03: every gate carries a valid role_scope (check_gate_role_scope_valid)
   19. record_evidence INSERT arity: columns == placeholders == bound values (check_evidence_insert_arity)
@@ -672,15 +672,26 @@ def check_gate_check_ids_unique() -> dict:
     )
 
 
-def check_gate_policy_files_exist() -> dict:
-    """SPEC-01 Abschnitt 9: every policy_checks[].policy must resolve to a Rego file.
+def check_gate_implementation_honest() -> dict:
+    """Audit F-3: policy_checks[].implementation must match reality.
 
-    Severity is deliberately "low": several checks are intentionally
-    DESIGN-ONLY (documented as future work in the gate's notes field) and are
-    expected to fail this check today. Low severity keeps this check below
-    the default --fail-on medium threshold while still surfacing every gap
-    for tracking, per SPEC-01's instruction to migrate structure now and
-    implement the remaining Rego files as separate future work.
+    Before the `implementation` field existed, this check could only report
+    "a referenced Rego file is missing" and had to run at LOW severity,
+    because seven checks are legitimately design-only. That made it
+    permanently red and permanently ignored — it never blocked anything, and
+    the gate definition itself still asserted an enforcement that does not
+    happen while CI reported the gate as PASS.
+
+    Now each check states its own claim, so this verifies the claim rather
+    than the absence:
+
+        implementation: implemented  -> the Rego file MUST exist
+        implementation: design_only  -> the Rego file MUST NOT exist
+
+    Both directions are genuine inconsistencies between what a gate
+    definition asserts and what the repository contains — the second one
+    catches a declaration that went stale after the policy was written.
+    Hence HIGH: there is no longer an expected-failure case to tolerate.
     """
     # Policies are looked up across ALL policy directories, not just the one
     # matching the gate's own lifecycle phase: a handful of pre-existing
@@ -698,20 +709,35 @@ def check_gate_policy_files_exist() -> dict:
             policy_name = c.get("policy")
             if not policy_name:
                 continue
-            if not any((pdir / f"{policy_name}.rego").exists() for pdir in all_policy_dirs):
+            declared = (c.get("implementation") or "").strip()
+            exists = any((pdir / f"{policy_name}.rego").exists() for pdir in all_policy_dirs)
+
+            if declared not in ("implemented", "design_only"):
                 findings.append(
-                    f"{f.relative_to(REPO_ROOT)}: check {c.get('id')} references "
-                    f"missing policy '{policy_name}.rego'"
+                    f"{f.relative_to(REPO_ROOT)}: check {c.get('id')} has "
+                    f"implementation='{declared or '<missing>'}' — must be "
+                    f"'implemented' or 'design_only'"
+                )
+            elif declared == "implemented" and not exists:
+                findings.append(
+                    f"{f.relative_to(REPO_ROOT)}: check {c.get('id')} claims "
+                    f"implementation='implemented' but '{policy_name}.rego' does not "
+                    f"exist — the gate asserts an enforcement that cannot run"
+                )
+            elif declared == "design_only" and exists:
+                findings.append(
+                    f"{f.relative_to(REPO_ROOT)}: check {c.get('id')} is marked "
+                    f"'design_only' but '{policy_name}.rego' exists — the declaration "
+                    f"understates what is actually enforced"
                 )
 
     return make_result(
-        "GATE_POLICY_FILE_EXISTS",
-        "policy_checks[].policy resolves to an existing Rego file",
-        "low",
+        "GATE_IMPLEMENTATION_HONEST",
+        "policy_checks[].implementation matches whether the Rego file exists",
+        "high",
         not findings,
-        f"{len(findings)} check(s) reference a Rego policy file that does not exist yet "
-        "(expected for DESIGN-ONLY gates, tracked here for visibility)." if findings
-        else "Every referenced policy file exists.",
+        "A gate definition claims an enforcement state that does not match the repository." if findings
+        else "Every check's implementation claim matches reality.",
         findings,
     )
 
@@ -868,7 +894,7 @@ def collect_results() -> list[dict]:
         check_ci_conftest_errors_visible,
         # schema_version 2 / SPEC-01
         check_gate_check_ids_unique,
-        check_gate_policy_files_exist,
+        check_gate_implementation_honest,
         check_gate_evidence_level_valid,
         check_gate_role_scope_valid,
         check_evidence_insert_arity,

@@ -17,36 +17,42 @@ policy_checks:
     severity: "MUST"
     legal_refs: ["Art. 10", "Art. 11"]
     evidence_level: null
+    implementation: "implemented"
   - id: "C-02"
     policy: "policy_training_documented"
     description: "Trainingsprozess dokumentiert"
     severity: "MUST"
     legal_refs: ["Art. 10", "Art. 11"]
     evidence_level: null
+    implementation: "design_only"
   - id: "C-03"
     policy: "policy_data_lineage_complete"
     description: "Data Lineage vollstaendig"
     severity: "MUST"
     legal_refs: ["Art. 10", "Art. 11"]
     evidence_level: null
+    implementation: "design_only"
   - id: "C-04"
     policy: "policy_dataset_description_complete"
     description: "Dataset-Beschreibung vollstaendig"
     severity: "MUST"
     legal_refs: ["Art. 10", "Art. 11"]
     evidence_level: null
+    implementation: "design_only"
   - id: "C-05"
     policy: "policy_annotation_quality_verified"
     description: "Annotationsqualitaet verifiziert"
     severity: "MUST"
     legal_refs: ["Art. 10", "Art. 11"]
     evidence_level: null
+    implementation: "design_only"
   - id: "C-06"
     policy: "policy_data_license_valid"
     description: "Datenlizenz gueltig"
     severity: "MUST"
     legal_refs: ["Art. 10", "Art. 11"]
     evidence_level: null
+    implementation: "design_only"
 
 evidence_required:
   - "data_governance_documentation"

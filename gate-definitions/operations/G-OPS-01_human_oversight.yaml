@@ -17,6 +17,7 @@ policy_checks:
     severity: "MUST"
     legal_refs: ["Art. 14", "Art. 26 Abs. 2"]
     evidence_level: null
+    implementation: "implemented"
 
 evidence_required:
   - "hitl_role_assignment_document"

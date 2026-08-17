@@ -17,6 +17,7 @@ policy_checks:
     severity: "MUST"
     legal_refs: ["Art. 15"]
     evidence_level: null
+    implementation: "implemented"
 
 evidence_required:
   - "access_control_audit_record"

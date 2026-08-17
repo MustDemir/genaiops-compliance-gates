@@ -99,6 +99,7 @@
           "id": "C-01",
           "policy": "policy_conformity_verified",
           "severity": "MUST",
+          "implementation": "implemented",
           "legal_refs": [
             "Art. 26 Abs. 1"
           ],
@@ -226,6 +227,7 @@
           "id": "C-01",
           "policy": "policy_logging_configured",
           "severity": "MUST",
+          "implementation": "implemented",
           "legal_refs": [
             "Art. 12",
             "Art. 26 Abs. 3"
@@ -465,6 +467,7 @@
           "id": "C-01",
           "policy": "policy_safety_metrics",
           "severity": "MUST",
+          "implementation": "implemented",
           "legal_refs": [
             "Art. 15"
           ],
@@ -474,6 +477,7 @@
           "id": "C-02",
           "policy": "policy_safety_metrics",
           "severity": "SHOULD",
+          "implementation": "implemented",
           "legal_refs": [
             "Art. 15"
           ],
@@ -628,6 +632,7 @@
           "id": "C-01",
           "policy": "policy_transparency_docs_present",
           "severity": "MUST",
+          "implementation": "implemented",
           "legal_refs": [
             "Art. 13",
             "Art. 26 Abs. 7",
@@ -639,6 +644,7 @@
           "id": "C-02",
           "policy": "policy_explainability_documented",
           "severity": "MUST",
+          "implementation": "design_only",
           "legal_refs": [
             "Art. 13",
             "Art. 26 Abs. 7",
@@ -730,6 +736,7 @@
           "id": "C-01",
           "policy": "policy_data_security_controls",
           "severity": "MUST",
+          "implementation": "implemented",
           "legal_refs": [
             "Art. 15"
           ],
@@ -827,6 +834,7 @@
           "id": "C-01",
           "policy": "policy_evidence_completeness",
           "severity": "MUST",
+          "implementation": "implemented",
           "legal_refs": [
             "Art. 12",
             "Art. 15"
@@ -837,6 +845,7 @@
           "id": "C-02",
           "policy": "policy_evidence_completeness",
           "severity": "MUST",
+          "implementation": "implemented",
           "legal_refs": [
             "Art. 12",
             "Art. 15"
@@ -847,6 +856,7 @@
           "id": "C-03",
           "policy": "policy_evidence_completeness",
           "severity": "MUST",
+          "implementation": "implemented",
           "legal_refs": [
             "Art. 12",
             "Art. 15"
@@ -961,6 +971,7 @@
           "id": "C-01",
           "policy": "policy_human_oversight_operational",
           "severity": "MUST",
+          "implementation": "implemented",
           "legal_refs": [
             "Art. 14",
             "Art. 26 Abs. 2"
@@ -1060,6 +1071,7 @@
           "id": "C-01",
           "policy": "policy_incident_process_exists",
           "severity": "MUST",
+          "implementation": "implemented",
           "legal_refs": [
             "Art. 26 Abs. 5",
             "Art. 73"
@@ -1159,6 +1171,7 @@
           "id": "C-01",
           "policy": "policy_monitoring_configured",
           "severity": "MUST",
+          "implementation": "implemented",
           "legal_refs": [
             "Art. 72",
             "Art. 9 Abs. 2"
@@ -1169,6 +1182,7 @@
           "id": "C-02",
           "policy": "policy_monitoring_configured",
           "severity": "MUST",
+          "implementation": "implemented",
           "legal_refs": [
             "Art. 72",
             "Art. 9 Abs. 2"
@@ -1199,63 +1213,63 @@
       "rules": [
         {
           "kind": "deny",
-          "line": 78,
+          "line": 111,
           "signature": "deny contains msg if {",
           "hint": "in Verkehr gebrachten Hochrisiko-System. Kein Schwellenwertproblem.",
           "check_id": "C-25a"
         },
         {
           "kind": "warn",
-          "line": 94,
+          "line": 127,
           "signature": "warn contains msg if {",
           "hint": "Rechtsakten nach Art. 97, die noch ausstehen. Daher advisory.",
           "check_id": "C-25b"
         },
         {
           "kind": "deny",
-          "line": 123,
+          "line": 156,
           "signature": "deny contains msg if {",
           "hint": "",
           "check_id": "C-25c"
         },
         {
           "kind": "deny",
-          "line": 130,
+          "line": 163,
           "signature": "deny contains msg if {",
           "hint": "vor UND nach der Aenderung mitliefern, sonst ist C-25c nicht auswertbar.",
           "check_id": "C-25c"
         },
         {
           "kind": "deny",
-          "line": 136,
+          "line": 169,
           "signature": "deny contains msg if {",
           "hint": "vor UND nach der Aenderung mitliefern, sonst ist C-25c nicht auswertbar.",
           "check_id": "C-25c"
         },
         {
           "kind": "deny",
-          "line": 164,
+          "line": 197,
           "signature": "deny contains msg if {",
           "hint": "",
           "check_id": "C-25d"
         },
         {
           "kind": "deny",
-          "line": 171,
+          "line": 204,
           "signature": "deny contains msg if {",
           "hint": "",
           "check_id": "C-25d"
         },
         {
           "kind": "deny",
-          "line": 178,
+          "line": 211,
           "signature": "deny contains msg if {",
           "hint": "",
           "check_id": "C-25d"
         },
         {
           "kind": "warn",
-          "line": 186,
+          "line": 219,
           "signature": "warn contains msg if {",
           "hint": "Der Carve-out wird behauptet, aber nicht belegt.",
           "check_id": "C-25d"
@@ -1333,6 +1347,7 @@
           "id": "C-25a",
           "policy": "policy_role_change_monitoring",
           "severity": "MUST",
+          "implementation": "implemented",
           "legal_refs": [
             "Art. 25 Abs. 1 lit. a"
           ],
@@ -1342,6 +1357,7 @@
           "id": "C-25b",
           "policy": "policy_role_change_monitoring",
           "severity": "SHOULD",
+          "implementation": "implemented",
           "legal_refs": [
             "Art. 25 Abs. 1 lit. b",
             "Art. 3 Nr. 23",
@@ -1353,6 +1369,7 @@
           "id": "C-25c",
           "policy": "policy_role_change_monitoring",
           "severity": "MUST",
+          "implementation": "implemented",
           "legal_refs": [
             "Art. 25 Abs. 1 lit. c",
             "Art. 6"
@@ -1363,6 +1380,7 @@
           "id": "C-25d",
           "policy": "policy_role_change_monitoring",
           "severity": "MUST",
+          "implementation": "implemented",
           "legal_refs": [
             "Art. 25 Abs. 2",
             "Art. 25 Abs. 4 UAbs. 1"
@@ -1530,6 +1548,7 @@
           "id": "C-01",
           "policy": "policy_bias_assessment_complete",
           "severity": "SHOULD",
+          "implementation": "implemented",
           "legal_refs": [
             "Art. 9 Abs. 2 lit. a",
             "Art. 10 Abs. 2 lit. f",
@@ -1676,6 +1695,7 @@
           "id": "C-01",
           "policy": "policy_data_provenance_documented",
           "severity": "MUST",
+          "implementation": "implemented",
           "legal_refs": [
             "Art. 10",
             "Art. 11"
@@ -1686,6 +1706,7 @@
           "id": "C-02",
           "policy": "policy_training_documented",
           "severity": "MUST",
+          "implementation": "design_only",
           "legal_refs": [
             "Art. 10",
             "Art. 11"
@@ -1696,6 +1717,7 @@
           "id": "C-03",
           "policy": "policy_data_lineage_complete",
           "severity": "MUST",
+          "implementation": "design_only",
           "legal_refs": [
             "Art. 10",
             "Art. 11"
@@ -1706,6 +1728,7 @@
           "id": "C-04",
           "policy": "policy_dataset_description_complete",
           "severity": "MUST",
+          "implementation": "design_only",
           "legal_refs": [
             "Art. 10",
             "Art. 11"
@@ -1716,6 +1739,7 @@
           "id": "C-05",
           "policy": "policy_annotation_quality_verified",
           "severity": "MUST",
+          "implementation": "design_only",
           "legal_refs": [
             "Art. 10",
             "Art. 11"
@@ -1726,6 +1750,7 @@
           "id": "C-06",
           "policy": "policy_data_license_valid",
           "severity": "MUST",
+          "implementation": "design_only",
           "legal_refs": [
             "Art. 10",
             "Art. 11"
@@ -1977,6 +2002,7 @@
           "id": "C-01",
           "policy": "policy_governance_approval",
           "severity": "MUST",
+          "implementation": "implemented",
           "legal_refs": [
             "Art. 14"
           ],
@@ -2084,6 +2110,7 @@
           "id": "C-01",
           "policy": "policy_purpose_declaration",
           "severity": "MUST",
+          "implementation": "implemented",
           "legal_refs": [
             "Art. 27"
           ],
@@ -2114,63 +2141,42 @@
       "rules": [
         {
           "kind": "deny",
-          "line": 85,
+          "line": 108,
           "signature": "deny contains msg if {",
           "hint": "",
           "check_id": null
         },
         {
           "kind": "deny",
-          "line": 91,
+          "line": 114,
           "signature": "deny contains msg if {",
           "hint": "",
           "check_id": null
         },
         {
           "kind": "deny",
-          "line": 97,
+          "line": 120,
           "signature": "deny contains msg if {",
           "hint": "",
           "check_id": null
         },
         {
           "kind": "deny",
-          "line": 105,
+          "line": 128,
           "signature": "deny contains msg if {",
           "hint": "",
           "check_id": null
         },
         {
           "kind": "deny",
-          "line": 110,
+          "line": 133,
           "signature": "deny contains msg if {",
           "hint": "",
           "check_id": null
         },
         {
           "kind": "deny",
-          "line": 116,
-          "signature": "deny contains msg if {",
-          "hint": "",
-          "check_id": null
-        },
-        {
-          "kind": "deny",
-          "line": 122,
-          "signature": "deny contains msg if {",
-          "hint": "",
-          "check_id": null
-        },
-        {
-          "kind": "deny",
-          "line": 129,
-          "signature": "deny contains msg if {",
-          "hint": "",
-          "check_id": null
-        },
-        {
-          "kind": "deny",
-          "line": 135,
+          "line": 139,
           "signature": "deny contains msg if {",
           "hint": "",
           "check_id": null
@@ -2179,131 +2185,152 @@
           "kind": "deny",
           "line": 145,
           "signature": "deny contains msg if {",
+          "hint": "",
+          "check_id": null
+        },
+        {
+          "kind": "deny",
+          "line": 152,
+          "signature": "deny contains msg if {",
+          "hint": "",
+          "check_id": null
+        },
+        {
+          "kind": "deny",
+          "line": 158,
+          "signature": "deny contains msg if {",
+          "hint": "",
+          "check_id": null
+        },
+        {
+          "kind": "deny",
+          "line": 168,
+          "signature": "deny contains msg if {",
           "hint": "These rules check that the MANUAL review step has been documented.",
           "check_id": null
         },
         {
           "kind": "deny",
-          "line": 150,
+          "line": 173,
           "signature": "deny contains msg if {",
           "hint": "These rules check that the MANUAL review step has been documented.",
           "check_id": null
         },
         {
           "kind": "deny",
-          "line": 156,
+          "line": 179,
           "signature": "deny contains msg if {",
           "hint": "",
           "check_id": null
         },
         {
           "kind": "deny",
-          "line": 161,
+          "line": 184,
           "signature": "deny contains msg if {",
           "hint": "",
           "check_id": null
         },
         {
           "kind": "deny",
-          "line": 167,
+          "line": 190,
           "signature": "deny contains msg if {",
           "hint": "",
           "check_id": null
         },
         {
           "kind": "deny",
-          "line": 251,
+          "line": 274,
           "signature": "deny contains msg if {",
           "hint": "C-A1 (MUST) — art6_assessment fehlt vollstaendig",
           "check_id": "C-A1"
         },
         {
           "kind": "deny",
-          "line": 260,
+          "line": 283,
           "signature": "deny contains msg if {",
           "hint": "C-A2 (MUST) — deployment_context fehlt oder unzulaessig",
           "check_id": "C-A2"
         },
         {
           "kind": "deny",
-          "line": 266,
+          "line": 289,
           "signature": "deny contains msg if {",
           "hint": "C-A2 (MUST) — deployment_context fehlt oder unzulaessig",
           "check_id": "C-A2"
         },
         {
           "kind": "deny",
-          "line": 280,
+          "line": 303,
           "signature": "deny contains msg if {",
           "hint": "Ausfallfolge geprueft zu haben. Wichtigster Check dieser SPEC.",
           "check_id": "C-A3"
         },
         {
           "kind": "deny",
-          "line": 291,
+          "line": 314,
           "signature": "deny contains msg if {",
           "hint": "leer oder mit unzulaessigen Werten",
           "check_id": "C-A4"
         },
         {
           "kind": "deny",
-          "line": 298,
+          "line": 321,
           "signature": "deny contains msg if {",
           "hint": "",
           "check_id": "C-A4"
         },
         {
           "kind": "deny",
-          "line": 305,
+          "line": 328,
           "signature": "deny contains msg if {",
           "hint": "",
           "check_id": "C-A4"
         },
         {
           "kind": "deny",
-          "line": 316,
+          "line": 339,
           "signature": "deny contains msg if {",
           "hint": "C-A5 (MUST) — Arm A oder Arm B bejaht, aber justification fehlt",
           "check_id": "C-A5"
         },
         {
           "kind": "deny",
-          "line": 323,
+          "line": 346,
           "signature": "deny contains msg if {",
           "hint": "",
           "check_id": "C-A5"
         },
         {
           "kind": "deny",
-          "line": 330,
+          "line": 353,
           "signature": "deny contains msg if {",
           "hint": "",
           "check_id": "C-A5"
         },
         {
           "kind": "deny",
-          "line": 337,
+          "line": 360,
           "signature": "deny contains msg if {",
           "hint": "",
           "check_id": "C-A5"
         },
         {
           "kind": "deny",
-          "line": 355,
+          "line": 378,
           "signature": "deny contains msg if {",
           "hint": "art6_assessment.self_declared_classification eingefuehrt.",
           "check_id": "C-A6"
         },
         {
           "kind": "warn",
-          "line": 380,
+          "line": 403,
           "signature": "warn contains msg if {",
           "hint": "eine Folge-Iteration, sobald die Reihenfolge geklaert ist.",
           "check_id": "C-A7"
         },
         {
           "kind": "warn",
-          "line": 387,
+          "line": 410,
           "signature": "warn contains msg if {",
           "hint": "",
           "check_id": "C-A7"
@@ -2451,6 +2478,7 @@
           "id": "C-01",
           "policy": "policy_risk_classification",
           "severity": "MUST",
+          "implementation": "implemented",
           "legal_refs": [
             "Art. 9"
           ],
@@ -2460,6 +2488,7 @@
           "id": "C-A1",
           "policy": "policy_risk_classification",
           "severity": "MUST",
+          "implementation": "implemented",
           "legal_refs": [
             "Art. 3 Nr. 14",
             "Anhang III Nr. 2"
@@ -2470,6 +2499,7 @@
           "id": "C-A2",
           "policy": "policy_risk_classification",
           "severity": "MUST",
+          "implementation": "implemented",
           "legal_refs": [
             "Anhang III Nr. 2"
           ],
@@ -2479,6 +2509,7 @@
           "id": "C-A3",
           "policy": "policy_risk_classification",
           "severity": "MUST",
+          "implementation": "implemented",
           "legal_refs": [
             "Art. 6 Abs. 1a",
             "Art. 6 Abs. 1b"
@@ -2489,6 +2520,7 @@
           "id": "C-A4",
           "policy": "policy_risk_classification",
           "severity": "MUST",
+          "implementation": "implemented",
           "legal_refs": [
             "Art. 6 Abs. 1a"
           ],
@@ -2498,6 +2530,7 @@
           "id": "C-A5",
           "policy": "policy_risk_classification",
           "severity": "MUST",
+          "implementation": "implemented",
           "legal_refs": [
             "Art. 3 Nr. 14"
           ],
@@ -2507,6 +2540,7 @@
           "id": "C-A6",
           "policy": "policy_risk_classification",
           "severity": "MUST",
+          "implementation": "implemented",
           "legal_refs": [
             "Art. 6 Abs. 1b"
           ],
@@ -2516,6 +2550,7 @@
           "id": "C-A7",
           "policy": "policy_risk_classification",
           "severity": "SHOULD",
+          "implementation": "implemented",
           "legal_refs": [
             "Art. 26 Abs. 2"
           ],
@@ -2637,6 +2672,7 @@
           "id": "C-01",
           "policy": "policy_risk_management_complete",
           "severity": "MUST",
+          "implementation": "implemented",
           "legal_refs": [
             "Art. 9"
           ],
@@ -2646,6 +2682,7 @@
           "id": "C-02",
           "policy": "policy_risk_management_complete",
           "severity": "MUST",
+          "implementation": "implemented",
           "legal_refs": [
             "Art. 9"
           ],
@@ -2836,6 +2873,7 @@
           "id": "P1",
           "policy": "policy_security_baseline",
           "severity": "MUST",
+          "implementation": "implemented",
           "legal_refs": [
             "Art. 15"
           ],
@@ -2845,6 +2883,7 @@
           "id": "P2",
           "policy": "policy_security_baseline",
           "severity": "MUST",
+          "implementation": "implemented",
           "legal_refs": [
             "Art. 15"
           ],
@@ -2854,6 +2893,7 @@
           "id": "P3",
           "policy": "policy_security_baseline",
           "severity": "MUST",
+          "implementation": "implemented",
           "legal_refs": [
             "Art. 15"
           ],
@@ -2863,6 +2903,7 @@
           "id": "P4",
           "policy": "policy_security_baseline",
           "severity": "MUST",
+          "implementation": "implemented",
           "legal_refs": [
             "Art. 15"
           ],
@@ -2872,6 +2913,7 @@
           "id": "P5",
           "policy": "policy_cybersecurity_controls",
           "severity": "SHOULD",
+          "implementation": "design_only",
           "legal_refs": [
             "Art. 15"
           ],
@@ -2881,6 +2923,7 @@
           "id": "P6",
           "policy": "policy_security_baseline",
           "severity": "MUST",
+          "implementation": "implemented",
           "legal_refs": [
             "Art. 15"
           ],

@@ -262,12 +262,14 @@ def render_markdown(out: dict) -> str:
         if g.get("checks"):
             lines.append(f"### F.2.{g['gate_id'][-2:]}.0 Check-Inventar ({g['check_count']} Checks, schema_version 2)")
             lines.append("")
-            lines.append("| Check-ID | Severity | Legal-Refs | Policy | Regeln mit dieser Check-ID |")
-            lines.append("|----------|:--------:|------------|--------|---------------------------:|")
+            lines.append("| Check-ID | Severity | Status | Legal-Refs | Policy | Regeln mit dieser Check-ID |")
+            lines.append("|----------|:--------:|:------:|------------|--------|---------------------------:|")
             for c in g["checks"]:
                 refs = ", ".join(c["legal_refs"]) if c["legal_refs"] else "—"
+                impl = c.get("implementation") or "?"
+                mark = "✅" if impl == "implemented" else "⬜"
                 lines.append(
-                    f"| {c['id']} | {c['severity']} | {refs} | `{c['policy']}` | {c['rules_matched']} |"
+                    f"| {c['id']} | {c['severity']} | {mark} {impl} | {refs} | `{c['policy']}` | {c['rules_matched']} |"
                 )
             lines.append("")
             lines.append(
@@ -346,6 +348,7 @@ def main():
                 "id": c.get("id"),
                 "policy": c.get("policy"),
                 "severity": c.get("severity"),
+                "implementation": c.get("implementation"),
                 "legal_refs": c.get("legal_refs") or [],
                 "rules_matched": sum(1 for r in rules if r["check_id"] == c.get("id")),
             }

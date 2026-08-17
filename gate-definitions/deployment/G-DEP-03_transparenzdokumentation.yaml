@@ -17,12 +17,14 @@ policy_checks:
     severity: "MUST"
     legal_refs: ["Art. 13", "Art. 26 Abs. 7", "Art. 50"]
     evidence_level: null
+    implementation: "implemented"
   - id: "C-02"
     policy: "policy_explainability_documented"
     description: "Erklaerbarkeit (XAI) dokumentiert"
     severity: "MUST"
     legal_refs: ["Art. 13", "Art. 26 Abs. 7", "Art. 50"]
     evidence_level: null
+    implementation: "design_only"
 
 evidence_required:
   - "transparency_report"

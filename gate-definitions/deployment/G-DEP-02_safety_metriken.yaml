@@ -17,12 +17,14 @@ policy_checks:
     severity: "MUST"
     legal_refs: ["Art. 15"]
     evidence_level: null
+    implementation: "implemented"
   - id: "C-02"
     policy: "policy_safety_metrics"
     description: "subgroup_analysis und adversarial_tests durchgefuehrt"
     severity: "SHOULD"
     legal_refs: ["Art. 15"]
     evidence_level: null
+    implementation: "implemented"
 
 evidence_required:
   - "evaluation_metrics_report"

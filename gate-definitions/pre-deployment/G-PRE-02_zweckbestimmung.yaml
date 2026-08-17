@@ -17,6 +17,7 @@ policy_checks:
     severity: "MUST"
     legal_refs: ["Art. 27"]
     evidence_level: null
+    implementation: "implemented"
 
 evidence_required:
   - "purpose_declaration_document"

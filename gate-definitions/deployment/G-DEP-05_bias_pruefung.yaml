@@ -17,6 +17,7 @@ policy_checks:
     severity: "SHOULD"
     legal_refs: ["Art. 9 Abs. 2 lit. a", "Art. 10 Abs. 2 lit. f", "Art. 15"]
     evidence_level: null
+    implementation: "implemented"
 
 evidence_required:
   - "bias_fairness_report"

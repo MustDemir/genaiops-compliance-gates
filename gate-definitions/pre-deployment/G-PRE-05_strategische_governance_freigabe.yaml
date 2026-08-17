@@ -17,6 +17,7 @@ policy_checks:
     severity: "MUST"
     legal_refs: ["Art. 14"]
     evidence_level: null
+    implementation: "implemented"
 
 evidence_required:
   - "governance_policy_document"

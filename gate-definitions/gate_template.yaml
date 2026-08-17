@@ -20,6 +20,14 @@ policy_checks:
                                       # SHOULD -> warn (advisory)
     legal_refs: []                    # z. B. ["Art. 26 Abs. 4"]
     evidence_level: null              # optional; null = Gate-Default aus evidence_level.current
+    # implementation: laeuft dieser Check tatsaechlich?
+    #   implemented  -> eine Rego-Datei setzt ihn durch
+    #   design_only  -> entworfen, aber noch nicht implementiert; das Gate
+    #                   kann PASS melden, ohne dass dieser Check geprueft hat
+    # Die Angabe macht den Unterschied zwischen "deklariert" und
+    # "durchgesetzt" aus der Gate-Definition heraus ableitbar, statt ihn nur
+    # im notes-Feld und im README zu erwaehnen.
+    implementation: "implemented"     # implemented | design_only
 
 evidence_required: []
 

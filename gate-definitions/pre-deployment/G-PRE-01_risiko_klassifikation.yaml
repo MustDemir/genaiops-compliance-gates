@@ -17,48 +17,56 @@ policy_checks:
     severity: "MUST"
     legal_refs: ["Art. 9"]
     evidence_level: null
+    implementation: "implemented"
   - id: "C-A1"
     policy: "policy_risk_classification"
     description: "art6_assessment-Sektion vorhanden (Pflicht fuer Annex-III-Nr.-2-Kandidaten)"
     severity: "MUST"
     legal_refs: ["Art. 3 Nr. 14", "Anhang III Nr. 2"]
     evidence_level: null
+    implementation: "implemented"
   - id: "C-A2"
     policy: "policy_risk_classification"
     description: "deployment_context vorhanden und innerhalb der zulaessigen Werte aus Anhang III Nr. 2"
     severity: "MUST"
     legal_refs: ["Anhang III Nr. 2"]
     evidence_level: null
+    implementation: "implemented"
   - id: "C-A3"
     policy: "policy_risk_classification"
     description: "Art. 6 Abs. 1a geltend gemacht, aber Arm B (Ausfallfolge) nicht bewertet — Schritt 4 des Pruefbaums ist nicht ueberspringbar"
     severity: "MUST"
     legal_refs: ["Art. 6 Abs. 1a", "Art. 6 Abs. 1b"]
     evidence_level: null
+    implementation: "implemented"
   - id: "C-A4"
     policy: "policy_risk_classification"
     description: "Bei geltend gemachter Abs.-1a-Ausnahme: sole_use_categories nicht leer und nur zulaessige Kategorien"
     severity: "MUST"
     legal_refs: ["Art. 6 Abs. 1a"]
     evidence_level: null
+    implementation: "implemented"
   - id: "C-A5"
     policy: "policy_risk_classification"
     description: "Bejahter Arm A oder Arm B traegt eine nicht-leere justification"
     severity: "MUST"
     legal_refs: ["Art. 3 Nr. 14"]
     evidence_level: null
+    implementation: "implemented"
   - id: "C-A6"
     policy: "policy_risk_classification"
     description: "Selbsteinstufung NO_SAFETY_COMPONENT trotz bejahter Ausfallgefaehrdung — Art. 6 Abs. 1b ueberschreibt"
     severity: "MUST"
     legal_refs: ["Art. 6 Abs. 1b"]
     evidence_level: null
+    implementation: "implemented"
   - id: "C-A7"
     policy: "policy_risk_classification"
     description: "Menschliche Kontrolle zwischen Ausgabe und Wirkung behauptet, aber kein Wirksamkeitsnachweis referenziert (Ziel: G-OPS-01)"
     severity: "SHOULD"
     legal_refs: ["Art. 26 Abs. 2"]
     evidence_level: null
+    implementation: "implemented"
 
 evidence_required:
   - "risk_classification_record"

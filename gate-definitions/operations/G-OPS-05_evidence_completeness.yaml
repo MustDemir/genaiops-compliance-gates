@@ -17,18 +17,21 @@ policy_checks:
     severity: "MUST"
     legal_refs: ["Art. 12", "Art. 15"]
     evidence_level: "E-0"
+    implementation: "implemented"
   - id: "C-02"
     policy: "policy_evidence_completeness"
     description: "Hash-Chain-Integritaet ueber alle Evidence-Records"
     severity: "MUST"
     legal_refs: ["Art. 12", "Art. 15"]
     evidence_level: "E-1"
+    implementation: "implemented"
   - id: "C-03"
     policy: "policy_evidence_completeness"
     description: "Audit-Trail-Immutabilitaet"
     severity: "MUST"
     legal_refs: ["Art. 12", "Art. 15"]
     evidence_level: null
+    implementation: "implemented"
 
 evidence_required:
   - "decision_log_entries"

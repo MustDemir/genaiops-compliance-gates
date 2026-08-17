@@ -46,14 +46,14 @@ Dieses Dokument belegt die Rule-Level-Isolation der PoC-Policy-Engine: Jede der 
 
 ### F.2.01.0 Check-Inventar (6 Checks, schema_version 2)
 
-| Check-ID | Severity | Legal-Refs | Policy | Regeln mit dieser Check-ID |
-|----------|:--------:|------------|--------|---------------------------:|
-| C-01 | MUST | Art. 10, Art. 11 | `policy_data_provenance_documented` | 0 |
-| C-02 | MUST | Art. 10, Art. 11 | `policy_training_documented` | 0 |
-| C-03 | MUST | Art. 10, Art. 11 | `policy_data_lineage_complete` | 0 |
-| C-04 | MUST | Art. 10, Art. 11 | `policy_dataset_description_complete` | 0 |
-| C-05 | MUST | Art. 10, Art. 11 | `policy_annotation_quality_verified` | 0 |
-| C-06 | MUST | Art. 10, Art. 11 | `policy_data_license_valid` | 0 |
+| Check-ID | Severity | Status | Legal-Refs | Policy | Regeln mit dieser Check-ID |
+|----------|:--------:|:------:|------------|--------|---------------------------:|
+| C-01 | MUST | ✅ implemented | Art. 10, Art. 11 | `policy_data_provenance_documented` | 0 |
+| C-02 | MUST | ⬜ design_only | Art. 10, Art. 11 | `policy_training_documented` | 0 |
+| C-03 | MUST | ⬜ design_only | Art. 10, Art. 11 | `policy_data_lineage_complete` | 0 |
+| C-04 | MUST | ⬜ design_only | Art. 10, Art. 11 | `policy_dataset_description_complete` | 0 |
+| C-05 | MUST | ⬜ design_only | Art. 10, Art. 11 | `policy_annotation_quality_verified` | 0 |
+| C-06 | MUST | ⬜ design_only | Art. 10, Art. 11 | `policy_data_license_valid` | 0 |
 
 *Regeln mit Check-ID im Meldungstext: 0 / 9 — ohne: 9 (Meldungen aus der Zeit vor der `<GATE-ID>/<CHECK-ID>`-Konvention nach SPEC-01 Abschnitt 6).*
 
@@ -95,10 +95,10 @@ Dieses Dokument belegt die Rule-Level-Isolation der PoC-Policy-Engine: Jede der 
 
 ### F.2.02.0 Check-Inventar (2 Checks, schema_version 2)
 
-| Check-ID | Severity | Legal-Refs | Policy | Regeln mit dieser Check-ID |
-|----------|:--------:|------------|--------|---------------------------:|
-| C-01 | MUST | Art. 15 | `policy_safety_metrics` | 0 |
-| C-02 | SHOULD | Art. 15 | `policy_safety_metrics` | 0 |
+| Check-ID | Severity | Status | Legal-Refs | Policy | Regeln mit dieser Check-ID |
+|----------|:--------:|:------:|------------|--------|---------------------------:|
+| C-01 | MUST | ✅ implemented | Art. 15 | `policy_safety_metrics` | 0 |
+| C-02 | SHOULD | ✅ implemented | Art. 15 | `policy_safety_metrics` | 0 |
 
 *Regeln mit Check-ID im Meldungstext: 0 / 16 — ohne: 16 (Meldungen aus der Zeit vor der `<GATE-ID>/<CHECK-ID>`-Konvention nach SPEC-01 Abschnitt 6).*
 
@@ -156,10 +156,10 @@ Dieses Dokument belegt die Rule-Level-Isolation der PoC-Policy-Engine: Jede der 
 
 ### F.2.03.0 Check-Inventar (2 Checks, schema_version 2)
 
-| Check-ID | Severity | Legal-Refs | Policy | Regeln mit dieser Check-ID |
-|----------|:--------:|------------|--------|---------------------------:|
-| C-01 | MUST | Art. 13, Art. 26 Abs. 7, Art. 50 | `policy_transparency_docs_present` | 0 |
-| C-02 | MUST | Art. 13, Art. 26 Abs. 7, Art. 50 | `policy_explainability_documented` | 0 |
+| Check-ID | Severity | Status | Legal-Refs | Policy | Regeln mit dieser Check-ID |
+|----------|:--------:|:------:|------------|--------|---------------------------:|
+| C-01 | MUST | ✅ implemented | Art. 13, Art. 26 Abs. 7, Art. 50 | `policy_transparency_docs_present` | 0 |
+| C-02 | MUST | ⬜ design_only | Art. 13, Art. 26 Abs. 7, Art. 50 | `policy_explainability_documented` | 0 |
 
 *Regeln mit Check-ID im Meldungstext: 0 / 9 — ohne: 9 (Meldungen aus der Zeit vor der `<GATE-ID>/<CHECK-ID>`-Konvention nach SPEC-01 Abschnitt 6).*
 
@@ -203,9 +203,9 @@ Dieses Dokument belegt die Rule-Level-Isolation der PoC-Policy-Engine: Jede der 
 
 ### F.2.04.0 Check-Inventar (1 Checks, schema_version 2)
 
-| Check-ID | Severity | Legal-Refs | Policy | Regeln mit dieser Check-ID |
-|----------|:--------:|------------|--------|---------------------------:|
-| C-01 | MUST | Art. 26 Abs. 1 | `policy_conformity_verified` | 0 |
+| Check-ID | Severity | Status | Legal-Refs | Policy | Regeln mit dieser Check-ID |
+|----------|:--------:|:------:|------------|--------|---------------------------:|
+| C-01 | MUST | ✅ implemented | Art. 26 Abs. 1 | `policy_conformity_verified` | 0 |
 
 *Regeln mit Check-ID im Meldungstext: 0 / 7 — ohne: 7 (Meldungen aus der Zeit vor der `<GATE-ID>/<CHECK-ID>`-Konvention nach SPEC-01 Abschnitt 6).*
 
@@ -242,9 +242,9 @@ Dieses Dokument belegt die Rule-Level-Isolation der PoC-Policy-Engine: Jede der 
 
 ### F.2.05.0 Check-Inventar (1 Checks, schema_version 2)
 
-| Check-ID | Severity | Legal-Refs | Policy | Regeln mit dieser Check-ID |
-|----------|:--------:|------------|--------|---------------------------:|
-| C-01 | SHOULD | Art. 9 Abs. 2 lit. a, Art. 10 Abs. 2 lit. f, Art. 15 | `policy_bias_assessment_complete` | 0 |
+| Check-ID | Severity | Status | Legal-Refs | Policy | Regeln mit dieser Check-ID |
+|----------|:--------:|:------:|------------|--------|---------------------------:|
+| C-01 | SHOULD | ✅ implemented | Art. 9 Abs. 2 lit. a, Art. 10 Abs. 2 lit. f, Art. 15 | `policy_bias_assessment_complete` | 0 |
 
 *Regeln mit Check-ID im Meldungstext: 0 / 10 — ohne: 10 (Meldungen aus der Zeit vor der `<GATE-ID>/<CHECK-ID>`-Konvention nach SPEC-01 Abschnitt 6).*
 
@@ -290,9 +290,9 @@ Dieses Dokument belegt die Rule-Level-Isolation der PoC-Policy-Engine: Jede der 
 
 ### F.2.06.0 Check-Inventar (1 Checks, schema_version 2)
 
-| Check-ID | Severity | Legal-Refs | Policy | Regeln mit dieser Check-ID |
-|----------|:--------:|------------|--------|---------------------------:|
-| C-01 | MUST | Art. 12, Art. 26 Abs. 3 | `policy_logging_configured` | 0 |
+| Check-ID | Severity | Status | Legal-Refs | Policy | Regeln mit dieser Check-ID |
+|----------|:--------:|:------:|------------|--------|---------------------------:|
+| C-01 | MUST | ✅ implemented | Art. 12, Art. 26 Abs. 3 | `policy_logging_configured` | 0 |
 
 *Regeln mit Check-ID im Meldungstext: 0 / 8 — ohne: 8 (Meldungen aus der Zeit vor der `<GATE-ID>/<CHECK-ID>`-Konvention nach SPEC-01 Abschnitt 6).*
 
@@ -331,9 +331,9 @@ Dieses Dokument belegt die Rule-Level-Isolation der PoC-Policy-Engine: Jede der 
 
 ### F.2.01.0 Check-Inventar (1 Checks, schema_version 2)
 
-| Check-ID | Severity | Legal-Refs | Policy | Regeln mit dieser Check-ID |
-|----------|:--------:|------------|--------|---------------------------:|
-| C-01 | MUST | Art. 14, Art. 26 Abs. 2 | `policy_human_oversight_operational` | 0 |
+| Check-ID | Severity | Status | Legal-Refs | Policy | Regeln mit dieser Check-ID |
+|----------|:--------:|:------:|------------|--------|---------------------------:|
+| C-01 | MUST | ✅ implemented | Art. 14, Art. 26 Abs. 2 | `policy_human_oversight_operational` | 0 |
 
 *Regeln mit Check-ID im Meldungstext: 0 / 6 — ohne: 6 (Meldungen aus der Zeit vor der `<GATE-ID>/<CHECK-ID>`-Konvention nach SPEC-01 Abschnitt 6).*
 
@@ -370,9 +370,9 @@ Dieses Dokument belegt die Rule-Level-Isolation der PoC-Policy-Engine: Jede der 
 
 ### F.2.02.0 Check-Inventar (1 Checks, schema_version 2)
 
-| Check-ID | Severity | Legal-Refs | Policy | Regeln mit dieser Check-ID |
-|----------|:--------:|------------|--------|---------------------------:|
-| C-01 | MUST | Art. 26 Abs. 5, Art. 73 | `policy_incident_process_exists` | 0 |
+| Check-ID | Severity | Status | Legal-Refs | Policy | Regeln mit dieser Check-ID |
+|----------|:--------:|:------:|------------|--------|---------------------------:|
+| C-01 | MUST | ✅ implemented | Art. 26 Abs. 5, Art. 73 | `policy_incident_process_exists` | 0 |
 
 *Regeln mit Check-ID im Meldungstext: 0 / 6 — ohne: 6 (Meldungen aus der Zeit vor der `<GATE-ID>/<CHECK-ID>`-Konvention nach SPEC-01 Abschnitt 6).*
 
@@ -406,10 +406,10 @@ Dieses Dokument belegt die Rule-Level-Isolation der PoC-Policy-Engine: Jede der 
 
 ### F.2.03.0 Check-Inventar (2 Checks, schema_version 2)
 
-| Check-ID | Severity | Legal-Refs | Policy | Regeln mit dieser Check-ID |
-|----------|:--------:|------------|--------|---------------------------:|
-| C-01 | MUST | Art. 72, Art. 9 Abs. 2 | `policy_monitoring_configured` | 0 |
-| C-02 | MUST | Art. 72, Art. 9 Abs. 2 | `policy_monitoring_configured` | 0 |
+| Check-ID | Severity | Status | Legal-Refs | Policy | Regeln mit dieser Check-ID |
+|----------|:--------:|:------:|------------|--------|---------------------------:|
+| C-01 | MUST | ✅ implemented | Art. 72, Art. 9 Abs. 2 | `policy_monitoring_configured` | 0 |
+| C-02 | MUST | ✅ implemented | Art. 72, Art. 9 Abs. 2 | `policy_monitoring_configured` | 0 |
 
 *Regeln mit Check-ID im Meldungstext: 0 / 6 — ohne: 6 (Meldungen aus der Zeit vor der `<GATE-ID>/<CHECK-ID>`-Konvention nach SPEC-01 Abschnitt 6).*
 
@@ -443,9 +443,9 @@ Dieses Dokument belegt die Rule-Level-Isolation der PoC-Policy-Engine: Jede der 
 
 ### F.2.04.0 Check-Inventar (1 Checks, schema_version 2)
 
-| Check-ID | Severity | Legal-Refs | Policy | Regeln mit dieser Check-ID |
-|----------|:--------:|------------|--------|---------------------------:|
-| C-01 | MUST | Art. 15 | `policy_data_security_controls` | 0 |
+| Check-ID | Severity | Status | Legal-Refs | Policy | Regeln mit dieser Check-ID |
+|----------|:--------:|:------:|------------|--------|---------------------------:|
+| C-01 | MUST | ✅ implemented | Art. 15 | `policy_data_security_controls` | 0 |
 
 *Regeln mit Check-ID im Meldungstext: 0 / 4 — ohne: 4 (Meldungen aus der Zeit vor der `<GATE-ID>/<CHECK-ID>`-Konvention nach SPEC-01 Abschnitt 6).*
 
@@ -478,11 +478,11 @@ Dieses Dokument belegt die Rule-Level-Isolation der PoC-Policy-Engine: Jede der 
 
 ### F.2.05.0 Check-Inventar (3 Checks, schema_version 2)
 
-| Check-ID | Severity | Legal-Refs | Policy | Regeln mit dieser Check-ID |
-|----------|:--------:|------------|--------|---------------------------:|
-| C-01 | MUST | Art. 12, Art. 15 | `policy_evidence_completeness` | 0 |
-| C-02 | MUST | Art. 12, Art. 15 | `policy_evidence_completeness` | 0 |
-| C-03 | MUST | Art. 12, Art. 15 | `policy_evidence_completeness` | 0 |
+| Check-ID | Severity | Status | Legal-Refs | Policy | Regeln mit dieser Check-ID |
+|----------|:--------:|:------:|------------|--------|---------------------------:|
+| C-01 | MUST | ✅ implemented | Art. 12, Art. 15 | `policy_evidence_completeness` | 0 |
+| C-02 | MUST | ✅ implemented | Art. 12, Art. 15 | `policy_evidence_completeness` | 0 |
+| C-03 | MUST | ✅ implemented | Art. 12, Art. 15 | `policy_evidence_completeness` | 0 |
 
 *Regeln mit Check-ID im Meldungstext: 0 / 6 — ohne: 6 (Meldungen aus der Zeit vor der `<GATE-ID>/<CHECK-ID>`-Konvention nach SPEC-01 Abschnitt 6).*
 
@@ -516,12 +516,12 @@ Dieses Dokument belegt die Rule-Level-Isolation der PoC-Policy-Engine: Jede der 
 
 ### F.2.06.0 Check-Inventar (4 Checks, schema_version 2)
 
-| Check-ID | Severity | Legal-Refs | Policy | Regeln mit dieser Check-ID |
-|----------|:--------:|------------|--------|---------------------------:|
-| C-25a | MUST | Art. 25 Abs. 1 lit. a | `policy_role_change_monitoring` | 1 |
-| C-25b | SHOULD | Art. 25 Abs. 1 lit. b, Art. 3 Nr. 23, Art. 97 | `policy_role_change_monitoring` | 1 |
-| C-25c | MUST | Art. 25 Abs. 1 lit. c, Art. 6 | `policy_role_change_monitoring` | 3 |
-| C-25d | MUST | Art. 25 Abs. 2, Art. 25 Abs. 4 UAbs. 1 | `policy_role_change_monitoring` | 4 |
+| Check-ID | Severity | Status | Legal-Refs | Policy | Regeln mit dieser Check-ID |
+|----------|:--------:|:------:|------------|--------|---------------------------:|
+| C-25a | MUST | ✅ implemented | Art. 25 Abs. 1 lit. a | `policy_role_change_monitoring` | 1 |
+| C-25b | SHOULD | ✅ implemented | Art. 25 Abs. 1 lit. b, Art. 3 Nr. 23, Art. 97 | `policy_role_change_monitoring` | 1 |
+| C-25c | MUST | ✅ implemented | Art. 25 Abs. 1 lit. c, Art. 6 | `policy_role_change_monitoring` | 3 |
+| C-25d | MUST | ✅ implemented | Art. 25 Abs. 2, Art. 25 Abs. 4 UAbs. 1 | `policy_role_change_monitoring` | 4 |
 
 *Regeln mit Check-ID im Meldungstext: 9 / 9 — ohne: 0 (Meldungen aus der Zeit vor der `<GATE-ID>/<CHECK-ID>`-Konvention nach SPEC-01 Abschnitt 6).*
 
@@ -529,15 +529,15 @@ Dieses Dokument belegt die Rule-Level-Isolation der PoC-Policy-Engine: Jede der 
 
 | Nr. | Zeile | Art | Check-ID | Hinweis-Kommentar (nächstliegend) |
 |----:|------:|-----|----------|-----------------------------------|
-| 1 | 78 | `deny` | C-25a | in Verkehr gebrachten Hochrisiko-System. Kein Schwellenwertproblem. |
-| 2 | 94 | `warn` | C-25b | Rechtsakten nach Art. 97, die noch ausstehen. Daher advisory. |
-| 3 | 123 | `deny` | C-25c | — |
-| 4 | 130 | `deny` | C-25c | vor UND nach der Aenderung mitliefern, sonst ist C-25c nicht auswertbar. |
-| 5 | 136 | `deny` | C-25c | vor UND nach der Aenderung mitliefern, sonst ist C-25c nicht auswertbar. |
-| 6 | 164 | `deny` | C-25d | — |
-| 7 | 171 | `deny` | C-25d | — |
-| 8 | 178 | `deny` | C-25d | — |
-| 9 | 186 | `warn` | C-25d | Der Carve-out wird behauptet, aber nicht belegt. |
+| 1 | 111 | `deny` | C-25a | in Verkehr gebrachten Hochrisiko-System. Kein Schwellenwertproblem. |
+| 2 | 127 | `warn` | C-25b | Rechtsakten nach Art. 97, die noch ausstehen. Daher advisory. |
+| 3 | 156 | `deny` | C-25c | — |
+| 4 | 163 | `deny` | C-25c | vor UND nach der Aenderung mitliefern, sonst ist C-25c nicht auswertbar. |
+| 5 | 169 | `deny` | C-25c | vor UND nach der Aenderung mitliefern, sonst ist C-25c nicht auswertbar. |
+| 6 | 197 | `deny` | C-25d | — |
+| 7 | 204 | `deny` | C-25d | — |
+| 8 | 211 | `deny` | C-25d | — |
+| 9 | 219 | `warn` | C-25d | Der Carve-out wird behauptet, aber nicht belegt. |
 
 ### F.2.06.2 Test-Inventar (13 Tests)
 
@@ -567,16 +567,16 @@ Dieses Dokument belegt die Rule-Level-Isolation der PoC-Policy-Engine: Jede der 
 
 ### F.2.01.0 Check-Inventar (8 Checks, schema_version 2)
 
-| Check-ID | Severity | Legal-Refs | Policy | Regeln mit dieser Check-ID |
-|----------|:--------:|------------|--------|---------------------------:|
-| C-01 | MUST | Art. 9 | `policy_risk_classification` | 0 |
-| C-A1 | MUST | Art. 3 Nr. 14, Anhang III Nr. 2 | `policy_risk_classification` | 1 |
-| C-A2 | MUST | Anhang III Nr. 2 | `policy_risk_classification` | 2 |
-| C-A3 | MUST | Art. 6 Abs. 1a, Art. 6 Abs. 1b | `policy_risk_classification` | 1 |
-| C-A4 | MUST | Art. 6 Abs. 1a | `policy_risk_classification` | 3 |
-| C-A5 | MUST | Art. 3 Nr. 14 | `policy_risk_classification` | 4 |
-| C-A6 | MUST | Art. 6 Abs. 1b | `policy_risk_classification` | 1 |
-| C-A7 | SHOULD | Art. 26 Abs. 2 | `policy_risk_classification` | 2 |
+| Check-ID | Severity | Status | Legal-Refs | Policy | Regeln mit dieser Check-ID |
+|----------|:--------:|:------:|------------|--------|---------------------------:|
+| C-01 | MUST | ✅ implemented | Art. 9 | `policy_risk_classification` | 0 |
+| C-A1 | MUST | ✅ implemented | Art. 3 Nr. 14, Anhang III Nr. 2 | `policy_risk_classification` | 1 |
+| C-A2 | MUST | ✅ implemented | Anhang III Nr. 2 | `policy_risk_classification` | 2 |
+| C-A3 | MUST | ✅ implemented | Art. 6 Abs. 1a, Art. 6 Abs. 1b | `policy_risk_classification` | 1 |
+| C-A4 | MUST | ✅ implemented | Art. 6 Abs. 1a | `policy_risk_classification` | 3 |
+| C-A5 | MUST | ✅ implemented | Art. 3 Nr. 14 | `policy_risk_classification` | 4 |
+| C-A6 | MUST | ✅ implemented | Art. 6 Abs. 1b | `policy_risk_classification` | 1 |
+| C-A7 | SHOULD | ✅ implemented | Art. 26 Abs. 2 | `policy_risk_classification` | 2 |
 
 *Regeln mit Check-ID im Meldungstext: 14 / 28 — ohne: 14 (Meldungen aus der Zeit vor der `<GATE-ID>/<CHECK-ID>`-Konvention nach SPEC-01 Abschnitt 6).*
 
@@ -584,34 +584,34 @@ Dieses Dokument belegt die Rule-Level-Isolation der PoC-Policy-Engine: Jede der 
 
 | Nr. | Zeile | Art | Check-ID | Hinweis-Kommentar (nächstliegend) |
 |----:|------:|-----|----------|-----------------------------------|
-| 1 | 85 | `deny` | — | — |
-| 2 | 91 | `deny` | — | — |
-| 3 | 97 | `deny` | — | — |
-| 4 | 105 | `deny` | — | — |
-| 5 | 110 | `deny` | — | — |
-| 6 | 116 | `deny` | — | — |
-| 7 | 122 | `deny` | — | — |
-| 8 | 129 | `deny` | — | — |
-| 9 | 135 | `deny` | — | — |
-| 10 | 145 | `deny` | — | These rules check that the MANUAL review step has been documented. |
-| 11 | 150 | `deny` | — | These rules check that the MANUAL review step has been documented. |
-| 12 | 156 | `deny` | — | — |
-| 13 | 161 | `deny` | — | — |
-| 14 | 167 | `deny` | — | — |
-| 15 | 251 | `deny` | C-A1 | C-A1 (MUST) — art6_assessment fehlt vollstaendig |
-| 16 | 260 | `deny` | C-A2 | C-A2 (MUST) — deployment_context fehlt oder unzulaessig |
-| 17 | 266 | `deny` | C-A2 | C-A2 (MUST) — deployment_context fehlt oder unzulaessig |
-| 18 | 280 | `deny` | C-A3 | Ausfallfolge geprueft zu haben. Wichtigster Check dieser SPEC. |
-| 19 | 291 | `deny` | C-A4 | leer oder mit unzulaessigen Werten |
-| 20 | 298 | `deny` | C-A4 | — |
-| 21 | 305 | `deny` | C-A4 | — |
-| 22 | 316 | `deny` | C-A5 | C-A5 (MUST) — Arm A oder Arm B bejaht, aber justification fehlt |
-| 23 | 323 | `deny` | C-A5 | — |
-| 24 | 330 | `deny` | C-A5 | — |
-| 25 | 337 | `deny` | C-A5 | — |
-| 26 | 355 | `deny` | C-A6 | art6_assessment.self_declared_classification eingefuehrt. |
-| 27 | 380 | `warn` | C-A7 | eine Folge-Iteration, sobald die Reihenfolge geklaert ist. |
-| 28 | 387 | `warn` | C-A7 | — |
+| 1 | 108 | `deny` | — | — |
+| 2 | 114 | `deny` | — | — |
+| 3 | 120 | `deny` | — | — |
+| 4 | 128 | `deny` | — | — |
+| 5 | 133 | `deny` | — | — |
+| 6 | 139 | `deny` | — | — |
+| 7 | 145 | `deny` | — | — |
+| 8 | 152 | `deny` | — | — |
+| 9 | 158 | `deny` | — | — |
+| 10 | 168 | `deny` | — | These rules check that the MANUAL review step has been documented. |
+| 11 | 173 | `deny` | — | These rules check that the MANUAL review step has been documented. |
+| 12 | 179 | `deny` | — | — |
+| 13 | 184 | `deny` | — | — |
+| 14 | 190 | `deny` | — | — |
+| 15 | 274 | `deny` | C-A1 | C-A1 (MUST) — art6_assessment fehlt vollstaendig |
+| 16 | 283 | `deny` | C-A2 | C-A2 (MUST) — deployment_context fehlt oder unzulaessig |
+| 17 | 289 | `deny` | C-A2 | C-A2 (MUST) — deployment_context fehlt oder unzulaessig |
+| 18 | 303 | `deny` | C-A3 | Ausfallfolge geprueft zu haben. Wichtigster Check dieser SPEC. |
+| 19 | 314 | `deny` | C-A4 | leer oder mit unzulaessigen Werten |
+| 20 | 321 | `deny` | C-A4 | — |
+| 21 | 328 | `deny` | C-A4 | — |
+| 22 | 339 | `deny` | C-A5 | C-A5 (MUST) — Arm A oder Arm B bejaht, aber justification fehlt |
+| 23 | 346 | `deny` | C-A5 | — |
+| 24 | 353 | `deny` | C-A5 | — |
+| 25 | 360 | `deny` | C-A5 | — |
+| 26 | 378 | `deny` | C-A6 | art6_assessment.self_declared_classification eingefuehrt. |
+| 27 | 403 | `warn` | C-A7 | eine Folge-Iteration, sobald die Reihenfolge geklaert ist. |
+| 28 | 410 | `warn` | C-A7 | — |
 
 ### F.2.01.2 Test-Inventar (27 Tests)
 
@@ -655,9 +655,9 @@ Dieses Dokument belegt die Rule-Level-Isolation der PoC-Policy-Engine: Jede der 
 
 ### F.2.02.0 Check-Inventar (1 Checks, schema_version 2)
 
-| Check-ID | Severity | Legal-Refs | Policy | Regeln mit dieser Check-ID |
-|----------|:--------:|------------|--------|---------------------------:|
-| C-01 | MUST | Art. 27 | `policy_purpose_declaration` | 0 |
+| Check-ID | Severity | Status | Legal-Refs | Policy | Regeln mit dieser Check-ID |
+|----------|:--------:|:------:|------------|--------|---------------------------:|
+| C-01 | MUST | ✅ implemented | Art. 27 | `policy_purpose_declaration` | 0 |
 
 *Regeln mit Check-ID im Meldungstext: 0 / 6 — ohne: 6 (Meldungen aus der Zeit vor der `<GATE-ID>/<CHECK-ID>`-Konvention nach SPEC-01 Abschnitt 6).*
 
@@ -693,10 +693,10 @@ Dieses Dokument belegt die Rule-Level-Isolation der PoC-Policy-Engine: Jede der 
 
 ### F.2.03.0 Check-Inventar (2 Checks, schema_version 2)
 
-| Check-ID | Severity | Legal-Refs | Policy | Regeln mit dieser Check-ID |
-|----------|:--------:|------------|--------|---------------------------:|
-| C-01 | MUST | Art. 9 | `policy_risk_management_complete` | 0 |
-| C-02 | MUST | Art. 9 | `policy_risk_management_complete` | 0 |
+| Check-ID | Severity | Status | Legal-Refs | Policy | Regeln mit dieser Check-ID |
+|----------|:--------:|:------:|------------|--------|---------------------------:|
+| C-01 | MUST | ✅ implemented | Art. 9 | `policy_risk_management_complete` | 0 |
+| C-02 | MUST | ✅ implemented | Art. 9 | `policy_risk_management_complete` | 0 |
 
 *Regeln mit Check-ID im Meldungstext: 0 / 7 — ohne: 7 (Meldungen aus der Zeit vor der `<GATE-ID>/<CHECK-ID>`-Konvention nach SPEC-01 Abschnitt 6).*
 
@@ -734,14 +734,14 @@ Dieses Dokument belegt die Rule-Level-Isolation der PoC-Policy-Engine: Jede der 
 
 ### F.2.04.0 Check-Inventar (6 Checks, schema_version 2)
 
-| Check-ID | Severity | Legal-Refs | Policy | Regeln mit dieser Check-ID |
-|----------|:--------:|------------|--------|---------------------------:|
-| P1 | MUST | Art. 15 | `policy_security_baseline` | 3 |
-| P2 | MUST | Art. 15 | `policy_security_baseline` | 3 |
-| P3 | MUST | Art. 15 | `policy_security_baseline` | 2 |
-| P4 | MUST | Art. 15 | `policy_security_baseline` | 1 |
-| P5 | SHOULD | Art. 15 | `policy_cybersecurity_controls` | 0 |
-| P6 | MUST | Art. 15 | `policy_security_baseline` | 3 |
+| Check-ID | Severity | Status | Legal-Refs | Policy | Regeln mit dieser Check-ID |
+|----------|:--------:|:------:|------------|--------|---------------------------:|
+| P1 | MUST | ✅ implemented | Art. 15 | `policy_security_baseline` | 3 |
+| P2 | MUST | ✅ implemented | Art. 15 | `policy_security_baseline` | 3 |
+| P3 | MUST | ✅ implemented | Art. 15 | `policy_security_baseline` | 2 |
+| P4 | MUST | ✅ implemented | Art. 15 | `policy_security_baseline` | 1 |
+| P5 | SHOULD | ⬜ design_only | Art. 15 | `policy_cybersecurity_controls` | 0 |
+| P6 | MUST | ✅ implemented | Art. 15 | `policy_security_baseline` | 3 |
 
 *Regeln mit Check-ID im Meldungstext: 12 / 12 — ohne: 0 (Meldungen aus der Zeit vor der `<GATE-ID>/<CHECK-ID>`-Konvention nach SPEC-01 Abschnitt 6).*
 
@@ -791,9 +791,9 @@ Dieses Dokument belegt die Rule-Level-Isolation der PoC-Policy-Engine: Jede der 
 
 ### F.2.05.0 Check-Inventar (1 Checks, schema_version 2)
 
-| Check-ID | Severity | Legal-Refs | Policy | Regeln mit dieser Check-ID |
-|----------|:--------:|------------|--------|---------------------------:|
-| C-01 | MUST | Art. 14 | `policy_governance_approval` | 0 |
+| Check-ID | Severity | Status | Legal-Refs | Policy | Regeln mit dieser Check-ID |
+|----------|:--------:|:------:|------------|--------|---------------------------:|
+| C-01 | MUST | ✅ implemented | Art. 14 | `policy_governance_approval` | 0 |
 
 *Regeln mit Check-ID im Meldungstext: 0 / 17 — ohne: 17 (Meldungen aus der Zeit vor der `<GATE-ID>/<CHECK-ID>`-Konvention nach SPEC-01 Abschnitt 6).*
 

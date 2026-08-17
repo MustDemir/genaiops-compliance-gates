@@ -17,24 +17,28 @@ policy_checks:
     severity: "MUST"
     legal_refs: ["Art. 25 Abs. 1 lit. a"]
     evidence_level: null
+    implementation: "implemented"
   - id: "C-25b"
     policy: "policy_role_change_monitoring"
     description: "Art. 25 Abs. 1 lit. b — wesentliche Veraenderung, System bleibt Hochrisiko"
     severity: "SHOULD"
     legal_refs: ["Art. 25 Abs. 1 lit. b", "Art. 3 Nr. 23", "Art. 97"]
     evidence_level: null
+    implementation: "implemented"
   - id: "C-25c"
     policy: "policy_role_change_monitoring"
     description: "Art. 25 Abs. 1 lit. c — Zweckaenderung macht das System zum Hochrisiko-System; ausgewertet gegen die classification-Regel aus G-PRE-01 (SPEC-02), nicht gegen ein Manifest-Boolean"
     severity: "MUST"
     legal_refs: ["Art. 25 Abs. 1 lit. c", "Art. 6"]
     evidence_level: null
+    implementation: "implemented"
   - id: "C-25d"
     policy: "policy_role_change_monitoring"
     description: "Art. 25 Abs. 2 / Abs. 4 UAbs. 1 n.F. — ein bindender Ausloeser (C-25a oder C-25c) ist gefeuert, aber die Uebergabeartefakte fehlen; Carve-out nach Abs. 2 letzter Satz muss belegt sein"
     severity: "MUST"
     legal_refs: ["Art. 25 Abs. 2", "Art. 25 Abs. 4 UAbs. 1"]
     evidence_level: null
+    implementation: "implemented"
 
 evidence_required:
   - "change_log_record"
