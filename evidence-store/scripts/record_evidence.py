@@ -75,6 +75,25 @@ POC_DEFAULTS = {
 AI_ACT_ROLE_CUTOFF_KEY = "ai_act_role_payload_from_audit_id"
 AI_ACT_ROLE_CUTOFF_DEFAULT = None  # None = Feld nie Teil der Payload (v03)
 
+# ────────────────────────────────────────────────────────────────
+# Schema v05: derived_decision in der Hash-Payload
+# ────────────────────────────────────────────────────────────────
+# `decision` kennt nur PASS/FAIL. Die eigentliche Gate-Entscheidung nach
+# SPEC-01 Abschnitt 5 ist feiner: block | manual_review | warn | approve.
+# Sie lag bisher als Freitext im UNGEHASHTEN `notes`-Feld — mit der Folge,
+# dass ein Record "decision=PASS" gesiegelt trug, waehrend das qualifizierende
+# "manual_review" (ein Mensch muss noch freigeben) frei aenderbar war: kein
+# Hash bricht, ein archivierter Head-Hash passt weiter. Damit war die
+# Entscheidung selbst nicht manipulationsgeschuetzt, nur ihre Grobform.
+#
+# Gleiche Migrationsvariante wie v04 (eigener Cutoff je Feld) und dieselbe
+# NULL-Regel: Pre-Cutoff-Records bleiben NULL statt rueckwirkend befuellt zu
+# werden — ein Wert dort waere nicht hash-gedeckt und damit eine stille
+# Manipulationsmoeglichkeit.
+DERIVED_DECISION_CUTOFF_KEY = "derived_decision_payload_from_audit_id"
+DERIVED_DECISION_CUTOFF_DEFAULT = None
+VALID_DERIVED_DECISIONS = ("block", "manual_review", "warn", "approve")
+
 
 def compute_hash(
     previous_hash: str,
@@ -92,15 +111,21 @@ def compute_hash(
     inserted_by: str,
     ai_act_role: str = "",
     include_ai_act_role: bool = False,
+    derived_decision: str = "",
+    include_derived_decision: bool = False,
 ) -> str:
     """
     Compute the SHA-256 chain hash.
 
     Field order must stay identical across record_evidence.py,
     verify_hash_chain.py and the SQL trigger (guarded by
-    tests/test_hash_parity.py). `ai_act_role` sits directly before
-    previous_hash and is only present from the migration cutoff onwards —
-    see the comment block above.
+    tests/test_hash_parity.py). The optional fields sit between
+    inserted_by and previous_hash, in schema order:
+
+        ... inserted_by [, ai_act_role] [, derived_decision], previous_hash
+
+    Each is present only from its own migration cutoff onwards, so a store
+    can legitimately hold v03, v04 and v05 records in one chain.
     """
     fields = [
         model_name,
@@ -118,6 +143,8 @@ def compute_hash(
     ]
     if include_ai_act_role:
         fields.append(ai_act_role or "")
+    if include_derived_decision:
+        fields.append(derived_decision or "")
     fields.append(previous_hash or "")
     return hashlib.sha256("|".join(fields).encode("utf-8")).hexdigest()
 
@@ -149,6 +176,9 @@ def init_sqlite(db_path: str) -> sqlite3.Connection:
             -- Bei einer frischen DB ist der Cutoff 1, also traegt ohnehin
             -- jeder Record die Rolle.
             ai_act_role TEXT CHECK (ai_act_role IS NULL OR ai_act_role IN ('PROVIDER','DEPLOYER','BOTH')),
+            -- Gleiche NULL-Semantik wie ai_act_role: NULL = vor Schema v05
+            -- geschrieben, nicht hash-gedeckt, niemals nachtraeglich befuellen.
+            derived_decision TEXT CHECK (derived_decision IS NULL OR derived_decision IN ('block','manual_review','warn','approve')),
             hash_value TEXT NOT NULL,
             previous_hash TEXT,
             notes TEXT
@@ -164,25 +194,35 @@ def init_sqlite(db_path: str) -> sqlite3.Connection:
     # in its payload. An existing v03 database gets its cutoff from the
     # migration script instead (max(audit_id) + 1), which is why this is an
     # INSERT OR IGNORE and never overwrites an existing value.
-    conn.execute(
-        "INSERT OR IGNORE INTO schema_metadata (key, value) VALUES (?, ?)",
-        (AI_ACT_ROLE_CUTOFF_KEY, "1"),
-    )
+    for key in (AI_ACT_ROLE_CUTOFF_KEY, DERIVED_DECISION_CUTOFF_KEY):
+        conn.execute(
+            "INSERT OR IGNORE INTO schema_metadata (key, value) VALUES (?, ?)",
+            (key, "1"),
+        )
     conn.commit()
     return conn
 
 
-def get_ai_act_role_cutoff_sqlite(conn: sqlite3.Connection):
-    """Read the audit_id from which ai_act_role is part of the hash payload."""
+def get_cutoff_sqlite(conn: sqlite3.Connection, key: str):
+    """Read the audit_id from which the field behind `key` joins the payload."""
     try:
         row = conn.execute(
-            "SELECT value FROM schema_metadata WHERE key = ?",
-            (AI_ACT_ROLE_CUTOFF_KEY,),
+            "SELECT value FROM schema_metadata WHERE key = ?", (key,)
         ).fetchone()
     except sqlite3.OperationalError:
-        # schema_metadata does not exist -> never migrated -> v03 behaviour
-        return AI_ACT_ROLE_CUTOFF_DEFAULT
-    return int(row[0]) if row else AI_ACT_ROLE_CUTOFF_DEFAULT
+        # schema_metadata does not exist -> never migrated -> pre-v04 behaviour
+        return None
+    return int(row[0]) if row else None
+
+
+def get_ai_act_role_cutoff_sqlite(conn: sqlite3.Connection):
+    """Read the audit_id from which ai_act_role is part of the hash payload."""
+    return get_cutoff_sqlite(conn, AI_ACT_ROLE_CUTOFF_KEY)
+
+
+def get_derived_decision_cutoff_sqlite(conn: sqlite3.Connection):
+    """Read the audit_id from which derived_decision is part of the payload."""
+    return get_cutoff_sqlite(conn, DERIVED_DECISION_CUTOFF_KEY)
 
 
 def get_next_audit_id_sqlite(conn: sqlite3.Connection) -> int:
@@ -214,8 +254,9 @@ def insert_sqlite(conn: sqlite3.Connection, record: dict) -> int:
         INSERT INTO quality_gate_results
             (model_name, model_version, pipeline_id, run_id, gate_type,
              decision, decision_method, gate_name, policy_version, payload_id,
-             checked_at, inserted_by, ai_act_role, hash_value, previous_hash, notes)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+             checked_at, inserted_by, ai_act_role, derived_decision,
+             hash_value, previous_hash, notes)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         """,
         (
             record["model_name"],
@@ -231,6 +272,7 @@ def insert_sqlite(conn: sqlite3.Connection, record: dict) -> int:
             record["checked_at"],
             record["inserted_by"],
             record.get("ai_act_role", "DEPLOYER"),
+            record.get("derived_decision"),
             record["hash_value"],
             record["previous_hash"],
             record.get("notes", ""),
@@ -262,20 +304,24 @@ def get_previous_hash_pg(conn) -> str:
     return row[0] if row else ""
 
 
-def get_ai_act_role_cutoff_pg(conn):
-    """Read the schema-v04 cutoff from PostgreSQL (None if never migrated)."""
+def get_cutoff_pg(conn, key: str):
+    """Read a payload cutoff from PostgreSQL (None if never migrated)."""
     with conn.cursor() as cur:
         try:
             cur.execute(
-                "SELECT value FROM compliance.schema_metadata WHERE key = %s",
-                (AI_ACT_ROLE_CUTOFF_KEY,),
+                "SELECT value FROM compliance.schema_metadata WHERE key = %s", (key,)
             )
             row = cur.fetchone()
         except Exception:
-            # Table absent -> v03 database -> keep the 13-field payload
+            # Table absent -> pre-v04 database -> keep the 13-field payload
             conn.rollback()
-            return AI_ACT_ROLE_CUTOFF_DEFAULT
-    return int(row[0]) if row else AI_ACT_ROLE_CUTOFF_DEFAULT
+            return None
+    return int(row[0]) if row else None
+
+
+def get_ai_act_role_cutoff_pg(conn):
+    """Read the schema-v04 cutoff from PostgreSQL (None if never migrated)."""
+    return get_cutoff_pg(conn, AI_ACT_ROLE_CUTOFF_KEY)
 
 
 def get_next_audit_id_pg(conn) -> int:
@@ -296,8 +342,9 @@ def insert_pg(conn, record: dict) -> int:
             INSERT INTO compliance.quality_gate_results
                 (model_name, model_version, pipeline_id, run_id, gate_type,
                  decision, decision_method, gate_name, policy_version, payload_id,
-                 checked_at, inserted_by, ai_act_role, hash_value, previous_hash, notes)
-            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s::uuid, %s, %s, %s, %s, %s, %s)
+                 checked_at, inserted_by, ai_act_role, derived_decision,
+                 hash_value, previous_hash, notes)
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s::uuid, %s, %s, %s, %s, %s, %s, %s)
             RETURNING audit_id, hash_value
             """,
             (
@@ -314,6 +361,7 @@ def insert_pg(conn, record: dict) -> int:
                 record["checked_at"],
                 record["inserted_by"],
                 record.get("ai_act_role", "DEPLOYER"),
+                record.get("derived_decision"),
                 record["hash_value"],
                 record["previous_hash"],
                 record.get("notes", ""),
@@ -382,6 +430,7 @@ def build_record(
     ai_act_role: str = "DEPLOYER",
     next_audit_id: int = None,
     role_cutoff: int = None,
+    derived_cutoff: int = None,
 ) -> dict:
     """
     Build a complete evidence record from gate + method + source.
@@ -406,8 +455,15 @@ def build_record(
     notes = ""
     if method == "MANUAL" and "rationale" in source_data:
         notes = source_data["rationale"]
-    if "derived_decision" in source_data:
-        notes = (notes + " | " if notes else "") + f"DERIVED_DECISION: {source_data['derived_decision']}"
+    # derived_decision ist seit Schema v05 eine eigene, hash-gedeckte Spalte.
+    # Bewusst NICHT mehr zusaetzlich in `notes` gespiegelt: zwei Quellen fuer
+    # dieselbe Aussage koennen auseinanderlaufen, und die ungehashte davon
+    # waere die manipulierbare.
+    derived_decision = source_data.get("derived_decision")
+    if derived_decision is not None and derived_decision not in VALID_DERIVED_DECISIONS:
+        print(f"ERROR: invalid derived_decision '{derived_decision}' — "
+              f"must be one of: {', '.join(VALID_DERIVED_DECISIONS)}")
+        sys.exit(2)
 
     # SPEC-01 Abschnitt 5: violated SHOULD-checks are persisted individually
     # with their check-id, not bundled into one sentence, so an auditor can
@@ -428,6 +484,11 @@ def build_record(
         and next_audit_id is not None
         and next_audit_id >= role_cutoff
     )
+    include_derived = (
+        derived_cutoff is not None
+        and next_audit_id is not None
+        and next_audit_id >= derived_cutoff
+    )
 
     hash_value = compute_hash(
         previous_hash=previous_hash,
@@ -445,6 +506,8 @@ def build_record(
         inserted_by=inserted_by,
         ai_act_role=ai_act_role,
         include_ai_act_role=include_role,
+        derived_decision=derived_decision or "",
+        include_derived_decision=include_derived,
     )
 
     return {
@@ -461,6 +524,7 @@ def build_record(
         "checked_at": now,
         "inserted_by": inserted_by,
         "ai_act_role": ai_act_role,
+        "derived_decision": derived_decision,
         "hash_value": hash_value,
         "previous_hash": previous_hash,
         "notes": notes,
@@ -515,6 +579,7 @@ def main():
             ai_act_role=args.ai_act_role,
             next_audit_id=get_next_audit_id_sqlite(conn),
             role_cutoff=get_ai_act_role_cutoff_sqlite(conn),
+            derived_cutoff=get_derived_decision_cutoff_sqlite(conn),
         )
 
         if args.dry_run:
@@ -534,6 +599,7 @@ def main():
             ai_act_role=args.ai_act_role,
             next_audit_id=get_next_audit_id_pg(conn),
             role_cutoff=get_ai_act_role_cutoff_pg(conn),
+            derived_cutoff=get_cutoff_pg(conn, DERIVED_DECISION_CUTOFF_KEY),
         )
 
         if args.dry_run:

@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
 """
-test_hash_chain_migration.py — v03 → v04 hash-chain migration guard (SPEC-03).
+test_hash_chain_migration.py — hash-chain migration guard (v03 -> v04 -> v05).
 
-Schema v04 adds `ai_act_role` to the hashed payload. The chosen migration
-variant does NOT rehash existing records: the field enters the payload only
-from a per-database cutoff audit_id onwards. Records below the cutoff keep the
-13-field v03 payload, records at or above it use the 14-field v04 payload.
+Two fields moved into the hashed payload: `ai_act_role` (v04, SPEC-03) and
+`derived_decision` (v05 — the gate outcome block|manual_review|warn|approve,
+which previously sat in the UNHASHED notes column). Neither migration rehashes
+existing records: each field enters the payload only from its own per-database
+cutoff audit_id. The cutoffs are independent, so one chain can legitimately
+hold 13-, 14- and 15-field records at the same time.
 
 The decisive property is that a chain SPANNING the cutoff still verifies
 end-to-end. Everything else in this file exists to make that assertion
@@ -14,9 +16,12 @@ meaningful:
   1. a pure v03 chain verifies                       (no regression)
   2. a chain spanning the cutoff verifies            (the migration works)
   3. tampering below the cutoff is still detected    (v03 records stay protected)
-  4. tampering with ai_act_role above the cutoff is detected
-     (the role is genuinely tamper-protected — the reason for hashing it
-      instead of parking it in the unhashed `notes` column)
+  4. tampering with a newly hashed field above its cutoff is detected
+     (the field is genuinely protected — the reason for hashing it at all)
+  5. back-filling such a field BELOW its cutoff leaves every hash unchanged
+     — that is the silent-tamper primitive the NULL rule exists for — and
+     the verifier must reject it
+  6. a chain carrying all three payload generations still verifies
 
 Exit codes: 0 = all properties hold, 1 = at least one failed.
 """
@@ -32,6 +37,7 @@ RECORD = REPO_ROOT / "evidence-store" / "scripts" / "record_evidence.py"
 VERIFY = REPO_ROOT / "evidence-store" / "scripts" / "verify_hash_chain.py"
 
 CUTOFF_KEY = "ai_act_role_payload_from_audit_id"
+DERIVED_KEY = "derived_decision_payload_from_audit_id"
 
 
 def _load(path: Path, name: str):
@@ -114,6 +120,10 @@ def _cutoff(db_path: str):
     return verify.fetch_role_cutoff_sqlite(db_path)
 
 
+def _derived_cutoff(db_path: str):
+    return verify.fetch_derived_cutoff_sqlite(db_path)
+
+
 def _check(name: str, condition: bool, detail: str = "") -> bool:
     print(f"  [{'OK' if condition else 'FAIL'}] {name}")
     if not condition and detail:
@@ -135,7 +145,8 @@ def main() -> int:
         for n in (1, 2, 3):
             prev = _insert(conn, n, prev, role="DEPLOYER", include_role=False)
 
-        valid, count, err = verify.verify_chain(_fetch(db_path), role_cutoff=_cutoff(db_path))
+        valid, count, err = verify.verify_chain(_fetch(db_path), role_cutoff=_cutoff(db_path),
+                                                derived_cutoff=_derived_cutoff(db_path))
         ok &= _check(f"pure v03 chain verifies ({count} records)", valid and count == 3, err)
 
         # ── Phase 2: run the migration ──
@@ -162,7 +173,8 @@ def main() -> int:
             prev = _insert(conn, n, prev, role="BOTH", include_role=True)
 
         # ── THE decisive assertion: chain spanning the cutoff ──
-        valid, count, err = verify.verify_chain(_fetch(db_path), role_cutoff=_cutoff(db_path))
+        valid, count, err = verify.verify_chain(_fetch(db_path), role_cutoff=_cutoff(db_path),
+                                                derived_cutoff=_derived_cutoff(db_path))
         ok &= _check(
             f"chain spanning the cutoff verifies ({count} records, 3x v03 + 2x v04)",
             valid and count == 5,
@@ -172,7 +184,8 @@ def main() -> int:
         # ── Phase 4: tampering below the cutoff is still detected ──
         conn.execute("UPDATE quality_gate_results SET decision='FAIL' WHERE audit_id=2")
         conn.commit()
-        valid, _, _ = verify.verify_chain(_fetch(db_path), role_cutoff=_cutoff(db_path))
+        valid, _, _ = verify.verify_chain(_fetch(db_path), role_cutoff=_cutoff(db_path),
+                                                derived_cutoff=_derived_cutoff(db_path))
         ok &= _check("tampering with a v03 record is detected", not valid,
                      "a modified pre-cutoff record still verified as intact")
         conn.execute("UPDATE quality_gate_results SET decision='PASS' WHERE audit_id=2")
@@ -181,7 +194,8 @@ def main() -> int:
         # ── Phase 5: the role itself is tamper-protected above the cutoff ──
         conn.execute("UPDATE quality_gate_results SET ai_act_role='DEPLOYER' WHERE audit_id=5")
         conn.commit()
-        valid, _, _ = verify.verify_chain(_fetch(db_path), role_cutoff=_cutoff(db_path))
+        valid, _, _ = verify.verify_chain(_fetch(db_path), role_cutoff=_cutoff(db_path),
+                                                derived_cutoff=_derived_cutoff(db_path))
         ok &= _check("tampering with ai_act_role above the cutoff is detected", not valid,
                      "the role was silently changed without breaking the chain — "
                      "it is NOT actually protected")
@@ -203,23 +217,84 @@ def main() -> int:
                      head_before == head_after,
                      "precondition of this test no longer holds")
 
-        valid, _, err = verify.verify_chain(_fetch(db_path), role_cutoff=_cutoff(db_path))
+        valid, _, err = verify.verify_chain(_fetch(db_path), role_cutoff=_cutoff(db_path),
+                                                derived_cutoff=_derived_cutoff(db_path))
         ok &= _check("a role back-filled below the cutoff is rejected", not valid,
                      "the verifier accepted an unauthenticated role on historical "
                      "records — an auditor would read it as chain-verified")
 
         conn.execute("UPDATE quality_gate_results SET ai_act_role=NULL WHERE audit_id < 4")
         conn.commit()
-        valid, _, _ = verify.verify_chain(_fetch(db_path), role_cutoff=_cutoff(db_path))
+        valid, _, _ = verify.verify_chain(_fetch(db_path), role_cutoff=_cutoff(db_path),
+                                                derived_cutoff=_derived_cutoff(db_path))
         ok &= _check("NULL on pre-cutoff records verifies cleanly", valid,
                      "the honest state must not be reported as tampering")
 
         # ── Phase 7: a missing role AT/ABOVE the cutoff is equally loud ──
         conn.execute("UPDATE quality_gate_results SET ai_act_role=NULL WHERE audit_id=5")
         conn.commit()
-        valid, _, _ = verify.verify_chain(_fetch(db_path), role_cutoff=_cutoff(db_path))
+        valid, _, _ = verify.verify_chain(_fetch(db_path), role_cutoff=_cutoff(db_path),
+                                                derived_cutoff=_derived_cutoff(db_path))
         ok &= _check("a NULL role at/above the cutoff is rejected", not valid,
                      "a hash-covered record without a role went unnoticed")
+
+        # ── Phase 8: second migration on top (v04 -> v05) ──
+        # Two independent cutoffs must coexist: after this the chain holds
+        # 13-, 14- and 15-field records at once.
+        conn.execute("UPDATE quality_gate_results SET ai_act_role='BOTH' WHERE audit_id=5")
+        conn.execute("ALTER TABLE quality_gate_results ADD COLUMN derived_decision TEXT")
+        next_id2 = conn.execute(
+            "SELECT COALESCE(MAX(audit_id), 0) + 1 FROM quality_gate_results"
+        ).fetchone()[0]
+        conn.execute("INSERT INTO schema_metadata (key, value) VALUES (?, ?)",
+                     (DERIVED_KEY, str(next_id2)))
+        conn.commit()
+
+        prev = conn.execute(
+            "SELECT hash_value FROM quality_gate_results ORDER BY audit_id DESC LIMIT 1"
+        ).fetchone()[0]
+        f = _base_fields(6)
+        h = record.compute_hash(previous_hash=prev, ai_act_role="DEPLOYER",
+                                include_ai_act_role=True,
+                                derived_decision="manual_review",
+                                include_derived_decision=True, **f)
+        cols = list(f) + ["ai_act_role", "derived_decision", "hash_value", "previous_hash", "notes"]
+        vals = list(f.values()) + ["DEPLOYER", "manual_review", h, prev, ""]
+        conn.execute(
+            f"INSERT INTO quality_gate_results ({','.join(cols)}) "
+            f"VALUES ({','.join('?' * len(cols))})", vals)
+        conn.commit()
+
+        valid, count, err = verify.verify_chain(
+            _fetch(db_path), role_cutoff=_cutoff(db_path),
+            derived_cutoff=_derived_cutoff(db_path))
+        ok &= _check(
+            f"chain with three payload generations verifies ({count} records: v03 + v04 + v05)",
+            valid and count == 6, err)
+
+        # ── Phase 9: derived_decision is tamper-protected too ──
+        conn.execute("UPDATE quality_gate_results SET derived_decision='approve' WHERE audit_id=6")
+        conn.commit()
+        valid, _, _ = verify.verify_chain(
+            _fetch(db_path), role_cutoff=_cutoff(db_path),
+            derived_cutoff=_derived_cutoff(db_path))
+        ok &= _check("changing derived_decision above its cutoff is detected", not valid,
+                     "manual_review could be rewritten to approve without breaking the chain")
+        conn.execute("UPDATE quality_gate_results SET derived_decision='manual_review' WHERE audit_id=6")
+        conn.commit()
+
+        # ── Phase 10: back-filling it below its cutoff is rejected ──
+        head_before = _fetch(db_path)[-1]["hash_value"]
+        conn.execute("UPDATE quality_gate_results SET derived_decision='approve' WHERE audit_id < 6")
+        conn.commit()
+        ok &= _check("back-filling derived_decision leaves every hash unchanged",
+                     _fetch(db_path)[-1]["hash_value"] == head_before,
+                     "precondition of this test no longer holds")
+        valid, _, _ = verify.verify_chain(
+            _fetch(db_path), role_cutoff=_cutoff(db_path),
+            derived_cutoff=_derived_cutoff(db_path))
+        ok &= _check("a derived_decision back-filled below its cutoff is rejected", not valid,
+                     "an unauthenticated gate outcome went unnoticed")
 
         conn.close()
 

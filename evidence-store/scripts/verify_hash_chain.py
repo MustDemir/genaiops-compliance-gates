@@ -42,6 +42,10 @@ from datetime import datetime, timezone
 AI_ACT_ROLE_CUTOFF_KEY = "ai_act_role_payload_from_audit_id"
 AI_ACT_ROLE_CUTOFF_DEFAULT = None  # None = Feld nie Teil der Payload (v03)
 
+# Schema v05: derived_decision (block|manual_review|warn|approve) — eigener
+# Cutoff, gleiche NULL-Regel. Siehe Kommentarblock in record_evidence.py.
+DERIVED_DECISION_CUTOFF_KEY = "derived_decision_payload_from_audit_id"
+
 
 def compute_hash(
     previous_hash: str,
@@ -59,6 +63,8 @@ def compute_hash(
     inserted_by: str,
     ai_act_role: str = "",
     include_ai_act_role: bool = False,
+    derived_decision: str = "",
+    include_derived_decision: bool = False,
 ) -> str:
     """Compute SHA-256 hash — identical logic to record_evidence.py and DB trigger."""
     fields = [
@@ -77,6 +83,8 @@ def compute_hash(
     ]
     if include_ai_act_role:
         fields.append(ai_act_role or "")
+    if include_derived_decision:
+        fields.append(derived_decision or "")
     fields.append(previous_hash or "")
     return hashlib.sha256("|".join(fields).encode("utf-8")).hexdigest()
 
@@ -111,19 +119,28 @@ def fetch_records_pg(db_url: str) -> list[dict]:
     return [dict(r) for r in rows]
 
 
-def fetch_role_cutoff_sqlite(db_path: str):
-    """Read the schema-v04 cutoff from SQLite (None if never migrated)."""
+def fetch_cutoff_sqlite(db_path: str, key: str):
+    """Read a payload cutoff from SQLite (None if never migrated)."""
     conn = sqlite3.connect(db_path)
     try:
         row = conn.execute(
-            "SELECT value FROM schema_metadata WHERE key = ?",
-            (AI_ACT_ROLE_CUTOFF_KEY,),
+            "SELECT value FROM schema_metadata WHERE key = ?", (key,)
         ).fetchone()
     except sqlite3.OperationalError:
-        return AI_ACT_ROLE_CUTOFF_DEFAULT
+        return None
     finally:
         conn.close()
-    return int(row[0]) if row else AI_ACT_ROLE_CUTOFF_DEFAULT
+    return int(row[0]) if row else None
+
+
+def fetch_role_cutoff_sqlite(db_path: str):
+    """Read the schema-v04 cutoff from SQLite (None if never migrated)."""
+    return fetch_cutoff_sqlite(db_path, AI_ACT_ROLE_CUTOFF_KEY)
+
+
+def fetch_derived_cutoff_sqlite(db_path: str):
+    """Read the schema-v05 cutoff from SQLite (None if never migrated)."""
+    return fetch_cutoff_sqlite(db_path, DERIVED_DECISION_CUTOFF_KEY)
 
 
 def fetch_role_cutoff_pg(db_url: str):
@@ -147,14 +164,16 @@ def fetch_role_cutoff_pg(db_url: str):
     return int(row[0]) if row else AI_ACT_ROLE_CUTOFF_DEFAULT
 
 
-def verify_chain(records: list[dict], verbose: bool = False, role_cutoff=None) -> tuple[bool, int, str]:
+def verify_chain(records: list[dict], verbose: bool = False, role_cutoff=None,
+                 derived_cutoff=None) -> tuple[bool, int, str]:
     """
     Verify the hash chain integrity.
 
-    `role_cutoff` is the audit_id from which ai_act_role belongs to the
-    hashed payload (schema v04, SPEC-03). Records below it are verified
-    with the 13-field v03 payload, records at or above it with 14 fields.
-    Passing None verifies everything as v03.
+    `role_cutoff` and `derived_cutoff` are the audit_ids from which
+    ai_act_role (schema v04) and derived_decision (schema v05) join the
+    hashed payload. Each field is independent, so one chain can legitimately
+    contain 13-, 14- and 15-field records. Passing None for a cutoff means
+    that field was never part of the payload in this store.
 
     Returns:
         (is_valid, records_checked, error_message)
@@ -216,6 +235,8 @@ def verify_chain(records: list[dict], verbose: bool = False, role_cutoff=None) -
             inserted_by=rec.get("inserted_by", ""),
             ai_act_role=rec.get("ai_act_role", "") or "",
             include_ai_act_role=(role_cutoff is not None and audit_id >= role_cutoff),
+            derived_decision=rec.get("derived_decision", "") or "",
+            include_derived_decision=(derived_cutoff is not None and audit_id >= derived_cutoff),
         )
 
         stored_hash = rec.get("hash_value", "")
@@ -235,20 +256,41 @@ def verify_chain(records: list[dict], verbose: bool = False, role_cutoff=None) -
         #
         # Above the cutoff the reverse holds: a NULL would mean the record was
         # written without the role while claiming to cover it.
-        if role_cutoff is not None:
-            role_value = rec.get("ai_act_role")
-            covered = audit_id >= role_cutoff
-            if not covered and role_value not in (None, ""):
+        # Check 3: a field must not carry a value where the hash does not cover it.
+        #
+        # BELOW the cutoff this is the whole point: the field is absent from the
+        # payload there, so any value is unauthenticated — it could be changed
+        # without breaking a single hash, leaving even an archived head hash
+        # intact. Since the migrations deliberately leave those rows NULL, a
+        # value can only come from a back-fill or a manipulation.
+        #
+        # ABOVE the cutoff no rule is needed: the hash covers whatever is there,
+        # including the empty string, so both adding and removing a value breaks
+        # verification on its own. `required_above` therefore expresses a
+        # SEMANTIC expectation, not a security one — and it only holds for
+        # fields every record type actually has. ai_act_role does (every gate
+        # runs under some role); derived_decision does not, because MANUAL
+        # decision-log records and drift-detector records are not gate
+        # evaluations and have no block/manual_review/warn/approve outcome.
+        for field_name, cutoff, required_above in (
+            ("ai_act_role", role_cutoff, True),
+            ("derived_decision", derived_cutoff, False),
+        ):
+            if cutoff is None:
+                continue
+            value = rec.get(field_name)
+            covered = audit_id >= cutoff
+            if not covered and value not in (None, ""):
                 errors.append(
-                    f"  audit_id={audit_id}: ai_act_role='{role_value}' on a pre-cutoff "
-                    f"record (cutoff={role_cutoff}) — this field is not covered by the "
-                    f"hash chain here and must stay NULL; a value indicates a back-fill "
-                    f"or tampering"
+                    f"  audit_id={audit_id}: {field_name}='{value}' on a pre-cutoff "
+                    f"record (cutoff={cutoff}) — this field is not covered by the "
+                    f"hash chain here and must stay NULL; a value indicates a "
+                    f"back-fill or tampering"
                 )
-            elif covered and role_value in (None, ""):
+            elif covered and required_above and value in (None, ""):
                 errors.append(
-                    f"  audit_id={audit_id}: ai_act_role is NULL although the record is "
-                    f"at or above the cutoff ({role_cutoff}) — the role is a required, "
+                    f"  audit_id={audit_id}: {field_name} is NULL although the record "
+                    f"is at or above the cutoff ({cutoff}) — it is a required, "
                     f"hash-covered field from here on"
                 )
 
@@ -293,11 +335,13 @@ def main():
 
     # Fetch records
     role_cutoff = None
+    derived_cutoff = None
     if args.sqlite:
         print(f"Source: SQLite ({args.sqlite})")
         try:
             records = fetch_records_sqlite(args.sqlite)
             role_cutoff = fetch_role_cutoff_sqlite(args.sqlite)
+            derived_cutoff = fetch_derived_cutoff_sqlite(args.sqlite)
         except Exception as e:
             print(f"ERROR: Could not read SQLite DB: {e}")
             sys.exit(2)
@@ -325,15 +369,14 @@ def main():
             sys.exit(2)
 
     print(f"Records found: {len(records)}")
-    if role_cutoff is None:
-        print("Payload schema: v03 (13 fields) — ai_act_role not in the hashed payload")
-    else:
-        print(f"Payload schema: v03 below audit_id {role_cutoff}, "
-              f"v04 (14 fields, incl. ai_act_role) from audit_id {role_cutoff}")
+    print(f"Payload schema: ai_act_role hashed from audit_id "
+          f"{role_cutoff if role_cutoff is not None else '(never)'}, "
+          f"derived_decision hashed from audit_id "
+          f"{derived_cutoff if derived_cutoff is not None else '(never)'}")
     print("-" * 60)
 
     # Verify
-    is_valid, count, error_msg = verify_chain(records, args.verbose, role_cutoff)
+    is_valid, count, error_msg = verify_chain(records, args.verbose, role_cutoff, derived_cutoff)
 
     print("-" * 60)
     if count == 0:
