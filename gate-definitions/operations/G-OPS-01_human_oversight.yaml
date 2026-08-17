@@ -31,8 +31,8 @@ audit_trail:
   enabled: true
   evidence_store_ref: "evidence://gates/operations/G-OPS-01"
 waiver:
-  allowed: true
-  requires: "CTO + Chief Medical Officer Approval, befristet auf 14 Tage"
+  allowed: false
+  requires: "Kein Waiver moeglich. Das Gate-Template sah bis 2026-08-17 einen Ausnahmepfad mit Genehmiger und Befristung vor, aber es gab keine Implementierung: 'waiver' kam in pipeline/, evidence-store/, policies/ und .github/ in keiner Zeile Logik vor, und das Evidence-Schema kennt nur decision IN ('PASS','FAIL') — ein ausgesetztes Gate war von einem bestandenen nicht unterscheidbar. Ein Ausnahmepfad, der keine Spur hinterlaesst, entwertet die Lueckenlosigkeit der Hash-Kette; ein Kontrollsystem ohne Ausnahmepfad ist ehrlicher als eines mit einem, der nicht funktioniert. Entscheidung: abgeschafft statt implementiert."
 links:
   requirements:
     - "R008"
@@ -41,4 +41,4 @@ links:
     - "Art. 26 Abs. 2"
 sources:
   - "requirements/R008.yaml"
-notes: "IMPLEMENTED (2026-07-01) — policy_human_oversight_operational.rego (Conftest gegen app_documentation.json: oversight_roles, escalation_procedure, output_override, real_time_monitoring) + Gatekeeper ConstraintTemplate constraint-human-oversight.yaml (Runtime-Admission auf Pod-Annotationen). HYBRID: Gatekeeper validiert dass HITL-Mechanismen und Override-Prozeduren als K8s-Ressourcen konfiguriert sind; manueller Review prueft Wirksamkeit der Sterz-Bedingungen (Causal Power, Epistemic Access, Self-Control, Fitting Intentions). D3-Override (Laux, 2024): First-Degree Oversight → max. HYBRID. UPDATE (2026-08-14, schema_version 2 / SPEC-01): policy_checks auf Objektform migriert, Severity aus R008 (MUST) uebernommen. Siehe SPEC-02 Abschnitt 6: G-PRE-01/C-A7 verweist auf dieses Gate als Wirksamkeitsnachweis fuer Human-Oversight-Aufsicht."
+notes: "IMPLEMENTED (2026-07-01) — policy_human_oversight_operational.rego (Conftest gegen app_documentation.json: oversight_roles, escalation_procedure, output_override, real_time_monitoring) + Gatekeeper ConstraintTemplate constraint-human-oversight.yaml (Runtime-Admission auf Pod-Annotationen). HYBRID: Gatekeeper validiert dass HITL-Mechanismen und Override-Prozeduren als K8s-Ressourcen konfiguriert sind; manueller Review prueft Wirksamkeit der Sterz-Bedingungen (Causal Power, Epistemic Access, Self-Control, Fitting Intentions). D3-Override (Laux, 2024): First-Degree Oversight → max. HYBRID. UPDATE (2026-08-14, schema_version 2 / SPEC-01): policy_checks auf Objektform migriert, Severity aus R008 (MUST) uebernommen. Siehe SPEC-02 Abschnitt 6: G-PRE-01/C-A7 verweist auf dieses Gate als Wirksamkeitsnachweis fuer Human-Oversight-Aufsicht. WAIVER ABGESCHAFFT (2026-08-17, Audit F-2): der bisherige Ausnahmepfad lautete \"CTO + Chief Medical Officer Approval, befristet auf 14 Tage\" — als Governance-Absicht hier bewahrt, falls Waiver spaeter wirklich implementiert werden. Bis dahin gilt: keine Ausnahme."

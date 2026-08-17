@@ -38,8 +38,8 @@ audit_trail:
   enabled: true
   evidence_store_ref: "evidence://gates/pre-deployment/G-PRE-03"
 waiver:
-  allowed: true
-  requires: "Governance Lead + CTO Approval, befristet auf 30 Tage"
+  allowed: false
+  requires: "Kein Waiver moeglich. Das Gate-Template sah bis 2026-08-17 einen Ausnahmepfad mit Genehmiger und Befristung vor, aber es gab keine Implementierung: 'waiver' kam in pipeline/, evidence-store/, policies/ und .github/ in keiner Zeile Logik vor, und das Evidence-Schema kennt nur decision IN ('PASS','FAIL') — ein ausgesetztes Gate war von einem bestandenen nicht unterscheidbar. Ein Ausnahmepfad, der keine Spur hinterlaesst, entwertet die Lueckenlosigkeit der Hash-Kette; ein Kontrollsystem ohne Ausnahmepfad ist ehrlicher als eines mit einem, der nicht funktioniert. Entscheidung: abgeschafft statt implementiert."
 links:
   requirements:
     - "R001"
@@ -47,4 +47,4 @@ links:
     - "Art. 9"
 sources:
   - "requirements/R001.yaml"
-notes: "HYBRID: Conftest prueft ob Risiken identifiziert und Mitigationen vorhanden; manueller Review bewertet Qualitaet des Risikoregisters. R001 wird zusaetzlich durch G-PRE-01 operationalisiert (Mehrfachzuordnung); Redundanz-Abgrenzung laut Rego-Kommentar: G-PRE-01 deckt risk_classification.* ab, dieses Gate das davon distincte Risikomanagement-Register und die Daten-Risikobewertung. UPDATE (2026-08-14, schema_version 2 / SPEC-01): policy_checks auf Objektform migriert, Severity aus R001 (MUST) uebernommen. KORREKTUR EINER STALEN NOTIZ: die alte Notiz 'DESIGN-ONLY — Rego-Implementierung als Future Work' war veraltet/falsch — policies/pre-deployment/policy_risk_management_complete.rego existiert bereits mit 7 deny-Rules; policy_data_risk_assessed war nie eine eigene Datei, sondern ist als Rule-Untergruppe (data_risk_assessment.assessed/data_classification) in derselben Datei enthalten, daher C-02 mit demselben policy-Dateinamen."
+notes: "HYBRID: Conftest prueft ob Risiken identifiziert und Mitigationen vorhanden; manueller Review bewertet Qualitaet des Risikoregisters. R001 wird zusaetzlich durch G-PRE-01 operationalisiert (Mehrfachzuordnung); Redundanz-Abgrenzung laut Rego-Kommentar: G-PRE-01 deckt risk_classification.* ab, dieses Gate das davon distincte Risikomanagement-Register und die Daten-Risikobewertung. UPDATE (2026-08-14, schema_version 2 / SPEC-01): policy_checks auf Objektform migriert, Severity aus R001 (MUST) uebernommen. KORREKTUR EINER STALEN NOTIZ: die alte Notiz 'DESIGN-ONLY — Rego-Implementierung als Future Work' war veraltet/falsch — policies/pre-deployment/policy_risk_management_complete.rego existiert bereits mit 7 deny-Rules; policy_data_risk_assessed war nie eine eigene Datei, sondern ist als Rule-Untergruppe (data_risk_assessment.assessed/data_classification) in derselben Datei enthalten, daher C-02 mit demselben policy-Dateinamen. WAIVER ABGESCHAFFT (2026-08-17, Audit F-2): der bisherige Ausnahmepfad lautete \"Governance Lead + CTO Approval, befristet auf 30 Tage\" — als Governance-Absicht hier bewahrt, falls Waiver spaeter wirklich implementiert werden. Bis dahin gilt: keine Ausnahme."

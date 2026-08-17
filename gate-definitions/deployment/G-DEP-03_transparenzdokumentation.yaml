@@ -38,8 +38,8 @@ audit_trail:
   enabled: true
   evidence_store_ref: "evidence://gates/deployment/G-DEP-03"
 waiver:
-  allowed: true
-  requires: "Governance Lead Approval, befristet auf 30 Tage"
+  allowed: false
+  requires: "Kein Waiver moeglich. Das Gate-Template sah bis 2026-08-17 einen Ausnahmepfad mit Genehmiger und Befristung vor, aber es gab keine Implementierung: 'waiver' kam in pipeline/, evidence-store/, policies/ und .github/ in keiner Zeile Logik vor, und das Evidence-Schema kennt nur decision IN ('PASS','FAIL') — ein ausgesetztes Gate war von einem bestandenen nicht unterscheidbar. Ein Ausnahmepfad, der keine Spur hinterlaesst, entwertet die Lueckenlosigkeit der Hash-Kette; ein Kontrollsystem ohne Ausnahmepfad ist ehrlicher als eines mit einem, der nicht funktioniert. Entscheidung: abgeschafft statt implementiert."
 links:
   requirements:
     - "R007"
@@ -49,4 +49,4 @@ links:
     - "Art. 50"
 sources:
   - "requirements/R007.yaml"
-notes: "PARTIALLY IMPLEMENTED (2026-03-28) — policy_transparency_docs_present.rego added: 5 Checks (deployer instructions, capabilities, limitations, AI content labeling). Fixtures: app_documentation_transparency_pass.json, app_documentation_transparency_fail.json. policy_explainability_documented still DESIGN-ONLY, severity konservativ MUST gesetzt (R007 ist MUST). UPDATE (2026-08-14, schema_version 2 / SPEC-01): policy_checks auf Objektform migriert."
+notes: "PARTIALLY IMPLEMENTED (2026-03-28) — policy_transparency_docs_present.rego added: 5 Checks (deployer instructions, capabilities, limitations, AI content labeling). Fixtures: app_documentation_transparency_pass.json, app_documentation_transparency_fail.json. policy_explainability_documented still DESIGN-ONLY, severity konservativ MUST gesetzt (R007 ist MUST). UPDATE (2026-08-14, schema_version 2 / SPEC-01): policy_checks auf Objektform migriert. WAIVER ABGESCHAFFT (2026-08-17, Audit F-2): der bisherige Ausnahmepfad lautete \"Governance Lead Approval, befristet auf 30 Tage\" — als Governance-Absicht hier bewahrt, falls Waiver spaeter wirklich implementiert werden. Bis dahin gilt: keine Ausnahme."

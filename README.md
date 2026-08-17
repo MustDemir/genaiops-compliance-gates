@@ -117,6 +117,8 @@ policy_checks:
     legal_refs: ["Art. 15"]
 ```
 
+**There is no waiver path.** The template used to offer one — 11 of 17 gates named an approver and a time limit — but nothing enforced it: no logic anywhere, and an evidence schema that only knows `PASS`/`FAIL`, so a waived gate was indistinguishable from a passed one. An exception path that leaves no trace devalues the completeness of the chain, so it was abolished rather than left standing as an unimplemented promise. Reinstating `waiver.allowed: true` requires a real control first — the integrity regression blocks it otherwise.
+
 The gate decision is **derived**, never authored, in this order (do not reorder — a HYBRID gate with a violated MUST still blocks):
 
 ```

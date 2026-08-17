@@ -10,6 +10,18 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased] — Post-Thesis Development (schema_version 2)
 
+### Removed (BREAKING) — the waiver path (audit F-2)
+
+- **Waivers are abolished.** 11 of 17 gates declared `waiver.allowed: true` with an approver and a time limit, but the mechanism existed only on paper: `waiver` appeared in no line of logic in `pipeline/`, `evidence-store/`, `policies/` or `.github/`, and the evidence schema only knows `decision IN ('PASS','FAIL')` — a waived gate could not even be represented, let alone distinguished from a passed one.
+- Exceptions are the first thing an auditor tests. An exception path that leaves no trace devalues the completeness of the hash chain, which is the property the artefact rests on. Abolishing it is more honest than leaving an unimplemented promise in the template.
+- The previous approver/expiry text of each gate is preserved in its `notes` as the documented governance intent, in case waivers are ever implemented for real.
+- New integrity check `WAIVER_NOT_DECLARATIVE` (HIGH) keeps the decision from eroding: `waiver.allowed: true` is only accepted once `record_evidence.py` actually handles waivers. Verified by reactivating one and confirming it fails.
+
+### Added — per-check implementation status (audit F-3)
+
+- Every `policy_checks[]` entry carries `implementation: implemented | design_only`. Of 43 checks across 17 gates, **36 are enforced and 7 are design-only** (in G-PRE-04, G-DEP-01, G-DEP-03), so those gates report PASS while part of what they declare has not been evaluated.
+- `GATE_POLICY_FILE_EXISTS` (LOW, permanently red, permanently ignored) became `GATE_IMPLEMENTATION_HONEST` (HIGH), verifying the claim in both directions instead of the mere absence of a file.
+
 ### Changed (BREAKING) — Licence: CC BY-NC 4.0 → Apache 2.0 (2026-08-15)
 
 - The repository is now licensed under the **Apache License 2.0**. CC BY-NC is not an open-source licence under the OSI definition: the non-commercial restriction bars exactly the setting a compliance control system is built for.

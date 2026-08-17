@@ -31,8 +31,8 @@ audit_trail:
   enabled: true
   evidence_store_ref: "evidence://gates/deployment/G-DEP-05"
 waiver:
-  allowed: true
-  requires: "ML Lead + AI Governance Lead Approval, befristet auf 30 Tage, dokumentierte Begruendung"
+  allowed: false
+  requires: "Kein Waiver moeglich. Das Gate-Template sah bis 2026-08-17 einen Ausnahmepfad mit Genehmiger und Befristung vor, aber es gab keine Implementierung: 'waiver' kam in pipeline/, evidence-store/, policies/ und .github/ in keiner Zeile Logik vor, und das Evidence-Schema kennt nur decision IN ('PASS','FAIL') — ein ausgesetztes Gate war von einem bestandenen nicht unterscheidbar. Ein Ausnahmepfad, der keine Spur hinterlaesst, entwertet die Lueckenlosigkeit der Hash-Kette; ein Kontrollsystem ohne Ausnahmepfad ist ehrlicher als eines mit einem, der nicht funktioniert. Entscheidung: abgeschafft statt implementiert."
 links:
   requirements:
     - "R013"
@@ -42,4 +42,4 @@ links:
     - "Art. 15"
 sources:
   - "requirements/R013.yaml"
-notes: "IMPLEMENTED (2026-03-28) — policy_bias_assessment_complete.rego: 5 Checks, 10 warn-Rules. R013 ist SHOULD: Verletzungen sind advisory (WARN, nicht-blockierend), als Advisory im Evidence-Record persistiert. Fixtures: model_documentation_bias_pass.json, model_documentation_bias_fail.json. UPDATE (2026-08-14, schema_version 2 / SPEC-01): policy_checks auf Objektform migriert. Gemaess SPEC-01 Abschnitt 6 (Migrationsbedarf-Hinweis) hier NUR die Struktur geschaffen, severity bleibt SHOULD fuer den einzigen Check — KEINE Aufteilung auf gemischt MUST/SHOULD in dieser SPEC, das haengt an einer separaten Neubewertung von R013 im Lichte des neuen Art. 4a EU AI Act (VO (EU) 2026/1744) und ist explizit ausgeklammert."
+notes: "IMPLEMENTED (2026-03-28) — policy_bias_assessment_complete.rego: 5 Checks, 10 warn-Rules. R013 ist SHOULD: Verletzungen sind advisory (WARN, nicht-blockierend), als Advisory im Evidence-Record persistiert. Fixtures: model_documentation_bias_pass.json, model_documentation_bias_fail.json. UPDATE (2026-08-14, schema_version 2 / SPEC-01): policy_checks auf Objektform migriert. Gemaess SPEC-01 Abschnitt 6 (Migrationsbedarf-Hinweis) hier NUR die Struktur geschaffen, severity bleibt SHOULD fuer den einzigen Check — KEINE Aufteilung auf gemischt MUST/SHOULD in dieser SPEC, das haengt an einer separaten Neubewertung von R013 im Lichte des neuen Art. 4a EU AI Act (VO (EU) 2026/1744) und ist explizit ausgeklammert. WAIVER ABGESCHAFFT (2026-08-17, Audit F-2): der bisherige Ausnahmepfad lautete \"ML Lead + AI Governance Lead Approval, befristet auf 30 Tage, dokumentierte Begruendung\" — als Governance-Absicht hier bewahrt, falls Waiver spaeter wirklich implementiert werden. Bis dahin gilt: keine Ausnahme."

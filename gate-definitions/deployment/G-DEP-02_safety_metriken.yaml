@@ -38,8 +38,8 @@ audit_trail:
   enabled: true
   evidence_store_ref: "evidence://gates/deployment/G-DEP-02"
 waiver:
-  allowed: true
-  requires: "ML Lead + AI Governance Lead Approval, befristet auf 14 Tage"
+  allowed: false
+  requires: "Kein Waiver moeglich. Das Gate-Template sah bis 2026-08-17 einen Ausnahmepfad mit Genehmiger und Befristung vor, aber es gab keine Implementierung: 'waiver' kam in pipeline/, evidence-store/, policies/ und .github/ in keiner Zeile Logik vor, und das Evidence-Schema kennt nur decision IN ('PASS','FAIL') — ein ausgesetztes Gate war von einem bestandenen nicht unterscheidbar. Ein Ausnahmepfad, der keine Spur hinterlaesst, entwertet die Lueckenlosigkeit der Hash-Kette; ein Kontrollsystem ohne Ausnahmepfad ist ehrlicher als eines mit einem, der nicht funktioniert. Entscheidung: abgeschafft statt implementiert."
 links:
   requirements:
     - "R003"
@@ -47,4 +47,4 @@ links:
     - "Art. 15"
 sources:
   - "requirements/R003.yaml"
-notes: "PoC-Gate (★). AUTO: Conftest prueft ob accuracy >= 0.85, latency_p95 <= 2000ms, safety_score >= 0.90 (Schwellenwerte aus eval_results.json). R003 wird zusaetzlich durch G-PRE-04 (Security-Baseline) und G-OPS-04 (Cybersecurity-Operations) operationalisiert (Mehrfachzuordnung phasenuebergreifend). UPDATE (2026-08-14, schema_version 2 / SPEC-01): Dies ist einer der beiden in SPEC-01 Abschnitt 3 dokumentierten Faelle mit heterogener Severity (Thesis-Limitation L12) — policy_robustness_tested (subgroup_analysis, adversarial_tests) war im Rego bereits korrekt als 'warn'/SHOULD implementiert (policies/deployment/policy_safety_metrics.rego), waehrend das alte Gate-weite decision:block dies auf MUST gezogen hat. Mit Check-Ebene-Severity ist das jetzt strukturell korrekt abgebildet: C-01 MUST (deny), C-02 SHOULD (warn). Keine Rego-Aenderung noetig, die Rego-Regeln waren schon richtig."
+notes: "PoC-Gate (★). AUTO: Conftest prueft ob accuracy >= 0.85, latency_p95 <= 2000ms, safety_score >= 0.90 (Schwellenwerte aus eval_results.json). R003 wird zusaetzlich durch G-PRE-04 (Security-Baseline) und G-OPS-04 (Cybersecurity-Operations) operationalisiert (Mehrfachzuordnung phasenuebergreifend). UPDATE (2026-08-14, schema_version 2 / SPEC-01): Dies ist einer der beiden in SPEC-01 Abschnitt 3 dokumentierten Faelle mit heterogener Severity (Thesis-Limitation L12) — policy_robustness_tested (subgroup_analysis, adversarial_tests) war im Rego bereits korrekt als 'warn'/SHOULD implementiert (policies/deployment/policy_safety_metrics.rego), waehrend das alte Gate-weite decision:block dies auf MUST gezogen hat. Mit Check-Ebene-Severity ist das jetzt strukturell korrekt abgebildet: C-01 MUST (deny), C-02 SHOULD (warn). Keine Rego-Aenderung noetig, die Rego-Regeln waren schon richtig. WAIVER ABGESCHAFFT (2026-08-17, Audit F-2): der bisherige Ausnahmepfad lautete \"ML Lead + AI Governance Lead Approval, befristet auf 14 Tage\" — als Governance-Absicht hier bewahrt, falls Waiver spaeter wirklich implementiert werden. Bis dahin gilt: keine Ausnahme."

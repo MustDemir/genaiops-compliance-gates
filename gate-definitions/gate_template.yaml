@@ -50,6 +50,17 @@ owner: ""
 audit_trail:
   enabled: true
   evidence_store_ref: ""
+# Waiver: seit 2026-08-17 (Audit F-2) gibt es keinen Ausnahmepfad.
+# Das Template sah einen vor, aber nichts hat ihn je durchgesetzt: keine
+# Logik in pipeline/, evidence-store/, policies/ oder .github/, und das
+# Evidence-Schema kennt nur decision IN ('PASS','FAIL') — ein ausgesetztes
+# Gate war von einem bestandenen nicht unterscheidbar.
+#
+# allowed: true erst wieder setzen, wenn es eine echte Kontrolle gibt:
+# Waiver als eigener Evidence-Record mit Genehmiger, Begruendung und
+# Ablaufdatum IN DER HASH-PAYLOAD, Ablaufdurchsetzung, und eine sichtbare
+# Unterscheidung bestanden/ausgesetzt im Reporting. Die Integrity-Regression
+# (WAIVER_NOT_DECLARATIVE) blockiert ein allowed: true ohne diese Kontrolle.
 waiver:
   allowed: false
   requires: ""

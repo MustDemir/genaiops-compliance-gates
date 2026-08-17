@@ -31,8 +31,8 @@ audit_trail:
   enabled: true
   evidence_store_ref: "evidence://gates/operations/G-OPS-02"
 waiver:
-  allowed: true
-  requires: "AI Governance Lead Approval, befristet auf 14 Tage"
+  allowed: false
+  requires: "Kein Waiver moeglich. Das Gate-Template sah bis 2026-08-17 einen Ausnahmepfad mit Genehmiger und Befristung vor, aber es gab keine Implementierung: 'waiver' kam in pipeline/, evidence-store/, policies/ und .github/ in keiner Zeile Logik vor, und das Evidence-Schema kennt nur decision IN ('PASS','FAIL') — ein ausgesetztes Gate war von einem bestandenen nicht unterscheidbar. Ein Ausnahmepfad, der keine Spur hinterlaesst, entwertet die Lueckenlosigkeit der Hash-Kette; ein Kontrollsystem ohne Ausnahmepfad ist ehrlicher als eines mit einem, der nicht funktioniert. Entscheidung: abgeschafft statt implementiert."
 links:
   requirements:
     - "R009"
@@ -41,4 +41,4 @@ links:
     - "Art. 73"
 sources:
   - "requirements/R009.yaml"
-notes: "IMPLEMENTED (2026-03-28) — policy_incident_process_exists.rego: 3 Checks (incident-response-configured, incident-contact, rollback-mechanism), 6 violation-Rules (Gatekeeper-Konvention 'violation', nicht Conftest-'deny'). Fixtures: deployment_incident_pass.json, deployment_incident_fail.json. UPDATE (2026-08-14, schema_version 2 / SPEC-01): policy_checks auf Objektform migriert, Severity aus R009 (MUST) uebernommen."
+notes: "IMPLEMENTED (2026-03-28) — policy_incident_process_exists.rego: 3 Checks (incident-response-configured, incident-contact, rollback-mechanism), 6 violation-Rules (Gatekeeper-Konvention 'violation', nicht Conftest-'deny'). Fixtures: deployment_incident_pass.json, deployment_incident_fail.json. UPDATE (2026-08-14, schema_version 2 / SPEC-01): policy_checks auf Objektform migriert, Severity aus R009 (MUST) uebernommen. WAIVER ABGESCHAFFT (2026-08-17, Audit F-2): der bisherige Ausnahmepfad lautete \"AI Governance Lead Approval, befristet auf 14 Tage\" — als Governance-Absicht hier bewahrt, falls Waiver spaeter wirklich implementiert werden. Bis dahin gilt: keine Ausnahme."

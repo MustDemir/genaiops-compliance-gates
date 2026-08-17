@@ -38,8 +38,8 @@ audit_trail:
   enabled: true
   evidence_store_ref: "evidence://gates/operations/G-OPS-03"
 waiver:
-  allowed: true
-  requires: "ML Lead + AI Governance Lead Approval, befristet auf 14 Tage"
+  allowed: false
+  requires: "Kein Waiver moeglich. Das Gate-Template sah bis 2026-08-17 einen Ausnahmepfad mit Genehmiger und Befristung vor, aber es gab keine Implementierung: 'waiver' kam in pipeline/, evidence-store/, policies/ und .github/ in keiner Zeile Logik vor, und das Evidence-Schema kennt nur decision IN ('PASS','FAIL') — ein ausgesetztes Gate war von einem bestandenen nicht unterscheidbar. Ein Ausnahmepfad, der keine Spur hinterlaesst, entwertet die Lueckenlosigkeit der Hash-Kette; ein Kontrollsystem ohne Ausnahmepfad ist ehrlicher als eines mit einem, der nicht funktioniert. Entscheidung: abgeschafft statt implementiert."
 links:
   requirements:
     - "R010"
@@ -48,4 +48,4 @@ links:
     - "Art. 9 Abs. 2"
 sources:
   - "requirements/R010.yaml"
-notes: "PoC-Gate (★). AUTO: Gatekeeper prueft ob Monitoring-Endpoints und -Metriken als aktive ServiceMonitor-Objekte im Cluster registriert sind, und ob Drift-Detection-Pipelines (PSI > 0.2 = critical, JS-Divergenz > 0.1 = critical) konfiguriert und aktiv sind. Schwellenwert-Ueberschreitungen loesen automatische Alerts und ggf. Gate-Re-Evaluation aus. policy_monitoring_configured und policy_data_drift_monitoring sind gebuendelt in policies/operations/policy_monitoring_configured.rego implementiert (eine Datei, mehrere Checks, hier als C-01/C-02 auf dieselbe Datei abgebildet). UPDATE (2026-08-14, schema_version 2 / SPEC-01): policy_checks auf Objektform migriert, Severity aus R010 (MUST) uebernommen; evidence_level.current bewusst streng als E-0 eingestuft (Annotation, nicht Live-Messung) trotz vorhandener E-3-faehiger Referenzimplementierung."
+notes: "PoC-Gate (★). AUTO: Gatekeeper prueft ob Monitoring-Endpoints und -Metriken als aktive ServiceMonitor-Objekte im Cluster registriert sind, und ob Drift-Detection-Pipelines (PSI > 0.2 = critical, JS-Divergenz > 0.1 = critical) konfiguriert und aktiv sind. Schwellenwert-Ueberschreitungen loesen automatische Alerts und ggf. Gate-Re-Evaluation aus. policy_monitoring_configured und policy_data_drift_monitoring sind gebuendelt in policies/operations/policy_monitoring_configured.rego implementiert (eine Datei, mehrere Checks, hier als C-01/C-02 auf dieselbe Datei abgebildet). UPDATE (2026-08-14, schema_version 2 / SPEC-01): policy_checks auf Objektform migriert, Severity aus R010 (MUST) uebernommen; evidence_level.current bewusst streng als E-0 eingestuft (Annotation, nicht Live-Messung) trotz vorhandener E-3-faehiger Referenzimplementierung. WAIVER ABGESCHAFFT (2026-08-17, Audit F-2): der bisherige Ausnahmepfad lautete \"ML Lead + AI Governance Lead Approval, befristet auf 14 Tage\" — als Governance-Absicht hier bewahrt, falls Waiver spaeter wirklich implementiert werden. Bis dahin gilt: keine Ausnahme."

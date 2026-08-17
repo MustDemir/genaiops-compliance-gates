@@ -7,7 +7,7 @@ Static regression checks for credibility risks in the GenAIOps Compliance Gates 
 This suite intentionally focuses on "does the PoC prove what it claims to prove?"
 instead of only checking functional green paths.
 
-What it checks (19 checks, fail-fast ordering):
+What it checks (20 checks, fail-fast ordering):
   1.  Demo fallbacks that can mask missing real enforcement (check_orchestrator_fallbacks)
   2.  Optional/non-critical handling of Evidence Store recording (check_ci_evidence_mandatory)
   3.  Drift detection wiring to the Evidence Store (check_drift_evidence_wiring)
@@ -27,6 +27,7 @@ What it checks (19 checks, fail-fast ordering):
   17. schema_version 2: evidence_level.current/.target valid and non-regressing (check_gate_evidence_level_valid)
   18. SPEC-03: every gate carries a valid role_scope (check_gate_role_scope_valid)
   19. record_evidence INSERT arity: columns == placeholders == bound values (check_evidence_insert_arity)
+  20. Audit F-2: no gate declares a waiver the system cannot grant (check_waiver_not_declarative)
 
 Usage:
   python3 test_integrity_regression.py
@@ -839,6 +840,49 @@ def check_evidence_insert_arity() -> dict:
     )
 
 
+def check_waiver_not_declarative() -> dict:
+    """Audit F-2: a gate must not declare a waiver the system cannot grant.
+
+    11 of 17 gates used to set waiver.allowed: true, each naming an approver
+    and a time limit. Nothing enforced any of it: "waiver" appeared in no
+    line of logic in pipeline/, evidence-store/, policies/ or .github/, and
+    the evidence schema only knows decision IN ('PASS','FAIL') — so a waived
+    gate was indistinguishable from a passed one. An exception path that
+    leaves no trace devalues the completeness of the hash chain, which is the
+    one property the whole artefact rests on.
+
+    The decision was to abolish waivers rather than implement them. This
+    check keeps that decision from eroding silently: allowed: true is only
+    acceptable once a real control exists. It detects that control by
+    looking for waiver handling in the recording path — if you implement
+    waivers, record_evidence.py has to learn about them, and then this check
+    stops objecting on its own.
+    """
+    record = read_text(REPO_ROOT / "evidence-store" / "scripts" / "record_evidence.py")
+    mechanism_exists = "waiver" in record.lower()
+
+    findings = []
+    for f, gate in _load_gate_files():
+        if (gate.get("waiver") or {}).get("allowed") and not mechanism_exists:
+            findings.append(
+                f"{f.relative_to(REPO_ROOT)}: waiver.allowed is true, but "
+                f"record_evidence.py has no waiver handling — the gate declares an "
+                f"exception the system cannot grant, record or expire"
+            )
+
+    return make_result(
+        "WAIVER_NOT_DECLARATIVE",
+        "no gate declares a waiver the system cannot actually grant",
+        "high",
+        not findings,
+        "A declarative-only exception path makes a waived gate look like a passed one." if findings
+        else ("No gate declares a waiver; the exception path was abolished rather than "
+              "left unimplemented (audit F-2)." if not mechanism_exists
+              else "Waiver handling exists in the recording path."),
+        findings,
+    )
+
+
 VALID_ROLE_SCOPES = {"provider", "deployer"}
 
 
@@ -898,6 +942,7 @@ def collect_results() -> list[dict]:
         check_gate_evidence_level_valid,
         check_gate_role_scope_valid,
         check_evidence_insert_arity,
+        check_waiver_not_declarative,
     ]
     results = []
     for check in checks:
