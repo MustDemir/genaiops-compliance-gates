@@ -83,3 +83,15 @@ policies/POLICY_CANDIDATES_*.md
 # Projekt-Handbuch (Cowork-Projekt, enthaelt nicht-oeffentliche Strategie)
 HANDBUCH.md
 HANDBUCH.pdf
+
+# SQLite-Begleitdateien: transienter Write-Ahead-Log- und Shared-Memory-Zustand.
+# Gehoeren nie ins Repo — sie koennen nicht-committete Transaktionsdaten enthalten
+# und verwirren jeden, der die .db danach oeffnet.
+evidence-store/*.db-wal
+evidence-store/*.db-shm
+
+# FUSE-Artefakte gemounteter Dateisysteme
+.fuse_hidden*
+
+# Arbeitsverzeichnis fuer Zwischenergebnisse (PDF-Extrakte, Seitenscans, Scratch)
+tmp/
