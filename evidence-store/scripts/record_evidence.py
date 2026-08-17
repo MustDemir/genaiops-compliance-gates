@@ -141,7 +141,14 @@ def init_sqlite(db_path: str) -> sqlite3.Connection:
             payload_id TEXT NOT NULL,
             checked_at TEXT NOT NULL,
             inserted_by TEXT NOT NULL DEFAULT 'poc_local',
-            ai_act_role TEXT NOT NULL DEFAULT 'DEPLOYER',
+            -- NULL-faehig und ohne Default, symmetrisch zur PostgreSQL-
+            -- Migration v03->v04: NULL heisst "vor Schema v04 geschrieben,
+            -- Rolle nicht erfasst und nicht hash-gedeckt". Niemals
+            -- nachtraeglich befuellen — verify_hash_chain.py wertet ein
+            -- Nicht-NULL unterhalb des Cutoffs als Manipulationssignal.
+            -- Bei einer frischen DB ist der Cutoff 1, also traegt ohnehin
+            -- jeder Record die Rolle.
+            ai_act_role TEXT CHECK (ai_act_role IS NULL OR ai_act_role IN ('PROVIDER','DEPLOYER','BOTH')),
             hash_value TEXT NOT NULL,
             previous_hash TEXT,
             notes TEXT

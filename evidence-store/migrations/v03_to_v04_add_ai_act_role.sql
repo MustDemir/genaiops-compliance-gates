@@ -26,13 +26,26 @@
 -- ist durch tests/test_hash_parity.py abgesichert.
 -- ================================================================
 
--- 1) Rollen-Spalte
+-- 1) Rollen-Spalte — BEWUSST NULL-faehig, KEIN Default-Backfill.
+--
+-- Ein NOT NULL DEFAULT 'DEPLOYER' wuerde jeden historischen Record
+-- rueckwirkend mit einer Rolle stempeln, die dort NIE gehasht wurde und
+-- damit frei aenderbar ist: die Kette bliebe byteweise gueltig, ein
+-- archivierter Head-Hash wuerde weiter passen, und die Reporting-View
+-- zeigte die ungedeckte Angabe in derselben Zeile wie hash_value. Fuer
+-- Pre-Cutoff-Records ist die Rolle schlicht nicht bekannt — NULL sagt
+-- das, 'DEPLOYER' behauptet etwas.
+--
+-- NULL heisst hier ausdruecklich: "damals nicht erfasst, nicht durch die
+-- Hash-Kette gedeckt". verify_hash_chain.py erzwingt das in beide
+-- Richtungen (siehe dort): ein Nicht-NULL unterhalb des Cutoffs ist ein
+-- Manipulationssignal, ein NULL ab dem Cutoff ein fehlendes Pflichtfeld.
 ALTER TABLE compliance.quality_gate_results
-    ADD COLUMN IF NOT EXISTS ai_act_role TEXT NOT NULL DEFAULT 'DEPLOYER'
-    CHECK (ai_act_role IN ('PROVIDER', 'DEPLOYER', 'BOTH'));
+    ADD COLUMN IF NOT EXISTS ai_act_role TEXT
+    CHECK (ai_act_role IS NULL OR ai_act_role IN ('PROVIDER', 'DEPLOYER', 'BOTH'));
 
 COMMENT ON COLUMN compliance.quality_gate_results.ai_act_role IS
-    'EU AI Act role the gate ran under: PROVIDER (Art. 16 lit. a — properties of the system), DEPLOYER (Art. 26 — properties of its use), or BOTH. Part of the hashed payload from the audit_id recorded in compliance.schema_metadata. See SPEC-03.';
+    'EU AI Act role the gate ran under: PROVIDER (Art. 16 lit. a — properties of the system), DEPLOYER (Art. 26 — properties of its use), or BOTH. Part of the hashed payload from the audit_id recorded in compliance.schema_metadata. NULL means the record predates schema v04: the role was not captured and is NOT covered by the hash chain — it must never be back-filled. See SPEC-03.';
 
 -- 2) Metadaten-Tabelle fuer den Cutoff
 CREATE TABLE IF NOT EXISTS compliance.schema_metadata (
@@ -120,20 +133,33 @@ $$;
 
 -- 5) Reporting-View um die Rolle erweitern (Privacy-View: kein notes,
 --    kein inserted_by, kein payload_id — siehe RBAC-Fix in v2.0.0)
+--
+-- ai_act_role_hash_covered macht fuer den Auditor sichtbar, ob die Rolle
+-- in dieser Zeile durch die Hash-Kette gedeckt ist. Ohne diese Spalte
+-- staende die Rolle direkt neben hash_value, ohne dass erkennbar waere,
+-- dass sie bei alten Zeilen gar nicht mitgesiegelt wurde.
 CREATE OR REPLACE VIEW compliance.vw_quality_gate_reporting AS
 SELECT
-    audit_id,
-    model_name,
-    model_version,
-    pipeline_id,
-    run_id,
-    gate_type,
-    decision,
-    decision_method,
-    ai_act_role,
-    gate_name,
-    policy_version,
-    checked_at,
-    hash_value,
-    previous_hash
-  FROM compliance.quality_gate_results;
+    q.audit_id,
+    q.model_name,
+    q.model_version,
+    q.pipeline_id,
+    q.run_id,
+    q.gate_type,
+    q.decision,
+    q.decision_method,
+    q.ai_act_role,
+    (q.audit_id >= COALESCE(
+        (SELECT m.value::bigint
+           FROM compliance.schema_metadata m
+          WHERE m.key = 'ai_act_role_payload_from_audit_id'),
+        9223372036854775807))          AS ai_act_role_hash_covered,
+    q.gate_name,
+    q.policy_version,
+    q.checked_at,
+    q.hash_value,
+    q.previous_hash
+  FROM compliance.quality_gate_results q;
+
+COMMENT ON VIEW compliance.vw_quality_gate_reporting IS
+    'Auditor-facing view. ai_act_role_hash_covered is false for records written before the schema-v04 cutoff: their ai_act_role is NULL and is not protected by the hash chain.';

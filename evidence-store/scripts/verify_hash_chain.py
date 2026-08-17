@@ -225,6 +225,33 @@ def verify_chain(records: list[dict], verbose: bool = False, role_cutoff=None) -
                 f"(stored={stored_hash[:16]}... recomputed={recomputed[:16]}...)"
             )
 
+        # Check 3: ai_act_role must be present exactly where the hash covers it.
+        #
+        # Below the cutoff the field is NOT part of the payload, so any value
+        # there is unauthenticated — it could be changed without breaking a
+        # single hash, leaving even an archived head hash intact. Since the
+        # migration deliberately leaves those rows NULL, a non-NULL value can
+        # only come from a back-fill or a manipulation. Both must be loud.
+        #
+        # Above the cutoff the reverse holds: a NULL would mean the record was
+        # written without the role while claiming to cover it.
+        if role_cutoff is not None:
+            role_value = rec.get("ai_act_role")
+            covered = audit_id >= role_cutoff
+            if not covered and role_value not in (None, ""):
+                errors.append(
+                    f"  audit_id={audit_id}: ai_act_role='{role_value}' on a pre-cutoff "
+                    f"record (cutoff={role_cutoff}) — this field is not covered by the "
+                    f"hash chain here and must stay NULL; a value indicates a back-fill "
+                    f"or tampering"
+                )
+            elif covered and role_value in (None, ""):
+                errors.append(
+                    f"  audit_id={audit_id}: ai_act_role is NULL although the record is "
+                    f"at or above the cutoff ({role_cutoff}) — the role is a required, "
+                    f"hash-covered field from here on"
+                )
+
         if verbose:
             status = "OK" if not any(str(audit_id) in e for e in errors) else "FAIL"
             print(

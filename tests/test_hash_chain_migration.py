@@ -139,9 +139,11 @@ def main() -> int:
         ok &= _check(f"pure v03 chain verifies ({count} records)", valid and count == 3, err)
 
         # ── Phase 2: run the migration ──
+        # Nullable, no default: pre-cutoff rows must stay NULL. A
+        # `NOT NULL DEFAULT 'DEPLOYER'` here would stamp every historical
+        # record with an unauthenticated role — see phase 6.
         conn.execute(
-            "ALTER TABLE quality_gate_results "
-            "ADD COLUMN ai_act_role TEXT NOT NULL DEFAULT 'DEPLOYER'"
+            "ALTER TABLE quality_gate_results ADD COLUMN ai_act_role TEXT"
         )
         conn.execute("CREATE TABLE schema_metadata (key TEXT PRIMARY KEY, value TEXT NOT NULL)")
         next_id = conn.execute(
@@ -183,6 +185,41 @@ def main() -> int:
         ok &= _check("tampering with ai_act_role above the cutoff is detected", not valid,
                      "the role was silently changed without breaking the chain — "
                      "it is NOT actually protected")
+        conn.execute("UPDATE quality_gate_results SET ai_act_role='BOTH' WHERE audit_id=5")
+        conn.commit()
+
+        # ── Phase 6: the silent-tamper primitive below the cutoff ──
+        # Pre-cutoff rows are outside the hashed payload, so writing a role
+        # there changes no hash at all: the chain stays byte-identical and an
+        # archived head hash still matches. That is a stronger primitive than
+        # rewriting the chain, and it is exactly why those rows must stay NULL
+        # and why the verifier has to reject a value there explicitly.
+        head_before = _fetch(db_path)[-1]["hash_value"]
+        conn.execute("UPDATE quality_gate_results SET ai_act_role='PROVIDER' WHERE audit_id < 4")
+        conn.commit()
+        head_after = _fetch(db_path)[-1]["hash_value"]
+
+        ok &= _check("back-filling a pre-cutoff role leaves every hash unchanged",
+                     head_before == head_after,
+                     "precondition of this test no longer holds")
+
+        valid, _, err = verify.verify_chain(_fetch(db_path), role_cutoff=_cutoff(db_path))
+        ok &= _check("a role back-filled below the cutoff is rejected", not valid,
+                     "the verifier accepted an unauthenticated role on historical "
+                     "records — an auditor would read it as chain-verified")
+
+        conn.execute("UPDATE quality_gate_results SET ai_act_role=NULL WHERE audit_id < 4")
+        conn.commit()
+        valid, _, _ = verify.verify_chain(_fetch(db_path), role_cutoff=_cutoff(db_path))
+        ok &= _check("NULL on pre-cutoff records verifies cleanly", valid,
+                     "the honest state must not be reported as tampering")
+
+        # ── Phase 7: a missing role AT/ABOVE the cutoff is equally loud ──
+        conn.execute("UPDATE quality_gate_results SET ai_act_role=NULL WHERE audit_id=5")
+        conn.commit()
+        valid, _, _ = verify.verify_chain(_fetch(db_path), role_cutoff=_cutoff(db_path))
+        ok &= _check("a NULL role at/above the cutoff is rejected", not valid,
+                     "a hash-covered record without a role went unnoticed")
 
         conn.close()
 
