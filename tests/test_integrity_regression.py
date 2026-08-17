@@ -7,7 +7,7 @@ Static regression checks for credibility risks in the GenAIOps Compliance Gates 
 This suite intentionally focuses on "does the PoC prove what it claims to prove?"
 instead of only checking functional green paths.
 
-What it checks (18 checks, fail-fast ordering):
+What it checks (19 checks, fail-fast ordering):
   1.  Demo fallbacks that can mask missing real enforcement (check_orchestrator_fallbacks)
   2.  Optional/non-critical handling of Evidence Store recording (check_ci_evidence_mandatory)
   3.  Drift detection wiring to the Evidence Store (check_drift_evidence_wiring)
@@ -26,6 +26,7 @@ What it checks (18 checks, fail-fast ordering):
   16. schema_version 2: policy_checks[].policy resolves to an existing Rego file (check_gate_policy_files_exist)
   17. schema_version 2: evidence_level.current/.target valid and non-regressing (check_gate_evidence_level_valid)
   18. SPEC-03: every gate carries a valid role_scope (check_gate_role_scope_valid)
+  19. record_evidence INSERT arity: columns == placeholders == bound values (check_evidence_insert_arity)
 
 Usage:
   python3 test_integrity_regression.py
@@ -749,6 +750,69 @@ def check_gate_evidence_level_valid() -> dict:
     )
 
 
+def check_evidence_insert_arity() -> dict:
+    """Column count, placeholder count and bound-value count must agree in
+    every INSERT of record_evidence.py.
+
+    Motivated by a real defect: schema v04 added `ai_act_role` to the column
+    list and the placeholder list of insert_pg(), but not to the value tuple —
+    16 placeholders against 15 values. psycopg2 raises IndexError, so the
+    PostgreSQL write path was dead while the SQLite path (used by CI and the
+    tests) stayed green. A static arity check catches this class without
+    needing a live database.
+    """
+    path = REPO_ROOT / "evidence-store" / "scripts" / "record_evidence.py"
+    text = read_text(path)
+    findings = []
+
+    for label, marker in (
+        ("insert_sqlite", "INSERT INTO quality_gate_results"),
+        ("insert_pg", "INSERT INTO compliance.quality_gate_results"),
+    ):
+        idx = text.find(marker)
+        if idx == -1:
+            findings.append(f"{path.name}: could not locate the {label} statement")
+            continue
+        block = text[idx:idx + 2500]
+
+        col_match = re.search(r"\(([^)]*?)\)\s*\n\s*VALUES", block, re.S)
+        val_match = re.search(r"VALUES\s*\(([^)]*)\)", block)
+        if not (col_match and val_match):
+            findings.append(f"{path.name}: could not parse the {label} statement")
+            continue
+
+        n_cols = len([c for c in col_match.group(1).replace("\n", " ").split(",") if c.strip()])
+        n_ph = val_match.group(1).count("%s") + val_match.group(1).count("?")
+
+        # Count the bound values: every line in the argument tuple that starts
+        # with `record[...]` or `record.get(...)`. Bounded by the end of the
+        # statement so the next function is not counted in. Indentation differs
+        # between the two call sites, so anchoring on it is not reliable.
+        tail = block[val_match.end():]
+        for stop in ("cur.fetchone()", "conn.commit()", "lastrowid"):
+            pos = tail.find(stop)
+            if pos != -1:
+                tail = tail[:pos]
+        n_vals = len([ln for ln in tail.splitlines()
+                      if re.match(r"\s*record[\[.]", ln)])
+
+        if not (n_cols == n_ph == n_vals):
+            findings.append(
+                f"{path.name}: {label} arity mismatch — "
+                f"{n_cols} columns / {n_ph} placeholders / {n_vals} bound values"
+            )
+
+    return make_result(
+        "EVIDENCE_INSERT_ARITY",
+        "record_evidence INSERTs bind as many values as they declare columns",
+        "high",
+        not findings,
+        "A column/placeholder/value mismatch breaks one write path while the other stays green." if findings
+        else "SQLite and PostgreSQL INSERT statements are arity-consistent.",
+        findings,
+    )
+
+
 VALID_ROLE_SCOPES = {"provider", "deployer"}
 
 
@@ -807,6 +871,7 @@ def collect_results() -> list[dict]:
         check_gate_policy_files_exist,
         check_gate_evidence_level_valid,
         check_gate_role_scope_valid,
+        check_evidence_insert_arity,
     ]
     results = []
     for check in checks:

@@ -306,6 +306,7 @@ def insert_pg(conn, record: dict) -> int:
                 record["payload_id"],
                 record["checked_at"],
                 record["inserted_by"],
+                record.get("ai_act_role", "DEPLOYER"),
                 record["hash_value"],
                 record["previous_hash"],
                 record.get("notes", ""),
