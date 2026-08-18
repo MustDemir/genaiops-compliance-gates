@@ -81,9 +81,33 @@ if [[ ! -f "$VALUES_FILE" ]]; then
     fail "Values file not found: $VALUES_FILE"
 fi
 
+# Grafana-Admin-Passwort: aus GRAFANA_ADMIN_PASSWORD uebernehmen, sonst
+# einmalig zufaellig erzeugen und als Secret ablegen. Bis 2026-08-18 stand
+# es im Klartext in der eingecheckten Values-Datei — eine eingecheckte
+# Values-Datei ist eine veroeffentlichte Datei. Ein bestehendes Secret wird
+# nicht ueberschrieben, damit ein Re-Install den Zugang nicht aendert.
+if kubectl get secret grafana-admin -n monitoring >/dev/null 2>&1; then
+    log "Grafana admin secret already exists — leaving it untouched"
+else
+    if [ -z "${GRAFANA_ADMIN_PASSWORD:-}" ]; then
+        GRAFANA_ADMIN_PASSWORD="$(LC_ALL=C tr -dc 'A-Za-z0-9' </dev/urandom | head -c 24)"
+        log "No GRAFANA_ADMIN_PASSWORD in the environment — generated a random one"
+    fi
+    kubectl create secret generic grafana-admin \
+        --from-literal=admin-user=admin \
+        --from-literal=admin-password="$GRAFANA_ADMIN_PASSWORD" \
+        --namespace monitoring \
+        --dry-run=client -o yaml | kubectl apply -f -
+    unset GRAFANA_ADMIN_PASSWORD
+    ok "Grafana admin secret created"
+fi
+
 helm upgrade --install prometheus-stack prometheus-community/kube-prometheus-stack \
     --namespace monitoring \
     --values "$VALUES_FILE" \
+    --set grafana.admin.existingSecret=grafana-admin \
+    --set grafana.admin.userKey=admin-user \
+    --set grafana.admin.passwordKey=admin-password \
     --wait \
     --timeout 10m
 
@@ -221,7 +245,7 @@ GRAFANA_URL=$(minikube service prometheus-stack-grafana -n monitoring --url 2>/d
 echo -e "  ${BOLD}Grafana:${RESET}"
 echo -e "    URL:      ${BLUE}${GRAFANA_URL}${RESET}"
 echo -e "    User:     admin"
-echo -e "    Password: genaiops-poc"
+echo -e "    Password: ${BLUE}kubectl get secret grafana-admin -n monitoring -o jsonpath='{.data.admin-password}' | base64 -d${RESET}"
 echo ""
 echo -e "  ${BOLD}Prometheus:${RESET}"
 echo -e "    Port-forward: kubectl port-forward svc/prometheus-stack-kube-prom-prometheus 9090:9090 -n monitoring"

@@ -73,14 +73,36 @@ docker build \
 ok "Docker image built: ambient-ai-scribe:1.0.0"
 
 # ── Step 2: Create PostgreSQL Secret (if not exists) ───────────
+#
+# Das Passwort stand hier bis 2026-08-18 als Literal ('genaiops-poc') im
+# Repository und wurde beim Deploy real gesetzt — ein im Klartext
+# veroeffentlichtes Datenbankpasswort, auch wenn es "nur" der PoC ist.
+#
+# Jetzt: aus POSTGRES_PASSWORD uebernehmen, sonst einmalig zufaellig
+# erzeugen. Ein bereits existierendes Secret wird NICHT ueberschrieben,
+# damit ein erneuter Deploy die laufende Datenbank nicht aussperrt.
 log "Ensuring PostgreSQL credentials secret..."
-kubectl create secret generic postgres-credentials \
-    --from-literal=POSTGRES_USER=genaiops \
-    --from-literal=POSTGRES_PASSWORD=genaiops-poc \
-    --from-literal=POSTGRES_DB=genaiops \
-    --namespace genaiops \
-    --dry-run=client -o yaml | kubectl apply -f -
-ok "PostgreSQL secret ready"
+if kubectl get secret postgres-credentials -n genaiops >/dev/null 2>&1; then
+    ok "PostgreSQL secret already exists — leaving it untouched"
+else
+    if [ -z "${POSTGRES_PASSWORD:-}" ]; then
+        POSTGRES_PASSWORD="$(LC_ALL=C tr -dc 'A-Za-z0-9' </dev/urandom | head -c 32)"
+        log "No POSTGRES_PASSWORD in the environment — generated a random one."
+        log "Read it back with:"
+        log "  kubectl get secret postgres-credentials -n genaiops \\"
+        log "    -o jsonpath='{.data.POSTGRES_PASSWORD}' | base64 -d"
+    else
+        log "Using POSTGRES_PASSWORD from the environment"
+    fi
+    kubectl create secret generic postgres-credentials \
+        --from-literal=POSTGRES_USER=genaiops \
+        --from-literal=POSTGRES_PASSWORD="$POSTGRES_PASSWORD" \
+        --from-literal=POSTGRES_DB=genaiops \
+        --namespace genaiops \
+        --dry-run=client -o yaml | kubectl apply -f -
+    unset POSTGRES_PASSWORD
+    ok "PostgreSQL secret created"
+fi
 
 # ── Step 3: Deploy PostgreSQL (Evidence Store) ─────────────────
 log "Deploying PostgreSQL (Evidence Store)..."

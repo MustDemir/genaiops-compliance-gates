@@ -52,9 +52,12 @@ prometheus:
 grafana:
   enabled: true
 
-  # Admin credentials (PoC only — not for production!)
+  # Admin credentials.
+  # adminPassword steht bewusst NICHT hier: eine eingecheckte Values-Datei ist
+  # eine veroeffentlichte Datei. install-monitoring.sh erzeugt stattdessen ein
+  # Secret (grafana-admin) und reicht es per --set grafana.admin.existingSecret
+  # durch. Wer helm direkt aufruft, setzt --set grafana.adminPassword=... selbst.
   adminUser: admin
-  adminPassword: genaiops-poc
 
   # Resource limits for Minikube
   resources:

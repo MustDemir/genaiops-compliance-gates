@@ -237,14 +237,34 @@ ok "ConstraintTemplates: $CT_COUNT | Constraints: $CONSTRAINT_COUNT"
 echo -e "\n${BOLD}── Phase 4: Application Stack ──${RESET}\n"
 
 # PostgreSQL Secret
+#
+# Bis 2026-08-18 stand hier ein Klartext-Passwort im Repository — und zwar
+# im CLOUD-Deployment, nicht nur im lokalen. Jetzt aus POSTGRES_PASSWORD
+# uebernehmen, sonst einmalig zufaellig erzeugen. Ein bestehendes Secret
+# wird nicht ueberschrieben, damit ein Re-Deploy die laufende Datenbank
+# nicht aussperrt.
 log "Creating PostgreSQL credentials..."
-kubectl create secret generic postgres-credentials \
-    --from-literal=POSTGRES_USER=genaiops \
-    --from-literal=POSTGRES_PASSWORD=genaiops-poc \
-    --from-literal=POSTGRES_DB=genaiops \
-    --namespace genaiops \
-    --dry-run=client -o yaml | kubectl apply -f -
-ok "PostgreSQL secret ready"
+if kubectl get secret postgres-credentials -n genaiops >/dev/null 2>&1; then
+    ok "PostgreSQL secret already exists — leaving it untouched"
+else
+    if [ -z "${POSTGRES_PASSWORD:-}" ]; then
+        POSTGRES_PASSWORD="$(LC_ALL=C tr -dc 'A-Za-z0-9' </dev/urandom | head -c 32)"
+        log "No POSTGRES_PASSWORD in the environment — generated a random one."
+        log "Read it back with:"
+        log "  kubectl get secret postgres-credentials -n genaiops \\"
+        log "    -o jsonpath='{.data.POSTGRES_PASSWORD}' | base64 -d"
+    else
+        log "Using POSTGRES_PASSWORD from the environment"
+    fi
+    kubectl create secret generic postgres-credentials \
+        --from-literal=POSTGRES_USER=genaiops \
+        --from-literal=POSTGRES_PASSWORD="$POSTGRES_PASSWORD" \
+        --from-literal=POSTGRES_DB=genaiops \
+        --namespace genaiops \
+        --dry-run=client -o yaml | kubectl apply -f -
+    unset POSTGRES_PASSWORD
+    ok "PostgreSQL secret created"
+fi
 
 # PostgreSQL
 log "Deploying PostgreSQL (Evidence Store)..."
