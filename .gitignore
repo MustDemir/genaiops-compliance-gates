@@ -98,3 +98,4 @@ tmp/
 
 # SPEC-04: generated drift measurement (gate input, not source)
 monitoring/drift_measurement.json
+HISTORIE.md
