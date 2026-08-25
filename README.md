@@ -1,125 +1,196 @@
-# GenAIOps Compliance Gates — EU AI Act Compliant Quality Gate System
+# GenAIOps Compliance Gates
 
-A cloud-native reference architecture for operationalizing regulatory, technical, and strategic requirements in GenAI systems through automated Quality Gates — with full EU AI Act (Regulation 2024/1689) compliance built into CI/CD/CT pipelines.
+**Regulatory obligations, enforced as code in the delivery pipeline — and evidenced in a tamper-evident audit trail.**
+
+A cloud-native reference architecture that turns EU AI Act obligations into automated quality gates in CI/CD, and records every gate decision as verifiable evidence. Built as a Design Science Research artefact, developed beyond it towards production readiness.
 
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0)
-[![Changelog](https://img.shields.io/badge/Changelog-Phase%201--12-blue)](CHANGELOG.md)
-[![Documentation](https://img.shields.io/badge/Docs-published-brightgreen)](docs/README.md)
+[![CI](https://github.com/MustDemir/genaiops-compliance-gates/actions/workflows/gate-pipeline.yml/badge.svg)](https://github.com/MustDemir/genaiops-compliance-gates/actions)
+[![Changelog](https://img.shields.io/badge/Changelog-post--thesis-blue)](CHANGELOG.md)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19920310.svg)](https://doi.org/10.5281/zenodo.19920310)
-
-> **Reproducibility:** the exact state cited in the submitted and graded Master's thesis (14 requirements, 16 gates, 10 AUTO / 6 HYBRID / 0 MANUAL, 108 rules, 141 unit tests) is frozen under the Git tag `thesis-v1.0` and archived under the Zenodo DOI above. Everything from that tag forward is post-thesis further development (see [CHANGELOG.md](CHANGELOG.md)) and may report different counts.
 
 ---
 
-## What This Is
+## At a glance
 
-Enterprise GenAI systems face a triple challenge: they must be **technically robust**, **strategically governed**, and **regulatorily compliant** — simultaneously and continuously. This reference architecture solves that by embedding 17 automated Quality Gates across the entire GenAI lifecycle, enforced through Policy-as-Code.
+|  |  |
+|---|---|
+| **Discipline** | AI Governance · AI Assurance · AI Risk Management · Compliance-as-Code |
+| **Regulation** | EU AI Act (EU) 2024/1689 as amended by (EU) 2026/1744 · NIS2 · EnWG § 11 |
+| **Standards context** | ISO/IEC 42001 (AI management system) · ISO/IEC 23894 (AI risk management) · NIST AI RMF · ISO/IEC 27001/27019 |
+| **Technology** | OPA/Rego · Conftest · OPA Gatekeeper · Kubernetes · GitHub Actions · PostgreSQL · Prometheus · Python |
+| **The idea** | Compliance is not a document written after deployment. It is a property the pipeline enforces, and the evidence store proves. |
+| **Goal** | Business-ready, not proof-of-concept: what is enforced, what is only declared, and how strong the evidence is are stated explicitly rather than implied. |
 
-**Key idea:** Compliance is not a document you write after deployment. It's a property the system enforces at every pipeline stage.
+## How it works
 
-### Core Capabilities
+```mermaid
+flowchart TB
+    A["<b>EU AI Act</b> (EU) 2024/1689<br/>+ Omnibus (EU) 2026/1744<br/>Art. 9–15 · 25 · 26 · 72"]
+    B["<b>14 Requirements</b> R001–R014<br/><i>Regulatory requirements engineering</i>"]
+    C["<b>17 Quality Gates</b><br/>10 AUTO · 7 HYBRID · 0 MANUAL<br/><i>Control framework</i>"]
+    D["<b>OPA / Rego</b> — 17 policies, 175 rules<br/>Conftest (CI) · Gatekeeper (K8s admission)<br/><i>Policy-as-code · preventive controls</i>"]
+    E["<b>Evidence Store</b> — PostgreSQL, insert-only<br/>SHA-256 hash chain, row-level security<br/><i>Tamper-evident audit trail</i>"]
+    F["<b>E-0 → E-1 → E-2 → E-3</b><br/>document · signed · cluster state · measured<br/><i>Assurance level</i>"]
+    A --> B --> C --> D --> E --> F
+```
 
-- **17 Quality Gates** across 3 lifecycle phases (Pre-Deployment, Deployment, Operations)
-- **Policy-as-Code** via OPA/Rego with three enforcement pillars (Conftest, Gatekeeper, Decision Logs)
-- **17 implemented Rego Policies** with **166 deny/violation/warn rules + 173 unit tests** covering Art. 3(14), 6(1a)/(1b), 9, 10, 11, 12, 13, 14, 15, 25, 26 (1+5+7), 27, 47, 48, 50, 72, 73 + Annex III No. 2 + Annex IV
-- **Two orthogonal classification axes** — *automatability* (AUTO/HYBRID/MANUAL) and, new in schema v2, *evidentiary strength* (E-0 … E-3)
-- **Severity on the check, not the gate** — a gate with heterogeneous checks is no longer dragged down to its weakest severity
-- **Role as an architecture parameter** — PROVIDER / DEPLOYER / BOTH selects which gates apply at all
-- **Immutable Evidence Store** with SHA-256 hash-chain for audit-proof traceability
-- **Full EU AI Act mapping**: Art. 9–15 → Requirements → Gates → Policies → Evidence
-- **Automated gate decisions** using the CDV Framework (Contract → Validation → Severity → Pipeline-Decision)
-- **Post-Market Surveillance** with drift detection and incident reporting (Art. 72, Art. 26.5)
-- **3-layer test architecture** — Layer 1: 173 Rego unit tests (OPA, fail-fast); Layer 2: Conftest gate evaluations; Layer 3: SHA-256 hash-chain verification per pipeline run
+Each arrow is a traceable link. For any finding in the evidence store, the path back to the originating article of the regulation is documented and machine-readable.
 
-## Legal Status
+## What makes this different
 
-The architecture is maintained against the **consolidated** EU AI Act, i.e. Regulation (EU) 2024/1689 **as amended by Regulation (EU) 2026/1744** (*Digital Omnibus on AI*, in force since 27 July 2026, OJ L of 24 July 2026).
+Most AI governance tooling answers *"is there a policy?"*. This answers *"can you prove it, and how hard would the proof be to fake?"*
+
+- **Evidentiary strength as a second axis.** Automatability (AUTO/HYBRID/MANUAL) says how much runs without a human. It says nothing about how hard the evidence is to forge. Every check therefore also declares an **assurance level E-0 … E-3**. A pod annotation is E-0 — it *asserts* a state, it does not *prove* one.
+- **Provider and deployer obligations are separated.** *The provider owes the properties of the system; the deployer owes the properties of its use.* Art. 16(a) is the hinge, and the market gets this wrong routinely.
+- **Nothing is claimed that is not enforced.** 40 of 47 checks are implemented, 7 are design-only — and each check states which it is. The integrity suite fails the build if a declaration and reality drift apart.
+- **There is no exception path.** The waiver mechanism was abolished rather than left as an unimplemented promise, because an exception that leaves no trace devalues the completeness of the chain.
+
+## Status
+
+| | |
+|---|---|
+| Gates / requirements | 17 gates · 14 requirements · 47 checks (40 enforced, 7 design-only) |
+| Policies | 17 Rego policies · 175 deny/warn/violation rules |
+| Tests | 187 Rego unit tests · 32 integration tests · 21 integrity checks · hash-chain verification per run |
+| Evidence schema | v06 (`ai_act_role`, `derived_decision`, `runtime_mode` sealed into the payload) |
+| Deployment verified | Local (Minikube, Docker) and Azure AKS, Sweden Central |
+
+> **Reproducibility.** The exact state cited in the graded Master's thesis — 14 requirements, 16 gates, 10 AUTO / 6 HYBRID / 0 MANUAL, 108 rules, 141 unit tests — is frozen under the tag `thesis-v1.0` and archived under the Zenodo DOI above. Everything since is post-thesis development and reports different counts; see [CHANGELOG.md](CHANGELOG.md).
+
+## Open points
+
+Carried deliberately rather than silently. This section is part of the artefact, not an afterthought: a control system that hides its own gaps fails its own premise.
+
+- **Provider requirements are not derived yet.** Art. 16(a)–(l) with Art. 17–20, 43, 47, 48, 49(1) is the largest open block; `AI_ACT_ROLE=PROVIDER` matches no gate today.
+- **7 of 47 checks are design-only.** They sit in G-PRE-04, G-DEP-01 and G-DEP-03, which therefore report PASS while part of what they declare has not been evaluated. Each check states this itself, and the integrity suite verifies the claim in both directions at HIGH severity.
+- **`evidence_level.current` is E-0 on every gate.** Raising gates to E-1 requires signed CI attestations (`cosign`, keyless via OIDC); E-2 requires Gatekeeper `data.inventory` against a live cluster. Per-check levels are being filled in as the wiring lands — 10 of 47 checks carry one today.
+- **Accuracy is not measurable in operation.** Without ground truth there are only proxies. The evaluation document declares `provenance: "declared"` for those figures rather than presenting them as measurements. Coupling human oversight under Art. 14 to post-market monitoring under Art. 72 — the reviewer's correction *is* the label — is designed but not built.
+- **The Art. 6(1a)/(1b) reading is a hypothesis.** No guidelines, no case law. Marked as such in the policy header.
+- **G-DEP-01 references Art. 10 and Art. 11 while being deployer-scoped.** Both are provider duties, and Annex IV documentation is owed to authorities, not to the deployer. The deployer-side anchor is Art. 26(4). Left unchanged because the correction also moves the R002 mapping and belongs with the provider derivation.
+- **The role is a property of the pipeline run, not of the system.** Whether it should be tracked per system or per system version is undecided; the current design makes the simplest choice and defers the question.
+- **The drift CronJob is not deployable as shipped.** It now requires `conftest` and the policy directory inside its image, and no Dockerfile for that image exists here. It exits with an error rather than falling back to a non-policy verdict.
+- **Versioning and release tagging are unresolved.** `thesis-v1.0` points at a *later* commit than the `v2.0.0` and `v1.1.0` tags, while `CITATION.cff` declares `version: 2.0.0` with three DOIs. New release tags and Zenodo pushes are on hold until this is settled; ordinary development is unaffected.
+
+---
+
+## What this is, in the field's own terms
+
+The repository speaks in gate ids and schema fields. The same substance carries these names in the AI governance and assurance market:
+
+| In this repository | English term | Deutscher Begriff |
+|---|---|---|
+| 17 quality gates in CI/CD | Compliance-as-code · continuous compliance · control automation | Kontrollautomatisierung |
+| Rego policies, Conftest, Gatekeeper | Policy-as-code · preventive controls · admission control | Präventive Kontrollen |
+| Evidence Store + hash chain | Auditability · tamper-evident audit trail · evidence management | Revisionssichere Nachweisführung |
+| `evidence_level` E-0 … E-3 | Assurance level · evidence assurance | Nachweisgüte, Prüftiefe |
+| R001–R014 derived from Art. 9–15 | Regulatory requirements engineering · control mapping · crosswalk | Anforderungsableitung |
+| `role_scope` PROVIDER / DEPLOYER | Obligation mapping · role determination | Rollenabgrenzung, Pflichtenzuordnung |
+| G-PRE-01 Art. 6 decision tree | AI risk classification | Risikoeinstufung |
+| `requirements/` + `gate-definitions/` | AI system inventory / AI register | KI-Register |
+| G-DEP-04 | Conformity assessment intake | Konformitätsbewertung |
+| Drift detector (PSI / Jensen-Shannon) | Post-market monitoring (Art. 72) · model monitoring | Beobachtung nach Inverkehrbringen |
+| Integrity regression suite | Continuous control monitoring · control effectiveness testing | Wirksamkeitsprüfung |
+| Abolished waiver path | Exception management | Ausnahmeverwaltung |
+| `specs/` + CHANGELOG | Change and configuration management | Änderungsmanagement |
+| Supplier evidence (planned) | Third-party AI risk · supply chain assurance · AIBOM | Lieferantenprüfung |
+
+### Framework placement
+
+The gates map onto the four core functions of the **NIST AI RMF** (Tabassi 2023):
+
+```mermaid
+flowchart LR
+    subgraph GOVERN
+      G1["G-PRE-05<br/>Governance approval<br/>Art. 14"]
+    end
+    subgraph MAP
+      M1["G-PRE-01<br/>Art. 6 classification"]
+      M2["G-PRE-02<br/>Intended purpose"]
+      M3["G-PRE-03<br/>Risk management"]
+    end
+    subgraph MEASURE
+      S1["G-DEP-02<br/>Safety metrics"]
+      S2["G-DEP-05<br/>Bias assessment"]
+      S3["G-OPS-03<br/>Drift / PMS · Art. 72"]
+    end
+    subgraph MANAGE
+      N1["G-OPS-02<br/>Incidents · Art. 73"]
+      N2["G-OPS-05<br/>Evidence completeness"]
+      N3["G-OPS-06<br/>Role change · Art. 25"]
+    end
+    GOVERN --> MAP --> MEASURE --> MANAGE
+```
+
+**On ISO/IEC 42001 and 23894 — a deliberate limitation.** Both standards are copyrighted and paywalled. This repository therefore states *placement*, not a verified control mapping: the gate catalogue addresses the subject matter of ISO/IEC 42001 Annex A.6 (AI system life cycle), A.7 (data), A.8 (information for interested parties) and A.10 (third-party relationships), and the risk-management practice described by ISO/IEC 23894. Anchoring the detailed crosswalk on freely accessible primary sources — the Official Journal, BNetzA IT-Sicherheitskatalog, NIS2UmsuCG, BSI publications — keeps every claim checkable by a reader who does not own the standards. Neither standard triggers a presumption of conformity under Art. 40 EU AI Act; they are an evidence scaffold, not a legal safe harbour.
+
+---
+
+## Legal status
+
+Maintained against the **consolidated** EU AI Act: Regulation (EU) 2024/1689 **as amended by Regulation (EU) 2026/1744** (*Digital Omnibus on AI*, in force 27 July 2026).
 
 | What changed | Effect here |
 |---|---|
-| High-risk application date deferred from 2 Aug 2026 to **2 Dec 2027** (Annex III) / **2 Aug 2028** (Annex I) | `audit_trigger` in the affected requirements |
-| **Art. 3(14)** redefined — "safety component" now has two OR-linked arms (intended purpose / failure impact), each protecting persons **or property** | new Art. 6 decision tree in G-PRE-01 |
+| High-risk application deferred to **2 Dec 2027** (Annex III) / **2 Aug 2028** (Annex I) | `audit_trigger` in the affected requirements |
+| **Art. 3(14)** redefined — "safety component" has two OR-linked arms (intended purpose / failure impact), each protecting persons **or property** | Art. 6 decision tree in G-PRE-01 |
 | **Art. 6(1a)/(1b)** inserted — 1a narrows the purpose arm, 1b shields the failure-impact arm from that narrowing | checks C-A1 … C-A7 |
-| **Art. 10(5)** deleted, legal basis moved to the new **Art. 4a** (extended to deployers) | R006 / G-DEP-01 references |
+| **Art. 10(5)** deleted, legal basis moved to the new **Art. 4a** (extended to deployers) | R006 / G-DEP-01 |
 | **Art. 25(2)/(4)** replaced — the role transfer became a two-sided, documented act | G-OPS-06 handover artefacts |
 | **Art. 27(4)/(5)** eased — deployers may cross-reference an existing DPIA | R012 |
 | **Art. 72(3)** — the post-market monitoring plan is now part of the Annex IV technical documentation | R010 |
 
-Both binding language versions were reconciled against the Official Journal; the German text is archived under [`docs/legal/`](docs/legal/). Where the versions diverge (e.g. official German *Sicherheitsbauteil*, not *Sicherheitskomponente*), the finding is recorded in the policy header.
+Both binding language versions were reconciled against the Official Journal; the German text is archived under [`docs/legal/`](docs/legal/). Where they diverge — official German *Sicherheitsbauteil*, not *Sicherheitskomponente* — the finding is recorded in the policy header.
 
-> **Not legal advice.** Interpretations that go beyond the wording are marked as hypotheses in the code — most prominently the reading of Art. 6(1a)/(1b), for which no Commission guidelines and no case law exist yet.
+> **Not legal advice.** Readings that go beyond the wording are marked as hypotheses in the code, most prominently Art. 6(1a)/(1b), for which no Commission guidelines and no case law exist yet.
 
-## Architecture Overview
+---
 
-### Five-Pillar Model
+## Architecture
+
+### Five pillars
 
 | Pillar | Component | Purpose |
-|--------|-----------|---------|
-| **S1** | Design Principles (DP1–DP5) | Architectural foundation and cloud-native integrability |
-| **S2** | Quality Gate Control System | 17 lifecycle-integrated gates, `schema_version: 2` template |
-| **S3** | Policy Engine | OPA/Rego policies, Conftest (CI), Gatekeeper (K8s admission), Decision Logs |
-| **S4** | Evidence Store | PostgreSQL + Blob Storage, hash-chain integrity, RBAC, schema separation |
-| **S5** | Monitoring & PMS | Drift detection (PSI/Jensen-Shannon), incident reporting, sidecar pattern |
+|---|---|---|
+| **S1** | Design principles (DP1–DP5) | Architectural foundation, cloud-native integrability |
+| **S2** | Quality gate control system | 17 lifecycle-integrated gates, `schema_version: 2` template |
+| **S3** | Policy engine | OPA/Rego, Conftest (CI), Gatekeeper (K8s admission), decision logs |
+| **S4** | Evidence Store | PostgreSQL, hash chain, RLS, schema separation, insert-only |
+| **S5** | Monitoring & post-market surveillance | Drift detection (PSI/JSD), incident reporting |
 
-### Design Principles
+Everything outside `infrastructure/scripts/` is vendor-neutral. Azure AKS is one instantiation, not a dependency.
 
-| ID | Principle | EU AI Act Anchor |
-|----|-----------|-----------------|
-| DP1 | Compliance as controllable lifecycle process | Art. 9 (Risk Management) |
-| DP2 | End-to-end traceability chain | Art. 11 (Technical Documentation) |
-| DP3 | Gate template as standardization unit | Art. 11 + Annex IV |
-| DP4 | Separation of governance dimensions, integrated decision | Art. 14 (Human Oversight) |
-| DP5 | Cloud-native integrability | Art. 15 (Robustness) |
+### Two orthogonal axes
 
-### Automation Classification
+**Automatability** — how much of a check runs without a human. A **D3×D2 override rule** caps gates that require first-degree human oversight (Art. 14) at HYBRID, regardless of technical feasibility. Current distribution: 10 AUTO / 7 HYBRID / 0 MANUAL.
 
-The architecture achieves a **10:7:0 distribution** — 10 fully automated gates, 7 hybrid gates, 0 manual-only gates. A dedicated **D3×D2 Override Rule** ensures that gates requiring First-Degree Human Oversight (EU AI Act Art. 14, operationalized following Laux 2024, S. 2857) are capped at HYBRID automation, regardless of technical feasibility.
-
-```
-Gate Inclusion Rule: D1 (Gate-Eignung) → D3 (Regulatory) → D2 (Technical) → Classification
-                     ↓
-                     D3=FIRST-DEGREE → D2 max HYBRID (Automation Ceiling)
-```
-
-### Evidentiary Strength (E-0 … E-3)
-
-Automatability answers *how much of a check runs without a human*. It says nothing about *how hard the evidence is to fake*. Schema v2 therefore adds a second, **orthogonal** axis: every gate declares `evidence_level.current` and `.target`.
+**Assurance level** — how hard the evidence is to fake.
 
 | Level | What is actually checked | Cost of faking it |
 |---|---|---|
 | **E-0** | A document somebody wrote (JSON/YAML manifest, pod annotation) | Editing text |
-| **E-1** | An artefact **produced and signed** by a tool; signature and producer identity are verified | Compromising the CI identity |
-| **E-2** | The actual cluster state via the Kubernetes API | Manipulating the running system |
+| **E-1** | An artefact **produced and signed** by a tool; signature and producer identity verified | Compromising the CI identity |
+| **E-2** | Actual cluster state via the Kubernetes API | Manipulating the running system |
 | **E-3** | A property **over time**, measured rather than configured | Manipulating the telemetry chain |
 
-Two consequences the architecture takes seriously:
+The axes are genuinely independent: a HYBRID gate can carry E-3 evidence, an AUTO gate can sit on E-0. **G-OPS-03 shows both inside one gate** — its annotation checks are E-0 ("does someone *claim* drift detection runs?"), its measurement checks are E-3 ("did it run, and what did it say?"). G-OPS-05 pairs an E-0 annotation check with an E-1 hash-chain check.
 
-- **A pod annotation is E-0, not E-2.** An annotation *asserts* a state, it does not *prove* one. Every Gatekeeper-based gate here is therefore classified E-0 today, even though it runs at admission time.
-- **The axes really are independent.** A HYBRID gate can carry E-3 evidence; an AUTO gate can sit on E-0. G-OPS-05 demonstrates this within a single gate: its hash-chain check is E-1 while its annotation check is E-0.
+### Severity on the check, not the gate
 
-The D3×D2 automation ceiling is untouched by this axis.
-
-### Severity on the Check, Not the Gate
-
-A gate bundles heterogeneous checks. Putting one severity on the whole gate forces the strictest check down to the weakest one. Since schema v2, `policy_checks` is a list of objects, each with its own `severity`, `legal_refs` and optional `evidence_level`:
+A gate bundles heterogeneous checks. One severity per gate drags the strictest check down to the weakest. Since `schema_version: 2`, every check carries its own severity, legal references, assurance level and implementation status:
 
 ```yaml
 policy_checks:
-  - id: "C-01"
-    policy: "policy_safety_metrics"
-    description: "accuracy >= 0.85, latency_p95 <= 2000ms, safety_score >= 0.90"
-    severity: "MUST"          # -> deny (blocking)
-    legal_refs: ["Art. 15"]
-  - id: "C-02"
-    policy: "policy_safety_metrics"
-    description: "subgroup_analysis and adversarial_tests performed"
-    severity: "SHOULD"        # -> warn (advisory)
-    legal_refs: ["Art. 15"]
+  - id: "C-03"
+    policy: "policy_monitoring_configured"
+    description: "A drift measurement exists and is not older than the freshness budget"
+    severity: "MUST"            # -> deny (blocking)
+    legal_refs: ["Art. 72"]
+    evidence_level: "E-3"
+    implementation: "implemented"
 ```
 
-**There is no waiver path.** The template used to offer one — 11 of 17 gates named an approver and a time limit — but nothing enforced it: no logic anywhere, and an evidence schema that only knows `PASS`/`FAIL`, so a waived gate was indistinguishable from a passed one. An exception path that leaves no trace devalues the completeness of the chain, so it was abolished rather than left standing as an unimplemented promise. Reinstating `waiver.allowed: true` requires a real control first — the integrity regression blocks it otherwise.
-
-The gate decision is **derived**, never authored, in this order (do not reorder — a HYBRID gate with a violated MUST still blocks):
+The gate decision is **derived, never authored**, in this order — a HYBRID gate with a violated MUST still blocks:
 
 ```
 1. any MUST violated   -> block
@@ -128,13 +199,13 @@ The gate decision is **derived**, never authored, in this order (do not reorder 
 4. otherwise           -> approve
 ```
 
-Rego messages carry the check id — `<GATE-ID>/<CHECK-ID> (<Requirement>, <Legal-Ref>): <message>` — so each advisory in the Evidence Store traces back to the specific check that raised it.
+Rego messages carry the check id — `<GATE-ID>/<CHECK-ID> (<Requirement>, <Legal-Ref>): <message>` — so every advisory in the evidence store traces back to the check that raised it.
 
-### Role as an Architecture Parameter
+### Role as an architecture parameter
 
 > **The provider owes the properties of the system. The deployer owes the properties of its use.**
 
-Art. 16(a) is the hinge: providers must ensure their high-risk systems meet Chapter III Section 2 — i.e. **Art. 9–15 are provider duties**. The deployer duties live in Art. 26 (and Art. 27 for the FRIA).
+Art. 16(a) is the hinge: providers must ensure their high-risk systems meet Chapter III Section 2, i.e. **Art. 9–15 are provider duties**. Deployer duties live in Art. 26, and Art. 27 for the fundamental-rights impact assessment.
 
 | Topic | Provider | Deployer |
 |---|---|---|
@@ -142,380 +213,111 @@ Art. 16(a) is the hinge: providers must ensure their high-risk systems meet Chap
 | Data | Art. 10 — training/validation/test data | Art. 26(4) — **input** data, as far as controlled |
 | Technical documentation | Art. 11, Art. 18 | — |
 | Logging | Art. 12, Art. 19 | Art. 26(6) — retain ≥ 6 months |
-| Transparency | Art. 13 — write the instructions | Art. 26(1) — use accordingly, Art. 26(11) — inform affected persons |
+| Transparency | Art. 13 — **write** the instructions | Art. 26(1) — use accordingly · Art. 26(11) — inform affected persons |
 | Human oversight | Art. 14 — **design** it | Art. 26(2) — **staff** it (competence, training, authority) |
 | Fundamental-rights impact assessment | — | Art. 27 |
 
-`AI_ACT_ROLE` resolves in three steps: environment variable → `role` in the scenario manifest → default `DEPLOYER`. Each gate declares a `role_scope`; the orchestrator filters accordingly. All 17 gates are currently `["deployer"]` — the correct label for a deliberately deployer-scoped architecture, not a downgrade. `PROVIDER` therefore selects an empty gate set today and exits cleanly with an explanatory message.
+`AI_ACT_ROLE` resolves environment variable → scenario manifest → default `DEPLOYER`. Each gate declares a `role_scope`; the orchestrator filters accordingly. All 17 gates are `["deployer"]` today — the correct label for a deliberately deployer-scoped architecture, not a downgrade. `PROVIDER` therefore selects an empty gate set and exits cleanly with an explanatory message.
 
+### Where the numbers come from
 
-### Process Model: From Regulation to Automated Quality Gate
+Gate inputs are produced, not found, wherever that is possible:
+
+- `eval/eval_runner.py` measures latency quantiles and throughput from the running application's Prometheus endpoint and writes the evaluation document; it is not a checked-in fixture maintained by hand.
+- The drift detector measures; **Rego decides**. There is no fallback distribution — an unreachable or empty histogram ends the run rather than substituting a plausible-looking number.
+- Every metric group declares its **provenance**: `measured`, `derived` or `declared`. This does not make an asserted value true. It makes the assertion legible as an assertion — accuracy in operation remains unmeasurable without ground truth, and the document says so.
+- `runtime_mode` (`live` / `mock` / `unknown`) is sealed into the hashed payload, so a gate result produced without a real model behind it is distinguishable from one that had one, and cannot be relabelled afterwards.
+
+### Process model
 
 <a href="docs/images/process_regulation_to_pipeline_v2_export.png">
-  <img src="docs/images/process_regulation_to_pipeline_v2_export.png" width="100%" alt="Process Model: Regulation → Policy-as-Code → CI/CD Pipeline → K8s Runtime Enforcement" />
+  <img src="docs/images/process_regulation_to_pipeline_v2_export.png" width="100%" alt="Process model: regulation to policy-as-code to CI/CD pipeline to Kubernetes runtime enforcement" />
 </a>
-*7-phase operationalization process: EU AI Act (Art. 9–15) → Requirements → Gate Definition → Rego Policy → Orchestrator → CI/CD Pipeline → Evidence Store → K8s Runtime Enforcement. BPMN 2.0 notation. Legend (Start / End / Activity / Gateway / Artefact) and DSR cycle annotations (Relevance / Design / Rigor) shown at the bottom. **Click image to view full resolution (3176×3200).****
 
-## Repository Structure
+*Seven-phase operationalisation in BPMN 2.0: EU AI Act → requirements → gate definition → Rego policy → orchestrator → CI/CD → evidence store → Kubernetes runtime enforcement, with DSR cycle annotations. Click for full resolution.*
+
+---
+
+## Repository structure
 
 ```
 genaiops-compliance-gates/
-├── README.md
-├── AGENTS.md                   # Standing architecture principles for Claude Code sessions
-├── specs/                      # Implementation specs (SPEC-01 … SPEC-03)
-├── docs/
-│   ├── appendix/               # Auto-generated rule-to-test mapping (tools/extract_rule_test_mapping.py)
-│   ├── architecture/           # Architecture diagrams (Five-Pillar, Gate Flow, Pipeline)
-│   ├── images/                 # Process model + diagram exports
-│   ├── legal/                  # Official Journal primary sources (Reg. (EU) 2026/1744, DE)
-│   └── walkthrough/            # Conftest test results (Phase 5)
-├── gate-definitions/           # Quality Gate specifications (YAML, schema_version 2)
-│   ├── gate_template.yaml      # Gate template incl. evidence_level + role_scope
-│   ├── pre-deployment/         # G-PRE-01 to G-PRE-05
-│   ├── deployment/             # G-DEP-01 to G-DEP-06
-│   └── operations/             # G-OPS-01 to G-OPS-06
-├── policies/                   # OPA/Rego policy implementations
-│   ├── pre-deployment/         # Conftest policies (CI stage)
-│   ├── deployment/             # Conftest + Gatekeeper policies
-│   └── operations/             # Gatekeeper admission policies
-├── pipeline/
-│   └── .github/workflows/      # GitHub Actions with gate-integrated stages
-├── evidence-store/
-│   ├── schema/                 # PostgreSQL DDL (v01 basic, v02 enterprise, v03 decision_method)
-│   ├── migrations/             # Schema migrations (v03 decision_method, v04 ai_act_role)
-│   └── scripts/                # record_evidence.py, verify_hash_chain.py
-├── monitoring/                 # Drift detection, PMS, sidecar configuration
-├── infrastructure/
-│   ├── scripts/                # AKS/Minikube provisioning via Azure CLI (deploy-aks.sh etc.)
-│   ├── terraform/              # Reserved for declarative IaC (not part of PoC; see terraform/README.md)
-│   └── helm/                   # Kubernetes deployments (OPA Gatekeeper, app, monitoring)
+├── requirements/            # R001–R014 — requirements derived from the EU AI Act
+├── gate-definitions/        # 17 gate specifications (YAML, schema_version 2)
+│   ├── gate_template.yaml
+│   ├── pre-deployment/      # G-PRE-01 … G-PRE-05
+│   ├── deployment/          # G-DEP-01 … G-DEP-06
+│   └── operations/          # G-OPS-01 … G-OPS-06
+├── policies/                # 17 OPA/Rego policies + unit tests, by lifecycle phase
+├── pipeline/                # gate_orchestrator.py, scenarios, tamper tests
+├── evidence-store/          # PostgreSQL DDL, migrations v03…v06, record + verify scripts
+├── monitoring/              # Drift detector (PSI/JSD), shared metrics reader, K8s manifests
 ├── scenarios/
-│   └── healthcare-ambient-ai-scribe/  # PoC scenario: High-risk AI (Art. 6 (1) + Annex I No. 11 MDR)
-├── requirements/               # R001–R014 requirement specifications (from EU AI Act)
-├── prospective/                # Research outlooks (F5) — Art.-25 sketch, now superseded by G-OPS-06
-└── tests/                      # test_all.py, integrity regression, hash parity + migration guards
+│   └── healthcare-ambient-ai-scribe/   # PoC: app, eval runner, fixtures, K8s manifests
+├── infrastructure/          # Minikube/AKS provisioning, Helm values
+├── tests/                   # Integration suite, integrity regression, hash parity + migration guards
+├── specs/                   # SPEC-01 … SPEC-04 — implementation specifications
+├── docs/                    # Legal primary sources, generated appendix, walkthrough, images
+└── .github/workflows/       # CI: Rego tests, 17 gates, evidence recording, chain verification
 ```
 
-## Tech Stack
-
-| Layer | Technology | Purpose |
-|-------|-----------|---------|
-| **Orchestration** | Kubernetes (AKS) | Container orchestration, admission control |
-| **GitOps** | ArgoCD | Declarative deployments, drift reconciliation |
-| **Policy Engine** | OPA/Rego, Conftest, Gatekeeper | Policy-as-Code evaluation at CI + admission |
-| **CI/CD** | GitHub Actions | Pipeline orchestration with gate stages |
-| **Evidence Store** | Azure PostgreSQL + Blob Storage | Structured metadata + unstructured artifacts |
-| **Monitoring** | Prometheus, Grafana, OpenTelemetry | Metrics, drift detection, alerting |
-| **IaC** | Azure CLI scripts, Helm | Infrastructure provisioning + app deployment (Terraform reserved, not in PoC) |
-| **GenAI Runtime** | Azure OpenAI Service, LangChain | LLM inference, RAG pipeline |
-
-## Quality Gate Framework
-
-Each of the 17 gates follows a standardized template (`schema_version: 2`):
-
-```yaml
-schema_version: 2
-id: G-PRE-01
-name: "Risiko-Klassifikation"
-dimension: "regulatorisch"
-lifecycle_phase: "pre-deployment"
-trigger: "PR merge to main — Conftest evaluates app_documentation.json in CI"
-
-evidence_level:                 # how strong is the evidence, independent of automation
-  current: "E-0"
-  target: "E-2"
-  rationale: "Whether a system triggers switching operations is checkable
-              against the system state and need not rest on self-declaration."
-
-policy_checks:                  # severity per check, not per gate
-  - id: "C-A3"
-    policy: "policy_risk_classification"
-    description: "Art. 6(1a) invoked but Arm B not assessed — step 4 is not skippable"
-    severity: "MUST"
-    legal_refs: ["Art. 6 Abs. 1a", "Art. 6 Abs. 1b"]
-    evidence_level: null        # null = inherit the gate default
-
-evidence_required: [...]
-decision: "derived"             # derived from check results, never authored
-automation: "HYBRID"            # D3xD2 ceiling — untouched by evidence_level
-role_scope: ["deployer"]        # provider | deployer | both
-owner: "AI Governance Lead"
-audit_trail: { enabled: true, evidence_store_ref: "evidence://gates/pre-deployment/G-PRE-01" }
-waiver: { allowed: true, requires: "Governance Lead + CTO Approval, 30 days" }
-links: { requirements: [...], eu_ai_act_refs: [...] }
-```
-
-### Gate Distribution
-
-| Phase | Gates | Automation |
-|-------|-------|-----------|
-| **Pre-Deployment** | G-PRE-01 to G-PRE-05 | 1 AUTO (G-PRE-04), 4 HYBRID (G-PRE-01/02/03/05 — D3-Override fuer First-Degree-Oversight) |
-| **Deployment** | G-DEP-01 to G-DEP-06 | 5 AUTO, 1 HYBRID (G-DEP-03 Transparency-Docs) |
-| **Operations** | G-OPS-01 to G-OPS-06 | 4 AUTO, 2 HYBRID (G-OPS-01 Human-Oversight-Wirksamkeit, G-OPS-06 Rollenwechsel) |
-| **Summe** | **17 Gates** | **10 AUTO, 7 HYBRID, 0 MANUAL** |
-
-### Two Gates Worth a Closer Look
-
-**G-PRE-01 — the Art. 6 "safety component" decision tree.** Whether an AI system falls under Annex III No. 2 (critical infrastructure) hangs entirely on one legal definition. The gate walks the tree from Art. 3(14) and Art. 6(1a)/(1b):
-
-```
-1. Deployed in water/gas/heat/electricity supply, critical digital
-   infrastructure or road traffic?      no -> NOT_IN_SCOPE
-2. ARM A — is the intended purpose to prevent or mitigate risks to the
-   health and safety of persons OR PROPERTY?   yes -> SAFETY_COMPONENT
-3. Art. 6(1a) exclusion invoked (solely assistance / optimisation /
-   efficiency / automation / usability / quality control)?
-                                        yes -> step 4 is MANDATORY
-4. ARM B — would failure or malfunction endanger health and safety?
-                                        yes -> SAFETY_COMPONENT (overrides 3)
-                                        no  -> NO_SAFETY_COMPONENT
-```
-
-The load-bearing check is **C-A3**: invoking the Art. 6(1a) exclusion without assessing the failure impact is denied. Step 4 is not skippable — "it's only optimisation" is not a defence unless you also show the failure impact is uncritical.
-
-The most interesting one is **C-A7**: where a system's output only takes effect through a human decision, Arm B turns on whether that oversight is *effective*. **That couples the Art. 6 classification to oversight quality under Art. 26(2)** — whoever classifies themselves as "not high-risk *because* a human sits in between" owes proof that this oversight works. C-A7 demands the reference to G-OPS-01, which already checks those effectiveness conditions.
-
-**G-OPS-06 — the role change (Art. 25).** A deployer becomes a provider on rebranding (a), substantial modification (b), or a purpose change to high-risk (c). Severity differs per trigger: (a) and (c) are binary offences and are MUST; only (b) stays SHOULD, because its threshold depends on Art. 3(23) and the still-pending Art. 97 delegated acts. C-25c does not trust a manifest boolean — it runs the G-PRE-01 `classification` rule against the purpose state before and after the change. Since the Omnibus, the transfer also requires handover artefacts (Art. 25(2)/(4)).
-
-Two boundaries of this gate, stated because they are easy to get wrong:
-
-- **Art. 25(2)/(4) does not carry the plain deployer.** Paragraph 2 obliges the *initial provider towards the new providers* — the claim only arises *after* a role transfer. Paragraph 4 governs provider ↔ third-party supplier, where the deployer is not a party. Supplier verification in the normal case (no role change) has to be argued from Art. 13 and Art. 26(1)/(5)/(6)/(9) — completeness of the *instructions for use* — not from Art. 25. G-OPS-06 is unaffected because C-25d only fires *after* a binding trigger, i.e. once the deployer has itself become the new provider.
-- **The carve-out shifts the decisive moment out of the pipeline.** Art. 25(2) does not apply where the initial provider clearly specified that its system must not be turned into a high-risk system — a unilateral, up-front opt-out. The real check therefore belongs *before contract signature*; a gate that reports it at rollout reports it too late to negotiate. G-OPS-06 remains useful as an evidence and escalation point, but it does not replace a procurement check.
-
-## PoC Scenario: Healthcare Ambient AI Scribe
-
-The architecture is demonstrated using a **high-risk AI system** (EU AI Act Art. 6 (1) in conjunction with Annex I No. 11 — safety component of a Clinical Decision Support System classified as a medical device under MDR 2017/745): an Ambient AI Scribe that transcribes and summarizes medical consultations.
-
-**Why this scenario:**
-- High-risk classification → maximum regulatory requirements
-- Sensitive health data → GDPR Art. 9 + AI Act convergence
-- Stochastic outputs → quality assurance for generative content
-- Full lifecycle coverage → 17 gates designed, **17 with Rego policies** (local + CI), enforced in GitHub Actions (3-layer architecture: 173 OPA unit tests + Conftest gates + hash-chain verify)
-
-## Traceability Chain
-
-Every regulatory requirement is traceable from norm to evidence:
-
-```
-EU AI Act Article → Requirement (R-xx) → Design Principle (DP) → Quality Gate (G-xx) → Policy (Rego) → Evidence (Audit Trail)
-```
-
-This six-level traceability chain ensures that for any audit finding, the path back to the originating regulation is documented and verifiable.
-
-## Getting Started
-
-> ✅ **Status: v1.0.0 — first stable release (2026-04-30).** All 12 implementation phases complete. Live AKS deployment in Sweden Central. Reproducible end-to-end in 39 seconds per pipeline run.
-
-### Prerequisites
-
-- Azure subscription with AKS enabled
-- Azure CLI (`az`) >= 2.50 — used by `infrastructure/scripts/deploy-aks.sh`
-- Helm >= 3.12
-- OPA/Conftest CLI — install via `./infrastructure/scripts/install-conftest.sh`
-- kubectl configured for AKS cluster
-
-### Quick Start
-
-**Fast path via Makefile** — see all targets with `make help`. The most common workflows:
+## Verification
 
 ```bash
-# Install Conftest CLI (cross-platform, Linux/macOS, x86_64/arm64)
-make install-conftest                 # → /usr/local/bin (sudo)
-NO_SUDO=1 make install-conftest       # → ~/.local/bin
-
-# Run the full PoC stack on a local Minikube (~5 min on a laptop)
-make local-up                         # minikube + gatekeeper + monitoring + app + smoke
-make verify                           # master integration + integrity regression + smoke
-
-# Tear down
-make local-down
-
-# Cloud variant: provision AKS in Sweden Central
-make aks-up
-make aks-down
-```
-
-**Detailed manual flow** (if you want to run the steps individually):
-
-```bash
-# 1. Provision infrastructure (AKS + ACR + stack) via Azure CLI
-bash infrastructure/scripts/deploy-aks.sh
-
-# 2. Deploy OPA Gatekeeper
-cd infrastructure/helm && helm install gatekeeper gatekeeper/gatekeeper --namespace gatekeeper-system
-
-# 3. Apply policies
-cd ../../policies && conftest test --policy pre-deployment/ scenarios/healthcare-ambient-ai-scribe/
-
-# 4. Initialize Evidence Store (v02 base schema + v03 + v04 migrations)
-cd ../evidence-store && psql -f schema/evidence_store_schema_v02_enterprise.sql \
-  && psql -f migrations/v02_to_v03_add_decision_method.sql \
-  && psql -f migrations/v03_to_v04_add_ai_act_role.sql
-
-# 5. Run pipeline with gates — see pipeline/.github/workflows/ for CI/CD integration
-```
-
-### Running the Gates Locally
-
-```bash
-# Full local suite: Rego unit tests, consistency, pipeline scenarios, hash chain
-python3 tests/test_all.py                       # requires PyYAML
-bash    tests/run_all_rego_tests.sh --quiet     # requires `opa` on PATH
-python3 tests/test_integrity_regression.py      # static credibility checks
-
-# Closed-loop pipeline
+./tests/run_all_rego_tests.sh          # 187 Rego unit tests
+python3 tests/test_all.py              # 32 integration tests across all five pillars
+python3 tests/test_integrity_regression.py --fail-on medium   # 21 credibility checks
 python3 pipeline/gate_orchestrator.py --scenario pipeline/scenarios/poc_healthcare_pass.json
-python3 pipeline/gate_orchestrator.py --scenario pipeline/scenarios/poc_healthcare_fail.json
+python3 evidence-store/scripts/verify_hash_chain.py --sqlite evidence-store/evidence_closed_loop.db
 ```
 
-**Selecting the AI Act role.** The gate set is filtered by role; the default is `DEPLOYER`:
+**Three test layers.** Rego unit tests (fail-fast, before any gate runs) → Conftest gate evaluations against fixtures → SHA-256 hash-chain verification per pipeline run.
 
-```bash
-AI_ACT_ROLE=DEPLOYER python3 pipeline/gate_orchestrator.py --scenario ...   # 10/10 gates
-AI_ACT_ROLE=BOTH     python3 pipeline/gate_orchestrator.py --scenario ...   # union, no double execution
-AI_ACT_ROLE=PROVIDER python3 pipeline/gate_orchestrator.py --scenario ...   # empty set today, exits 0
-```
+**The integrity regression suite is deliberately adversarial.** It does not test features; it tests whether the repository's own claims hold — that no gate declares a waiver the system cannot grant, that `implementation: implemented` matches the presence of a policy file in both directions, that evidence levels are valid and non-regressing, that `runtime_mode` stays visible wherever a decision is reported. Each check was verified by introducing the inconsistency it is meant to catch and confirming it fails.
 
-The role is written into the Evidence Store **and into the hashed payload**, so an auditor can prove which role a run was evaluated under.
+## Post-thesis development
 
-### Evidence Store Schema v04 — Migration Without a Chain Break
+Specifications live in [`specs/`](specs/), standing principles in [`AGENTS.md`](AGENTS.md).
 
-`ai_act_role` had to enter the hashed payload, but existing records were hashed without it. Rather than rehashing history or starting a new chain, the field enters the payload only **from a per-database cutoff `audit_id`** — written by the migration as `max(audit_id) + 1`, and `1` for a fresh database.
+| Spec | What it changed |
+|---|---|
+| **SPEC-01** | `schema_version: 2` — assurance-level axis, severity per check, derived gate decision, check ids in Rego messages |
+| **SPEC-02** | Art. 6 "safety component" decision tree in G-PRE-01 (C-A1 … C-A7 with computed classification) |
+| **SPEC-03** | Role parameter PROVIDER/DEPLOYER/BOTH, Art. 25 gate promoted to G-OPS-06, evidence schema v04 |
+| **SPEC-04** | Measurement before signature — measured gate inputs, provenance per metric group, `runtime_mode` sealed into the chain (schema v06) |
 
-```
-audit_id <  cutoff  ->  13-field payload (v03), unchanged and still verifiable
-audit_id >= cutoff  ->  14-field payload (v04, incl. ai_act_role)
-```
+Counts moved from the thesis state: 16 → 17 gates, 108 → 175 rules, 141 → 187 unit tests. The published figures stay reproducible under the tag.
 
-All three implementations apply the same cutoff: `record_evidence.py`, `verify_hash_chain.py` and the `set_hash_chain()` trigger. `tests/test_hash_chain_migration.py` proves the four properties that make this sound — a pure v03 chain verifies, a chain **spanning** the cutoff verifies, tampering below the cutoff is still caught, and tampering with `ai_act_role` above the cutoff is caught.
+---
 
-## Post-Thesis Development
+## Academic foundation
 
-The state cited in the graded thesis is frozen under the tag `thesis-v1.0` and stays reproducible (`git checkout thesis-v1.0`). Everything below happened after it. Specifications live in [`specs/`](specs/); standing principles for future sessions in [`AGENTS.md`](AGENTS.md).
+The technical instantiation of a Design Science Research artefact from a master's thesis:
 
-| Spec | What it changed | Status |
-|---|---|---|
-| **SPEC-01** | `schema_version: 2` — `evidence_level` axis, severity per check, derived gate decision, check-ids in Rego messages | done |
-| **SPEC-02** | Art. 6 "safety component" decision tree in G-PRE-01 (C-A1 … C-A7 + computed `classification`) | done |
-| **SPEC-03** | Role parameter PROVIDER/DEPLOYER/BOTH, Art.-25 gate promoted to G-OPS-06, Evidence Store schema v04 | done |
+> **Demir, M. (2026).** *Cloud-native Referenzarchitektur für GenAIOps mit Quality-Gate-Kontrollsystem zur lifecycle-integrierten Operationalisierung regulatorischer, technischer und strategischer Anforderungen.* M.Sc. Thesis, SRH Fernhochschule. [Thesis repository →](https://github.com/MustDemir/Masterarbeit-GenAIOps-Referenzarchitektur)
 
-**Counts moved.** 16 → 17 gates, 10 AUTO / 6 HYBRID → 10 AUTO / 7 HYBRID, 108 → 166 rules, 141 → 173 unit tests. The published figures remain reproducible under the tag — see [CHANGELOG.md](CHANGELOG.md).
-
-**Known open points**, carried deliberately rather than silently:
-
-- **Provider requirements are not derived yet.** Art. 16(a)–(l) with Art. 17–20, 43, 47, 48, 49(1) is the largest open block; `AI_ACT_ROLE=PROVIDER` therefore matches no gate today.
-- **Seven of the 43 declared checks are not implemented yet.** Each check carries `implementation: implemented | design_only`, so the gate definition states this itself rather than only the notes field mentioning it. 36 checks are enforced; the 7 design-only ones sit in **G-PRE-04, G-DEP-01 and G-DEP-03**, which therefore report PASS while part of what they declare has not been evaluated. The integrity regression verifies the claim in both directions at HIGH severity — a check that claims `implemented` without a policy file fails, and so does a stale `design_only` next to a policy that does exist.
-- **The Art. 6(1a)/(1b) reading is a hypothesis** — no guidelines, no case law. Marked as such in the policy header.
-- **`evidence_level.current` is E-0 almost everywhere.** Raising gates to E-1 requires signed CI attestations; the drift detector (`monitoring/drift_detector.py`) is already the E-3 reference implementation but is not yet wired in as an evidence source.
-- **The role is a property of the pipeline run, not of the system.** `AI_ACT_ROLE` is resolved per run (env var → scenario manifest → default). Whether the role state should instead be tracked *per system* or *per system version* is undecided; the current design makes the simplest choice and defers the question.
-- **G-DEP-01 references Art. 10 and Art. 11 while being deployer-scoped.** Both are provider duties, and the Art. 11 / Annex IV technical documentation is owed to *authorities*, not to the deployer. The deployer-side anchor is Art. 26(4) (input-data relevance). Left unchanged for now because the correction also touches the R002 requirement mapping and belongs with the provider derivation.
-- **Versioning and release tagging are unresolved.** `thesis-v1.0` points at a *later* commit (2026-07-06) than the `v2.0.0` (2026-05-29) and `v1.1.0` (2026-04-30) release tags, while `CITATION.cff` declares `version: 2.0.0` with three DOIs. Which commit corresponds to the figures cited in the thesis is therefore not unambiguously established. **New release tags and Zenodo pushes are on hold until this is settled** — ordinary development on branches is not affected.
-
-## Implementierungsfortschritt
-
-> Strategie: Lokal-first (Phase 1–11 kostenlos auf Minikube), Azure erst Phase 12. Geschaetzter Aufwand: ~30–42h ueber 4–6 Wochen.
->
-> **Reproduzierbarkeits-Anker:** [GitHub Actions Run #21](https://github.com/MustDemir/genaiops-compliance-gates/actions/runs/24589487911) (2026-04-17, success in 39 s, all 10 gates PASS, hash-chain verified).
->
-> **AKS-Verifikation – 1. Lauf:** 2026-04-13, Erst-Instanziierung (Green/Red Path, 24 Screenshots → Thesis Anhang C).
->
-> **AKS-Verifikation – 2. Lauf:** 2026-05-27, unabhängiges Re-Deployment zur Bestätigung der Reproduzierbarkeit (Green-Path ADMIT, Red-Path REJECT, Evidence Store v02+v03, Monitoring); zwei `deploy-aks.sh`-Defekte behoben → Instanziierung in einem Durchlauf. Details: [docs/session-logs/2026-05-27-aks-redeploy-verification.md](docs/session-logs/2026-05-27-aks-redeploy-verification.md).
-
-<!-- PROGRESS-START -->
-> Gesamtfortschritt: `████████████████████` **100%** (12/12 Phasen)
-
-| Phase | Beschreibung | Fortschritt | Status |
-|-------|-------------|------------|--------|
-| **1** | App entwickeln (FastAPI + Mock-Endpoint) | `████████████████████` 100% | done |
-| **2** | Containerisieren (Dockerfile, Multi-Stage, Non-Root) | `████████████████████` 100% | done |
-| **3** | Docker Compose (App + DB + Prometheus + Grafana) | `████████████████████` 100% | done |
-| **4** | K8s-Manifeste (Deployment, Service, ConfigMap, Compliance-Annotations) | `████████████████████` 100% | done |
-| **5** | Rego-Policies + Conftest-Tests (17 Gates) | `████████████████████` 100% | done |
-| **6** | Lokaler Cluster (Minikube) + Helm + Gatekeeper | `████████████████████` 100% | done |
-| **7** | Gatekeeper ConstraintTemplates (ADMIT/REJECT live) | `████████████████████` 100% | done |
-| **8** | Evidence Store + Closed-Loop Pipeline | `████████████████████` 100% | done |
-| **9** | Drift Detection (PSI/JSD + Prometheus + Grafana) | `████████████████████` 100% | done |
-| **10** | GitHub Actions Pipeline (Conftest CI + Evidence) | `████████████████████` 100% | done |
-| **11** | Green/Red Path Walkthrough + Screenshots | `████████████████████` 100% | done |
-| **12** | Azure AKS Migration (Sweden Central, LoadBalancer) | `████████████████████` 100% | done |
-<!-- PROGRESS-END -->
-
-### Artefakt-Status
-
-| Komponente | Status | Details |
-|-----------|--------|--------|
-| Requirements (R001–R014) | done | 14 YAML-Specs, EU AI Act Art. 9–15 Mapping |
-| Evidence Store Schema | done | v01 (basic) + v02 (enterprise) + v03 (decision_method, E13) |
-| Evidence Store Scripts | done | record_evidence.py + verify_hash_chain.py, SQLite + PostgreSQL, Hash-Chain verified |
-| Decision-Log-Fixtures | done | G-PRE-01 (manual_review) + G-PRE-05 (governance_approval), HYBRID-Demo ready |
-| Gate Template | done | 7-Attribut-Template, 3 Beispiel-Gates |
-| Policy-Kandidaten | done | 29 Kandidaten dokumentiert (22 Conftest, **4 Gatekeeper-ConstraintTemplates**, 3 Decision Logs); 166 deny/violation/warn-Regeln total |
-| Healthcare Scribe App | done | FastAPI Mock-Endpoint, /transcribe, /health, /metrics |
-| Gate-Fixtures | done | app_documentation.json, eval_results.json |
-| K8s-Manifeste | done | 8 YAMLs: Namespace, Deployment, Service, ConfigMap, PostgreSQL, Prometheus |
-| OPA/Rego-Code | done | 17 Policies, **166 deny/violation/warn-Regeln** (auditierbar via tools/extract_rule_test_mapping.py), 30 Fixtures |
-| Integration Tests | done | tests/test_integration_*.py — covered via Master Integration Test (22/22 PASS) |
-| **Layer-1 Rego Unit Tests** | done | **173/173 PASS** via `tests/run_all_rego_tests.sh` (OPA v1.14.1+); Shift-Left vor Conftest-Gate-Checks; Verteilung siehe `docs/appendix/rule_test_mapping.md` |
-| **Rule-to-Test-Mapping (Appendix)** | done | Auto-generiert via `tools/extract_rule_test_mapping.py` → `docs/appendix/rule_test_mapping.{json,md}` (10 Policies × Per-Gate-Sektionen) |
-| Tamper-Detection Spec | done | Dokumentiert: 8 erkannte Angriffsvektoren, 6 bekannte Limitationen, 3 Protection Layers |
-| Walkthrough-Dokumentation | done | 13-Schritte Walkthrough (Pre-Dep → Dep → Ops → HYBRID → Tamper) |
-| Schema-Evolution-Dok | done | v01→v02→v03 Changelog mit Rationale und Hash-Trigger-Details |
-| Minikube Deployment Scripts | done | 4 scripts: setup-minikube, install-gatekeeper, deploy-app, smoke-test (8/8 PASS) |
-| Helm Values | done | gatekeeper-values.yaml + prometheus-stack-values.yaml |
-| Gatekeeper Live | done | **4 ConstraintTemplates + 4 Constraints** configured (require-safety-eval, require-monitoring, require-cybersecurity-operations, require-evidence), enforcementAction: deny; first 3 ADMIT/REJECT verified on AKS Sweden Central, G-OPS-04 verified locally via Gatekeeper fixture path |
-| Closed-Loop Pipeline | done | gate_orchestrator.py: 3 scenarios (PASS/FAIL/Gatekeeper), tamper detection |
-| Drift Detection | done | drift_detector.py (PSI+JSD), CronJob + Prometheus/Grafana/AlertManager |
-| GitHub Actions Pipeline | done | gate-pipeline.yml (16 CI gates + Evidence + Hash-Chain + Docker Push), test_pipeline_local.sh |
-| Master Integration Test | done | tests/test_all.py: 31/31 PASS across all 5 pillars |
-| Integrity Regression Suite | done | tests/test_integrity_regression.py: credibility checks for fallbacks, evidence strictness, HYBRID consistency, walkthrough drift |
-| Azure CLI/Helm (Azure) | done | AKS Sweden Central live 2026-04-13 (kube-prometheus-stack via Helm, OPA Gatekeeper mit 3 live verifizierten + 1 lokal ergaenzten ConstraintTemplate, PostgreSQL + Hash-Chain-Triggern im Cluster-Pod) |
-
-## Integrity Regression Suite
-
-The repository includes a dedicated integrity-focused regression suite in addition to the functional master test.
-
-```bash
-python3 tests/test_integrity_regression.py
-python3 tests/test_integrity_regression.py --format json
-python3 tests/test_integrity_regression.py --fail-on low
-```
-
-This suite is intended to catch PoC-credibility risks such as:
-
-- demo fallbacks that can mask missing enforcement
-- non-critical treatment of Evidence Store or hash-chain failures
-- HYBRID gate inconsistencies across scripts and scenarios
-- walkthrough/documentation drift against current repo files
-
-## Academic Foundation
-
-This implementation is the technical instantiation of a Design Science Research (DSR) artifact developed as part of a master's thesis:
-
-> **Demir, M. (2026).** *Cloud-native Referenzarchitektur für GenAIOps mit Quality-Gate-Kontrollsystem zur lifecycle-integrierten Operationalisierung regulatorischer, technischer und strategischer Anforderungen.* M.Sc. Thesis, SRH Fernhochschule. [Thesis Repository →](https://github.com/MustDemir/Masterarbeit-GenAIOps-Referenzarchitektur)
-
-The thesis provides the full academic rationale including: DSR methodology (Hevner/Peffers/vom Brocke), requirements derivation from EU AI Act, convergence analysis with NIST AI RMF, and expert evaluation.
-
-**Citation (archived Zenodo release — the state cited in the thesis):**
+The thesis carries the full academic rationale: DSR methodology (Hevner / Peffers / vom Brocke), requirements derivation from the EU AI Act, convergence analysis with NIST AI RMF, and expert evaluation.
 
 ```bibtex
 @software{demir2026genaiopscompliancegates,
-  author       = {Demir, Mustafa},
-  title        = {GenAIOps Compliance Gates: A Cloud-native Reference Architecture for EU AI Act Operationalization},
-  version      = {v1.1.0},
-  date         = {2026-04-30},
-  doi          = {10.5281/zenodo.19920310},
-  url          = {https://doi.org/10.5281/zenodo.19920310},
-  license      = {CC-BY-NC-4.0}
+  author  = {Demir, Mustafa},
+  title   = {GenAIOps Compliance Gates: A Cloud-native Reference Architecture
+             for EU AI Act Operationalization},
+  version = {v1.1.0},
+  date    = {2026-04-30},
+  doi     = {10.5281/zenodo.19920310},
+  url     = {https://doi.org/10.5281/zenodo.19920310},
+  license = {CC-BY-NC-4.0}
 }
 ```
 
-> The `license` field above is deliberately **not** `Apache-2.0`: it describes the archived artefact, which was published under CC BY-NC 4.0 and stays available under those terms. The current repository is Apache 2.0 — see [License](#license).
+> The `license` field is deliberately **not** `Apache-2.0`: it describes the archived artefact, published under CC BY-NC 4.0 and still available under those terms.
 
 ## License
 
-Licensed under the [Apache License 2.0](LICENSE) — use, modification and distribution are permitted, including commercially, subject to attribution and the patent-grant terms of the licence. See [NOTICE](NOTICE).
+[Apache License 2.0](LICENSE) — use, modification and distribution permitted, including commercially, subject to attribution and the patent-grant terms. See [NOTICE](NOTICE).
 
-**Licence change, 15 August 2026.** This repository was previously published under CC BY-NC 4.0. The non-commercial clause makes that licence non-open-source under the OSI definition — and a compliance control system that may not be used commercially misses the setting it exists for. The change is **not retroactive**: the release archived under Zenodo DOI [10.5281/zenodo.19920310](https://doi.org/10.5281/zenodo.19920310) and the tag `thesis-v1.0` remain available under their original CC BY-NC 4.0 terms, and that earlier grant is not withdrawn. The previous licence text is kept as `LICENSE_CC-BY-NC-4.0_until_2026-08-15.txt`.
+**Licence change, 15 August 2026.** Previously CC BY-NC 4.0. The non-commercial clause makes that licence non-open-source under the OSI definition — and a compliance control system that may not be used commercially misses the setting it exists for. The change is **not retroactive**: the Zenodo release and the tag `thesis-v1.0` remain available under CC BY-NC 4.0, and that grant is not withdrawn. The previous text is kept as `LICENSE_CC-BY-NC-4.0_until_2026-08-15.txt`.
 
 ## Author
 

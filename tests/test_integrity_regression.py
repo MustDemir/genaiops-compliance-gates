@@ -956,6 +956,119 @@ def check_runtime_mode_visible() -> dict:
     )
 
 
+def check_readme_counts_current() -> dict:
+    """The README must not claim more, or less, than the repository holds.
+
+    This repository is a control system that checks whether declarations
+    match reality. Its own front page had drifted: it advertised 166 rules
+    and 173 unit tests when there were 175 and 187, named three
+    technologies that appear nowhere in the code, and stated the master
+    integration test as 31/31 in one place and 22/22 in another while the
+    actual figure was 32. A README that overstates fails the standard the
+    artefact demands of everyone else — and it is the first thing a reader
+    sees, so it is the first place credibility is lost.
+
+    Keeping it right by diligence does not work; the drift above happened
+    despite diligence. So the numbers are verified mechanically, and the
+    build fails when they part ways.
+
+    The check is deliberately narrow. It verifies COUNTS that can be
+    derived from the repository, not prose. Claims that cannot be counted
+    stay a matter of authorship.
+    """
+    readme = read_text(REPO_ROOT / "README.md")
+    findings = []
+
+    gates = [(f, g) for f, g in _load_gate_files()]
+    checks = [c for _, g in gates for c in (g.get("policy_checks") or [])]
+
+    rules = 0
+    for f in (REPO_ROOT / "policies").glob("*/*.rego"):
+        if f.name.endswith("_test.rego"):
+            continue
+        rules += len(re.findall(r"^(?:deny|warn|violation) contains", read_text(f), re.M))
+
+    rego_tests = 0
+    for f in (REPO_ROOT / "policies").glob("*/*_test.rego"):
+        rego_tests += len(re.findall(r"^test_[a-z0-9_]+", read_text(f), re.M))
+
+    policies = len([
+        f for f in (REPO_ROOT / "policies").glob("*/*.rego")
+        if not f.name.endswith("_test.rego")
+    ])
+    requirements = len(list((REPO_ROOT / "requirements").glob("R0*.yaml")))
+    design_only = sum(1 for c in checks if c.get("implementation") == "design_only")
+    implemented = sum(1 for c in checks if c.get("implementation") == "implemented")
+
+    # (claimed-substring, computed value, what it is) — the substring must
+    # appear verbatim, so a stale number cannot survive by sitting next to
+    # a correct one elsewhere in the file.
+    expectations = [
+        (f"{len(gates)} gates", len(gates), "gate count"),
+        (f"{len(checks)} checks", len(checks), "check count"),
+        (f"{policies} Rego policies", policies, "policy count"),
+        (f"{rules} deny/warn/violation rules", rules, "rule count"),
+        (f"{rego_tests} Rego unit tests", rego_tests, "Rego unit-test count"),
+        (f"{requirements} requirements", requirements, "requirement count"),
+        (f"{implemented} enforced, {design_only} design-only", implemented, "check implementation split"),
+        (f"{design_only} of {len(checks)} checks are design-only", design_only, "design-only statement"),
+    ]
+    for claim, _value, label in expectations:
+        if claim not in readme:
+            findings.append(
+                f"README.md: does not state '{claim}' — the {label} derived from "
+                f"the repository is not what the README claims"
+            )
+
+    # Latest evidence-schema version must be the one the README names.
+    migrations = sorted((REPO_ROOT / "evidence-store" / "migrations").glob("v*_to_v*.sql"))
+    if migrations:
+        latest = re.search(r"_to_(v\d+)_", migrations[-1].name)
+        if latest and f"Evidence schema | {latest.group(1)}" not in readme.replace("  ", " "):
+            if latest.group(1) not in readme:
+                findings.append(
+                    f"README.md: latest evidence-store migration is {latest.group(1)}, "
+                    f"which the README does not mention"
+                )
+
+    # Technologies must not be advertised unless they appear in the code.
+    # LangChain, ArgoCD and OpenTelemetry were listed in the tech stack with
+    # zero, five (comment-only) and one occurrence respectively.
+    for tech in ("LangChain", "ArgoCD", "OpenTelemetry"):
+        if tech.lower() not in readme.lower():
+            continue
+        hits = 0
+        for f in REPO_ROOT.rglob("*"):
+            if not f.is_file() or any(
+                part in (".git", ".claude", "docs", "tmp") for part in f.parts
+            ):
+                continue
+            if f.name in ("README.md", "CHANGELOG.md"):
+                continue
+            try:
+                if tech.lower() in f.read_text(encoding="utf-8", errors="ignore").lower():
+                    hits += 1
+            except OSError:
+                continue
+        if hits == 0:
+            findings.append(
+                f"README.md: names '{tech}' but it appears in no source file — "
+                f"a tech stack is a claim like any other"
+            )
+
+    return make_result(
+        "README_COUNTS_CURRENT",
+        "the README's counts and tech stack match the repository",
+        "medium",
+        not findings,
+        "The front page overstates or understates what the repository holds — the "
+        "first place a reader checks is the first place credibility is lost." if findings
+        else f"README matches: {len(gates)} gates, {len(checks)} checks, {rules} rules, "
+             f"{rego_tests} Rego tests, {requirements} requirements.",
+        findings,
+    )
+
+
 VALID_ROLE_SCOPES = {"provider", "deployer"}
 
 
@@ -1017,6 +1130,7 @@ def collect_results() -> list[dict]:
         check_evidence_insert_arity,
         check_waiver_not_declarative,
         check_runtime_mode_visible,
+        check_readme_counts_current,
     ]
     results = []
     for check in checks:

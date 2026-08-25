@@ -13,7 +13,7 @@ evidence_level:
 policy_checks:
   - id: "C-01"
     policy: "policy_evidence_completeness"
-    description: "Vollstaendigkeit aller Gate-Records (16/16) — Gatekeeper-Annotationspruefung"
+    description: "Vollstaendigkeit aller Gate-Records — Gatekeeper-Annotationspruefung"
     severity: "MUST"
     legal_refs: ["Art. 12", "Art. 15"]
     evidence_level: "E-0"
@@ -55,4 +55,4 @@ links:
     - "Art. 15"
 sources:
   - "requirements/R005.yaml"
-notes: "PoC-Gate (★). AUTO: Dediziertes Gate fuer Evidence-Persistierung. Gatekeeper + Decision Logs pruefen Vollstaendigkeit aller Gate-Records (16/16) und Hash-Chain-Integritaet. Jede Gate-Entscheidung — automatisiert oder manuell — wird als signierter, inhaltsadressierter Evidence-Record persistiert (Butt et al., 2026: Evidence Backbone). policy_evidence_completeness, policy_hash_chain_integrity und policy_audit_trail_immutability sind gebuendelt in policies/operations/policy_evidence_completeness.rego implementiert (eine Datei, mehrere Checks, hier als C-01/C-02/C-03 auf dieselbe Datei abgebildet). UPDATE (2026-08-14, schema_version 2 / SPEC-01): policy_checks auf Objektform migriert, Severity aus R005 (MUST) uebernommen. Erstes Beispiel fuer check-spezifisches evidence_level != Gate-Default (C-02 Hash-Chain-Verifikation auf E-1, C-01 Gatekeeper-Annotation auf E-0 — demonstriert genau die in SPEC-01 Abschnitt 2 beschriebene Orthogonalitaet von Automatisierbarkeit und Beweiskraft)."
+notes: "PoC-Gate (★). AUTO: Dediziertes Gate fuer Evidence-Persistierung. Gatekeeper + Decision Logs pruefen Vollstaendigkeit aller Gate-Records und Hash-Chain-Integritaet. Jede Gate-Entscheidung — automatisiert oder manuell — wird als signierter, inhaltsadressierter Evidence-Record persistiert (Butt et al., 2026: Evidence Backbone). policy_evidence_completeness, policy_hash_chain_integrity und policy_audit_trail_immutability sind gebuendelt in policies/operations/policy_evidence_completeness.rego implementiert (eine Datei, mehrere Checks, hier als C-01/C-02/C-03 auf dieselbe Datei abgebildet). UPDATE (2026-08-14, schema_version 2 / SPEC-01): policy_checks auf Objektform migriert, Severity aus R005 (MUST) uebernommen. Erstes Beispiel fuer check-spezifisches evidence_level != Gate-Default (C-02 Hash-Chain-Verifikation auf E-1, C-01 Gatekeeper-Annotation auf E-0 — demonstriert genau die in SPEC-01 Abschnitt 2 beschriebene Orthogonalitaet von Automatisierbarkeit und Beweiskraft). UPDATE (2026-08-25): die feste Zahl \"16/16\" aus Beschreibung und Notes entfernt. Sie stammte aus dem Thesis-Stand, war seit der Ueberfuehrung von G-OPS-06 (SPEC-03) falsch und haette bei jeder weiteren Gate-Aenderung erneut veralten muessen. Ein Vollstaendigkeits-Gate, das die erwartete Anzahl hart kodiert, prueft eine Konstante statt einer Eigenschaft — die Zahl gehoert aus dem Katalog abgeleitet, nicht in die Beschreibung geschrieben."
