@@ -1142,6 +1142,79 @@ def check_required_inputs_enforced() -> dict:
     )
 
 
+def check_workflow_claims_no_counts() -> dict:
+    """SPEC-04b Teil 1: the pipeline must report what ran, not what it expects.
+
+    The Rego step printed "Rego Unit Tests PASS — 173/173 green" while the
+    runner reported 187/187. The number was hard-coded in the message,
+    compared against nothing, and travelled into $GITHUB_OUTPUT as
+    count=173. Had the test count fallen, the pipeline would still have
+    said 173/173 green.
+
+    Structurally that is gate_result.all_passed — a claim about a result
+    carried next to the result, which nobody holds against it. Removing it
+    once is not enough; the convenient thing is always to type the number.
+    So it is checked.
+
+    Scope, deliberately narrow: only text that is DISPLAYED — `echo` output,
+    step and job names, and OCI labels baked into the image. Comments may
+    name a number as context, including the comments that record this very
+    history. A comment is read by someone editing the file; an echo is read
+    as a result.
+    """
+    findings = []
+    wf_dir = REPO_ROOT / ".github" / "workflows"
+    if not wf_dir.is_dir():
+        return make_result(
+            "WORKFLOW_CLAIMS_NO_COUNTS", "workflow output states no hard-coded counts",
+            "medium", True, "No workflows present.", [],
+        )
+
+    # "17 gates", "173 tests", "173/173" — a bare number next to a countable
+    # noun, or a ratio. Version-like tokens (v4, 3.11) are not counts.
+    count_claim = re.compile(
+        r"\b\d+\s*/\s*\d+\b"
+        r"|\b\d+\s+(?:gates?|tests?|policies|policy|rules?|checks?|records?|requirements?)\b",
+        re.I,
+    )
+
+    for wf in sorted(wf_dir.glob("*.y*ml")):
+        for lineno, line in enumerate(read_text(wf).split("\n"), 1):
+            stripped = line.strip()
+            if stripped.startswith("#"):
+                continue  # comments may carry context
+            displayed = (
+                stripped.startswith("echo ")
+                or stripped.startswith("- name:")
+                or stripped.startswith("name:")
+                or "--label" in stripped
+            )
+            if not displayed:
+                continue
+            # A count built from a variable is computed, not claimed.
+            if "${{" in stripped or "$(" in stripped or "$PASSED" in stripped or "$COUNT" in stripped:
+                continue
+            hit = count_claim.search(stripped)
+            if hit:
+                findings.append(
+                    f"{wf.relative_to(REPO_ROOT)}:{lineno}: displays the fixed count "
+                    f"'{hit.group(0).strip()}' — a number written into output is a "
+                    f"claim nobody holds against the result. Read it from the tool "
+                    f"or compute it."
+                )
+
+    return make_result(
+        "WORKFLOW_CLAIMS_NO_COUNTS",
+        "workflow output states no hard-coded counts (SPEC-04b Teil 1)",
+        "medium",
+        not findings,
+        "The pipeline that checks this control system asserts numbers instead of "
+        "reporting them — the same fault class the gates were cleared of." if findings
+        else "Every count in workflow output is read from the tool or computed.",
+        findings,
+    )
+
+
 VALID_ROLE_SCOPES = {"provider", "deployer"}
 
 
@@ -1205,6 +1278,7 @@ def collect_results() -> list[dict]:
         check_runtime_mode_visible,
         check_readme_counts_current,
         check_required_inputs_enforced,
+        check_workflow_claims_no_counts,
     ]
     results = []
     for check in checks:

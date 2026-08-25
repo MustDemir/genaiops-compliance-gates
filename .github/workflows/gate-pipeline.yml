@@ -7,7 +7,7 @@
 # Triggered on: push to main, pull_request to main
 #
 # Test Layers (Shift-Left, fail-fast ordering):
-#   Layer 1 — Rego Unit Tests (OPA): 173 tests across 17 policies.
+#   Layer 1 — Rego Unit Tests (OPA): alle Policies unter policies/.
 #             Runs BEFORE any Gate-Conftest-Check. Any failure aborts the
 #             pipeline immediately → prevents Conftest from evaluating
 #             policies whose rule-semantics are broken.
@@ -94,13 +94,19 @@ env:
 
 jobs:
   # ────────────────────────────────────────────────────────
-  # Job 1: Quality Gate Checks (S2 + S3) — All 17 Gates
+  # Job 1: Quality Gate Checks (S2 + S3) — der gesamte Gate-Katalog
   # ────────────────────────────────────────────────────────
   quality-gates:
-    name: "Quality Gate Checks (17 Gates)"
+    # SPEC-04b Teil 1: kein Zaehlstand im Namen. Eine Zahl im Label wird zur
+    # Behauptung, sobald sich der Katalog aendert — und niemand haelt sie
+    # gegen das Ergebnis.
+    name: "Quality Gate Checks"
     runs-on: ubuntu-latest
     outputs:
       gate_result: ${{ steps.gate-summary.outputs.result }}
+      gates_pass: ${{ steps.gate-summary.outputs.gates_pass }}
+      gates_total: ${{ steps.gate-summary.outputs.gates_total }}
+      rego_tests: ${{ steps.rego-unit-tests.outputs.count }}
       pipeline_run_id: ${{ steps.init.outputs.pipeline_run_id }}
 
     steps:
@@ -209,22 +215,32 @@ jobs:
       # LAYER 1 — Rego Unit Tests (OPA, fail-fast)
       # Runs BEFORE any Conftest gate check. Any rule-semantic failure
       # aborts the pipeline before Gates evaluate → prevents silent
-      # rule drift. Scope: 17 policies / 173 tests
-      # (tests/run_all_rego_tests.sh).
+      # rule drift. Umfang: alle Policies unter policies/ — die Anzahl wird
+      # vom Runner gemeldet und hier GELESEN, nicht behauptet (SPEC-04b).
       # ════════════════════════════════════════════════════════
-      - name: "Rego Unit Tests (Layer 1 — 17 policies, 173 tests)"
+      - name: "Rego Unit Tests (Layer 1 — OPA, fail-fast)"
         id: rego-unit-tests
         run: |
           echo "::group::Rego Unit Tests (OPA)"
-          echo "🧪 Running OPA unit tests for all 17 Rego policies..."
           echo "   Runner: tests/run_all_rego_tests.sh"
-          echo "   Expected: 173/173 PASS (17 policies, updated 2026-08-15)"
           echo ""
 
-          if ./tests/run_all_rego_tests.sh --quiet; then
-            echo "✅ Rego Unit Tests PASS — 173/173 green"
+          # Die Ausgabe wird MITGELESEN, nicht nachtraeglich behauptet.
+          # Bis 2026-08-25 stand hier "173/173 green" als fester Text,
+          # waehrend der Runner 187/187 meldete — dieselbe Fehlerklasse wie
+          # gate_result.all_passed: eine Zahl, die niemand gegen das
+          # Ergebnis haelt. Waere die Testzahl gefallen, haette die
+          # Pipeline weiterhin "173/173 green" ausgegeben.
+          set -o pipefail
+          if ./tests/run_all_rego_tests.sh --quiet | tee /tmp/rego-out.txt; then
+            COUNT=$(grep -oE "PASS: [0-9]+/[0-9]+" /tmp/rego-out.txt | tail -1 | grep -oE "[0-9]+/[0-9]+" || true)
+            if [ -z "$COUNT" ]; then
+              echo "::error::Runner meldete keinen Zaehlstand — ohne gelesene Zahl wird hier keine behauptet."
+              exit 1
+            fi
+            echo "✅ Rego Unit Tests PASS — $COUNT (vom Runner gemeldet)"
             echo "result=PASS" >> "$GITHUB_OUTPUT"
-            echo "count=173" >> "$GITHUB_OUTPUT"
+            echo "count=${COUNT%%/*}" >> "$GITHUB_OUTPUT"
           else
             echo "❌ Rego Unit Tests FAIL — pipeline aborted before Gate-Checks"
             echo "::error::Rego rule-semantics broken. Fix unit tests before re-running pipeline."
@@ -419,11 +435,11 @@ jobs:
       # EVIDENCE RECORDING (S4)
       # ════════════════════════════════════════════════════════
 
-      - name: "Record Evidence — All 16 Gate Results"
+      - name: "Record Evidence — All Gate Results"
         id: evidence
         run: |
           echo "::group::Evidence Store Recording"
-          echo "📦 Recording all 17 gate results to Evidence Store..."
+          echo "📦 Recording gate results to Evidence Store..."
           echo "   Database: $EVIDENCE_DB (SQLite for PoC)"
           echo ""
 
@@ -510,7 +526,7 @@ jobs:
         id: gate-summary
         run: |
           echo "╔══════════════════════════════════════════════════════════╗"
-          echo "║  GenAIOps Quality Gate Pipeline — 16 Gate Summary       ║"
+          echo "║  GenAIOps Quality Gate Pipeline — Gate Summary           ║"
           echo "╠══════════════════════════════════════════════════════════╣"
           echo "║  Pipeline: ${{ steps.init.outputs.pipeline_run_id }}"
           echo "║  Commit:   ${GITHUB_SHA::8}"
@@ -556,13 +572,19 @@ jobs:
             "${{ steps.g-ops-05.outputs.result }}"
             "${{ steps.g-ops-06.outputs.result }}"
           )
+          # Gezaehlt, nicht behauptet: die Zahlen stammen aus demselben
+          # Array, das die Entscheidung traegt.
           ALL_PASS=true
+          PASSED=0
           for g in "${GATES[@]}"; do
-            if [ "$g" = "FAIL" ]; then ALL_PASS=false; break; fi
+            if [ "$g" = "FAIL" ]; then ALL_PASS=false; else PASSED=$((PASSED+1)); fi
           done
+          TOTAL=${#GATES[@]}
+          echo "gates_pass=$PASSED" >> "$GITHUB_OUTPUT"
+          echo "gates_total=$TOTAL" >> "$GITHUB_OUTPUT"
 
           if [ "$ALL_PASS" = true ]; then
-            echo "║  DECISION: ✅ ALL 16 GATES PASSED — Deploy authorized  ║"
+            echo "║  DECISION: ✅ $PASSED/$TOTAL GATES PASSED — Deploy authorized"
             echo "result=PASS" >> "$GITHUB_OUTPUT"
           else
             echo "║  DECISION: ❌ GATE FAILURE — Deploy BLOCKED            ║"
@@ -576,7 +598,7 @@ jobs:
           fi
 
   # ────────────────────────────────────────────────────────
-  # Job 2: Build + Push Docker Image (only if all 17 gates pass)
+  # Job 2: Build + Push Docker Image (only if all gates pass)
   # ────────────────────────────────────────────────────────
   build-and-push:
     name: "Build & Push Image"
@@ -621,7 +643,8 @@ jobs:
             --label "org.opencontainers.image.created=$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
             --label "genaiops.pipeline.run-id=${{ needs.quality-gates.outputs.pipeline_run_id }}" \
             --label "genaiops.gates.result=PASS" \
-            --label "genaiops.gates.count=17" \
+            --label "genaiops.gates.count=${{ needs.quality-gates.outputs.gates_total }}" \
+            --label "genaiops.gates.passed=${{ needs.quality-gates.outputs.gates_pass }}" \
             "$SCENARIO_DIR"
 
       - name: Push Docker image
@@ -638,9 +661,9 @@ jobs:
           echo "╔══════════════════════════════════════════════════════════╗"
           echo "║  ✅ GenAIOps Pipeline COMPLETE                          ║"
           echo "║                                                          ║"
-          echo "║  Gates:  17/17 PASS (5 PRE + 6 DEP + 6 OPS)            ║"
-          echo "║  Evidence: 17+ records + Hash Chain Verified             ║"
-          echo "║  HYBRID: 6 gates (AUTO + Manual Decision-Log)          ║"
+          echo "║  Gates:  ${{ needs.quality-gates.outputs.gates_pass }}/${{ needs.quality-gates.outputs.gates_total }} PASS"
+          echo "║  Rego:   ${{ needs.quality-gates.outputs.rego_tests }} unit tests"
+          echo "║  Evidence: Hash Chain Verified                           ║"
           echo "║                                                          ║"
           echo "║  CDV-Pattern: Contract → Validation → PASS → Deploy     ║"
           echo "╚══════════════════════════════════════════════════════════╝"
