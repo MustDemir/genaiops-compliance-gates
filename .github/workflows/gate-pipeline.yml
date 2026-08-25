@@ -317,12 +317,103 @@ jobs:
             "genaiops.pre_deployment.data_provenance_documented"
           echo "::endgroup::"
 
+      # ════════════════════════════════════════════════════════
+      # MESSUNG — die Anwendung laeuft, bevor ueber sie geurteilt wird
+      # ════════════════════════════════════════════════════════
+      # SPEC-04b Teil 2. Bis hierher las G-DEP-02 eine eingecheckte Datei:
+      # das Dokument wurde zwar von eval_runner.py erzeugt, aber auf einem
+      # Entwicklerrechner, nicht in der Pipeline, die es prueft.
+      #
+      # Kein Kubernetes noetig. E-3 braucht eine LAUFENDE ANWENDUNG mit
+      # /metrics, keinen Cluster — nur E-2 (data.inventory, readyReplicas)
+      # braucht wirklich einen. Ein Container mit -p 8080:8080 genuegt.
+      - name: "Start the application under test"
+        id: app
+        run: |
+          echo "::group::Build and start ambient-ai-scribe"
+          docker build -q -t scribe:ci "$SCENARIO_DIR"
+          docker run -d --name scribe-ci -p 8080:8080 \
+            -e MODEL_VERSION="ci-${GITHUB_SHA::8}" \
+            -e PIPELINE_ID="${{ steps.init.outputs.pipeline_run_id }}" \
+            scribe:ci
+
+          # Bereitschaft wird ABGEFRAGT, nicht abgewartet. Ein festes sleep
+          # ist eine Annahme ueber die Startzeit, und Annahmen sind genau
+          # das, was hier ueberall ersetzt wird.
+          for i in $(seq 1 30); do
+            if curl -sf http://localhost:8080/health > /dev/null; then
+              echo "App ready after ${i}s"
+              break
+            fi
+            if [ "$i" = "30" ]; then
+              echo "::error::App did not become healthy within 30s"
+              docker logs scribe-ci
+              exit 1
+            fi
+            sleep 1
+          done
+          echo "::endgroup::"
+
+      - name: "Measure: produce the evaluation document"
+        id: measure
+        run: |
+          echo "::group::eval_runner — measured latency and throughput"
+          python3 "$SCENARIO_DIR/eval/eval_runner.py" \
+            --app-url http://localhost:8080 \
+            --requests 50 \
+            --output /tmp/eval_results.json
+
+          # runtime_mode MUSS mock sein: MOCK_MODE steht fest im App-Code,
+          # es laeuft kein echtes Modell. Ein "live" aus dem Runner waere
+          # ein Befund, kein Fortschritt — deshalb wird darauf geprueft.
+          MODE=$(python3 -c "import json;print(json.load(open('/tmp/eval_results.json'))['evaluation']['runtime_mode'])")
+          echo "runtime_mode: $MODE"
+          if [ "$MODE" != "mock" ]; then
+            echo "::error::runtime_mode is '$MODE' — the CI runs no real model, so anything but 'mock' means the mode was not established correctly."
+            exit 1
+          fi
+          echo "::endgroup::"
+
+      - name: "Compare produced document against the checked-in fixture"
+        run: |
+          echo "::group::Structure comparison"
+          # Verglichen wird die STRUKTUR, nicht die Werte — die
+          # unterscheiden sich zwangslaeufig, das ist der Beleg dafuer,
+          # dass gemessen wurde. Weicht die Struktur ab, ist die
+          # eingecheckte Fixture veraltet.
+          python3 - <<'PYCMP'
+          import json, os, sys
+
+          def shape(node, prefix=""):
+              keys = set()
+              if isinstance(node, dict):
+                  for k, v in node.items():
+                      keys.add(prefix + k)
+                      keys |= shape(v, prefix + k + ".")
+              return keys
+
+          produced = json.load(open("/tmp/eval_results.json"))
+          fixture = json.load(open(os.environ["SCENARIO_DIR"] + "/fixtures/eval_results.json"))
+          missing = shape(fixture) - shape(produced)
+          extra = shape(produced) - shape(fixture)
+          if missing:
+              print(f"::warning::checked-in fixture has fields the runner no longer produces: {sorted(missing)}")
+          if extra:
+              print(f"::warning::runner produces fields the checked-in fixture lacks — regenerate it: {sorted(extra)}")
+          if "gate_result" in shape(produced):
+              print("::error::gate_result reappeared — a candidate must not bring its own report card")
+              sys.exit(1)
+          print("Structure comparison done.")
+          PYCMP
+          echo "::endgroup::"
+
       - name: "Gate G-DEP-02: Safety Metrics (R003, Art.15) [AUTO]"
         id: g-dep-02
         run: |
           echo "::group::G-DEP-02 Safety Metrics"
+          # Geprueft wird das ERZEUGTE Dokument, nicht die Fixture.
           bash /tmp/run_gate.sh G-DEP-02 \
-            "$SCENARIO_DIR/fixtures/eval_results.json" \
+            "/tmp/eval_results.json" \
             "policies/deployment/policy_safety_metrics.rego" \
             "genaiops.deployment.safety_metrics"
           echo "::endgroup::"
@@ -520,6 +611,14 @@ jobs:
             && echo "✅ Hash chain VALID — Evidence Store integrity confirmed" \
             || { echo "::error::Hash chain verification FAILED — Evidence Store may be corrupted"; exit 1; }
           echo "::endgroup::"
+
+      - name: "Stop the application under test"
+        if: always()
+        run: |
+          # always(): der Container muss auch dann weg, wenn ein Gate
+          # blockiert hat — die Pipeline Decision unten beendet den Job
+          # mit exit 1.
+          docker rm -f scribe-ci >/dev/null 2>&1 || true
 
       # ── Gate Summary + Decision ──
       - name: "Pipeline Decision"
