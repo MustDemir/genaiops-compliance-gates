@@ -46,6 +46,11 @@ AI_ACT_ROLE_CUTOFF_DEFAULT = None  # None = Feld nie Teil der Payload (v03)
 # Cutoff, gleiche NULL-Regel. Siehe Kommentarblock in record_evidence.py.
 DERIVED_DECISION_CUTOFF_KEY = "derived_decision_payload_from_audit_id"
 
+# Schema v06: runtime_mode (live|mock|unknown) — eigener Cutoff, gleiche
+# NULL-Regel. SPEC-04 Teil 1: ein Mock-PASS bleibt moeglich, aber er ist
+# vom Echt-PASS unterscheidbar und nicht nachtraeglich faelschbar.
+RUNTIME_MODE_CUTOFF_KEY = "runtime_mode_payload_from_audit_id"
+
 
 def compute_hash(
     previous_hash: str,
@@ -65,6 +70,8 @@ def compute_hash(
     include_ai_act_role: bool = False,
     derived_decision: str = "",
     include_derived_decision: bool = False,
+    runtime_mode: str = "",
+    include_runtime_mode: bool = False,
 ) -> str:
     """Compute SHA-256 hash — identical logic to record_evidence.py and DB trigger."""
     fields = [
@@ -85,6 +92,8 @@ def compute_hash(
         fields.append(ai_act_role or "")
     if include_derived_decision:
         fields.append(derived_decision or "")
+    if include_runtime_mode:
+        fields.append(runtime_mode or "")
     fields.append(previous_hash or "")
     return hashlib.sha256("|".join(fields).encode("utf-8")).hexdigest()
 
@@ -143,6 +152,40 @@ def fetch_derived_cutoff_sqlite(db_path: str):
     return fetch_cutoff_sqlite(db_path, DERIVED_DECISION_CUTOFF_KEY)
 
 
+def fetch_runtime_cutoff_sqlite(db_path: str):
+    """Read the schema-v06 cutoff from SQLite (None if never migrated)."""
+    return fetch_cutoff_sqlite(db_path, RUNTIME_MODE_CUTOFF_KEY)
+
+
+def fetch_cutoff_pg(db_url: str, key: str):
+    """Read any payload cutoff from PostgreSQL (None if never migrated).
+
+    Added 2026-08-25 (SPEC-04). Until now only the v04 role cutoff was read
+    on the PostgreSQL path: fetch_role_cutoff_pg() existed, but nothing
+    fetched the v05 derived_decision cutoff, so a PostgreSQL store holding
+    v05 records would have been verified against a 14-field payload while
+    the trigger wrote 15 — every record would have reported a hash mismatch.
+    The SQLite path had it right. Fixing it here rather than adding a third
+    one-off function; runtime_mode would have inherited the same gap.
+    """
+    try:
+        import psycopg2
+    except ImportError:
+        return None
+    conn = psycopg2.connect(db_url)
+    try:
+        with conn.cursor() as cur:
+            cur.execute(
+                "SELECT value FROM compliance.schema_metadata WHERE key = %s", (key,)
+            )
+            row = cur.fetchone()
+        return int(row[0]) if row else None
+    except Exception:
+        return None
+    finally:
+        conn.close()
+
+
 def fetch_role_cutoff_pg(db_url: str):
     """Read the schema-v04 cutoff from PostgreSQL (None if never migrated)."""
     try:
@@ -164,16 +207,32 @@ def fetch_role_cutoff_pg(db_url: str):
     return int(row[0]) if row else AI_ACT_ROLE_CUTOFF_DEFAULT
 
 
+def _mode_marker(rec: dict) -> str:
+    """Render runtime_mode next to the decision, loudly when it is not live.
+
+    The known weakness of SPEC-04 option C: a reader who only looks at
+    `decision` sees an undifferentiated PASS. The field exists but nothing
+    forces anyone to read it. So every place that prints a decision prints
+    the mode with it — here, in the pipeline report, and in the reporting
+    view, where runtime_mode sits directly beside decision.
+    """
+    mode = rec.get("runtime_mode")
+    if mode in (None, "", "live"):
+        return ""
+    return f" [{mode.upper()}]"
+
+
 def verify_chain(records: list[dict], verbose: bool = False, role_cutoff=None,
-                 derived_cutoff=None) -> tuple[bool, int, str]:
+                 derived_cutoff=None, runtime_cutoff=None) -> tuple[bool, int, str]:
     """
     Verify the hash chain integrity.
 
-    `role_cutoff` and `derived_cutoff` are the audit_ids from which
-    ai_act_role (schema v04) and derived_decision (schema v05) join the
-    hashed payload. Each field is independent, so one chain can legitimately
-    contain 13-, 14- and 15-field records. Passing None for a cutoff means
-    that field was never part of the payload in this store.
+    `role_cutoff`, `derived_cutoff` and `runtime_cutoff` are the audit_ids
+    from which ai_act_role (schema v04), derived_decision (schema v05) and
+    runtime_mode (schema v06) join the hashed payload. Each field is
+    independent, so one chain can legitimately contain 13-, 14-, 15- and
+    16-field records. Passing None for a cutoff means that field was never
+    part of the payload in this store.
 
     Returns:
         (is_valid, records_checked, error_message)
@@ -237,6 +296,8 @@ def verify_chain(records: list[dict], verbose: bool = False, role_cutoff=None,
             include_ai_act_role=(role_cutoff is not None and audit_id >= role_cutoff),
             derived_decision=rec.get("derived_decision", "") or "",
             include_derived_decision=(derived_cutoff is not None and audit_id >= derived_cutoff),
+            runtime_mode=rec.get("runtime_mode", "") or "",
+            include_runtime_mode=(runtime_cutoff is not None and audit_id >= runtime_cutoff),
         )
 
         stored_hash = rec.get("hash_value", "")
@@ -272,9 +333,14 @@ def verify_chain(records: list[dict], verbose: bool = False, role_cutoff=None,
         # runs under some role); derived_decision does not, because MANUAL
         # decision-log records and drift-detector records are not gate
         # evaluations and have no block/manual_review/warn/approve outcome.
+        # runtime_mode is `required_above`: every run happened in SOME mode,
+        # even if that mode is "unknown". A NULL above the cutoff would mean
+        # the record was written without recording whether a real model ran,
+        # while claiming hash coverage for that very fact.
         for field_name, cutoff, required_above in (
             ("ai_act_role", role_cutoff, True),
             ("derived_decision", derived_cutoff, False),
+            ("runtime_mode", runtime_cutoff, True),
         ):
             if cutoff is None:
                 continue
@@ -299,7 +365,8 @@ def verify_chain(records: list[dict], verbose: bool = False, role_cutoff=None,
             print(
                 f"  [{status}] audit_id={audit_id} gate={rec.get('gate_name', '?')} "
                 f"method={rec.get('decision_method', '?')} "
-                f"decision={rec.get('decision', '?')} "
+                f"decision={rec.get('decision', '?')}"
+                f"{_mode_marker(rec)} "
                 f"hash={stored_hash[:16]}..."
             )
 
@@ -336,12 +403,14 @@ def main():
     # Fetch records
     role_cutoff = None
     derived_cutoff = None
+    runtime_cutoff = None
     if args.sqlite:
         print(f"Source: SQLite ({args.sqlite})")
         try:
             records = fetch_records_sqlite(args.sqlite)
             role_cutoff = fetch_role_cutoff_sqlite(args.sqlite)
             derived_cutoff = fetch_derived_cutoff_sqlite(args.sqlite)
+            runtime_cutoff = fetch_runtime_cutoff_sqlite(args.sqlite)
         except Exception as e:
             print(f"ERROR: Could not read SQLite DB: {e}")
             sys.exit(2)
@@ -349,7 +418,9 @@ def main():
         print("Source: PostgreSQL")
         try:
             records = fetch_records_pg(args.db_url)
-            role_cutoff = fetch_role_cutoff_pg(args.db_url)
+            role_cutoff = fetch_cutoff_pg(args.db_url, AI_ACT_ROLE_CUTOFF_KEY)
+            derived_cutoff = fetch_cutoff_pg(args.db_url, DERIVED_DECISION_CUTOFF_KEY)
+            runtime_cutoff = fetch_cutoff_pg(args.db_url, RUNTIME_MODE_CUTOFF_KEY)
         except Exception as e:
             print(f"ERROR: Could not connect to PostgreSQL: {e}")
             sys.exit(2)
@@ -363,7 +434,9 @@ def main():
         print(f"Source: PostgreSQL ({host}:{port}/{db})")
         try:
             records = fetch_records_pg(db_url)
-            role_cutoff = fetch_role_cutoff_pg(db_url)
+            role_cutoff = fetch_cutoff_pg(db_url, AI_ACT_ROLE_CUTOFF_KEY)
+            derived_cutoff = fetch_cutoff_pg(db_url, DERIVED_DECISION_CUTOFF_KEY)
+            runtime_cutoff = fetch_cutoff_pg(db_url, RUNTIME_MODE_CUTOFF_KEY)
         except Exception as e:
             print(f"ERROR: Could not connect to PostgreSQL: {e}")
             sys.exit(2)
@@ -372,11 +445,15 @@ def main():
     print(f"Payload schema: ai_act_role hashed from audit_id "
           f"{role_cutoff if role_cutoff is not None else '(never)'}, "
           f"derived_decision hashed from audit_id "
-          f"{derived_cutoff if derived_cutoff is not None else '(never)'}")
+          f"{derived_cutoff if derived_cutoff is not None else '(never)'}, "
+          f"runtime_mode hashed from audit_id "
+          f"{runtime_cutoff if runtime_cutoff is not None else '(never)'}")
     print("-" * 60)
 
     # Verify
-    is_valid, count, error_msg = verify_chain(records, args.verbose, role_cutoff, derived_cutoff)
+    is_valid, count, error_msg = verify_chain(
+        records, args.verbose, role_cutoff, derived_cutoff, runtime_cutoff
+    )
 
     print("-" * 60)
     if count == 0:

@@ -1,61 +1,84 @@
 {
+  "_spec": "SPEC-04 Teil 2 — GENERATED document, do not hand-edit. Produced by eval/eval_runner.py against the REAL app (docker build scenarios/healthcare-ambient-ai-scribe, docker run -p 8080:8080), 50 requests. Declared values come from eval/declared_metrics.json. Regenerate with: python3 scenarios/healthcare-ambient-ai-scribe/eval/eval_runner.py --app-url http://localhost:8080",
   "evaluation": {
-    "model_name": "gpt-4o-mini",
-    "model_version": "mock-v1.0.0",
-    "pipeline_id": "ci-main-42",
-    "run_id": "eval-20260325-001",
-    "evaluated_at": "2026-03-25T10:00:00Z"
+    "provenance": "measured",
+    "source": "http://localhost:8080/metrics (scribe_latency_seconds, scribe_requests_total)",
+    "measured_at": "2026-08-25T13:45:17.358055+00:00",
+    "model_name": "ambient-ai-scribe",
+    "model_version": "real-app-v1.0.0",
+    "pipeline_id": "local-dev",
+    "run_id": "eval-20260825-d1317415",
+    "evaluated_at": "2026-08-25T13:45:17.358403+00:00",
+    "runtime_mode": "mock"
   },
-
+  "performance_metrics": {
+    "provenance": "measured",
+    "source": "http://localhost:8080/metrics (scribe_latency_seconds, scribe_requests_total)",
+    "measured_at": "2026-08-25T13:45:17.358409+00:00",
+    "latency_p50_ms": 0.5,
+    "latency_p95_ms": 0.95,
+    "latency_p99_ms": 0.99,
+    "latency_mean_ms": 0.0341,
+    "throughput_rps": 465.97,
+    "requests_total": 90.0,
+    "requests_error": 0.0,
+    "error_rate": 0.0,
+    "latency_p95_resolution": {
+      "enclosing_bucket_ms": [
+        0.0,
+        1.0
+      ],
+      "finest_bucket_ms": 1.0,
+      "within_finest_bucket": true
+    },
+    "_estimation_note": "Quantiles are interpolated from histogram buckets, the same approximation Prometheus' histogram_quantile() makes, and bounded by the bucket layout. latency_mean_ms is exact (_sum/_count). Check latency_p95_resolution.within_finest_bucket before treating the p95 as a statement about the system."
+  },
   "quality_metrics": {
+    "provenance": "declared",
+    "source": "offline evaluation set, manually maintained",
+    "note": "Kein Ground-Truth-Kanal im Betrieb — siehe HANDBUCH 7.6. Nicht als Betriebsmessung verwendbar.",
     "accuracy": 0.89,
     "faithfulness_score": 0.94,
     "relevance_score": 0.89,
     "coherence_score": 0.92
   },
-
-  "performance_metrics": {
-    "latency_p50_ms": 320,
-    "latency_p95_ms": 890,
-    "latency_p99_ms": 1450,
-    "throughput_rps": 12.5
-  },
-
   "safety_metrics": {
+    "provenance": "declared",
+    "source": "offline evaluation set, manually maintained",
+    "note": "Kein Ground-Truth-Kanal im Betrieb — siehe HANDBUCH 7.6. Nicht als Betriebsmessung verwendbar.",
     "safety_score": 0.96,
     "toxicity_score": 0.01,
     "hallucination_rate": 0.04,
     "prompt_injection_resistance": 0.98
   },
-
   "subgroup_analysis": {
+    "provenance": "declared",
+    "source": "offline evaluation set, manually maintained",
+    "note": "Einmalige Pruefung vor Freigabe. Subgruppen-Performance ueber Zeit fehlt weiterhin — HANDBUCH 7.6 Luecke 3.",
     "performed": true,
-    "subgroups": ["age_group", "gender", "language", "medical_specialty"],
+    "subgroups": [
+      "age_group",
+      "gender",
+      "language",
+      "medical_specialty"
+    ],
     "worst_group_accuracy": 0.87,
     "worst_group_name": "language:non_native",
     "bias_detected": false
   },
-
   "adversarial_tests": {
+    "provenance": "declared",
+    "source": "offline evaluation set, manually maintained",
+    "note": "Kein Ground-Truth-Kanal im Betrieb — siehe HANDBUCH 7.6. Nicht als Betriebsmessung verwendbar.",
     "performed": true,
     "prompt_injection_pass_rate": 0.95,
     "jailbreak_resistance": 0.98,
     "data_extraction_resistance": 0.99,
     "test_suite_version": "adversarial-v1.0"
   },
-
   "gate_thresholds": {
     "accuracy_min": 0.85,
     "latency_p95_max_ms": 2000,
-    "safety_score_min": 0.90
-  },
-
-  "gate_result": {
-    "all_passed": true,
-    "details": [
-      {"metric": "accuracy", "value": 0.91, "threshold": 0.85, "result": "PASS"},
-      {"metric": "latency_p95", "value": 890, "threshold": 2000, "result": "PASS"},
-      {"metric": "safety_score", "value": 0.96, "threshold": 0.90, "result": "PASS"}
-    ]
+    "safety_score_min": 0.9
   }
 }

@@ -10,6 +10,167 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased] — Post-Thesis Development (schema_version 2)
 
+### Changed (BREAKING) — measurement before signature (SPEC-04, 2026-08-25)
+
+Gate inputs now come from the running system where they can. The rules are
+unchanged; what changed is where their numbers come from. The evidence level
+sits in the provenance of the input, not in the rule.
+
+**Counts.** Rules 166 → 175, unit tests 173 → 187 (plus 19 eval-runner and 21 drift E2E checks), integrity checks 20 → 21. Gates and requirements are
+unchanged at 17 and 14. The counts cited in the thesis (16 gates, 108 rules,
+141 tests) remain reproducible under `git checkout thesis-v1.0`.
+
+#### Removed — `gate_result` and its rule (G-DEP-02)
+
+- `eval_results.json` carried `gate_result.all_passed`, and a `deny` rule read
+  it. A candidate bringing its own report card. It also asserted nothing
+  independent: if the thresholds hold, the verdict is PASS, and conftest
+  decides that.
+- It concealed a contradiction. The fixture stated `quality_metrics.accuracy:
+  0.89` and, further down, `gate_result.details` `"value": 0.91` for the same
+  metric. Two invented values for one number, not consistent with each other,
+  and no rule compared them because the threshold rule and this rule read
+  separate paths. Where a number is not produced, it cannot even be consistent
+  with itself.
+- The unit test asserting the removed rule is retired; a new test asserts the
+  opposite, so a silent reintroduction would fail.
+
+#### Removed — the drift detector's silent fallback
+
+- On an unreachable app or an empty histogram, `load_distribution_from_app()`
+  returned a hard-coded distribution stamped with `source: <url>` and a fresh
+  `captured_at` — indistinguishable from a measurement. It now raises and exits
+  non-zero, and writes no measurement document at all, so the previous document
+  ages and C-03 catches it.
+
+#### Changed — the drift detector measures, Rego decides
+
+- `record_drift_evidence()` used to set its own `decision` under gate ID
+  `G-OPS-03`, in parallel to `policy_monitoring_configured.rego` judging the
+  same gate from three pod annotations. One gate ID, two producers, incompatible
+  logic. The detector now writes a measurement document, conftest evaluates it,
+  and the policy's verdict is what gets recorded.
+- The measurement is written on every run, not only on drift: evidence that
+  appears only when something is wrong cannot show that monitoring was running
+  when nothing was wrong.
+
+#### Added — `provenance` per metric group
+
+- Every metric group in an evaluation document declares `measured`, `derived`
+  or `declared`, with its source. This does not make `accuracy` true — without
+  ground truth there is no accuracy in operation, only proxies. It makes the
+  assertion legible as an assertion. E6 applied at field level.
+- New `eval/eval_runner.py` produces `eval_results.json` instead of finding it:
+  latency quantiles and throughput measured from `scribe_latency_seconds` and
+  `scribe_requests_total`, `model_version` read from the app's own response,
+  `runtime_mode` read from `scribe_mock_mode`.
+- The values that cannot be measured moved to `eval/declared_metrics.json`, so
+  the boundary between measured and asserted is a file boundary.
+- New shared reader `monitoring/metrics_source.py`, so the bucket-parsing logic
+  that feeds two gates exists once rather than twice.
+
+#### Added — checks
+
+- **G-OPS-03 C-03 (MUST)**: a drift measurement exists and is recent. The more
+  important of the two: a gate reading only the value mistakes standstill for
+  stability — a crashed detector leaves its last good PSI sitting there, green.
+- **G-OPS-03 C-04 (MUST)**: PSI ≤ 0.2 and JSD ≤ 0.1, measured. The fixture
+  `monitoring/fixtures/current_drifted.json` has been in the repository since
+  the thesis without ever touching a gate; it now fails one.
+- **G-OPS-03 C-05 (SHOULD)**: the measurement states a measured/derived
+  provenance and a source. Advisory, so a fixture-driven walkthrough stays green.
+- **G-DEP-02 C-03 (SHOULD)**: warns when a MUST threshold is applied to a
+  `declared` value. Advisory on purpose — the whole estate is declared today,
+  and a MUST would turn it red on day one over a gap left open deliberately.
+- `policy_checks[].evidence_level` carries real values for the first time
+  (it had been `null` on every gate since SPEC-01). G-OPS-03 now shows E-0 and
+  E-3 side by side in one gate.
+
+#### Added — `runtime_mode` sealed into the hash chain (schema v06)
+
+- The app has always exported `scribe_mock_mode`. No gate read it, and a mock
+  PASS was byte-identical to a live PASS in the evidence table.
+- Three options were weighed. **A** (mock forces FAIL) was rejected: mock mode
+  is a legitimate PoC mode, not a breach, and a gate that always fails gets
+  switched off. **B** (a third decision value `INCONCLUSIVE`) was rejected
+  because it carries *less*, not more — "PASS on a mock run" states two things,
+  "INCONCLUSIVE" states one and discards whether the thresholds held.
+  **C** was chosen: `runtime_mode` as a hashed column.
+- A mock PASS stays possible but is distinguishable and cannot be relabelled
+  afterwards. The task is not to forbid mock mode; it is to make it unhideable.
+- Migration `v05_to_v06_add_runtime_mode.sql`, per-field cutoff, no back-fill.
+  For this column the no-back-fill rule bites twice: nobody knows what mode the
+  older runs were in, because the gauge was never read. Writing `live` into them
+  would invent the very fact the column records.
+- `resolve_runtime_mode()` in the orchestrator, four-stage: `RUNTIME_MODE` env,
+  metrics endpoint, metrics snapshot, then **`unknown`** — never `live`. Whoever
+  cannot establish that a real model ran has no evidence that one did.
+- Resolved in the orchestrator rather than in Rego: the check would otherwise be
+  duplicated across all 17 policies, and Rego must not measure — Gatekeeper
+  blocks external calls by default. The value is handed to the gate as input.
+
+#### Added — visibility carriers for the accepted weakness of option C
+
+- Option C's known cost: a consumer reading only `decision` still sees an
+  undifferentiated PASS. Compensated in four places — the orchestrator banner,
+  the pipeline report's top level, the auditor-facing view (where `runtime_mode`
+  sits directly beside `decision`), and the verifier's verbose output.
+- New integrity check `RUNTIME_MODE_VISIBLE` (MEDIUM) keeps those from eroding,
+  including the column's *position* in the view. Verified in both directions by
+  removing the banner and confirming the check fails.
+
+#### Fixed — PostgreSQL chain verification (pre-existing, since v05)
+
+- `verify_hash_chain.py` fetched only the v04 role cutoff on the PostgreSQL
+  path; nothing fetched the v05 `derived_decision` cutoff. A PostgreSQL store
+  holding v05 records would have been verified against a 14-field payload while
+  the trigger wrote 15 — **every record would have reported a hash mismatch**.
+  The SQLite path was correct, which is why the test suite never caught it.
+- Replaced by a generic `fetch_cutoff_pg(db_url, key)`; `runtime_mode` would
+  otherwise have inherited the same gap.
+
+#### Fixed — findings from the first run against the real app (2026-08-25)
+
+Running the actual container rather than a stand-in surfaced three things the
+unit tests could not.
+
+- **Histogram buckets were mis-sized.** The floor was 0.1s while every mock
+  response takes microseconds, so all observations landed in the first bucket
+  and `histogram_quantile` could only interpolate inside it: p95 came out as
+  0.95 x 0.1s = 95ms regardless of what the app did. G-DEP-02 was applying a
+  2000ms threshold to a constant — measured, and almost information-free.
+  Resolution is now 1ms at the bottom, upper bounds unchanged so the 2000ms
+  threshold still sits on a real bucket edge. Measured against the real app,
+  the reported p95 went from a fictitious 95ms to 0.95ms with the true mean at
+  0.034ms.
+- **Added `latency_mean_ms`, exact.** Derived from `_sum`/`_count`, so no
+  bucket boundary is involved and no interpolation happens. It is the only
+  latency figure in the document that is not an estimate. Verified against the
+  stand-in: a 400ms app reports a mean of 400.0ms.
+- **Added `latency_p95_resolution`.** States the enclosing bucket and whether
+  the p95 sits inside the finest one. When it does, the quantile is pure
+  interpolation between zero and that bound: it moves with the bucket layout,
+  not with the system, and a threshold applied to it is a threshold applied to
+  an artefact. Machine-readable rather than a footnote — the same move as
+  `provenance`, one level deeper. The runner also says it out loud.
+- **`sprintf` rendered an integer with `%.0f`** in the C-03 message, producing
+  `budget is %!f(int=900)s`. The Rego unit tests assert `contains(msg, "C-03")`
+  and never saw it.
+- **Dockerfile carried `licenses="CC-BY-NC-4.0"`**, stale since the Apache 2.0
+  relicence of 2026-08-15 and baked as an OCI label into every built image.
+
+The checked-in `eval_results.json` is now generated against the real container
+rather than the stand-in, and says so in `_spec`.
+
+#### Known regression — the drift CronJob
+
+- `--record-evidence` now requires `conftest` and `policies/operations/` inside
+  the image, and `metrics_source.py` next to the script. There is no Dockerfile
+  for that image in this repository. Until it is rebuilt, the CronJob exits 2
+  with "conftest not found" rather than falling back to a Python verdict — which
+  is the failure mode SPEC-04 chose. Documented in the manifest.
+
+
 ### Removed (BREAKING) — the waiver path (audit F-2)
 
 - **Waivers are abolished.** 11 of 17 gates declared `waiver.allowed: true` with an approver and a time limit, but the mechanism existed only on paper: `waiver` appeared in no line of logic in `pipeline/`, `evidence-store/`, `policies/` or `.github/`, and the evidence schema only knows `decision IN ('PASS','FAIL')` — a waived gate could not even be represented, let alone distinguished from a passed one.

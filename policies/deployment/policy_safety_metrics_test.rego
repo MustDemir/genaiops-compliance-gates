@@ -59,11 +59,15 @@ test_pass_full_eval_results if {
 
 test_fail_realistic_multi_rule_eval_failure if {
 	# eval_results_fail fixture triggers MUST (deny) rules:
-	#   accuracy 0.72 < 0.85, latency_p95 2800 > 2000,
-	#   safety_score 0.78 < 0.90, gate_result.all_passed: false
+	#   accuracy 0.72 < 0.85, latency_p95 2800 > 2000, safety_score 0.78 < 0.90
 	# and SHOULD (warn) advisories:
-	#   subgroup_analysis.performed: false, adversarial_tests.performed: false
-	count(safety_metrics.deny) >= 4 with input as scenario_fail
+	#   subgroup_analysis.performed, adversarial_tests.performed,
+	#   plus C-03 (the fixture honestly declares provenance "declared").
+	#
+	# The expected deny count dropped from 4 to 3 with SPEC-04 Teil 2.4:
+	# gate_result.all_passed no longer contributes. The fixture still
+	# fails — but at the thresholds, not at a verdict it brought with it.
+	count(safety_metrics.deny) >= 3 with input as scenario_fail
 	count(safety_metrics.warn) >= 2 with input as scenario_fail
 }
 
@@ -146,16 +150,22 @@ test_fail_safety_score_below_threshold if {
 # FAIL Tests — Rule-isolation (Check 4: gate_result.all_passed)
 # ================================================================
 
-test_fail_gate_result_all_passed_false if {
-	# R7 (isolation): gate_result.all_passed == false.
-	# Pattern-class: boolean-false.
-	input_override := object.union(scenario_pass, {"gate_result": object.union(
-		scenario_pass.gate_result,
-		{"all_passed": false},
-	)})
-	result := safety_metrics.deny with input as input_override
-	count(result) > 0
-}
+# REMOVED BY SPEC-04 Teil 2.4 (2026-08-25): test_fail_gate_result_all_passed_false
+#
+# It asserted that `gate_result.all_passed == false` blocks the gate.
+# That rule is gone, and with it this test. Kept as a comment rather
+# than deleted, per the project's rule that the reasoning chain stays
+# visible (HANDBUCH Teil 0).
+#
+# Why the rule went: it read a claim about the verdict out of the very
+# document being judged, and it asserted nothing independent — if the
+# thresholds hold the result is PASS, and conftest decides that. It was
+# also the second half of a contradiction nobody could see: the fixture
+# said accuracy 0.89 in one place and 0.91 in another, and the two paths
+# were never compared (HANDBUCH 7.5 (1a)).
+#
+# Its replacement is test_leftover_gate_result_does_not_block below,
+# which asserts the opposite and would catch a silent reintroduction.
 
 # ================================================================
 # FAIL Tests — Rule-isolation (Check 5: evaluation.run_id)
@@ -255,4 +265,67 @@ test_fail_adversarial_tests_performed_false if {
 	)})
 	result := safety_metrics.warn with input as input_override
 	count(result) > 0
+}
+
+# ================================================================
+# SPEC-04 Teil 2 — C-03 (Provenance) und der Wegfall von gate_result
+# ================================================================
+
+_measured_doc := {
+	"evaluation": {"run_id": "eval-20260825-abc", "runtime_mode": "live"},
+	"performance_metrics": {"provenance": "measured", "latency_p95_ms": 890},
+	"quality_metrics": {"provenance": "measured", "accuracy": 0.91},
+	"safety_metrics": {"provenance": "measured", "safety_score": 0.96},
+}
+
+# ── C-03 warns when a MUST threshold is applied to an asserted value ──
+
+test_warn_c03_declared_quality_metrics if {
+	doc := json.patch(_measured_doc, [{
+		"op": "replace",
+		"path": "/quality_metrics/provenance",
+		"value": "declared",
+	}])
+	some msg in safety_metrics.warn with input as doc
+	contains(msg, "C-03")
+}
+
+test_c03_is_advisory_not_blocking if {
+	# The whole point of SHOULD: today's estate is entirely `declared`,
+	# and a MUST here would turn it red on day one over a gap that
+	# SPEC-04 deliberately leaves open (no ground truth, HANDBUCH 7.6).
+	doc := json.patch(_measured_doc, [{
+		"op": "replace",
+		"path": "/quality_metrics/provenance",
+		"value": "declared",
+	}])
+	count(safety_metrics.deny) == 0 with input as doc
+}
+
+test_no_c03_warning_when_measured if {
+	not _has_c03_warning with input as _measured_doc
+}
+
+_has_c03_warning if {
+	some msg in safety_metrics.warn
+	contains(msg, "C-03")
+}
+
+test_warn_c03_performance_without_provenance if {
+	doc := json.patch(_measured_doc, [{
+		"op": "remove",
+		"path": "/performance_metrics/provenance",
+	}])
+	some msg in safety_metrics.warn with input as doc
+	contains(msg, "C-03")
+}
+
+# ── gate_result no longer influences the verdict ──
+# The document may not judge itself. A leftover `gate_result` claiming
+# failure must not block a run whose thresholds all hold — otherwise the
+# rule was never really removed.
+
+test_leftover_gate_result_does_not_block if {
+	doc := object.union(_measured_doc, {"gate_result": {"all_passed": false}})
+	count(safety_metrics.deny) == 0 with input as doc
 }

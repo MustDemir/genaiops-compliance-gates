@@ -35,7 +35,9 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parent.parent
 RECORD = REPO_ROOT / "evidence-store" / "scripts" / "record_evidence.py"
 VERIFY = REPO_ROOT / "evidence-store" / "scripts" / "verify_hash_chain.py"
-MIGRATION = REPO_ROOT / "evidence-store" / "migrations" / "v04_to_v05_add_derived_decision.sql"
+# Always the LATEST migration: it carries the maximal payload, and the
+# array build in set_hash_chain() states the full field order in one place.
+MIGRATION = REPO_ROOT / "evidence-store" / "migrations" / "v05_to_v06_add_runtime_mode.sql"
 
 # Canonical field order. previous_hash is always the final element;
 # ai_act_role sits directly before it in the v04 variant.
@@ -55,6 +57,12 @@ EXPECTED_V05 = [
     "payload_id", "checked_at", "inserted_by", "ai_act_role",
     "derived_decision", "previous_hash",
 ]
+EXPECTED_V06 = [
+    "model_name", "model_version", "pipeline_id", "run_id", "gate_type",
+    "decision", "decision_method", "gate_name", "policy_version",
+    "payload_id", "checked_at", "inserted_by", "ai_act_role",
+    "derived_decision", "runtime_mode", "previous_hash",
+]
 
 # Distinct sentinel values so a swapped pair of fields changes the digest.
 SAMPLE = {
@@ -73,6 +81,7 @@ SAMPLE = {
     "inserted_by": "inserted-by-0008",
     "ai_act_role": "DEPLOYER",
     "derived_decision": "manual_review",
+    "runtime_mode": "mock",
 }
 
 
@@ -87,10 +96,10 @@ def _sql_payload_order(path: Path) -> list[str]:
     """Extract the NEW.<field> order from the set_hash_chain() payload build.
 
     Since v05 the trigger assembles the payload incrementally into a TEXT[]
-    instead of branching over concat_ws variants — with two independent
-    cutoffs the branch form would need four copies of the field list. The
+    instead of branching over concat_ws variants — with three independent
+    cutoffs the branch form would need eight copies of the field list. The
     array form states the order once, in source order, which is exactly the
-    maximal (v05) payload.
+    maximal (v06) payload.
     """
     text = path.read_text(encoding="utf-8")
     start = text.find("parts := ARRAY[")
@@ -111,9 +120,14 @@ def main() -> int:
 
     # ── 1. Behavioural parity of the two Python implementations ──
     variants = (
-        ("v03", dict(include_ai_act_role=False, include_derived_decision=False)),
-        ("v04", dict(include_ai_act_role=True, include_derived_decision=False)),
-        ("v05", dict(include_ai_act_role=True, include_derived_decision=True)),
+        ("v03", dict(include_ai_act_role=False, include_derived_decision=False,
+                     include_runtime_mode=False)),
+        ("v04", dict(include_ai_act_role=True, include_derived_decision=False,
+                     include_runtime_mode=False)),
+        ("v05", dict(include_ai_act_role=True, include_derived_decision=True,
+                     include_runtime_mode=False)),
+        ("v06", dict(include_ai_act_role=True, include_derived_decision=True,
+                     include_runtime_mode=True)),
     )
     for variant, flags in variants:
         h_record = record.compute_hash(**flags, **SAMPLE)
@@ -129,22 +143,23 @@ def main() -> int:
     digests = {v: record.compute_hash(**f, **SAMPLE) for v, f in variants}
     distinct = len(set(digests.values())) == len(digests)
     ok = ok and distinct
-    print(f"  [{'OK' if distinct else 'FAIL'}] v03, v04 and v05 produce different digests")
+    print(f"  [{'OK' if distinct else 'FAIL'}] v03..v06 produce different digests")
     if not distinct:
         print("        a field is not actually entering the payload:", digests)
 
     # ── 3. Static field order of the SQL trigger ──
     sql_order = _sql_payload_order(MIGRATION)
-    sql_ok = sql_order == EXPECTED_V05
+    sql_ok = sql_order == EXPECTED_V06
     ok = ok and sql_ok
-    print(f"  [{'OK' if sql_ok else 'FAIL'}] set_hash_chain() (v05 SQL): {len(sql_order)} fields in order")
+    print(f"  [{'OK' if sql_ok else 'FAIL'}] set_hash_chain() (v06 SQL): {len(sql_order)} fields in order")
     if not sql_ok:
         print(f"        got:      {sql_order}")
-        print(f"        expected: {EXPECTED_V05}")
+        print(f"        expected: {EXPECTED_V06}")
 
     if ok:
         print(f"\nPARITY OK — all 3 implementations agree on all payload variants "
-              f"({len(EXPECTED_V03)} / {len(EXPECTED_V04)} / {len(EXPECTED_V05)} fields).")
+              f"({len(EXPECTED_V03)} / {len(EXPECTED_V04)} / {len(EXPECTED_V05)} / "
+              f"{len(EXPECTED_V06)} fields).")
         return 0
     print("\nPARITY MISMATCH — verify_hash_chain.py would flag a live PG store as CORRUPTED.")
     return 1

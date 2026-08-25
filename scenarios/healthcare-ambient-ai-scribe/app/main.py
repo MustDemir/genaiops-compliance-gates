@@ -56,7 +56,22 @@ REQUEST_LATENCY = Histogram(
     "scribe_latency_seconds",
     "Request latency in seconds",
     ["endpoint"],
-    buckets=[0.1, 0.25, 0.5, 1.0, 2.0, 5.0],
+    # Bucket layout widened at the low end 2026-08-25 (SPEC-04 follow-up).
+    #
+    # The old floor was 0.1s. Every mock response takes microseconds, so all
+    # observations landed in the first bucket and histogram_quantile could
+    # only interpolate INSIDE it: p95 came out as 0.95 * 0.1s = 95ms no
+    # matter what the app actually did. G-DEP-02 was then applying a 2000ms
+    # threshold to a constant. Measured, but carrying almost no information.
+    #
+    # Resolution is now 1ms at the bottom while the upper bounds stay put,
+    # so the 2000ms gate threshold still sits on a real bucket edge.
+    # Sub-millisecond latency remains unresolvable by construction — that is
+    # what latency_mean_ms (exact, from _sum/_count) is for.
+    buckets=[
+        0.001, 0.0025, 0.005, 0.01, 0.025, 0.05,
+        0.1, 0.25, 0.5, 1.0, 2.0, 5.0,
+    ],
 )
 MOCK_MODE = Gauge(
     "scribe_mock_mode",

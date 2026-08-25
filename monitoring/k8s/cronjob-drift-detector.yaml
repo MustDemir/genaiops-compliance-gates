@@ -55,7 +55,25 @@ spec:
             - name: drift-detector
               image: genaiops/drift-detector:latest
               imagePullPolicy: IfNotPresent
-              command: ["python3", "/app/drift_detector.py"]
+              # ── SPEC-04 (2026-08-25): image requirements changed ──
+              # --record-evidence no longer lets this script decide. It
+              # writes a measurement document, evaluates it through
+              # G-OPS-03 with conftest, and records what Rego decided.
+              #
+              # The image therefore needs, in addition to the script:
+              #   - monitoring/metrics_source.py  next to drift_detector.py
+              #   - the `conftest` binary on PATH
+              #   - policies/operations/ resolvable from the script's
+              #     parent-of-parent (REPO_ROOT), i.e. lay the repo out as
+              #     /app/monitoring/drift_detector.py + /app/policies/...
+              #     rather than flattening the script to /app/.
+              #
+              # Until the image is rebuilt that way, this CronJob exits 2
+              # with "conftest not found" instead of silently falling back
+              # to a Python verdict — that fallback is exactly what SPEC-04
+              # removes. NOT YET REBUILT: there is no Dockerfile for this
+              # image in the repo (only the scribe app has one).
+              command: ["python3", "/app/monitoring/drift_detector.py"]
               args:
                 - "--source"
                 - "http://ambient-ai-scribe.genaiops.svc:8080/metrics"

@@ -139,6 +139,83 @@ def resolve_ai_act_role(config: dict) -> str:
     return role
 
 
+VALID_RUNTIME_MODES = ("live", "mock", "unknown")
+
+# 3x the drift CronJob interval, and the same budget the drift gate uses.
+RUNTIME_MODE_SCRAPE_TIMEOUT = 5
+
+
+def resolve_runtime_mode(config: dict) -> tuple[str, str]:
+    """
+    Resolve whether a real model was behind this run (SPEC-04 Teil 1).
+
+    Returns (mode, source) where mode is live | mock | unknown.
+
+    Precedence:
+      1. environment variable RUNTIME_MODE (tests only — if CI sets this,
+         that is itself a finding)
+      2. scrape `pipeline.metrics_endpoint` for the scribe_mock_mode gauge
+      3. read `pipeline.metrics_snapshot`, a captured exposition file, for
+         runs without a live app
+      4. unknown
+
+    Why here and not in Rego: the check would otherwise be duplicated in
+    every one of the 17 policies, and a precondition repeated 17 times is
+    eventually missing from one. More fundamentally, Rego must not measure
+    — Gatekeeper blocks external calls by default and rightly so. The value
+    is HANDED to the gate as input; the gate does not go and fetch it
+    (HANDBUCH 7.7, 7.8).
+
+    Why the default is `unknown` and never `live`: whoever cannot establish
+    whether a real model ran has no evidence that one did. The default
+    falls to the unsafe side, not the convenient one.
+
+    Note what this does NOT do: it does not fail the run. Mock mode is a
+    legitimate PoC mode, and a gate that always fails gets switched off
+    within weeks. The mode is sealed into the evidence record instead —
+    a mock PASS stays possible, but it is no longer indistinguishable from
+    a live one (SPEC-04 3.3, Variante C).
+    """
+    env = os.environ.get("RUNTIME_MODE")
+    if env:
+        mode = env.strip().lower()
+        if mode not in VALID_RUNTIME_MODES:
+            log(f"ERROR: invalid RUNTIME_MODE '{env}' — must be one of: "
+                f"{', '.join(VALID_RUNTIME_MODES)}", RED)
+            sys.exit(2)
+        return mode, "environment variable RUNTIME_MODE"
+
+    sys.path.insert(0, str(REPO_ROOT / "monitoring"))
+    try:
+        from metrics_source import MetricsUnavailable, fetch_metrics_text, parse_gauge
+    except ImportError:
+        return "unknown", "metrics_source module unavailable"
+
+    pipeline_cfg = config.get("pipeline", {})
+
+    endpoint = pipeline_cfg.get("metrics_endpoint")
+    if endpoint:
+        try:
+            text = fetch_metrics_text(endpoint, timeout=RUNTIME_MODE_SCRAPE_TIMEOUT)
+            gauge = parse_gauge(text, "scribe_mock_mode")
+            return ("mock" if gauge == 1.0 else "live"), endpoint
+        except MetricsUnavailable as e:
+            # Not fatal, but not silently 'live' either.
+            log(f"WARNING: could not read scribe_mock_mode from {endpoint}: {e}", YELLOW)
+
+    snapshot = pipeline_cfg.get("metrics_snapshot")
+    if snapshot:
+        snapshot_path = REPO_ROOT / snapshot
+        try:
+            text = snapshot_path.read_text(encoding="utf-8")
+            gauge = parse_gauge(text, "scribe_mock_mode")
+            return ("mock" if gauge == 1.0 else "live"), f"snapshot {snapshot}"
+        except (OSError, MetricsUnavailable) as e:
+            log(f"WARNING: could not read scribe_mock_mode from {snapshot}: {e}", YELLOW)
+
+    return "unknown", "no metrics source configured"
+
+
 def load_gate_role_scopes() -> dict:
     """
     Map gate_id -> role_scope list, read from the gate definitions.
@@ -692,6 +769,7 @@ def record_to_evidence_store(
     eval_result: dict = None,
     dry_run: bool = False,
     ai_act_role: str = "DEPLOYER",
+    runtime_mode: str = "unknown",
 ) -> dict:
     """
     Call record_evidence.py to persist a gate decision to the Evidence Store.
@@ -742,6 +820,7 @@ def record_to_evidence_store(
         "--sqlite", db_path,
         "--run-id", run_id,
         "--ai-act-role", ai_act_role,
+        "--runtime-mode", runtime_mode,
     ]
 
     if dry_run:
@@ -909,6 +988,7 @@ def run_pipeline(scenario_path: str, use_conftest: bool = False, dry_run: bool =
 
     # ── Resolve role and filter the gate set (SPEC-03) ──
     ai_act_role = resolve_ai_act_role(config)
+    runtime_mode, runtime_source = resolve_runtime_mode(config)
     role_scopes = load_gate_role_scopes()
     total_gates_before_filter = len(gates)
     filtered_out = [g["gate_id"] for g in gates
@@ -921,6 +1001,29 @@ def run_pipeline(scenario_path: str, use_conftest: bool = False, dry_run: bool =
     if filtered_out:
         log(f"  Out of role scope: {', '.join(filtered_out)}", YELLOW)
     log(f"Mode: {'Conftest' if use_conftest else 'Fixture-based'} | {'DRY-RUN' if dry_run else 'LIVE'}", BLUE)
+
+    # ── Runtime-mode banner (SPEC-04 Teil 1) ──
+    # The known weakness of option C: runtime_mode is sealed into the record,
+    # but a reader who only looks at `decision` never sees it. So every place
+    # that reports a decision reports the mode with it — here, in the pipeline
+    # report, and in the reporting view, where the column sits beside decision.
+    # This banner is the loudest of the three on purpose: it is the one a human
+    # actually reads during a walkthrough.
+    if runtime_mode == "live":
+        log(f"Runtime mode: live (source: {runtime_source})", BLUE)
+    else:
+        print()
+        print(f"{YELLOW}{BOLD}{'!' * 70}{RESET}")
+        print(f"{YELLOW}{BOLD}  RUNTIME MODE: {runtime_mode.upper()}{RESET}")
+        if runtime_mode == "mock":
+            print(f"{YELLOW}  No real model was behind these results. Every PASS below is a")
+            print(f"  PASS over a mock run, and is recorded as such in the Evidence Store.{RESET}")
+        else:
+            print(f"{YELLOW}  Could not establish whether a real model ran ({runtime_source}).")
+            print("  'unknown' is NOT 'live': there is no evidence that a real model")
+            print(f"  was behind these results.{RESET}")
+        print(f"{YELLOW}{BOLD}{'!' * 70}{RESET}")
+        print()
 
     # An empty gate set is a legitimate outcome, not an error: the catalogue
     # is currently deployer-only, so AI_ACT_ROLE=PROVIDER selects nothing.
@@ -987,6 +1090,7 @@ def run_pipeline(scenario_path: str, use_conftest: bool = False, dry_run: bool =
             eval_result=eval_result,
             dry_run=dry_run,
             ai_act_role=ai_act_role,
+            runtime_mode=runtime_mode,
         )
 
         # For HYBRID gates with manual source, also record the manual decision
@@ -1002,6 +1106,7 @@ def run_pipeline(scenario_path: str, use_conftest: bool = False, dry_run: bool =
                 run_id=run_id,
                 dry_run=dry_run,
                 ai_act_role=ai_act_role,
+                runtime_mode=runtime_mode,
             )
 
         # Print gate result
@@ -1045,6 +1150,10 @@ def run_pipeline(scenario_path: str, use_conftest: bool = False, dry_run: bool =
         "evidence_db": pipeline["evidence_db"],
         "mode": "conftest" if use_conftest else "fixture-eval",
         "ai_act_role": ai_act_role,
+        # SPEC-04 Teil 1: stated at the top level of the report, not buried
+        # per gate. A reader scanning for the verdict must trip over it.
+        "runtime_mode": runtime_mode,
+        "runtime_mode_source": runtime_source,
         "gates_filtered_out": filtered_out,
         "gates": results,
         "pipeline_halted": pipeline_halted,

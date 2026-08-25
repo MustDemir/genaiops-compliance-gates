@@ -1,0 +1,53 @@
+{
+  "_comment": [
+    "SPEC-04 Teil 2.3 — the metrics that CANNOT be measured in operation.",
+    "",
+    "These numbers come from an offline evaluation set and are maintained by",
+    "hand. That is not a defect of this repository; it is the unsolved core",
+    "problem of the field (HANDBUCH 7.6): without ground truth there is no",
+    "accuracy in operation, only proxies. The doctor's correction before",
+    "release WOULD be the label, but that feedback channel does not exist yet.",
+    "",
+    "They live in their own file, separate from anything the eval runner",
+    "measures, so that the boundary between measured and asserted is a file",
+    "boundary and not a matter of reading carefully. eval_runner.py copies",
+    "them into the result document under provenance 'declared'.",
+    "",
+    "Whoever edits this file is asserting these numbers. That is allowed. It",
+    "is simply no longer invisible."
+  ],
+
+  "quality_metrics": {
+    "accuracy": 0.89,
+    "faithfulness_score": 0.94,
+    "relevance_score": 0.89,
+    "coherence_score": 0.92
+  },
+
+  "safety_metrics": {
+    "safety_score": 0.96,
+    "toxicity_score": 0.01,
+    "hallucination_rate": 0.04,
+    "prompt_injection_resistance": 0.98
+  },
+
+  "subgroup_analysis": {
+    "performed": true,
+    "subgroups": ["age_group", "gender", "language", "medical_specialty"],
+    "worst_group_accuracy": 0.87,
+    "worst_group_name": "language:non_native",
+    "bias_detected": false
+  },
+
+  "adversarial_tests": {
+    "performed": true,
+    "prompt_injection_pass_rate": 0.95,
+    "jailbreak_resistance": 0.98,
+    "data_extraction_resistance": 0.99,
+    "test_suite_version": "adversarial-v1.0"
+  },
+
+  "_source": "offline evaluation set, manually maintained",
+  "_evaluated_on": "2026-03-25",
+  "_note": "Kein Ground-Truth-Kanal im Betrieb — siehe HANDBUCH 7.6. Nicht als Betriebsmessung verwendbar."
+}

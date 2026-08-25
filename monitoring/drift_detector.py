@@ -73,6 +73,16 @@ import subprocess
 # Constants
 # ──────────────────────────────────────────────────────────────
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from metrics_source import (  # noqa: E402  (path set above)
+    MetricsUnavailable,
+    PROVENANCE_DERIVED,
+    PROVENANCE_MEASURED,
+    buckets_to_distribution,
+    fetch_metrics_text,
+    parse_histogram_buckets,
+)
+
 REPO_ROOT = Path(__file__).resolve().parent.parent
 RECORD_EVIDENCE = REPO_ROOT / "evidence-store" / "scripts" / "record_evidence.py"
 
@@ -173,57 +183,27 @@ def load_distribution_from_app(url: str) -> dict:
     """
     Load feature distributions from a running app's /metrics endpoint.
 
-    Parses Prometheus text format and extracts histogram bucket values
-    as a proxy for the input distribution.
+    Parses the latency histogram and uses it as a PROXY for the input
+    distribution. See the honesty note below — this is a stand-in, and
+    it is labelled as one.
+
+    SPEC-04 Teil 3.1: there is no fallback. Until 2026-08, an
+    unreachable or empty histogram silently produced a hard-coded
+    distribution, stamped with `source: url` and a fresh `captured_at`,
+    indistinguishable from a real measurement. That was the worst single
+    place in this repository: not a missing answer, but a reassuring
+    fictional one. It is gone. If nothing can be measured, this raises.
+
+    Callers who genuinely want a fixed distribution must say so:
+        --source monitoring/fixtures/current_normal.json
+    That path is explicit and does not lie about where its numbers came from.
     """
-    import urllib.request
+    content = fetch_metrics_text(url)
 
-    try:
-        with urllib.request.urlopen(url, timeout=10) as resp:
-            content = resp.read().decode("utf-8")
-    except Exception as e:
-        print(f"ERROR: Could not reach app at {url}: {e}")
-        sys.exit(2)
-
-    # Parse Prometheus histogram buckets for latency distribution
-    # This serves as a proxy for "input distribution" in the PoC
-    buckets = {}
-    for line in content.split("\n"):
-        if line.startswith("scribe_latency_seconds_bucket"):
-            # Example: scribe_latency_seconds_bucket{endpoint="/transcribe",le="0.1"} 5
-            try:
-                le_start = line.index('le="') + 4
-                le_end = line.index('"', le_start)
-                le_val = line[le_start:le_end]
-                count = float(line.split()[-1])
-                if le_val != "+Inf":
-                    buckets[float(le_val)] = count
-            except (ValueError, IndexError):
-                continue
-
-    if not buckets:
-        print("WARNING: No histogram buckets found in /metrics. Using mock distribution.")
-        # Return a mock distribution for demo purposes
-        return {
-            "features": {
-                "latency_distribution": [0.15, 0.25, 0.30, 0.15, 0.10, 0.05],
-                "input_length_distribution": [0.10, 0.20, 0.35, 0.20, 0.10, 0.05],
-            },
-            "source": url,
-            "captured_at": datetime.now(timezone.utc).isoformat(),
-            "bucket_labels": ["0-100", "100-250", "250-500", "500-1000", "1000-2000", "2000+"],
-        }
-
-    # Convert cumulative buckets to probability distribution
-    sorted_buckets = sorted(buckets.items())
-    counts = []
-    prev = 0.0
-    for _, cumulative in sorted_buckets:
-        counts.append(cumulative - prev)
-        prev = cumulative
-
-    total = sum(counts) if sum(counts) > 0 else 1.0
-    distribution = [c / total for c in counts]
+    # MetricsUnavailable propagates on an empty/absent histogram — see
+    # metrics_source.parse_histogram_buckets(). Do not catch it here.
+    buckets = parse_histogram_buckets(content, "scribe_latency_seconds")
+    distribution, bucket_labels = buckets_to_distribution(buckets)
 
     return {
         "features": {
@@ -231,14 +211,41 @@ def load_distribution_from_app(url: str) -> dict:
         },
         "source": url,
         "captured_at": datetime.now(timezone.utc).isoformat(),
-        "bucket_labels": [str(b[0]) for b in sorted_buckets],
+        "bucket_labels": bucket_labels,
+        # SPEC-04 Teil 2.3 / HANDBUCH 7.8: every number states its origin.
+        # "measured" is the honest label for the reading itself; the
+        # `proxy_note` states just as plainly what it is a reading OF.
+        "provenance": PROVENANCE_MEASURED,
+        "proxy_note": (
+            "Latency buckets stand in for the input distribution. Art. 72 "
+            "data drift means 'the inputs changed'; what is measured here is "
+            "'the response times changed'. Legitimate PoC proxy, not the same "
+            "thing — see HANDBUCH 7.5 (2). Replacing it needs an input-side "
+            "feature extractor and is out of scope for SPEC-04."
+        ),
     }
 
 
 def load_distribution(source: str) -> dict:
-    """Load distribution from either a file or a URL."""
+    """Load distribution from either a file or a URL.
+
+    SPEC-04 Teil 3.1: a failed measurement ends the run with a non-zero
+    exit code and a stated reason. It never degrades into a substitute
+    distribution.
+    """
     if source.startswith("http://") or source.startswith("https://"):
-        return load_distribution_from_app(source)
+        try:
+            return load_distribution_from_app(source)
+        except MetricsUnavailable as e:
+            print(f"ERROR: {e}")
+            print(
+                "  No drift check was performed. This is deliberate: there is "
+                "no fallback distribution.\n"
+                "  If you need a fixed distribution for a walkthrough, name it "
+                "explicitly, e.g.\n"
+                "    --source monitoring/fixtures/current_normal.json"
+            )
+            sys.exit(2)
     else:
         path = Path(source)
         if not path.is_absolute():
@@ -299,37 +306,118 @@ def start_metrics_server(port: int = METRICS_PORT):
 # Evidence Store Integration
 # ──────────────────────────────────────────────────────────────
 
+DEFAULT_MEASUREMENT_PATH = REPO_ROOT / "monitoring" / "drift_measurement.json"
+
+# Freshness budget handed to the gate. Three times the CronJob's
+# five-minute schedule, so one missed run does not trip C-03 but a
+# stopped detector does.
+DEFAULT_MAX_AGE_SECONDS = 900
+
+
+def build_drift_measurement(
+    result: dict, source: str, max_age_seconds: int = DEFAULT_MAX_AGE_SECONDS
+) -> dict:
+    """Build the drift MEASUREMENT document. Note: no decision in it.
+
+    SPEC-04 Teil 3.2. Until 2026-08 this module wrote an evidence record
+    carrying its own `decision` ("FAIL" if status == "critical" else
+    "PASS") under gate_id G-OPS-03 — in parallel to
+    policy_monitoring_configured.rego, which judged the same gate from
+    three pod annotations. One gate ID, two producers, incompatible
+    logic (HANDBUCH 7.5 (2a)).
+
+    The rule now is: the detector measures, it does not decide. A
+    measuring instrument that grades its own reading blurs exactly the
+    separation this artefact claims — the measurement supplies the
+    content, the rule makes the decision (HANDBUCH 7.7).
+
+    `drift_status` survives as a measured qualifier, not a verdict: it
+    says which threshold band the score fell into, which is a property
+    of the number, not a judgement about the gate.
+    """
+    return {
+        "drift_measurement": {
+            "gate_id": "G-OPS-03",
+            "psi_score": result["max_psi"],
+            "jsd_score": result["max_jsd"],
+            "drift_status": result["overall_status"],
+            "features": result.get("features", {}),
+            "measured_at": result.get("checked_at", datetime.now(timezone.utc).isoformat()),
+            "max_age_seconds": max_age_seconds,
+            # PSI and JSD are computed from measured buckets, hence
+            # "derived" rather than "measured" (HANDBUCH 7.8).
+            "provenance": PROVENANCE_DERIVED,
+            "source": source,
+        }
+    }
+
+
+def evaluate_drift_gate(measurement_path: str) -> dict:
+    """Let Rego decide. Runs G-OPS-03 against the measurement document.
+
+    Hard-fails if conftest is absent instead of falling back to a
+    Python judgement — the fallback is precisely what SPEC-04 removes.
+    """
+    policy_dir = REPO_ROOT / "policies" / "operations"
+    cmd = [
+        "conftest", "test", str(measurement_path),
+        "--policy", str(policy_dir),
+        "--namespace", "genaiops.operations.monitoring_configured",
+        "--output", "json", "--no-color",
+    ]
+    try:
+        proc = subprocess.run(cmd, capture_output=True, text=True, timeout=30)
+    except FileNotFoundError:
+        print(
+            "ERROR: conftest not found. The drift gate decision is made by Rego, "
+            "not by this script.\n"
+            "  Install conftest, or run the measurement without --record-evidence "
+            "and evaluate it through pipeline/gate_orchestrator.py."
+        )
+        sys.exit(2)
+    except subprocess.TimeoutExpired:
+        print("ERROR: conftest timed out after 30s evaluating G-OPS-03.")
+        sys.exit(2)
+
+    try:
+        output = json.loads(proc.stdout) if proc.stdout.strip() else []
+    except json.JSONDecodeError:
+        print(f"ERROR: Could not parse conftest output: {proc.stdout[:200]}")
+        sys.exit(2)
+
+    failures, warnings = [], []
+    for file_result in output:
+        failures.extend(file_result.get("failures", []))
+        warnings.extend(file_result.get("warnings", []))
+    return {"failures": failures, "warnings": warnings}
+
+
 def record_drift_evidence(
-    psi: float, jsd: float, status: str,
+    measurement: dict, gate_result: dict,
     sqlite_path: str = None, db_url: str = None, run_id: str = None,
 ) -> None:
-    """Record drift detection result to Evidence Store.
+    """Record the Rego verdict on the drift measurement to the Evidence Store.
 
-    Supports both SQLite (local) and PostgreSQL (cluster).
-    In cluster mode, the DB URL comes from EVIDENCE_STORE_URL or
-    EVIDENCE_STORE_DB_URL environment variable.
+    The `failures` list comes from conftest, so record_evidence.py derives
+    PASS/FAIL from the policy result. Nothing in this module decides.
     """
     import tempfile
 
-    evidence = {
+    payload = {
         "gate_id": "G-OPS-03",
-        "decision": "FAIL" if status == "critical" else "PASS",
-        "tool": "drift_detector",
-        "psi_score": psi,
-        "jsd_score": jsd,
-        "drift_status": status,
-        "detected_at": datetime.now(timezone.utc).isoformat(),
-        "failures": [{"msg": f"PSI={psi:.4f} > threshold"}] if status == "critical" else [],
+        "tool": "conftest",
+        "evaluated_by": "policy_monitoring_configured.rego",
+        "failures": gate_result["failures"],
+        "warnings": gate_result["warnings"],
+        **measurement,
     }
 
-    # Write temp JSON for record_evidence.py
     tmp = tempfile.NamedTemporaryFile(
         mode="w", suffix=".json", delete=False, prefix="drift_evidence_"
     )
-    json.dump(evidence, tmp, indent=2)
+    json.dump(payload, tmp, indent=2)
     tmp.close()
 
-    # Resolve DB connection: explicit arg > EVIDENCE_STORE_URL > EVIDENCE_STORE_DB_URL
     resolved_db_url = db_url or os.getenv("EVIDENCE_STORE_URL") or os.getenv("EVIDENCE_STORE_DB_URL")
 
     cmd = [
@@ -356,7 +444,8 @@ def record_drift_evidence(
     os.unlink(tmp.name)
 
     if result.returncode == 0:
-        print("[evidence] Drift result recorded to Evidence Store")
+        verdict = "FAIL" if gate_result["failures"] else "PASS"
+        print(f"[evidence] G-OPS-03 recorded: {verdict} (decided by Rego)")
         for line in result.stdout.split("\n"):
             if "Hash:" in line or "audit_id" in line:
                 print(f"  {line.strip()}")
@@ -454,7 +543,11 @@ def main():
     )
     parser.add_argument(
         "--record-evidence", action="store_true",
-        help="Record drift results to Evidence Store"
+        help="Evaluate the measurement through G-OPS-03 (Rego) and record the verdict"
+    )
+    parser.add_argument(
+        "--measurement-out", default=str(DEFAULT_MEASUREMENT_PATH),
+        help="Where to write the drift measurement document (gate input)"
     )
     parser.add_argument(
         "--sqlite", help="SQLite path for Evidence Store (local testing)"
@@ -536,12 +629,28 @@ def main():
             fc = status_colors.get(fdata["status"], "")
             print(f"  {fname}: PSI={fdata['psi']:.6f} JSD={fdata['jsd']:.6f} [{fc}{fdata['status']}{reset}]")
 
-        # Record to Evidence Store if drift detected
-        if args.record_evidence and result["overall_status"] in ("warning", "critical"):
+        # ── Write the measurement document (SPEC-04 Teil 3.2) ──
+        # Written on EVERY run, not only on drift. C-03 checks that a
+        # measurement is recent; a document that only appears when
+        # something is wrong cannot evidence that monitoring is running
+        # when nothing is wrong — and silence would read as health.
+        measurement = build_drift_measurement(result, args.source)
+        measurement_path = Path(args.measurement_out)
+        measurement_path.parent.mkdir(parents=True, exist_ok=True)
+        with open(measurement_path, "w", encoding="utf-8") as f:
+            json.dump(measurement, f, indent=2, ensure_ascii=False)
+        print(f"[drift] Measurement written: {measurement_path}")
+
+        # ── Let Rego decide, then record what Rego decided ──
+        if args.record_evidence:
+            gate_result = evaluate_drift_gate(str(measurement_path))
+            for failure in gate_result["failures"]:
+                print(f"  [G-OPS-03 deny] {failure.get('msg', failure)}")
+            for warning in gate_result["warnings"]:
+                print(f"  [G-OPS-03 warn] {warning.get('msg', warning)}")
             record_drift_evidence(
-                psi=result["max_psi"],
-                jsd=result["max_jsd"],
-                status=result["overall_status"],
+                measurement=measurement,
+                gate_result=gate_result,
                 sqlite_path=args.sqlite,
                 db_url=args.db_url,
             )

@@ -883,6 +883,79 @@ def check_waiver_not_declarative() -> dict:
     )
 
 
+def check_runtime_mode_visible() -> dict:
+    """SPEC-04 Teil 1: runtime_mode must stay visible, not just stored.
+
+    The accepted weakness of option C (runtime_mode as a hashed field rather
+    than a third decision value): a consumer reading only `decision` sees an
+    undifferentiated PASS. The field is sealed, but nothing forces anyone to
+    look at it. Option B would have bought that visibility by brute force, at
+    the cost of discarding whether the thresholds held at all.
+
+    The compensation is that every place reporting a decision also reports the
+    mode. That compensation is a convention, and conventions erode — someone
+    tidies up a banner, someone trims a view. This check makes the erosion
+    fail loudly instead of quietly turning a mock PASS back into an ordinary
+    PASS.
+
+    Three carriers are required:
+      1. the orchestrator banner (what a human reads during a walkthrough)
+      2. the pipeline report (what a machine reads afterwards)
+      3. the auditor-facing SQL view, with runtime_mode beside decision
+    """
+    findings = []
+
+    orchestrator = read_text(REPO_ROOT / "pipeline" / "gate_orchestrator.py")
+    if "RUNTIME MODE:" not in orchestrator:
+        findings.append(
+            "pipeline/gate_orchestrator.py: no runtime-mode banner — a mock run "
+            "would print like an ordinary run"
+        )
+    if '"runtime_mode": runtime_mode' not in orchestrator:
+        findings.append(
+            "pipeline/gate_orchestrator.py: the pipeline report does not carry "
+            "runtime_mode at top level"
+        )
+
+    migration = read_text(
+        REPO_ROOT / "evidence-store" / "migrations" / "v05_to_v06_add_runtime_mode.sql"
+    )
+    view_start = migration.find("CREATE OR REPLACE VIEW")
+    view_text = migration[view_start:] if view_start != -1 else ""
+    if "q.runtime_mode" not in view_text:
+        findings.append(
+            "v05_to_v06_add_runtime_mode.sql: the reporting view omits runtime_mode — "
+            "an auditor reading the view sees decision without its mode"
+        )
+    else:
+        # Order matters: the column has to sit beside decision, not be filed
+        # away among the trailing metadata where nobody scanning for a verdict
+        # would pass it.
+        if view_text.find("q.runtime_mode") > view_text.find("q.gate_name"):
+            findings.append(
+                "v05_to_v06_add_runtime_mode.sql: runtime_mode appears after "
+                "gate_name in the reporting view — it must sit next to decision, "
+                "where a reader scanning for the verdict cannot miss it"
+            )
+
+    verifier = read_text(REPO_ROOT / "evidence-store" / "scripts" / "verify_hash_chain.py")
+    if "_mode_marker" not in verifier:
+        findings.append(
+            "verify_hash_chain.py: verbose output does not mark non-live runs"
+        )
+
+    return make_result(
+        "RUNTIME_MODE_VISIBLE",
+        "runtime_mode is surfaced wherever a decision is reported (SPEC-04 Teil 1)",
+        "medium",
+        not findings,
+        "A sealed-but-invisible runtime_mode lets a mock PASS read as a live PASS — "
+        "the exact gap option C accepted and these carriers compensate." if findings
+        else "Banner, pipeline report, reporting view and verifier all surface the mode.",
+        findings,
+    )
+
+
 VALID_ROLE_SCOPES = {"provider", "deployer"}
 
 
@@ -943,6 +1016,7 @@ def collect_results() -> list[dict]:
         check_gate_role_scope_valid,
         check_evidence_insert_arity,
         check_waiver_not_declarative,
+        check_runtime_mode_visible,
     ]
     results = []
     for check in checks:

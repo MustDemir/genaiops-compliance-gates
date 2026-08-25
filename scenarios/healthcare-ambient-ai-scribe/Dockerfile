@@ -31,7 +31,7 @@ LABEL org.opencontainers.image.title="Ambient AI Scribe" \
       org.opencontainers.image.description="Healthcare PoC — GenAIOps Quality Gate Reference Architecture" \
       org.opencontainers.image.source="https://github.com/MustDemir/genaiops-compliance-gates" \
       org.opencontainers.image.authors="Mustafa Demir" \
-      org.opencontainers.image.licenses="CC-BY-NC-4.0"
+      org.opencontainers.image.licenses="Apache-2.0"
 
 # Non-sensitive environment variables only (G-PRE-04 P4)
 ENV APP_ENV=production \

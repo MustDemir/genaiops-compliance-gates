@@ -7,8 +7,8 @@ trigger: "kubectl apply — OPA Gatekeeper Admission Controller evaluiert Deploy
 
 evidence_level:
   current: "E-0"
-  target: "E-1"
-  rationale: "Gatekeeper prueft Pod-Annotationen (genaiops.io/drift-detection-enabled, .../service-monitor-configured) bei Cluster-Admission — eine Annotation behauptet einen Zustand, sie beweist ihn nicht (SPEC-01 Abschnitt 2). Die Referenzimplementierung monitoring/drift_detector.py misst PSI/Jensen-Shannon tatsaechlich (E-3-faehig), ist aber noch nicht als automatisierte Evidenzquelle in dieses Gate verdrahtet."
+  target: "E-3"
+  rationale: "GEMISCHT seit SPEC-04 (2026-08-25) — die Wahrheit steht je Check in policy_checks[].evidence_level, nicht hier. C-01/C-02 pruefen Pod-Annotationen: eine Annotation behauptet einen Zustand, sie beweist ihn nicht (E-0). C-03/C-04/C-05 werten das Messdokument aus monitoring/drift_detector.py aus: PSI/Jensen-Shannon ueber Zeit gemessen (E-3). Das Gate-weite Feld bleibt bewusst auf dem SCHWAECHSTEN vorhandenen Niveau, weil ein Gate nur so stark ist wie sein schwaechster bindender Check — wer es faelschen will, greift die Annotation an, nicht die Messung. SPEC-04 Abschnitt 5.4 sah hier 'E-0/E-3 gemischt' vor; das Schema laesst nur E-0..E-3 zu (Integrity-Check GATE_EVIDENCE_LEVEL_VALID), und der Mischwert waere ohnehin unpruefbar. Abweichung bewusst, Begruendung hier."
 
 policy_checks:
   - id: "C-01"
@@ -16,19 +16,41 @@ policy_checks:
     description: "Monitoring-Endpoints/-Metriken als aktive ServiceMonitor-Objekte registriert"
     severity: "MUST"
     legal_refs: ["Art. 72", "Art. 9 Abs. 2"]
-    evidence_level: null
+    evidence_level: "E-0"
     implementation: "implemented"
   - id: "C-02"
     policy: "policy_monitoring_configured"
-    description: "Drift-Detection-Pipelines konfiguriert und aktiv (PSI > 0.2 = critical, JS-Divergenz > 0.1 = critical)"
+    description: "Drift-Detection-Pipelines konfiguriert (Annotation genaiops.io/drift-detection-enabled) — prueft die Konfiguration, nicht das Ergebnis"
     severity: "MUST"
     legal_refs: ["Art. 72", "Art. 9 Abs. 2"]
-    evidence_level: null
+    evidence_level: "E-0"
+    implementation: "implemented"
+  - id: "C-03"
+    policy: "policy_monitoring_configured"
+    description: "Ein Drift-Messdokument liegt vor und ist nicht aelter als das Frischebudget (Vorgabe 900s = 3x CronJob-Intervall)"
+    severity: "MUST"
+    legal_refs: ["Art. 72"]
+    evidence_level: "E-3"
+    implementation: "implemented"
+  - id: "C-04"
+    policy: "policy_monitoring_configured"
+    description: "Gemessene Werte unter den kritischen Schwellen: PSI <= 0.2 und JSD <= 0.1"
+    severity: "MUST"
+    legal_refs: ["Art. 72"]
+    evidence_level: "E-3"
+    implementation: "implemented"
+  - id: "C-05"
+    policy: "policy_monitoring_configured"
+    description: "Das Messdokument weist provenance measured/derived und eine Quelle aus — ein Fixture-Lauf zaehlt nicht als Betriebsnachweis"
+    severity: "SHOULD"
+    legal_refs: ["Art. 72"]
+    evidence_level: "E-3"
     implementation: "implemented"
 
 evidence_required:
   - "monitoring_configuration_record"
   - "drift_detection_report"
+  - "drift_measurement_document"        # NEU SPEC-04 — Input fuer C-03..C-05
 
 decision: "derived"
 automation: "AUTO"
@@ -48,4 +70,4 @@ links:
     - "Art. 9 Abs. 2"
 sources:
   - "requirements/R010.yaml"
-notes: "PoC-Gate (★). AUTO: Gatekeeper prueft ob Monitoring-Endpoints und -Metriken als aktive ServiceMonitor-Objekte im Cluster registriert sind, und ob Drift-Detection-Pipelines (PSI > 0.2 = critical, JS-Divergenz > 0.1 = critical) konfiguriert und aktiv sind. Schwellenwert-Ueberschreitungen loesen automatische Alerts und ggf. Gate-Re-Evaluation aus. policy_monitoring_configured und policy_data_drift_monitoring sind gebuendelt in policies/operations/policy_monitoring_configured.rego implementiert (eine Datei, mehrere Checks, hier als C-01/C-02 auf dieselbe Datei abgebildet). UPDATE (2026-08-14, schema_version 2 / SPEC-01): policy_checks auf Objektform migriert, Severity aus R010 (MUST) uebernommen; evidence_level.current bewusst streng als E-0 eingestuft (Annotation, nicht Live-Messung) trotz vorhandener E-3-faehiger Referenzimplementierung. WAIVER ABGESCHAFFT (2026-08-17, Audit F-2): der bisherige Ausnahmepfad lautete \"ML Lead + AI Governance Lead Approval, befristet auf 14 Tage\" — als Governance-Absicht hier bewahrt, falls Waiver spaeter wirklich implementiert werden. Bis dahin gilt: keine Ausnahme."
+notes: "PoC-Gate (★). AUTO: Gatekeeper prueft ob Monitoring-Endpoints und -Metriken als aktive ServiceMonitor-Objekte im Cluster registriert sind, und ob Drift-Detection-Pipelines (PSI > 0.2 = critical, JS-Divergenz > 0.1 = critical) konfiguriert und aktiv sind. Schwellenwert-Ueberschreitungen loesen automatische Alerts und ggf. Gate-Re-Evaluation aus. policy_monitoring_configured und policy_data_drift_monitoring sind gebuendelt in policies/operations/policy_monitoring_configured.rego implementiert (eine Datei, mehrere Checks, hier als C-01/C-02 auf dieselbe Datei abgebildet). UPDATE (2026-08-14, schema_version 2 / SPEC-01): policy_checks auf Objektform migriert, Severity aus R010 (MUST) uebernommen; evidence_level.current bewusst streng als E-0 eingestuft (Annotation, nicht Live-Messung) trotz vorhandener E-3-faehiger Referenzimplementierung. WAIVER ABGESCHAFFT (2026-08-17, Audit F-2): der bisherige Ausnahmepfad lautete \"ML Lead + AI Governance Lead Approval, befristet auf 14 Tage\" — als Governance-Absicht hier bewahrt, falls Waiver spaeter wirklich implementiert werden. Bis dahin gilt: keine Ausnahme. UPDATE (2026-08-25, SPEC-04): Dieses Gate hatte bis heute ZWEI Erzeuger mit unvereinbarer Logik. monitoring/drift_detector.py schrieb einen Evidence-Record unter gate_id G-OPS-03 mit selbst gesetzter decision (\"FAIL\" if status == \"critical\" else \"PASS\"), waehrend policy_monitoring_configured.rego dasselbe Gate aus drei Pod-Annotationen bewertete. Eine Gate-ID, zwei Urteile, keines wusste vom anderen (HANDBUCH 7.5 (2a)). Aufgeloest: der Detektor MISST, Rego ENTSCHEIDET. record_drift_evidence() uebergibt jetzt das conftest-Ergebnis, nicht sein eigenes. Neu C-03 (Frist), C-04 (Schwellen), C-05 (Provenance, advisory). C-03 ist der wichtigere MUST-Check: ein Gate, das nur den Wert prueft, haelt Stillstand fuer Stabilitaet — ein abgestuerzter Detektor laesst seinen letzten guten PSI-Wert unbefristet gruen stehen. Deshalb schreibt der Detektor sein Messdokument bei JEDEM Lauf, nicht nur bei Drift; Evidenz, die nur bei Stoerung entsteht, kann den Normalbetrieb nicht nachweisen, und Schweigen laese sich als Gesundheit lesen. C-01/C-02 bleiben unveraendert im Gate: sie pruefen die Konfiguration (E-0), C-03..C-05 das Ergebnis (E-3) — der Kontrast ist das E6-Modell an einem einzigen Gate (HANDBUCH 7.8). Die sechs Annotationsregeln tragen seit SPEC-04 den Guard _is_workload, weil \"not _pod_annotations[x]\" auch dann wahr ist, wenn gar kein Deployment-Spec vorliegt — ohne Guard haette ein Messdokument alle drei \"annotation is missing\"-Regeln ausgeloest."

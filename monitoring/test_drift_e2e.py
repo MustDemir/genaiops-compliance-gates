@@ -4,7 +4,7 @@ test_drift_e2e.py — End-to-End Test for Drift Detection Pipeline
 
 Simulates the complete drift detection lifecycle:
   Phase A: Init baseline from fixture
-  Phase B: Check normal data → expect OK (no drift)
+  Phase B: Check normal data → expect OK + PASS record (SPEC-04)
   Phase C: Check drifted data → expect CRITICAL + Evidence Store recording
   Phase D: Verify Evidence Store hash chain
 
@@ -89,7 +89,7 @@ if os.path.exists(baseline_tmp):
 # ══════════════════════════════════════════════════════════════
 # Phase B: Check normal data → expect OK
 # ══════════════════════════════════════════════════════════════
-print(f"\n{BOLD}Phase B: Normal data → expect OK (no drift, no evidence){RESET}")
+print(f"\n{BOLD}Phase B: Normal data → expect OK + a PASS record (SPEC-04){RESET}")
 
 stdout, stderr, rc = run_cmd([
     sys.executable, str(DRIFT_DETECTOR),
@@ -101,11 +101,36 @@ stdout, stderr, rc = run_cmd([
 
 check(rc == 0, f"Normal check exit code = 0 (actual: {rc})")
 check("OK" in stdout, "Output contains 'OK'")
-check("evidence" not in stdout.lower() or "recorded" not in stdout.lower(),
-      "No evidence recorded (PSI/JSD below threshold)")
 
-# Evidence Store should NOT exist yet (no drift = no recording)
-check(not os.path.exists(sqlite_tmp), "No SQLite DB created (no drift to record)")
+# ── CHANGED BY SPEC-04 Teil 3.2 ──
+# This phase used to assert the opposite: that a run without drift
+# records NOTHING. That expectation belonged to a detector that decided
+# for itself, and it made two things impossible.
+#
+# First, C-03. The gate now checks that a drift measurement is RECENT,
+# because a gate reading only the value mistakes standstill for
+# stability — a crashed detector leaves its last good PSI sitting there,
+# green, indefinitely. Freshness can only be checked if a measurement is
+# produced on every run, including the quiet ones.
+#
+# Second, evidence completeness. Evidence that appears only when
+# something is wrong cannot show that monitoring was running when
+# nothing was wrong. Silence would read as health.
+#
+# So: a clean run now records a PASS, decided by Rego, not by Python.
+check("recorded" in stdout.lower(), "Evidence recorded on a clean run too")
+check("PASS" in stdout, "Clean run recorded as PASS")
+check("decided by Rego" in stdout, "Verdict came from the policy, not the detector")
+check(os.path.exists(sqlite_tmp), "SQLite DB created (every run leaves a record)")
+
+# The measurement document itself must exist and carry its origin.
+_measurement_default = REPO_ROOT / "monitoring" / "drift_measurement.json"
+check(_measurement_default.exists(), "Measurement document written")
+if _measurement_default.exists():
+    with open(_measurement_default) as f:
+        _m = json.load(f)["drift_measurement"]
+    check(_m.get("provenance") == "derived", f"Measurement states its provenance (actual: {_m.get('provenance')})")
+    check("decision" not in _m, "Measurement carries NO decision — the detector measures, Rego decides")
 
 # ══════════════════════════════════════════════════════════════
 # Phase C: Check drifted data → expect CRITICAL + Evidence
@@ -167,9 +192,9 @@ if failed == 0:
     print(f"\n  {GREEN}{BOLD}✓ ALL TESTS PASSED — Full drift pipeline verified{RESET}")
     print(f"\n  {BOLD}What was proven (Overview):{RESET}")
     print("  1. Baseline can be initialized from fixture data")
-    print("  2. Normal data → OK status, NO false alarms, NO evidence recorded")
+    print("  2. Normal data → OK status, NO false alarms, PASS recorded (SPEC-04)")
     print("  3. Drifted data → CRITICAL status, pipeline returns exit code 1")
-    print("  4. CRITICAL drift → automatic FAIL recording in Evidence Store")
+    print("  4. CRITICAL drift → Rego decides FAIL, recorded in Evidence Store")
     print("  5. Evidence Store hash chain remains VALID (tamper-proof)")
     print("  6. Complete pipeline: drift_detector → Evidence Store → Hash-Chain")
     print(f"\n  {BOLD}Architecture verification:{RESET}")

@@ -73,13 +73,26 @@ deny contains msg if {
 }
 
 # ================================================================
-# Check 4: gate_result.all_passed consistency
+# Check 4: REMOVED by SPEC-04 Teil 2.4 (2026-08-25)
 # ================================================================
-
-deny contains msg if {
-	input.gate_result.all_passed == false
-	msg := "G-DEP-02 (R003): gate_result.all_passed is false — evaluation pipeline reports failure"
-}
+# The rule was:
+#     deny if input.gate_result.all_passed == false
+#
+# It checked a claim about the verdict, carried inside the very
+# document under judgement — a candidate bringing its own report card.
+# It also asserted nothing independent: if the thresholds hold, the
+# result is PASS, and conftest decides that, not the file.
+#
+# It was worse than redundant. `eval_results.json` used to state
+# quality_metrics.accuracy = 0.89 and, further down,
+# gate_result.details = {"metric": "accuracy", "value": 0.91}. Two
+# invented values for one metric, not even consistent with each other,
+# and no rule ever compared them because this rule and the threshold
+# rules read separate paths (HANDBUCH 7.5 (1a)).
+#
+# `gate_result` is gone from the produced document, so the
+# contradiction cannot recur — it is now structurally impossible
+# rather than merely unobserved.
 
 # ================================================================
 # Check 5: Eval run metadata must be present
@@ -93,6 +106,40 @@ deny contains msg if {
 deny contains msg if {
 	input.evaluation.run_id == ""
 	msg := "G-DEP-02 (R003): evaluation.run_id is empty string"
+}
+
+# ================================================================
+# C-03 [SHOULD] — a MUST check resting on a declared value
+# ================================================================
+# SPEC-04 Teil 2.3. Since the evaluation document states, per metric
+# group, whether its numbers were measured, derived or merely asserted
+# (HANDBUCH 7.8), the gate can say out loud when a blocking check rests
+# on an assertion.
+#
+# accuracy and safety_score are `declared` today and will stay that way
+# until a ground-truth channel exists: without labels there is no
+# accuracy in operation, only proxies (HANDBUCH 7.6). That is the
+# unsolved core problem of the field, not a defect to be blocked on.
+#
+# Hence SHOULD, not MUST. A MUST would turn the whole estate red on the
+# day it was introduced and would punish a gap this SPEC deliberately
+# leaves open — and a gate that always fails gets switched off within
+# weeks (HANDBUCH 7.3.1). The run stays green; the finding stands in
+# the evidence.
+
+warn contains msg if {
+	input.quality_metrics.provenance == "declared"
+	msg := "G-DEP-02/C-03 (R003, Art. 15): accuracy is checked as MUST but quality_metrics carries provenance 'declared' — the threshold is applied to an asserted value, not a measured one"
+}
+
+warn contains msg if {
+	input.safety_metrics.provenance == "declared"
+	msg := "G-DEP-02/C-03 (R003, Art. 15): safety_score is checked as MUST but safety_metrics carries provenance 'declared' — the threshold is applied to an asserted value, not a measured one"
+}
+
+warn contains msg if {
+	not input.performance_metrics.provenance
+	msg := "G-DEP-02/C-03 (R003, Art. 15): performance_metrics states no provenance — the origin of the latency figures cannot be told from the document"
 }
 
 # ================================================================

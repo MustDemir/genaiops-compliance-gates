@@ -94,6 +94,32 @@ DERIVED_DECISION_CUTOFF_KEY = "derived_decision_payload_from_audit_id"
 DERIVED_DECISION_CUTOFF_DEFAULT = None
 VALID_DERIVED_DECISIONS = ("block", "manual_review", "warn", "approve")
 
+# ────────────────────────────────────────────────────────────────
+# Schema v06: runtime_mode in der Hash-Payload (SPEC-04 Teil 1)
+# ────────────────────────────────────────────────────────────────
+# Die App exportiert seit jeher `scribe_mock_mode` — eine Metrik, die sagt
+# "ich tue nur so". Kein Gate hat sie je gelesen, und ein Mock-PASS war von
+# einem Echt-PASS in dieser Tabelle byte-identisch (HANDBUCH 7.5 (3)).
+#
+# Entschieden wurde Variante C aus SPEC-04 3.3: nicht den Mock-Betrieb
+# verbieten (er ist ein legitimer PoC-Modus, und ein Gate, das immer
+# fehlschlaegt, wird abgeschaltet), sondern ihn UNVERBERGBAR machen. Ein
+# Mock-PASS bleibt moeglich, ist aber unterscheidbar und nicht nachtraeglich
+# faelschbar.
+#
+# "unknown" ist NICHT "live". Wer nicht feststellen kann, ob ein echtes
+# Modell lief, hat keinen Nachweis, dass eines lief — der Default faellt auf
+# die unsichere Seite, nicht auf die bequeme.
+#
+# Gleiche Migrationsvariante und NULL-Regel wie v04/v05. Fuer runtime_mode
+# gilt der Back-fill-Verzicht doppelt: bei den Alt-Records WEISS niemand, in
+# welchem Modus sie liefen, weil die Metrik nie gelesen wurde. Ein
+# nachgetragenes "live" waere die Erfindung genau der Tatsache, fuer die
+# diese Spalte existiert.
+RUNTIME_MODE_CUTOFF_KEY = "runtime_mode_payload_from_audit_id"
+RUNTIME_MODE_CUTOFF_DEFAULT = None
+VALID_RUNTIME_MODES = ("live", "mock", "unknown")
+
 
 def compute_hash(
     previous_hash: str,
@@ -113,6 +139,8 @@ def compute_hash(
     include_ai_act_role: bool = False,
     derived_decision: str = "",
     include_derived_decision: bool = False,
+    runtime_mode: str = "",
+    include_runtime_mode: bool = False,
 ) -> str:
     """
     Compute the SHA-256 chain hash.
@@ -122,7 +150,7 @@ def compute_hash(
     tests/test_hash_parity.py). The optional fields sit between
     inserted_by and previous_hash, in schema order:
 
-        ... inserted_by [, ai_act_role] [, derived_decision], previous_hash
+        ... inserted_by [, ai_act_role] [, derived_decision] [, runtime_mode], previous_hash
 
     Each is present only from its own migration cutoff onwards, so a store
     can legitimately hold v03, v04 and v05 records in one chain.
@@ -145,6 +173,8 @@ def compute_hash(
         fields.append(ai_act_role or "")
     if include_derived_decision:
         fields.append(derived_decision or "")
+    if include_runtime_mode:
+        fields.append(runtime_mode or "")
     fields.append(previous_hash or "")
     return hashlib.sha256("|".join(fields).encode("utf-8")).hexdigest()
 
@@ -179,6 +209,10 @@ def init_sqlite(db_path: str) -> sqlite3.Connection:
             -- Gleiche NULL-Semantik wie ai_act_role: NULL = vor Schema v05
             -- geschrieben, nicht hash-gedeckt, niemals nachtraeglich befuellen.
             derived_decision TEXT CHECK (derived_decision IS NULL OR derived_decision IN ('block','manual_review','warn','approve')),
+            -- Gleiche NULL-Semantik: NULL = vor Schema v06 geschrieben, nicht
+            -- hash-gedeckt. Hier zusaetzlich unrekonstruierbar — der Modus
+            -- wurde damals nicht erfasst und darf nicht erfunden werden.
+            runtime_mode TEXT CHECK (runtime_mode IS NULL OR runtime_mode IN ('live','mock','unknown')),
             hash_value TEXT NOT NULL,
             previous_hash TEXT,
             notes TEXT
@@ -194,7 +228,8 @@ def init_sqlite(db_path: str) -> sqlite3.Connection:
     # in its payload. An existing v03 database gets its cutoff from the
     # migration script instead (max(audit_id) + 1), which is why this is an
     # INSERT OR IGNORE and never overwrites an existing value.
-    for key in (AI_ACT_ROLE_CUTOFF_KEY, DERIVED_DECISION_CUTOFF_KEY):
+    for key in (AI_ACT_ROLE_CUTOFF_KEY, DERIVED_DECISION_CUTOFF_KEY,
+                RUNTIME_MODE_CUTOFF_KEY):
         conn.execute(
             "INSERT OR IGNORE INTO schema_metadata (key, value) VALUES (?, ?)",
             (key, "1"),
@@ -223,6 +258,11 @@ def get_ai_act_role_cutoff_sqlite(conn: sqlite3.Connection):
 def get_derived_decision_cutoff_sqlite(conn: sqlite3.Connection):
     """Read the audit_id from which derived_decision is part of the payload."""
     return get_cutoff_sqlite(conn, DERIVED_DECISION_CUTOFF_KEY)
+
+
+def get_runtime_mode_cutoff_sqlite(conn: sqlite3.Connection):
+    """Read the audit_id from which runtime_mode is part of the payload."""
+    return get_cutoff_sqlite(conn, RUNTIME_MODE_CUTOFF_KEY)
 
 
 def get_next_audit_id_sqlite(conn: sqlite3.Connection) -> int:
@@ -254,9 +294,9 @@ def insert_sqlite(conn: sqlite3.Connection, record: dict) -> int:
         INSERT INTO quality_gate_results
             (model_name, model_version, pipeline_id, run_id, gate_type,
              decision, decision_method, gate_name, policy_version, payload_id,
-             checked_at, inserted_by, ai_act_role, derived_decision,
+             checked_at, inserted_by, ai_act_role, derived_decision, runtime_mode,
              hash_value, previous_hash, notes)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         """,
         (
             record["model_name"],
@@ -273,6 +313,7 @@ def insert_sqlite(conn: sqlite3.Connection, record: dict) -> int:
             record["inserted_by"],
             record.get("ai_act_role", "DEPLOYER"),
             record.get("derived_decision"),
+            record.get("runtime_mode"),
             record["hash_value"],
             record["previous_hash"],
             record.get("notes", ""),
@@ -324,6 +365,11 @@ def get_ai_act_role_cutoff_pg(conn):
     return get_cutoff_pg(conn, AI_ACT_ROLE_CUTOFF_KEY)
 
 
+def get_runtime_mode_cutoff_pg(conn):
+    """Read the schema-v06 cutoff from PostgreSQL (None if never migrated)."""
+    return get_cutoff_pg(conn, RUNTIME_MODE_CUTOFF_KEY)
+
+
 def get_next_audit_id_pg(conn) -> int:
     """Predict the audit_id the next INSERT will receive (single writer)."""
     with conn.cursor() as cur:
@@ -342,9 +388,9 @@ def insert_pg(conn, record: dict) -> int:
             INSERT INTO compliance.quality_gate_results
                 (model_name, model_version, pipeline_id, run_id, gate_type,
                  decision, decision_method, gate_name, policy_version, payload_id,
-                 checked_at, inserted_by, ai_act_role, derived_decision,
+                 checked_at, inserted_by, ai_act_role, derived_decision, runtime_mode,
                  hash_value, previous_hash, notes)
-            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s::uuid, %s, %s, %s, %s, %s, %s, %s)
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s::uuid, %s, %s, %s, %s, %s, %s, %s, %s)
             RETURNING audit_id, hash_value
             """,
             (
@@ -362,6 +408,7 @@ def insert_pg(conn, record: dict) -> int:
                 record["inserted_by"],
                 record.get("ai_act_role", "DEPLOYER"),
                 record.get("derived_decision"),
+                record.get("runtime_mode"),
                 record["hash_value"],
                 record["previous_hash"],
                 record.get("notes", ""),
@@ -431,6 +478,8 @@ def build_record(
     next_audit_id: int = None,
     role_cutoff: int = None,
     derived_cutoff: int = None,
+    runtime_cutoff: int = None,
+    runtime_mode: str = None,
 ) -> dict:
     """
     Build a complete evidence record from gate + method + source.
@@ -490,6 +539,21 @@ def build_record(
         and next_audit_id >= derived_cutoff
     )
 
+    # runtime_mode: expliziter Parameter schlaegt Quelldokument. Fehlt beides,
+    # ist der Modus "unknown" — niemals "live". Ein stillschweigendes "live"
+    # waere die eine Annahme, die dieses Feld verhindern soll.
+    resolved_runtime_mode = runtime_mode or source_data.get("runtime_mode") or "unknown"
+    if resolved_runtime_mode not in VALID_RUNTIME_MODES:
+        print(f"ERROR: invalid runtime_mode '{resolved_runtime_mode}' — "
+              f"must be one of: {', '.join(VALID_RUNTIME_MODES)}")
+        sys.exit(2)
+
+    include_runtime = (
+        runtime_cutoff is not None
+        and next_audit_id is not None
+        and next_audit_id >= runtime_cutoff
+    )
+
     hash_value = compute_hash(
         previous_hash=previous_hash,
         model_name=POC_DEFAULTS["model_name"],
@@ -508,6 +572,8 @@ def build_record(
         include_ai_act_role=include_role,
         derived_decision=derived_decision or "",
         include_derived_decision=include_derived,
+        runtime_mode=resolved_runtime_mode,
+        include_runtime_mode=include_runtime,
     )
 
     return {
@@ -525,6 +591,10 @@ def build_record(
         "inserted_by": inserted_by,
         "ai_act_role": ai_act_role,
         "derived_decision": derived_decision,
+        # Nur setzen, wenn hash-gedeckt. Unterhalb des Cutoffs bleibt die
+        # Spalte NULL — ein Wert dort waere nicht mitgesiegelt und damit
+        # still aenderbar, was verify_hash_chain.py als Manipulation wertet.
+        "runtime_mode": resolved_runtime_mode if include_runtime else None,
         "hash_value": hash_value,
         "previous_hash": previous_hash,
         "notes": notes,
@@ -557,6 +627,14 @@ def main():
         choices=["PROVIDER", "DEPLOYER", "BOTH"],
         help="EU AI Act role this gate ran under (or set AI_ACT_ROLE env var; default: DEPLOYER)",
     )
+    parser.add_argument(
+        "--runtime-mode",
+        default=os.environ.get("RUNTIME_MODE"),
+        choices=["live", "mock", "unknown"],
+        help="Whether a real model was behind this run (or set RUNTIME_MODE env var). "
+             "Falls back to the source document's runtime_mode field, then to 'unknown'. "
+             "Never defaults to 'live' (SPEC-04 Teil 1).",
+    )
     parser.add_argument("--dry-run", action="store_true", help="Show record without persisting")
 
     args = parser.parse_args()
@@ -580,6 +658,8 @@ def main():
             next_audit_id=get_next_audit_id_sqlite(conn),
             role_cutoff=get_ai_act_role_cutoff_sqlite(conn),
             derived_cutoff=get_derived_decision_cutoff_sqlite(conn),
+            runtime_cutoff=get_runtime_mode_cutoff_sqlite(conn),
+            runtime_mode=args.runtime_mode,
         )
 
         if args.dry_run:
@@ -600,6 +680,8 @@ def main():
             next_audit_id=get_next_audit_id_pg(conn),
             role_cutoff=get_ai_act_role_cutoff_pg(conn),
             derived_cutoff=get_cutoff_pg(conn, DERIVED_DECISION_CUTOFF_KEY),
+            runtime_cutoff=get_runtime_mode_cutoff_pg(conn),
+            runtime_mode=args.runtime_mode,
         )
 
         if args.dry_run:

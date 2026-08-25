@@ -38,6 +38,7 @@ VERIFY = REPO_ROOT / "evidence-store" / "scripts" / "verify_hash_chain.py"
 
 CUTOFF_KEY = "ai_act_role_payload_from_audit_id"
 DERIVED_KEY = "derived_decision_payload_from_audit_id"
+RUNTIME_KEY = "runtime_mode_payload_from_audit_id"
 
 
 def _load(path: Path, name: str):
@@ -122,6 +123,10 @@ def _cutoff(db_path: str):
 
 def _derived_cutoff(db_path: str):
     return verify.fetch_derived_cutoff_sqlite(db_path)
+
+
+def _runtime_cutoff(db_path: str):
+    return verify.fetch_runtime_cutoff_sqlite(db_path)
 
 
 def _check(name: str, condition: bool, detail: str = "") -> bool:
@@ -296,11 +301,90 @@ def main() -> int:
         ok &= _check("a derived_decision back-filled below its cutoff is rejected", not valid,
                      "an unauthenticated gate outcome went unnoticed")
 
+        # ── Phase 11: third migration on top (v05 -> v06, SPEC-04) ──
+        # Three independent cutoffs must coexist: the chain now legitimately
+        # holds 13-, 14-, 15- and 16-field records at once. If the array-based
+        # payload build had been a branch tree, this is where it would have
+        # needed eight copies of the field list.
+        conn.execute("UPDATE quality_gate_results SET derived_decision=NULL WHERE audit_id < 6")
+        conn.execute("ALTER TABLE quality_gate_results ADD COLUMN runtime_mode TEXT")
+        next_id3 = conn.execute(
+            "SELECT COALESCE(MAX(audit_id), 0) + 1 FROM quality_gate_results"
+        ).fetchone()[0]
+        conn.execute("INSERT INTO schema_metadata (key, value) VALUES (?, ?)",
+                     (RUNTIME_KEY, str(next_id3)))
+        conn.commit()
+
+        prev = conn.execute(
+            "SELECT hash_value FROM quality_gate_results ORDER BY audit_id DESC LIMIT 1"
+        ).fetchone()[0]
+        f = _base_fields(7)
+        h = record.compute_hash(previous_hash=prev, ai_act_role="DEPLOYER",
+                                include_ai_act_role=True,
+                                derived_decision="approve",
+                                include_derived_decision=True,
+                                runtime_mode="mock", include_runtime_mode=True, **f)
+        cols = list(f) + ["ai_act_role", "derived_decision", "runtime_mode",
+                          "hash_value", "previous_hash", "notes"]
+        vals = list(f.values()) + ["DEPLOYER", "approve", "mock", h, prev, ""]
+        conn.execute(
+            f"INSERT INTO quality_gate_results ({','.join(cols)}) "
+            f"VALUES ({','.join('?' * len(cols))})", vals)
+        conn.commit()
+
+        def _verify():
+            return verify.verify_chain(
+                _fetch(db_path), role_cutoff=_cutoff(db_path),
+                derived_cutoff=_derived_cutoff(db_path),
+                runtime_cutoff=_runtime_cutoff(db_path))
+
+        valid, count, err = _verify()
+        ok &= _check(
+            f"chain with four payload generations verifies ({count} records: v03..v06)",
+            valid and count == 7, err)
+
+        # ── Phase 12: the whole point — a mock run cannot be relabelled live ──
+        # This is what option C buys and option A/B did not: the mock PASS
+        # stays a PASS, but nobody can turn it into a live PASS afterwards.
+        conn.execute("UPDATE quality_gate_results SET runtime_mode='live' WHERE audit_id=7")
+        conn.commit()
+        valid, _, _ = _verify()
+        ok &= _check("relabelling a mock run as live is detected", not valid,
+                     "a mock PASS could be rewritten into a live PASS without "
+                     "breaking the chain — the field would be decorative")
+        conn.execute("UPDATE quality_gate_results SET runtime_mode='mock' WHERE audit_id=7")
+        conn.commit()
+
+        # ── Phase 13: no back-fill below the cutoff ──
+        # For runtime_mode this matters twice over: nobody KNOWS what mode the
+        # older runs were in, because the gauge was never read. A back-filled
+        # 'live' would be inventing the very fact the column exists to record.
+        head_before = _fetch(db_path)[-1]["hash_value"]
+        conn.execute("UPDATE quality_gate_results SET runtime_mode='live' WHERE audit_id < 7")
+        conn.commit()
+        ok &= _check("back-filling runtime_mode leaves every hash unchanged",
+                     _fetch(db_path)[-1]["hash_value"] == head_before,
+                     "precondition of this test no longer holds")
+        valid, _, _ = _verify()
+        ok &= _check("a runtime_mode back-filled below its cutoff is rejected", not valid,
+                     "an invented runtime mode on historical records went unnoticed")
+        conn.execute("UPDATE quality_gate_results SET runtime_mode=NULL WHERE audit_id < 7")
+        conn.commit()
+
+        # ── Phase 14: NULL at/above the cutoff is equally loud ──
+        # Every run happened in SOME mode, even if that mode is 'unknown'.
+        conn.execute("UPDATE quality_gate_results SET runtime_mode=NULL WHERE audit_id=7")
+        conn.commit()
+        valid, _, _ = _verify()
+        ok &= _check("a NULL runtime_mode at/above the cutoff is rejected", not valid,
+                     "a hash-covered record without a runtime mode went unnoticed")
+
         conn.close()
 
     if ok:
         print("\nMIGRATION OK — the cutoff variant keeps old records verifiable "
-              "and protects ai_act_role from the cutoff onwards.")
+              "and protects ai_act_role, derived_decision and runtime_mode "
+              "from their respective cutoffs onwards.")
         return 0
     print("\nMIGRATION BROKEN — see failures above.")
     return 1

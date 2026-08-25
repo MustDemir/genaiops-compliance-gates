@@ -95,3 +95,6 @@ evidence-store/*.db-shm
 
 # Arbeitsverzeichnis fuer Zwischenergebnisse (PDF-Extrakte, Seitenscans, Scratch)
 tmp/
+
+# SPEC-04: generated drift measurement (gate input, not source)
+monitoring/drift_measurement.json

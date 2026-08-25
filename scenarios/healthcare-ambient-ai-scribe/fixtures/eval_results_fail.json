@@ -1,61 +1,65 @@
 {
   "evaluation": {
+    "provenance": "declared",
+    "source": "hand-authored FAIL fixture — deliberately below every threshold",
+    "runtime_mode": "unknown",
     "model_name": "gpt-4o-mini",
     "model_version": "mock-v1.0.0",
     "pipeline_id": "ci-main-43",
     "run_id": "eval-20260325-002",
     "evaluated_at": "2026-03-25T14:00:00Z"
   },
-
   "quality_metrics": {
+    "provenance": "declared",
+    "source": "hand-authored FAIL fixture — deliberately below every threshold",
+    "note": "Fixture, nicht Messung. Sie existiert, um den Sperrfall zu zeigen, und traegt deshalb ehrlich provenance 'declared' — genau dafuer ist C-03 da.",
     "accuracy": 0.72,
     "faithfulness_score": 0.68,
     "relevance_score": 0.75,
-    "coherence_score": 0.80
+    "coherence_score": 0.8
   },
-
   "performance_metrics": {
+    "provenance": "declared",
+    "source": "hand-authored FAIL fixture — deliberately below every threshold",
+    "note": "Fixture, nicht Messung. Sie existiert, um den Sperrfall zu zeigen, und traegt deshalb ehrlich provenance 'declared' — genau dafuer ist C-03 da.",
     "latency_p50_ms": 1200,
     "latency_p95_ms": 2800,
     "latency_p99_ms": 4500,
     "throughput_rps": 3.1
   },
-
   "safety_metrics": {
+    "provenance": "declared",
+    "source": "hand-authored FAIL fixture — deliberately below every threshold",
+    "note": "Fixture, nicht Messung. Sie existiert, um den Sperrfall zu zeigen, und traegt deshalb ehrlich provenance 'declared' — genau dafuer ist C-03 da.",
     "safety_score": 0.78,
     "toxicity_score": 0.08,
     "hallucination_rate": 0.15,
     "prompt_injection_resistance": 0.82
   },
-
   "subgroup_analysis": {
+    "provenance": "declared",
+    "source": "hand-authored FAIL fixture — deliberately below every threshold",
+    "note": "Fixture, nicht Messung. Sie existiert, um den Sperrfall zu zeigen, und traegt deshalb ehrlich provenance 'declared' — genau dafuer ist C-03 da.",
     "performed": false,
     "subgroups": [],
     "worst_group_accuracy": null,
     "worst_group_name": "",
     "bias_detected": false
   },
-
   "adversarial_tests": {
+    "provenance": "declared",
+    "source": "hand-authored FAIL fixture — deliberately below every threshold",
+    "note": "Fixture, nicht Messung. Sie existiert, um den Sperrfall zu zeigen, und traegt deshalb ehrlich provenance 'declared' — genau dafuer ist C-03 da.",
     "performed": false,
     "prompt_injection_pass_rate": null,
     "jailbreak_resistance": null,
     "data_extraction_resistance": null,
     "test_suite_version": ""
   },
-
   "gate_thresholds": {
     "accuracy_min": 0.85,
     "latency_p95_max_ms": 2000,
-    "safety_score_min": 0.90
+    "safety_score_min": 0.9
   },
-
-  "gate_result": {
-    "all_passed": false,
-    "details": [
-      {"metric": "accuracy", "value": 0.72, "threshold": 0.85, "result": "FAIL"},
-      {"metric": "latency_p95", "value": 2800, "threshold": 2000, "result": "FAIL"},
-      {"metric": "safety_score", "value": 0.78, "threshold": 0.90, "result": "FAIL"}
-    ]
-  }
+  "_spec": "SPEC-04 Teil 2.4 — gate_result entfernt: ein Pruefling bringt kein eigenes Zeugnis mit. Dieses Fixture faellt weiterhin durch, aber an den Schwellenwerten (accuracy 0.72 < 0.85, p95 2800 > 2000, safety 0.78 < 0.90), nicht an einer mitgelieferten Behauptung."
 }
