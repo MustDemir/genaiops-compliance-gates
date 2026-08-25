@@ -129,7 +129,15 @@ check(_measurement_default.exists(), "Measurement document written")
 if _measurement_default.exists():
     with open(_measurement_default) as f:
         _m = json.load(f)["drift_measurement"]
-    check(_m.get("provenance") == "derived", f"Measurement states its provenance (actual: {_m.get('provenance')})")
+    # CHANGED 2026-08-25 (SPEC-04b): provenance follows the SOURCE, not the
+    # arithmetic. This phase drives the detector from a fixture FILE, so the
+    # honest label is "declared" — nothing was observed. It used to be
+    # unconditionally "derived", which made a fixture-driven walkthrough
+    # indistinguishable from an operating measurement and left
+    # G-OPS-03/C-05 silent on exactly the case it exists to flag.
+    check(_m.get("provenance") == "declared",
+          f"A fixture run is labelled 'declared', not passed off as a measurement "
+          f"(actual: {_m.get('provenance')})")
     check("decision" not in _m, "Measurement carries NO decision — the detector measures, Rego decides")
 
 # ══════════════════════════════════════════════════════════════

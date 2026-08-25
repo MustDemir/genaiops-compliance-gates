@@ -5,14 +5,12 @@
     "version": "1.0.0",
     "created": "2026-03-28"
   },
-
   "pipeline": {
     "id": "poc-closed-loop-fail",
     "model_name": "ambient-ai-scribe",
     "model_version": "0.9.0-degraded",
     "evidence_db": "evidence_closed_loop_fail.db"
   },
-
   "gates": [
     {
       "gate_id": "G-PRE-01",
@@ -56,7 +54,13 @@
       "method": "AUTO",
       "fixture": "scenarios/healthcare-ambient-ai-scribe/fixtures/deployment_compliant.yaml",
       "policy": "policies/operations/policy_monitoring_configured.rego",
-      "skip_reason": "Pipeline halted at G-DEP-02"
+      "skip_reason": "Pipeline halted at G-DEP-02",
+      "inputs": {
+        "drift_measurement": "monitoring/drift_measurement.json"
+      },
+      "input_sources": {
+        "drift_measurement": "monitoring/fixtures/current_normal.json"
+      }
     },
     {
       "gate_id": "G-OPS-05",

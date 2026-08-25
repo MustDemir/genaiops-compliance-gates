@@ -29,6 +29,23 @@ policy_checks:
     # im notes-Feld und im README zu erwaehnen.
     implementation: "implemented"     # implemented | design_only
 
+# SPEC-04b Teil 3.2 — optional. Dokumente, die dem Gate vorgelegt werden
+# MUESSEN, damit es ueberhaupt geprueft werden kann.
+#
+# Zwingend, sobald ein Check evidence_level E-2 oder E-3 traegt: solche
+# Checks werten ein Dokument aus, das jemand erzeugen muss, und feuern
+# nicht, wenn es fehlt. Ohne diese Deklaration waere die hohe Beweisstufe
+# durch Weglassen des Inputs umgehbar — geprueft von
+# tests/test_integrity_regression.py :: REQUIRED_INPUTS_ENFORCED.
+#
+# Das Szenario liefert die Pfade unter gates[].inputs.<kind>.
+required_inputs: []
+# Beispiel:
+#   - kind: "drift_measurement"
+#     produced_by: "monitoring/drift_detector.py --measurement-out <pfad>"
+#     max_age_seconds: 900
+#     rationale: "warum das Gate ohne dieses Dokument nichts geprueft hat"
+
 evidence_required: []
 
 # Nicht mehr gesetzt, sondern abgeleitet (siehe SPEC-01 Abschnitt 5):

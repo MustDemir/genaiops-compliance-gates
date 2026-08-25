@@ -5,14 +5,12 @@
     "version": "1.0.0",
     "created": "2026-03-28"
   },
-
   "pipeline": {
     "id": "poc-gatekeeper-admission",
     "model_name": "ambient-ai-scribe",
     "model_version": "1.0.0-mock",
     "evidence_db": "evidence_gatekeeper_test.db"
   },
-
   "gates": [
     {
       "gate_id": "G-OPS-04",
@@ -31,7 +29,13 @@
       "method": "AUTO",
       "fixture": "scenarios/healthcare-ambient-ai-scribe/fixtures/admission_review_compliant.json",
       "enforcement": "gatekeeper",
-      "description_kolloquium": "Ein Deployment mit allen nötigen Monitoring-Annotations wird eingereicht. Der Gatekeeper (simuliert) prüft: drift-detection-enabled=true? service-monitor-configured=true? Beides vorhanden → ADMIT."
+      "description_kolloquium": "Ein Deployment mit allen nötigen Monitoring-Annotations wird eingereicht. Der Gatekeeper (simuliert) prüft: drift-detection-enabled=true? service-monitor-configured=true? Beides vorhanden → ADMIT.",
+      "inputs": {
+        "drift_measurement": "monitoring/drift_measurement.json"
+      },
+      "input_sources": {
+        "drift_measurement": "monitoring/fixtures/current_normal.json"
+      }
     },
     {
       "gate_id": "G-OPS-05",
@@ -59,7 +63,13 @@
       "method": "AUTO",
       "fixture": "scenarios/healthcare-ambient-ai-scribe/fixtures/admission_review_noncompliant.json",
       "enforcement": "gatekeeper",
-      "description_kolloquium": "Ein nicht-konformes Deployment: keine Monitoring-Annotations → Gatekeeper REJECT. Das FAIL wird trotzdem im Evidence Store dokumentiert."
+      "description_kolloquium": "Ein nicht-konformes Deployment: keine Monitoring-Annotations → Gatekeeper REJECT. Das FAIL wird trotzdem im Evidence Store dokumentiert.",
+      "inputs": {
+        "drift_measurement": "monitoring/drift_measurement.json"
+      },
+      "input_sources": {
+        "drift_measurement": "monitoring/fixtures/current_normal.json"
+      }
     },
     {
       "gate_id": "G-OPS-05",

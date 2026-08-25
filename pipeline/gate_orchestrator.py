@@ -246,6 +246,135 @@ def load_gate_role_scopes() -> dict:
     return scopes
 
 
+def load_gate_required_inputs() -> dict:
+    """
+    Map gate_id -> list of required_inputs declarations (SPEC-04b Teil 3.2).
+
+    A gate that rests on a measurement must be able to say so, and the
+    absence of that measurement must be loud. Until now it was silent:
+    G-OPS-03 declares C-03..C-05 at evidence level E-3, but those rules
+    only fire when input.drift_measurement is present, so omitting the
+    document produced a green gate on three pod annotations.
+
+    SPEC-04 section 5.3 stated this would be "enforced one level up, by the
+    orchestrator". It was not. A MUST check that can be bypassed by leaving
+    out its input is not a MUST — it is the same E-0 weakness the gate was
+    meant to remove, moved one level. This closes it.
+
+    Why here and not in Rego: Rego cannot tell the absence of a document
+    from the absence of a rule. A rule that only fires when its input
+    exists is bypassable by construction. The obligation to SUPPLY an input
+    belongs to the layer that assembles inputs.
+    """
+    try:
+        import yaml
+    except ImportError:
+        log("WARNING: pyyaml not installed — required_inputs cannot be enforced. "
+            "Gates resting on a measurement will not notice its absence.", YELLOW)
+        return {}
+
+    required = {}
+    for d in GATE_DEF_DIRS:
+        if not d.is_dir():
+            continue
+        for f in sorted(d.glob("G-*.yaml")):
+            try:
+                gate = yaml.safe_load(f.read_text(encoding="utf-8")) or {}
+            except yaml.YAMLError as exc:
+                log(f"WARNING: could not parse {f.name}: {exc}", YELLOW)
+                continue
+            gate_id = gate.get("id")
+            if gate_id and gate.get("required_inputs"):
+                required[gate_id] = gate["required_inputs"]
+    return required
+
+
+def resolve_policy_for_gate(gate_id: str) -> str:
+    """Find the Rego policy of a gate from its DEFINITION, not the scenario.
+
+    Scenario entries only name a policy where the walkthrough needs one;
+    G-OPS-03 for instance names none, because its manifest check runs on
+    the Gatekeeper path. That was enough to make the first version of the
+    required-inputs enforcement useless: the document was present, the
+    check passed, and nothing evaluated it — declared but not enforced,
+    which is the pattern this whole change exists to remove.
+
+    The gate definition always knows its policy, because every check names
+    one. Path: policies/<lifecycle_phase>/<policy>.rego
+    """
+    try:
+        import yaml
+    except ImportError:
+        return ""
+
+    for d in GATE_DEF_DIRS:
+        for f in d.glob(f"{gate_id}_*.yaml") if d.is_dir() else []:
+            try:
+                gate = yaml.safe_load(f.read_text(encoding="utf-8")) or {}
+            except yaml.YAMLError:
+                continue
+            phase = gate.get("lifecycle_phase", "")
+            phase_dir = {"pre-deployment": "pre-deployment",
+                         "deployment": "deployment",
+                         "operations": "operations"}.get(phase)
+            checks = gate.get("policy_checks") or []
+            if not phase_dir or not checks:
+                continue
+            name = checks[0].get("policy", "")
+            candidate = REPO_ROOT / "policies" / phase_dir / f"{name}.rego"
+            if candidate.exists():
+                return str(candidate.relative_to(REPO_ROOT))
+    return ""
+
+
+def check_required_inputs(gate_id: str, gate_cfg: dict, declarations: list) -> list:
+    """Resolve every declared input for one gate. Returns a list of failures.
+
+    A failure here is a gate failure, not a tool error: the gate declared
+    that it needs this document, and it is not there. The message names the
+    producer so the reader can generate it rather than guess.
+    """
+    failures = []
+    supplied = gate_cfg.get("inputs") or {}
+
+    for decl in declarations:
+        kind = decl.get("kind", "<unnamed>")
+        producer = decl.get("produced_by", "unknown producer")
+        path = supplied.get(kind)
+
+        if not path:
+            failures.append({
+                "msg": f"{gate_id}/INPUT ({kind}): the gate declares this input as "
+                       f"required, and the scenario supplies none. Produce it with "
+                       f"{producer}, then reference it under inputs.{kind}. "
+                       f"A check that rests on a measurement cannot pass by having "
+                       f"no measurement.",
+                "check_id": "INPUT",
+            })
+            continue
+
+        resolved = REPO_ROOT / path if not os.path.isabs(path) else Path(path)
+        if not resolved.exists():
+            failures.append({
+                "msg": f"{gate_id}/INPUT ({kind}): declared at '{path}' but the file "
+                       f"does not exist. Produce it with {producer}.",
+                "check_id": "INPUT",
+            })
+            continue
+
+        try:
+            with open(resolved, "r", encoding="utf-8") as fh:
+                json.load(fh)
+        except (json.JSONDecodeError, OSError) as exc:
+            failures.append({
+                "msg": f"{gate_id}/INPUT ({kind}): '{path}' is not readable JSON "
+                       f"({exc}). An unparsable input is an absent input.",
+                "check_id": "INPUT",
+            })
+
+    return failures
+
+
 def gate_matches_role(gate_id: str, role: str, scopes: dict) -> bool:
     """
     Filter rule (SPEC-03 Abschnitt 4):
@@ -327,6 +456,21 @@ def evaluate_gate_with_conftest(policy_path: str, fixture_path: str) -> dict:
     policy_abs = REPO_ROOT / policy_path
     fixture_abs = REPO_ROOT / fixture_path
 
+    # Namespace from the policy's own `package` declaration.
+    #
+    # Without --namespace, conftest evaluates only the default `main`
+    # namespace. Every policy here declares genaiops.<phase>.<name>, so the
+    # call found nothing and reported zero failures — for any input, always.
+    # A check that cannot fail is not a check. The CI never hit this because
+    # run_gate.sh passes --namespace explicitly; this function did not.
+    namespace = ""
+    try:
+        m = re.search(r"^package\s+([\w.]+)", policy_abs.read_text(encoding="utf-8"), re.M)
+        if m:
+            namespace = m.group(1)
+    except OSError:
+        pass
+
     cmd = [
         "conftest", "test",
         str(fixture_abs),
@@ -334,6 +478,11 @@ def evaluate_gate_with_conftest(policy_path: str, fixture_path: str) -> dict:
         "--output", "json",
         "--no-color",
     ]
+    if namespace:
+        cmd.extend(["--namespace", namespace])
+    else:
+        log(f"WARNING: no package found in {policy_abs.name} — conftest would "
+            f"evaluate only the default namespace and could not fail", YELLOW)
 
     try:
         result = subprocess.run(
@@ -345,20 +494,27 @@ def evaluate_gate_with_conftest(policy_path: str, fixture_path: str) -> dict:
         # `failures` = deny (MUST, blocking); `warnings` = warn (SHOULD, advisory).
         failures = []
         warnings = []
-        successes = []
+        successes = 0
         for file_result in output:
             failures.extend(file_result.get("failures", []))
             warnings.extend(file_result.get("warnings", []))
-            successes.extend(file_result.get("successes", []))
+            # conftest reports `successes` as a COUNT, not a list. The old
+            # code called .extend() on it, which raised TypeError. It never
+            # surfaced because the default pipeline path is fixture-based
+            # and never reached this function — SPEC-04b Teil 3.2 is the
+            # first caller that always does. A code path that is never
+            # exercised is not a working code path.
+            raw = file_result.get("successes", 0)
+            successes += raw if isinstance(raw, int) else len(raw)
 
         return {
             "tool": "conftest",
             "failures": failures,
             "warnings": warnings,
-            "successes": successes,
+            "success_count_raw": successes,
             "failure_count": len(failures),
             "warning_count": len(warnings),
-            "success_count": len(successes),
+            "success_count": successes,
             "decision": "FAIL" if failures else "PASS",
             "raw_output": output,
         }
@@ -990,6 +1146,7 @@ def run_pipeline(scenario_path: str, use_conftest: bool = False, dry_run: bool =
     ai_act_role = resolve_ai_act_role(config)
     runtime_mode, runtime_source = resolve_runtime_mode(config)
     role_scopes = load_gate_role_scopes()
+    required_inputs = load_gate_required_inputs()
     total_gates_before_filter = len(gates)
     filtered_out = [g["gate_id"] for g in gates
                     if not gate_matches_role(g["gate_id"], ai_act_role, role_scopes)]
@@ -1058,6 +1215,14 @@ def run_pipeline(scenario_path: str, use_conftest: bool = False, dry_run: bool =
 
         log(f"Evaluating {gate_id} ({gate['gate_name']})...", BLUE)
 
+        # Step 0: Required inputs (SPEC-04b Teil 3.2)
+        # Runs BEFORE evaluation. A gate whose declared input is missing has
+        # not been evaluated at all, and saying so is the whole point: the
+        # alternative is a green gate that never looked.
+        input_failures = check_required_inputs(
+            gate_id, gate, required_inputs.get(gate_id, [])
+        )
+
         # Step 1: Evaluate the gate
         eval_result = None
         if use_conftest and gate.get("policy"):
@@ -1066,6 +1231,46 @@ def run_pipeline(scenario_path: str, use_conftest: bool = False, dry_run: bool =
         if eval_result is None:
             # Fallback to fixture-based evaluation
             eval_result = evaluate_gate_from_fixture(fixture, gate_id)
+
+        # Step 1b: Evaluate every supplied input against the same policy.
+        # One gate, several input documents, ONE result — the same shape as
+        # role_scope BOTH in SPEC-03, which also evaluates once and records
+        # once. The measurement is judged by Rego, never by this script.
+        if not input_failures and required_inputs.get(gate_id):
+            # The policy comes from the gate DEFINITION, not the scenario:
+            # a scenario that names no policy must not silently skip the
+            # evaluation of a document the gate declared as required.
+            doc_policy = gate.get("policy") or resolve_policy_for_gate(gate_id)
+            for decl in required_inputs[gate_id]:
+                doc_path = (gate.get("inputs") or {}).get(decl.get("kind"))
+                if not doc_path:
+                    continue
+                if not doc_policy:
+                    input_failures.append({
+                        "msg": f"{gate_id}/INPUT ({decl.get('kind')}): no policy could "
+                               f"be resolved, so the required input would go "
+                               f"unevaluated. Supplying a document nobody reads is "
+                               f"not evidence.",
+                        "check_id": "INPUT",
+                    })
+                    break
+                doc_result = evaluate_gate_with_conftest(doc_policy, doc_path)
+                if doc_result is None:
+                    input_failures.append({
+                        "msg": f"{gate_id}/INPUT ({decl.get('kind')}): conftest is "
+                               f"unavailable, so the supplied input was not evaluated. "
+                               f"A gate that silently skips its measurement is the "
+                               f"state this check exists to prevent.",
+                        "check_id": "INPUT",
+                    })
+                    continue
+                eval_result["failures"] = eval_result.get("failures", []) + doc_result.get("failures", [])
+                eval_result["warnings"] = eval_result.get("warnings", []) + doc_result.get("warnings", [])
+
+        if input_failures:
+            eval_result["failures"] = eval_result.get("failures", []) + input_failures
+
+        eval_result["decision"] = "FAIL" if eval_result.get("failures") else "PASS"
 
         decision = eval_result["decision"]
         # schema_version 2 (SPEC-01 Abschnitt 5): derived gate decision,

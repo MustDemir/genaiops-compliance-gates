@@ -276,7 +276,21 @@ if migration_test.exists():
 print(f"\n{BOLD}{BLUE}▸ Phase 5: Closed-Loop Pipeline (gate_orchestrator.py){RESET}")
 
 orchestrator = REPO_ROOT / "pipeline" / "gate_orchestrator.py"
+prepare = REPO_ROOT / "pipeline" / "prepare_inputs.py"
 if orchestrator.exists():
+    # SPEC-04b Teil 3.2: gates declaring required_inputs fail without them,
+    # and C-03 additionally fails once a measurement is older than its
+    # freshness budget. Both are the point, so the documents are PRODUCED
+    # here rather than checked in — a checked-in measurement would either
+    # go stale and redden every later run, or be exempted from the deadline
+    # and become a hand file again.
+    if prepare.exists():
+        for scen in ("poc_healthcare_pass.json", "poc_healthcare_fail.json",
+                     "poc_gatekeeper_admission.json"):
+            run_test("Pipeline", f"Required inputs prepared: {scen}",
+                     [sys.executable, str(prepare), "--scenario",
+                      str(REPO_ROOT / "pipeline" / "scenarios" / scen)])
+
     # Scenario 1: PASS
     run_test("Pipeline", "Scenario: Healthcare PASS (10 gates)",
              [sys.executable, str(orchestrator),

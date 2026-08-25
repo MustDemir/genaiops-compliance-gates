@@ -5,14 +5,12 @@
     "version": "1.0.0",
     "created": "2026-03-28"
   },
-
   "pipeline": {
     "id": "poc-closed-loop",
     "model_name": "ambient-ai-scribe",
     "model_version": "1.0.0-mock",
     "evidence_db": "evidence_closed_loop.db"
   },
-
   "gates": [
     {
       "gate_id": "G-PRE-01",
@@ -66,7 +64,13 @@
       "enforcement": "gatekeeper",
       "constraint_template": "scenarios/healthcare-ambient-ai-scribe/k8s/gatekeeper/constraint-monitoring-configured.yaml",
       "description_de": "Prüft ob Drift-Detection und Service-Monitor konfiguriert sind (K8s-Annotations).",
-      "description_kolloquium": "Wenn jemand ein KI-System deployen will, prüft der Kubernetes-Admission-Controller: Hat das Deployment die nötigen Monitoring-Annotations? Ohne Drift-Erkennung und Service-Monitor kommt kein Deployment durch."
+      "description_kolloquium": "Wenn jemand ein KI-System deployen will, prüft der Kubernetes-Admission-Controller: Hat das Deployment die nötigen Monitoring-Annotations? Ohne Drift-Erkennung und Service-Monitor kommt kein Deployment durch.",
+      "inputs": {
+        "drift_measurement": "monitoring/drift_measurement.json"
+      },
+      "input_sources": {
+        "drift_measurement": "monitoring/fixtures/current_normal.json"
+      }
     },
     {
       "gate_id": "G-OPS-05",

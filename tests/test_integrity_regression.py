@@ -1069,6 +1069,79 @@ def check_readme_counts_current() -> dict:
     )
 
 
+def check_required_inputs_enforced() -> dict:
+    """SPEC-04b Teil 3.2: a high-assurance check must not be bypassable.
+
+    Checks at evidence level E-2 or E-3 evaluate a document somebody has to
+    produce — a cluster query, a measurement. Rego rules that read such a
+    document only fire when it is present, so omitting it turns the check
+    off silently and the gate passes on whatever E-0 material is left.
+
+    SPEC-04 declared C-03..C-05 on G-OPS-03 at E-3 and stated the presence
+    obligation would be "enforced one level up, by the orchestrator". It was
+    not, for two weeks, and nothing noticed. That is the failure this check
+    prevents from recurring: a MUST that can be bypassed by leaving out its
+    input is not a MUST.
+
+    Two directions, because a one-way check would leave the other half open:
+      - a gate carrying E-2/E-3 checks must declare required_inputs
+      - a declared required_input must be well-formed enough to act on
+        (kind, and a producer a reader can actually run)
+    """
+    findings = []
+
+    for f, gate in _load_gate_files():
+        gate_id = gate.get("id", f.stem)
+        checks = gate.get("policy_checks") or []
+        high = [
+            c for c in checks
+            if c.get("evidence_level") in ("E-2", "E-3")
+            and c.get("implementation") == "implemented"
+        ]
+        declared = gate.get("required_inputs") or []
+
+        if high and not declared:
+            ids = ", ".join(c.get("id", "?") for c in high)
+            findings.append(
+                f"{f.relative_to(REPO_ROOT)}: checks {ids} sit at evidence level "
+                f"E-2/E-3 but the gate declares no required_inputs — omitting the "
+                f"document those checks read would silently disable them"
+            )
+
+        for decl in declared:
+            if not decl.get("kind"):
+                findings.append(
+                    f"{f.relative_to(REPO_ROOT)}: a required_inputs entry has no "
+                    f"'kind', so nothing can be matched against it"
+                )
+            if not decl.get("produced_by"):
+                findings.append(
+                    f"{f.relative_to(REPO_ROOT)}: required input "
+                    f"'{decl.get('kind')}' names no producer — a reader who hits "
+                    f"the failure cannot act on it"
+                )
+
+    # The orchestrator has to actually act on the declaration.
+    orch = read_text(REPO_ROOT / "pipeline" / "gate_orchestrator.py")
+    if "check_required_inputs" not in orch or "load_gate_required_inputs" not in orch:
+        findings.append(
+            "pipeline/gate_orchestrator.py: no required-inputs enforcement — the "
+            "declaration in the gate definitions would be decorative"
+        )
+
+    return make_result(
+        "REQUIRED_INPUTS_ENFORCED",
+        "high-assurance checks declare the input they rest on, and it is enforced",
+        "high",
+        not findings,
+        "An E-2/E-3 check whose input can simply be omitted is an E-0 check with a "
+        "better label." if findings
+        else "Every gate with E-2/E-3 checks declares its required inputs, and the "
+             "orchestrator enforces them.",
+        findings,
+    )
+
+
 VALID_ROLE_SCOPES = {"provider", "deployer"}
 
 
@@ -1131,6 +1204,7 @@ def collect_results() -> list[dict]:
         check_waiver_not_declarative,
         check_runtime_mode_visible,
         check_readme_counts_current,
+        check_required_inputs_enforced,
     ]
     results = []
     for check in checks:

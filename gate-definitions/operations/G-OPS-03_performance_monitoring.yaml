@@ -47,6 +47,21 @@ policy_checks:
     evidence_level: "E-3"
     implementation: "implemented"
 
+# SPEC-04b Teil 3.2 — was dieses Gate vorgelegt bekommen MUSS.
+#
+# Ohne diese Deklaration sind C-03..C-05 umgehbar: sie feuern nur, wenn
+# input.drift_measurement vorhanden ist, also passiert das Gate gruen,
+# wenn man das Dokument einfach weglaesst. Ein MUST-Check, den man durch
+# Weglassen des Inputs umgeht, ist kein MUST.
+#
+# Der Orchestrator loest das auf, nicht Rego: Rego kann die Abwesenheit
+# eines Dokuments nicht von der Abwesenheit einer Regel unterscheiden.
+required_inputs:
+  - kind: "drift_measurement"
+    produced_by: "monitoring/drift_detector.py --measurement-out <pfad>"
+    max_age_seconds: 900
+    rationale: "C-03/C-04/C-05 pruefen eine Messung. Fehlt sie, wurde nicht geprueft."
+
 evidence_required:
   - "monitoring_configuration_record"
   - "drift_detection_report"

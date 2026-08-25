@@ -76,6 +76,7 @@ import subprocess
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from metrics_source import (  # noqa: E402  (path set above)
     MetricsUnavailable,
+    PROVENANCE_DECLARED,
     PROVENANCE_DERIVED,
     PROVENANCE_MEASURED,
     buckets_to_distribution,
@@ -344,9 +345,21 @@ def build_drift_measurement(
             "features": result.get("features", {}),
             "measured_at": result.get("checked_at", datetime.now(timezone.utc).isoformat()),
             "max_age_seconds": max_age_seconds,
-            # PSI and JSD are computed from measured buckets, hence
-            # "derived" rather than "measured" (HANDBUCH 7.8).
-            "provenance": PROVENANCE_DERIVED,
+            # Provenance follows the SOURCE, not the arithmetic.
+            #
+            # Scores computed from a live scrape are "derived": measured
+            # buckets, computed statistic. Scores computed from a fixture
+            # file are "declared" — nothing was observed, the numbers come
+            # from a file somebody wrote. Until 2026-08-25 this was
+            # unconditionally "derived", which meant a fixture-driven
+            # walkthrough produced a document indistinguishable from an
+            # operating measurement, and G-OPS-03/C-05 stayed silent on
+            # exactly the case it exists to flag.
+            "provenance": (
+                PROVENANCE_DERIVED
+                if source.startswith(("http://", "https://"))
+                else PROVENANCE_DECLARED
+            ),
             "source": source,
         }
     }
