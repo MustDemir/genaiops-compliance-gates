@@ -327,6 +327,25 @@ def resolve_policy_for_gate(gate_id: str) -> str:
     return ""
 
 
+def _evidence_problem(gate_id: str, method: str, result: dict) -> list:
+    """Report an Evidence Store write that did not succeed (B-16).
+
+    Returns a list so the caller can accumulate across the AUTO and MANUAL
+    writes of one gate. An empty list means the record is in the chain.
+
+    dry-run is exempt: nothing was meant to be written, so nothing failed.
+    """
+    if not result or result.get("dry_run"):
+        return []
+    if result.get("returncode", 0) == 0:
+        return []
+    detail = (result.get("stderr") or result.get("stdout") or "").strip()
+    return [
+        f"{gate_id}/EVIDENCE ({method}): the Evidence Store write exited "
+        f"{result.get('returncode')} — {detail[:200] or 'no output'}"
+    ]
+
+
 def check_required_inputs(gate_id: str, gate_cfg: dict, declarations: list) -> list:
     """Resolve every declared input for one gate. Returns a list of failures.
 
@@ -992,6 +1011,7 @@ def record_to_evidence_store(
         "returncode": result.returncode,
         "stdout": result.stdout.strip(),
         "stderr": result.stderr.strip(),
+        "dry_run": dry_run,
     }
 
 
@@ -1200,6 +1220,7 @@ def run_pipeline(scenario_path: str, use_conftest: bool = False, dry_run: bool =
     results = []
     pipeline_halted = False
     halt_gate = ""
+    evidence_broken = False
 
     for i, gate in enumerate(gates, 1):
         gate_id = gate["gate_id"]
@@ -1214,6 +1235,7 @@ def run_pipeline(scenario_path: str, use_conftest: bool = False, dry_run: bool =
             continue
 
         log(f"Evaluating {gate_id} ({gate['gate_name']})...", BLUE)
+        evidence_failures: list = []
 
         # Step 0: Required inputs (SPEC-04b Teil 3.2)
         # Runs BEFORE evaluation. A gate whose declared input is missing has
@@ -1308,9 +1330,7 @@ def run_pipeline(scenario_path: str, use_conftest: bool = False, dry_run: bool =
         # For HYBRID gates with manual source, also record the manual decision
         if method == "HYBRID" and gate.get("manual_source") and not dry_run:
             log(f"  Recording manual decision for {gate_id}...", BLUE)
-            # Side effect only: the MANUAL record is persisted to the Evidence
-            # Store; its return value is intentionally not consumed here.
-            record_to_evidence_store(
+            manual_result = record_to_evidence_store(
                 gate_id=gate_id,
                 method="MANUAL",
                 fixture_path=gate["manual_source"],
@@ -1320,6 +1340,31 @@ def run_pipeline(scenario_path: str, use_conftest: bool = False, dry_run: bool =
                 ai_act_role=ai_act_role,
                 runtime_mode=runtime_mode,
             )
+            evidence_failures.extend(
+                _evidence_problem(gate_id, "MANUAL", manual_result)
+            )
+
+        # Step 2b: Evidence recording is FAIL-CLOSED (B-16).
+        #
+        # Until 2026-08-27 the return value of record_to_evidence_store()
+        # went to print_gate_result() for display and nowhere else. If the
+        # write failed, the pipeline carried on and could report PASS. For
+        # a control system whose whole premise is the tamper-evident chain,
+        # a gate that passes without its evidence recorded is a design
+        # fault: evidence that may be missing is not evidence.
+        #
+        # The drift detector already did this correctly and said so —
+        # "Hard fail — evidence recording is mandatory". Two paths into the
+        # same table gave two different answers; this is the other one
+        # brought into line.
+        #
+        # The gate DECISION is not rewritten to FAIL. The evaluation may
+        # well have passed; what failed is the recording, and conflating
+        # the two would misreport what happened. The run halts with its own
+        # reason instead.
+        evidence_failures.extend(
+            _evidence_problem(gate_id, evidence_method, evidence_result)
+        )
 
         # Print gate result
         print_gate_result(gate, eval_result, evidence_result, i, len(gates))
@@ -1334,7 +1379,15 @@ def run_pipeline(scenario_path: str, use_conftest: bool = False, dry_run: bool =
         })
 
         # Step 3: Check if pipeline should halt
-        if decision == "FAIL":
+        if evidence_failures:
+            for problem in evidence_failures:
+                log(f"  {problem}", RED)
+            log(f"{gate_id}: evidence could not be recorded — halting. The gate "
+                f"result is UNRECORDED and must not be read as a verdict.", RED)
+            pipeline_halted = True
+            halt_gate = gate_id
+            evidence_broken = True
+        elif decision == "FAIL":
             pipeline_halted = True
             halt_gate = gate_id
             log(f"{gate_id} FAILED — pipeline will halt after recording evidence", RED)
@@ -1372,6 +1425,10 @@ def run_pipeline(scenario_path: str, use_conftest: bool = False, dry_run: bool =
         "halt_gate": halt_gate if pipeline_halted else None,
         "hash_chain_valid": verification["is_valid"] if verification else None,
         "overall_result": "PASS" if not pipeline_halted else "FAIL",
+        # B-16: distinguishes "a gate blocked" from "the record is missing".
+        # An auditor reading this report must be able to tell a verdict from
+        # an absent verdict.
+        "evidence_recording_failed": evidence_broken,
     }
 
     report_path = REPO_ROOT / "evidence-store" / f"pipeline_report_{run_id[:8]}.json"
@@ -1386,7 +1443,16 @@ def run_pipeline(scenario_path: str, use_conftest: bool = False, dry_run: bool =
             shutil.copy2(db_path, db_final_path)
             log(f"Evidence DB copied to: evidence-store/{pipeline['evidence_db']}", GREEN)
 
-    # Return exit code
+    # Return exit code.
+    #
+    # 3 is distinct from 1 on purpose (B-16): exit 1 means a gate blocked —
+    # the system worked. Exit 3 means the evidence could not be written, so
+    # no gate result from this run is trustworthy. Collapsing both into 1
+    # would let a broken evidence store look like an ordinary gate failure.
+    if evidence_broken:
+        log("EVIDENCE RECORDING FAILED — no gate result from this run is "
+            "recorded, and none may be treated as a verdict.", RED)
+        return 3
     if pipeline_halted:
         return 1
     return 0

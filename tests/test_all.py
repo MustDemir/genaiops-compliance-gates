@@ -308,6 +308,14 @@ if orchestrator.exists():
               "--scenario", str(REPO_ROOT / "pipeline" / "scenarios" / "poc_gatekeeper_admission.json")],
              expect_exit=1)
 
+    # B-16: fail-closed evidence path, verified by breaking the recorder
+    # rather than by reading the source. The integrity suite can only see
+    # that the handling is declared.
+    fail_closed = REPO_ROOT / "pipeline" / "test_evidence_fail_closed.py"
+    if fail_closed.exists():
+        run_test("Pipeline", "Evidence path is fail-closed (B-16)",
+                 [sys.executable, str(fail_closed)])
+
     # Tamper Detection
     tamper_test = REPO_ROOT / "pipeline" / "test_tamper_detection.py"
     if tamper_test.exists():

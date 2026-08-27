@@ -1475,6 +1475,79 @@ def check_acceptance_criteria_traced() -> dict:
     )
 
 
+def check_evidence_fail_closed() -> dict:
+    """B-16: a gate must not pass while its evidence went unwritten.
+
+    record_to_evidence_store() returned a returncode that reached
+    print_gate_result() for display and nothing else. If the write to the
+    Evidence Store failed, the pipeline carried on and could report PASS.
+    For a control system whose whole premise is the tamper-evident chain,
+    evidence that may be missing is not evidence.
+
+    The drift detector already had this right — "Hard fail — evidence
+    recording is mandatory" — so the two paths into the same table gave
+    two different answers to the same question. As with B-04, the
+    contradiction was only visible with both open side by side.
+
+    The cost is named rather than avoided: an Evidence Store whose outage
+    blocks every pipeline is a single point of failure. That is the
+    correct trade for a compliance control system, and it is a decision,
+    not an accident — which is why it is tested.
+    """
+    findings = []
+    orch = read_text(REPO_ROOT / "pipeline" / "gate_orchestrator.py")
+
+    if "_evidence_problem" not in orch:
+        findings.append(
+            "pipeline/gate_orchestrator.py: no evidence-failure handling — a "
+            "failed Evidence Store write would pass unnoticed"
+        )
+    # The BRANCH, not merely the token. A first version of this check
+    # searched for "evidence_broken" and kept passing when the branch was
+    # replaced by `if False:` — the name still appeared at its assignment.
+    # A check that a probe cannot break is not a check.
+    if "if evidence_broken:" not in orch:
+        findings.append(
+            "pipeline/gate_orchestrator.py: nothing branches on evidence_broken, "
+            "so the exit code cannot distinguish a blocked gate from an "
+            "unrecorded one"
+        )
+    if "return 3" not in orch:
+        findings.append(
+            "pipeline/gate_orchestrator.py: no distinct exit code for a failed "
+            "evidence write. Collapsing it into 1 lets a broken Evidence Store "
+            "look like an ordinary gate failure"
+        )
+    if "evidence_recording_failed" not in orch:
+        findings.append(
+            "pipeline/gate_orchestrator.py: the pipeline report does not state "
+            "whether evidence recording failed — an auditor reading it cannot "
+            "tell a verdict from an absent verdict"
+        )
+
+    # The drift detector must keep its hard fail.
+    drift = read_text(REPO_ROOT / "monitoring" / "drift_detector.py")
+    if "sys.exit(1)" not in drift or "evidence recording is mandatory" not in drift:
+        findings.append(
+            "monitoring/drift_detector.py: no longer hard-fails on a failed "
+            "evidence write — the two writers into quality_gate_results must "
+            "answer this question the same way"
+        )
+
+    return make_result(
+        "EVIDENCE_FAIL_CLOSED",
+        "the fail-closed evidence path is declared (B-16; behaviour in "
+        "pipeline/test_evidence_fail_closed.py)",
+        "high",
+        not findings,
+        "A gate can report PASS while its evidence went unwritten — the chain the "
+        "artefact rests on would have a hole nobody sees." if findings
+        else "Both writers into the evidence table fail closed, and the exit code "
+             "tells an unrecorded run from a blocked gate.",
+        findings,
+    )
+
+
 VALID_ROLE_SCOPES = {"provider", "deployer"}
 
 
@@ -1541,6 +1614,7 @@ def collect_results() -> list[dict]:
         check_workflow_claims_no_counts,
         check_trigger_matches_requirement,
         check_acceptance_criteria_traced,
+        check_evidence_fail_closed,
     ]
     results = []
     for check in checks:
