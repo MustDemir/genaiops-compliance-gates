@@ -976,6 +976,8 @@ def check_readme_counts_current() -> dict:
     derived from the repository, not prose. Claims that cannot be counted
     stay a matter of authorship.
     """
+    import yaml
+
     readme = read_text(REPO_ROOT / "README.md")
     findings = []
 
@@ -1019,6 +1021,40 @@ def check_readme_counts_current() -> dict:
                 f"README.md: does not state '{claim}' — the {label} derived from "
                 f"the repository is not what the README claims"
             )
+
+    # The Definition-of-Done score. A README that states how many gates meet
+    # the bar has made a claim like any other, and this one moves every time
+    # a design_only check is implemented or an acceptance criterion traced.
+    reqs = {}
+    for rf in (REPO_ROOT / "requirements").glob("R0*.yaml"):
+        try:
+            r = yaml.safe_load(read_text(rf)) or {}
+        except yaml.YAMLError:
+            continue
+        if r.get("id"):
+            reqs[r["id"]] = r
+
+    dod_full = 0
+    for _gf, gate in gates:
+        gchecks = gate.get("policy_checks") or []
+        rids = (gate.get("links") or {}).get("requirements") or []
+        crit = [e for rid in rids for e in (reqs.get(rid, {}).get("acceptance_criteria") or [])]
+        inputs = gate.get("required_inputs") or []
+        met = (
+            bool(gate.get("triggers"))
+            and all(c.get("implementation") == "implemented" for c in gchecks)
+            and all(d.get("evaluated_by") for d in inputs)
+            and bool(crit)
+            and all(isinstance(e, dict) and e.get("status") != "unverified" for e in crit)
+        )
+        dod_full += 1 if met else 0
+
+    dod_claim = f"{dod_full} of {len(gates)} gates meet all five machine-checked points"
+    if dod_claim not in readme:
+        findings.append(
+            f"README.md: does not state '{dod_claim}' — the Definition-of-Done "
+            f"score derived from the catalogue is not what the README claims"
+        )
 
     # Latest evidence-schema version must be the one the README names.
     migrations = sorted((REPO_ROOT / "evidence-store" / "migrations").glob("v*_to_v*.sql"))

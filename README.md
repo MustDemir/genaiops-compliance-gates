@@ -46,6 +46,43 @@ Most AI governance tooling answers *"is there a policy?"*. This answers *"can yo
 - **Nothing is claimed that is not enforced.** 44 of 51 checks are implemented, 7 are design-only — and each check states which it is. The integrity suite fails the build if a declaration and reality drift apart.
 - **There is no exception path.** The waiver mechanism was abolished rather than left as an unimplemented promise, because an exception that leaves no trace devalues the completeness of the chain.
 
+## What "business ready" means here
+
+Not "finished". A gate is never absolutely done — it is **done at a declared assurance level**, and it has to say which. That follows from the E-0…E-3 axis: not every gate must reach E-3, every gate must reach the level its obligation requires, and state it.
+
+So the bar is written down and, wherever possible, executed rather than asserted.
+
+**Definition of Done — per gate**
+
+| # | Criterion | Enforced by |
+|---|---|---|
+| 1 | The gate declares **what follows from its verdict** — halt, record, open an incident, start a deadline, notify | `GATE_DECLARES_EFFECT` |
+| 2 | No check is `design_only` | `GATE_IMPLEMENTATION_HONEST` |
+| 3 | `evidence_level.current` reaches the level the obligation requires | manual |
+| 4 | A runtime obligation is covered by a running gate, **or declared as a gap with a reason** | `TRIGGER_MATCHES_REQUIREMENT` |
+| 5 | Inputs are **produced**, not checked in, and name the policy that reads them | `REQUIRED_INPUTS_ENFORCED` |
+| 6 | The **negative case** is tested — a green run only proves nothing blocked | manual |
+| 7 | Every `acceptance_criteria` of the requirement points at a named check or a declared gap | `ACCEPTANCE_CRITERIA_TRACED` |
+
+**Today: 9 of 17 gates meet all five machine-checked points.** The other eight fail on design-only checks (G-PRE-04, G-DEP-01, G-DEP-03) or on acceptance criteria not yet traced. Points 3 and 6 are still judgement, and saying so is part of the bar.
+
+**Definition of Ready — before a gate is built**
+
+| # | Criterion | Why |
+|---|---|---|
+| 1 | The requirement is checked against the **primary source**, not a full-text reproduction | Otherwise you automate an unverified reading |
+| 2 | The **role** is settled: provider or deployer | Art. 16(a) decides who owes what |
+| 3 | The **data source** is named and available | Otherwise it ends at an annotation |
+| 4 | Thresholds are set, **or declared open with a reason** | An invented number is worse than an open one |
+| 5 | The **negative case** is named | A decision tree that maps everything to "yes" proves nothing |
+| 6 | The relationship to **parallel regimes** is settled — NIS2, CER, EnWG, GDPR | Art. 73(9) can halve the duty; learned the expensive way on G-OPS-02 |
+
+**Where the criteria come from**, in order of authority: the legal text (objectively checkable — deadlines, elements, allocation of duties) → Commission guidance (interpretation, versioned) → the requirement's own `acceptance_criteria` → the gate's declaration → the integrity suite, which executes them.
+
+The third source had sat unused in this repository since the thesis: 14 of 14 requirements carried acceptance criteria, 37 of them, and nothing read the field. R009 states of itself that reporting must happen within the statutory deadline — there is no deadline clock, and for two years nothing said so.
+
+> **The pattern is the point.** `evidence_level` was null on every gate. `scribe_mock_mode` was exported and read by no gate. Acceptance criteria were prose. Each time the declaration existed and the mechanism did not — which is the same failure this artefact was built to expose in others.
+
 ## Status
 
 | | |
