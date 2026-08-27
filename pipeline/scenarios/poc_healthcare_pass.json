@@ -123,7 +123,13 @@
       "policy": "policies/operations/policy_incident_process_exists.rego",
       "enforcement": "gatekeeper",
       "description_de": "Prüft ob Incident-Response konfiguriert, ein Meldekontakt hinterlegt und ein Rollback-Mechanismus verfügbar ist.",
-      "description_kolloquium": "Art. 26(5) EU AI Act fordert: Schwerwiegende Vorfälle müssen erkannt und gemeldet werden. Der Gatekeeper blockiert jedes Deployment, das keinen Incident-Kontakt und keinen Rollback-Mechanismus als K8s-Annotation deklariert hat."
+      "description_kolloquium": "Art. 26(5) EU AI Act fordert: Schwerwiegende Vorfälle müssen erkannt und gemeldet werden. Der Gatekeeper blockiert jedes Deployment, das keinen Incident-Kontakt und keinen Rollback-Mechanismus als K8s-Annotation deklariert hat.",
+      "inputs": {
+        "incident_thresholds": "tmp/incident_thresholds.json"
+      },
+      "input_sources": {
+        "incident_thresholds": "governance/incident_thresholds.yaml"
+      }
     }
   ]
 }

@@ -47,11 +47,41 @@ def erzeuge_drift_measurement(quelle: str, ziel: str, baseline: str) -> bool:
     return Path(ziel if Path(ziel).is_absolute() else REPO_ROOT / ziel).exists()
 
 
-# Genau ein Input-Typ existiert heute. Die Tabelle macht sichtbar, dass
+def erzeuge_incident_thresholds(quelle: str, ziel: str, _baseline: str) -> bool:
+    """Konvertiert die Schwellenwert-Festlegung von YAML nach JSON.
+
+    In YAML AUTORIERT, weil sie Kommentare traegt: Rechtsgrundlagen,
+    Kommissions-Randnummern, Begruendungen fuer offene Schwellen. Rego
+    liest JSON. Die Konvertierung ist deshalb ein Erzeugungsschritt und
+    kein Nebenprodukt — die YAML-Fassung ist die Quelle, die JSON-Fassung
+    das Gate-Eingabedokument.
+    """
+    try:
+        import yaml
+    except ImportError:
+        print("  FEHLER: pyyaml fehlt — Schwellenwert-Dokument nicht konvertierbar")
+        return False
+
+    src = Path(quelle if Path(quelle).is_absolute() else REPO_ROOT / quelle)
+    dst = Path(ziel if Path(ziel).is_absolute() else REPO_ROOT / ziel)
+    if not src.exists():
+        print(f"  FEHLER: {quelle} fehlt")
+        return False
+    dst.parent.mkdir(parents=True, exist_ok=True)
+    dst.write_text(
+        json.dumps(yaml.safe_load(src.read_text(encoding="utf-8")),
+                   indent=2, ensure_ascii=False, default=str) + "\n",
+        encoding="utf-8",
+    )
+    return True
+
+
+# Die Input-Typen, die heute existieren. Die Tabelle macht sichtbar, dass
 # weitere hier andocken — und dass ein unbekannter Typ ein Fehler ist und
 # nicht stillschweigend uebersprungen wird.
 ERZEUGER = {
     "drift_measurement": erzeuge_drift_measurement,
+    "incident_thresholds": erzeuge_incident_thresholds,
 }
 
 

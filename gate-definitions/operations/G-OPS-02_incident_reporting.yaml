@@ -19,9 +19,53 @@ policy_checks:
     evidence_level: null
     implementation: "implemented"
 
+  - id: "C-02"
+    policy: "policy_incident_thresholds"
+    description: "Die Schwellenwert-Festlegung existiert und nennt, auf welche Vorfallarme sich die AI-Act-Pflicht nach Art. 73 Abs. 9 reduziert"
+    severity: "MUST"
+    legal_refs: ["Art. 73 Abs. 9", "Art. 3 Abs. 49"]
+    evidence_level: "E-0"
+    implementation: "implemented"
+  - id: "C-03"
+    policy: "policy_incident_thresholds"
+    description: "Jede Schwelle ist gesetzt oder als offen begruendet und an einen Vorfallarm gebunden — eine offene Schwelle warnt, eine unbegruendete blockiert"
+    severity: "SHOULD"
+    legal_refs: ["Art. 3 Abs. 49 lit. c"]
+    evidence_level: "E-0"
+    implementation: "implemented"
+  - id: "C-04"
+    policy: "policy_incident_thresholds"
+    description: "Die Meldefristen entsprechen dem Gesetz: 48h kritische Infrastruktur, 240h Tod, 360h Regelfall — je mit Rechtsgrundlage"
+    severity: "MUST"
+    legal_refs: ["Art. 73 Abs. 2", "Art. 73 Abs. 3", "Art. 73 Abs. 4"]
+    evidence_level: "E-0"
+    implementation: "implemented"
+  - id: "C-05"
+    policy: "policy_incident_thresholds"
+    description: "Beweissicherung vor Korrekturmassnahme ist gefordert — ein Rollback kann die Aufzeichnung des Vorfalls zerstoeren"
+    severity: "SHOULD"
+    legal_refs: ["Art. 73 Abs. 6"]
+    evidence_level: "E-0"
+    implementation: "implemented"
+
+# SPEC-04b Teil 3.2 — ohne dieses Dokument hat das Gate die
+# Schwellenwertfrage nicht geprueft, sondern uebersprungen.
+required_inputs:
+  - kind: "incident_thresholds"
+    # Beobachtet dieser Input den laufenden Betrieb? Nur dann deckt er
+    # eine Laufzeitpflicht. Eine fachliche Festlegung, kein Messwert. Sie sagt, WANN ein Vorfall meldepflichtig waere — sie stellt nicht fest, DASS einer eingetreten ist. Der Betrieb wird damit nicht beobachtet, und die Laufzeitpflicht aus R009 bleibt offen (B-14).
+    observes_runtime: false
+    # Wer dieses Dokument liest. Ohne die Angabe raet der Orchestrator
+    # die Policy aus dem ersten Check des Gates — und wertet damit im
+    # falschen Namespace aus, also faktisch gar nicht.
+    evaluated_by: "policies/operations/policy_incident_thresholds.rego"
+    produced_by: "pipeline/prepare_inputs.py (aus governance/incident_thresholds.yaml)"
+    rationale: "C-02 bis C-05 werten diese Festlegung aus. Fehlt sie, bleibt die Frage 'wann ist ein Vorfall meldepflichtig' unbeantwortet."
+
 evidence_required:
   - "incident_process_documentation"
   - "rollback_verification_record"
+  - "incident_threshold_decision"        # NEU 27.08. — governance/incident_thresholds.yaml
 
 decision: "derived"
 automation: "AUTO"
@@ -41,4 +85,4 @@ links:
     - "Art. 73"
 sources:
   - "requirements/R009.yaml"
-notes: "IMPLEMENTED (2026-03-28) — policy_incident_process_exists.rego: 3 Checks (incident-response-configured, incident-contact, rollback-mechanism), 6 violation-Rules (Gatekeeper-Konvention 'violation', nicht Conftest-'deny'). Fixtures: deployment_incident_pass.json, deployment_incident_fail.json. UPDATE (2026-08-14, schema_version 2 / SPEC-01): policy_checks auf Objektform migriert, Severity aus R009 (MUST) uebernommen. WAIVER ABGESCHAFFT (2026-08-17, Audit F-2): der bisherige Ausnahmepfad lautete \"AI Governance Lead Approval, befristet auf 14 Tage\" — als Governance-Absicht hier bewahrt, falls Waiver spaeter wirklich implementiert werden. Bis dahin gilt: keine Ausnahme."
+notes: "IMPLEMENTED (2026-03-28) — policy_incident_process_exists.rego: 3 Checks (incident-response-configured, incident-contact, rollback-mechanism), 6 violation-Rules (Gatekeeper-Konvention 'violation', nicht Conftest-'deny'). Fixtures: deployment_incident_pass.json, deployment_incident_fail.json. UPDATE (2026-08-14, schema_version 2 / SPEC-01): policy_checks auf Objektform migriert, Severity aus R009 (MUST) uebernommen. WAIVER ABGESCHAFFT (2026-08-17, Audit F-2): der bisherige Ausnahmepfad lautete \"AI Governance Lead Approval, befristet auf 14 Tage\" — als Governance-Absicht hier bewahrt, falls Waiver spaeter wirklich implementiert werden. Bis dahin gilt: keine Ausnahme. UPDATE (2026-08-27): Bis heute prueft dieses Gate DREI POD-ANNOTATIONEN bei der Zulassung — Incident-Prozess konfiguriert, Kontakt benannt, Rollback vorhanden. Alle drei E-0. Nichts sagte, WANN ein Vorfall meldepflichtig ist, und keine Frist war bekannt. Der Entwurf der Kommissionsleitlinien zu Art. 73 (26.09.2025, erschlossen in compliance-art73-vorfallmeldung.md) aendert die Fragestellung: Nach Art. 73 Abs. 9 reduziert sich fuer Annex-III-Nr.-2-Systeme, die bereits CER und NIS2 unterliegen, die AI-Act-Meldepflicht auf Art. 3 Abs. 49 lit. c — GRUNDRECHTE (Rn. 57, 60). Betriebsstoerungen laufen weiter ueber CER (24h) und NIS2 (24/72h). Fuer einen Netzbetreiber lautet die Frage also nicht \"ab welcher Fehlerrate\", sondern \"wann wird eine Lastabwurf-Entscheidung zur Diskriminierung\" — und genau das ist das Beispiel der Kommission (Rn. 58). Neu C-02 bis C-05 gegen governance/incident_thresholds.yaml. C-04 ist der einzige Check, bei dem das Dokument objektiv falsch sein kann: die Fristen sind Recht (48/240/360h), kein Ermessen; eine Fristenuhr auf einer falschen Frist meldet Konformitaet, nachdem das Fenster zu ist. C-03 warnt bei offenen Schwellen statt zu blockieren — beide Schwellen sind heute unset, weil ihre Festlegung eine Rechtsauslegung und eine Fairness-Messung im Betrieb voraussetzt, die es nicht gibt (B-08 Luecke 3). SPANNUNG, bewusst stehengelassen: C-01 wertet \"rollback-mechanism: true\" als erfuellt, waehrend Art. 73 Abs. 6 Veraenderungen verbietet, die die Ursachenbewertung beeintraechtigen — ein Rollback nach einem Vorfall kann selbst meldepflichtig sein (C-05 warnt darauf)."

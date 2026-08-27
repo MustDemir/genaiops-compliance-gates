@@ -28,16 +28,29 @@ _object := input if not input.review
 
 _pod_annotations := _object.spec.template.metadata.annotations
 
+# Discriminator: is this input a workload manifest at all?
+#
+# Same defect as policy_monitoring_configured had before SPEC-04: `not
+# _pod_annotations[x]` is TRUE when the whole Deployment spec is absent,
+# so any non-workload document trips all three "annotation is missing"
+# rules. It surfaced the moment G-OPS-02 gained a second input.
+#
+# Deliberately `spec.template` and not "annotations are absent": a real
+# Deployment carrying no annotations must still fail.
+_is_workload if _object.spec.template
+
 # ================================================================
 # Check 1: Incident response must be configured
 # ================================================================
 
 violation contains {"msg": msg} if {
+	_is_workload
 	not _pod_annotations["genaiops.io/incident-response-configured"]
 	msg := "G-OPS-02 (R009): annotation genaiops.io/incident-response-configured is missing"
 }
 
 violation contains {"msg": msg} if {
+	_is_workload
 	_pod_annotations["genaiops.io/incident-response-configured"] != "true"
 	msg := sprintf("G-OPS-02 (R009): incident-response-configured is '%s' — must be 'true'", [_pod_annotations["genaiops.io/incident-response-configured"]])
 }
@@ -47,11 +60,13 @@ violation contains {"msg": msg} if {
 # ================================================================
 
 violation contains {"msg": msg} if {
+	_is_workload
 	not _pod_annotations["genaiops.io/incident-contact"]
 	msg := "G-OPS-02 (R009): annotation genaiops.io/incident-contact is missing — Art. 26(5) requires identifiable reporting contact"
 }
 
 violation contains {"msg": msg} if {
+	_is_workload
 	_pod_annotations["genaiops.io/incident-contact"] == ""
 	msg := "G-OPS-02 (R009): incident-contact is empty — responsible person or team must be identified"
 }
@@ -61,11 +76,13 @@ violation contains {"msg": msg} if {
 # ================================================================
 
 violation contains {"msg": msg} if {
+	_is_workload
 	not _pod_annotations["genaiops.io/rollback-mechanism"]
 	msg := "G-OPS-02 (R009): annotation genaiops.io/rollback-mechanism is missing — incident remediation requires rollback capability"
 }
 
 violation contains {"msg": msg} if {
+	_is_workload
 	_pod_annotations["genaiops.io/rollback-mechanism"] != "true"
 	msg := sprintf("G-OPS-02 (R009): rollback-mechanism is '%s' — must be 'true'", [_pod_annotations["genaiops.io/rollback-mechanism"]])
 }

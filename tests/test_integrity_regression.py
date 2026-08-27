@@ -1268,7 +1268,19 @@ def check_trigger_matches_requirement() -> dict:
         gate_id = gate.get("id", f.stem)
         trigger = (gate.get("trigger") or "").lower()
         fires_once = any(a in trigger for a in ADMISSION)
-        runtime_capable = bool(gate.get("required_inputs")) or not fires_once
+        # The escape hatch is narrower than "has an input". An input only
+        # covers a runtime obligation if it OBSERVES OPERATION. G-OPS-02
+        # gained governance/incident_thresholds.yaml on 2026-08-27 — a
+        # professional decision about when an incident is reportable. It
+        # says WHEN one would be notifiable; it does not establish THAT
+        # one occurred. Counting it as runtime coverage would have closed
+        # R009's declared gap on paper while the gate still cannot detect
+        # anything — precisely the drift this suite exists to catch.
+        observing = any(
+            d.get("observes_runtime") is True
+            for d in (gate.get("required_inputs") or [])
+        )
+        runtime_capable = observing or not fires_once
         for rid in (gate.get("links") or {}).get("requirements") or []:
             coverage.setdefault(rid, []).append((gate_id, runtime_capable))
 

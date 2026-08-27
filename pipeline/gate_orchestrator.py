@@ -1240,11 +1240,18 @@ def run_pipeline(scenario_path: str, use_conftest: bool = False, dry_run: bool =
             # The policy comes from the gate DEFINITION, not the scenario:
             # a scenario that names no policy must not silently skip the
             # evaluation of a document the gate declared as required.
-            doc_policy = gate.get("policy") or resolve_policy_for_gate(gate_id)
             for decl in required_inputs[gate_id]:
                 doc_path = (gate.get("inputs") or {}).get(decl.get("kind"))
                 if not doc_path:
                     continue
+                # The declaration names its own reader. Falling back to the
+                # gate's first check guesses wrong as soon as a gate has two
+                # inputs read by two policies — it then evaluates in the wrong
+                # namespace, which conftest reports as zero findings rather
+                # than as an error.
+                doc_policy = (decl.get("evaluated_by")
+                              or gate.get("policy")
+                              or resolve_policy_for_gate(gate_id))
                 if not doc_policy:
                     input_failures.append({
                         "msg": f"{gate_id}/INPUT ({decl.get('kind')}): no policy could "

@@ -58,6 +58,13 @@ policy_checks:
 # eines Dokuments nicht von der Abwesenheit einer Regel unterscheiden.
 required_inputs:
   - kind: "drift_measurement"
+    # Beobachtet dieser Input den laufenden Betrieb? Nur dann deckt er
+    # eine Laufzeitpflicht. Eine Messung am laufenden System ueber Zeit — das ist eine Betriebsbeobachtung (E-3).
+    observes_runtime: true
+    # Wer dieses Dokument liest. Ohne die Angabe raet der Orchestrator
+    # die Policy aus dem ersten Check des Gates — und wertet damit im
+    # falschen Namespace aus, also faktisch gar nicht.
+    evaluated_by: "policies/operations/policy_monitoring_configured.rego"
     produced_by: "monitoring/drift_detector.py --measurement-out <pfad>"
     max_age_seconds: 900
     rationale: "C-03/C-04/C-05 pruefen eine Messung. Fehlt sie, wurde nicht geprueft."

@@ -29,7 +29,7 @@ flowchart TB
     A["<b>EU AI Act</b> (EU) 2024/1689<br/>+ Omnibus (EU) 2026/1744<br/>Art. 9–15 · 25 · 26 · 72"]
     B["<b>14 Requirements</b> R001–R014<br/><i>Regulatory requirements engineering</i>"]
     C["<b>17 Quality Gates</b><br/>10 AUTO · 7 HYBRID · 0 MANUAL<br/><i>Control framework</i>"]
-    D["<b>OPA / Rego</b> — 17 policies, 175 rules<br/>Conftest (CI) · Gatekeeper (K8s admission)<br/><i>Policy-as-code · preventive controls</i>"]
+    D["<b>OPA / Rego</b> — 18 policies, 186 rules<br/>Conftest (CI) · Gatekeeper (K8s admission)<br/><i>Policy-as-code · preventive controls</i>"]
     E["<b>Evidence Store</b> — PostgreSQL, insert-only<br/>SHA-256 hash chain, row-level security<br/><i>Tamper-evident audit trail</i>"]
     F["<b>E-0 → E-1 → E-2 → E-3</b><br/>document · signed · cluster state · measured<br/><i>Assurance level</i>"]
     A --> B --> C --> D --> E --> F
@@ -43,15 +43,15 @@ Most AI governance tooling answers *"is there a policy?"*. This answers *"can yo
 
 - **Evidentiary strength as a second axis.** Automatability (AUTO/HYBRID/MANUAL) says how much runs without a human. It says nothing about how hard the evidence is to forge. Every check therefore also declares an **assurance level E-0 … E-3**. A pod annotation is E-0 — it *asserts* a state, it does not *prove* one.
 - **Provider and deployer obligations are separated.** *The provider owes the properties of the system; the deployer owes the properties of its use.* Art. 16(a) is the hinge, and the market gets this wrong routinely.
-- **Nothing is claimed that is not enforced.** 40 of 47 checks are implemented, 7 are design-only — and each check states which it is. The integrity suite fails the build if a declaration and reality drift apart.
+- **Nothing is claimed that is not enforced.** 44 of 51 checks are implemented, 7 are design-only — and each check states which it is. The integrity suite fails the build if a declaration and reality drift apart.
 - **There is no exception path.** The waiver mechanism was abolished rather than left as an unimplemented promise, because an exception that leaves no trace devalues the completeness of the chain.
 
 ## Status
 
 | | |
 |---|---|
-| Gates / requirements | 17 gates · 14 requirements · 47 checks (40 enforced, 7 design-only) |
-| Policies | 17 Rego policies · 175 deny/warn/violation rules |
+| Gates / requirements | 17 gates · 14 requirements · 51 checks (44 enforced, 7 design-only) |
+| Policies | 18 Rego policies · 186 deny/warn/violation rules |
 | Tests | 187 Rego unit tests · 35 integration tests · 25 integrity checks · hash-chain verification per run |
 | Evidence schema | v06 (`ai_act_role`, `derived_decision`, `runtime_mode` sealed into the payload) |
 | Deployment verified | Local (Minikube, Docker) and Azure AKS, Sweden Central |
@@ -63,8 +63,8 @@ Most AI governance tooling answers *"is there a policy?"*. This answers *"can yo
 Carried deliberately rather than silently. This section is part of the artefact, not an afterthought: a control system that hides its own gaps fails its own premise.
 
 - **Provider requirements are not derived yet.** Art. 16(a)–(l) with Art. 17–20, 43, 47, 48, 49(1) is the largest open block; `AI_ACT_ROLE=PROVIDER` matches no gate today.
-- **7 of 47 checks are design-only.** They sit in G-PRE-04, G-DEP-01 and G-DEP-03, which therefore report PASS while part of what they declare has not been evaluated. Each check states this itself, and the integrity suite verifies the claim in both directions at HIGH severity.
-- **`evidence_level.current` is E-0 on every gate.** Raising gates to E-1 requires signed CI attestations (`cosign`, keyless via OIDC); E-2 requires Gatekeeper `data.inventory` against a live cluster. Per-check levels are being filled in as the wiring lands — 10 of 47 checks carry one today.
+- **7 of 51 checks are design-only.** They sit in G-PRE-04, G-DEP-01 and G-DEP-03, which therefore report PASS while part of what they declare has not been evaluated. Each check states this itself, and the integrity suite verifies the claim in both directions at HIGH severity.
+- **`evidence_level.current` is E-0 on every gate.** Raising gates to E-1 requires signed CI attestations (`cosign`, keyless via OIDC); E-2 requires Gatekeeper `data.inventory` against a live cluster. Per-check levels are being filled in as the wiring lands — 14 of 51 checks carry one today.
 - **Accuracy is not measurable in operation.** Without ground truth there are only proxies. The evaluation document declares `provenance: "declared"` for those figures rather than presenting them as measurements. Coupling human oversight under Art. 14 to post-market monitoring under Art. 72 — the reviewer's correction *is* the label — is designed but not built.
 - **8 of 9 runtime obligations have no gate that observes operation.** Requirements declaring `audit_trigger: Runtime` are served by gates that fire once at admission. Each states this as `runtime_coverage: declared_gap` with a reason, and the integrity suite rejects both an undeclared gap and a stale declaration. G-OPS-03 is the one exception and shows the way: annotation check at admission plus a measurement with a freshness budget.
 - **The Art. 6(1a)/(1b) reading is a hypothesis.** No guidelines, no case law. Marked as such in the policy header.
@@ -265,7 +265,7 @@ genaiops-compliance-gates/
 ## Verification
 
 ```bash
-./tests/run_all_rego_tests.sh          # 187 Rego unit tests
+./tests/run_all_rego_tests.sh          # 199 Rego unit tests
 python3 tests/test_all.py              # 35 integration tests across all five pillars
 python3 tests/test_integrity_regression.py --fail-on medium   # 25 credibility checks
 python3 pipeline/gate_orchestrator.py --scenario pipeline/scenarios/poc_healthcare_pass.json
@@ -287,7 +287,7 @@ Specifications live in [`specs/`](specs/), standing principles in [`AGENTS.md`](
 | **SPEC-03** | Role parameter PROVIDER/DEPLOYER/BOTH, Art. 25 gate promoted to G-OPS-06, evidence schema v04 |
 | **SPEC-04** | Measurement before signature — measured gate inputs, provenance per metric group, `runtime_mode` sealed into the chain (schema v06) |
 
-Counts moved from the thesis state: 16 → 17 gates, 108 → 175 rules, 141 → 187 unit tests. The published figures stay reproducible under the tag.
+Counts moved from the thesis state: 16 → 17 gates, 108 → 186 rules, 141 → 199 unit tests. The published figures stay reproducible under the tag.
 
 ---
 

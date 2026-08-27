@@ -1,0 +1,126 @@
+schema_version: 1
+# ================================================================
+# Schwellenwerte fuer meldepflichtige Vorfaelle — Art. 73 EU AI Act
+# ================================================================
+# Dies ist eine FACHLICHE FESTLEGUNG, keine Technikfrage. Sie wird
+# bewusst nicht automatisiert, aber versioniert, begruendet und
+# zitierbar gehalten — damit sie pruefbar ist statt implizit.
+#
+# Rechtsstand: Entwurf der Kommissionsleitlinien zu Art. 73 vom
+# 26.09.2025 (Konsultation bis 07.11.2025). Erschlossen in
+# compliance-art73-vorfallmeldung.md. ENTWURF, nicht Endfassung.
+#
+# Der Befund, der die Ausrichtung bestimmt (Rn. 57 und 60):
+#   Fuer Annex-III-Nr.-2-Systeme (u.a. Elektrizitaet), die bereits
+#   CER und NIS2 unterliegen, reduziert Art. 73 Abs. 9 die
+#   AI-Act-Meldepflicht auf Art. 3 Abs. 49 lit. c — Grundrechte.
+#   Betriebsstoerungen laufen weiter ueber CER und NIS2.
+#
+# Folge: Vorfallerkennung heisst hier nicht "ab welcher Fehlerrate",
+# sondern "wann wird eine Redispatch- oder Lastabwurf-Entscheidung
+# zur Diskriminierung".
+# ================================================================
+
+deployer_context:
+  sector: "Elektrizitaet — Verteilnetzbetrieb"
+  ai_act_annex: "Annex III Nr. 2 (kritische Infrastruktur)"
+  parallel_regimes: ["CER (EU) 2022/2557", "NIS2 (EU) 2022/2555", "EnWG § 11"]
+  ai_act_scope_reduced_to: "Art. 3 Abs. 49 lit. c — Grundrechte"
+  reduction_basis: "Art. 73 Abs. 9 AI Act; Entwurfsleitlinien Rn. 57, 60"
+
+# ── Meldefristen: RECHT, keine Festlegung ───────────────────────
+# Belegt am Entwurf Rn. 38 und 22. Unveraenderlich ohne Rechtsaenderung.
+deadlines:
+  - id: "F-CRIT"
+    arm: "Art. 3(49)(b)"
+    trigger: "schwere und irreversible Stoerung kritischer Infrastruktur"
+    hours: 48
+    basis: "Art. 73 Abs. 3 AI Act"
+    note: >-
+      Ist bei Fristablauf noch unklar, ob die Stoerung irreversibel ist,
+      MUSS ein Erstbericht abgesetzt werden (Rn. 22). Unklarheit
+      verlaengert die Frist nicht.
+  - id: "F-DEATH"
+    arm: "Art. 3(49)(a)"
+    trigger: "Tod einer Person"
+    hours: 240
+    basis: "Art. 73 Abs. 4 AI Act"
+  - id: "F-STD"
+    arm: "alle uebrigen"
+    trigger: "Regelfall"
+    hours: 360
+    basis: "Art. 73 Abs. 2 AI Act"
+  - id: "F-CER"
+    arm: "ausserhalb AI Act"
+    trigger: "erhebliche Stoerung wesentlicher Dienste"
+    hours: 24
+    basis: "CER-Richtlinie (EU) 2022/2557"
+  - id: "F-NIS2-EARLY"
+    arm: "ausserhalb AI Act"
+    trigger: "Fruehwarnung bei signifikantem Vorfall"
+    hours: 24
+    basis: "Art. 23 Abs. 4 NIS2"
+  - id: "F-NIS2-FULL"
+    arm: "ausserhalb AI Act"
+    trigger: "Vorfallmeldung"
+    hours: 72
+    basis: "Art. 23 Abs. 4 NIS2"
+
+# ── Schwellenwerte: FESTLEGUNG, bewusst offen ───────────────────
+# status: set | unset. `unset` ist ein zulaessiger, ehrlicher Zustand
+# und wird von G-OPS-02/C-03 als Warnung gemeldet — nicht als Fehler.
+# Ein erfundener Wert waere schlechter als ein offener.
+thresholds:
+  - id: "T-DISCRIM-REDISPATCH"
+    applies_to_arm: "Art. 3(49)(c)"
+    description: >-
+      Ab welcher Ungleichverteilung von Abschaltungen ueber
+      geschuetzte oder als Proxy wirkende Merkmale (Einkommensniveau,
+      Gebietstypologie) wird eine Redispatch- bzw. Lastabwurf-
+      Entscheidung zur Diskriminierung?
+    commission_example: >-
+      Rn. 58: "A load-shedding AI system prioritises supply using a
+      proxy for household income, systematically cutting power to
+      low-income areas and violating the right to non-discrimination."
+    detection_signal: "Subgruppen-Abschaltrate ueber Zeit"
+    status: "unset"
+    unset_reason: >-
+      Erfordert (a) eine Festlegung der Subgruppen, (b) ein Mass fuer
+      Ungleichverteilung und (c) eine Rechtsauslegung, ab wann eine
+      Ungleichverteilung eine Grundrechtsverletzung ist. Keines davon
+      ist eine Technikfrage. Zusaetzlich fehlt die Messung selbst:
+      Fairness wird heute nur beim Deployment geprueft (G-DEP-05).
+  - id: "T-DISCRIM-MAINTENANCE"
+    applies_to_arm: "Art. 3(49)(c)"
+    description: >-
+      Ab welcher Korrelation zwischen Instandhaltungs-Priorisierung
+      und Gebietsmerkmalen liegt eine Ungleichbehandlung vor?
+    commission_example: >-
+      Rn. 59: "A predictive-maintenance AI system ranks
+      pipe-replacement projects with a variable that correlates to
+      neighbourhood ethnicity."
+    detection_signal: "Priorisierungsverteilung ueber Gebietsmerkmale"
+    status: "unset"
+    unset_reason: >-
+      Praediktive Instandhaltung ist im Projekt als Negativfall der
+      Hochrisiko-Einstufung gefuehrt (kein unmittelbarer Netzeingriff).
+      Die Grundrechtsschiene erreicht sie unabhaengig davon — die
+      Abgrenzung ist noch nicht ausgearbeitet.
+
+# ── Beweissicherung vor Korrekturmassnahme ──────────────────────
+# Rn. 42-43: Der Anbieter darf das System nicht so veraendern, dass
+# die spaetere Ursachenbewertung beeintraechtigt wird, BEVOR er die
+# Behoerde informiert hat. Als solche Veraenderung gelten u.a.
+# Software-Updates, Konfigurationsaenderungen, Ueberschreiben von
+# Trainingsdaten, Abschalten von Monitoring, Aenderung von Logdateien.
+evidence_preservation:
+  required_before_rollback: true
+  basis: "Art. 73 Abs. 6 AI Act; Entwurfsleitlinien Rn. 42-43"
+  note: >-
+    Steht in Spannung zu G-OPS-02/C-01, das "rollback-mechanism: true"
+    als erfuellte Anforderung wertet. Ein Rollback nach einem Vorfall
+    kann selbst meldepflichtig sein.
+
+sources:
+  - "compliance-art73-vorfallmeldung.md (Erschliessung)"
+  - "compliance-primaerquellen/art73_draft_guidance.pdf (26.09.2025, ENTWURF)"

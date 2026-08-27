@@ -110,7 +110,13 @@
       "policy": "policies/operations/policy_incident_process_exists.rego",
       "enforcement": "gatekeeper",
       "expect_fail": true,
-      "description_kolloquium": "Incident-Kontakt und Rollback-Mechanismus fehlen. Art. 26(5) nicht erfüllt."
+      "description_kolloquium": "Incident-Kontakt und Rollback-Mechanismus fehlen. Art. 26(5) nicht erfüllt.",
+      "inputs": {
+        "incident_thresholds": "tmp/incident_thresholds.json"
+      },
+      "input_sources": {
+        "incident_thresholds": "governance/incident_thresholds.yaml"
+      }
     }
   ]
 }
