@@ -24,6 +24,14 @@ design_principles:
 role: deployer
 deployer_implication: "Bias-/Fairness-Report vor Deployment bereitstellen; Mitigationsplan und Re-Evaluation dokumentieren."
 provider_implication: ""
+# B-14 (27.08.2026): Dieses Requirement verlangt Laufzeitpruefung, und kein
+# verlinktes Gate kann den Betrieb beobachten — alle feuern einmal bei der
+# Zulassung. Die Luecke wird DEKLARIERT statt stillschweigend getragen,
+# analog zu policy_checks[].implementation: design_only.
+# Zulaessig: covered | declared_gap. Geprueft von TRIGGER_MATCHES_REQUIREMENT.
+runtime_coverage: declared_gap
+runtime_gap_reason: >-
+  G-DEP-05 prueft Bias einmal vor der Freigabe. Subgruppen-Performance ueber Zeit fehlt (HANDBUCH B-08 Luecke 3).
 audit_trigger: "Deployment CI/CD + Runtime (periodische Re-Evaluation); Anwendungsfrist Art. 9/10/15 (Annex-III-Systeme) ab 2. Dezember 2027 gemaess VO (EU) 2026/1744"
 sources:
   - "EU AI Act (VO 2024/1689) Art. 9, Art. 10 Abs. 2 lit. f, Art. 15"

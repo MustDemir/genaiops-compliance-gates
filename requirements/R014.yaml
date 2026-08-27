@@ -23,6 +23,14 @@ design_principles:
 role: deployer
 deployer_implication: "Logging-Konfiguration gemäß Provider-Vorgaben einrichten; Aufbewahrung und Immutability sicherstellen."
 provider_implication: ""
+# B-14 (27.08.2026): Laufzeitpflicht ohne beobachtendes Gate — Luecke deklariert
+# statt stillschweigend getragen, analog zu implementation: design_only.
+runtime_coverage: declared_gap
+runtime_gap_reason: >-
+  G-DEP-06 prueft, ob retention_days >= 180 im Manifest STEHT. Ob 180 Tage
+  lueckenlos VORLIEGEN, prueft niemand — obwohl die Antwort in der eigenen
+  Datenbank steht (HANDBUCH B-08 Luecke 4). Aufbewahrung als Konfiguration
+  statt als Tatsache.
 audit_trigger: "Deployment CI/CD + Runtime (kontinuierlich)"
 sources:
   - "EU AI Act (VO 2024/1689) Art. 12, Art. 26 Abs. 6"

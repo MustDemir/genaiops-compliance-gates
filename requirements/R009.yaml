@@ -26,6 +26,14 @@ design_principles:
 role: deployer
 deployer_implication: "Incidents fristgerecht (Art. 73) an Behörden und Provider melden und Root-Cause-Analyse dokumentieren."
 provider_implication: ""
+# B-14 (27.08.2026): Dieses Requirement verlangt Laufzeitpruefung, und kein
+# verlinktes Gate kann den Betrieb beobachten — alle feuern einmal bei der
+# Zulassung. Die Luecke wird DEKLARIERT statt stillschweigend getragen,
+# analog zu policy_checks[].implementation: design_only.
+# Zulaessig: covered | declared_gap. Geprueft von TRIGGER_MATCHES_REQUIREMENT.
+runtime_coverage: declared_gap
+runtime_gap_reason: >-
+  G-OPS-02 prueft drei Annotationen bei der Zulassung. Vorfallerkennung, Fristenuhr und Meldekaskade fehlen (HANDBUCH B-13, Ausbaustufe in HANDBUCH 6.1).
 audit_trigger: "Runtime (Event-getriggert) + Post-Market"
 sources:
 - EU AI Act (VO 2024/1689) Art. 26 Abs. 5, Art. 73

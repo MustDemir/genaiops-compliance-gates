@@ -23,6 +23,14 @@ design_principles:
 role: deployer
 deployer_implication: "Automatisierte Schema- und Plausibilitätsvalidierung der Eingabedaten vor jeder Modellinferenz ausführen."
 provider_implication: ""
+# B-14 (27.08.2026): Dieses Requirement verlangt Laufzeitpruefung, und kein
+# verlinktes Gate kann den Betrieb beobachten — alle feuern einmal bei der
+# Zulassung. Die Luecke wird DEKLARIERT statt stillschweigend getragen,
+# analog zu policy_checks[].implementation: design_only.
+# Zulaessig: covered | declared_gap. Geprueft von TRIGGER_MATCHES_REQUIREMENT.
+runtime_coverage: declared_gap
+runtime_gap_reason: >-
+  G-DEP-01 prueft die Datendokumentation vor dem Rollout. Eingabedaten pro Inferenz-Batch werden nicht beobachtet.
 audit_trigger: "Deployment CI/CD + Runtime (pro Inferenz-Batch); Anwendungsfrist Art. 10 (Annex-III-Systeme) ab 2. Dezember 2027 gemaess VO (EU) 2026/1744"
 sources:
   - "EU AI Act (VO 2024/1689) Art. 10 Abs. 1/Abs. 6, Art. 26 Abs. 4, geaendert durch VO (EU) 2026/1744 (Digital Omnibus on AI)"

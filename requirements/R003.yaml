@@ -25,6 +25,14 @@ design_principles:
 role: deployer
 deployer_implication: "Security-Baseline pre-deploy nachweisen, Safety-Metriken deploy-time validieren, Cybersecurity-Operations kontinuierlich überwachen."
 provider_implication: ""
+# B-14 (27.08.2026): Dieses Requirement verlangt Laufzeitpruefung, und kein
+# verlinktes Gate kann den Betrieb beobachten — alle feuern einmal bei der
+# Zulassung. Die Luecke wird DEKLARIERT statt stillschweigend getragen,
+# analog zu policy_checks[].implementation: design_only.
+# Zulaessig: covered | declared_gap. Geprueft von TRIGGER_MATCHES_REQUIREMENT.
+runtime_coverage: declared_gap
+runtime_gap_reason: >-
+  G-PRE-04 prueft den Image-Build, G-DEP-02 die Freigabe-Metriken, G-OPS-04 die Runtime-Annotationen — keines beobachtet Robustheit im Betrieb. Fehlerrate unter Last und Timeout-Quote waeren die Messgroessen (HANDBUCH B-08 Luecke 7).
 audit_trigger: "Pre-Deployment + Deployment + Runtime (kontinuierlich)"
 sources:
 - EU AI Act (VO 2024/1689) Art. 15

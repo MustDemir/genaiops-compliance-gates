@@ -23,6 +23,14 @@ design_principles:
 role: deployer
 deployer_implication: "Wirksamkeit der Human-Oversight-Maßnahmen im Betrieb dokumentieren und periodisch überprüfen."
 provider_implication: ""
+# B-14 (27.08.2026): Dieses Requirement verlangt Laufzeitpruefung, und kein
+# verlinktes Gate kann den Betrieb beobachten — alle feuern einmal bei der
+# Zulassung. Die Luecke wird DEKLARIERT statt stillschweigend getragen,
+# analog zu policy_checks[].implementation: design_only.
+# Zulaessig: covered | declared_gap. Geprueft von TRIGGER_MATCHES_REQUIREMENT.
+runtime_coverage: declared_gap
+runtime_gap_reason: >-
+  G-OPS-01 prueft Aufsichts-Annotationen bei der Zulassung. Wirksamkeit der Aufsicht — Override-Rate, Zeit bis Entscheidung, Eskalationen — wird nicht gemessen (HANDBUCH B-08 Luecke 2).
 audit_trigger: "Runtime (kontinuierlich) + Post-Market"
 sources:
   - "EU AI Act (VO 2024/1689) Art. 14, Art. 26 Abs. 2"

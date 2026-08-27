@@ -1215,6 +1215,142 @@ def check_workflow_claims_no_counts() -> dict:
     )
 
 
+def check_trigger_matches_requirement() -> dict:
+    """B-14: a runtime obligation must be covered by at least one gate that runs.
+
+    Four operations gates declare trigger "kubectl apply — Gatekeeper
+    Admission" while their requirements declare audit_trigger "Runtime
+    (kontinuierlich)" or "Runtime (Event-getriggert)". Admission control
+    fires ONCE, before the workload runs. A requirement asking for
+    continuous or event-driven evaluation is not badly served by that —
+    it is structurally unservable by it.
+
+    Nobody noticed for months, and the reason is worth stating: both
+    statements are checked in, both are valid, and nothing held them
+    against each other. It is the kind of contradiction only visible when
+    two files are laid side by side.
+
+    The check groups BY REQUIREMENT, not by gate. A requirement with a
+    compound audit_trigger ("Deployment CI/CD + Runtime") is legitimately
+    served by a SET of gates covering different phases — R003 for instance
+    runs through G-PRE-04, G-DEP-02 and G-OPS-04. Demanding that every one
+    of them individually cover the runtime part produced six false
+    positives on the first run. What matters is that AT LEAST ONE linked
+    gate can actually observe operation.
+
+    A gate counts as runtime-capable if it declares required_inputs — a
+    document produced while the system runs — or if its trigger is not an
+    admission event. G-OPS-03 is the reference: annotation check at
+    admission (E-0) plus measurement check with a freshness budget (E-3).
+    """
+    import yaml
+
+    findings = []
+
+    requirements = {}
+    for f in sorted((REPO_ROOT / "requirements").glob("R0*.yaml")):
+        try:
+            r = yaml.safe_load(read_text(f)) or {}
+        except yaml.YAMLError:
+            continue
+        if r.get("id"):
+            requirements[r["id"]] = {
+                "audit_trigger": r.get("audit_trigger", "") or "",
+                "coverage": r.get("runtime_coverage"),
+                "reason": r.get("runtime_gap_reason"),
+            }
+
+    ADMISSION = ("kubectl apply", "pr merge", "image-build", "argocd manual-sync")
+
+    # requirement id -> [(gate_id, runtime_capable)]
+    coverage: dict[str, list] = {}
+    for f, gate in _load_gate_files():
+        gate_id = gate.get("id", f.stem)
+        trigger = (gate.get("trigger") or "").lower()
+        fires_once = any(a in trigger for a in ADMISSION)
+        runtime_capable = bool(gate.get("required_inputs")) or not fires_once
+        for rid in (gate.get("links") or {}).get("requirements") or []:
+            coverage.setdefault(rid, []).append((gate_id, runtime_capable))
+
+    VALID_COVERAGE = ("covered", "declared_gap")
+
+    for rid, req in sorted(requirements.items()):
+        audit = req["audit_trigger"]
+        declared = req["coverage"]
+
+        if declared is not None and declared not in VALID_COVERAGE:
+            findings.append(
+                f"requirements/{rid}.yaml: runtime_coverage '{declared}' is not one "
+                f"of {VALID_COVERAGE}"
+            )
+            continue
+
+        if "runtime" not in audit.lower():
+            if declared == "declared_gap":
+                findings.append(
+                    f"requirements/{rid}.yaml: declares a runtime gap but its "
+                    f"audit_trigger asks for no runtime checking — a stale "
+                    f"declaration is as misleading as a missing one"
+                )
+            continue
+
+        gates = coverage.get(rid, [])
+        if not gates:
+            continue  # unlinked requirements are a different check's problem
+        actually_covered = any(capable for _, capable in gates)
+        names = ", ".join(g for g, _ in gates)
+
+        if actually_covered:
+            # The gap closed. The declaration must not survive it, or the
+            # catalogue would keep claiming a weakness it no longer has —
+            # the same drift as a stale `design_only`.
+            if declared == "declared_gap":
+                findings.append(
+                    f"requirements/{rid}.yaml: still declares runtime_coverage "
+                    f"declared_gap, but {names} can now observe operation. Set it "
+                    f"to 'covered'"
+                )
+            continue
+
+        # Not covered. Acceptable only if the gap is stated, with a reason.
+        if declared != "declared_gap":
+            findings.append(
+                f"requirements/{rid}.yaml: audit_trigger is '{audit.strip()}', but "
+                f"none of its gates ({names}) can observe operation — all fire once "
+                f"at admission and declare no runtime input. Either give one of them "
+                f"a required_input produced while the system runs, as G-OPS-03 has, "
+                f"or declare runtime_coverage: declared_gap with a reason"
+            )
+        elif not (req["reason"] or "").strip():
+            findings.append(
+                f"requirements/{rid}.yaml: declares a runtime gap without a reason — "
+                f"an undocumented gap is indistinguishable from an overlooked one"
+            )
+
+    return make_result(
+        "TRIGGER_MATCHES_REQUIREMENT",
+        "runtime obligations are either covered by a running gate or declared (B-14)",
+        "medium",
+        not findings,
+        "A requirement demanding continuous or event-driven checking is served only "
+        "by gates evaluated once at admission, and does not say so — they report on "
+        "a moment, not on operation." if findings
+        else _runtime_coverage_summary(requirements, coverage),
+        findings,
+    )
+
+
+def _runtime_coverage_summary(requirements: dict, coverage: dict) -> str:
+    """State the split, so a declared gap stays countable rather than comfortable."""
+    runtime = [r for r, v in requirements.items() if "runtime" in v["audit_trigger"].lower()]
+    gaps = [r for r in runtime if requirements[r]["coverage"] == "declared_gap"]
+    return (
+        f"{len(runtime) - len(gaps)} of {len(runtime)} runtime obligations are covered "
+        f"by a running gate; {len(gaps)} are declared gaps "
+        f"({', '.join(sorted(gaps)) if gaps else 'none'})."
+    )
+
+
 VALID_ROLE_SCOPES = {"provider", "deployer"}
 
 
@@ -1279,6 +1415,7 @@ def collect_results() -> list[dict]:
         check_readme_counts_current,
         check_required_inputs_enforced,
         check_workflow_claims_no_counts,
+        check_trigger_matches_requirement,
     ]
     results = []
     for check in checks:

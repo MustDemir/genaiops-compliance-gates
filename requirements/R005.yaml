@@ -23,6 +23,14 @@ design_principles:
 role: deployer
 deployer_implication: "Audit-Trail vollständig und manipulationssicher (Hash-Chain) im Evidence Store persistieren."
 provider_implication: ""
+# B-14 (27.08.2026): Dieses Requirement verlangt Laufzeitpruefung, und kein
+# verlinktes Gate kann den Betrieb beobachten — alle feuern einmal bei der
+# Zulassung. Die Luecke wird DEKLARIERT statt stillschweigend getragen,
+# analog zu policy_checks[].implementation: design_only.
+# Zulaessig: covered | declared_gap. Geprueft von TRIGGER_MATCHES_REQUIREMENT.
+runtime_coverage: declared_gap
+runtime_gap_reason: >-
+  G-OPS-05 prueft eine Pod-Annotation. Ob die Kette lueckenlos IST, steht in der eigenen Datenbank — Hash-Chain-Laenge und Luecken ueber Zeit waeren E-3 (HANDBUCH B-08).
 audit_trigger: "Runtime (kontinuierlich) + Post-Market"
 sources:
 - EU AI Act (VO 2024/1689) Art. 12, Art. 15
