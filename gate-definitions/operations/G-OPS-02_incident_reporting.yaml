@@ -62,6 +62,30 @@ required_inputs:
     produced_by: "pipeline/prepare_inputs.py (aus governance/incident_thresholds.yaml)"
     rationale: "C-02 bis C-05 werten diese Festlegung aus. Fehlt sie, bleibt die Frage 'wann ist ein Vorfall meldepflichtig' unbeantwortet."
 
+# Frage 5 (HANDBUCH 3.4): was folgt aus dem Urteil? Ohne diese Angabe
+# fuellt die Vorstellung die Luecke (B-13).
+triggers:
+- effect: halt_pipeline
+  when: block
+  implementation: implemented
+  by: pipeline/gate_orchestrator.py — pipeline_halted
+- effect: start_deadline
+  when: block
+  implementation: declared_only
+  by: Fristenuhr Art. 73 — existiert nicht (B-08 Luecke 5)
+  rationale: >-
+    Art. 73 Abs. 3: 48h bei schwerer und irreversibler Stoerung kritischer
+    Infrastruktur, 240h bei Tod, 360h im Regelfall. G-OPS-02/C-04 prueft, dass
+    die Fristen KORREKT WIEDERGEGEBEN sind; dass eine Frist LAEUFT, misst nichts.
+- effect: open_incident
+  when: block
+  implementation: declared_only
+  by: Vorfallerkennung — existiert nicht, Schwellenwerte auf unset
+  rationale: >-
+    Art. 26 Abs. 5 verlangt eine FOLGE — Anbieter informieren, dann Behoerde —
+    kein Urteil. Ein Gate, das nur PASS/FAIL kann, bildet diese Pflicht
+    konstruktiv nicht ab.
+
 evidence_required:
   - "incident_process_documentation"
   - "rollback_verification_record"

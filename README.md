@@ -52,7 +52,7 @@ Most AI governance tooling answers *"is there a policy?"*. This answers *"can yo
 |---|---|
 | Gates / requirements | 17 gates · 14 requirements · 51 checks (44 enforced, 7 design-only) |
 | Policies | 18 Rego policies · 186 deny/warn/violation rules |
-| Tests | 187 Rego unit tests · 36 integration tests · 27 integrity checks · hash-chain verification per run |
+| Tests | 187 Rego unit tests · 36 integration tests · 28 integrity checks · hash-chain verification per run |
 | Evidence schema | v06 (`ai_act_role`, `derived_decision`, `runtime_mode` sealed into the payload) |
 | Deployment verified | Local (Minikube, Docker) and Azure AKS, Sweden Central |
 
@@ -67,6 +67,7 @@ Carried deliberately rather than silently. This section is part of the artefact,
 - **`evidence_level.current` is E-0 on every gate.** Raising gates to E-1 requires signed CI attestations (`cosign`, keyless via OIDC); E-2 requires Gatekeeper `data.inventory` against a live cluster. Per-check levels are being filled in as the wiring lands — 14 of 51 checks carry one today.
 - **Accuracy is not measurable in operation.** Without ground truth there are only proxies. The evaluation document declares `provenance: "declared"` for those figures rather than presenting them as measurements. Coupling human oversight under Art. 14 to post-market monitoring under Art. 72 — the reviewer's correction *is* the label — is designed but not built.
 - **8 of 9 runtime obligations have no gate that observes operation.** Requirements declaring `audit_trigger: Runtime` are served by gates that fire once at admission. Each states this as `runtime_coverage: declared_gap` with a reason, and the integrity suite rejects both an undeclared gap and a stale declaration. G-OPS-03 is the one exception and shows the way: annotation check at admission plus a measurement with a freshness budget.
+- **4 of 22 declared gate effects are not built.** Every gate now states what follows from its verdict — halt, record, open an incident, start a deadline, notify — and whether that effect exists. G-OPS-02 declares `start_deadline` and `open_incident` as `declared_only`: Art. 26(5) demands a consequence, not a verdict, and a gate that can only say PASS/FAIL cannot represent that duty.
 - **The Art. 6(1a)/(1b) reading is a hypothesis.** No guidelines, no case law. Marked as such in the policy header.
 - **G-DEP-01 references Art. 10 and Art. 11 while being deployer-scoped.** Both are provider duties, and Annex IV documentation is owed to authorities, not to the deployer. The deployer-side anchor is Art. 26(4). Left unchanged because the correction also moves the R002 mapping and belongs with the provider derivation.
 - **The role is a property of the pipeline run, not of the system.** Whether it should be tracked per system or per system version is undecided; the current design makes the simplest choice and defers the question.
@@ -267,7 +268,7 @@ genaiops-compliance-gates/
 ```bash
 ./tests/run_all_rego_tests.sh          # 199 Rego unit tests
 python3 tests/test_all.py              # 36 integration tests across all five pillars
-python3 tests/test_integrity_regression.py --fail-on medium   # 27 credibility checks
+python3 tests/test_integrity_regression.py --fail-on medium   # 28 credibility checks
 python3 pipeline/gate_orchestrator.py --scenario pipeline/scenarios/poc_healthcare_pass.json
 python3 evidence-store/scripts/verify_hash_chain.py --sqlite evidence-store/evidence_closed_loop.db
 ```

@@ -40,6 +40,21 @@ policy_checks:
     evidence_level: null
     implementation: "implemented"
 
+# Frage 5 (HANDBUCH 3.4): was folgt aus dem Urteil? Ohne diese Angabe
+# fuellt die Vorstellung die Luecke (B-13).
+triggers:
+- effect: halt_pipeline
+  when: block
+  implementation: implemented
+  by: pipeline/gate_orchestrator.py — pipeline_halted
+- effect: notify
+  when: block
+  implementation: declared_only
+  by: Uebergabepaket Art. 25 Abs. 2 — als evidence_required deklariert, nicht erzwungen
+  rationale: >-
+    Der Rollenuebergang ist ein zweiseitiger, dokumentierter Vorgang. Das Gate
+    erkennt ihn; es loest die Uebergabe nicht aus.
+
 evidence_required:
   - "change_log_record"
   - "fine_tuning_manifest"

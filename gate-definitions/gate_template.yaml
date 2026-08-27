@@ -29,6 +29,40 @@ policy_checks:
     # im notes-Feld und im README zu erwaehnen.
     implementation: "implemented"     # implemented | design_only
 
+# Frage 5 der Gate-Anatomie (HANDBUCH 3.4): WAS FOLGT AUS DEM URTEIL?
+#
+# Ein Gate erzeugt ein Urteil und einen Nachweis. Was daraus folgt — Rollout
+# blockieren, Vorfall eroeffnen, Frist starten, jemanden benachrichtigen —
+# stand bis 2026-08-27 nirgends. Der Orchestrator bricht bei FAIL ab, aber
+# das ist eine Eigenschaft des Orchestrators, nicht des Gates.
+#
+# Wo nichts deklariert ist, fuellt die Vorstellung die Luecke (B-13): ein
+# Beitragsentwurf beschrieb fuer G-OPS-02 eine Eskalationskaskade, weil das
+# Gate ueber seine Wirkung schweigt und eine Meldepflicht ohne Wirkung
+# sinnlos waere. Die Behauptung war der plausible Schluss aus einer Leerstelle.
+#
+# Fuer Art. 26 Abs. 5 ist das nicht optional: die Norm verlangt eine FOLGE,
+# kein Urteil.
+#
+# effect:        halt_pipeline | record_only | open_incident | start_deadline
+#                | notify
+# implementation: implemented | declared_only
+#   declared_only heisst: die Wirkung ist gewollt und beschrieben, aber noch
+#   nicht gebaut — dieselbe Ehrlichkeit wie policy_checks[].implementation.
+triggers:
+  - effect: "halt_pipeline"
+    # "when", nicht "on": YAML 1.1 liest einen unquotierten Schluessel `on`
+    # als Boolean true. Der Schluessel hiesse dann True statt "on".
+    when: "block"
+    implementation: "implemented"
+    by: "pipeline/gate_orchestrator.py — pipeline_halted"
+# Beispiel fuer eine gewollte, noch nicht gebaute Wirkung:
+#   - effect: "start_deadline"
+#     when: "block"
+#     implementation: "declared_only"
+#     by: "Fristenuhr Art. 73 — existiert nicht (B-08 Luecke 5)"
+#     rationale: "Art. 73 Abs. 3: 48h bei kritischer Infrastruktur"
+
 # SPEC-04b Teil 3.2 — optional. Dokumente, die dem Gate vorgelegt werden
 # MUESSEN, damit es ueberhaupt geprueft werden kann.
 #

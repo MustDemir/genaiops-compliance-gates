@@ -69,6 +69,21 @@ required_inputs:
     max_age_seconds: 900
     rationale: "C-03/C-04/C-05 pruefen eine Messung. Fehlt sie, wurde nicht geprueft."
 
+# Frage 5 (HANDBUCH 3.4): was folgt aus dem Urteil? Ohne diese Angabe
+# fuellt die Vorstellung die Luecke (B-13).
+triggers:
+- effect: halt_pipeline
+  when: block
+  implementation: implemented
+  by: pipeline/gate_orchestrator.py — pipeline_halted
+- effect: open_incident
+  when: block
+  implementation: declared_only
+  by: Kopplung Drift → G-OPS-02 — nur als Satz in einer Prometheus-Alert-Beschreibung
+  rationale: >-
+    "Gate G-OPS-03 FAIL — initiate incident response" ist Fliesstext in einer
+    Alert-Annotation, keine Logik (B-13).
+
 evidence_required:
   - "monitoring_configuration_record"
   - "drift_detection_report"

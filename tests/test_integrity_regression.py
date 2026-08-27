@@ -1548,6 +1548,88 @@ def check_evidence_fail_closed() -> dict:
     )
 
 
+VALID_EFFECTS = ("halt_pipeline", "record_only", "open_incident",
+                 "start_deadline", "notify")
+
+
+def check_gate_declares_effect() -> dict:
+    """Question 5: every gate must say what follows from its verdict.
+
+    A gate produced a judgement and a record. What FOLLOWED from it —
+    block the rollout, open an incident, start a deadline, notify someone
+    — was written nowhere. The orchestrator halts on FAIL, but that is a
+    property of the orchestrator, not a declared property of the gate.
+
+    Where nothing is declared, imagination fills the gap. A draft article
+    described an escalation cascade for G-OPS-02 because the gate is
+    silent about its effect and a reporting duty without an effect would
+    be pointless (B-13). The claim was the plausible inference from a
+    blank.
+
+    For Art. 26(5) this is not optional: the provision demands a
+    CONSEQUENCE, not a verdict. A gate that can only say PASS/FAIL cannot
+    represent that duty however well it checks.
+
+    `declared_only` is the honest state for an effect that is intended
+    and described but not built — the same move as
+    policy_checks[].implementation. It is counted, not punished.
+    """
+    findings = []
+    counts = {"implemented": 0, "declared_only": 0}
+
+    for f, gate in _load_gate_files():
+        gate_id = gate.get("id", f.stem)
+        triggers = gate.get("triggers")
+        if not triggers:
+            findings.append(
+                f"{f.relative_to(REPO_ROOT)}: declares no effect. A gate that "
+                f"does not say what follows from its verdict leaves the reader "
+                f"to guess, and readers guess generously"
+            )
+            continue
+
+        for t in triggers:
+            effect = t.get("effect")
+            impl = t.get("implementation")
+            if effect not in VALID_EFFECTS:
+                findings.append(
+                    f"{f.relative_to(REPO_ROOT)}: effect '{effect}' is not one of "
+                    f"{VALID_EFFECTS}"
+                )
+                continue
+            if impl not in ("implemented", "declared_only"):
+                findings.append(
+                    f"{f.relative_to(REPO_ROOT)}: effect '{effect}' has "
+                    f"implementation '{impl}' — must be implemented or declared_only"
+                )
+                continue
+            counts[impl] += 1
+            if not (t.get("by") or "").strip():
+                findings.append(
+                    f"{f.relative_to(REPO_ROOT)}: effect '{effect}' names nothing "
+                    f"that carries it out — an effect without a mechanism is a wish"
+                )
+            if impl == "declared_only" and not (t.get("rationale") or "").strip():
+                findings.append(
+                    f"{f.relative_to(REPO_ROOT)}: effect '{effect}' is declared_only "
+                    f"without a rationale — an undocumented gap is "
+                    f"indistinguishable from an overlooked one"
+                )
+
+    total = counts["implemented"] + counts["declared_only"]
+    return make_result(
+        "GATE_DECLARES_EFFECT",
+        "every gate declares what follows from its verdict (Frage 5, B-13)",
+        "medium",
+        not findings,
+        "A gate that does not state its effect invites the reader to invent one — "
+        "which is exactly how an outward claim outran the catalogue." if findings
+        else f"{counts['implemented']} of {total} declared effects are implemented, "
+             f"{counts['declared_only']} are declared but not built.",
+        findings,
+    )
+
+
 VALID_ROLE_SCOPES = {"provider", "deployer"}
 
 
@@ -1615,6 +1697,7 @@ def collect_results() -> list[dict]:
         check_trigger_matches_requirement,
         check_acceptance_criteria_traced,
         check_evidence_fail_closed,
+        check_gate_declares_effect,
     ]
     results = []
     for check in checks:
