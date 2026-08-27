@@ -163,6 +163,39 @@ flowchart LR
 
 **On ISO/IEC 42001 and 23894 — a deliberate limitation.** Both standards are copyrighted and paywalled. This repository therefore states *placement*, not a verified control mapping: the gate catalogue addresses the subject matter of ISO/IEC 42001 Annex A.6 (AI system life cycle), A.7 (data), A.8 (information for interested parties) and A.10 (third-party relationships), and the risk-management practice described by ISO/IEC 23894. Anchoring the detailed crosswalk on freely accessible primary sources — the Official Journal, BNetzA IT-Sicherheitskatalog, NIS2UmsuCG, BSI publications — keeps every claim checkable by a reader who does not own the standards. Neither standard triggers a presumption of conformity under Art. 40 EU AI Act; they are an evidence scaffold, not a legal safe harbour.
 
+### Sources this design rests on
+
+Listed together, with how far each was verified — the same discipline the gates apply to their own inputs. **Nothing here is cited from memory**: either the full text was read in this project, or the source is carried from the thesis corpus with its tier annotation intact.
+
+**Primary sources, worked through**
+
+| Source | What it settles here |
+|---|---|
+| **Regulation (EU) 2024/1689** as amended by **(EU) 2026/1744** | The obligations themselves. Both binding language versions reconciled against the Official Journal; the German text is archived under `docs/legal/` |
+| **European Commission**, *Draft Guidance on Article 73 — incident reporting*, 26 Sep 2025 (consultation closed 7 Nov 2025) | Art. 73(9) reduces the reporting duty for Annex III No. 2 deployers already under CER and NIS2 to fundamental rights (recitals 57, 60); statutory deadlines 48h / 240h / 360h (recital 38); evidence preservation before corrective action (recitals 42–43). **A draft** — the applicability date it names contradicts the Annex III deferral and is flagged, not used |
+
+**Full text read in this project**
+
+| Source | Why it matters |
+|---|---|
+| **Buscemi, A. et al. (2025).** *Assessing High-Risk AI Systems under the EU AI Act: From Legal Requirements to Technical Verification.* arXiv [2512.13907](https://arxiv.org/abs/2512.13907) | The closest published work. Two orthogonal dimensions — verification *type* (controls \| testing) × *target* (data \| model \| processes \| product) — and it declares the type dimension **explicitly non-hierarchical**. That is what the E-0…E-3 axis adds: an ordering by cost of falsification, with the signed artefact and the observed cluster state in between |
+| **Gardhouse, K., Oueslati, A., Kolt, N. (2026).** *Regulating AI Agents.* | Names the causation problem that incident detection inherits: harm from composed systems may not trace to a single point of failure, while reporting presupposes a causal link to the AI system |
+| **Hacker, P., Holweg, M. (2026).** *A pragmatic approach to regulating AI agents.* | Obligations for agentic systems; profiled against the deployer/provider split |
+
+**Carried from the thesis corpus, tier-annotated**
+
+| Source | Role in the design |
+|---|---|
+| **Tabassi, E. (2023).** *AI Risk Management Framework.* NIST | The GOVERN / MAP / MEASURE / MANAGE placement above |
+| **Butt et al. (2026).** *Governance as Evidence for AI Pipelines.* IEEE Access | The most complete gate model in the literature — five gates, signed tamper-evident artefacts, clause-to-artifact traceability. The direct comparison object |
+| **Nweke et al. (2026).** IEEE Access | OSCAL-native evidence export over an OPA/Rego and Conftest stack — the closest match to this stack, and the reason OSCAL is on the roadmap rather than invented |
+| **Cutler et al. (2024).** POPL | The only direct comparison of Cedar against Rego, and it favours Cedar on readability and performance. Recorded because it argues **against** the tool in use here; the choice stays open |
+| **Joshi et al. (2026).** | OPA, Cedar and XACML cover only the permit/prohibit subset — no obligation-lifecycle management. **The sharpest published limitation of this approach**, kept in view rather than out of it |
+| **Surve et al. (2026).** *CEDAR-42001* | 89.9% of lines conformant in a synthetic audit, but only 34.3% at high assurance. Conformity is not effectiveness — which applies to this artefact too, and is why validation is named as the largest open point |
+| **Laux (2024).** | First-degree human oversight under Art. 14, which the D3×D2 automation ceiling operationalises |
+
+> **On what is deliberately absent.** No DOIs are printed for the corpus entries: they are in the thesis bibliography, and reproducing identifiers from memory is exactly the failure mode this repository exists to catch. Sources the research files flag as needing full-text reading before reuse are not cited here at all.
+
 ---
 
 ## Legal status
