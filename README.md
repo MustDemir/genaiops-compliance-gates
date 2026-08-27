@@ -52,7 +52,7 @@ Most AI governance tooling answers *"is there a policy?"*. This answers *"can yo
 |---|---|
 | Gates / requirements | 17 gates · 14 requirements · 51 checks (44 enforced, 7 design-only) |
 | Policies | 18 Rego policies · 186 deny/warn/violation rules |
-| Tests | 187 Rego unit tests · 35 integration tests · 25 integrity checks · hash-chain verification per run |
+| Tests | 187 Rego unit tests · 35 integration tests · 26 integrity checks · hash-chain verification per run |
 | Evidence schema | v06 (`ai_act_role`, `derived_decision`, `runtime_mode` sealed into the payload) |
 | Deployment verified | Local (Minikube, Docker) and Azure AKS, Sweden Central |
 
@@ -267,7 +267,7 @@ genaiops-compliance-gates/
 ```bash
 ./tests/run_all_rego_tests.sh          # 199 Rego unit tests
 python3 tests/test_all.py              # 35 integration tests across all five pillars
-python3 tests/test_integrity_regression.py --fail-on medium   # 25 credibility checks
+python3 tests/test_integrity_regression.py --fail-on medium   # 26 credibility checks
 python3 pipeline/gate_orchestrator.py --scenario pipeline/scenarios/poc_healthcare_pass.json
 python3 evidence-store/scripts/verify_hash_chain.py --sqlite evidence-store/evidence_closed_loop.db
 ```

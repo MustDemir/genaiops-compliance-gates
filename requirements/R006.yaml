@@ -12,10 +12,22 @@ evidence_expected:
   - "input_validation_report"
   - "schema_conformance_check"
   - "data_quality_metrics"
+# DoD je Pflicht (ACCEPTANCE_CRITERIA_TRACED).
+# status: met — mit evidence auf konkrete Gate-Checks
+#         gap — mit Begruendung, was fehlt
+#         unverified — noch nicht zurueckverfolgt
 acceptance_criteria:
-  - "Eingabedaten entsprechen dem dokumentierten Schema des Providers."
-  - "Plausibilitaetschecks sind definiert und werden automatisch ausgefuehrt."
-  - "Validierungsergebnisse werden im Evidence Store persistiert."
+- criterion: Eingabedaten entsprechen dem dokumentierten Schema des Providers.
+  status: gap
+  gap_reason: Konformitaet der EINGABEDATEN gegen das Provider-Schema wird nirgends geprueft. G-DEP-01 prueft die
+    Dokumentation der Trainingsdaten — eine Anbieterpflicht (Art. 10), nicht die Betreiberpflicht aus Art. 26 Abs.
+    4.
+- criterion: Plausibilitaetschecks sind definiert und werden automatisch ausgefuehrt.
+  status: gap
+  gap_reason: Plausibilitaetschecks auf Eingabedaten existieren nicht.
+- criterion: Validierungsergebnisse werden im Evidence Store persistiert.
+  status: gap
+  gap_reason: Es gibt keine Validierungsergebnisse, die persistiert werden koennten.
 linked_gates:
   - G-DEP-01
 design_principles:

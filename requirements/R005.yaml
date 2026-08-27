@@ -13,9 +13,19 @@ description: Alle Gate-Entscheidungen muessen mit unveraenderlicher Evidence-Abl
 evidence_expected:
 - immutable_storage_reference
 - audit_trail_entry
+# DoD je Pflicht (ACCEPTANCE_CRITERIA_TRACED).
+# status: met — mit evidence auf konkrete Gate-Checks
+#         gap — mit Begruendung, was fehlt
+#         unverified — noch nicht zurueckverfolgt
 acceptance_criteria:
-- Evidence-Referenzen sind fuer jeden Gate-Lauf vorhanden.
-- Aenderungen an bestehenden Evidence-Eintraegen sind technisch eingeschraenkt.
+- criterion: Evidence-Referenzen sind fuer jeden Gate-Lauf vorhanden.
+  status: met
+  evidence:
+  - G-OPS-05/C-01
+- criterion: Aenderungen an bestehenden Evidence-Eintraegen sind technisch eingeschraenkt.
+  status: met
+  evidence:
+  - G-OPS-05/C-03
 linked_gates:
   - G-OPS-05
 design_principles:

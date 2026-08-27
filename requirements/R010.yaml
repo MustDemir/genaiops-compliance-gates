@@ -12,10 +12,24 @@ evidence_expected:
   - "drift_monitoring_dashboard"
   - "drift_alert_log"
   - "pms_periodic_report"
+# DoD je Pflicht (ACCEPTANCE_CRITERIA_TRACED).
+# status: met — mit evidence auf konkrete Gate-Checks
+#         gap — mit Begruendung, was fehlt
+#         unverified — noch nicht zurueckverfolgt
 acceptance_criteria:
-  - "Drift-Metriken sind definiert und werden kontinuierlich erhoben."
-  - "Schwellenwert-Ueberschreitungen loesen dokumentierte Alerts aus."
-  - "Periodische PMS-Berichte werden erstellt und archiviert."
+- criterion: Drift-Metriken sind definiert und werden kontinuierlich erhoben.
+  status: met
+  evidence:
+  - G-OPS-03/C-03
+  - G-OPS-03/C-04
+- criterion: Schwellenwert-Ueberschreitungen loesen dokumentierte Alerts aus.
+  status: met
+  evidence:
+  - G-OPS-03/C-04
+- criterion: Periodische PMS-Berichte werden erstellt und archiviert.
+  status: gap
+  gap_reason: Periodische PMS-Berichte werden nicht erstellt. Art. 72 Abs. 3 macht den Monitoring-Plan seit VO 2026/1744
+    zum Teil der Annex-IV-Dokumentation.
 linked_gates:
   - G-OPS-03
 design_principles:

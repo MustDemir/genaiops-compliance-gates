@@ -13,9 +13,19 @@ description: Ein Deployment darf nur erfolgen, wenn definierte technische Mindes
 evidence_expected:
 - eval_metrics_report
 - safety_test_report
+# DoD je Pflicht (ACCEPTANCE_CRITERIA_TRACED).
+# status: met — mit evidence auf konkrete Gate-Checks
+#         gap — mit Begruendung, was fehlt
+#         unverified — noch nicht zurueckverfolgt
 acceptance_criteria:
-- Alle verpflichtenden Metriken liegen ueber den definierten Mindestwerten.
-- Fehlgeschlagene Safety-Checks fuehren zu blockierendem Gate-Entscheid.
+- criterion: Alle verpflichtenden Metriken liegen ueber den definierten Mindestwerten.
+  status: met
+  evidence:
+  - G-DEP-02/C-01
+- criterion: Fehlgeschlagene Safety-Checks fuehren zu blockierendem Gate-Entscheid.
+  status: met
+  evidence:
+  - G-DEP-02/C-01
 linked_gates:
   - G-PRE-04
   - G-DEP-02

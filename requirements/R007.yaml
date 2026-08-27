@@ -13,10 +13,21 @@ evidence_expected:
   - "transparency_notice"
   - "user_information_document"
   - "ai_content_labeling_config"
+# DoD je Pflicht (ACCEPTANCE_CRITERIA_TRACED).
+# status: met — mit evidence auf konkrete Gate-Checks
+#         gap — mit Begruendung, was fehlt
+#         unverified — noch nicht zurueckverfolgt
 acceptance_criteria:
-  - "Transparenzhinweis ist fuer Endnutzer sichtbar und verstaendlich."
-  - "Informationspflichten gemaess Art. 13 und Art. 26 Abs. 7 sind dokumentiert."
-  - "KI-generierte Inhalte werden gemaess Art. 50 gekennzeichnet."
+- criterion: Transparenzhinweis ist fuer Endnutzer sichtbar und verstaendlich.
+  status: gap
+  gap_reason: Sichtbarkeit fuer Endnutzer ist eine Laufzeiteigenschaft der Oberflaeche. G-DEP-03 prueft Dokumente
+    (B-14).
+- criterion: Informationspflichten gemaess Art. 13 und Art. 26 Abs. 7 sind dokumentiert.
+  status: met
+  evidence:
+  - G-DEP-03/C-01
+- criterion: KI-generierte Inhalte werden gemaess Art. 50 gekennzeichnet.
+  status: unverified
 linked_gates:
   - G-DEP-03
 design_principles:

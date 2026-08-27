@@ -12,9 +12,17 @@ description: Vor Freigabe muss ein versioniertes Risiko-Assessment mit benannten
 evidence_expected:
 - risk_assessment_report
 - mitigation_plan
+# DoD je Pflicht (ACCEPTANCE_CRITERIA_TRACED).
+# status: met — mit evidence auf konkrete Gate-Checks
+#         gap — mit Begruendung, was fehlt
+#         unverified — noch nicht zurueckverfolgt
 acceptance_criteria:
-- Risiko-Assessment ist vorhanden, versioniert und dem Release zugeordnet.
-- Mindestens ein Mitigationsplan pro identifiziertem High-Risk-Risiko ist dokumentiert.
+- criterion: Risiko-Assessment ist vorhanden, versioniert und dem Release zugeordnet.
+  status: met
+  evidence:
+  - G-PRE-03/C-01
+- criterion: Mindestens ein Mitigationsplan pro identifiziertem High-Risk-Risiko ist dokumentiert.
+  status: unverified
 linked_gates:
   - G-PRE-01
   - G-PRE-03

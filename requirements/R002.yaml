@@ -15,9 +15,17 @@ evidence_expected:
 - technical_documentation
 - model_card
 - release_artifact_reference
+# DoD je Pflicht (ACCEPTANCE_CRITERIA_TRACED).
+# status: met — mit evidence auf konkrete Gate-Checks
+#         gap — mit Begruendung, was fehlt
+#         unverified — noch nicht zurueckverfolgt
 acceptance_criteria:
-- Dokumentation verweist eindeutig auf Modellversion und Release.
-- Log-Referenzen sind im Evidence Store auffindbar.
+- criterion: Dokumentation verweist eindeutig auf Modellversion und Release.
+  status: unverified
+- criterion: Log-Referenzen sind im Evidence Store auffindbar.
+  status: gap
+  gap_reason: G-DEP-01 prueft die Datenherkunfts-Dokumentation, nicht die Auffindbarkeit von Log-Referenzen im Evidence
+    Store.
 linked_gates:
   - G-DEP-01
 design_principles:

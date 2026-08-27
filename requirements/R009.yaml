@@ -15,10 +15,22 @@ evidence_expected:
 - incident_detection_config
 - incident_report
 - notification_timestamp_log
+# DoD je Pflicht (ACCEPTANCE_CRITERIA_TRACED).
+# status: met — mit evidence auf konkrete Gate-Checks
+#         gap — mit Begruendung, was fehlt
+#         unverified — noch nicht zurueckverfolgt
 acceptance_criteria:
-- Incident-Detection-Regeln sind konfiguriert und aktiv.
-- Meldung erfolgt innerhalb der gesetzlichen Frist.
-- Incident-Reports sind im Evidence Store versioniert.
+- criterion: Incident-Detection-Regeln sind konfiguriert und aktiv.
+  status: gap
+  gap_reason: C-01 prueft 'incident-response-configured' als Annotation. 'Aktiv' wird nicht geprueft — es gibt keine
+    Vorfallerkennung. Die Schwellenwerte stehen auf unset (governance/incident_thresholds.yaml).
+- criterion: Meldung erfolgt innerhalb der gesetzlichen Frist.
+  status: gap
+  gap_reason: G-OPS-02/C-04 prueft, dass die FRISTEN korrekt wiedergegeben sind (48/240/360h). Ob eine Meldung fristgerecht
+    ERFOLGT, misst niemand — die Fristenuhr existiert nicht (B-08 Luecke 5).
+- criterion: Incident-Reports sind im Evidence Store versioniert.
+  status: gap
+  gap_reason: Es werden keine Incident-Records erzeugt, also auch keine versioniert.
 linked_gates:
   - G-OPS-02
 design_principles:

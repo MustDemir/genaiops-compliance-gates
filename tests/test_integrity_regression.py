@@ -1363,6 +1363,118 @@ def _runtime_coverage_summary(requirements: dict, coverage: dict) -> str:
     )
 
 
+def check_acceptance_criteria_traced() -> dict:
+    """Every requirement's own acceptance criteria must point somewhere.
+
+    All 14 requirements have carried `acceptance_criteria` since the
+    thesis — 37 of them. Nothing read the field. The only mention outside
+    requirements/ was a COMMENT in one policy saying its checks were
+    "derived from R014 acceptance_criteria", which is prose, not a
+    mechanism.
+
+    That made them the third instance of the same pattern:
+    policy_checks[].evidence_level sat null on every gate after SPEC-01,
+    scribe_mock_mode was exported and read by nobody, and here a
+    requirement stated its own definition of done while the catalogue
+    never held the gates against it. R009 says "Meldung erfolgt innerhalb
+    der gesetzlichen Frist" — there is no deadline clock, and for two
+    years nothing said so.
+
+    A criterion is prose and cannot be matched to a check automatically.
+    So the tracing is DECLARED, and this check verifies the declaration
+    is well-formed and honest:
+
+      met        -> names concrete gate checks, and each one must exist
+      gap        -> names what is missing
+      unverified -> warns, and is counted, so it cannot sit unnoticed
+
+    `unverified` is a legitimate state: it says nobody has traced this
+    yet, which is different from claiming coverage. It is deliberately
+    not a failure — a suite that punishes honesty gets worked around.
+    """
+    import yaml
+
+    findings = []
+    VALID = ("met", "gap", "unverified")
+
+    known_checks = set()
+    for _f, gate in _load_gate_files():
+        gid = gate.get("id")
+        for c in gate.get("policy_checks") or []:
+            if gid and c.get("id"):
+                known_checks.add(f"{gid}/{c['id']}")
+
+    counts = {"met": 0, "gap": 0, "unverified": 0}
+    for f in sorted((REPO_ROOT / "requirements").glob("R0*.yaml")):
+        try:
+            r = yaml.safe_load(read_text(f)) or {}
+        except yaml.YAMLError:
+            continue
+        rid = r.get("id", f.stem)
+        criteria = r.get("acceptance_criteria") or []
+
+        if not criteria:
+            findings.append(
+                f"requirements/{rid}.yaml: no acceptance_criteria — the "
+                f"requirement states no definition of done, so nothing can be "
+                f"held against its gates"
+            )
+            continue
+
+        for i, entry in enumerate(criteria):
+            where = f"requirements/{rid}.yaml criterion {i + 1}"
+            if not isinstance(entry, dict):
+                findings.append(
+                    f"{where}: is a bare string. Acceptance criteria must declare "
+                    f"status and evidence, otherwise the definition of done is "
+                    f"prose that nothing checks"
+                )
+                continue
+            status = entry.get("status")
+            if status not in VALID:
+                findings.append(f"{where}: status '{status}' is not one of {VALID}")
+                continue
+            counts[status] += 1
+
+            if status == "met":
+                evidence = entry.get("evidence") or []
+                if not evidence:
+                    findings.append(
+                        f"{where}: claims 'met' without naming a check — an "
+                        f"unevidenced claim of coverage is the thing this "
+                        f"repository exists to catch"
+                    )
+                for ref in evidence:
+                    if ref not in known_checks:
+                        findings.append(
+                            f"{where}: cites '{ref}', which is not a check in any "
+                            f"gate definition. Either the check was renamed or the "
+                            f"coverage never existed"
+                        )
+            elif status == "gap" and not (entry.get("gap_reason") or "").strip():
+                findings.append(
+                    f"{where}: declares a gap without a reason — an undocumented "
+                    f"gap is indistinguishable from an overlooked one"
+                )
+
+    total = sum(counts.values())
+    summary = (
+        f"{counts['met']} of {total} acceptance criteria are evidenced by a named "
+        f"check, {counts['gap']} are declared gaps, {counts['unverified']} are not "
+        f"traced yet."
+    )
+    return make_result(
+        "ACCEPTANCE_CRITERIA_TRACED",
+        "each requirement's acceptance criteria point at a check or a declared gap",
+        "medium",
+        not findings,
+        "A requirement states its own definition of done; a catalogue that never "
+        "holds its gates against it is grading its own homework." if findings
+        else summary,
+        findings,
+    )
+
+
 VALID_ROLE_SCOPES = {"provider", "deployer"}
 
 
@@ -1428,6 +1540,7 @@ def collect_results() -> list[dict]:
         check_required_inputs_enforced,
         check_workflow_claims_no_counts,
         check_trigger_matches_requirement,
+        check_acceptance_criteria_traced,
     ]
     results = []
     for check in checks:

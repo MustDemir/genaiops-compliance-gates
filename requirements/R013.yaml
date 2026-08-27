@@ -13,10 +13,23 @@ evidence_expected:
   - "bias_metrics_report"
   - "fairness_evaluation_log"
   - "alert_and_remediation_log"
+# DoD je Pflicht (ACCEPTANCE_CRITERIA_TRACED).
+# status: met — mit evidence auf konkrete Gate-Checks
+#         gap — mit Begruendung, was fehlt
+#         unverified — noch nicht zurueckverfolgt
 acceptance_criteria:
-  - "Bias-Metriken sind definiert und werden automatisch erhoben."
-  - "Fairness-Schwellenwerte sind konfiguriert."
-  - "Abweichungen ueber Schwellenwert loesen dokumentierte Alerts aus."
+- criterion: Bias-Metriken sind definiert und werden automatisch erhoben.
+  status: met
+  evidence:
+  - G-DEP-05/C-01
+- criterion: Fairness-Schwellenwerte sind konfiguriert.
+  status: met
+  evidence:
+  - G-DEP-05/C-01
+- criterion: Abweichungen ueber Schwellenwert loesen dokumentierte Alerts aus.
+  status: gap
+  gap_reason: G-DEP-05/C-01 ist SHOULD und erzeugt Warnungen, keine Alerts. Zudem einmalig vor Freigabe — Subgruppen-Performance
+    ueber Zeit fehlt (B-08 Luecke 3). Genau diese Messung verlangt Art. 73 fuer diesen Adressaten (Grundrechtsschiene).
 linked_gates:
   - G-DEP-05
 design_principles:

@@ -11,9 +11,17 @@ description: Vor Produktionsfreigabe muessen Rollen, Eingriffsrechte und Eskalat
 evidence_expected:
 - oversight_roles_matrix
 - escalation_procedure
+# DoD je Pflicht (ACCEPTANCE_CRITERIA_TRACED).
+# status: met — mit evidence auf konkrete Gate-Checks
+#         gap — mit Begruendung, was fehlt
+#         unverified — noch nicht zurueckverfolgt
 acceptance_criteria:
-- Owner fuer Oversight ist benannt und freigegeben.
-- Eskalationsprozess ist versioniert und fuer den Betriebsfall abrufbar.
+- criterion: Owner fuer Oversight ist benannt und freigegeben.
+  status: met
+  evidence:
+  - G-PRE-05/C-01
+- criterion: Eskalationsprozess ist versioniert und fuer den Betriebsfall abrufbar.
+  status: unverified
 linked_gates:
   - G-PRE-05
 design_principles:

@@ -12,10 +12,23 @@ evidence_expected:
   - "logging_config_verification"
   - "log_retention_policy"
   - "log_accessibility_test"
+# DoD je Pflicht (ACCEPTANCE_CRITERIA_TRACED).
+# status: met — mit evidence auf konkrete Gate-Checks
+#         gap — mit Begruendung, was fehlt
+#         unverified — noch nicht zurueckverfolgt
 acceptance_criteria:
-  - "Logging ist aktiviert und erfasst alle vorgesehenen Ereignistypen."
-  - "Aufbewahrungsfrist entspricht den gesetzlichen Anforderungen."
-  - "Logs sind fuer berechtigte Stellen zugaenglich und auswertbar."
+- criterion: Logging ist aktiviert und erfasst alle vorgesehenen Ereignistypen.
+  status: met
+  evidence:
+  - G-DEP-06/C-01
+- criterion: Aufbewahrungsfrist entspricht den gesetzlichen Anforderungen.
+  status: met
+  evidence:
+  - G-DEP-06/C-01
+- criterion: Logs sind fuer berechtigte Stellen zugaenglich und auswertbar.
+  status: met
+  evidence:
+  - G-DEP-06/C-01
 linked_gates:
   - G-DEP-06
 design_principles:

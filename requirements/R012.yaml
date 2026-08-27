@@ -10,10 +10,19 @@ description: "Deployer, die oeffentliche Stellen sind oder im oeffentlichen Auft
 evidence_expected:
   - "fria_document"
   - "stakeholder_impact_assessment"
+# DoD je Pflicht (ACCEPTANCE_CRITERIA_TRACED).
+# status: met — mit evidence auf konkrete Gate-Checks
+#         gap — mit Begruendung, was fehlt
+#         unverified — noch nicht zurueckverfolgt
 acceptance_criteria:
-  - "FRIA ist abgeschlossen und versioniert."
-  - "Betroffene Grundrechte sind identifiziert und bewertet."
-  - "Mitigationsmassnahmen fuer identifizierte Risiken sind dokumentiert."
+- criterion: FRIA ist abgeschlossen und versioniert.
+  status: met
+  evidence:
+  - G-PRE-02/C-01
+- criterion: Betroffene Grundrechte sind identifiziert und bewertet.
+  status: unverified
+- criterion: Mitigationsmassnahmen fuer identifizierte Risiken sind dokumentiert.
+  status: unverified
 linked_gates:
   - G-PRE-02
 design_principles:

@@ -12,10 +12,22 @@ evidence_expected:
   - "oversight_effectiveness_report"
   - "sterz_conditions_assessment"
   - "intervention_log"
+# DoD je Pflicht (ACCEPTANCE_CRITERIA_TRACED).
+# status: met — mit evidence auf konkrete Gate-Checks
+#         gap — mit Begruendung, was fehlt
+#         unverified — noch nicht zurueckverfolgt
 acceptance_criteria:
-  - "Periodische Wirksamkeitspruefung ist konfiguriert und wird ausgefuehrt."
-  - "Eingriffe durch Oversight-Rollen werden protokolliert."
-  - "Defizite in den Sterz-Bedingungen loesen Eskalation aus."
+- criterion: Periodische Wirksamkeitspruefung ist konfiguriert und wird ausgefuehrt.
+  status: gap
+  gap_reason: C-01 prueft, dass real_time_monitoring DOKUMENTIERT ist. Eine periodische Wirksamkeitspruefung wird
+    nicht ausgefuehrt.
+- criterion: Eingriffe durch Oversight-Rollen werden protokolliert.
+  status: gap
+  gap_reason: Eingriffe der Aufsicht werden nicht protokolliert. Override-Rate, Zeit bis Entscheidung und Eskalationen
+    fehlen (B-08 Luecke 2) — eine Override-Rate nahe null waere ein Alarmsignal, kein Erfolg.
+- criterion: Defizite in den Sterz-Bedingungen loesen Eskalation aus.
+  status: gap
+  gap_reason: Es gibt keine Eskalation, weil es keine Messung der Sterz-Bedingungen gibt.
 linked_gates:
   - G-OPS-01
 design_principles:
