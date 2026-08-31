@@ -956,6 +956,19 @@ def check_runtime_mode_visible() -> dict:
     )
 
 
+def _own_check_count() -> int:
+    """How many checks this suite registers, read from the registry itself.
+
+    Counting the entries in collect_results() rather than hard-coding a
+    number is the same rule this suite applies to everyone else: a count
+    written next to its subject, with nothing holding the two together,
+    drifts (B-12).
+    """
+    src = read_text(Path(__file__).resolve())
+    block = re.search(r"def collect_results\(\).*?checks = \[(.*?)\n    \]", src, re.S)
+    return len(re.findall(r"^\s+check_\w+,", block.group(1), re.M)) if block else 0
+
+
 def check_readme_counts_current() -> dict:
     """The README must not claim more, or less, than the repository holds.
 
@@ -1014,12 +1027,37 @@ def check_readme_counts_current() -> dict:
         (f"{requirements} requirements", requirements, "requirement count"),
         (f"{implemented} enforced, {design_only} design-only", implemented, "check implementation split"),
         (f"{design_only} of {len(checks)} checks are design-only", design_only, "design-only statement"),
+        # This suite's own size. It grew 28 -> 29 while the README kept
+        # saying 28 in two places, and nothing noticed — the front page
+        # understating the controls is the same error class as overstating
+        # them, just less flattering.
+        (f"{_own_check_count()} integrity checks", _own_check_count(), "integrity-check count"),
     ]
     for claim, _value, label in expectations:
         if claim not in readme:
             findings.append(
                 f"README.md: does not state '{claim}' — the {label} derived from "
                 f"the repository is not what the README claims"
+            )
+
+    # Presence is not enough — the README must not CONTRADICT itself.
+    #
+    # The rule above is satisfied by one correct occurrence anywhere in the
+    # file. That let "187 Rego unit tests" sit in the stats table while
+    # "199 Rego unit tests" stood twelve screens further down, both green.
+    # A reader stops at the first number; the check has to as well.
+    #
+    # Deliberately limited to two unambiguous phrases. "N gates" and
+    # "N checks" legitimately appear with other numbers (five PRE gates,
+    # three checks in a gate), and a rule that fires on those would be
+    # switched off rather than fixed.
+    for phrase, value in (("Rego unit tests", rego_tests),
+                          ("integrity checks", _own_check_count())):
+        wrong = {int(n) for n in re.findall(rf"(\d+) {re.escape(phrase)}", readme)} - {value}
+        for n in sorted(wrong):
+            findings.append(
+                f"README.md: says '{n} {phrase}' as well as '{value} {phrase}' — "
+                f"two numbers for one thing, and a reader stops at the first"
             )
 
     # The Definition-of-Done score. A README that states how many gates meet
@@ -1165,6 +1203,74 @@ def check_required_inputs_enforced() -> dict:
             "declaration in the gate definitions would be decorative"
         )
 
+    # And so does the CI, which is the environment that counts.
+    #
+    # This half was missing until SPEC-04b Teil 3.1/3.3, and its absence is
+    # instructive: the check above passed the whole time, because the
+    # orchestrator did enforce. The CI does not run the orchestrator — it
+    # calls conftest per gate — so the obligation held everywhere except in
+    # the pipeline that decides whether an image ships. Verifying one caller
+    # and calling the obligation enforced is the same mistake one level out.
+    wf = read_text(REPO_ROOT / ".github" / "workflows" / "gate-pipeline.yml")
+    if "ci_required_inputs.py" not in wf:
+        findings.append(
+            ".github/workflows/gate-pipeline.yml: the workflow never resolves "
+            "required_inputs, so a gate resting on a measurement passes in CI "
+            "without one — the orchestrator's enforcement does not reach here"
+        )
+    else:
+        # Resolving is not evaluating. If run_gate.sh ignores the resolved
+        # files, the documents are supplied and nobody reads them.
+        if "-inputs.args" not in wf or "-inputs.fail" not in wf:
+            findings.append(
+                ".github/workflows/gate-pipeline.yml: required inputs are resolved "
+                "but the gate runner reads neither the resolved evaluations "
+                "(-inputs.args) nor the findings (-inputs.fail) — supplying a "
+                "document nobody reads is not evidence"
+            )
+        for f, gate in _load_gate_files():
+            gate_id = gate.get("id", f.stem)
+            for decl in gate.get("required_inputs") or []:
+                kind = decl.get("kind")
+                if kind and f"{gate_id}:{kind}=" not in wf:
+                    findings.append(
+                        f".github/workflows/gate-pipeline.yml: {gate_id} declares "
+                        f"required input '{kind}', and the workflow supplies none. "
+                        f"The gate would fail in CI for a reason nobody intended, "
+                        f"or — worse — the declaration was added and forgotten"
+                    )
+
+    # PyYAML has to be installed in EVERY job that runs the enforcement, or
+    # load_gate_required_inputs() returns {} after a warning and every
+    # declaration is silently skipped.
+    #
+    # Per job, not per file: a first version of this rule searched the whole
+    # workflow for "pip install ... PyYAML" and stayed green when the install
+    # was removed from the job that needs it, because a different job still
+    # had one. A check a counter-test cannot break is not a check (B-16).
+    import yaml as _yaml
+    try:
+        jobs = (_yaml.safe_load(wf) or {}).get("jobs") or {}
+    except _yaml.YAMLError as exc:
+        findings.append(
+            f".github/workflows/gate-pipeline.yml: not parsable ({exc}), so the "
+            f"enforcement cannot be verified"
+        )
+        jobs = {}
+    for job_name, job in jobs.items():
+        runs = "\n".join(
+            str(s.get("run", "")) for s in (job.get("steps") or []) if isinstance(s, dict)
+        )
+        if "ci_required_inputs.py" not in runs:
+            continue
+        if not re.search(r"pip install[^\n]*PyYAML", runs):
+            findings.append(
+                f".github/workflows/gate-pipeline.yml: job '{job_name}' runs the "
+                f"required-inputs enforcement without installing PyYAML — "
+                f"load_gate_required_inputs() returns an empty map after a warning, "
+                f"so the enforcement is off while appearing to run"
+            )
+
     return make_result(
         "REQUIRED_INPUTS_ENFORCED",
         "high-assurance checks declare the input they rest on, and it is enforced",
@@ -1172,8 +1278,124 @@ def check_required_inputs_enforced() -> dict:
         not findings,
         "An E-2/E-3 check whose input can simply be omitted is an E-0 check with a "
         "better label." if findings
-        else "Every gate with E-2/E-3 checks declares its required inputs, and the "
-             "orchestrator enforces them.",
+        else "Every gate with E-2/E-3 checks declares its required inputs, and both "
+             "the orchestrator and the CI workflow enforce them.",
+        findings,
+    )
+
+
+def check_negative_cases_gate_the_build() -> dict:
+    """SPEC-04b Teil 3.3: a green run must not be able to ship on its own.
+
+    The quality-gates job proves that nothing blocked. It does not prove
+    that anything COULD block, and those are different statements. A gate
+    catalogue in which no gate can turn red any more — a broken policy, a
+    wrong conftest namespace, a presence obligation that resolves to
+    nothing — still reports 17/17 PASS, and that particular green is the
+    opposite of evidence.
+
+    So the build depends on both jobs: all gates green, AND the negative
+    cases demonstrated that the gates block. This is checked rather than
+    trusted for the same reason the counts are (B-12): `needs` is one line,
+    it is convenient to drop while refactoring, and nothing about the
+    workflow would look wrong afterwards.
+
+    Three directions, because each alone leaves a hole:
+      - the negative-cases job exists and asserts a BLOCK, not just a run
+      - the build job lists it under `needs`
+      - the job actually covers the gates whose negative case is claimed
+    """
+    findings = []
+    import yaml as _yaml
+
+    wf_path = REPO_ROOT / ".github" / "workflows" / "gate-pipeline.yml"
+    try:
+        wf = _yaml.safe_load(read_text(wf_path)) or {}
+    except _yaml.YAMLError as exc:
+        return make_result(
+            "NEGATIVE_CASES_GATE_THE_BUILD",
+            "the build waits for proof that the gates can block",
+            "high", False,
+            "The workflow is not parsable, so the dependency cannot be verified.",
+            [f".github/workflows/gate-pipeline.yml: not parsable ({exc})"],
+        )
+
+    jobs = wf.get("jobs") or {}
+    neg = jobs.get("negative-cases")
+    build = jobs.get("build-and-push")
+
+    if neg is None:
+        findings.append(
+            ".github/workflows/gate-pipeline.yml: no 'negative-cases' job — a green "
+            "pipeline would only show that nothing blocked, never that anything could"
+        )
+    else:
+        runs = "\n".join(
+            str(s.get("run", "")) for s in (neg.get("steps") or []) if isinstance(s, dict)
+        )
+        # The INVOCATIONS, not the job text.
+        #
+        # A first version searched the job for the words "BLOCK", "PASS" and
+        # the gate ids, and stayed green through three counter-tests: the
+        # words also occur in expect_gate.sh's own definition ("$EXPECT" =
+        # "BLOCK") and in the summary banner. It was reading the helper's
+        # source and the decoration, not what the job asserts (B-16).
+        calls = re.findall(r'expect_gate\.sh\s+(\w+)\s+"([^"]*)"', runs)
+        blocked = [label for expect, label in calls if expect == "BLOCK"]
+        passed = [label for expect, label in calls if expect == "PASS"]
+
+        if not blocked:
+            findings.append(
+                ".github/workflows/gate-pipeline.yml: the negative-cases job makes no "
+                "expect_gate.sh BLOCK assertion — a job that merely runs the fixtures "
+                "proves nothing about blocking"
+            )
+        # The counter-check is half of the evidence: a case that is red for
+        # the wrong reason looks exactly like one that is red for the right
+        # one (B-16).
+        if not passed:
+            findings.append(
+                ".github/workflows/gate-pipeline.yml: the negative-cases job makes no "
+                "expect_gate.sh PASS assertion — without a passing normal case next "
+                "to the blocked one, a block could be a block for any reason at all"
+            )
+        for gate_id in ("G-OPS-03", "G-DEP-02"):
+            if not any(gate_id in label for label in blocked):
+                findings.append(
+                    f".github/workflows/gate-pipeline.yml: no negative case asserts "
+                    f"that {gate_id} blocks, though the README claims its negative "
+                    f"case is demonstrated in CI"
+                )
+
+    if build is None:
+        findings.append(
+            ".github/workflows/gate-pipeline.yml: no 'build-and-push' job to gate"
+        )
+    else:
+        needs = build.get("needs")
+        needs = [needs] if isinstance(needs, str) else list(needs or [])
+        if "negative-cases" not in needs:
+            findings.append(
+                ".github/workflows/gate-pipeline.yml: build-and-push does not depend "
+                "on 'negative-cases' — an image would ship even when the proof that "
+                "the gates block is red, which is the one failure that invalidates "
+                "every other green in the run"
+            )
+        if "quality-gates" not in needs:
+            findings.append(
+                ".github/workflows/gate-pipeline.yml: build-and-push does not depend "
+                "on 'quality-gates'"
+            )
+
+    return make_result(
+        "NEGATIVE_CASES_GATE_THE_BUILD",
+        "the build waits for proof that the gates can block",
+        "high",
+        not findings,
+        "A pipeline that ships on 'nothing blocked' alone cannot tell a working "
+        "gate catalogue from a broken one." if findings
+        else "The negative cases assert a block, carry their counter-check, and the "
+             "build depends on them.",
         findings,
     )
 
@@ -1729,6 +1951,7 @@ def collect_results() -> list[dict]:
         check_runtime_mode_visible,
         check_readme_counts_current,
         check_required_inputs_enforced,
+        check_negative_cases_gate_the_build,
         check_workflow_claims_no_counts,
         check_trigger_matches_requirement,
         check_acceptance_criteria_traced,

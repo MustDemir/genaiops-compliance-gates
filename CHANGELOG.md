@@ -10,6 +10,117 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased] — Post-Thesis Development (schema_version 2)
 
+### Added — the CI measures drift, and the gates prove they would block (SPEC-04b Teil 3.1/3.3, 2026-08-28/31)
+
+SPEC-04b is complete. Teil 1 (counts read, not claimed), Teil 3.2 (`required_inputs`
+enforced) and Teil 2 (the app runs in the runner) landed earlier; this closes
+Teil 3.1 and Teil 3.3. The gate rules are unchanged. What changed is that the
+pipeline now produces the documents it judges, and that it demonstrates the
+gates can fail.
+
+**Counts unchanged.** 17 gates, 14 requirements, 199 Rego tests, 36 `test_all`,
+28 integrity checks. No rule was added; two workflow jobs and one script were.
+
+#### Added — drift is measured in the runner, not read from a fixture
+
+- After the load run of Teil 2, a baseline is taken from the running app's
+  `/metrics`, a second load profile with different text lengths is driven, and
+  `drift_detector.py` measures against it. The resulting document is what
+  G-OPS-03 evaluates.
+- `provenance` is asserted to be `derived` and the source to be the app under
+  test. Provenance follows the source, not the arithmetic: a live scrape is
+  `derived`, a fixture file is `declared`. A `declared` document here would mean
+  the pipeline passed a checked-in file through and observed nothing.
+- **What this shows and what it does not.** The measurement is real; C-03
+  (freshness) and C-05 (provenance) are for the first time evaluated against a
+  document produced in the pipeline that judges it. It shows **no drift** —
+  measured locally against the same app at PSI 0.000000 — and that is the
+  construction, not a defect: the Prometheus histogram is cumulative over the
+  process lifetime, so the "current" distribution contains the baseline and can
+  only dilute; and the mock answers in sub-milliseconds largely independent of
+  input length (B-09). That the gate would *block* on drift is not shown by a
+  green run. It is shown by the job below.
+
+#### Added — `required_inputs` is enforced in the CI, not only in the orchestrator
+
+- SPEC-04b Teil 3.2 enforced the presence obligation in
+  `pipeline/gate_orchestrator.py`. The CI does not run the orchestrator — it
+  calls conftest per gate — so the obligation held everywhere **except in the
+  pipeline that decides whether an image ships**. G-OPS-02 and G-OPS-03 have
+  declared a required document since 25.08.; the workflow never supplied one and
+  went green. Declaration present, mechanism absent, one level further out.
+- New `pipeline/ci_required_inputs.py` resolves the declarations for a CI run
+  and writes, per gate, either the evaluations to perform (`-inputs.args`:
+  path, policy, namespace) or the findings naming the missing input
+  (`-inputs.fail`). It exits 0 on a missing input: that is a **gate** failure,
+  not a tool failure, and it belongs in the evidence record rather than in an
+  aborted step. It exits 2 only when the check itself could not run — no
+  PyYAML, no gate definitions — because an enforcement that can switch itself
+  off silently is not one.
+- The gate runner evaluates the primary document **and** every resolved
+  required input into **one** result file, hence one evidence record — the same
+  shape as `role_scope: BOTH` in SPEC-03. Recording them separately would give
+  one gate two verdicts, which is exactly what SPEC-04 removed from G-OPS-03.
+- Freshness is deliberately **not** checked here. An outdated document is
+  present; it fails through G-OPS-03/C-03 in Rego, where the deadline is
+  written. Presence and freshness are two questions.
+- `PyYAML` added to the CI install. Without it,
+  `load_gate_required_inputs()` returns an empty map after a warning — the
+  enforcement would have been off while appearing to run.
+
+#### Added — a negative-cases job: the gates would block
+
+Three cases, each with its counter-check, in a job of its own so an expected
+failure does not colour the main run red:
+
+| Case | Blocks | Counter-check |
+|---|---|---|
+| measured drift (`current_drifted.json`) | G-OPS-03 via C-04 | `current_normal.json` passes |
+| missed safety metric (`eval_results_fail.json`) | G-DEP-02 | `eval_results.json` passes |
+| **absent** measurement | G-OPS-03 via the presence obligation | a supplied one resolves to a policy *and* a namespace |
+
+The counter-check is not decoration. Case 1 would look identical if it were red
+for another reason — a stale document, a wrong namespace — so the normal case
+has to be green next to it. Case 3 is the one this SPEC is actually about: C-03
+to C-05 only fire when `input.drift_measurement` exists, so omitting the
+document walks past three MUST checks, and Rego cannot catch that because it
+cannot tell an absent document from an absent rule.
+
+`expect_gate.sh` asserts the *expectation*, not merely the outcome: a tool error
+(broken policy, wrong namespace) also reports zero violations and would
+otherwise be indistinguishable from a passing normal case.
+
+#### Added — the build waits for proof that the gates can block
+
+`build-and-push` now depends on **both** jobs: all gates green, and the negative
+cases demonstrated. Without the second condition the first is worth little — a
+catalogue in which no gate can turn red any more (a broken policy, a wrong
+conftest namespace, a presence obligation resolving to nothing) still reports
+17/17 PASS and ships an image. That particular green is the opposite of
+evidence.
+
+New integrity check `NEGATIVE_CASES_GATE_THE_BUILD` (HIGH) holds the dependency,
+because `needs` is one line and convenient to drop while refactoring. It
+verifies that the job asserts an expected BLOCK, that it carries its
+counter-check, that G-OPS-03 and G-DEP-02 are among the blocked cases, and that
+the build depends on it. Counter-checked in five directions. The first version
+failed three of them: it searched the job text for "BLOCK", "PASS" and the gate
+ids, and those words also occur in `expect_gate.sh`'s own definition and in the
+summary banner — it was reading the helper's source and the decoration, not
+what the job asserts. It now matches the invocations.
+
+#### Changed — `REQUIRED_INPUTS_ENFORCED` now also holds the CI to it
+
+The integrity check verified that the *orchestrator* enforces, and passed for
+the entire time the CI did not. Verifying one caller and calling the obligation
+enforced is the same mistake one level out. It now additionally requires that
+the workflow resolves the declarations, that the gate runner reads what was
+resolved, that every declared input is actually supplied, and that PyYAML is
+installed **in each job that runs the enforcement** — per job, because a first
+version searched the whole file and stayed green when the install was removed
+from the job that needed it. All four halves were counter-checked by breaking
+them (B-16).
+
 ### Changed (BREAKING) — measurement before signature (SPEC-04, 2026-08-25)
 
 Gate inputs now come from the running system where they can. The rules are

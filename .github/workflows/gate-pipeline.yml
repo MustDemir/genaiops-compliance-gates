@@ -148,7 +148,13 @@ jobs:
           python-version: '3.11'
 
       - name: Install Python dependencies
-        run: pip install psycopg2-binary
+        # PyYAML ist nicht optional. gate_orchestrator.load_gate_required_inputs()
+        # gibt ohne yaml eine WARNUNG aus und liefert ein leeres Dict zurueck —
+        # die Anwesenheitspflicht aus SPEC-04b waere in der CI still abgeschaltet
+        # gewesen, waehrend die Gate-Definitionen sie deklarieren. Genau diese
+        # Kombination (Deklaration ja, Mechanismus nein) ist der wiederkehrende
+        # Fehler, den SPEC-04b beseitigt.
+        run: pip install psycopg2-binary PyYAML
 
       # ════════════════════════════════════════════════════════
       # Gate runner function (reusable across all 17 gates)
@@ -160,33 +166,82 @@ jobs:
         run: |
           cat > /tmp/run_gate.sh << 'GATESCRIPT'
           #!/usr/bin/env bash
+          # Ein Gate, mehrere Eingabedokumente, EIN Ergebnis.
+          #
+          # Argumente 1-4 sind die Primaerauswertung (Manifest, Dokumentation,
+          # Fixture). Zusaetzlich liest das Skript die Pflichtinputs, die
+          # ci_required_inputs.py aus der Gate-Definition aufgeloest hat:
+          #
+          #   /tmp/<gate>-inputs.args   pfad TAB policy TAB namespace, je Zeile
+          #   /tmp/<gate>-inputs.fail   Meldungen, wenn ein Pflichtinput fehlt
+          #
+          # Beide Auswertungen fliessen in EINEN Evidence-Record — dieselbe Form
+          # wie role_scope BOTH in SPEC-03, das ebenfalls einmal wertet und
+          # einmal aufzeichnet. Sie getrennt aufzuzeichnen hiesse, ein Gate mit
+          # zwei Urteilen zu fuehren; genau das wurde bei G-OPS-03 in SPEC-04
+          # aufgeloest und wird hier nicht wieder eingefuehrt.
           GATE_ID="$1"; FIXTURE="$2"; POLICY="$3"; NAMESPACE="$4"
-          RESULT_FILE="/tmp/${GATE_ID,,}-result.json"
-          STDERR_FILE="/tmp/${GATE_ID,,}-result.stderr"
+          LOWER="${GATE_ID,,}"
+          RESULT_FILE="/tmp/${LOWER}-result.json"
+          STDERR_FILE="/tmp/${LOWER}-result.stderr"
+          PARTS_LIST="/tmp/${LOWER}-parts.tsv"
 
-          conftest test "$FIXTURE" \
-            --policy "$POLICY" \
-            --namespace "$NAMESPACE" \
-            --no-color --output json \
-            > "$RESULT_FILE" 2> "$STDERR_FILE"
-          CONFTEST_EXIT=$?
+          : > "$STDERR_FILE"
+          rm -f /tmp/${LOWER}-part-*.json
 
-          # Check if output is valid JSON (Tool-FAIL vs Policy-FAIL)
-          FAILURES=$(python3 -c "
-          import json, sys
+          printf '%s\t%s\t%s\n' "$FIXTURE" "$POLICY" "$NAMESPACE" > "$PARTS_LIST"
+          if [ -f "/tmp/${LOWER}-inputs.args" ]; then
+            cat "/tmp/${LOWER}-inputs.args" >> "$PARTS_LIST"
+          fi
+
+          PART=0
+          while IFS=$'\t' read -r F P N; do
+            [ -z "$F" ] && continue
+            PART=$((PART + 1))
+            conftest test "$F" \
+              --policy "$P" \
+              --namespace "$N" \
+              --no-color --output json \
+              > "/tmp/${LOWER}-part-${PART}.json" 2>> "$STDERR_FILE"
+          done < "$PARTS_LIST"
+
+          # Zusammenfuehren. Ein Pflichtinput, der FEHLT, wird als Verstoss in
+          # dasselbe Ergebnis geschrieben — nicht als Abbruch. Ein Gate, das
+          # seine Messung nicht vorgelegt bekommen hat, ist FAIL mit benanntem
+          # Grund, und dieser Grund gehoert in die Evidenz.
+          FAILURES=$(GATE_ID="$GATE_ID" LOWER="$LOWER" RESULT_FILE="$RESULT_FILE" python3 -c "
+          import glob, json, os, sys
+          gate, lower = os.environ['GATE_ID'], os.environ['LOWER']
+          merged, tool_error = [], False
+          for part in sorted(glob.glob(f'/tmp/{lower}-part-*.json')):
+            try:
+              with open(part) as f: merged.extend(json.load(f))
+            except Exception: tool_error = True
+          missing = []
           try:
-            with open('$RESULT_FILE') as f: data = json.load(f)
-            print(sum(len(r.get('failures', [])) for r in data))
-          except: print(-1)
-          ")
+            with open(f'/tmp/{lower}-inputs.fail') as f:
+              missing = [l.strip() for l in f if l.strip()]
+          except FileNotFoundError: pass
+          if missing:
+            merged.append({'filename': f'{gate}/required_inputs',
+                           'namespace': 'orchestrator',
+                           'successes': 0,
+                           'failures': [{'msg': m} for m in missing]})
+          with open(os.environ['RESULT_FILE'], 'w') as f: json.dump(merged, f)
+          print(-1 if tool_error else sum(len(r.get('failures', [])) for r in merged))
+          " 2>/dev/null || echo -1)
 
           if [ "$FAILURES" = "-1" ]; then
             echo "::error::$GATE_ID — Conftest tool error (not a policy violation)"
             echo "--- stderr ---"
             cat "$STDERR_FILE"
-            echo "--- stdout ---"
-            cat "$RESULT_FILE"
+            echo "--- parts ---"
+            cat /tmp/${LOWER}-part-*.json 2>/dev/null
             exit 1
+          fi
+
+          if [ "$PART" -gt 1 ]; then
+            echo "   $GATE_ID: $PART Eingabedokumente ausgewertet, ein Ergebnis"
           fi
 
           # Log stderr if non-empty (warnings, deprecations)
@@ -407,6 +462,128 @@ jobs:
           PYCMP
           echo "::endgroup::"
 
+      # ── Drift: im Runner gemessen, nicht aus einer Fixture gelesen ──
+      #
+      # SPEC-04b Teil 3.1. Nach dem Lastlauf oben traegt die Anwendung
+      # Histogramm-Beobachtungen. Daraus wird eine Baseline gezogen, ein
+      # zweites Lastprofil gefahren und dagegen gemessen.
+      #
+      # Was diese Messung ZEIGT und was nicht, ehrlich benannt:
+      #  - Sie ist echt. Die Zahlen stammen aus /metrics einer laufenden
+      #    Anwendung, nicht aus einer eingecheckten Datei. Das ist der
+      #    Unterschied, um den es in SPEC-04b geht: C-03 (Frist) und C-05
+      #    (Provenance) werden hier zum ersten Mal an einem Dokument
+      #    geprueft, das in DIESER Pipeline entstanden ist.
+      #  - Sie zeigt KEINE Drift — lokal gegen dieselbe Anwendung mit
+      #    PSI 0.000000 nachgemessen. Das ist kein Mangel, sondern die
+      #    Bauart: das Prometheus-Histogramm ist
+      #    kumulativ ueber die Prozesslaufzeit, die "aktuelle" Verteilung
+      #    enthaelt die Baseline also mit und kann sich nur verduennen.
+      #    Zweitens antwortet der Mock in
+      #    Sub-Millisekunden, weitgehend unabhaengig von der Textlaenge
+      #    (B-09). Ein gemessenes "keine Drift" ist ein gueltiges Ergebnis.
+      #  - Dass das Gate bei Drift BLOCKIEREN wuerde, beweist diese Messung
+      #    nicht. Das beweist der Negativfall-Job weiter unten. Ein gruener
+      #    Durchlauf zeigt nur, dass nichts blockiert hat.
+      - name: "Measure: drift against a second load profile"
+        id: drift
+        run: |
+          echo "::group::Drift measurement (G-OPS-03 input)"
+          python3 monitoring/drift_detector.py \
+            --init-baseline \
+            --source http://localhost:8080/metrics \
+            --baseline /tmp/drift_baseline.json
+
+          # Zweites Lastprofil mit anderen Textlaengen, damit die Verteilung
+          # sich bewegen KANN. Ob sie es tut, ist das Messergebnis und wird
+          # hier nicht vorweggenommen.
+          for LEN in 40 400 4000 40000; do
+            TEXT=$(python3 -c "print('a' * $LEN)")
+            for _ in 1 2 3 4 5; do
+              python3 - "$TEXT" <<'PYPOST'
+          import json, sys, urllib.request
+          req = urllib.request.Request(
+              "http://localhost:8080/transcribe",
+              data=json.dumps({"text": sys.argv[1]}).encode(),
+              headers={"Content-Type": "application/json"},
+          )
+          urllib.request.urlopen(req, timeout=30).read()
+          PYPOST
+            done
+          done
+
+          # Exit 1 heisst "Drift erkannt" — ein gueltiges Messergebnis, ueber
+          # das Rego urteilt, nicht der Detektor. Nur Exit 2 heisst "es wurde
+          # nicht gemessen", und das bricht ab: SPEC-04 hat den stillen
+          # Fallback entfernt, der an dieser Stelle eine Zahl erfunden hat.
+          set +e
+          python3 monitoring/drift_detector.py \
+            --source http://localhost:8080/metrics \
+            --baseline /tmp/drift_baseline.json \
+            --measurement-out /tmp/drift_measurement.json
+          RC=$?
+          set -e
+          if [ "$RC" = "2" ]; then
+            echo "::error::Drift measurement failed — no document was written, and there is no fallback distribution."
+            exit 1
+          fi
+
+          # provenance MUSS "derived" sein, und das ist keine Formalie.
+          # Die Provenance folgt der QUELLE, nicht der Rechnung: ein
+          # Live-Scrape ergibt "derived" (gemessene Buckets, gerechnete
+          # Kennzahl), eine Fixture-Datei ergibt "declared". Ein "declared"
+          # an dieser Stelle hiesse, die Pipeline hat eine eingecheckte
+          # Datei durchgereicht und nichts beobachtet — genau der Zustand,
+          # den SPEC-04b beendet. C-05 wuerde darauf warnen; hier wird es
+          # zum Abbruch, weil der Runner keinen Grund hat, aus einer Datei
+          # zu lesen.
+          PROV=$(python3 -c "import json;print(json.load(open('/tmp/drift_measurement.json'))['drift_measurement']['provenance'])")
+          SRC=$(python3 -c "import json;print(json.load(open('/tmp/drift_measurement.json'))['drift_measurement']['source'])")
+          echo "provenance: $PROV   source: $SRC"
+          if [ "$PROV" != "derived" ]; then
+            echo "::error::drift measurement provenance is '$PROV', expected 'derived' — nothing was scraped from the running app."
+            exit 1
+          fi
+          case "$SRC" in
+            http://localhost:8080/*) ;;
+            *) echo "::error::drift measurement source is '$SRC' — it did not come from the app under test."; exit 1 ;;
+          esac
+          echo "::endgroup::"
+
+      # ── Das Schwellenwert-Dokument fuer G-OPS-02 ──
+      # In YAML autoriert (es traegt Rechtsgrundlagen als Kommentare), von
+      # Rego als JSON gelesen. Die Konvertierung ist ein Erzeugungsschritt,
+      # kein Nebenprodukt.
+      - name: "Prepare: incident thresholds document"
+        run: |
+          echo "::group::incident_thresholds.yaml -> JSON (G-OPS-02 input)"
+          python3 -c "
+          import json, yaml
+          with open('governance/incident_thresholds.yaml') as f: data = yaml.safe_load(f)
+          with open('/tmp/incident_thresholds.json', 'w') as f:
+              json.dump(data, f, indent=2, ensure_ascii=False, default=str)
+          print('written: /tmp/incident_thresholds.json')
+          "
+          echo "::endgroup::"
+
+      # ── Anwesenheitspflicht, in der Umgebung die zaehlt ──
+      #
+      # SPEC-04b Teil 3.2 hat required_inputs im Orchestrator erzwungen. Die
+      # CI faehrt den Orchestrator nicht, sie ruft conftest je Gate direkt —
+      # also galt die Erzwingung genau hier nicht. G-OPS-02 und G-OPS-03
+      # deklarieren seither ein Pflichtdokument, die Pipeline hat keines
+      # angefordert und ist gruen geworden. Deklaration vorhanden, Mechanismus
+      # nicht: derselbe Fehlertyp, eine Ebene weiter aussen.
+      #
+      # Das Skript prueft NUR Anwesenheit und Lesbarkeit. Die Frische prueft
+      # C-03 in Rego. Zwei Fragen, zwei Zustaendigkeiten.
+      - name: "Enforce required inputs (SPEC-04b Teil 3.2)"
+        run: |
+          echo "::group::required_inputs"
+          python3 pipeline/ci_required_inputs.py --out-dir /tmp \
+            --supplied G-OPS-03:drift_measurement=/tmp/drift_measurement.json \
+            --supplied G-OPS-02:incident_thresholds=/tmp/incident_thresholds.json
+          echo "::endgroup::"
       - name: "Gate G-DEP-02: Safety Metrics (R003, Art.15) [AUTO]"
         id: g-dep-02
         run: |
@@ -697,12 +874,213 @@ jobs:
           fi
 
   # ────────────────────────────────────────────────────────
-  # Job 2: Build + Push Docker Image (only if all gates pass)
+  # Job 2: Negativfaelle (SPEC-04b Teil 3.3)
   # ────────────────────────────────────────────────────────
+  # Ein gruener Hauptlauf beweist, dass nichts blockiert hat. Er beweist
+  # nicht, dass etwas blockieren WUERDE — und genau das ist die Aussage,
+  # auf die sich ein Kontrollsystem beruft. Dieser Job zeigt es an drei
+  # Faellen, jeder mit Gegenprobe:
+  #
+  #   1. gemessene Drift  -> G-OPS-03 blockiert (C-04)
+  #   2. verfehlte Metrik -> G-DEP-02 blockiert
+  #   3. FEHLENDE Messung -> G-OPS-03 blockiert (Anwesenheitspflicht)
+  #
+  # Die Gegenprobe ist kein Beiwerk. Ein Check, den das Gegenbeispiel nicht
+  # brechen kann, ist kein Check (B-16): waere Fall 1 aus einem anderen
+  # Grund rot — veraltetes Dokument, falscher Namespace — saehe er identisch
+  # aus. Deshalb muss der Normalfall daneben gruen sein.
+  #
+  # Eigener Job, damit ein erwarteter Fehlschlag den Hauptlauf nicht rot
+  # faerbt. Ohne `needs`, damit die Negativfaelle auch dann laufen, wenn der
+  # Hauptlauf blockiert — sonst verschwaende gerade der interessante Fall.
+  negative-cases:
+    name: "Negative Cases — the gates would block"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7
+
+      - name: Install Conftest
+        run: |
+          CONFTEST_VERSION="0.56.0"
+          wget -q "https://github.com/open-policy-agent/conftest/releases/download/v${CONFTEST_VERSION}/conftest_${CONFTEST_VERSION}_Linux_x86_64.tar.gz" \
+            || { echo "::error::Failed to download Conftest v${CONFTEST_VERSION}"; exit 1; }
+          tar xzf "conftest_${CONFTEST_VERSION}_Linux_x86_64.tar.gz"
+          sudo mv conftest /usr/local/bin/
+          conftest --version
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1  # v6
+        with:
+          python-version: '3.11'
+
+      - name: Install Python dependencies
+        run: pip install PyYAML
+
+      - name: "Define expectation helper"
+        run: |
+          cat > /tmp/expect_gate.sh << 'EXPECTSCRIPT'
+          #!/usr/bin/env bash
+          # expect_gate.sh <BLOCK|PASS> <label> <input> <policy> <namespace>
+          #
+          # Prueft die ERWARTUNG, nicht nur den Ausgang. Ein Werkzeugfehler
+          # (kaputte Policy, falscher Namespace) meldet ebenfalls null
+          # Verstoesse und saehe sonst wie ein bestandener Normalfall aus.
+          EXPECT="$1"; LABEL="$2"; INPUT="$3"; POLICY="$4"; NS="$5"
+          OUT="/tmp/neg-$(echo "$LABEL" | tr -c 'a-zA-Z0-9' '-').json"
+
+          conftest test "$INPUT" --policy "$POLICY" --namespace "$NS" \
+            --no-color --output json > "$OUT" 2>/tmp/neg-stderr.txt
+
+          N=$(python3 -c "
+          import json, sys
+          try:
+            with open('$OUT') as f: data = json.load(f)
+          except Exception: print(-1); sys.exit()
+          print(sum(len(r.get('failures', [])) for r in data))
+          ")
+
+          if [ "$N" = "-1" ]; then
+            echo "::error::$LABEL — conftest produced no parsable output (tool error, not a verdict)"
+            cat /tmp/neg-stderr.txt
+            exit 1
+          fi
+
+          if [ "$EXPECT" = "BLOCK" ] && [ "$N" -gt 0 ]; then
+            echo "✅ $LABEL — blocked as expected ($N violations)"
+            python3 -c "
+          import json
+          for r in json.load(open('$OUT')):
+            for f in r.get('failures', []): print(f'     → {f[\"msg\"]}')
+          "
+          elif [ "$EXPECT" = "PASS" ] && [ "$N" = "0" ]; then
+            echo "✅ $LABEL — passed as expected (counter-check)"
+          else
+            echo "::error::$LABEL — expected $EXPECT, got $N violations. A gate that does not separate these two cases separates nothing."
+            cat "$OUT"
+            exit 1
+          fi
+          EXPECTSCRIPT
+          chmod +x /tmp/expect_gate.sh
+
+      # ── Fall 1: gemessene Drift blockiert G-OPS-03 ──
+      # Die Fixture wird EXPLIZIT als Quelle benannt. Sie traegt
+      # provenance "declared", C-05 warnt sichtbar darauf — ein
+      # Fixture-Lauf ist kein Betriebsnachweis, und die Evidenz sagt das.
+      - name: "Case 1: measured drift blocks G-OPS-03"
+        run: |
+          echo "::group::drifted vs. normal"
+          for CASE in drifted normal; do
+            python3 monitoring/drift_detector.py \
+              --source "monitoring/fixtures/current_${CASE}.json" \
+              --baseline monitoring/fixtures/baseline_normal.json \
+              --measurement-out "/tmp/measurement_${CASE}.json" || true
+          done
+
+          /tmp/expect_gate.sh BLOCK "G-OPS-03 with drift" \
+            /tmp/measurement_drifted.json \
+            policies/operations/policy_monitoring_configured.rego \
+            genaiops.operations.monitoring_configured
+
+          /tmp/expect_gate.sh PASS "G-OPS-03 without drift (counter-check)" \
+            /tmp/measurement_normal.json \
+            policies/operations/policy_monitoring_configured.rego \
+            genaiops.operations.monitoring_configured
+          echo "::endgroup::"
+
+      # ── Fall 2: verfehlte Sicherheitsmetrik blockiert G-DEP-02 ──
+      - name: "Case 2: a missed safety metric blocks G-DEP-02"
+        run: |
+          echo "::group::eval_results_fail vs. eval_results"
+          /tmp/expect_gate.sh BLOCK "G-DEP-02 with failing metrics" \
+            "$SCENARIO_DIR/fixtures/eval_results_fail.json" \
+            policies/deployment/policy_safety_metrics.rego \
+            genaiops.deployment.safety_metrics
+
+          /tmp/expect_gate.sh PASS "G-DEP-02 with passing metrics (counter-check)" \
+            "$SCENARIO_DIR/fixtures/eval_results.json" \
+            policies/deployment/policy_safety_metrics.rego \
+            genaiops.deployment.safety_metrics
+          echo "::endgroup::"
+
+      # ── Fall 3: die FEHLENDE Messung blockiert G-OPS-03 ──
+      #
+      # Der Fall, um den es in SPEC-04b eigentlich geht. C-03 bis C-05 feuern
+      # nur, wenn input.drift_measurement existiert — wer das Dokument
+      # weglaesst, kommt an drei MUST-Checks vorbei. Rego kann das nicht
+      # abfangen: es unterscheidet die Abwesenheit eines Dokuments nicht von
+      # der Abwesenheit einer Regel. Deshalb prueft die Ebene, die die Inputs
+      # zusammenstellt, und deshalb wird hier geprueft, dass sie es tut.
+      - name: "Case 3: an absent measurement blocks G-OPS-03"
+        run: |
+          echo "::group::required_inputs enforcement"
+          # (a) Nichts geliefert -> Befund, der den fehlenden Input benennt
+          python3 pipeline/ci_required_inputs.py --out-dir /tmp/neg-absent
+          if [ ! -f /tmp/neg-absent/g-ops-03-inputs.fail ]; then
+            echo "::error::No finding was written for the absent drift measurement. The enforcement is declared but does not act — the exact failure mode SPEC-04b exists to remove."
+            exit 1
+          fi
+          grep -q "drift_measurement" /tmp/neg-absent/g-ops-03-inputs.fail || {
+            echo "::error::The finding does not name the missing input. 'Something is missing' is not an audit trail."
+            exit 1
+          }
+          echo "✅ absent measurement — finding names the input:"
+          sed 's/^/     → /' /tmp/neg-absent/g-ops-03-inputs.fail
+
+          # (b) Gegenprobe: geliefert -> kein Befund, und der Input wird
+          #     einer Policy MIT Namespace zugeordnet. Ohne diese Haelfte
+          #     bestuende die Pruefung auch dann, wenn sie IMMER meldet.
+          python3 monitoring/drift_detector.py \
+            --source monitoring/fixtures/current_normal.json \
+            --baseline monitoring/fixtures/baseline_normal.json \
+            --measurement-out /tmp/neg_measurement.json || true
+          python3 pipeline/ci_required_inputs.py --out-dir /tmp/neg-present \
+            --supplied G-OPS-03:drift_measurement=/tmp/neg_measurement.json
+          if [ -f /tmp/neg-present/g-ops-03-inputs.fail ]; then
+            echo "::error::A supplied measurement still produced a finding — the check cannot tell present from absent."
+            cat /tmp/neg-present/g-ops-03-inputs.fail
+            exit 1
+          fi
+          grep -q "genaiops.operations.monitoring_configured" /tmp/neg-present/g-ops-03-inputs.args || {
+            echo "::error::The resolved input carries no namespace. conftest would evaluate only 'main' and report zero violations for any input."
+            exit 1
+          }
+          echo "✅ supplied measurement — resolved to a policy and namespace:"
+          sed 's/^/     → /' /tmp/neg-present/g-ops-03-inputs.args
+          echo "::endgroup::"
+
+      - name: "Negative Cases — summary"
+        run: |
+          echo "╔══════════════════════════════════════════════════════════╗"
+          echo "║  Negative Cases — each with its counter-check            ║"
+          echo "╠══════════════════════════════════════════════════════════╣"
+          echo "║  1  measured drift        → G-OPS-03 blocks              ║"
+          echo "║  2  missed safety metric  → G-DEP-02 blocks              ║"
+          echo "║  3  absent measurement    → G-OPS-03 blocks              ║"
+          echo "╚══════════════════════════════════════════════════════════╝"
+
+  # ────────────────────────────────────────────────────────
+  # Job 3: Build + Push Docker Image
+  # ────────────────────────────────────────────────────────
+  # Gebaut wird nur, wenn BEIDES gilt: alle Gates sind gruen, UND die
+  # Negativfaelle haben gezeigt, dass die Gates ueberhaupt blockieren
+  # koennen.
+  #
+  # Ohne die zweite Bedingung waere das Erste nichts wert. Ein Katalog, in
+  # dem kein Gate mehr rot werden kann — eine kaputte Policy, ein falscher
+  # Namespace, eine ins Leere laufende Anwesenheitspflicht — meldet
+  # 17/17 PASS und liefert ein Image aus. Genau diese Form von Gruen ist
+  # das Gegenteil eines Nachweises, und `needs` ist die Stelle, an der das
+  # Kontrollsystem es sich selbst nicht durchgehen laesst.
+  #
+  # Zur `if`-Bedingung: sie ersetzt die implizite Pruefung auf erfolgreiche
+  # `needs` NICHT — ohne Status-Check-Funktion ergaenzt GitHub Actions
+  # `success()`. Ein roter Negativfall-Job ueberspringt diesen Job also,
+  # auch wenn gate_result 'PASS' meldet.
   build-and-push:
     name: "Build & Push Image"
     runs-on: ubuntu-latest
-    needs: quality-gates
+    needs: [quality-gates, negative-cases]
     if: needs.quality-gates.outputs.gate_result == 'PASS'
     permissions:
       contents: read

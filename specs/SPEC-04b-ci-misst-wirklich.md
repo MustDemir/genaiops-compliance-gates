@@ -173,19 +173,19 @@ Dasselbe für Teil 2: ein Lauf mit `eval_results_fail.json` muss G-DEP-02 blocki
 
 ## 8. Definition of Done
 
-- [ ] Rego-Test-Schritt liest die Zahl aus dem Runner; Schrittbezeichnung ohne Zahl
-- [ ] `$GITHUB_OUTPUT` trägt die gemessene Zahl
-- [ ] Integrity-Check `WORKFLOW_CLAIMS_NO_COUNTS` (MEDIUM), beidseitig gegengeprüft
-- [ ] `required_inputs` im Gate-Template dokumentiert und auf G-OPS-03 gesetzt
-- [ ] Orchestrator lässt ein Gate mit fehlendem `required_inputs`-Element fehlschlagen, mit benanntem Input
-- [ ] Integrity-Check `REQUIRED_INPUTS_ENFORCED` (HIGH), beidseitig gegengeprüft
-- [ ] Workflow baut das App-Image und startet es; Bereitschaft per `/health`-Poll, nicht per `sleep`
-- [ ] `eval_runner.py` läuft im Workflow; G-DEP-02 prüft das erzeugte Dokument
-- [ ] Drift-Detektor läuft im Workflow; G-OPS-03 wird gegen Manifest **und** Messdokument ausgewertet, ein Evidence-Record
-- [ ] CI-Evidenz trägt `runtime_mode = mock`; ein `live` lässt den Job fehlschlagen
-- [ ] Negativfall-Job: `current_drifted.json` blockiert G-OPS-03, `eval_results_fail.json` blockiert G-DEP-02
-- [ ] Strukturvergleich erzeugtes Dokument ↔ eingecheckte Fixture, Abweichung als Warnung
-- [ ] Hash-Kette über die CI-Evidenz verifiziert, Exit 0
-- [ ] `evidence_level.current` von G-OPS-03 neu bewertet — bleibt E-0, solange C-01/C-02 im Gate sind; die Begründung im Gate nachziehen
-- [ ] README-Zahlen und CHANGELOG nachgezogen, `README_COUNTS_CURRENT` grün
-- [ ] Handbuch: 7.5 und Teil 11 fortschreiben, Befund 1.1 und 1.2 aufnehmen
+- [x] Rego-Test-Schritt liest die Zahl aus dem Runner; Schrittbezeichnung ohne Zahl
+- [x] `$GITHUB_OUTPUT` trägt die gemessene Zahl
+- [x] Integrity-Check `WORKFLOW_CLAIMS_NO_COUNTS` (MEDIUM), beidseitig gegengeprüft
+- [x] `required_inputs` im Gate-Template dokumentiert und auf G-OPS-03 gesetzt
+- [x] Orchestrator lässt ein Gate mit fehlendem `required_inputs`-Element fehlschlagen, mit benanntem Input
+- [x] Integrity-Check `REQUIRED_INPUTS_ENFORCED` (HIGH), beidseitig gegengeprüft
+- [x] Workflow baut das App-Image und startet es; Bereitschaft per `/health`-Poll, nicht per `sleep`
+- [x] `eval_runner.py` läuft im Workflow; G-DEP-02 prüft das erzeugte Dokument
+- [x] Drift-Detektor läuft im Workflow; G-OPS-03 wird gegen Manifest **und** Messdokument ausgewertet, ein Evidence-Record
+- [x] CI-Evidenz trägt `runtime_mode = mock`; ein `live` lässt den Job fehlschlagen
+- [x] Negativfall-Job: `current_drifted.json` blockiert G-OPS-03, `eval_results_fail.json` blockiert G-DEP-02
+- [x] Strukturvergleich erzeugtes Dokument ↔ eingecheckte Fixture, Abweichung als Warnung
+- [x] Hash-Kette über die CI-Evidenz verifiziert, Exit 0
+- [x] `evidence_level.current` von G-OPS-03 neu bewertet — bleibt E-0, solange C-01/C-02 im Gate sind; die Begründung im Gate nachziehen
+- [x] README-Zahlen und CHANGELOG nachgezogen, `README_COUNTS_CURRENT` grün
+- [x] Handbuch: 7.5 und Teil 11 fortschreiben, Befund 1.1 und 1.2 aufnehmen

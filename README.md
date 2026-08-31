@@ -61,10 +61,12 @@ So the bar is written down and, wherever possible, executed rather than asserted
 | 3 | `evidence_level.current` reaches the level the obligation requires | manual |
 | 4 | A runtime obligation is covered by a running gate, **or declared as a gap with a reason** | `TRIGGER_MATCHES_REQUIREMENT` |
 | 5 | Inputs are **produced**, not checked in, and name the policy that reads them | `REQUIRED_INPUTS_ENFORCED` |
-| 6 | The **negative case** is tested — a green run only proves nothing blocked | manual |
+| 6 | The **negative case** is tested — a green run only proves nothing blocked | CI job `negative-cases`, for 2 of 17 gates · `NEGATIVE_CASES_GATE_THE_BUILD` |
 | 7 | Every `acceptance_criteria` of the requirement points at a named check or a declared gap | `ACCEPTANCE_CRITERIA_TRACED` |
 
-**Today: 9 of 17 gates meet all five machine-checked points.** The other eight fail on design-only checks (G-PRE-04, G-DEP-01, G-DEP-03) or on acceptance criteria not yet traced. Points 3 and 6 are still judgement, and saying so is part of the bar.
+**Today: 9 of 17 gates meet all five machine-checked points.** The other eight fail on design-only checks (G-PRE-04, G-DEP-01, G-DEP-03) or on acceptance criteria not yet traced.
+
+Point 3 is still judgement. Point 6 is now demonstrated in CI for **two** gates: a measured drift blocks G-OPS-03, a missed safety metric blocks G-DEP-02, and an *absent* measurement blocks G-OPS-03 through the presence obligation — each with a counter-check next to it, because a case that is red for the wrong reason looks the same as one that is red for the right one. For the other fifteen gates the negative case remains manual, and saying so is part of the bar. The image build depends on that job as well as on the gates: a catalogue in which nothing can turn red any more still reports 17/17 PASS.
 
 **Definition of Ready — before a gate is built**
 
@@ -89,7 +91,7 @@ The third source had sat unused in this repository since the thesis: 14 of 14 re
 |---|---|
 | Gates / requirements | 17 gates · 14 requirements · 51 checks (44 enforced, 7 design-only) |
 | Policies | 18 Rego policies · 186 deny/warn/violation rules |
-| Tests | 187 Rego unit tests · 36 integration tests · 28 integrity checks · hash-chain verification per run |
+| Tests | 199 Rego unit tests · 36 integration tests · 29 integrity checks · hash-chain verification per run |
 | Evidence schema | v06 (`ai_act_role`, `derived_decision`, `runtime_mode` sealed into the payload) |
 | Deployment verified | Local (Minikube, Docker) and Azure AKS, Sweden Central |
 
@@ -338,7 +340,7 @@ genaiops-compliance-gates/
 ```bash
 ./tests/run_all_rego_tests.sh          # 199 Rego unit tests
 python3 tests/test_all.py              # 36 integration tests across all five pillars
-python3 tests/test_integrity_regression.py --fail-on medium   # 28 credibility checks
+python3 tests/test_integrity_regression.py --fail-on medium   # 29 credibility checks
 python3 pipeline/gate_orchestrator.py --scenario pipeline/scenarios/poc_healthcare_pass.json
 python3 evidence-store/scripts/verify_hash_chain.py --sqlite evidence-store/evidence_closed_loop.db
 ```
