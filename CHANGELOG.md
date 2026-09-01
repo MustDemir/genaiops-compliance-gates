@@ -10,6 +10,56 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased] — Post-Thesis Development (schema_version 2)
 
+### Added — a run's evidence leaves the runner signed, and the signature names who signed it (SPEC-05 Teil 3+4, 2026-09-01)
+
+`cosign sign-blob` issues the signature against the OIDC token of the workflow
+run, so the producer identity is not "who held the key" but which workflow, in
+which repository, on which commit. A long-lived key in a repository secret
+would have been worse than no signature at all: the cost of forgery would be
+"access to a secret", and nothing on the artefact would show the difference.
+
+**What the signature states: origin and time.** This workflow, in this
+repository, on this commit, asserted this chain head and these verdicts at this
+moment. It does not state that the values are correct — the rules decide that,
+and where the numbers came from was SPEC-04's question. A compromised CI signs
+a wrong record flawlessly; what rises is the cost of forgery.
+
+**No gate reads the verification document yet.** SPEC-05 Teil 5 wires it into
+G-OPS-05 with four checks; until then the mechanism exists and claims nothing,
+and no check carries E-1. Mechanism before claim — the inverse order is what
+B-18 was.
+
+- **Deliberate privilege elevation.** The signing job carries `id-token: write`,
+  scoped to that job alone, over the workflow-wide `contents: read`. Sigstore
+  cannot confirm an identity without the token. No other job receives it, and
+  cosign is installed SHA-pinned like every other action here.
+- **`evidence-store/scripts/verify_signature.py`** pins identity, issuer,
+  workflow repository and workflow SHA. The last binds the signature to the
+  commit, so the document says not merely "this workflow signed" but "signed on
+  this state". It writes no `decision`: the detector verifies, Rego decides
+  (B-04). `identity_pinned` is its own field, because `verified: true` alone
+  does not answer *verified against what identity*.
+- **Manifest, bundle and verification document leave the runner** as artefacts,
+  retained 90 days. That was the point of the whole SPEC: in CI the Evidence
+  Store lives in `/tmp` and dies with the job.
+- **`SIGNATURE_VERIFY_PINS_IDENTITY` (HIGH)** keeps the three ways to make the
+  call worthless out of the repository — a permissive identity regexp and the
+  two `--insecure-ignore-*` switches. It tells naming a flag from passing one,
+  by stripping comments and docstrings before it looks, so the SPEC and this
+  suite may keep discussing them.
+- **`SIGNING_CONTEXT_ASSERTED` (MEDIUM)** holds that CI reads the declared
+  context back where the manifest is built AND in the job that signs a
+  downloaded artefact — asking where a mechanism must act, not only whether it
+  acts (B-17), and that the walkthrough issues no signature evidence of its own
+  (B-03).
+
+Proved on real runs, because keyless signing has no local equivalent: a green
+run with the manifest signed and verified (rekor index recorded, artefacts
+downloaded and read back), a run whose manifest declared itself local — both
+the building job and the signing job refused it — and the restored green run.
+Locally: the permissive regexp and the tlog switch each planted and withdrawn,
+red and green each time.
+
 ### Added — inventory counts live in the README, and a check keeps them there (B-20, 2026-09-01)
 
 Two entries, one lesson.

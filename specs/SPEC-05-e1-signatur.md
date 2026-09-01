@@ -267,17 +267,17 @@ Zusätzlich:
 - [x] B-18 in HISTORIE aufgenommen, im Befundregister und als eigener Abschnitt
 - [x] `evidence_manifest.json` wird auf **jedem** Lauf erzeugt, lokal wie in der CI, auch bei blockierender Pipeline
 - [x] Manifest trägt `chain_head`, `genesis_hash`, `gate_verdicts_digest`, `record_count`, `signing_context`
-- [ ] `cosign` SHA-gepinnt installiert; `id-token: write` nur im signierenden Job, Rechteerhöhung im Commit begründet
-- [ ] Manifest **und** Bundle als `upload-artifact` — die Evidenz verlässt den Runner
-- [ ] `verify_signature.py` verifiziert identitätsgebunden und schreibt ein Nachweisdokument, ohne eigene `decision`
-- [ ] Verifikation bindet zusätzlich `--certificate-github-workflow-repository` und `--certificate-github-workflow-sha` — die Signatur hängt am Commit, nicht nur am Workflow
-- [ ] Kein `--insecure-ignore-tlog`, kein `--insecure-ignore-sct`, kein alles zulassendes `--certificate-identity-regexp` im gesamten Repository
-- [ ] Integrity-Check `SIGNATURE_VERIFY_PINS_IDENTITY` (HIGH), beidseitig gegengeprüft
-- [ ] Integrity-Check `SIGNING_CONTEXT_ASSERTED` (MEDIUM), beidseitig gegengeprüft
+- [x] `cosign` SHA-gepinnt installiert; `id-token: write` nur im signierenden Job, Rechteerhöhung im Commit begründet
+- [x] Manifest **und** Bundle als `upload-artifact` — die Evidenz verlässt den Runner
+- [x] `verify_signature.py` verifiziert identitätsgebunden und schreibt ein Nachweisdokument, ohne eigene `decision`
+- [x] Verifikation bindet zusätzlich `--certificate-github-workflow-repository` und `--certificate-github-workflow-sha` — die Signatur hängt am Commit, nicht nur am Workflow
+- [x] Kein `--insecure-ignore-tlog`, kein `--insecure-ignore-sct`, kein alles zulassendes `--certificate-identity-regexp` im gesamten Repository
+- [x] Integrity-Check `SIGNATURE_VERIFY_PINS_IDENTITY` (HIGH), beidseitig gegengeprüft
+- [x] Integrity-Check `SIGNING_CONTEXT_ASSERTED` (MEDIUM), beidseitig gegengeprüft
 - [ ] G-OPS-05: `required_inputs: signature_verification`, C-04…C-07 mit Severity und `evidence_level`; C-07 als MUST, mit der Außenabhängigkeit als begründeter Abwägung im Gate
 - [ ] Orchestrator **und** Workflow erzwingen den neuen Pflichtinput (die Lehre aus B-17)
 - [ ] Integrity-Check `E1_CLAIMS_ARE_SIGNED` (HIGH), beidseitig gegengeprüft
-- [ ] `evidence_level.current` von G-OPS-05 **bleibt E-0**, Begründung im Gate nachgezogen
+- [x] `evidence_level.current` von G-OPS-05 **bleibt E-0**, Begründung im Gate nachgezogen
 - [ ] Sechs Negativfälle aus Abschnitt 11 im `negative-cases`-Job, je mit Gegenprobe
 - [ ] Hash-Parität und Chain-Migration grün; bei Payload-Änderung Migration v06 → v07 mit Cutoff
 - [ ] README, CHANGELOG, HANDBUCH 5.2/5.3 und Teil 7 nachgezogen; `README_COUNTS_CURRENT` grün
