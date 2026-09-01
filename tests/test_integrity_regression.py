@@ -1317,6 +1317,230 @@ _DEADLINE_LINE = re.compile(
 _COUNT_FREE_DOCS = ("AGENTS.md", "HANDBUCH.md")
 
 
+# The three ways to make an identity-bound verification worthless
+# (SPEC-05 Abschnitt 6.1). They are named "insecure-*" for a reason; a
+# repository whose subject is evidential weight does not use them, and does
+# not rely on nobody having the idea — it checks.
+_PERMISSIVE_IDENTITY = re.compile(
+    r"--certificate-identity-regexp[= ]+['\"]?(\.\*|\.\+|\^?\.\*\$?)['\"]?"
+)
+_TLOG_OFF = "--insecure-ignore-tlog"
+_SCT_OFF = "--insecure-ignore-sct"
+
+# Files that legitimately name the forbidden flags: the check itself, the SPEC
+# that forbids them, and the running records of both. Naming a flag in order
+# to ban it is not using it — but the exemption is a list, not a pattern, so
+# adding a file to it is a visible act.
+_SIGNING_FLAG_PROSE = (
+    "tests/test_integrity_regression.py",
+    "specs/SPEC-05-e1-signatur.md",
+    "CHANGELOG.md",
+    "HISTORIE.md",
+    "evidence-store/scripts/verify_signature.py",
+)
+
+
+def _python_code_only(text: str) -> str:
+    """The source with comments and docstrings removed.
+
+    A file may NAME a forbidden flag in order to forbid it — this suite does,
+    the SPEC does, and so does the verification script's own docstring. What
+    matters is whether the flag is PASSED. Stripping prose separates the two;
+    a check that cannot tell "mentions" from "uses" produces exactly the kind
+    of false alarm that gets a check switched off (T-03).
+    """
+    import io
+    import tokenize
+
+    triple = ('"' * 3, "'" * 3, 'r' + '"' * 3, 'r' + "'" * 3)
+    kept = []
+    try:
+        for tok in tokenize.generate_tokens(io.StringIO(text).readline):
+            if tok.type == tokenize.COMMENT:
+                continue
+            if tok.type == tokenize.STRING and tok.line.strip().startswith(triple):
+                continue    # docstring
+            kept.append(tok.string)
+    except (tokenize.TokenError, IndentationError):
+        return text
+    return "\n".join(kept)
+
+
+def check_signature_verify_pins_identity() -> dict:
+    """Every signature verification names the signer, and nothing switches it off.
+
+    Keyless signing is only worth the OIDC round-trip if the verification is
+    bound to an identity. cosign covers the most obvious mistake itself — a
+    verify-blob without any identity argument aborts rather than passing. The
+    remaining three ways are quieter, and each one alone cancels the evidence
+    level:
+
+      * a permissive --certificate-identity-regexp (".*", ".+"): the call goes
+        green and pins nothing. The same hole as B-17 — the mechanism is
+        present and does not act.
+      * --insecure-ignore-tlog: no transparency log, so no independent
+        timestamp and no public verifiability. The proof falls back to "trust
+        whoever hands it to you".
+      * --insecure-ignore-sct: no proof of inclusion in the certificate
+        transparency log.
+
+    So: every `cosign verify-blob` in this repository must carry an exact
+    --certificate-identity and a --certificate-oidc-issuer, and none of the
+    three switches may appear anywhere outside the files that discuss them.
+
+    HIGH severity: a verification that pins nothing is indistinguishable from
+    one that pins everything, right up to the moment it matters.
+    """
+    findings = []
+    tracked = _tracked_files()
+
+    for f in sorted(tracked):
+        path = REPO_ROOT / f
+        if not path.is_file():
+            continue
+        try:
+            text = read_text(path)
+        except (OSError, UnicodeDecodeError):
+            continue
+
+        if f not in _SIGNING_FLAG_PROSE:
+            for flag in (_TLOG_OFF, _SCT_OFF):
+                for line in find_lines(text, flag):
+                    findings.append(
+                        f"{f}:{line}: uses {flag} — the transparency-log proof is "
+                        f"the difference between an independently checkable "
+                        f"signature and one you have to take on trust"
+                    )
+            hit = _PERMISSIVE_IDENTITY.search(text)
+            if hit:
+                findings.append(
+                    f"{f}: uses a permissive identity regexp ({hit.group(0).strip()}) — "
+                    f"the verification goes green while pinning nothing"
+                )
+
+        # Every actual verify-blob invocation must pin identity and issuer.
+        if "verify-blob" in text and f not in _SIGNING_FLAG_PROSE:
+            if "--certificate-identity" not in text:
+                findings.append(
+                    f"{f}: calls cosign verify-blob without --certificate-identity"
+                )
+            if "--certificate-oidc-issuer" not in text:
+                findings.append(
+                    f"{f}: calls cosign verify-blob without --certificate-oidc-issuer"
+                )
+
+    # The verification script is the one place that builds the invocation, so
+    # it is held to the flags positively rather than by absence.
+    script = REPO_ROOT / "evidence-store" / "scripts" / "verify_signature.py"
+    if script.is_file():
+        text = read_text(script)
+        for flag in ("--certificate-identity", "--certificate-oidc-issuer",
+                     "--certificate-github-workflow-repository",
+                     "--certificate-github-workflow-sha"):
+            if flag not in text:
+                findings.append(
+                    f"evidence-store/scripts/verify_signature.py: does not pass {flag} — "
+                    f"the signature would not be bound to {'the commit' if 'sha' in flag else 'an identity'}"
+                )
+        code = _python_code_only(text)
+        for flag in (_TLOG_OFF, _SCT_OFF):
+            if flag in code:
+                findings.append(
+                    f"evidence-store/scripts/verify_signature.py: passes {flag}"
+                )
+        if '"decision"' in code or "'decision'" in code:
+            findings.append(
+                "evidence-store/scripts/verify_signature.py: writes a 'decision' field — "
+                "the detector verifies, Rego decides (B-04)"
+            )
+    else:
+        findings.append("evidence-store/scripts/verify_signature.py is missing")
+
+    return make_result(
+        "SIGNATURE_VERIFY_PINS_IDENTITY",
+        "every signature verification is bound to an identity, and nothing switches the checks off",
+        "high",
+        not findings,
+        "A signature verification in this repository pins nothing, or a check that "
+        "makes it worth something is switched off — the evidence level is gone and "
+        "the call still reports success." if findings
+        else "Verification pins identity, issuer, repository and commit; no insecure "
+             "flag and no permissive identity regexp anywhere.",
+        findings,
+    )
+
+
+def check_signing_context_asserted() -> dict:
+    """CI reads `signing_context` back and refuses a run that calls itself local.
+
+    The manifest DECLARES the context it was produced in (SPEC-05 Abschnitt
+    8.1). A declaration is worth what the check behind it is worth, and this
+    project has found the same gap five times (B-02, B-11, B-12, B-13, B-17):
+    the field exists, nobody holds it against anything.
+
+    The obvious objection to `signing_context` is that somebody sets it to
+    "local" in CI and is off the hook. So CI asserts the value after building
+    the manifest and again in the job that signs it, and aborts otherwise —
+    and this check holds that both assertions are in the workflow.
+    """
+    workflow = REPO_ROOT / ".github" / "workflows" / "gate-pipeline.yml"
+    findings = []
+    if not workflow.is_file():
+        findings.append("gate-pipeline.yml is missing")
+    else:
+        text = read_text(workflow)
+        asserts = [
+            line for line in text.splitlines()
+            if 'CONTEXT' in line and '!=' in line and '"ci"' in line
+        ]
+        if not asserts:
+            findings.append(
+                ".github/workflows/gate-pipeline.yml: does not compare signing_context "
+                "against 'ci' — the manifest could declare itself local in CI and "
+                "nothing would notice"
+            )
+        elif len(asserts) < 2:
+            findings.append(
+                ".github/workflows/gate-pipeline.yml: asserts signing_context in only "
+                "one place. It is asserted where the manifest is built AND in the job "
+                "that signs it — the signing job runs on a downloaded artefact, so it "
+                "has to check what it actually received (B-17: ask where a mechanism "
+                "must act, not only whether it acts)"
+            )
+        if "signing_context" not in text:
+            findings.append(
+                ".github/workflows/gate-pipeline.yml: never mentions signing_context"
+            )
+        for marker in ("exit 1",):
+            if asserts and marker not in text:
+                findings.append(
+                    ".github/workflows/gate-pipeline.yml: compares signing_context but "
+                    "does not abort"
+                )
+
+    prepare = REPO_ROOT / "pipeline" / "prepare_inputs.py"
+    if prepare.is_file():
+        text = read_text(prepare)
+        for forbidden in ("signing_context", "cosign", "sign-blob", "signature_verification"):
+            if forbidden in text:
+                findings.append(
+                    f"pipeline/prepare_inputs.py: mentions '{forbidden}' — the walkthrough "
+                    f"may not issue its own signature evidence (B-03)"
+                )
+
+    return make_result(
+        "SIGNING_CONTEXT_ASSERTED",
+        "CI checks the manifest's declared signing context and refuses a local claim",
+        "medium",
+        not findings,
+        "The signing context is declared and not held against anything — the failure "
+        "type this project has now found six times." if findings
+        else "signing_context is asserted where the manifest is built and again where "
+             "it is signed; prepare_inputs.py issues no signature evidence.",
+        findings,
+    )
+
+
 def check_counts_live_in_readme_only() -> dict:
     """The working contract and the handbook carry no inventory counts.
 
@@ -2368,6 +2592,8 @@ def collect_results() -> list[dict]:
         check_readme_evidence_claims_current,
         check_doc_references_are_tracked,
         check_counts_live_in_readme_only,
+        check_signature_verify_pins_identity,
+        check_signing_context_asserted,
         check_required_inputs_enforced,
         check_negative_cases_gate_the_build,
         check_workflow_claims_no_counts,
