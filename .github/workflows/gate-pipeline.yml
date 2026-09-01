@@ -808,6 +808,7 @@ jobs:
             --sqlite "$EVIDENCE_DB" \
             --out evidence_manifest.json \
             --commit-sha "$GITHUB_SHA" \
+            --signing-context local \
             || { echo "::error::Evidence manifest could not be built"; exit 1; }
 
           # SPEC-05 Abschnitt 8.1: the manifest DECLARES its context, and a
