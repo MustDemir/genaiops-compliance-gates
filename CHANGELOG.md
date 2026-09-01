@@ -10,6 +10,55 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased] — Post-Thesis Development (schema_version 2)
 
+### Added — inventory counts live in the README, and a check keeps them there (B-20, 2026-09-01)
+
+Two entries, one lesson.
+
+**The guard against unreachable references was one itself (B-20, HISTORIE H4.23).**
+`DOC_REFERENCES_ARE_TRACKED` shipped with the failure it was built against:
+stage 1 resolved a named document only against the repository root and carried
+a hard-coded exception for the two documents that prompted it. Everything else
+passed, and the proof sat in the same repository — the working contract still
+pointed at a candidate document that exists only under `legacy/` and is
+excluded by `.gitignore`. The check reported green without having looked. That
+is the structure of a pod annotation: a state asserted rather than evidenced.
+
+The counter-proof in T-02 was correct and still missed it, because it broke the
+check on the case it was built for. Breaking the expected case shows the
+mechanism works; it says nothing about its scope. B-17 asked *where* a
+mechanism has to act — this asks *how many shapes its subject has, and whether
+the test covers more than one*.
+
+**New integrity check `COUNTS_LIVE_IN_README_ONLY` (MEDIUM).** AGENTS.md and
+HANDBUCH.md may carry identifiers, never inventory counts. The line is
+HANDBUCH 5.1's, quoted rather than reinvented: an inventory count changes
+through growth, an identifier changes through a decision. So `E-1`,
+`schema_version: 2`, `v06`, `Exit 3`, article numbers, `R001`, `DP1`, `B-19`,
+`SPEC-04b` and section numbers stay; a gate, check, policy, rule, test,
+requirement or integrity-check tally does not. Deadlines are refused in the
+working contract only — the handbook names statutory periods, and a check that
+fires on those is the false alarm that gets a check disabled instead of
+repaired.
+
+HISTORIE.md is deliberately out of scope: it records closed events, and the
+stale numbers in it are the subject matter.
+
+- Every pattern is anchored so a digit inside an identifier cannot start a
+  match. Without that, "E-3 checks" and the heading "3.4 Gate-Anatomie" both
+  register as tallies — the first two false positives this check produced, and
+  the reason it is patterned narrowly rather than by counting digits.
+- Fenced code blocks are skipped: the commit examples and the ticket template
+  quote reality rather than asserting it.
+- Three real findings fixed in the handbook, where a gate tally, a share of
+  built gate effects and a rhetorical "the right N gates" had survived T-02.
+
+Counter-proved four ways: a gate tally planted in the working contract (red,
+withdrawn, green), an integrity tally planted in the handbook (red, withdrawn,
+green), a deadline planted in the working contract (red, withdrawn, green) —
+and, most importantly, a page of permitted numbers in both documents at once,
+including the NIS2 reporting periods and the AI Act application dates, on which
+the check stayed green.
+
 ### Changed — AGENTS.md is the working contract, not a second process definition (2026-09-01)
 
 AGENTS.md was frozen on the state before SPEC-01 and SPEC-03: a gate count from

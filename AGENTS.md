@@ -19,7 +19,7 @@ Sie sagt **nicht**, wie ein Gate entsteht, was die Beweisstufen bedeuten oder we
 
 **Wie viele Gates, Checks, Policies, Regeln, Requirements und Tests das Repo hat, steht im README** und nirgends sonst. Dort werden die Zahlen aus dem Repository abgeleitet und von `README_COUNTS_CURRENT` und `README_EVIDENCE_CLAIMS_CURRENT` wörtlich dagegen gehalten. Dieselbe Regel wie in HANDBUCH 5.1, aus demselben Grund: eine zweite Zählung ohne Wächter ist binnen weniger Commits falsch, und genau so entstanden B-12 und B-19.
 
-Diese Datei führte bis zum 01.09.2026 einen Gate-Zählstand aus der Zeit vor SPEC-01 und SPEC-03 — Gates, die inzwischen dazugekommen waren, fehlten darin, und die Verteilung der Automatisierungsgrade stimmte nicht mehr. Jede KI-Sitzung las das zuerst und arbeitete gegen einen Zustand, den es nicht mehr gab.
+Diese Datei führte einen Gate-Zählstand aus der Zeit vor SPEC-01 und SPEC-03 — Gates, die inzwischen dazugekommen waren, fehlten darin, und die Verteilung der Automatisierungsgrade stimmte nicht mehr. Jede KI-Sitzung las das zuerst und arbeitete gegen einen Zustand, den es nicht mehr gab.
 
 ## 2. Aktiver Kurs
 
@@ -114,3 +114,4 @@ Nicht: „update readme", „add check", „fix bug". Wer den Commit in einem Ja
 ## 9. Auftragsformat
 
 Ein Ticket folgt [`docs/TICKET_TEMPLATE.md`](docs/TICKET_TEMPLATE.md). Es ist bereit, wenn es die DoR aus HANDBUCH 2.4 erfüllt, und geliefert, wenn seine maschinelle DoD belegt ist.
+

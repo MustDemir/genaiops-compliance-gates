@@ -332,12 +332,15 @@ Stabile IDs. Die Abschnittsnummern darunter stammen aus dem Handbuch v0.4–v0.6
 | **B-18** | **Der einzige E-1-Check im Katalog erfüllt die E-1-Definition nicht.** G-OPS-05/C-02 stuft die Hash-Kette als E-1 ein; E-1 verlangt Signatur *und* geprüfte Erzeuger-Identität. Die Kette hat keine Signatur, `inserted_by` ist eine selbstgewählte Zeichenkette, und die Fälschungskosten sind Schreibzugriff, nicht CI-Kompromittierung. In der CI überlebt die Kette den Lauf zudem nicht — die Datenbank liegt in `/tmp` und wird nirgends hochgeladen | H4.21 | **teilbehoben** — Einstufung am 01.09.2026 auf E-0 zurueckgenommen (SPEC-05 Teil 1); Signatur und Artefakt-Upload offen, SPEC-05 Teil 2-6 |
 | **B-17** | **Die Anwesenheitspflicht galt überall außer in der CI.** SPEC-04b Teil 3.2 erzwang `required_inputs` im Orchestrator; die CI fährt den Orchestrator nicht, und der Integrity-Check prüfte nur den Orchestrator — beide grün, drei Tage lang, während G-OPS-02 und G-OPS-03 in der Pipeline ohne ihr Pflichtdokument bestanden | H4.19 | **behoben** — `ci_required_inputs.py`, Check beidseitig gegengeprüft |
 | **B-19** | **Die Korrektur von B-18 war selbst eine ungeprüfte Behauptung.** Der Satz „kein Check liegt über E-0" stand ab dem 01.09.2026 an zwei Stellen im README und war beim Schreiben falsch — G-OPS-03/C-03 bis C-05 tragen seit dem Drift-Messteil E-3. `README_COUNTS_CURRENT` prüft Zahlen, keine Aussagen, und sah eine Zeile darüber weg | H4.22 | **behoben** — `README_EVIDENCE_CLAIMS_CURRENT`, beidseitig gegengeprüft |
+| **B-20** | **Der Wächter gegen unauffindbare Verweise war selbst einer.** `DOC_REFERENCES_ARE_TRACKED` suchte in Stufe 1 nur im Wurzelverzeichnis und trug für `HANDBUCH.md`/`HISTORIE.md` eine hartkodierte Ausnahme. Ein Verweis auf ein Dokument in einem Unterverzeichnis — oder auf gar keines — lief durch, und der Check meldete grün, ohne geprüft zu haben: dieselbe Struktur wie eine Pod-Annotation, die einen Zustand behauptet statt ihn zu belegen. Beleg: AGENTS.md zeigte weiter auf ein Kandidaten-Dokument, das nur unter `legacy/` liegt und von `.gitignore` ausgeschlossen ist | H4.23 | **behoben** (T-03) — Suche über den ganzen Baum, Pfadverweise, relative Links, beide Verweisformen gegengeprüft |
 
-> **B-02, B-11, B-12, B-13, B-17, B-18 und B-19 sind derselbe Fehlertyp** in drei Gewändern: eine Zahl oder ein Urteil wird **geschrieben** statt **gelesen**, und niemand hält sie gegen die Wirklichkeit. B-02 im Gate-Input, B-11 in einer Spezifikationszusage, B-12 in der Pipeline, die das Kontrollsystem prüft, B-13 in der Außendarstellung. Der Typ ist offenbar nicht auf Gate-Inputs beschränkt — er tritt überall dort auf, wo eine Behauptung neben ihrem Gegenstand liegt und niemand sie dagegen hält.
+> **B-02, B-11, B-12, B-13, B-17, B-18, B-19 und B-20 sind derselbe Fehlertyp** in drei Gewändern: eine Zahl oder ein Urteil wird **geschrieben** statt **gelesen**, und niemand hält sie gegen die Wirklichkeit. B-02 im Gate-Input, B-11 in einer Spezifikationszusage, B-12 in der Pipeline, die das Kontrollsystem prüft, B-13 in der Außendarstellung. Der Typ ist offenbar nicht auf Gate-Inputs beschränkt — er tritt überall dort auf, wo eine Behauptung neben ihrem Gegenstand liegt und niemand sie dagegen hält.
 >
 > **B-17 zeigt die nächste Stufe:** dort war die Behauptung *behoben* worden, und der Test, der sie hielt, prüfte den falschen Aufrufer. Die Lehre daraus steht in H4.19 — bei jedem neuen Mechanismus ist nicht nur zu fragen, ob er wirkt, sondern **wo überall** er wirken muss.
 >
 > **B-19 zeigt die Stufe danach:** dort war die Behauptung nicht nur unbewacht, sie entstand *in der Korrektur* einer gleichartigen Behauptung — im selben Commit, der den Fehlertyp benannte. Eine Richtigstellung ist eine Aussage wie jede andere und braucht ihr Gegenstück sofort, nicht beim nächsten Durchgang.
+>
+> **B-20 schließt den Kreis:** diesmal trug nicht die Behauptung, sondern **der Wächter** den Fehler, gegen den er gebaut war. Ein grüner Check ist damit selbst eine Deklaration — und unterliegt derselben Frage wie jede andere: *woran ist gemessen, dass er misst?* Die Antwort ist die Gegenprobe, und sie muss von beiden Seiten geführt werden: vom Gegenstand her **und** vom Prüfer her.
 
 **B-14 ist ein anderer Typ und deshalb interessanter:** dort widersprechen sich nicht Behauptung und Wirklichkeit, sondern **zwei Deklarationen des eigenen Katalogs**. Das Requirement sagt „Runtime", das Gate sagt „Admission", beide sind eingecheckt, beide gelten — und nichts prüft sie gegeneinander. Ein Widerspruch, den man nur findet, wenn man zwei Dateien nebeneinanderlegt.
 
@@ -853,6 +856,32 @@ Beides wurde in beide Richtungen gegengeprüft: die Aussage absichtlich wieder f
 **Nicht versucht:** die Prosa semantisch zu prüfen. Genau ein Satz ist wortgebunden, der Rest bleibt frei formulierbar. Ein Check, dessen Urteil von Auslegung abhängt, wird diskutiert statt repariert.
 
 > Die Lehre über H4.19 hinaus: dort war zu fragen, **wo überall** ein Mechanismus wirken muss. Hier ist zu fragen, **ob die Korrektur selbst** einen Gegenstand hat. Eine Richtigstellung ohne Wächter ist eine neue Behauptung — und sie ist gefährlicher als die alte, weil sie wie eine Prüfung aussieht.
+
+## H4.23 Der Wächter gegen unauffindbare Verweise war selbst einer (B-20)
+
+`DOC_REFERENCES_ARE_TRACKED` entstand in T-02 gegen einen konkreten Befund: HANDBUCH und HISTORIE lagen außerhalb des Repos, vierzig getrackte Dateien verwiesen darauf, und ein Klonender fand Verweise auf Dokumente, die es bei ihm nicht gab. Der Check fand diesen Fall — 41 Befunde vor dem `git add`, grün danach. Beide Läufe sind dokumentiert.
+
+**Und er hatte denselben Fehler.** Stufe 1 löste einen genannten Dateinamen so auf:
+
+```python
+candidate = REPO_ROOT / name          # nur die Wurzel
+if candidate.is_file(): ...
+elif name in ("HANDBUCH.md", "HISTORIE.md"): ...   # der Rest: hartkodiert
+```
+
+Damit prüfte er zwei Fälle: Dokumente in der Wurzel, und zwei namentlich eingetragene. Alles andere lief durch. Der Beleg lag im selben Repo: **AGENTS.md verwies auf ein Kandidaten-Mapping, das nur unter `legacy/` existiert und von `.gitignore` ausgeschlossen ist** — genau die Klasse, gegen die der Check gebaut war, und er meldete grün.
+
+| | |
+|---|---|
+| Was der Check behauptete | „every document a tracked file names is tracked" |
+| Was er prüfte | Dokumente in der Wurzel, plus zwei Ausnahmen |
+| Was das strukturell ist | eine Annotation: ein Zustand wird behauptet, nicht belegt (SPEC-01 Abschnitt 2) |
+
+**Warum die Gegenprobe in T-02 das nicht fing.** Sie wurde korrekt geführt — die Dokumente untracked (rot), getrackt (grün), ein erfundener Abschnittsverweis (rot), zurück (grün). Nur prüfte sie den Check **an dem Fall, für den er gebaut war**. Eine Gegenprobe, die den erwarteten Fall bricht, zeigt, dass der Mechanismus greift; sie sagt nichts über seinen Geltungsbereich. B-17 hatte dieselbe Lehre auf der Ebene der Aufrufer gestellt — „wo überall muss er wirken?" —, hier stellt sie sich auf der Ebene der Fälle: **wie viele Formen hat der Gegenstand, und deckt der Test mehr als eine ab?**
+
+**Behoben in T-03:** Suche über den ganzen Baum nach Dateiname statt nur in der Wurzel, keine hartkodierten Namen mehr, pfadförmige Verweise ins eigene Repo, relative Links gegen ihre Quelldatei aufgelöst, `.gitignore` ausgenommen. Gegengeprüft in **beiden** Verweisformen — Name ohne Pfad und Pfad —, weil genau die Unterscheidung der blinde Fleck war.
+
+**Drei weitere Funde fielen sofort an**, die vorher unsichtbar waren: ein Inventar kündigte drei Dokumente als Pfade an, bevor sie geschrieben waren, und benannte eine lokale Gutachten-Datei. Ein Wächter, der seinen Geltungsbereich verfehlt, verbirgt nicht einen Fall, sondern alle, die er nicht ansieht.
 
 # TEIL H5 — Diff zur Masterarbeit
 

@@ -212,11 +212,11 @@ Der Prüfrahmen, der für **jedes** Gate gilt. Wer ein Gate baut, bewertet oder 
 | **2** | **Daten** — womit wird geprüft? | `evidence_required` · **`required_inputs`** (SPEC-04b) |
 | **3** | **Ergebnis** — was kommt heraus? | `severity` je Check → abgeleitete Entscheidung + Evidence-Record |
 | **4** | **Auslöser eingehend** — wann feuert es? | `trigger` |
-| **5** | **Auslöser ausgehend** — was folgt daraus? | `triggers` — seit 27.08. auf allen 17 Gates |
+| **5** | **Auslöser ausgehend** — was folgt daraus? | `triggers` — seit 27.08. auf jedem Gate des Katalogs |
 
 > **Frage 5 war bis 27.08. nicht deklarierbar** — und wo nichts deklariert ist, füllt die Vorstellung die Lücke (B-13). Jedes Gate nennt jetzt seine Wirkung: `halt_pipeline` · `record_only` · `open_incident` · `start_deadline` · `notify`, je mit `implementation: implemented | declared_only`.
 >
-> **Stand: 18 von 22 Wirkungen sind gebaut, 4 nicht.** G-OPS-02 deklariert `start_deadline` und `open_incident` als `declared_only` — für Art. 26 Abs. 5 ist Frage 5 nicht optional, die Norm verlangt eine *Folge*, kein Urteil, und ein Gate, das nur PASS/FAIL kann, bildet diese Pflicht konstruktiv nicht ab. Geprüft von `GATE_DECLARES_EFFECT`.
+> **Stand: die Mehrheit der deklarierten Wirkungen ist gebaut, ein Rest nicht — die Aufteilung nennt das README, geprüft von `GATE_DECLARES_EFFECT`.** G-OPS-02 deklariert `start_deadline` und `open_incident` als `declared_only` — für Art. 26 Abs. 5 ist Frage 5 nicht optional, die Norm verlangt eine *Folge*, kein Urteil, und ein Gate, das nur PASS/FAIL kann, bildet diese Pflicht konstruktiv nicht ab. Geprüft von `GATE_DECLARES_EFFECT`.
 
 **Zwei Gate-Arten, die nicht vermischt werden dürfen:**
 
@@ -429,7 +429,7 @@ Ausformuliert nach den fünf Fragen aus 3.4, weil dieses Gate die Lücke am deut
 
 5. **E-1-Signatur (SPEC-05)** — jetzt sinnvoll, nicht vorher: eine Signatur auf einem erfundenen Wert demonstriert die These nur halb, und die Rückfrage wäre „woher kommt die Zahl?". Sie ist beantwortet.
 6. **Vier-Augen-Prinzip und Retirement-Pfad** — die zwei Prozesslücken aus 2.4
-7. **Deckungsanalyse Norm → Requirement** — Validierung statt Verifikation: woher weiß ich, dass es die richtigen 17 Gates sind?
+7. **Deckungsanalyse Norm → Requirement** — Validierung statt Verifikation: woher weiß ich, dass der Katalog die richtigen Gates enthält?
 
 **Danach:**
 
@@ -461,3 +461,4 @@ Alle Verweise dieser Tabelle zeigen auf Dateien **in diesem Repository**. Rechts
 ---
 
 *Handbuch v1.1 · 01.09.2026 · Der Stand — Begründungen in HISTORIE.md · Zählstände im README · Keine Rechtsberatung*
+

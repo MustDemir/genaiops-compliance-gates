@@ -1277,6 +1277,117 @@ def _headings_of(path: Path) -> set[str]:
     return numbers
 
 
+# Inventory counts: a number that moves when the repository grows. The
+# distinction is HANDBUCH 5.1's, quoted rather than reinvented — an inventory
+# count changes through growth, an identifier changes through a decision.
+#
+# Every pattern is anchored with (?<![\w.-]) so that a digit belonging to an
+# identifier cannot start a match: "E-3 checks" is a level and a noun,
+# "3.4 Gate-Anatomie" is a section heading, and a guard that fires on those
+# gets switched off instead of fixed.
+_NO_ID_BEFORE = r"(?<![\w.\-/])"
+_COUNT_PATTERNS = [
+    (_NO_ID_BEFORE + r"\d+\s+(?:Quality[ -]?)?Gates?(?![\w-])", "gate count"),
+    (_NO_ID_BEFORE + r"\d+\s+(?:policy[ _-]?)?[Cc]hecks?(?![\w-])", "check count"),
+    (_NO_ID_BEFORE + r"\d+\s+(?:OPA[/ ])?(?:Rego[- ]?)?(?:Policies|Policy|policies)(?![\w-])",
+     "policy count"),
+    (_NO_ID_BEFORE + r"\d+\s+(?:Rego[- ]?)?(?:Regeln|rules)(?![\w-])", "rule count"),
+    (_NO_ID_BEFORE + r"\d+\s+(?:Unit[- ]?)?(?:Tests?|tests?)(?![\w-])", "test count"),
+    (_NO_ID_BEFORE + r"\d+\s+[Rr]equirements?(?![\w-])", "requirement count"),
+    (_NO_ID_BEFORE + r"\d+\s+[Ii]ntegrity[- ]?[Cc]hecks?(?![\w-])", "integrity-check count"),
+    (_NO_ID_BEFORE + r"\d+\s*(?:AUTO|HYBRID|MANUAL)(?![\w-])", "automation split"),
+    (_NO_ID_BEFORE + r"\d+\s*[:/]\s*\d+\s*[:/]\s*\d+(?![\w-])", "ratio"),
+    (_NO_ID_BEFORE + r"\d+\s+(?:von|of)\s+\d+\s+"
+     r"(?:Gates?|[Cc]hecks?|Tests?|[Rr]equirements?|Policies|Regeln|rules|Wirkungen)(?![\w-])",
+     "share of an inventory"),
+]
+
+# A date used as a deadline. AGENTS.md only: the handbook names statutory
+# periods (NIS2 hours, the AI Act's application dates), and a check that fires
+# on those is the false alarm this one exists to avoid.
+_DATE = r"(?:\d{1,2}\.\s?(?:Januar|Februar|M(?:ä|ae)rz|April|Mai|Juni|Juli|August|September|Oktober|November|Dezember)\s+\d{4}|\d{1,2}\.\d{1,2}\.\d{4}|\d{4}-\d{2}-\d{2})"
+_DEADLINE_WORD = r"(?:Deadline|Frist|Abgabe|Termin|f(?:ä|ae)llig|sp(?:ä|ae)testens|bis zum|bis spätestens|due|by the)"
+_DEADLINE_LINE = re.compile(
+    rf"(?:{_DEADLINE_WORD}[^\n]{{0,60}}{_DATE}|{_DATE}[^\n]{{0,40}}{_DEADLINE_WORD})"
+)
+
+# Scope. HISTORIE.md is deliberately absent: it is a historical record and
+# states counts about closed events on purpose — "the CI reported 173/173
+# while 187 tests ran" is the finding, not a stale number.
+_COUNT_FREE_DOCS = ("AGENTS.md", "HANDBUCH.md")
+
+
+def check_counts_live_in_readme_only() -> dict:
+    """The working contract and the handbook carry no inventory counts.
+
+    HANDBUCH 5.1 draws the line and this check only enforces it: an inventory
+    count changes through GROWTH, an identifier changes through a DECISION.
+    "Seventeen gates" is the first kind and is wrong as soon as an eighteenth
+    lands. "E-1", "schema_version: 2", "v06", "Exit 3", "Art. 26", "R001",
+    "DP1", "B-19", "SPEC-04b", "2.4" are the second kind: they move when
+    somebody decides they move, and they are the vocabulary these documents
+    are written in.
+
+    The counts live in the README, where README_COUNTS_CURRENT and
+    README_EVIDENCE_CLAIMS_CURRENT hold them against the repository. A second
+    set anywhere else has no guardian, and this project has the receipts:
+    AGENTS.md carried a gate count from before SPEC-01 and SPEC-03 for weeks
+    while every session read it first (T-03), the CI reported a hard-coded
+    test count while more tests ran (B-12), and the README denied a rung of
+    its own evidence axis (B-19).
+
+    HISTORIE.md is out of scope on purpose. It records closed events, and the
+    stale numbers in it are the subject matter.
+
+    Deadlines are checked in AGENTS.md only. The handbook names statutory
+    periods and application dates; a check that fires on those is the false
+    alarm that gets a check disabled rather than repaired.
+    """
+    findings = []
+    for name in _COUNT_FREE_DOCS:
+        path = REPO_ROOT / name
+        if not path.is_file():
+            findings.append(f"{name}: not found — this check cannot verify it")
+            continue
+        text = read_text(path)
+
+        in_code_fence = False
+        for number, line in enumerate(text.splitlines(), start=1):
+            if line.lstrip().startswith("```"):
+                in_code_fence = not in_code_fence
+                continue
+            if in_code_fence:
+                continue    # commit-message examples and templates quote reality
+
+            for pattern, label in _COUNT_PATTERNS:
+                for hit in re.finditer(pattern, line):
+                    findings.append(
+                        f"{name}:{number}: states '{hit.group(0).strip()}' — an inventory "
+                        f"{label} belongs in the README, where a check holds it against "
+                        f"the repository (HANDBUCH 5.1)"
+                    )
+
+            if name == "AGENTS.md":
+                deadline = _DEADLINE_LINE.search(line)
+                if deadline:
+                    findings.append(
+                        f"{name}:{number}: states a deadline ('{deadline.group(0).strip()}') "
+                        f"— the working contract describes how work is done, not when it is due"
+                    )
+
+    return make_result(
+        "COUNTS_LIVE_IN_README_ONLY",
+        "the working contract and the handbook delegate every inventory count to the README",
+        "medium",
+        not findings,
+        "A second set of counts has appeared outside the README, where nothing holds "
+        "it against the repository — the way AGENTS.md came to describe a catalogue "
+        "that no longer existed." if findings
+        else f"{len(_COUNT_FREE_DOCS)} documents carry identifiers and no inventory counts.",
+        findings,
+    )
+
+
 def check_doc_references_are_tracked() -> dict:
     """A tracked file may not point at a document the clone does not contain.
 
@@ -2256,6 +2367,7 @@ def collect_results() -> list[dict]:
         check_readme_counts_current,
         check_readme_evidence_claims_current,
         check_doc_references_are_tracked,
+        check_counts_live_in_readme_only,
         check_required_inputs_enforced,
         check_negative_cases_gate_the_build,
         check_workflow_claims_no_counts,
