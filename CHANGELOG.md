@@ -10,6 +10,34 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased] — Post-Thesis Development (schema_version 2)
 
+### Changed — the catalogue's only E-1 check is downgraded to E-0 (SPEC-05 Teil 1, B-18, 2026-09-01)
+
+G-OPS-05/C-02 ("Hash-Chain-Integritaet ueber alle Evidence-Records") carried
+`evidence_level: "E-1"`. Measured against the project's own definition that is
+wrong. E-1 requires a **signed** artefact with a **verified producer identity**
+and forgery costs equal to compromising the CI identity. The chain offers none
+of that: SHA-256 is a checksum, not a signature; `inserted_by` is a string the
+writer picks (default `'poc_local'`), hash-covered but not evidenced; and
+rewriting the chain from genesis costs write access to the database, not the CI
+identity. The chain is tamper-evident against partial edits — a statement about
+internal consistency, not about provenance — which places it at E-0 with an
+extra property.
+
+**The catalogue therefore carries no E-1 check at all right now.** That is the
+honest interim state and it is meant to be visible: a wrong classification is
+more harmful than a low one, because it reassures the reader.
+
+- `evidence_level` of G-OPS-05/C-02: `E-1` → `E-0`; the gate's `rationale` and
+  `notes` state why the earlier classification was withdrawn
+- README: the sentence "G-OPS-05 pairs an E-0 annotation check with an E-1
+  hash-chain check" is corrected, and the open-points entry now says that no
+  per-check level is above E-0
+- HISTORIE: B-18 / H4.21, status `teilbehoben` — Teile 2–6 of SPEC-05 (evidence
+  manifest, keyless signing, identity-bound verification) remain open
+
+The gate's `evidence_level.current` was already `E-0` and is unchanged; no rule,
+no test and no count changed.
+
 ### Added — the CI measures drift, and the gates prove they would block (SPEC-04b Teil 3.1/3.3, 2026-08-28/31)
 
 SPEC-04b is complete. Teil 1 (counts read, not claimed), Teil 3.2 (`required_inputs`
