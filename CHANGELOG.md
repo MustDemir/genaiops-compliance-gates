@@ -10,6 +10,33 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased] — Post-Thesis Development (schema_version 2)
 
+### Fixed — the README says what the evidence axis actually holds, and a check keeps it that way (B-19, 2026-09-01)
+
+Correcting B-18 introduced a claim of its own. In two places the README stated
+that no check in the catalogue sits above E-0. That was false as written:
+G-OPS-03/C-03, C-04 and C-05 carry `E-3` — the measured half of the drift
+monitoring, since SPEC-04. What was meant was "no check at E-1"; what was
+written was a statement about the whole axis.
+
+It survived because `README_COUNTS_CURRENT` verifies numbers, not sentences.
+"14 of 51 checks carry one today" was covered and correct; the half-sentence
+after it was uncovered and wrong, one line apart.
+
+- The README now names the distribution instead of denying a rung:
+  **no checks at E-1, 3 at E-3, 11 at E-0, and 37 without a level.**
+- New integrity check **`README_EVIDENCE_CLAIMS_CURRENT`** (MEDIUM). It derives
+  that distribution from the gate files and requires the sentence verbatim, so
+  a check moving between levels takes the anchor with it. Alongside it, a
+  narrow contradiction detector for the sentence shape that failed here: while
+  any check sits above E-0, no "no/none … above E-0" may stand in the README.
+- Counter-proved in both directions: the claim was made false again (red, both
+  findings), restored (green), and separately C-02 was temporarily raised to
+  E-1 again — the check then demanded the catalogue's new distribution, so it
+  holds the text side and the catalogue side.
+
+Suite size 29 → 30 checks; the README states the new number. No gate, policy,
+pipeline or workflow file was touched.
+
 ### Added — the evidence manifest, so a run's evidence outlives its runner (SPEC-05 Teil 2, 2026-09-01)
 
 In CI the Evidence Store lives at `/tmp/evidence_pipeline.db` and is destroyed

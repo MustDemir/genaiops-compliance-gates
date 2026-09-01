@@ -91,7 +91,7 @@ The third source had sat unused in this repository since the thesis: 14 of 14 re
 |---|---|
 | Gates / requirements | 17 gates · 14 requirements · 51 checks (44 enforced, 7 design-only) |
 | Policies | 18 Rego policies · 186 deny/warn/violation rules |
-| Tests | 199 Rego unit tests · 36 integration tests · 29 integrity checks · hash-chain verification per run |
+| Tests | 199 Rego unit tests · 36 integration tests · 30 integrity checks · hash-chain verification per run |
 | Evidence schema | v06 (`ai_act_role`, `derived_decision`, `runtime_mode` sealed into the payload) |
 | Deployment verified | Local (Minikube, Docker) and Azure AKS, Sweden Central |
 
@@ -103,7 +103,7 @@ Carried deliberately rather than silently. This section is part of the artefact,
 
 - **Provider requirements are not derived yet.** Art. 16(a)–(l) with Art. 17–20, 43, 47, 48, 49(1) is the largest open block; `AI_ACT_ROLE=PROVIDER` matches no gate today.
 - **7 of 51 checks are design-only.** They sit in G-PRE-04, G-DEP-01 and G-DEP-03, which therefore report PASS while part of what they declare has not been evaluated. Each check states this itself, and the integrity suite verifies the claim in both directions at HIGH severity.
-- **`evidence_level.current` is E-0 on every gate.** Raising gates to E-1 requires signed CI attestations (`cosign`, keyless via OIDC); E-2 requires Gatekeeper `data.inventory` against a live cluster. Per-check levels are being filled in as the wiring lands — 14 of 51 checks carry one today, and since the B-18 correction none of them is above E-0.
+- **`evidence_level.current` is E-0 on every gate.** Raising gates to E-1 requires signed CI attestations (`cosign`, keyless via OIDC); E-2 requires Gatekeeper `data.inventory` against a live cluster. Per-check levels are being filled in as the wiring lands — 14 of 51 checks carry one today: no checks at E-1, 3 at E-3, 11 at E-0, and 37 without a level. The three E-3 checks are the measurement half of G-OPS-03; E-1 is empty since the B-18 correction and stays empty until SPEC-05 lands the signed evidence manifest.
 - **Accuracy is not measurable in operation.** Without ground truth there are only proxies. The evaluation document declares `provenance: "declared"` for those figures rather than presenting them as measurements. Coupling human oversight under Art. 14 to post-market monitoring under Art. 72 — the reviewer's correction *is* the label — is designed but not built.
 - **8 of 9 runtime obligations have no gate that observes operation.** Requirements declaring `audit_trigger: Runtime` are served by gates that fire once at admission. Each states this as `runtime_coverage: declared_gap` with a reason, and the integrity suite rejects both an undeclared gap and a stale declaration. G-OPS-03 is the one exception and shows the way: annotation check at admission plus a measurement with a freshness budget.
 - **4 of 22 declared gate effects are not built.** Every gate now states what follows from its verdict — halt, record, open an incident, start a deadline, notify — and whether that effect exists. G-OPS-02 declares `start_deadline` and `open_incident` as `declared_only`: Art. 26(5) demands a consequence, not a verdict, and a gate that can only say PASS/FAIL cannot represent that duty.
@@ -247,7 +247,7 @@ Everything outside `infrastructure/scripts/` is vendor-neutral. Azure AKS is one
 | **E-2** | Actual cluster state via the Kubernetes API | Manipulating the running system |
 | **E-3** | A property **over time**, measured rather than configured | Manipulating the telemetry chain |
 
-The axes are genuinely independent: a HYBRID gate can carry E-3 evidence, an AUTO gate can sit on E-0. **G-OPS-03 shows both inside one gate** — its annotation checks are E-0 ("does someone *claim* drift detection runs?"), its measurement checks are E-3 ("did it run, and what did it say?"). G-OPS-05 used to be quoted here as pairing an E-0 annotation check with an E-1 hash-chain check; that classification was withdrawn on 2026-09-01 (B-18). A hash chain is tamper-evident against partial edits, but SHA-256 is a checksum, not a signature, and `inserted_by` is a string the writer picks — the chain binds no producer identity, so it is E-0 with an extra property. **No check in the catalogue is above E-0 today**, and that is the honest interim state until SPEC-05 lands the signed evidence manifest.
+The axes are genuinely independent: a HYBRID gate can carry E-3 evidence, an AUTO gate can sit on E-0. **G-OPS-03 shows both inside one gate** — its annotation checks are E-0 ("does someone *claim* drift detection runs?"), its measurement checks are E-3 ("did it run, and what did it say?"). G-OPS-05 used to be quoted here as pairing an E-0 annotation check with an E-1 hash-chain check; that classification was withdrawn on 2026-09-01 (B-18). A hash chain is tamper-evident against partial edits, but SHA-256 is a checksum, not a signature, and `inserted_by` is a string the writer picks — the chain binds no producer identity, so it is E-0 with an extra property. **The E-1 rung is empty today**: of the 51 checks, the measured ones in G-OPS-03 are the only ones above E-0, and nothing reaches E-1 until SPEC-05 lands the signed evidence manifest.
 
 ### Severity on the check, not the gate
 
@@ -340,7 +340,7 @@ genaiops-compliance-gates/
 ```bash
 ./tests/run_all_rego_tests.sh          # 199 Rego unit tests
 python3 tests/test_all.py              # 36 integration tests across all five pillars
-python3 tests/test_integrity_regression.py --fail-on medium   # 29 credibility checks
+python3 tests/test_integrity_regression.py --fail-on medium   # 30 credibility checks
 python3 pipeline/gate_orchestrator.py --scenario pipeline/scenarios/poc_healthcare_pass.json
 python3 evidence-store/scripts/verify_hash_chain.py --sqlite evidence-store/evidence_closed_loop.db
 ```

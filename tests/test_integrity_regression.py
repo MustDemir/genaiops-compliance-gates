@@ -1143,6 +1143,85 @@ def check_readme_counts_current() -> dict:
     )
 
 
+def check_readme_evidence_claims_current() -> dict:
+    """The README's statements ABOUT evidence levels must match the catalogue.
+
+    README_COUNTS_CURRENT verifies numbers. It does not read sentences, and
+    that gap has a name: correcting B-18 — a check classified E-1 that met
+    nothing E-1 requires — the README gained the sentence "no check in the
+    catalogue is above E-0". It was false when it was written. Three checks
+    in G-OPS-03 carry E-3, and have since the drift measurement landed. The
+    correction of a claim-without-a-counterpart was itself a claim without a
+    counterpart, and the suite that exists to catch exactly that was looking
+    at numbers one line above.
+
+    Two mechanisms, because a prose claim needs both:
+
+      1. ONE anchored sentence, derived from the gate files, must appear
+         verbatim. The distribution of evidence_level over all checks is a
+         fact of the catalogue; the README has to state the current one, and
+         the moment a check moves to another level the derived sentence
+         changes and the anchor is gone. Everything else in the README stays
+         free prose — exactly one sentence is word-bound, and that is the
+         price of having a claim that can be checked at all.
+
+      2. A contradiction detector for the sentence shape that failed here:
+         "no/none ... above E-0". It is the strongest and most flattering
+         claim the axis allows, so it is the one worth guarding, and it must
+         not stand anywhere in the README while a check sits above E-0.
+
+    Deliberately NOT attempted: reading the prose semantically. A check whose
+    verdict depends on interpretation is a check that gets argued with
+    instead of fixed.
+    """
+    readme = read_text(REPO_ROOT / "README.md")
+    findings = []
+
+    checks = [c for _, g in _load_gate_files() for c in (g.get("policy_checks") or [])]
+    levels = {}
+    for c in checks:
+        level = c.get("evidence_level") if isinstance(c, dict) else None
+        levels[level] = levels.get(level, 0) + 1
+    at_e1 = levels.get("E-1", 0)
+    at_e3 = levels.get("E-3", 0)
+    at_e0 = levels.get("E-0", 0)
+    unset = levels.get(None, 0)
+
+    # The anchored sentence. Written the way the README says it, so the
+    # expected string IS the claim rather than a paraphrase of it.
+    claim = (f"{at_e1 if at_e1 else 'no'} check{'' if at_e1 == 1 else 's'} at E-1, "
+             f"{at_e3} at E-3, {at_e0} at E-0, and {unset} without a level")
+    if claim not in readme:
+        findings.append(
+            f"README.md: does not state '{claim}' — the evidence-level "
+            f"distribution derived from the gate catalogue is not what the "
+            f"README claims about it"
+        )
+
+    # The claim shape that broke: an absolute "nothing is above E-0".
+    above = at_e1 + at_e3 + levels.get("E-2", 0)
+    if above:
+        for match in re.finditer(r"(?:no|none)[^.\n]{0,80}above E-0", readme, re.I):
+            findings.append(
+                f"README.md: says '{match.group(0).strip()}' while {above} check(s) "
+                f"sit above E-0 — the sentence that had to be corrected once "
+                f"already (B-18), stated again"
+            )
+
+    return make_result(
+        "README_EVIDENCE_CLAIMS_CURRENT",
+        "the README's statements about evidence levels match the catalogue",
+        "medium",
+        not findings,
+        "The front page describes the evidence axis as something other than "
+        "what the gate files hold — the failure type B-18 exposed, in the text "
+        "that corrects it." if findings
+        else f"README matches the catalogue: E-1 {at_e1}, E-3 {at_e3}, "
+             f"E-0 {at_e0}, without a level {unset}.",
+        findings,
+    )
+
+
 def check_required_inputs_enforced() -> dict:
     """SPEC-04b Teil 3.2: a high-assurance check must not be bypassable.
 
@@ -1950,6 +2029,7 @@ def collect_results() -> list[dict]:
         check_waiver_not_declarative,
         check_runtime_mode_visible,
         check_readme_counts_current,
+        check_readme_evidence_claims_current,
         check_required_inputs_enforced,
         check_negative_cases_gate_the_build,
         check_workflow_claims_no_counts,
