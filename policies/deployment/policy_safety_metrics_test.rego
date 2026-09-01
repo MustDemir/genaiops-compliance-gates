@@ -162,7 +162,7 @@ test_fail_safety_score_below_threshold if {
 # thresholds hold the result is PASS, and conftest decides that. It was
 # also the second half of a contradiction nobody could see: the fixture
 # said accuracy 0.89 in one place and 0.91 in another, and the two paths
-# were never compared (HANDBUCH 7.5 (1a)).
+# were never compared (HISTORIE 7.5 (1a)).
 #
 # Its replacement is test_leftover_gate_result_does_not_block below,
 # which asserts the opposite and would catch a silent reintroduction.
@@ -293,7 +293,7 @@ test_warn_c03_declared_quality_metrics if {
 test_c03_is_advisory_not_blocking if {
 	# The whole point of SHOULD: today's estate is entirely `declared`,
 	# and a MUST here would turn it red on day one over a gap that
-	# SPEC-04 deliberately leaves open (no ground truth, HANDBUCH 7.6).
+	# SPEC-04 deliberately leaves open (no ground truth, HISTORIE 7.6).
 	doc := json.patch(_measured_doc, [{
 		"op": "replace",
 		"path": "/quality_metrics/provenance",

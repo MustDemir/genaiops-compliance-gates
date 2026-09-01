@@ -165,7 +165,7 @@ def resolve_runtime_mode(config: dict) -> tuple[str, str]:
     eventually missing from one. More fundamentally, Rego must not measure
     — Gatekeeper blocks external calls by default and rightly so. The value
     is HANDED to the gate as input; the gate does not go and fetch it
-    (HANDBUCH 7.7, 7.8).
+    (HISTORIE 7.7, 7.8).
 
     Why the default is `unknown` and never `live`: whoever cannot establish
     whether a real model ran has no evidence that one did. The default

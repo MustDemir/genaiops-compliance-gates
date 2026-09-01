@@ -6,10 +6,10 @@
 -- The application has always exported `scribe_mock_mode` — a gauge that
 -- says "I am only pretending". No gate ever read it. A control system
 -- that reports PASS in mock mode is the most embarrassing gap available
--- (HANDBUCH 7.5 (3)), and until now a mock PASS and a live PASS were
+-- (HISTORIE 7.5 (3)), and until now a mock PASS and a live PASS were
 -- byte-identical in this table.
 --
--- Three options were weighed (SPEC-04 3.3 / HANDBUCH 7.8):
+-- Three options were weighed (SPEC-04 3.3 / HISTORIE 7.8):
 --
 --   A) mock forces FAIL.
 --      Rejected. Mock mode is a legitimate PoC mode, not a compliance
@@ -28,7 +28,7 @@
 --
 -- The task is not to forbid mock mode. It is to make it unhideable.
 -- Tamper evidence, not tamper prevention — the same line the rest of
--- this artefact holds (HANDBUCH 7.7).
+-- this artefact holds (HISTORIE 7.7).
 --
 -- Known limitation of option C, accepted with eyes open: a consumer
 -- reading only `decision` still sees an undifferentiated PASS. The field

@@ -213,7 +213,7 @@ def load_distribution_from_app(url: str) -> dict:
         "source": url,
         "captured_at": datetime.now(timezone.utc).isoformat(),
         "bucket_labels": bucket_labels,
-        # SPEC-04 Teil 2.3 / HANDBUCH 7.8: every number states its origin.
+        # SPEC-04 Teil 2.3 / HISTORIE 7.8: every number states its origin.
         # "measured" is the honest label for the reading itself; the
         # `proxy_note` states just as plainly what it is a reading OF.
         "provenance": PROVENANCE_MEASURED,
@@ -221,7 +221,7 @@ def load_distribution_from_app(url: str) -> dict:
             "Latency buckets stand in for the input distribution. Art. 72 "
             "data drift means 'the inputs changed'; what is measured here is "
             "'the response times changed'. Legitimate PoC proxy, not the same "
-            "thing — see HANDBUCH 7.5 (2). Replacing it needs an input-side "
+            "thing — see HISTORIE 7.5 (2). Replacing it needs an input-side "
             "feature extractor and is out of scope for SPEC-04."
         ),
     }
@@ -325,12 +325,12 @@ def build_drift_measurement(
     "PASS") under gate_id G-OPS-03 — in parallel to
     policy_monitoring_configured.rego, which judged the same gate from
     three pod annotations. One gate ID, two producers, incompatible
-    logic (HANDBUCH 7.5 (2a)).
+    logic (HISTORIE 7.5 (2a)).
 
     The rule now is: the detector measures, it does not decide. A
     measuring instrument that grades its own reading blurs exactly the
     separation this artefact claims — the measurement supplies the
-    content, the rule makes the decision (HANDBUCH 7.7).
+    content, the rule makes the decision (HISTORIE 7.7).
 
     `drift_status` survives as a measured qualifier, not a verdict: it
     says which threshold band the score fell into, which is a property

@@ -36,7 +36,7 @@
   "quality_metrics": {
     "provenance": "declared",
     "source": "offline evaluation set, manually maintained",
-    "note": "Kein Ground-Truth-Kanal im Betrieb — siehe HANDBUCH 7.6. Nicht als Betriebsmessung verwendbar.",
+    "note": "Kein Ground-Truth-Kanal im Betrieb — siehe HISTORIE 7.6. Nicht als Betriebsmessung verwendbar.",
     "accuracy": 0.89,
     "faithfulness_score": 0.94,
     "relevance_score": 0.89,
@@ -45,7 +45,7 @@
   "safety_metrics": {
     "provenance": "declared",
     "source": "offline evaluation set, manually maintained",
-    "note": "Kein Ground-Truth-Kanal im Betrieb — siehe HANDBUCH 7.6. Nicht als Betriebsmessung verwendbar.",
+    "note": "Kein Ground-Truth-Kanal im Betrieb — siehe HISTORIE 7.6. Nicht als Betriebsmessung verwendbar.",
     "safety_score": 0.96,
     "toxicity_score": 0.01,
     "hallucination_rate": 0.04,
@@ -54,7 +54,7 @@
   "subgroup_analysis": {
     "provenance": "declared",
     "source": "offline evaluation set, manually maintained",
-    "note": "Einmalige Pruefung vor Freigabe. Subgruppen-Performance ueber Zeit fehlt weiterhin — HANDBUCH 7.6 Luecke 3.",
+    "note": "Einmalige Pruefung vor Freigabe. Subgruppen-Performance ueber Zeit fehlt weiterhin — HISTORIE 7.6 Luecke 3.",
     "performed": true,
     "subgroups": [
       "age_group",
@@ -69,7 +69,7 @@
   "adversarial_tests": {
     "provenance": "declared",
     "source": "offline evaluation set, manually maintained",
-    "note": "Kein Ground-Truth-Kanal im Betrieb — siehe HANDBUCH 7.6. Nicht als Betriebsmessung verwendbar.",
+    "note": "Kein Ground-Truth-Kanal im Betrieb — siehe HISTORIE 7.6. Nicht als Betriebsmessung verwendbar.",
     "performed": true,
     "prompt_injection_pass_rate": 0.95,
     "jailbreak_resistance": 0.98,

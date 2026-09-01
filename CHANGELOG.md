@@ -10,6 +10,47 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased] — Post-Thesis Development (schema_version 2)
 
+### Added — the reasoning layer is in the repository, and a check keeps every reference reachable (2026-09-01)
+
+`HANDBUCH.md` and `HISTORIE.md` are tracked. They hold what the code cannot
+say about itself: the E6 evidence axis, the five questions a gate must answer,
+the decision register D-01…D-31 and the finding register B-01…B-19 that this
+CHANGELOG cites in nearly every entry. Both sat in `.gitignore`, in blocks that
+otherwise list generated artefacts, while 40 tracked files pointed at them —
+every gate definition, the gate template, `record_evidence.py`,
+`drift_detector.py`, SPEC-04 and SPEC-05. Anyone who cloned the repository
+found references to documents that were not there.
+
+- **New integrity check `DOC_REFERENCES_ARE_TRACKED` (HIGH).** Stage 1: a
+  document named by a tracked file must itself be tracked — "exists on disk"
+  is not the test, because the failure looks identical from the author's
+  machine. Stage 2: a cited section number must exist as a heading in the
+  target, including the SPECs' part numbering, where "Teil 3.2" is the second
+  subsection of part 3 and not heading 3.2. HIGH severity: a wrong number can
+  be disputed, a reference to a document the reader does not have cannot even
+  be reached.
+- **Forty references corrected.** Sections in the sevens were cited as
+  belonging to the handbook; the handbook ends in the sixes and those sections
+  are in the history document. Nobody noticed while neither file could be
+  opened from a clone. One reference pointed at a section that never existed
+  anywhere and was dropped — the threshold it names is read from
+  `drift-config.yaml`, which is in the repository.
+- **Both documents were edited before being tracked.** Strategy, market
+  research, positioning, contract questions and local machine paths were taken
+  out and are not part of the published artefact. What remains is the
+  normative layer. The handbook no longer carries its own counts: they live in
+  the README, where `README_COUNTS_CURRENT` and
+  `README_EVIDENCE_CLAIMS_CURRENT` hold them against the repository — a second
+  set of numbers with no guardian is how B-12 and B-19 happened.
+
+Counter-proved in both directions: the check was run before the documents were
+added (41 findings across the gate catalogue, the migration, the policies and
+the evaluation runner) and after (green); then an invented reference to a
+handbook section that does not exist was placed in a gate definition, which it
+reported by name, and removed again. (The invented citation is described rather
+than quoted here: the check reads this file too, and a quotation would be a
+finding — which is itself the demonstration.) Suite size 30 → 31 checks; the README states the new number.
+
 ### Fixed — the README says what the evidence axis actually holds, and a check keeps it that way (B-19, 2026-09-01)
 
 Correcting B-18 introduced a claim of its own. In two places the README stated

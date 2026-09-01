@@ -40,6 +40,7 @@ from __future__ import annotations
 import argparse
 import json
 import re
+import subprocess
 import sys
 from pathlib import Path
 
@@ -1222,6 +1223,190 @@ def check_readme_evidence_claims_current() -> dict:
     )
 
 
+# Documents a reference may point at. A reference to source code is a
+# different thing — the file either compiles or it does not, and the build
+# says so. A reference to a DOCUMENT fails silently.
+_DOC_REFERENCE_ROOTS = ("docs/", "specs/")
+
+# "HANDBUCH 3.4", "HISTORIE H4.19", "SPEC-04b Teil 3.2" — a named section.
+# The keyword is captured, because "Teil 3.2" in a SPEC is NOT heading 3.2:
+# the SPECs number their headings (1., 2., 3.) and label their parts
+# independently ("## 5. Teil 3 — ..."), so "Teil 3.2" means the second
+# subsection of part 3, which is heading 5.2. Resolving that is the whole
+# reason this stage can say anything about SPEC references at all.
+_SECTION_REFERENCE = re.compile(
+    r"\b(HANDBUCH|HISTORIE|SPEC-\d+[a-z]?)\b[^\S\n]*"
+    r"(Abschnitt |Teil |Kapitel )?"
+    r"(H?\d+(?:\.\d+)*)"
+)
+
+# "## 5. Teil 3 — Drift messen": part 3 lives under heading 5.
+_PART_HEADING = re.compile(r"^#{1,6}\s*(\d+(?:\.\d+)*)\.?\s*Teil\s+(\d+)\b", re.M)
+
+# Headings a section number can live in: "## 3.4 ...", "### H4.19 ...",
+# "# TEIL 5 — ...", "## Teil 3 ..." — all four forms occur in these files.
+_HEADING_NUMBER = re.compile(r"^#{1,6}\s*(?:TEIL|Teil)?\s*(H?\d+(?:\.\d+)*)", re.M)
+
+
+def _tracked_files() -> set[str]:
+    """Everything git knows. The point of the check is what a CLONE contains."""
+    out = subprocess.run(
+        ["git", "-C", str(REPO_ROOT), "ls-files"],
+        capture_output=True, text=True, timeout=30,
+    )
+    if out.returncode != 0:
+        return set()
+    return set(out.stdout.split())
+
+
+def _part_map_of(path: Path) -> dict:
+    """part number -> heading number that carries it ("Teil 3" -> "5")."""
+    return {part: head for head, part in _PART_HEADING.findall(read_text(path))}
+
+
+def _headings_of(path: Path) -> set[str]:
+    numbers = set()
+    for n in _HEADING_NUMBER.findall(read_text(path)):
+        numbers.add(n)
+        # "7.3.1" also satisfies a reference to "7.3", which is how these
+        # documents are cited in practice.
+        parts = n.split(".")
+        for i in range(1, len(parts)):
+            numbers.add(".".join(parts[:i]))
+    return numbers
+
+
+def check_doc_references_are_tracked() -> dict:
+    """A tracked file may not point at a document the clone does not contain.
+
+    HANDBUCH.md and HISTORIE.md carried the reasoning layer of this control
+    system — the E6 axis, the gate anatomy, the finding register B-01…B-19 —
+    and were excluded by .gitignore, in a block that listed generated
+    artefacts. Meanwhile 40 tracked files cited them: every gate definition,
+    the gate template, record_evidence.py, drift_detector.py, SPEC-04 and
+    SPEC-05. Anyone who cloned the repository found references to documents
+    that were not there.
+
+    That is worse than a wrong number, and it is why this check is HIGH: a
+    wrong number can be checked and disputed. A reference to a document the
+    reader does not have is a claim they cannot even reach.
+
+    Two stages, because the reference has two halves:
+
+      1. The FILE must be tracked. Not "must exist" — a file that exists only
+         on the author's machine is exactly the failure this check is named
+         after, and it looks identical from inside that machine.
+      2. The SECTION must exist. Forty references named the handbook and a
+         section in the sevens; the handbook ends in the sixes, and those
+         sections live in the history document. Nobody noticed for as long
+         as neither document could be opened from a clone. (The numbers are
+         spelled around here on purpose: this check reads its own file too,
+         and a quoted example would be a finding.)
+
+    Deliberately narrow: only documents (*.md at the root, docs/**, specs/**)
+    and only numbered sections. Prose references ("see the handbook") are not
+    machine-checkable and stay a matter of authorship.
+    """
+    tracked = _tracked_files()
+    if not tracked:
+        return make_result(
+            "DOC_REFERENCES_ARE_TRACKED",
+            "every document a tracked file names is itself tracked",
+            "high", False,
+            "git ls-files produced nothing — the check could not run, and a "
+            "check that cannot run must not report success.",
+            ["Could not enumerate tracked files."],
+        )
+
+    findings = []
+    doc_names = {}          # bare filename -> repo-relative path, for tracked docs
+    for f in tracked:
+        if f.endswith(".md") and ("/" not in f or f.startswith(_DOC_REFERENCE_ROOTS)):
+            doc_names[Path(f).name] = f
+
+    # Documents referenced by name anywhere in the tracked tree.
+    referenced = re.compile(r"\b([A-Z][A-Za-z0-9_-]*\.md)\b")
+
+    section_targets = {}    # document name -> set of heading numbers
+    for f in sorted(tracked):
+        path = REPO_ROOT / f
+        if not path.is_file():
+            continue
+        try:
+            text = read_text(path)
+        except (OSError, UnicodeDecodeError):
+            continue
+
+        # ── Stage 1: the document must be tracked ──
+        for name in set(referenced.findall(text)):
+            if name in doc_names or name == Path(f).name:
+                continue
+            candidate = REPO_ROOT / name
+            if candidate.is_file():
+                findings.append(
+                    f"{f}: names '{name}', which exists here but is NOT tracked — "
+                    f"a clone of this repository does not contain it"
+                )
+            elif name in ("HANDBUCH.md", "HISTORIE.md"):
+                findings.append(f"{f}: names '{name}', which is not in the repository")
+
+        # ── Stage 2: the named section must exist ──
+        for doc, keyword, number in set(_SECTION_REFERENCE.findall(text)):
+            if doc.startswith("SPEC-"):
+                matches = [n for n in doc_names if n.startswith(doc + "-")]
+                if not matches:
+                    continue
+                target = doc_names[matches[0]]
+            else:
+                target = doc_names.get(doc + ".md")
+                if target is None:
+                    # The citation names the document without its extension —
+                    # "HANDBUCH 3.4" — which stage 1's filename scan cannot
+                    # see. This is the exact shape the 17 gate definitions
+                    # used while both documents sat in .gitignore.
+                    findings.append(
+                        f"{f}: cites '{doc}', which is not a tracked document — "
+                        f"a clone cannot open the section it points at"
+                    )
+                    continue
+            if target not in section_targets:
+                section_targets[target] = (
+                    _headings_of(REPO_ROOT / target),
+                    _part_map_of(REPO_ROOT / target),
+                )
+            headings, parts = section_targets[target]
+
+            wanted = number
+            if keyword.strip() == "Teil" and parts:
+                head, _, rest = number.partition(".")
+                if head not in parts:
+                    findings.append(
+                        f"{f}: cites '{doc} Teil {number}', but {target} has no "
+                        f"part {head}"
+                    )
+                    continue
+                wanted = f"{parts[head]}.{rest}" if rest else parts[head]
+
+            if wanted not in headings:
+                cited = f"{doc} {keyword}{number}".strip()
+                findings.append(
+                    f"{f}: cites '{cited}', but {target} has no section "
+                    f"with that number"
+                )
+
+    return make_result(
+        "DOC_REFERENCES_ARE_TRACKED",
+        "every document a tracked file names is tracked, and every cited section exists",
+        "high",
+        not findings,
+        "A tracked file points at a document or a section that a clone of this "
+        "repository does not contain — a claim the reader cannot even reach." if findings
+        else f"{len(doc_names)} documents referenced, every reference resolves to a "
+             f"tracked file and an existing section.",
+        sorted(set(findings)),
+    )
+
+
 def check_required_inputs_enforced() -> dict:
     """SPEC-04b Teil 3.2: a high-assurance check must not be bypassable.
 
@@ -2030,6 +2215,7 @@ def collect_results() -> list[dict]:
         check_runtime_mode_visible,
         check_readme_counts_current,
         check_readme_evidence_claims_current,
+        check_doc_references_are_tracked,
         check_required_inputs_enforced,
         check_negative_cases_gate_the_build,
         check_workflow_claims_no_counts,

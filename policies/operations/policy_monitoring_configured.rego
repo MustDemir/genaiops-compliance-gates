@@ -94,19 +94,19 @@ violation contains {"msg": msg} if {
 # Checks 1-3 above ask "does someone CLAIM that drift detection runs?"
 # — three annotations, written by whoever wrote the manifest. That is
 # evidence level E-0, and it is exactly the self-declaration attack
-# surface the project names in HANDBUCH Teil 10.
+# surface the project names in HISTORIE Teil 10.
 #
 # The checks below ask "did it run, and what did it say?" — evidence
 # level E-3, a property measured over time. Both stay in the gate. The
 # contrast between them is the E6 model demonstrated inside a single
-# gate (HANDBUCH 7.5 (2b), 7.8).
+# gate (HISTORIE 7.5 (2b), 7.8).
 #
 # Input: a drift measurement document produced by
 # monitoring/drift_detector.py. The detector MEASURES; it no longer
 # decides. Until 2026-08 it wrote its own PASS/FAIL into the Evidence
 # Store under this very gate ID, in parallel to the annotation rules
 # above — one gate ID, two producers, incompatible logic
-# (HANDBUCH 7.5 (2a)). The decision now lives here, and only here.
+# (HISTORIE 7.5 (2a)). The decision now lives here, and only here.
 #
 # These rules stay silent unless input.drift_measurement is present, so
 # a Gatekeeper admission review (which cannot carry an operating
@@ -149,7 +149,7 @@ violation contains {"msg": msg} if {
 # ================================================================
 # C-04 [MUST] — the measured values stay under the thresholds
 # ================================================================
-# Thresholds from drift-config.yaml (HANDBUCH 7.1): PSI > 0.2 and
+# Thresholds from drift-config.yaml: PSI > 0.2 and
 # JSD > 0.1 are critical. Warning bands are handled by the detector's
 # own exit code; the gate blocks on critical only.
 

@@ -169,7 +169,7 @@ def main() -> int:
           f"p95 differs between runs ({p95_fast} ms vs {p95_slow} ms)")
     check(p95_slow > p95_fast, "the slower app measures slower")
 
-    # ── The contradiction class from HANDBUCH 7.5 (1a) ──
+    # ── The contradiction class from HISTORIE 7.5 (1a) ──
     print(f"\n{BOLD}C: no metric may appear twice with different values{RESET}")
     check("gate_result" not in doc_fast,
           "gate_result is gone — the document no longer carries its own verdict")

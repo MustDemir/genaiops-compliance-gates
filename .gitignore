@@ -84,9 +84,17 @@ docs/walkthrough/phase12_*_ergebnis.md
 evidence-store/POC_SQL_SCHEMA_SPEC_INTERNAL.md
 policies/POLICY_CANDIDATES_*.md
 
-# Projekt-Handbuch (Cowork-Projekt, enthaelt nicht-oeffentliche Strategie)
-HANDBUCH.md
+# Das Handbuch selbst ist seit 01.09.2026 Teil des Repos (T-02): 40 getrackte
+# Dateien verweisen darauf, und ein Verweis auf ein Dokument, das der Klonende
+# nicht hat, ist eine Behauptung, die er nicht pruefen kann. Der PDF-Export
+# bleibt draussen — er ist ein Artefakt der Quelle, nicht die Quelle.
 HANDBUCH.pdf
+
+# Strategie, Markt, Positionierung, Vertragslage: gehoert nicht in ein
+# oeffentliches Artefakt unter einer DOI und liegt deshalb ausserhalb des
+# Repos. Dieser Eintrag ist die Sicherung fuer den Fall, dass die Datei je
+# wieder in der Wurzel landet.
+STRATEGIE.md
 
 # SQLite-Begleitdateien: transienter Write-Ahead-Log- und Shared-Memory-Zustand.
 # Gehoeren nie ins Repo — sie koennen nicht-committete Transaktionsdaten enthalten
@@ -102,7 +110,6 @@ tmp/
 
 # SPEC-04: generated drift measurement (gate input, not source)
 monitoring/drift_measurement.json
-HISTORIE.md
 
 # SPEC-04b: generated gate input (source is governance/incident_thresholds.yaml)
 tmp/incident_thresholds.json
