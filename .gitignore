@@ -39,6 +39,10 @@ Thumbs.db
 evidence-store/*.db
 evidence-store/*.db-journal
 evidence-store/pipeline_report_*.json
+# Per-run output like the reports above (SPEC-05 Teil 2). The manifest is
+# evidence OF a run, produced by it — in CI it is uploaded as an artefact,
+# not committed back into the repository it describes.
+evidence-store/evidence_manifest.json
 evidence-store/data/*
 !evidence-store/data/README.md
 

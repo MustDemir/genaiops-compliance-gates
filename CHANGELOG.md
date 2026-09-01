@@ -10,6 +10,53 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased] — Post-Thesis Development (schema_version 2)
 
+### Added — the evidence manifest, so a run's evidence outlives its runner (SPEC-05 Teil 2, 2026-09-01)
+
+In CI the Evidence Store lives at `/tmp/evidence_pipeline.db` and is destroyed
+with the runner. Verifying that chain and then throwing it away proves nothing
+to anyone who was not watching (B-18). `evidence-store/scripts/build_manifest.py`
+summarises a run into one small document that can be carried out — and, from
+Teil 3 onwards, signed.
+
+The manifest states `pipeline_run_id`, `commit_sha`, `schema_version`,
+`record_count`, `genesis_hash`, `chain_head`, `gate_verdicts_digest`,
+`runtime_mode`, `signing_context` and `created_at`. Nothing else: it pins the
+chain without carrying it.
+
+- **`gate_verdicts_digest` makes the manifest checkable without the database.**
+  It is taken over one line per *record* — a HYBRID gate contributes both its
+  automated and its human verdict, so a manual FAIL cannot hide behind an
+  automated PASS. The pipeline report now carries the same verdict list under
+  `gate_verdicts`, so a reader with the report and the signed manifest can
+  recompute the digest. A report that merely repeated the digest would be the
+  manifest quoting itself.
+- **One implementation of that digest.** The orchestrator delegates to
+  `build_manifest.py` instead of rebuilding the payload, and the new test
+  asserts the orchestrator computes no hash of its own — the mistake
+  `test_hash_parity.py` exists to catch, not repeated.
+- **`signing_context`** declares the context the manifest was produced in
+  (`ci` or `local`), the same building block as `runtime_mode` in SPEC-04. It
+  is a declaration, not proof; the signature from Teil 3 is what makes it
+  checkable. CI therefore reads the value back after generating the manifest
+  and fails the job if the run does not declare itself as `ci`.
+- **Written on every run** — locally, in CI, on a blocked pipeline and on an
+  empty store, where it states a record count of zero rather than an invented
+  chain. A document that appears only on success cannot describe a failure.
+- `prepare_inputs.py` still issues nothing of its own; the new test guards it
+  (B-03).
+
+`tests/test_evidence_manifest.py`: 22 guards, each with its counterproof, and
+two of them verified by deliberately breaking the implementation. Existing
+suites unchanged and green — 36 `test_all`, 199 Rego, 29 integrity checks
+(0 actionable), hash parity and chain migration. No payload change, so no
+`v06 → v07` migration: `signing_context` belongs to the manifest, not to the
+record.
+
+**Still open in SPEC-05:** signing (`cosign`, keyless), `upload-artifact`,
+identity-bound verification, the G-OPS-05 checks C-04…C-07, and the three new
+integrity checks. Until then the manifest is produced but nothing carries it
+off the runner yet.
+
 ### Changed — the catalogue's only E-1 check is downgraded to E-0 (SPEC-05 Teil 1, B-18, 2026-09-01)
 
 G-OPS-05/C-02 ("Hash-Chain-Integritaet ueber alle Evidence-Records") carried

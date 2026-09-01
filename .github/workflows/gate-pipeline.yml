@@ -789,6 +789,40 @@ jobs:
             || { echo "::error::Hash chain verification FAILED — Evidence Store may be corrupted"; exit 1; }
           echo "::endgroup::"
 
+      # ── Evidence Manifest (SPEC-05 Teil 2) ──
+      #
+      # The chain was just verified — and this runner is about to be
+      # destroyed with $EVIDENCE_DB on it (B-18). The manifest is the
+      # document that can leave: chain head, genesis, a digest over the
+      # verdicts. Unsigned for now; Teil 3 signs it and uploads it.
+      #
+      # always(): a blocked pipeline needs its manifest more than a green
+      # one does. Evidence that only exists on success cannot document a
+      # failure.
+      - name: "Build the evidence manifest"
+        id: manifest
+        if: always()
+        run: |
+          echo "::group::Evidence Manifest"
+          python3 evidence-store/scripts/build_manifest.py \
+            --sqlite "$EVIDENCE_DB" \
+            --out evidence_manifest.json \
+            --commit-sha "$GITHUB_SHA" \
+            || { echo "::error::Evidence manifest could not be built"; exit 1; }
+
+          # SPEC-05 Abschnitt 8.1: the manifest DECLARES its context, and a
+          # declaration that nobody checks is the failure type this project
+          # keeps finding (B-02, B-11, B-12, B-13, B-17). So CI reads the
+          # value back and refuses to continue if this run claims to be
+          # anything other than a CI run.
+          CONTEXT=$(python3 -c "import json;print(json.load(open('evidence_manifest.json'))['evidence_manifest']['signing_context'])")
+          if [ "$CONTEXT" != "ci" ]; then
+            echo "::error::signing_context is '$CONTEXT', expected 'ci' — a CI run may not present itself as a local one"
+            exit 1
+          fi
+          echo "✅ signing_context asserted: ci"
+          echo "::endgroup::"
+
       - name: "Stop the application under test"
         if: always()
         run: |

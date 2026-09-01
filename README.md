@@ -347,6 +347,8 @@ python3 evidence-store/scripts/verify_hash_chain.py --sqlite evidence-store/evid
 
 **Three test layers.** Rego unit tests (fail-fast, before any gate runs) → Conftest gate evaluations against fixtures → SHA-256 hash-chain verification per pipeline run.
 
+Each run then writes an **evidence manifest** (`evidence-store/scripts/build_manifest.py`): chain head, genesis hash, record count and a digest over the gate verdicts, in one document small enough to sign. In CI the store lives in `/tmp` and dies with the runner, so a chain that is verified and then discarded proves nothing to anyone who was not watching — the manifest is what can leave. It is written on every run, including a blocked one, and it declares whether it was produced in CI or locally. Signing it is SPEC-05 Teil 3 and is not built yet; until then the manifest is a summary, not an attestation.
+
 **The integrity regression suite is deliberately adversarial.** It does not test features; it tests whether the repository's own claims hold — that no gate declares a waiver the system cannot grant, that `implementation: implemented` matches the presence of a policy file in both directions, that evidence levels are valid and non-regressing, that `runtime_mode` stays visible wherever a decision is reported. Each check was verified by introducing the inconsistency it is meant to catch and confirming it fails.
 
 ## Post-thesis development

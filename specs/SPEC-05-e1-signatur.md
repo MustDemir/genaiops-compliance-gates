@@ -263,10 +263,10 @@ Zusätzlich:
 
 ## 12. Definition of Done
 
-- [ ] G-OPS-05/C-02 auf E-0 zurückgestuft, `rationale` nachgezogen, README-Satz korrigiert
-- [ ] B-18 in HISTORIE aufgenommen, im Befundregister und als eigener Abschnitt
-- [ ] `evidence_manifest.json` wird auf **jedem** Lauf erzeugt, lokal wie in der CI, auch bei blockierender Pipeline
-- [ ] Manifest trägt `chain_head`, `genesis_hash`, `gate_verdicts_digest`, `record_count`, `signing_context`
+- [x] G-OPS-05/C-02 auf E-0 zurückgestuft, `rationale` nachgezogen, README-Satz korrigiert
+- [x] B-18 in HISTORIE aufgenommen, im Befundregister und als eigener Abschnitt
+- [x] `evidence_manifest.json` wird auf **jedem** Lauf erzeugt, lokal wie in der CI, auch bei blockierender Pipeline
+- [x] Manifest trägt `chain_head`, `genesis_hash`, `gate_verdicts_digest`, `record_count`, `signing_context`
 - [ ] `cosign` SHA-gepinnt installiert; `id-token: write` nur im signierenden Job, Rechteerhöhung im Commit begründet
 - [ ] Manifest **und** Bundle als `upload-artifact` — die Evidenz verlässt den Runner
 - [ ] `verify_signature.py` verifiziert identitätsgebunden und schreibt ein Nachweisdokument, ohne eigene `decision`

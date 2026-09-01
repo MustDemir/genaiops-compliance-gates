@@ -46,6 +46,7 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 EVIDENCE_SCRIPTS = REPO_ROOT / "evidence-store" / "scripts"
 RECORD_EVIDENCE = EVIDENCE_SCRIPTS / "record_evidence.py"
 VERIFY_HASH_CHAIN = EVIDENCE_SCRIPTS / "verify_hash_chain.py"
+BUILD_MANIFEST = EVIDENCE_SCRIPTS / "build_manifest.py"
 
 # ANSI colors for terminal output
 GREEN = "\033[92m"
@@ -1038,6 +1039,68 @@ def verify_chain(db_path: str, verbose: bool = False) -> dict:
     }
 
 
+def build_manifest(db_path: str, run_id: str, runtime_mode: str,
+                   out_path: Path) -> dict:
+    """
+    Call build_manifest.py to summarise the run into a signable manifest.
+
+    SPEC-05 Teil 2. Runs on EVERY completed pipeline, including a halted one
+    and one whose evidence path failed: a document that only appears on
+    success cannot describe the failure.
+
+    The verdict lines behind `gate_verdicts_digest` are read back from the
+    same script rather than rebuilt here. Two implementations of one payload
+    is the mistake test_hash_parity.py exists to catch; there is no reason to
+    make it a second time.
+    """
+    cmd = [
+        sys.executable,
+        str(BUILD_MANIFEST),
+        "--sqlite", db_path,
+        "--out", str(out_path),
+        "--pipeline-run-id", run_id,
+        "--runtime-mode", runtime_mode,
+        "--quiet",
+    ]
+    result = subprocess.run(cmd, capture_output=True, text=True)
+    if result.returncode != 0:
+        return {
+            "ok": False,
+            "error": (result.stderr or result.stdout).strip(),
+            "manifest": None,
+            "verdicts": [],
+        }
+    with open(out_path, encoding="utf-8") as f:
+        manifest = json.load(f)["evidence_manifest"]
+    return {
+        "ok": True,
+        "error": None,
+        "manifest": manifest,
+        "verdicts": read_verdict_lines(db_path),
+    }
+
+
+def read_verdict_lines(db_path: str) -> list:
+    """
+    The verdict list the manifest's digest is taken over, via build_manifest.py.
+
+    It goes into the pipeline report so that the digest can be RECOMPUTED by a
+    reader who has the report and the signed manifest but not the database —
+    which, in CI, is everybody, because the database dies with the runner
+    (B-18). A report that merely repeated the digest would prove nothing: it
+    would be the manifest quoting itself.
+    """
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("build_manifest", BUILD_MANIFEST)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    try:
+        records = module.fetch_records_sqlite(db_path)
+    except Exception:  # noqa: BLE001 — an unreadable store is reported by the caller
+        return []
+    return module.gate_verdict_lines(records)
+
+
 def print_banner(scenario_name: str) -> None:
     """Print the pipeline startup banner."""
     print()
@@ -1406,6 +1469,37 @@ def run_pipeline(scenario_path: str, use_conftest: bool = False, dry_run: bool =
     # ── Step 5: Print summary ──
     print_summary(results, pipeline_halted, halt_gate, verification)
 
+    # ── Step 6: Evidence manifest (SPEC-05 Teil 2) ──
+    #
+    # The chain is verified above — and in CI that verification dies with the
+    # runner (B-18). The manifest is what carries the run's evidence out: the
+    # chain head, the genesis hash and a digest over the verdicts, in a
+    # document small enough to sign and to hand to somebody who has neither
+    # the database nor the runner. Teil 3 signs it; unsigned it is still the
+    # only summary of the run that outlives the store.
+    manifest_path = REPO_ROOT / "evidence-store" / "evidence_manifest.json"
+    manifest_result = None
+    if not dry_run:
+        print(f"\n{BOLD}{'─' * 70}{RESET}")
+        log("Building the evidence manifest...", BLUE)
+        manifest_result = build_manifest(db_path, run_id, runtime_mode, manifest_path)
+        if manifest_result["ok"]:
+            body = manifest_result["manifest"]
+            log(f"Manifest: {manifest_path.name} — {body['record_count']} records, "
+                f"chain head {body['chain_head'][:12] if body['chain_head'] else 'none'}, "
+                f"context {body['signing_context']}", GREEN)
+            if body["signing_context"] == "local":
+                log("  Unsigned: a local run has no OIDC identity, so this "
+                    "manifest stays at E-0 and says so (HANDBUCH 5.3).", YELLOW)
+        else:
+            # Not fail-closed like the evidence write (B-16): the manifest is a
+            # summary of records that are already in the store, so a failure
+            # here loses the carrier, not the evidence. It is reported loudly
+            # and stated in the report rather than swallowed.
+            log(f"Manifest could not be built: {manifest_result['error']}", RED)
+    else:
+        log("DRY-RUN: Skipping evidence manifest", YELLOW)
+
     # ── Generate machine-readable report ──
     report = {
         "pipeline_id": pipeline["id"],
@@ -1429,6 +1523,15 @@ def run_pipeline(scenario_path: str, use_conftest: bool = False, dry_run: bool =
         # An auditor reading this report must be able to tell a verdict from
         # an absent verdict.
         "evidence_recording_failed": evidence_broken,
+        # SPEC-05 Teil 2: the report states the verdict list the manifest's
+        # digest is taken over, so the digest can be recomputed from THIS file
+        # and held against the signed manifest — without the database, which
+        # in CI no longer exists by the time anyone reads either document.
+        "evidence_manifest": (manifest_result["manifest"] if manifest_result
+                              and manifest_result["ok"] else None),
+        "gate_verdicts": manifest_result["verdicts"] if manifest_result else [],
+        "evidence_manifest_error": (manifest_result["error"] if manifest_result
+                                    and not manifest_result["ok"] else None),
     }
 
     report_path = REPO_ROOT / "evidence-store" / f"pipeline_report_{run_id[:8]}.json"
