@@ -39,6 +39,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import posixpath
 import re
 import subprocess
 import sys
@@ -1324,8 +1325,27 @@ def check_doc_references_are_tracked() -> dict:
         if f.endswith(".md") and ("/" not in f or f.startswith(_DOC_REFERENCE_ROOTS)):
             doc_names[Path(f).name] = f
 
+    tracked_basenames = {Path(f).name for f in tracked}
+
+    # Every markdown file that is physically here, by basename. The first
+    # version of this check looked only in the repository ROOT, which let
+    # AGENTS.md keep pointing at a policy-candidates document: the file is
+    # real, it sits under legacy/, and .gitignore excludes it —
+    # so it was neither tracked nor found where the check was looking. A
+    # guard that only searches one directory reports "fine" for exactly the
+    # references that are hardest to notice by hand.
+    on_disk = {}
+    for path in REPO_ROOT.rglob("*.md"):
+        if any(part in (".git", ".claude", "node_modules") for part in path.parts):
+            continue
+        on_disk.setdefault(path.name, []).append(
+            str(path.relative_to(REPO_ROOT))
+        )
+
     # Documents referenced by name anywhere in the tracked tree.
     referenced = re.compile(r"\b([A-Z][A-Za-z0-9_-]*\.md)\b")
+    # ...and referenced by path, e.g. a file below docs/ or specs/.
+    referenced_path = re.compile(r"((?:[A-Za-z0-9_.-]+/)+[A-Za-z0-9_.-]+\.md)")
 
     section_targets = {}    # document name -> set of heading numbers
     for f in sorted(tracked):
@@ -1338,17 +1358,37 @@ def check_doc_references_are_tracked() -> dict:
             continue
 
         # ── Stage 1: the document must be tracked ──
-        for name in set(referenced.findall(text)):
-            if name in doc_names or name == Path(f).name:
+        #
+        # .gitignore is exempt: naming files that are NOT in the repository
+        # is what that file is for.
+        for name in set(referenced.findall(text)) if f != ".gitignore" else ():
+            if name in tracked_basenames or name == Path(f).name:
                 continue
-            candidate = REPO_ROOT / name
-            if candidate.is_file():
+            where = on_disk.get(name)
+            if where:
                 findings.append(
-                    f"{f}: names '{name}', which exists here but is NOT tracked — "
-                    f"a clone of this repository does not contain it"
+                    f"{f}: names '{name}', which exists here ({', '.join(sorted(where))}) "
+                    f"but is NOT tracked — a clone of this repository does not contain it"
                 )
-            elif name in ("HANDBUCH.md", "HISTORIE.md"):
-                findings.append(f"{f}: names '{name}', which is not in the repository")
+
+        # A path-form reference is unambiguously repo-internal when its first
+        # segment is a directory of this repository. Then it must be tracked;
+        # there is no reading under which it points somewhere else.
+        for ref in set(referenced_path.findall(text)) if f != ".gitignore" else ():
+            # A relative link is resolved against the file that carries it —
+            # "../AGENTS.md" in docs/ is AGENTS.md, and reading it literally
+            # would report a file that is right there.
+            resolved = posixpath.normpath(
+                posixpath.join(posixpath.dirname(f), ref) if ref.startswith("..") else ref
+            )
+            if resolved in tracked or resolved == f:
+                continue
+            if resolved.startswith("..") or not (REPO_ROOT / resolved.split("/")[0]).is_dir():
+                continue    # points outside this repository — not this check's business
+            findings.append(
+                f"{f}: points at '{ref}', which is not tracked — the path is inside "
+                f"this repository, so a clone must be able to open it"
+            )
 
         # ── Stage 2: the named section must exist ──
         for doc, keyword, number in set(_SECTION_REFERENCE.findall(text)):

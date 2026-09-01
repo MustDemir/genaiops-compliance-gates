@@ -10,6 +10,51 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased] — Post-Thesis Development (schema_version 2)
 
+### Changed — AGENTS.md is the working contract, not a second process definition (2026-09-01)
+
+AGENTS.md was frozen on the state before SPEC-01 and SPEC-03: a gate count from
+a catalogue that had since grown, an automation split that no longer held, a
+policy-candidate figure that never described the policies, a path to a document
+excluded by .gitignore, the seven-attribute gate picture from the thesis, and
+milestones for a submission in May. No check read the file, and every AI session
+in this repository reads it first.
+
+Since T-02 there was a second problem: HANDBUCH.md is now in the repository and
+defines the same process — how a gate is built, what Definition of Ready and
+Definition of Done mean, how the work is divided. Two definitions of one process
+drift apart, which is the failure type T-02 had just fixed.
+
+- **The boundary is drawn.** HANDBUCH.md holds the normative layer — gate
+  anatomy, the E6 axis, DoR/DoD, the normative space, the glossary. AGENTS.md
+  holds the working contract: who decides what, what an assignment looks like,
+  how work is delivered, what is never delegated. Where AGENTS.md used to
+  restate the handbook it now cites it by section, and
+  `DOC_REFERENCES_ARE_TRACKED` resolves those citations.
+- **No counts, no deadlines.** The numbers live in the README, where two checks
+  hold them against the repository; the thesis milestones and chapter budgets
+  are gone, as is the Cowork-versus-chat split.
+- **The four honesty fields are written out**: which legal article grounds an
+  obligation, whether a check is MUST or SHOULD, the `evidence_level`, and
+  whether something is `implemented` or `design_only`. None of them is ever
+  decided by an AI, and the reason is stated: this repository exists to tell a
+  declaration from reality, and those four fields are where the two meet. A
+  wrong value there breaks no test and looks right in every diff — B-18 and
+  B-19 both happened exactly there.
+- **New**: `docs/TICKET_TEMPLATE.md`, derived from HANDBUCH 2.4 and 2.6 rather
+  than defining a second process — the fields T-01 and T-02 already used.
+
+**`DOC_REFERENCES_ARE_TRACKED` had a gap and it is closed.** The check looked
+for a named document only in the repository root, so a reference to a file that
+lives in a subdirectory — or nowhere — passed silently; AGENTS.md kept pointing
+at a policy-candidates document that only exists under legacy/ and is excluded
+by .gitignore. It now searches the whole tree by basename, follows path-form
+references whose first segment is a directory of this repository, resolves
+relative links against the file that carries them, and exempts .gitignore,
+whose purpose is to name files that are absent. Counter-proved both ways, in
+both reference forms. Three further findings it surfaced are fixed:
+`docs/kolloquium/material-inventory.md` announced three documents as paths
+before they were written and named a local assessment file.
+
 ### Added — the reasoning layer is in the repository, and a check keeps every reference reachable (2026-09-01)
 
 `HANDBUCH.md` and `HISTORIE.md` are tracked. They hold what the code cannot
