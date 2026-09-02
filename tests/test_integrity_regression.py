@@ -946,6 +946,50 @@ def check_runtime_mode_visible() -> dict:
             "verify_hash_chain.py: verbose output does not mark non-live runs"
         )
 
+    # B-21: visible is not the same as RECORDED. The CI measured the mode,
+    # asserted it, and then built its evidence source document without it, so
+    # every record fell back to "unknown" — correctly, because a silent "live"
+    # is the one assumption this field exists to prevent. The gap was not a
+    # missing mechanism but a missing hand-over, and it stayed invisible until
+    # somebody opened a signed artefact and read it field by field.
+    #
+    # So: every place that writes an evidence record has to pass the mode on.
+    wf = read_text(REPO_ROOT / ".github" / "workflows" / "gate-pipeline.yml")
+    record_calls = wf.count("record_evidence.py")
+    handovers = wf.count("--runtime-mode")
+    if record_calls and handovers < record_calls:
+        findings.append(
+            f".github/workflows/gate-pipeline.yml: {record_calls} evidence writes, "
+            f"{handovers} of them hand the measured runtime_mode on. A record that "
+            f"says 'unknown' about a run whose mode was measured is weaker than what "
+            f"the run knew (B-21)"
+        )
+    # Both halves, producer and consumer. A first version of this rule checked
+    # only that something READS steps.measure.outputs.runtime_mode — and stayed
+    # green when the line that WRITES the output was deleted, because the
+    # readers were still there, referring to a value that no longer existed.
+    # A check a counter-proof cannot break is not a check (B-16), and this one
+    # took three counter-proofs before the third broke it.
+    if 'runtime_mode=$MODE" >> "$GITHUB_OUTPUT' not in wf:
+        findings.append(
+            ".github/workflows/gate-pipeline.yml: the measurement step never writes "
+            "the mode to its step output — everything downstream would read an "
+            "empty value and the run would fail closed, but for the wrong reason"
+        )
+    if "steps.measure.outputs.runtime_mode" not in wf:
+        findings.append(
+            ".github/workflows/gate-pipeline.yml: nothing consumes the published "
+            "mode, so it is measured, asserted and then dropped again (B-21)"
+        )
+    # The signing job records a gate and never sees the evaluation document.
+    # It must RECEIVE the mode; deriving a second one would not measure it.
+    if "needs.quality-gates.outputs.runtime_mode" not in wf:
+        findings.append(
+            ".github/workflows/gate-pipeline.yml: the signing job does not receive "
+            "the measured runtime_mode, so the record it writes would claim less "
+            "than the run established"
+        )
+
     return make_result(
         "RUNTIME_MODE_VISIBLE",
         "runtime_mode is surfaced wherever a decision is reported (SPEC-04 Teil 1)",
