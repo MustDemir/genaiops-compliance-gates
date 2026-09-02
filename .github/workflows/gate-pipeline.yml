@@ -1360,10 +1360,24 @@ jobs:
       - name: "Case 9: a CI run that declares itself local is refused"
         run: |
           echo "::group::signing_context local vs. ci"
+          # A store of this job's own: the checked-in ones are gitignored, and
+          # a case that depends on a file the clone does not have is a case
+          # that proves nothing (the failure this job exists to prevent).
+          python3 -c "
+          import json
+          json.dump({'gate_id': 'G-OPS-05', 'requirement_id': 'R005',
+                     'decision': 'PASS', 'method': 'AUTO',
+                     'pipeline_run_id': 'negative-cases', 'commit_sha': '$GITHUB_SHA'},
+                    open('/tmp/neg-evidence.json', 'w'))
+          "
+          python3 evidence-store/scripts/record_evidence.py \
+            --sqlite /tmp/neg-store.db --gate G-OPS-05 --method AUTO \
+            --source /tmp/neg-evidence.json >/dev/null
+
           # (a) build a manifest that calls itself local, then run the same
           #     assertion the pipeline runs. No signing involved.
           python3 evidence-store/scripts/build_manifest.py \
-            --sqlite evidence-store/evidence_closed_loop.db \
+            --sqlite /tmp/neg-store.db \
             --out /tmp/neg-manifest-local.json \
             --signing-context local --quiet
           CONTEXT=$(python3 -c "import json;print(json.load(open('/tmp/neg-manifest-local.json'))['evidence_manifest']['signing_context'])")
@@ -1375,7 +1389,7 @@ jobs:
 
           # (b) counter-check: the same store, declared as a CI run
           python3 evidence-store/scripts/build_manifest.py \
-            --sqlite evidence-store/evidence_closed_loop.db \
+            --sqlite /tmp/neg-store.db \
             --out /tmp/neg-manifest-ci.json \
             --signing-context ci --quiet
           CONTEXT=$(python3 -c "import json;print(json.load(open('/tmp/neg-manifest-ci.json'))['evidence_manifest']['signing_context'])")
