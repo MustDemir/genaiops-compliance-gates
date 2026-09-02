@@ -43,7 +43,7 @@ Most AI governance tooling answers *"is there a policy?"*. This answers *"can yo
 
 - **Evidentiary strength as a second axis.** Automatability (AUTO/HYBRID/MANUAL) says how much runs without a human. It says nothing about how hard the evidence is to forge. Every check therefore also declares an **assurance level E-0 … E-3**. A pod annotation is E-0 — it *asserts* a state, it does not *prove* one.
 - **Provider and deployer obligations are separated.** *The provider owes the properties of the system; the deployer owes the properties of its use.* Art. 16(a) is the hinge, and the market gets this wrong routinely.
-- **Nothing is claimed that is not enforced.** 44 of 51 checks are implemented, 7 are design-only — and each check states which it is. The integrity suite fails the build if a declaration and reality drift apart.
+- **Nothing is claimed that is not enforced.** 48 of 55 checks are implemented, 7 are design-only — and each check states which it is. The integrity suite fails the build if a declaration and reality drift apart.
 - **There is no exception path.** The waiver mechanism was abolished rather than left as an unimplemented promise, because an exception that leaves no trace devalues the completeness of the chain.
 
 ## What "business ready" means here
@@ -89,9 +89,9 @@ The third source had sat unused in this repository since the thesis: 14 of 14 re
 
 | | |
 |---|---|
-| Gates / requirements | 17 gates · 14 requirements · 51 checks (44 enforced, 7 design-only) |
-| Policies | 18 Rego policies · 186 deny/warn/violation rules |
-| Tests | 199 Rego unit tests · 36 integration tests · 34 integrity checks · hash-chain verification per run |
+| Gates / requirements | 17 gates · 14 requirements · 55 checks (48 enforced, 7 design-only) |
+| Policies | 19 Rego policies · 196 deny/warn/violation rules |
+| Tests | 215 Rego unit tests · 36 integration tests · 35 integrity checks · hash-chain verification per run |
 | Evidence schema | v06 (`ai_act_role`, `derived_decision`, `runtime_mode` sealed into the payload) |
 | Deployment verified | Local (Minikube, Docker) and Azure AKS, Sweden Central |
 
@@ -102,8 +102,8 @@ The third source had sat unused in this repository since the thesis: 14 of 14 re
 Carried deliberately rather than silently. This section is part of the artefact, not an afterthought: a control system that hides its own gaps fails its own premise.
 
 - **Provider requirements are not derived yet.** Art. 16(a)–(l) with Art. 17–20, 43, 47, 48, 49(1) is the largest open block; `AI_ACT_ROLE=PROVIDER` matches no gate today.
-- **7 of 51 checks are design-only.** They sit in G-PRE-04, G-DEP-01 and G-DEP-03, which therefore report PASS while part of what they declare has not been evaluated. Each check states this itself, and the integrity suite verifies the claim in both directions at HIGH severity.
-- **`evidence_level.current` is E-0 on every gate.** Raising gates to E-1 requires signed CI attestations (`cosign`, keyless via OIDC); E-2 requires Gatekeeper `data.inventory` against a live cluster. Per-check levels are being filled in as the wiring lands — 14 of 51 checks carry one today: no checks at E-1, 3 at E-3, 11 at E-0, and 37 without a level. The three E-3 checks are the measurement half of G-OPS-03; E-1 is empty since the B-18 correction and stays empty until SPEC-05 lands the signed evidence manifest.
+- **7 of 55 checks are design-only.** They sit in G-PRE-04, G-DEP-01 and G-DEP-03, which therefore report PASS while part of what they declare has not been evaluated. Each check states this itself, and the integrity suite verifies the claim in both directions at HIGH severity.
+- **`evidence_level.current` is E-0 on every gate — including the one with signed checks.** Per-check levels are filled in as the wiring lands: 18 of 55 checks carry one today, 4 checks at E-1, 3 at E-3, 11 at E-0, and 37 without a level. The four E-1 checks are G-OPS-05/C-04…C-07, which read an identity-bound signature verification; the three E-3 checks are the measurement half of G-OPS-03. **G-OPS-05 itself stays at E-0**, because C-01 still checks a pod annotation as a MUST and a gate is as strong as its weakest binding check — the same rule that was applied against the same interest at G-OPS-03. E-2 still requires Gatekeeper `data.inventory` against a live cluster.
 - **Accuracy is not measurable in operation.** Without ground truth there are only proxies. The evaluation document declares `provenance: "declared"` for those figures rather than presenting them as measurements. Coupling human oversight under Art. 14 to post-market monitoring under Art. 72 — the reviewer's correction *is* the label — is designed but not built.
 - **8 of 9 runtime obligations have no gate that observes operation.** Requirements declaring `audit_trigger: Runtime` are served by gates that fire once at admission. Each states this as `runtime_coverage: declared_gap` with a reason, and the integrity suite rejects both an undeclared gap and a stale declaration. G-OPS-03 is the one exception and shows the way: annotation check at admission plus a measurement with a freshness budget.
 - **4 of 22 declared gate effects are not built.** Every gate now states what follows from its verdict — halt, record, open an incident, start a deadline, notify — and whether that effect exists. G-OPS-02 declares `start_deadline` and `open_incident` as `declared_only`: Art. 26(5) demands a consequence, not a verdict, and a gate that can only say PASS/FAIL cannot represent that duty.
@@ -247,7 +247,7 @@ Everything outside `infrastructure/scripts/` is vendor-neutral. Azure AKS is one
 | **E-2** | Actual cluster state via the Kubernetes API | Manipulating the running system |
 | **E-3** | A property **over time**, measured rather than configured | Manipulating the telemetry chain |
 
-The axes are genuinely independent: a HYBRID gate can carry E-3 evidence, an AUTO gate can sit on E-0. **G-OPS-03 shows both inside one gate** — its annotation checks are E-0 ("does someone *claim* drift detection runs?"), its measurement checks are E-3 ("did it run, and what did it say?"). G-OPS-05 used to be quoted here as pairing an E-0 annotation check with an E-1 hash-chain check; that classification was withdrawn on 2026-09-01 (B-18). A hash chain is tamper-evident against partial edits, but SHA-256 is a checksum, not a signature, and `inserted_by` is a string the writer picks — the chain binds no producer identity, so it is E-0 with an extra property. **The E-1 rung is empty today**: of the 51 checks, the measured ones in G-OPS-03 are the only ones above E-0, and nothing reaches E-1 until SPEC-05 lands the signed evidence manifest.
+The axes are genuinely independent: a HYBRID gate can carry E-3 evidence, an AUTO gate can sit on E-0. **G-OPS-03 shows both inside one gate** — its annotation checks are E-0 ("does someone *claim* drift detection runs?"), its measurement checks are E-3 ("did it run, and what did it say?"). G-OPS-05 was once quoted here as pairing an E-0 annotation check with an E-1 hash-chain check; that classification was withdrawn (B-18). A hash chain is tamper-evident against partial edits, but SHA-256 is a checksum, not a signature, and `inserted_by` is a string the writer picks — the chain binds no producer identity, so it is E-0 with an extra property. **The rung is occupied again since 2026-09-02, by a different mechanism**: C-04…C-07 read a `cosign` verification of the run's evidence manifest, keyless, bound to the workflow identity, the repository and the commit. What that signature states is **origin and time** — which workflow, on which commit, asserted this chain head and these verdicts, and when. It states nothing about whether the values are correct: that is what the rules decide, and where the numbers come from was SPEC-04's question. A compromised CI signs a wrong record flawlessly; what rises is the cost of forgery.
 
 ### Severity on the check, not the gate
 
@@ -338,16 +338,16 @@ genaiops-compliance-gates/
 ## Verification
 
 ```bash
-./tests/run_all_rego_tests.sh          # 199 Rego unit tests
+./tests/run_all_rego_tests.sh          # 215 Rego unit tests
 python3 tests/test_all.py              # 36 integration tests across all five pillars
-python3 tests/test_integrity_regression.py --fail-on medium   # 34 credibility checks
+python3 tests/test_integrity_regression.py --fail-on medium   # 35 credibility checks
 python3 pipeline/gate_orchestrator.py --scenario pipeline/scenarios/poc_healthcare_pass.json
 python3 evidence-store/scripts/verify_hash_chain.py --sqlite evidence-store/evidence_closed_loop.db
 ```
 
 **Three test layers.** Rego unit tests (fail-fast, before any gate runs) → Conftest gate evaluations against fixtures → SHA-256 hash-chain verification per pipeline run.
 
-Each run then writes an **evidence manifest** (`evidence-store/scripts/build_manifest.py`): chain head, genesis hash, record count and a digest over the gate verdicts, in one document small enough to sign. In CI the store lives in `/tmp` and dies with the runner, so a chain that is verified and then discarded proves nothing to anyone who was not watching — the manifest is what can leave. It is written on every run, including a blocked one, and it declares whether it was produced in CI or locally. Signing it is SPEC-05 Teil 3 and is not built yet; until then the manifest is a summary, not an attestation.
+Each run then writes an **evidence manifest** (`evidence-store/scripts/build_manifest.py`): chain head, genesis hash, record count and a digest over the gate verdicts, in one document small enough to sign. In CI it **is** signed — keyless, against the OIDC token of the run — and verified against the identity that signed it, before G-OPS-05 judges that verification. In CI the store lives in `/tmp` and dies with the runner, so a chain that is verified and then discarded proves nothing to anyone who was not watching — the manifest is what can leave. It is written on every run, including a blocked one, and it declares whether it was produced in CI or locally. A local run has no OIDC identity and therefore no signature: the verification document says so, C-04 warns instead of blocking, and the evidence stands at E-0. E-1 needs the CI.
 
 **The integrity regression suite is deliberately adversarial.** It does not test features; it tests whether the repository's own claims hold — that no gate declares a waiver the system cannot grant, that `implementation: implemented` matches the presence of a policy file in both directions, that evidence levels are valid and non-regressing, that `runtime_mode` stays visible wherever a decision is reported. Each check was verified by introducing the inconsistency it is meant to catch and confirming it fails.
 

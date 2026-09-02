@@ -88,6 +88,21 @@ def read_log_index(bundle_path: Path):
     return None
 
 
+def read_chain_head(db_path: str):
+    """The head of the chain as it stands, read from the store itself."""
+    import sqlite3
+
+    try:
+        conn = sqlite3.connect(db_path)
+        row = conn.execute(
+            "SELECT hash_value FROM quality_gate_results ORDER BY audit_id DESC LIMIT 1"
+        ).fetchone()
+        conn.close()
+    except sqlite3.Error:
+        return None
+    return row[0] if row else None
+
+
 def run_cosign(cosign: str, manifest: Path, bundle: Path, identity: str,
                issuer: str, repository: str, sha: str) -> tuple:
     cmd = [
@@ -125,26 +140,56 @@ def main() -> int:
     parser.add_argument("--workflow-repository", default=os.environ.get("GITHUB_REPOSITORY", ""))
     parser.add_argument("--workflow-sha", default=os.environ.get("GITHUB_SHA", ""))
     parser.add_argument("--cosign", default="cosign")
+    parser.add_argument("--observed-chain-head",
+                        help="Head of the chain as it stands NOW. C-06 compares it "
+                             "against the signed head: a valid signature over an "
+                             "unrelated statement is the gap SPEC-04 closed on the "
+                             "measurement side.")
+    parser.add_argument("--sqlite", help="Read the observed chain head from this store")
+    parser.add_argument("--input-provenance", choices=("ci-run", "fixture"),
+                        default="ci-run",
+                        help="Where the signed material came from. A run against a "
+                             "checked-in fixture demonstrates the mechanism and proves "
+                             "nothing about the current run — the policy denies it, so "
+                             "nobody can mistake one for the other (B-03).")
+    parser.add_argument("--allow-unsigned", action="store_true",
+                        help="Local mode: no bundle, no OIDC identity, no signature. "
+                             "Records that fact instead of inventing one.")
     args = parser.parse_args()
 
     manifest_path, bundle_path, out_path = Path(args.manifest), Path(args.bundle), Path(args.out)
 
-    for path, what in ((manifest_path, "manifest"), (bundle_path, "bundle")):
-        if not path.is_file():
-            print(f"ERROR: {what} not found: {path}")
-            return 2
-    if shutil.which(args.cosign) is None and not Path(args.cosign).is_file():
-        print(f"ERROR: cosign not found: {args.cosign}")
+    if not manifest_path.is_file():
+        print(f"ERROR: manifest not found: {manifest_path}")
         return 2
 
     manifest = load_manifest(manifest_path)
-    verified, result, cmd = run_cosign(
-        args.cosign, manifest_path, bundle_path,
-        args.certificate_identity, args.certificate_oidc_issuer,
-        args.workflow_repository, args.workflow_sha,
-    )
+    unsigned = args.allow_unsigned and not bundle_path.is_file()
 
-    log_index = read_log_index(bundle_path)
+    if unsigned:
+        # A local run has no OIDC identity, so there is nothing to verify.
+        # This is not a defect to be worked around but the definition:
+        # E-1 needs the CI (HANDBUCH 5.3). The document says so plainly —
+        # it does not issue a substitute, which is the quiet fallback of
+        # B-03 in new clothing.
+        verified, result, log_index = False, None, None
+    else:
+        if not bundle_path.is_file():
+            print(f"ERROR: bundle not found: {bundle_path}")
+            return 2
+        if shutil.which(args.cosign) is None and not Path(args.cosign).is_file():
+            print(f"ERROR: cosign not found: {args.cosign}")
+            return 2
+        verified, result, cmd = run_cosign(
+            args.cosign, manifest_path, bundle_path,
+            args.certificate_identity, args.certificate_oidc_issuer,
+            args.workflow_repository, args.workflow_sha,
+        )
+        log_index = read_log_index(bundle_path)
+
+    observed_head = args.observed_chain_head
+    if observed_head is None and args.sqlite:
+        observed_head = read_chain_head(args.sqlite)
 
     document = {
         "signature_verification": {
@@ -155,11 +200,22 @@ def main() -> int:
             # Its own field, because `verified: true` does not answer the
             # question from SPEC-05 6.1: verified AGAINST WHAT identity.
             # True only for an exact identity — this script offers no other.
-            "identity_pinned": bool(args.certificate_identity)
-            and not args.certificate_identity.strip() in (".*", ".+"),
+            # False when there is nothing to pin: an unsigned local run has no
+            # identity, and reporting one as "pinned" would claim more than
+            # happened — the exact move this field exists to prevent.
+            "identity_pinned": (not unsigned)
+            and bool(args.certificate_identity)
+            and args.certificate_identity.strip() not in (".*", ".+"),
             "workflow_repository_pinned": bool(args.workflow_repository),
             "workflow_sha_pinned": bool(args.workflow_sha),
             "signed_chain_head": manifest.get("chain_head"),
+            # What the chain head IS right now, read from the store rather
+            # than from the document being checked. C-06 compares the two.
+            "observed_chain_head": observed_head,
+            # Where the signed material came from. Never guessed: a fixture
+            # says "fixture", and the policy refuses to read it as evidence
+            # about this run.
+            "input_provenance": args.input_provenance,
             "signed_gate_verdicts_digest": manifest.get("gate_verdicts_digest"),
             # cosign checks the transparency log BY DEFAULT; it has to be
             # switched off deliberately. This script never switches it off, so
@@ -175,7 +231,12 @@ def main() -> int:
             "manifest_commit_sha": manifest.get("commit_sha"),
         }
     }
-    if not verified:
+    if unsigned:
+        document["signature_verification"]["unsigned_reason"] = (
+            "no bundle and no OIDC identity — a local run cannot be signed. "
+            "E-1 requires the CI (HANDBUCH 5.3)."
+        )
+    elif not verified:
         document["signature_verification"]["failure_output"] = (
             (result.stderr or result.stdout).strip()[:2000]
         )
@@ -192,7 +253,14 @@ def main() -> int:
     print(f"  identity pinned: {body['identity_pinned']}")
     print(f"  tlog verified:   {body['tlog_verified']} (rekor index {body['rekor_log_index']})")
     print(f"  signed head:     {body['signed_chain_head']}")
+    print(f"  observed head:   {body['observed_chain_head']}")
+    print(f"  input:           {body['input_provenance']}")
     print("  NOTE: this states origin and time, not that the values are correct.")
+    if unsigned:
+        # Exit 0: the local run is legitimately unsigned, the document says
+        # so, and C-04 warns rather than blocks. The verdict is Rego's (B-04).
+        print("  UNSIGNED: local run, no OIDC identity. The evidence stands at E-0.")
+        return 0
     if not verified:
         print((result.stderr or result.stdout).strip()[:2000])
         return 1

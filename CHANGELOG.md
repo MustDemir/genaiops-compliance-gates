@@ -10,6 +10,59 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased] — Post-Thesis Development (schema_version 2)
 
+### Added — four checks read a signature, and the E-1 rung is occupied again (SPEC-05 Teil 5, 2026-09-02)
+
+G-OPS-05 gains a second input and four checks. C-04 to C-07 evaluate an
+identity-bound `cosign` verification of the run's evidence manifest, and they
+are the first checks in the catalogue at E-1 since B-18 emptied the rung.
+
+**What the signature states: origin and time.** Which workflow, in which
+repository, on which commit, asserted this chain head and these verdicts, and
+when. It states nothing about whether the values are correct — the rules decide
+that, and where the numbers came from was SPEC-04's question. **E-1 raises no
+gate to E-1 either:** `evidence_level.current` of G-OPS-05 stays E-0, because
+C-01 still checks a pod annotation as a MUST and a gate is as strong as its
+weakest binding check. That rule was applied against the same interest at
+G-OPS-03 and is not loosened now that the result is inconvenient.
+
+- **C-06 is the check that is easy to miss.** Without it a validly signed
+  manifest could be presented that has nothing to do with the database that was
+  verified — a flawless signature on an unrelated statement. It compares the
+  signed chain head against the head read from the store at verification time.
+- **C-07 is a MUST, not a SHOULD.** cosign checks the transparency log by
+  default; a SHOULD would have turned the default into an option and invited
+  switching it off when the service is slow. The price is named rather than
+  hidden: Sigstore is a third-party service and its unavailability blocks the
+  run — the same trade-off as the fail-closed evidence path (B-16).
+- **G-OPS-05 moved to the signing job**, and the gate says why: the manifest is
+  built from the finished chain, so the signature cannot exist before the gates
+  have run, and `id-token: write` belongs to exactly one job. The place moves,
+  not the responsibility — one gate, one evidence record, one derived verdict
+  (D-32). **The self-reference limit is stated rather than accepted:** this
+  gate's own record is written after the manifest and therefore lies outside
+  what it verifies. A gate cannot attest its own record, as a signature does
+  not cover itself.
+- **`E1_CLAIMS_ARE_SIGNED` (HIGH)** generalises the presence obligation onto the
+  evidence axis: a check may claim E-1 only where a signature verification is
+  declared, produced by the verification script, and enforced by BOTH callers —
+  the orchestrator and the workflow. B-18 could not have been written under this
+  check.
+- **Six negative cases** in the existing job, each with its counter-check: a
+  manifest edited after signing, verification against a foreign identity, an
+  absent verification document, a signed head that is not the verified head, an
+  unchecked transparency log, and a CI run declaring itself local. None of them
+  signs anything — `id-token: write` stays in one job, and verification needs no
+  token. Two run real `cosign` calls against a real signature from an earlier
+  run, checked in as a fixture whose provenance is recorded in the document and
+  refused by the policy as evidence about the current run (B-03).
+- **`pipeline/ci/run_gate.sh`** is now a tracked file rather than a heredoc
+  inside one job. Two jobs run gates; two copies of an evaluator drift.
+
+New finding **B-21** (open, own ticket): the first signed manifest carries
+`runtime_mode: "unknown"`. The value is correct — CI records no explicit mode —
+and the signature does not make it worse, it makes it durable. Which is exactly
+what E-1 does: it says who claimed what and when, not whether the claim is good.
+
 ### Added — a run's evidence leaves the runner signed, and the signature names who signed it (SPEC-05 Teil 3+4, 2026-09-01)
 
 `cosign sign-blob` issues the signature against the OIDC token of the workflow

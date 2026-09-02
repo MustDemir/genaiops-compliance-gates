@@ -44,7 +44,10 @@
       "method": "AUTO",
       "fixture": "scenarios/healthcare-ambient-ai-scribe/fixtures/admission_review_compliant.json",
       "enforcement": "gatekeeper",
-      "description_kolloquium": "Gleiches Deployment: evidence-store-connected=true und hash-chain-enabled=true sind als Annotations gesetzt → ADMIT."
+      "description_kolloquium": "Gleiches Deployment: evidence-store-connected=true und hash-chain-enabled=true sind als Annotations gesetzt → ADMIT.",
+      "inputs": {
+        "signature_verification": "tmp/signature_verification.json"
+      }
     },
     {
       "gate_id": "G-OPS-04",
@@ -78,7 +81,10 @@
       "method": "AUTO",
       "fixture": "scenarios/healthcare-ambient-ai-scribe/fixtures/admission_review_noncompliant.json",
       "enforcement": "gatekeeper",
-      "description_kolloquium": "Gleiches nicht-konformes Deployment: keine Evidence-Store-Annotations → REJECT. Der Audit-Trail zeigt jetzt sowohl erfolgreiche als auch gescheiterte Admission-Versuche."
+      "description_kolloquium": "Gleiches nicht-konformes Deployment: keine Evidence-Store-Annotations → REJECT. Der Audit-Trail zeigt jetzt sowohl erfolgreiche als auch gescheiterte Admission-Versuche.",
+      "inputs": {
+        "signature_verification": "tmp/signature_verification.json"
+      }
     }
   ]
 }

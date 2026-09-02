@@ -1101,6 +1101,52 @@ def read_verdict_lines(db_path: str) -> list:
     return module.gate_verdict_lines(records)
 
 
+VERIFY_SIGNATURE = EVIDENCE_SCRIPTS / "verify_signature.py"
+
+
+def prepare_signature_verification(db_path: str, run_id: str, runtime_mode: str,
+                                   out_path: Path) -> dict:
+    """
+    Produce the signature verification G-OPS-05 rests on, for a LOCAL run.
+
+    Keyless signing has no local equivalent — there is no OIDC identity, so
+    there is nothing to sign and nothing to verify. That is not a defect to
+    be worked around; HANDBUCH 5.3 says E-1 needs the CI.
+
+    So this does not issue a substitute. It builds the manifest as it stands
+    and runs the real verification script in its unsigned mode, which records
+    that there is no signature and why. C-04 then WARNS instead of blocking
+    (SPEC-05 Abschnitt 8.1): the run stays drivable and the evidence says
+    which rung it stands on. A local run that quietly produced a passing
+    signature document would be the silent fallback of B-03 in new clothing —
+    which is also why prepare_inputs.py has no part in this.
+    """
+    manifest_path = out_path.parent / "evidence_manifest_local.json"
+    built = subprocess.run(
+        [sys.executable, str(BUILD_MANIFEST), "--sqlite", db_path,
+         "--out", str(manifest_path), "--pipeline-run-id", run_id,
+         "--runtime-mode", runtime_mode, "--signing-context", "local", "--quiet"],
+        capture_output=True, text=True,
+    )
+    if built.returncode != 0:
+        return {"ok": False, "error": (built.stderr or built.stdout).strip()}
+
+    verified = subprocess.run(
+        [sys.executable, str(VERIFY_SIGNATURE),
+         "--manifest", str(manifest_path),
+         "--bundle", str(out_path.parent / "evidence_manifest_local.sigstore.json"),
+         "--out", str(out_path),
+         "--certificate-identity", "local-run-has-no-oidc-identity",
+         "--sqlite", db_path,
+         "--input-provenance", "ci-run",
+         "--allow-unsigned"],
+        capture_output=True, text=True,
+    )
+    if verified.returncode != 0:
+        return {"ok": False, "error": (verified.stderr or verified.stdout).strip()}
+    return {"ok": True, "error": None, "path": str(out_path)}
+
+
 def print_banner(scenario_name: str) -> None:
     """Print the pipeline startup banner."""
     print()
@@ -1299,6 +1345,27 @@ def run_pipeline(scenario_path: str, use_conftest: bool = False, dry_run: bool =
 
         log(f"Evaluating {gate_id} ({gate['gate_name']})...", BLUE)
         evidence_failures: list = []
+
+        # SPEC-05 Teil 5: G-OPS-05 rests on a signature verification. In CI
+        # that document comes from the signing job, which is where the gate
+        # runs — the manifest is built from the finished chain, so the
+        # signature cannot exist before the gates have run (see the gate
+        # definition). Locally there is no OIDC identity and therefore no
+        # signature, so the verification runs in its unsigned mode right
+        # before the gate reads it: it states the absence rather than
+        # substituting for it, C-04 warns instead of blocking, and the run
+        # stays drivable at E-0 (SPEC-05 Abschnitt 8.1).
+        if gate_id == "G-OPS-05" and not dry_run:
+            sig_out = REPO_ROOT / "tmp" / "signature_verification.json"
+            sig_out.parent.mkdir(parents=True, exist_ok=True)
+            prepared = prepare_signature_verification(
+                db_path, run_id, runtime_mode, sig_out
+            )
+            if prepared["ok"]:
+                log("  Signature verification prepared (local run: unsigned)", BLUE)
+            else:
+                log(f"  Signature verification could not be produced: "
+                    f"{prepared['error']}", YELLOW)
 
         # Step 0: Required inputs (SPEC-04b Teil 3.2)
         # Runs BEFORE evaluation. A gate whose declared input is missing has

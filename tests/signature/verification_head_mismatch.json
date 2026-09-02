@@ -1,0 +1,19 @@
+{
+  "signature_verification": {
+    "gate_id": "G-OPS-05",
+    "verified": true,
+    "identity_pinned": true,
+    "certificate_identity": "https://github.com/MustDemir/genaiops-compliance-gates/.github/workflows/gate-pipeline.yml@refs/heads/spec05-signing",
+    "certificate_oidc_issuer": "https://token.actions.githubusercontent.com",
+    "workflow_repository_pinned": true,
+    "workflow_sha_pinned": true,
+    "signed_chain_head": "07bf78428ddddcc5b0b1bd37fa00c9d1f5e40f68916ccfcc871f67adddaf9b61",
+    "observed_chain_head": "0000000000000000000000000000000000000000000000000000000000000000",
+    "tlog_verified": true,
+    "rekor_log_index": 2675797321,
+    "verified_at": "2026-09-01T12:27:49+00:00",
+    "provenance": "derived",
+    "signing_context": "ci",
+    "input_provenance": "ci-run"
+  }
+}

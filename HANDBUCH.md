@@ -322,13 +322,15 @@ Ein präventives Gate kann ein Requirement, das „kontinuierlich" verlangt, **s
 | SPEC-03 | Rollenparameter PROVIDER/DEPLOYER/BOTH (D-12), Rollenübergangs-Gate G-OPS-06 (D-13), Schema v04 | ✅ |
 | SPEC-04 | **Messung vor Signatur** (D-27) — gemessene Inputs, Provenance, `runtime_mode` versiegelt (v06, D-28) | ✅ `9afc47d` |
 | SPEC-04b | **Die CI misst wirklich** — Erzwingung, App im Runner, Drift in der CI, Negativfaelle | ✅ vollstaendig (28.08.) |
-| SPEC-05 | **E-1: die Signatur, die eine Erzeuger-Identität trägt** — Evidenz-Manifest, `cosign` keyless/OIDC, identitätsgebundene Verifikation | 🟡 Teil 1 (Rückstufung) und Teil 2 (Evidenz-Manifest) umgesetzt; Signieren, Verifizieren und die Gate-Checks offen |
+| SPEC-05 | **E-1: die Signatur, die eine Erzeuger-Identität trägt** — Evidenz-Manifest, `cosign` keyless/OIDC, identitätsgebundene Verifikation, Gate-Checks | ✅ Teile 1–6 (02.09.); offen bleibt allein die Kettenkontinuität über Läufe hinweg (Abschnitt 13, D-32) |
 
 ## 5.3 Wo die Beweiskraft heute wirklich steht
 
 > **Ehrlich, weil es der Kern des Vorhabens ist:** `evidence_level.current` steht auf **jedem Gate auf E-0**. Nur ein Teil der Checks trägt einen eigenen Wert; **die aktuelle Verteilung über E-0, E-1, E-3 und „ohne Angabe" steht im README** und wird dort von `README_EVIDENCE_CLAIMS_CURRENT` gegen den Katalog gehalten. Das Gate-weite Feld bleibt bewusst auf dem schwächsten Bestandteil — ein Gate ist so beweiskräftig wie sein schwächster MUST-Check, nicht wie sein bester.
 >
-> **Die E-1-Sprosse ist leer.** Sie war es nicht immer: ein Check führte E-1 für die Hash-Kette, und diese Einstufung hielt der eigenen Definition nicht stand (B-18). Eine Prüfsumme ist keine Signatur, und `inserted_by` ist eine selbstgewählte Zeichenkette. Die Rückstufung ist der ehrliche Zwischenzustand, bis SPEC-05 das signierte Evidenz-Manifest liefert.
+> **Die E-1-Sprosse ist seit dem 02.09. wieder besetzt — von einem anderen Mechanismus.** Sie war zwischenzeitlich leer: ein Check führte E-1 für die Hash-Kette, und diese Einstufung hielt der eigenen Definition nicht stand (B-18). Eine Prüfsumme ist keine Signatur, und `inserted_by` ist eine selbstgewählte Zeichenkette. Was jetzt E-1 trägt, sind die Checks von G-OPS-05, die eine `cosign`-Verifikation des Evidenz-Manifests auswerten — keyless, gebunden an Workflow-Identität, Repository und Commit.
+>
+> **Was diese Signatur belegt: Herkunft und Zeitpunkt.** Welcher Workflow hat auf welchem Commit welchen Kettenkopf und welche Urteile behauptet, und wann. Sie belegt **nicht**, dass die Werte richtig sind — das entscheiden die Regeln, und woher die Zahlen kommen, war die Frage von SPEC-04. Und **E-1 hebt kein Gate auf E-1**: `evidence_level.current` von G-OPS-05 bleibt E-0, weil C-01 weiterhin als MUST eine Pod-Annotation prüft. Was steigt, ist die Beweiskraft einzelner Checks — genau dafür ist die Feldebene da.
 >
 > **Seit dem 28.08. nutzt die CI die E-3-Checks.** G-DEP-02 prüft das Dokument, das `eval_runner.py` im Runner erzeugt hat; G-OPS-03 wird gegen das Manifest **und** gegen ein im Runner gemessenes Driftdokument gewertet, in *einem* Gate-Lauf.
 >

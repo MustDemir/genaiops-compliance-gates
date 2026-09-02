@@ -60,6 +60,7 @@ Chronologisch. Status: **gültig** · **revidiert** (mit sichtbarer alter Fassun
 | **D-29** | 25.08. | Kubernetes wird verschoben; es kostet nur E-2 | gültig | H4 |
 | **D-30** | 25.08. | README ist Doku **und** Positionierung, geschichtet statt ersetzt; Englisch mit zweisprachiger Begriffstabelle | gültig, umgesetzt (`2af04a2`) | H6 |
 | **D-31** | 25.08. | Pflegeregel „eine Datei" aufgehoben; Schnitt in Handbuch + Historie | gültig | diese Datei, oben |
+| **D-32** | 02.09. | G-OPS-05 wird im signierenden Job ausgewertet, nicht bei den übrigen Gates — der Ort wandert, nicht die Zuständigkeit | gültig | H4.24 |
 
 > **Revidierte Entscheidungen bleiben im Register stehen.** D-03 und D-26 sind die beiden Fälle, in denen eine einmal getroffene Position dem Wortlaut- bzw. Evidenztest nicht standgehalten hat. Sie zu löschen würde den Eindruck erwecken, es habe den Irrtum nie gegeben — und genau der ist der Beleg dafür, dass geprüft wird.
 
@@ -333,6 +334,7 @@ Stabile IDs. Die Abschnittsnummern darunter stammen aus dem Handbuch v0.4–v0.6
 | **B-17** | **Die Anwesenheitspflicht galt überall außer in der CI.** SPEC-04b Teil 3.2 erzwang `required_inputs` im Orchestrator; die CI fährt den Orchestrator nicht, und der Integrity-Check prüfte nur den Orchestrator — beide grün, drei Tage lang, während G-OPS-02 und G-OPS-03 in der Pipeline ohne ihr Pflichtdokument bestanden | H4.19 | **behoben** — `ci_required_inputs.py`, Check beidseitig gegengeprüft |
 | **B-19** | **Die Korrektur von B-18 war selbst eine ungeprüfte Behauptung.** Der Satz „kein Check liegt über E-0" stand ab dem 01.09.2026 an zwei Stellen im README und war beim Schreiben falsch — G-OPS-03/C-03 bis C-05 tragen seit dem Drift-Messteil E-3. `README_COUNTS_CURRENT` prüft Zahlen, keine Aussagen, und sah eine Zeile darüber weg | H4.22 | **behoben** — `README_EVIDENCE_CLAIMS_CURRENT`, beidseitig gegengeprüft |
 | **B-20** | **Der Wächter gegen unauffindbare Verweise war selbst einer.** `DOC_REFERENCES_ARE_TRACKED` suchte in Stufe 1 nur im Wurzelverzeichnis und trug für `HANDBUCH.md`/`HISTORIE.md` eine hartkodierte Ausnahme. Ein Verweis auf ein Dokument in einem Unterverzeichnis — oder auf gar keines — lief durch, und der Check meldete grün, ohne geprüft zu haben: dieselbe Struktur wie eine Pod-Annotation, die einen Zustand behauptet statt ihn zu belegen. Beleg: AGENTS.md zeigte weiter auf ein Kandidaten-Dokument, das nur unter `legacy/` liegt und von `.gitignore` ausgeschlossen ist | H4.23 | **behoben** (T-03) — Suche über den ganzen Baum, Pfadverweise, relative Links, beide Verweisformen gegengeprüft |
+| **B-21** | **`runtime_mode` steht im ersten signierten Artefakt auf `unknown`.** Die CI schreibt ihre Evidence-Records ohne expliziten Modus, das Manifest übernimmt den Wert wahrheitsgemäß — und signiert ihn. Damit trägt der erste Nachweis auf E-1 die Aussage „es ist nicht feststellbar, ob ein echtes Modell lief". Die Signatur macht den Mangel nicht schlimmer, sie macht ihn **haltbar**: sie belegt Herkunft und Zeitpunkt der Aussage, nicht ihre Güte | H4.25 | **offen** — eigenes Ticket, nicht in SPEC-05 |
 
 > **B-02, B-11, B-12, B-13, B-17, B-18, B-19 und B-20 sind derselbe Fehlertyp** in drei Gewändern: eine Zahl oder ein Urteil wird **geschrieben** statt **gelesen**, und niemand hält sie gegen die Wirklichkeit. B-02 im Gate-Input, B-11 in einer Spezifikationszusage, B-12 in der Pipeline, die das Kontrollsystem prüft, B-13 in der Außendarstellung. Der Typ ist offenbar nicht auf Gate-Inputs beschränkt — er tritt überall dort auf, wo eine Behauptung neben ihrem Gegenstand liegt und niemand sie dagegen hält.
 >
@@ -882,6 +884,36 @@ Damit prüfte er zwei Fälle: Dokumente in der Wurzel, und zwei namentlich einge
 **Behoben in T-03:** Suche über den ganzen Baum nach Dateiname statt nur in der Wurzel, keine hartkodierten Namen mehr, pfadförmige Verweise ins eigene Repo, relative Links gegen ihre Quelldatei aufgelöst, `.gitignore` ausgenommen. Gegengeprüft in **beiden** Verweisformen — Name ohne Pfad und Pfad —, weil genau die Unterscheidung der blinde Fleck war.
 
 **Drei weitere Funde fielen sofort an**, die vorher unsichtbar waren: ein Inventar kündigte drei Dokumente als Pfade an, bevor sie geschrieben waren, und benannte eine lokale Gutachten-Datei. Ein Wächter, der seinen Geltungsbereich verfehlt, verbirgt nicht einen Fall, sondern alle, die er nicht ansieht.
+
+## H4.24 Ein Gate an einer unerwarteten Stelle (D-32)
+
+SPEC-05 Teil 5 gibt G-OPS-05 einen zweiten Input: den Signaturnachweis. Beim Bauen zeigte sich, dass die Reihenfolge das nicht hergibt.
+
+**Das Manifest entsteht aus der fertigen Kette.** Signiert wird also, nachdem alle Gates gelaufen sind. Ein Gate, das die Signatur des eigenen Laufs prüft, kann nicht vor ihr stehen — es gibt zu seinem Auswertungszeitpunkt nichts zu prüfen. Dazu kommt die Rechtefrage: GitHub Actions kennt `permissions` nur je Job, und `id-token: write` soll genau einem Job gehören, nicht dem gesamten Katalog.
+
+**Drei Wege standen zur Wahl:**
+
+| | Weg | Warum verworfen bzw. gewählt |
+|---|---|---|
+| **1** | **G-OPS-05 wandert in den signierenden Job** — `quality-gates` fährt die übrigen Gates, reicht Evidence-Store und Manifest als Artefakt weiter, `sign-evidence` signiert, verifiziert und wertet dann G-OPS-05 aus | **Gewählt.** Der Prüfgegenstand existiert, wenn geprüft wird; C-06 vergleicht den signierten Kopf mit dem Kopf zum Signaturzeitpunkt; die Rechteerhöhung bleibt in einem Job |
+| **2** | **G-OPS-05 bleibt stehen und bewertet den Nachweis des VORHERIGEN Laufs** | Verworfen für C-04…C-07. C-06 („der signierte Kopf ist der Kopf der geprüften Kette") wäre per Konstruktion falsch und müsste entfallen oder umdefiniert werden — genau die Lücke, gegen die SPEC-04 „Messung vor Signatur" gesetzt hat, auf der Signaturseite wieder aufgemacht |
+| **3** | **Gate und Policy jetzt, CI-Verdrahtung später** | Verworfen. Bis dahin liefe G-OPS-05 in der CI ohne seinen Pflichtinput — der Zustand, den B-17 beschreibt, und ein E-1-Anspruch, der genau dort nicht gilt, wo Images ausgeliefert werden |
+
+> **Weg 2 kommt wieder, und dann ist er richtig.** Für die **Kettenkontinuität über Läufe hinweg** (SPEC-05 Abschnitt 13) ist „der Nachweis des vorherigen Laufs" nicht der Notbehelf, sondern der Gegenstand: dort lautet die Frage, ob zwischen zwei Läufen etwas fehlt. Für C-04…C-07 lautet sie, ob **dieser** Lauf signiert ist. Dieselbe Konstruktion, zwei verschiedene Aussagen — deshalb steht hier, warum sie an der einen Stelle falsch und an der anderen richtig ist.
+
+**Die Selbstbezugsgrenze.** Der Evidence-Record von G-OPS-05 entsteht nach dem Manifest und liegt außerhalb dessen, was G-OPS-05 prüft. Ein Gate kann seinen eigenen Record nicht mitattestieren — eine Unterschrift umfasst sich nicht selbst. Das ist kein Versehen und wird nicht als Kleinigkeit behandelt: es steht in den `notes` des Gates, in SPEC-05 Abschnitt 6.3 und hier. **Wer es selbst entdeckt, hält es für einen Fehler; wem es gesagt wird, für Sorgfalt.**
+
+Nebenbei fiel dabei eine Doppelung an, die vorher niemand sah: der Gate-Runner lag als Heredoc **in** einem Job. Zwei Jobs hätten zwei Kopien bedeutet, die auseinanderlaufen. Er liegt jetzt als `pipeline/ci/run_gate.sh` im Repo — eine Datei, zwei Aufrufer.
+
+## H4.25 Der erste signierte Nachweis sagt „unknown" (B-21)
+
+Das erste Manifest, das eine echte Signatur trägt, enthält `"runtime_mode": "unknown"`.
+
+Der Wert ist korrekt: die CI schreibt ihre Evidence-Records ohne expliziten Modus, `build_manifest.py` liest ihn aus den Records und erfindet nichts. Genau deshalb ist der Befund interessant.
+
+**Die Signatur macht den Mangel nicht schlimmer — sie macht ihn haltbar.** Bis hierher war „unbekannt, ob ein echtes Modell lief" eine Zeile in einer Datenbank, die mit dem Runner verschwand. Jetzt ist es eine **signierte, im Transparenzlog verankerte Aussage** mit Herkunft und Zeitpunkt. Was E-1 leistet, wird daran gut sichtbar: die Beweisstufe sagt, wer etwas wann behauptet hat, nicht ob die Behauptung gut ist. Ein signierter Zweifel bleibt ein Zweifel — er ist nur nicht mehr abstreitbar.
+
+Behoben wird das nicht hier. SPEC-04 hat `runtime_mode` in die gehashte Payload gebracht; dass die CI ihn nicht setzt, ist eine eigene Lücke mit eigener Reihenfolge — und ein Ticket, das sie nebenbei mitnimmt, hätte in dem Commit gesteckt, in dem die E-1-Sprosse besetzt wird. Festgehalten statt mitgenommen.
 
 # TEIL H5 — Diff zur Masterarbeit
 

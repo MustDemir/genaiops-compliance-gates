@@ -1366,6 +1366,117 @@ def _python_code_only(text: str) -> str:
     return "\n".join(kept)
 
 
+def check_e1_claims_are_signed() -> dict:
+    """A check may only claim E-1 if a signature mechanism stands behind it.
+
+    This is the generalisation of REQUIRED_INPUTS_ENFORCED onto the evidence
+    axis, and it exists so that B-18 cannot happen twice. There, one check
+    carried `evidence_level: "E-1"` for a SHA-256 hash chain: a checksum, not
+    a signature, with `inserted_by` a string the writer picks. The claim was
+    wrong at the moment it was written, and nothing in the repository could
+    tell — a string in a YAML file breaks no test.
+
+    E-1 means: a produced and SIGNED artefact, signature and producer identity
+    verified, forgery costing the CI identity (HANDBUCH 3.3). So a gate that
+    carries an E-1 check must
+
+      * declare an input that IS a signature verification, produced by the
+        verification script, and
+      * have that obligation enforced by BOTH callers — the orchestrator and
+        the workflow. The lesson of B-17 is not "check harder" but: ask WHERE
+        a mechanism has to act. An E-1 claim enforced only locally would be an
+        E-0 claim with a better label in the environment that ships images.
+
+    Deliberately not checked here: whether the signature is any good. That is
+    what SIGNATURE_VERIFY_PINS_IDENTITY and the gate's own C-04..C-07 do. This
+    check answers one question only — is there a mechanism behind the claim.
+    """
+    findings = []
+    workflow = REPO_ROOT / ".github" / "workflows" / "gate-pipeline.yml"
+    wf_text = read_text(workflow) if workflow.is_file() else ""
+    orch_text = read_text(REPO_ROOT / "pipeline" / "gate_orchestrator.py")
+    runner = REPO_ROOT / "pipeline" / "ci" / "run_gate.sh"
+    runner_text = read_text(runner) if runner.is_file() else ""
+
+    for f, gate in _load_gate_files():
+        gate_id = gate.get("id", f.stem)
+        checks = gate.get("policy_checks") or []
+        e1 = [c.get("id") for c in checks
+              if isinstance(c, dict) and c.get("evidence_level") == "E-1"]
+        if not e1:
+            continue
+
+        rel = f.relative_to(REPO_ROOT)
+        inputs = gate.get("required_inputs") or []
+        signature_inputs = [
+            d for d in inputs
+            if "signature" in str(d.get("kind", ""))
+            or "verify_signature" in str(d.get("produced_by", ""))
+        ]
+        if not signature_inputs:
+            findings.append(
+                f"{rel}: {gate_id} carries E-1 on {', '.join(e1)} but declares no "
+                f"signature input. E-1 means a signed artefact with a verified "
+                f"producer identity — without one, the level is a label (B-18)"
+            )
+            continue
+
+        for decl in signature_inputs:
+            kind = decl.get("kind")
+            producer = str(decl.get("produced_by", ""))
+            if "verify_signature.py" not in producer:
+                findings.append(
+                    f"{rel}: {gate_id}'s '{kind}' is not produced by "
+                    f"verify_signature.py, so what the E-1 checks read is not a "
+                    f"signature verification"
+                )
+            # Both callers, or the obligation holds only where nobody ships.
+            if f"{gate_id}:{kind}=" not in wf_text:
+                findings.append(
+                    f".github/workflows/gate-pipeline.yml: supplies no '{kind}' for "
+                    f"{gate_id}, whose checks claim E-1 — the claim would hold "
+                    f"locally and not in the pipeline that decides what ships (B-17)"
+                )
+            if "check_required_inputs" not in orch_text:
+                findings.append(
+                    "pipeline/gate_orchestrator.py: does not enforce required inputs, "
+                    "so the E-1 claim rests on nothing locally"
+                )
+            if runner_text and "-inputs.args" not in runner_text and "-inputs.args" not in wf_text:
+                findings.append(
+                    "the CI gate runner never reads the resolved inputs — the "
+                    "signature document would be supplied and not evaluated"
+                )
+
+    # The signing side has to exist at all.
+    if any(c.get("evidence_level") == "E-1"
+           for _f, g in _load_gate_files()
+           for c in (g.get("policy_checks") or []) if isinstance(c, dict)):
+        if "sign-blob" not in wf_text:
+            findings.append(
+                ".github/workflows/gate-pipeline.yml: a check claims E-1 and nothing "
+                "in the workflow signs anything"
+            )
+        if "id-token" not in wf_text:
+            findings.append(
+                ".github/workflows/gate-pipeline.yml: a check claims E-1 and no job "
+                "requests the OIDC token — keyless signing cannot happen"
+            )
+
+    return make_result(
+        "E1_CLAIMS_ARE_SIGNED",
+        "every E-1 claim has a signature mechanism behind it, enforced by both callers",
+        "high",
+        not findings,
+        "A check claims signed evidence while nothing signs, or the obligation is "
+        "enforced in only one of the two places that run gates — B-18 with a "
+        "different label." if findings
+        else "Every E-1 check rests on a declared signature verification, enforced by "
+             "the orchestrator and by the workflow, with a signing job behind it.",
+        findings,
+    )
+
+
 def check_signature_verify_pins_identity() -> dict:
     """Every signature verification names the signer, and nothing switches it off.
 
@@ -2594,6 +2705,7 @@ def collect_results() -> list[dict]:
         check_counts_live_in_readme_only,
         check_signature_verify_pins_identity,
         check_signing_context_asserted,
+        check_e1_claims_are_signed,
         check_required_inputs_enforced,
         check_negative_cases_gate_the_build,
         check_workflow_claims_no_counts,
