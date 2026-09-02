@@ -29,7 +29,7 @@ flowchart TB
     A["<b>EU AI Act</b> (EU) 2024/1689<br/>+ Omnibus (EU) 2026/1744<br/>Art. 9–15 · 25 · 26 · 72"]
     B["<b>14 Requirements</b> R001–R014<br/><i>Regulatory requirements engineering</i>"]
     C["<b>17 Quality Gates</b><br/>10 AUTO · 7 HYBRID · 0 MANUAL<br/><i>Control framework</i>"]
-    D["<b>OPA / Rego</b> — 18 policies, 186 rules<br/>Conftest (CI) · Gatekeeper (K8s admission)<br/><i>Policy-as-code · preventive controls</i>"]
+    D["<b>OPA / Rego</b> — 19 policies, 196 rules<br/>Conftest (CI) · Gatekeeper (K8s admission)<br/><i>Policy-as-code · preventive controls</i>"]
     E["<b>Evidence Store</b> — PostgreSQL, insert-only<br/>SHA-256 hash chain, row-level security<br/><i>Tamper-evident audit trail</i>"]
     F["<b>E-0 → E-1 → E-2 → E-3</b><br/>document · signed · cluster state · measured<br/><i>Assurance level</i>"]
     A --> B --> C --> D --> E --> F
@@ -61,12 +61,12 @@ So the bar is written down and, wherever possible, executed rather than asserted
 | 3 | `evidence_level.current` reaches the level the obligation requires | manual |
 | 4 | A runtime obligation is covered by a running gate, **or declared as a gap with a reason** | `TRIGGER_MATCHES_REQUIREMENT` |
 | 5 | Inputs are **produced**, not checked in, and name the policy that reads them | `REQUIRED_INPUTS_ENFORCED` |
-| 6 | The **negative case** is tested — a green run only proves nothing blocked | CI job `negative-cases`, for 2 of 17 gates · `NEGATIVE_CASES_GATE_THE_BUILD` |
+| 6 | The **negative case** is tested — a green run only proves nothing blocked | CI job `negative-cases`, for 3 of 17 gates · `NEGATIVE_CASES_GATE_THE_BUILD` |
 | 7 | Every `acceptance_criteria` of the requirement points at a named check or a declared gap | `ACCEPTANCE_CRITERIA_TRACED` |
 
 **Today: 9 of 17 gates meet all five machine-checked points.** The other eight fail on design-only checks (G-PRE-04, G-DEP-01, G-DEP-03) or on acceptance criteria not yet traced.
 
-Point 3 is still judgement. Point 6 is now demonstrated in CI for **two** gates: a measured drift blocks G-OPS-03, a missed safety metric blocks G-DEP-02, and an *absent* measurement blocks G-OPS-03 through the presence obligation — each with a counter-check next to it, because a case that is red for the wrong reason looks the same as one that is red for the right one. For the other fifteen gates the negative case remains manual, and saying so is part of the bar. The image build depends on that job as well as on the gates: a catalogue in which nothing can turn red any more still reports 17/17 PASS.
+Point 3 is still judgement. Point 6 is demonstrated in CI for **three** gates, in nine cases: a measured drift blocks G-OPS-03, a missed safety metric blocks G-DEP-02, an *absent* measurement blocks G-OPS-03 through the presence obligation, and five cases cover G-OPS-05 — a manifest edited after signing, a verification against a foreign identity, an absent verification document, a signed chain head that is not the head that was verified, and an unchecked transparency log. Each carries a counter-check, because a case that is red for the wrong reason looks the same as one that is red for the right one. For the other fourteen gates the negative case remains manual, and saying so is part of the bar. The image build depends on that job as well as on the gates and on the signing job: a catalogue in which nothing can turn red any more still reports 17/17 PASS.
 
 **Definition of Ready — before a gate is built**
 
@@ -93,6 +93,7 @@ The third source had sat unused in this repository since the thesis: 14 of 14 re
 | Policies | 19 Rego policies · 196 deny/warn/violation rules |
 | Tests | 215 Rego unit tests · 36 integration tests · 35 integrity checks · hash-chain verification per run |
 | Evidence schema | v06 (`ai_act_role`, `derived_decision`, `runtime_mode` sealed into the payload) |
+| Evidence signing | Keyless `cosign` per CI run, verified against the workflow identity, the repository and the commit · manifest, bundle and verification document retained as run artefacts |
 | Deployment verified | Local (Minikube, Docker) and Azure AKS, Sweden Central |
 
 > **Reproducibility.** The exact state cited in the graded Master's thesis — 14 requirements, 16 gates, 10 AUTO / 6 HYBRID / 0 MANUAL, 108 rules, 141 unit tests — is frozen under the tag `thesis-v1.0` and archived under the Zenodo DOI above. Everything since is post-thesis development and reports different counts; see [CHANGELOG.md](CHANGELOG.md).
@@ -316,23 +317,27 @@ Gate inputs are produced, not found, wherever that is possible:
 
 ```
 genaiops-compliance-gates/
+├── HANDBUCH.md              # The normative layer: gate anatomy, assurance levels, DoR/DoD
+├── HISTORIE.md              # Decision register D-01…D-32, finding register B-01…B-21
+├── AGENTS.md                # Working contract for an AI in this repository
 ├── requirements/            # R001–R014 — requirements derived from the EU AI Act
 ├── gate-definitions/        # 17 gate specifications (YAML, schema_version 2)
 │   ├── gate_template.yaml
 │   ├── pre-deployment/      # G-PRE-01 … G-PRE-05
 │   ├── deployment/          # G-DEP-01 … G-DEP-06
 │   └── operations/          # G-OPS-01 … G-OPS-06
-├── policies/                # 17 OPA/Rego policies + unit tests, by lifecycle phase
-├── pipeline/                # gate_orchestrator.py, scenarios, tamper tests
+├── policies/                # 19 OPA/Rego policies + unit tests, by lifecycle phase
+├── pipeline/                # gate_orchestrator.py, scenarios, tamper tests, ci/run_gate.sh
 ├── evidence-store/          # PostgreSQL DDL, migrations v03…v06, record + verify scripts
 ├── monitoring/              # Drift detector (PSI/JSD), shared metrics reader, K8s manifests
 ├── scenarios/
 │   └── healthcare-ambient-ai-scribe/   # PoC: app, eval runner, fixtures, K8s manifests
 ├── infrastructure/          # Minikube/AKS provisioning, Helm values
 ├── tests/                   # Integration suite, integrity regression, hash parity + migration guards
-├── specs/                   # SPEC-01 … SPEC-04 — implementation specifications
-├── docs/                    # Legal primary sources, generated appendix, walkthrough, images
-└── .github/workflows/       # CI: Rego tests, 17 gates, evidence recording, chain verification
+│   └── signature/           # A real signature from an earlier run, for the negative cases
+├── specs/                   # SPEC-01 … SPEC-05 — implementation specifications
+├── docs/                    # Legal primary sources, generated appendix, walkthrough, images, TICKET_TEMPLATE.md
+└── .github/workflows/       # CI: Rego tests, gates, evidence recording, chain verification, keyless signing
 ```
 
 ## Verification
@@ -343,6 +348,8 @@ python3 tests/test_all.py              # 36 integration tests across all five pi
 python3 tests/test_integrity_regression.py --fail-on medium   # 35 credibility checks
 python3 pipeline/gate_orchestrator.py --scenario pipeline/scenarios/poc_healthcare_pass.json
 python3 evidence-store/scripts/verify_hash_chain.py --sqlite evidence-store/evidence_closed_loop.db
+python3 tests/test_evidence_manifest.py            # guards on the signable evidence manifest
+python3 tests/test_hash_parity.py                  # the three hash implementations agree
 ```
 
 **Three test layers.** Rego unit tests (fail-fast, before any gate runs) → Conftest gate evaluations against fixtures → SHA-256 hash-chain verification per pipeline run.
@@ -353,7 +360,7 @@ Each run then writes an **evidence manifest** (`evidence-store/scripts/build_man
 
 ## Post-thesis development
 
-Specifications live in [`specs/`](specs/), standing principles in [`AGENTS.md`](AGENTS.md).
+Specifications live in [`specs/`](specs/), standing principles in [`AGENTS.md`](AGENTS.md). Since 2026-09-01 the reasoning layer is in the repository as well: [`HANDBUCH.md`](HANDBUCH.md) holds the normative layer — how a gate comes about, what the assurance levels mean, the definition of ready and done — and [`HISTORIE.md`](HISTORIE.md) the decision register and the finding register B-01…B-21, which the commit messages and this file cite. They were excluded by `.gitignore` while 40 tracked files pointed at them.
 
 | Spec | What it changed |
 |---|---|
@@ -361,8 +368,10 @@ Specifications live in [`specs/`](specs/), standing principles in [`AGENTS.md`](
 | **SPEC-02** | Art. 6 "safety component" decision tree in G-PRE-01 (C-A1 … C-A7 with computed classification) |
 | **SPEC-03** | Role parameter PROVIDER/DEPLOYER/BOTH, Art. 25 gate promoted to G-OPS-06, evidence schema v04 |
 | **SPEC-04** | Measurement before signature — measured gate inputs, provenance per metric group, `runtime_mode` sealed into the chain (schema v06) |
+| **SPEC-04b** | The CI measures for real — the application runs in the runner, drift is measured there, required inputs are enforced in CI as well as locally, negative cases gate the image build |
+| **SPEC-05** | The signature that carries a producer identity — evidence manifest, keyless `cosign` signing against the run's OIDC token, identity-bound verification, and the four G-OPS-05 checks that read it (the first checks at E-1) |
 
-Counts moved from the thesis state: 16 → 17 gates, 108 → 186 rules, 141 → 199 unit tests. The published figures stay reproducible under the tag.
+Counts moved from the thesis state: 16 → 17 gates, 108 → 196 rules, 141 → 215 unit tests. The published figures stay reproducible under the tag.
 
 ---
 
