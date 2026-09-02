@@ -74,6 +74,8 @@ Eine Lieferung besteht aus drei Teilen. Fehlt einer, ist sie nicht abnahmefähig
 
 > **Grün allein ist kein Nachweis.** Ein Check, den keine Gegenprobe brechen kann, prüft nichts — er bestätigt nur, dass er läuft. Das gilt für jeden neuen Test, jeden Integrity-Check und jeden Negativfall in der CI, und es gilt beidseitig: die Kontrolle muss von *ihrer* Seite und von der Seite ihres Gegenstands brechen können.
 
+> **Die Gegenprobe läuft gegen committeten Stand.** Wer eine Kontrolle absichtlich bricht, um zu zeigen, dass sie rot wird, **committet vorher** — dann stellt das Zurücknehmen wieder her, statt zu löschen. Andernfalls trifft ein `git checkout` auf die manipulierte Datei auch die noch nicht committete Arbeit daneben, und weil sie nie existiert hat, meldet kein Test ihr Fehlen. Genau das ist am 01.09.2026 passiert: vier Gate-Checks verschwanden bei einer Gegenprobe und fielen erst beim Nachzählen auf. **Die Reihenfolge ersetzt die Sorgfalt, auf die man sich sonst verlassen müsste.**
+
 Dazu: was **nicht** geliefert wurde und warum, wenn ein Teil des Scopes offenbleiben musste. Das ist eine Angabe, keine Entschuldigung.
 
 ## 6. Commit-Konvention
