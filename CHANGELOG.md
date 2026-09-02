@@ -10,6 +10,271 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased] — Post-Thesis Development (schema_version 2)
 
+### Added — four checks read a signature, and the E-1 rung is occupied again (SPEC-05 Teil 5, 2026-09-02)
+
+G-OPS-05 gains a second input and four checks. C-04 to C-07 evaluate an
+identity-bound `cosign` verification of the run's evidence manifest, and they
+are the first checks in the catalogue at E-1 since B-18 emptied the rung.
+
+**What the signature states: origin and time.** Which workflow, in which
+repository, on which commit, asserted this chain head and these verdicts, and
+when. It states nothing about whether the values are correct — the rules decide
+that, and where the numbers came from was SPEC-04's question. **E-1 raises no
+gate to E-1 either:** `evidence_level.current` of G-OPS-05 stays E-0, because
+C-01 still checks a pod annotation as a MUST and a gate is as strong as its
+weakest binding check. That rule was applied against the same interest at
+G-OPS-03 and is not loosened now that the result is inconvenient.
+
+- **C-06 is the check that is easy to miss.** Without it a validly signed
+  manifest could be presented that has nothing to do with the database that was
+  verified — a flawless signature on an unrelated statement. It compares the
+  signed chain head against the head read from the store at verification time.
+- **C-07 is a MUST, not a SHOULD.** cosign checks the transparency log by
+  default; a SHOULD would have turned the default into an option and invited
+  switching it off when the service is slow. The price is named rather than
+  hidden: Sigstore is a third-party service and its unavailability blocks the
+  run — the same trade-off as the fail-closed evidence path (B-16).
+- **G-OPS-05 moved to the signing job**, and the gate says why: the manifest is
+  built from the finished chain, so the signature cannot exist before the gates
+  have run, and `id-token: write` belongs to exactly one job. The place moves,
+  not the responsibility — one gate, one evidence record, one derived verdict
+  (D-32). **The self-reference limit is stated rather than accepted:** this
+  gate's own record is written after the manifest and therefore lies outside
+  what it verifies. A gate cannot attest its own record, as a signature does
+  not cover itself.
+- **`E1_CLAIMS_ARE_SIGNED` (HIGH)** generalises the presence obligation onto the
+  evidence axis: a check may claim E-1 only where a signature verification is
+  declared, produced by the verification script, and enforced by BOTH callers —
+  the orchestrator and the workflow. B-18 could not have been written under this
+  check.
+- **Six negative cases** in the existing job, each with its counter-check: a
+  manifest edited after signing, verification against a foreign identity, an
+  absent verification document, a signed head that is not the verified head, an
+  unchecked transparency log, and a CI run declaring itself local. None of them
+  signs anything — `id-token: write` stays in one job, and verification needs no
+  token. Two run real `cosign` calls against a real signature from an earlier
+  run, checked in as a fixture whose provenance is recorded in the document and
+  refused by the policy as evidence about the current run (B-03).
+- **`pipeline/ci/run_gate.sh`** is now a tracked file rather than a heredoc
+  inside one job. Two jobs run gates; two copies of an evaluator drift.
+
+New finding **B-21** (open, own ticket): the first signed manifest carries
+`runtime_mode: "unknown"`. The value is correct — CI records no explicit mode —
+and the signature does not make it worse, it makes it durable. Which is exactly
+what E-1 does: it says who claimed what and when, not whether the claim is good.
+
+### Added — a run's evidence leaves the runner signed, and the signature names who signed it (SPEC-05 Teil 3+4, 2026-09-01)
+
+`cosign sign-blob` issues the signature against the OIDC token of the workflow
+run, so the producer identity is not "who held the key" but which workflow, in
+which repository, on which commit. A long-lived key in a repository secret
+would have been worse than no signature at all: the cost of forgery would be
+"access to a secret", and nothing on the artefact would show the difference.
+
+**What the signature states: origin and time.** This workflow, in this
+repository, on this commit, asserted this chain head and these verdicts at this
+moment. It does not state that the values are correct — the rules decide that,
+and where the numbers came from was SPEC-04's question. A compromised CI signs
+a wrong record flawlessly; what rises is the cost of forgery.
+
+**No gate reads the verification document yet.** SPEC-05 Teil 5 wires it into
+G-OPS-05 with four checks; until then the mechanism exists and claims nothing,
+and no check carries E-1. Mechanism before claim — the inverse order is what
+B-18 was.
+
+- **Deliberate privilege elevation.** The signing job carries `id-token: write`,
+  scoped to that job alone, over the workflow-wide `contents: read`. Sigstore
+  cannot confirm an identity without the token. No other job receives it, and
+  cosign is installed SHA-pinned like every other action here.
+- **`evidence-store/scripts/verify_signature.py`** pins identity, issuer,
+  workflow repository and workflow SHA. The last binds the signature to the
+  commit, so the document says not merely "this workflow signed" but "signed on
+  this state". It writes no `decision`: the detector verifies, Rego decides
+  (B-04). `identity_pinned` is its own field, because `verified: true` alone
+  does not answer *verified against what identity*.
+- **Manifest, bundle and verification document leave the runner** as artefacts,
+  retained 90 days. That was the point of the whole SPEC: in CI the Evidence
+  Store lives in `/tmp` and dies with the job.
+- **`SIGNATURE_VERIFY_PINS_IDENTITY` (HIGH)** keeps the three ways to make the
+  call worthless out of the repository — a permissive identity regexp and the
+  two `--insecure-ignore-*` switches. It tells naming a flag from passing one,
+  by stripping comments and docstrings before it looks, so the SPEC and this
+  suite may keep discussing them.
+- **`SIGNING_CONTEXT_ASSERTED` (MEDIUM)** holds that CI reads the declared
+  context back where the manifest is built AND in the job that signs a
+  downloaded artefact — asking where a mechanism must act, not only whether it
+  acts (B-17), and that the walkthrough issues no signature evidence of its own
+  (B-03).
+
+Proved on real runs, because keyless signing has no local equivalent: a green
+run with the manifest signed and verified (rekor index recorded, artefacts
+downloaded and read back), a run whose manifest declared itself local — both
+the building job and the signing job refused it — and the restored green run.
+Locally: the permissive regexp and the tlog switch each planted and withdrawn,
+red and green each time.
+
+### Added — inventory counts live in the README, and a check keeps them there (B-20, 2026-09-01)
+
+Two entries, one lesson.
+
+**The guard against unreachable references was one itself (B-20, HISTORIE H4.23).**
+`DOC_REFERENCES_ARE_TRACKED` shipped with the failure it was built against:
+stage 1 resolved a named document only against the repository root and carried
+a hard-coded exception for the two documents that prompted it. Everything else
+passed, and the proof sat in the same repository — the working contract still
+pointed at a candidate document that exists only under `legacy/` and is
+excluded by `.gitignore`. The check reported green without having looked. That
+is the structure of a pod annotation: a state asserted rather than evidenced.
+
+The counter-proof in T-02 was correct and still missed it, because it broke the
+check on the case it was built for. Breaking the expected case shows the
+mechanism works; it says nothing about its scope. B-17 asked *where* a
+mechanism has to act — this asks *how many shapes its subject has, and whether
+the test covers more than one*.
+
+**New integrity check `COUNTS_LIVE_IN_README_ONLY` (MEDIUM).** AGENTS.md and
+HANDBUCH.md may carry identifiers, never inventory counts. The line is
+HANDBUCH 5.1's, quoted rather than reinvented: an inventory count changes
+through growth, an identifier changes through a decision. So `E-1`,
+`schema_version: 2`, `v06`, `Exit 3`, article numbers, `R001`, `DP1`, `B-19`,
+`SPEC-04b` and section numbers stay; a gate, check, policy, rule, test,
+requirement or integrity-check tally does not. Deadlines are refused in the
+working contract only — the handbook names statutory periods, and a check that
+fires on those is the false alarm that gets a check disabled instead of
+repaired.
+
+HISTORIE.md is deliberately out of scope: it records closed events, and the
+stale numbers in it are the subject matter.
+
+- Every pattern is anchored so a digit inside an identifier cannot start a
+  match. Without that, "E-3 checks" and the heading "3.4 Gate-Anatomie" both
+  register as tallies — the first two false positives this check produced, and
+  the reason it is patterned narrowly rather than by counting digits.
+- Fenced code blocks are skipped: the commit examples and the ticket template
+  quote reality rather than asserting it.
+- Three real findings fixed in the handbook, where a gate tally, a share of
+  built gate effects and a rhetorical "the right N gates" had survived T-02.
+
+Counter-proved four ways: a gate tally planted in the working contract (red,
+withdrawn, green), an integrity tally planted in the handbook (red, withdrawn,
+green), a deadline planted in the working contract (red, withdrawn, green) —
+and, most importantly, a page of permitted numbers in both documents at once,
+including the NIS2 reporting periods and the AI Act application dates, on which
+the check stayed green.
+
+### Changed — AGENTS.md is the working contract, not a second process definition (2026-09-01)
+
+AGENTS.md was frozen on the state before SPEC-01 and SPEC-03: a gate count from
+a catalogue that had since grown, an automation split that no longer held, a
+policy-candidate figure that never described the policies, a path to a document
+excluded by .gitignore, the seven-attribute gate picture from the thesis, and
+milestones for a submission in May. No check read the file, and every AI session
+in this repository reads it first.
+
+Since T-02 there was a second problem: HANDBUCH.md is now in the repository and
+defines the same process — how a gate is built, what Definition of Ready and
+Definition of Done mean, how the work is divided. Two definitions of one process
+drift apart, which is the failure type T-02 had just fixed.
+
+- **The boundary is drawn.** HANDBUCH.md holds the normative layer — gate
+  anatomy, the E6 axis, DoR/DoD, the normative space, the glossary. AGENTS.md
+  holds the working contract: who decides what, what an assignment looks like,
+  how work is delivered, what is never delegated. Where AGENTS.md used to
+  restate the handbook it now cites it by section, and
+  `DOC_REFERENCES_ARE_TRACKED` resolves those citations.
+- **No counts, no deadlines.** The numbers live in the README, where two checks
+  hold them against the repository; the thesis milestones and chapter budgets
+  are gone, as is the Cowork-versus-chat split.
+- **The four honesty fields are written out**: which legal article grounds an
+  obligation, whether a check is MUST or SHOULD, the `evidence_level`, and
+  whether something is `implemented` or `design_only`. None of them is ever
+  decided by an AI, and the reason is stated: this repository exists to tell a
+  declaration from reality, and those four fields are where the two meet. A
+  wrong value there breaks no test and looks right in every diff — B-18 and
+  B-19 both happened exactly there.
+- **New**: `docs/TICKET_TEMPLATE.md`, derived from HANDBUCH 2.4 and 2.6 rather
+  than defining a second process — the fields T-01 and T-02 already used.
+
+**`DOC_REFERENCES_ARE_TRACKED` had a gap and it is closed.** The check looked
+for a named document only in the repository root, so a reference to a file that
+lives in a subdirectory — or nowhere — passed silently; AGENTS.md kept pointing
+at a policy-candidates document that only exists under legacy/ and is excluded
+by .gitignore. It now searches the whole tree by basename, follows path-form
+references whose first segment is a directory of this repository, resolves
+relative links against the file that carries them, and exempts .gitignore,
+whose purpose is to name files that are absent. Counter-proved both ways, in
+both reference forms. Three further findings it surfaced are fixed:
+`docs/kolloquium/material-inventory.md` announced three documents as paths
+before they were written and named a local assessment file.
+
+### Added — the reasoning layer is in the repository, and a check keeps every reference reachable (2026-09-01)
+
+`HANDBUCH.md` and `HISTORIE.md` are tracked. They hold what the code cannot
+say about itself: the E6 evidence axis, the five questions a gate must answer,
+the decision register D-01…D-31 and the finding register B-01…B-19 that this
+CHANGELOG cites in nearly every entry. Both sat in `.gitignore`, in blocks that
+otherwise list generated artefacts, while 40 tracked files pointed at them —
+every gate definition, the gate template, `record_evidence.py`,
+`drift_detector.py`, SPEC-04 and SPEC-05. Anyone who cloned the repository
+found references to documents that were not there.
+
+- **New integrity check `DOC_REFERENCES_ARE_TRACKED` (HIGH).** Stage 1: a
+  document named by a tracked file must itself be tracked — "exists on disk"
+  is not the test, because the failure looks identical from the author's
+  machine. Stage 2: a cited section number must exist as a heading in the
+  target, including the SPECs' part numbering, where "Teil 3.2" is the second
+  subsection of part 3 and not heading 3.2. HIGH severity: a wrong number can
+  be disputed, a reference to a document the reader does not have cannot even
+  be reached.
+- **Forty references corrected.** Sections in the sevens were cited as
+  belonging to the handbook; the handbook ends in the sixes and those sections
+  are in the history document. Nobody noticed while neither file could be
+  opened from a clone. One reference pointed at a section that never existed
+  anywhere and was dropped — the threshold it names is read from
+  `drift-config.yaml`, which is in the repository.
+- **Both documents were edited before being tracked.** Strategy, market
+  research, positioning, contract questions and local machine paths were taken
+  out and are not part of the published artefact. What remains is the
+  normative layer. The handbook no longer carries its own counts: they live in
+  the README, where `README_COUNTS_CURRENT` and
+  `README_EVIDENCE_CLAIMS_CURRENT` hold them against the repository — a second
+  set of numbers with no guardian is how B-12 and B-19 happened.
+
+Counter-proved in both directions: the check was run before the documents were
+added (41 findings across the gate catalogue, the migration, the policies and
+the evaluation runner) and after (green); then an invented reference to a
+handbook section that does not exist was placed in a gate definition, which it
+reported by name, and removed again. (The invented citation is described rather
+than quoted here: the check reads this file too, and a quotation would be a
+finding — which is itself the demonstration.) Suite size 30 → 31 checks; the README states the new number.
+
+### Fixed — the README says what the evidence axis actually holds, and a check keeps it that way (B-19, 2026-09-01)
+
+Correcting B-18 introduced a claim of its own. In two places the README stated
+that no check in the catalogue sits above E-0. That was false as written:
+G-OPS-03/C-03, C-04 and C-05 carry `E-3` — the measured half of the drift
+monitoring, since SPEC-04. What was meant was "no check at E-1"; what was
+written was a statement about the whole axis.
+
+It survived because `README_COUNTS_CURRENT` verifies numbers, not sentences.
+"14 of 51 checks carry one today" was covered and correct; the half-sentence
+after it was uncovered and wrong, one line apart.
+
+- The README now names the distribution instead of denying a rung:
+  **no checks at E-1, 3 at E-3, 11 at E-0, and 37 without a level.**
+- New integrity check **`README_EVIDENCE_CLAIMS_CURRENT`** (MEDIUM). It derives
+  that distribution from the gate files and requires the sentence verbatim, so
+  a check moving between levels takes the anchor with it. Alongside it, a
+  narrow contradiction detector for the sentence shape that failed here: while
+  any check sits above E-0, no "no/none … above E-0" may stand in the README.
+- Counter-proved in both directions: the claim was made false again (red, both
+  findings), restored (green), and separately C-02 was temporarily raised to
+  E-1 again — the check then demanded the catalogue's new distribution, so it
+  holds the text side and the catalogue side.
+
+Suite size 29 → 30 checks; the README states the new number. No gate, policy,
+pipeline or workflow file was touched.
+
 ### Added — the evidence manifest, so a run's evidence outlives its runner (SPEC-05 Teil 2, 2026-09-01)
 
 In CI the Evidence Store lives at `/tmp/evidence_pipeline.db` and is destroyed

@@ -1,0 +1,14 @@
+{
+  "evidence_manifest": {
+    "pipeline_run_id": "pipeline-20260901-122733-2eaffdae",
+    "commit_sha": "2eaffdaef54f9683f3418618c63bbe4554353cc1",
+    "schema_version": "v06",
+    "record_count": 17,
+    "genesis_hash": "fbfd591627f0375fe55f3bfc792541cc5e45cdc568f2b354430bb9c041338f15",
+    "chain_head": "07bf78428ddddcc5b0b1bd37fa00c9d1f5e40f68916ccfcc871f67adddaf9b61",
+    "gate_verdicts_digest": "dd80b44b85e6d39f4914e9507f4cab06636154a7f8440212e1e68dc2357e5000",
+    "runtime_mode": "unknown",
+    "signing_context": "ci",
+    "created_at": "2026-09-01T12:27:33.809722+00:00"
+  }
+}

@@ -108,6 +108,16 @@ Die Alternative — ein langlebiger privater Schlüssel in einem Repository-Secr
 - `cosign sign-blob --yes evidence_manifest.json --bundle evidence_manifest.sigstore.json` — die Endung `.sigstore.json` ist die geltende Bundle-Konvention, nicht `.bundle`
 - Bundle **und** Manifest als `upload-artifact` — sonst wiederholt sich 1.2 mit einem zusätzlichen Schritt
 
+### 5.3 Wie es gebaut wurde: ein eigener Job (nachgezogen 02.09.2026)
+
+Die Abschnitte 5 und 6 beschrieben Signieren und Verifizieren im Fluss der Pipeline. **Gebaut wurde ein eigener Job**, und die Beschreibung wird hier dem Gebauten angeglichen — eine SPEC, die den Fluss anders beschreibt als der Code ihn umsetzt, ist eine Deklaration ohne Gegenstück, also genau der Fehlertyp, den dieses Vorhaben verfolgt.
+
+**Der Grund ist die Rechteerhöhung.** GitHub Actions kennt `permissions` nur je Job. Signieren im Gate-Job hätte `id-token: write` dem gesamten Katalog gegeben; die Erhöhung soll aber genau einem Job gehören. Also wandert das Signieren in den Job `sign-evidence`, und mit ihm — siehe Teil 5 — das Gate, das die Signatur prüft.
+
+**Daraus folgt die Artefaktübergabe.** `quality-gates` lädt Manifest und Evidence-Store als Artefakt hoch, `sign-evidence` lädt beide herunter. Der signierende Job arbeitet also nicht auf dem Zustand, den er selbst erzeugt hat, sondern auf einem übergebenen.
+
+**Und daraus folgt die zweite `signing_context`-Zusicherung.** Der Wert wird zweimal geprüft: dort, wo das Manifest entsteht, und noch einmal in dem Job, der es signiert. Das ist keine Verdopplung aus Vorsicht, sondern die Lehre aus B-17: bei einem neuen Mechanismus ist nicht nur zu fragen, **ob** er wirkt, sondern **wo überall** er wirken muss. Der signierende Job prüft, was er tatsächlich bekommen hat — ein Artefakt zwischen zwei Jobs ist kein Zustand, den man annehmen darf.
+
 ---
 
 ## 6. Teil 4 — Verifizieren, und zwar identitätsgebunden
@@ -159,6 +169,16 @@ Wie in SPEC-04 (Drift) und SPEC-04b: die Verifikation erzeugt ein **Nachweisdoku
 ```
 
 `identity_pinned` ist ein eigenes Feld, weil `verified: true` allein die Frage aus 6.1 nicht beantwortet.
+
+### 6.3 Wo das Gate läuft, und was die Signatur nicht umfassen kann (nachgezogen 02.09.2026)
+
+**G-OPS-05 wird im Job `sign-evidence` ausgewertet, nicht bei den übrigen Gates.** Der Grund ist die Reihenfolge der Sache: das Manifest entsteht aus der fertigen Kette, die Signatur also nach dem Gate-Lauf. Ein Gate, das die Signatur des eigenen Laufs prüft, kann nicht vor ihr stehen. Es wandert der **Ort**, nicht die Zuständigkeit — G-OPS-05 bleibt ein Gate mit einem Evidence-Record und einem von Rego abgeleiteten Urteil, ausgewertet mit demselben Gate-Runner wie jedes andere.
+
+> **Die Selbstbezugsgrenze, benannt statt hingenommen.** Das Manifest deckt die Kette, wie sie beim Signieren steht. Der Evidence-Record von G-OPS-05 entsteht **danach** und liegt damit außerhalb dessen, was G-OPS-05 prüft. Das ist keine Lücke, sondern die Form der Sache: ein Gate kann seinen eigenen Record nicht mitattestieren, so wenig wie eine Unterschrift sich selbst umfasst. Es steht hier und in den `notes` des Gates, weil ein Leser, der es selbst entdeckt, es für einen Fehler hält — und einer, dem es gesagt wird, für Sorgfalt.
+>
+> Was die Lücke schlösse, wäre die **Kettenkontinuität über Läufe hinweg** (Abschnitt 13): der Record des einen Laufs wird vom Manifest des nächsten gedeckt. Die Entscheidung, sie hier nicht zu bauen, steht als D-32 im Register.
+
+**Lokale Läufe** haben keine OIDC-Identität und damit keine Signatur. `verify_signature.py --allow-unsigned` schreibt das Nachweisdokument trotzdem — mit `verified: false`, `identity_pinned: false` und `signing_context: "local"` —, und C-04 **warnt** statt zu blockieren. Es wird kein Ersatz ausgestellt: ein lokal erzeugter Passierschein wäre der stille Fallback aus B-03 in neuem Gewand.
 
 ---
 
@@ -267,21 +287,21 @@ Zusätzlich:
 - [x] B-18 in HISTORIE aufgenommen, im Befundregister und als eigener Abschnitt
 - [x] `evidence_manifest.json` wird auf **jedem** Lauf erzeugt, lokal wie in der CI, auch bei blockierender Pipeline
 - [x] Manifest trägt `chain_head`, `genesis_hash`, `gate_verdicts_digest`, `record_count`, `signing_context`
-- [ ] `cosign` SHA-gepinnt installiert; `id-token: write` nur im signierenden Job, Rechteerhöhung im Commit begründet
-- [ ] Manifest **und** Bundle als `upload-artifact` — die Evidenz verlässt den Runner
-- [ ] `verify_signature.py` verifiziert identitätsgebunden und schreibt ein Nachweisdokument, ohne eigene `decision`
-- [ ] Verifikation bindet zusätzlich `--certificate-github-workflow-repository` und `--certificate-github-workflow-sha` — die Signatur hängt am Commit, nicht nur am Workflow
-- [ ] Kein `--insecure-ignore-tlog`, kein `--insecure-ignore-sct`, kein alles zulassendes `--certificate-identity-regexp` im gesamten Repository
-- [ ] Integrity-Check `SIGNATURE_VERIFY_PINS_IDENTITY` (HIGH), beidseitig gegengeprüft
-- [ ] Integrity-Check `SIGNING_CONTEXT_ASSERTED` (MEDIUM), beidseitig gegengeprüft
-- [ ] G-OPS-05: `required_inputs: signature_verification`, C-04…C-07 mit Severity und `evidence_level`; C-07 als MUST, mit der Außenabhängigkeit als begründeter Abwägung im Gate
-- [ ] Orchestrator **und** Workflow erzwingen den neuen Pflichtinput (die Lehre aus B-17)
-- [ ] Integrity-Check `E1_CLAIMS_ARE_SIGNED` (HIGH), beidseitig gegengeprüft
-- [ ] `evidence_level.current` von G-OPS-05 **bleibt E-0**, Begründung im Gate nachgezogen
-- [ ] Sechs Negativfälle aus Abschnitt 11 im `negative-cases`-Job, je mit Gegenprobe
-- [ ] Hash-Parität und Chain-Migration grün; bei Payload-Änderung Migration v06 → v07 mit Cutoff
-- [ ] README, CHANGELOG, HANDBUCH 5.2/5.3 und Teil 7 nachgezogen; `README_COUNTS_CURRENT` grün
-- [ ] Formulierung geprüft: nirgends steht, die Signatur belege die **Richtigkeit** der Werte (6.3)
+- [x] `cosign` SHA-gepinnt installiert; `id-token: write` nur im signierenden Job, Rechteerhöhung im Commit begründet
+- [x] Manifest **und** Bundle als `upload-artifact` — die Evidenz verlässt den Runner
+- [x] `verify_signature.py` verifiziert identitätsgebunden und schreibt ein Nachweisdokument, ohne eigene `decision`
+- [x] Verifikation bindet zusätzlich `--certificate-github-workflow-repository` und `--certificate-github-workflow-sha` — die Signatur hängt am Commit, nicht nur am Workflow
+- [x] Kein `--insecure-ignore-tlog`, kein `--insecure-ignore-sct`, kein alles zulassendes `--certificate-identity-regexp` im gesamten Repository
+- [x] Integrity-Check `SIGNATURE_VERIFY_PINS_IDENTITY` (HIGH), beidseitig gegengeprüft
+- [x] Integrity-Check `SIGNING_CONTEXT_ASSERTED` (MEDIUM), beidseitig gegengeprüft
+- [x] G-OPS-05: `required_inputs: signature_verification`, C-04…C-07 mit Severity und `evidence_level`; C-07 als MUST, mit der Außenabhängigkeit als begründeter Abwägung im Gate
+- [x] Orchestrator **und** Workflow erzwingen den neuen Pflichtinput (die Lehre aus B-17)
+- [x] Integrity-Check `E1_CLAIMS_ARE_SIGNED` (HIGH), beidseitig gegengeprüft
+- [x] `evidence_level.current` von G-OPS-05 **bleibt E-0**, Begründung im Gate nachgezogen
+- [x] Sechs Negativfälle aus Abschnitt 11 im `negative-cases`-Job, je mit Gegenprobe
+- [x] Hash-Parität und Chain-Migration grün; bei Payload-Änderung Migration v06 → v07 mit Cutoff
+- [x] README, CHANGELOG, HANDBUCH 5.2/5.3 und Teil 7 nachgezogen; `README_COUNTS_CURRENT` grün
+- [x] Formulierung geprüft: nirgends steht, die Signatur belege die **Richtigkeit** der Werte (6.3)
 
 ---
 

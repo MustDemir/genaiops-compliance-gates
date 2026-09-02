@@ -82,7 +82,10 @@
       "enforcement": "gatekeeper",
       "constraint_template": "scenarios/healthcare-ambient-ai-scribe/k8s/gatekeeper/constraint-evidence-completeness.yaml",
       "description_de": "Prüft ob Evidence Store angebunden und Hash-Chain aktiviert ist (K8s-Annotations).",
-      "description_kolloquium": "Das letzte Gate stellt sicher: Ist die Beweissicherung aktiviert? Jede Entscheidung muss in der Datenbank landen — mit einer kryptografischen Kette die Manipulation erkennbar macht. Ohne das kommt kein Deployment durch."
+      "description_kolloquium": "Das letzte Gate stellt sicher: Ist die Beweissicherung aktiviert? Jede Entscheidung muss in der Datenbank landen — mit einer kryptografischen Kette die Manipulation erkennbar macht. Ohne das kommt kein Deployment durch.",
+      "inputs": {
+        "signature_verification": "tmp/signature_verification.json"
+      }
     },
     {
       "gate_id": "G-DEP-05",

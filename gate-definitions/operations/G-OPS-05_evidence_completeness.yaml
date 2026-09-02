@@ -8,7 +8,7 @@ trigger: "kubectl apply — OPA Gatekeeper Admission Controller + Decision-Log-V
 evidence_level:
   current: "E-0"
   target: "E-1"
-  rationale: "Streng eingestuft auf den schwaechsten Bestandteil: der Gatekeeper-Anteil (genaiops.io/evidence-store-connected, .../hash-chain-enabled) prueft Pod-Annotationen — eine Annotation behauptet einen Zustand, sie beweist ihn nicht (SPEC-01 Abschnitt 2). Der Hash-Chain-Verifikationsanteil (verify_hash_chain.py, SHA-256-Kettenpruefung ueber die tatsaechlich gespeicherten Records) war bis 01.09.2026 als E-1 ausgewiesen; das trifft nicht zu (B-18, HISTORIE H4.21). E-1 verlangt Signatur UND gepruefte Erzeuger-Identitaet: SHA-256 ist eine Pruefsumme, kein Signaturverfahren, inserted_by ist eine selbstgewaehlte Zeichenkette, und die Faelschungskosten sind Schreibzugriff auf die Datenbank, nicht Kompromittierung der CI-Identitaet. Die Kette ist manipulationsevident gegen Teilaenderungen — eine Aussage ueber innere Konsistenz, nicht ueber Herkunft — und liegt damit auf E-0 mit einer Zusatzeigenschaft. C-02 ist deshalb auf E-0 zurueckgestuft; E-1 folgt mit SPEC-05 (signiertes Evidenz-Manifest, keyless, identitaetsgebunden verifiziert). Das Gate als Ganzes bleibt auf dem Niveau seines schwaechsten Checks."
+  rationale: "Streng eingestuft auf den schwaechsten Bestandteil: der Gatekeeper-Anteil (genaiops.io/evidence-store-connected, .../hash-chain-enabled) prueft Pod-Annotationen — eine Annotation behauptet einen Zustand, sie beweist ihn nicht (SPEC-01 Abschnitt 2). Der Hash-Chain-Verifikationsanteil (verify_hash_chain.py, SHA-256-Kettenpruefung ueber die tatsaechlich gespeicherten Records) war bis 01.09.2026 als E-1 ausgewiesen; das trifft nicht zu (B-18, HISTORIE H4.21). E-1 verlangt Signatur UND gepruefte Erzeuger-Identitaet: SHA-256 ist eine Pruefsumme, kein Signaturverfahren, inserted_by ist eine selbstgewaehlte Zeichenkette, und die Faelschungskosten sind Schreibzugriff auf die Datenbank, nicht Kompromittierung der CI-Identitaet. Die Kette ist manipulationsevident gegen Teilaenderungen — eine Aussage ueber innere Konsistenz, nicht ueber Herkunft — und liegt damit auf E-0 mit einer Zusatzeigenschaft. C-02 ist deshalb auf E-0 zurueckgestuft; E-1 folgt mit SPEC-05 (signiertes Evidenz-Manifest, keyless, identitaetsgebunden verifiziert). Das Gate als Ganzes bleibt auf dem Niveau seines schwaechsten Checks. UPDATE (02.09.2026, SPEC-05 Teil 5): C-04 bis C-07 tragen E-1 — sie pruefen eine identitaetsgebundene Signaturpruefung, nicht eine Selbstauskunft. evidence_level.current bleibt trotzdem E-0, und das ist keine Bescheidenheit, sondern die Regel: C-01 prueft als MUST weiterhin eine Pod-Annotation, und ein Gate ist so stark wie sein schwaechster bindender Check. Dieselbe Regel wurde bei G-OPS-03 gegen dasselbe Interesse angewandt; sie wird nicht gelockert, weil das Ergebnis diesmal unbequem ist. Was steigt, ist die Beweiskraft einzelner Checks — sichtbar in policy_checks[].evidence_level, und genau dafuer ist die Feldebene da."
 
 policy_checks:
   - id: "C-01"
@@ -32,6 +32,55 @@ policy_checks:
     legal_refs: ["Art. 12", "Art. 15"]
     evidence_level: null
     implementation: "implemented"
+  # C-04 bis C-07 (SPEC-05 Teil 5): die ersten Checks des Katalogs auf E-1.
+  # Sie pruefen eine SIGNATURPRUEFUNG, kein Selbstauskunftsdokument — die
+  # Faelschungskosten liegen bei "Kompromittierung der CI-Identitaet", nicht
+  # bei "eine Zeile aendern". Was die Signatur belegt, ist HERKUNFT und
+  # ZEITPUNKT: welcher Workflow, in welchem Repository, auf welchem Commit
+  # hat diesen Kettenkopf und diese Urteile behauptet. Sie belegt NICHT,
+  # dass die Werte richtig sind — das entscheiden die Regeln, und woher die
+  # Zahlen kommen, war die Frage von SPEC-04.
+  - id: "C-04"
+    policy: "policy_evidence_signature"
+    description: "Ein Signaturnachweis liegt vor und die Signatur ist gueltig"
+    severity: "MUST"
+    legal_refs: ["Art. 12", "Art. 15"]
+    evidence_level: "E-1"
+    implementation: "implemented"
+  - id: "C-05"
+    policy: "policy_evidence_signature"
+    description: "Die Signatur stammt von der erwarteten Identitaet und dem erwarteten OIDC-Issuer, gebunden an den Commit"
+    severity: "MUST"
+    legal_refs: ["Art. 12", "Art. 15"]
+    evidence_level: "E-1"
+    implementation: "implemented"
+  - id: "C-06"
+    policy: "policy_evidence_signature"
+    description: "Der signierte chain_head stimmt mit dem Kopf der geprueften Kette ueberein"
+    severity: "MUST"
+    legal_refs: ["Art. 12", "Art. 15"]
+    evidence_level: "E-1"
+    implementation: "implemented"
+  - id: "C-07"
+    policy: "policy_evidence_signature"
+    description: "Die Transparenzlog-Pruefung hat stattgefunden und ein Log-Index liegt vor"
+    severity: "MUST"
+    legal_refs: ["Art. 12", "Art. 15"]
+    evidence_level: "E-1"
+    implementation: "implemented"
+
+# SPEC-05 Teil 5: der zweite Input. Ein Gate, dessen Pruefgegenstand erzeugt
+# werden muss, deklariert ihn — sonst kommt man an vier MUST-Checks vorbei,
+# indem man das Dokument weglaesst (B-11, B-17).
+required_inputs:
+  - kind: "signature_verification"
+    # Beobachtet dieser Input den laufenden Betrieb? Nein: er liest eine
+    # Signatur, er beobachtet kein System. Die Laufzeitpflicht aus R005
+    # bleibt davon unberuehrt.
+    observes_runtime: false
+    evaluated_by: "policies/operations/policy_evidence_signature.rego"
+    produced_by: "evidence-store/scripts/verify_signature.py"
+    rationale: "C-04 bis C-07 pruefen eine Signaturpruefung. Fehlt sie, wurde nicht geprueft."
 
 # Frage 5 (HANDBUCH 3.4): was folgt aus dem Urteil? Ohne diese Angabe
 # fuellt die Vorstellung die Luecke (B-13).
@@ -67,4 +116,4 @@ links:
     - "Art. 15"
 sources:
   - "requirements/R005.yaml"
-notes: "PoC-Gate (★). AUTO: Dediziertes Gate fuer Evidence-Persistierung. Gatekeeper + Decision Logs pruefen Vollstaendigkeit aller Gate-Records und Hash-Chain-Integritaet. Jede Gate-Entscheidung — automatisiert oder manuell — wird als signierter, inhaltsadressierter Evidence-Record persistiert (Butt et al., 2026: Evidence Backbone). policy_evidence_completeness, policy_hash_chain_integrity und policy_audit_trail_immutability sind gebuendelt in policies/operations/policy_evidence_completeness.rego implementiert (eine Datei, mehrere Checks, hier als C-01/C-02/C-03 auf dieselbe Datei abgebildet). UPDATE (2026-08-14, schema_version 2 / SPEC-01): policy_checks auf Objektform migriert, Severity aus R005 (MUST) uebernommen. Erstes Beispiel fuer check-spezifisches evidence_level != Gate-Default (C-02 Hash-Chain-Verifikation auf E-1, C-01 Gatekeeper-Annotation auf E-0 — demonstriert genau die in SPEC-01 Abschnitt 2 beschriebene Orthogonalitaet von Automatisierbarkeit und Beweiskraft). UPDATE (2026-09-01, SPEC-05 Teil 1): diese E-1-Einstufung von C-02 ist zurueckgenommen (B-18 / HISTORIE H4.21). Sie war an der eigenen Definition gemessen falsch — eine Hash-Kette bindet keine Erzeuger-Identitaet. C-02 steht auf E-0; der Katalog traegt damit voruebergehend keinen einzigen E-1-Check, und das ist der ehrliche Zwischenzustand, bis SPEC-05 das signierte Evidenz-Manifest liefert. UPDATE (2026-08-25): die feste Zahl \"16/16\" aus Beschreibung und Notes entfernt. Sie stammte aus dem Thesis-Stand, war seit der Ueberfuehrung von G-OPS-06 (SPEC-03) falsch und haette bei jeder weiteren Gate-Aenderung erneut veralten muessen. Ein Vollstaendigkeits-Gate, das die erwartete Anzahl hart kodiert, prueft eine Konstante statt einer Eigenschaft — die Zahl gehoert aus dem Katalog abgeleitet, nicht in die Beschreibung geschrieben."
+notes: "PoC-Gate (★). AUTO: Dediziertes Gate fuer Evidence-Persistierung. Gatekeeper + Decision Logs pruefen Vollstaendigkeit aller Gate-Records und Hash-Chain-Integritaet. Jede Gate-Entscheidung — automatisiert oder manuell — wird als signierter, inhaltsadressierter Evidence-Record persistiert (Butt et al., 2026: Evidence Backbone). policy_evidence_completeness, policy_hash_chain_integrity und policy_audit_trail_immutability sind gebuendelt in policies/operations/policy_evidence_completeness.rego implementiert (eine Datei, mehrere Checks, hier als C-01/C-02/C-03 auf dieselbe Datei abgebildet). UPDATE (2026-08-14, schema_version 2 / SPEC-01): policy_checks auf Objektform migriert, Severity aus R005 (MUST) uebernommen. Erstes Beispiel fuer check-spezifisches evidence_level != Gate-Default (C-02 Hash-Chain-Verifikation auf E-1, C-01 Gatekeeper-Annotation auf E-0 — demonstriert genau die in SPEC-01 Abschnitt 2 beschriebene Orthogonalitaet von Automatisierbarkeit und Beweiskraft). UPDATE (2026-09-01, SPEC-05 Teil 1): diese E-1-Einstufung von C-02 ist zurueckgenommen (B-18 / HISTORIE H4.21). Sie war an der eigenen Definition gemessen falsch — eine Hash-Kette bindet keine Erzeuger-Identitaet. C-02 steht auf E-0; der Katalog traegt damit voruebergehend keinen einzigen E-1-Check, und das ist der ehrliche Zwischenzustand, bis SPEC-05 das signierte Evidenz-Manifest liefert. UPDATE (02.09.2026, SPEC-05 Teil 5): das Manifest liegt vor, ist signiert und wird identitaetsgebunden geprueft; C-04 bis C-07 werten diese Pruefung aus und tragen E-1. WO DIESES GATE LAEUFT UND WARUM: G-OPS-05 wird nicht mit den uebrigen Gates im Job quality-gates ausgewertet, sondern im Job sign-evidence, unmittelbar nach Signatur und Verifikation. Der Grund ist die Reihenfolge der Sache: das Manifest entsteht aus der fertigen Kette, die Signatur also nach dem Gate-Lauf — ein Gate, das die Signatur des eigenen Laufs prueft, kann nicht vor ihr stehen. GitHub Actions kennt permissions nur je Job, und id-token: write soll genau einem Job gehoeren, nicht dem gesamten Katalog; deshalb wandert das Gate zur Signatur und nicht die Rechteerhoehung zum Gate. Es wandert der ORT, nicht die Zustaendigkeit: G-OPS-05 bleibt ein Gate mit einem Evidence-Record und einem abgeleiteten Urteil, ausgewertet von Rego wie jedes andere. SELBSTBEZUGSGRENZE, ausdruecklich benannt: das Manifest wird aus der Kette gebaut, wie sie beim Signieren steht. Der Evidence-Record DIESES Gates entsteht danach und liegt damit AUSSERHALB des Manifests, das dieses Gate prueft. Das ist kein Versehen und keine Luecke, sondern die Form der Sache — ein Gate kann seinen eigenen Record nicht mitattestieren, so wenig wie eine Unterschrift sich selbst umfasst. Wer es selbst entdeckt, haelt es fuer einen Fehler; deshalb steht es hier und in SPEC-05. Die Kettenkontinuitaet ueber Laeufe hinweg, die diese Luecke schliessen wuerde, ist eine eigene Frage und in SPEC-05 Abschnitt 13 als offen benannt (D-32). UPDATE (2026-08-25): die feste Zahl \"16/16\" aus Beschreibung und Notes entfernt. Sie stammte aus dem Thesis-Stand, war seit der Ueberfuehrung von G-OPS-06 (SPEC-03) falsch und haette bei jeder weiteren Gate-Aenderung erneut veralten muessen. Ein Vollstaendigkeits-Gate, das die erwartete Anzahl hart kodiert, prueft eine Konstante statt einer Eigenschaft — die Zahl gehoert aus dem Katalog abgeleitet, nicht in die Beschreibung geschrieben."

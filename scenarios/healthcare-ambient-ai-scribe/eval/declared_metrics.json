@@ -4,7 +4,7 @@
     "",
     "These numbers come from an offline evaluation set and are maintained by",
     "hand. That is not a defect of this repository; it is the unsolved core",
-    "problem of the field (HANDBUCH 7.6): without ground truth there is no",
+    "problem of the field (HISTORIE 7.6): without ground truth there is no",
     "accuracy in operation, only proxies. The doctor's correction before",
     "release WOULD be the label, but that feedback channel does not exist yet.",
     "",
@@ -49,5 +49,5 @@
 
   "_source": "offline evaluation set, manually maintained",
   "_evaluated_on": "2026-03-25",
-  "_note": "Kein Ground-Truth-Kanal im Betrieb — siehe HANDBUCH 7.6. Nicht als Betriebsmessung verwendbar."
+  "_note": "Kein Ground-Truth-Kanal im Betrieb — siehe HISTORIE 7.6. Nicht als Betriebsmessung verwendbar."
 }

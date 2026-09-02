@@ -6,14 +6,14 @@ SPEC-04 Teil 2. Until 2026-08, G-DEP-02 evaluated a hand-maintained
 fixture: `"model_version": "mock-v1.0.0"`, no code anywhere produced it,
 CI and the local pipeline only ever read it. Meanwhile the application
 exported `scribe_latency_seconds` and nothing consumed that. Two
-separate worlds (HANDBUCH 7.5 (1)):
+separate worlds (HISTORIE 7.5 (1)):
 
     app measures  -> scribe_latency_seconds -> Prometheus -> (ends there)
     gate checks   <- eval_results.json (hand file, invented values)
 
 The file was not even consistent with itself: `quality_metrics.accuracy`
 said 0.89 while `gate_result.details` said 0.91 for the same metric, and
-no rule compared the two (HANDBUCH 7.5 (1a)). Where a number is not
+no rule compared the two (HISTORIE 7.5 (1a)). Where a number is not
 produced, it cannot even be consistent with itself.
 
 What this script changes, and what it deliberately does not:
@@ -27,7 +27,7 @@ What this script changes, and what it deliberately does not:
 The policy `policy_safety_metrics.rego` is unchanged. The thresholds
 were never wrong. What was wrong was where the number came from — the
 evidence level sits in the provenance of the input, not in the rule
-(HANDBUCH 7.7).
+(HISTORIE 7.7).
 
 Usage:
     # measure against a running app
@@ -115,7 +115,7 @@ def resolve_runtime_mode(metrics_text: str) -> str:
 
     An absent gauge is 'unknown', never 'live'. Whoever cannot tell
     whether a real model ran has no evidence that a real model ran
-    (SPEC-04 Teil 1, HANDBUCH 7.8).
+    (SPEC-04 Teil 1, HISTORIE 7.8).
     """
     try:
         return "mock" if parse_gauge(metrics_text, "scribe_mock_mode") == 1.0 else "live"
@@ -216,7 +216,7 @@ def build_evaluation(
                 PROVENANCE_DECLARED,
                 declared.get("_source", "offline evaluation set, manually maintained"),
                 "Einmalige Pruefung vor Freigabe. Subgruppen-Performance ueber Zeit "
-                "fehlt weiterhin — HANDBUCH 7.6 Luecke 3.",
+                "fehlt weiterhin — HISTORIE 7.6 Luecke 3.",
             ),
             **declared["subgroup_analysis"],
         },

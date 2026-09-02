@@ -35,7 +35,7 @@ Massgeblich ist diese Reihenfolge:
 | `ANALYSIS_REPORT.txt` | 2026-03-16 | Archiv/Meta | Gute Metadaten zur alten Analyse, aber finaler Volltext hat 8 Kapitel/150 Seiten. |
 | `VOLLTEXT_ANALYSE_KOLLOQUIUM.md` | 2026-03-16 | Altanalyse | Sehr umfangreich, aber nur fruehe Kapitel-/Fassungsbasis. Nur punktuell fuer Formulierungen, nicht fuer finale Zahlen. |
 | `ANALYTICAL_INDEX.md` | 2026-03-16 | Altindex | Schnelle Begriffsreferenz, aber teilweise automatisch und unvollstaendig extrahiert. |
-| `GUTACHTER_BEWERTUNG.md` | 2026-03-17 | Nutzen | Wertvoll fuer Gutachterperspektive: Innovationsstaerke, PoC-Aussagekraft, Traceability-Risiko. Als Risiko-/Antwortquelle nutzen. |
+| Gutachten zur Masterarbeit (lokal, nicht im Repo) | 2026-03-17 | Nutzen | Wertvoll fuer Gutachterperspektive: Innovationsstaerke, PoC-Aussagekraft, Traceability-Risiko. Als Risiko-/Antwortquelle nutzen. |
 | `Kolloquium_Briefing_Experten_Demir.docx` | 2026-03-16 | Altversion | Durch V2/V3 ersetzt. Nicht aktiv nutzen. |
 | `Kolloquium_Briefing_Experten_Demir Kopie.docx` | 2026-03-16 | Duplikat | Nicht nutzen. |
 | `Kolloquium_Briefing_Experten_V2_Demir.docx` | 2026-03-16 | Teilweise nutzen | Gute Rollenfragen/Antworten; V3 ist besser. |
@@ -72,7 +72,7 @@ Diese Punkte duerfen nicht unkritisch aus `kolloquium_prep/` uebernommen werden:
 
 Diese Bausteine sollten in die naechsten Kolloquiumsartefakte uebernommen werden:
 
-- Gutachterperspektive aus `GUTACHTER_BEWERTUNG.md`: Die Arbeit kann als Integrationsarbeit angegriffen werden; Gegenargument sind CDV, D3xD2, Traceability-Chain und Evidence Store.
+- Gutachterperspektive (lokale Quelle, nicht im Repo): Die Arbeit kann als Integrationsarbeit angegriffen werden; Gegenargument sind CDV, D3xD2, Traceability-Chain und Evidence Store.
 - Rollenfragen aus `Kolloquium_Briefing_Experten_V3_Demir.docx`: OPA vs. Kyverno, PostgreSQL vs. Event Store, Art. 25, Cloud-Agnostik, MLflow/Kubeflow/Langfuse-Abgrenzung.
 - Web-Vergleiche aus `Web_Quellen_Analyse_Demir.docx`: GOPAL als naechstes Vergleichsobjekt, Microsoft GenAIOps ohne Compliance-Layer, Langfuse als Observability ohne Governance.
 - Einstieg aus `🎬 Einstieg.docx`: "Aus Paragraphen werden pruefbare Gates" ist stark, aber muss an die finale 20-Minuten-Folienspur angepasst werden.
@@ -90,6 +90,8 @@ Diese Bausteine sollten in die naechsten Kolloquiumsartefakte uebernommen werden
 
 Auf Basis dieser Inventarisierung sollten als naechstes drei arbeitsfaehige Dateien entstehen:
 
-1. `docs/kolloquium/20-minute-presentation-script.md` - finale Sprechspur plus Live-Demo-Timing.
-2. `docs/kolloquium/live-demo-route.md` - Repo-Durchgang mit Green/Red/Tamper-Fallback.
-3. `docs/kolloquium/professor-defense-qa.md` - Fragencluster mit priorisierten Antworten, besonders Errata A1-A9 und Composite-Review-Angriffen.
+1. Eine finale Sprechspur mit Live-Demo-Timing (20 Minuten).
+2. Eine Demo-Route durch das Repo, mit Green-, Red- und Tamper-Fallback.
+3. Ein Fragenkatalog mit priorisierten Antworten, besonders zu den Errata A1-A9 und den Composite-Review-Angriffen.
+
+> Die drei sind noch nicht geschrieben. Sie stehen hier als Vorhaben und bewusst **ohne Dateipfad**: ein Pfad in Backticks liest sich wie ein Verweis, den man oeffnen kann, und `DOC_REFERENCES_ARE_TRACKED` haelt das im ganzen Repo auseinander.

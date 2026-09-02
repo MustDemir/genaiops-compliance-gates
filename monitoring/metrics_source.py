@@ -201,7 +201,7 @@ def quantile_resolution(buckets: dict[float, float], value_seconds: float) -> di
 
     Making the weakness machine-readable rather than a footnote follows the
     same line as `provenance`: the number stays, its trustworthiness stops
-    being invisible (HANDBUCH 7.8).
+    being invisible (HISTORIE 7.8).
     """
     bounds = sorted(buckets)
     finest = bounds[0]
@@ -270,7 +270,7 @@ def parse_counter_total(
 
 
 # ──────────────────────────────────────────────────────────────
-# Provenance (SPEC-04 Teil 2.3 / HANDBUCH 7.8)
+# Provenance (SPEC-04 Teil 2.3 / HISTORIE 7.8)
 # ──────────────────────────────────────────────────────────────
 
 PROVENANCE_MEASURED = "measured"
@@ -286,7 +286,7 @@ def provenance_block(kind: str, source: str, note: str | None = None) -> dict:
     E6 applied at field level: after this, every single number in an
     evaluation document says whether it was measured, computed, or
     merely asserted. It does not make a declared number true — it makes
-    it legible as an assertion (HANDBUCH 7.8).
+    it legible as an assertion (HISTORIE 7.8).
     """
     if kind not in VALID_PROVENANCE:
         raise ValueError(f"provenance must be one of {VALID_PROVENANCE}, got '{kind}'")

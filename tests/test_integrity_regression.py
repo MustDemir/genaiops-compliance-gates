@@ -39,7 +39,9 @@ from __future__ import annotations
 
 import argparse
 import json
+import posixpath
 import re
+import subprocess
 import sys
 from pathlib import Path
 
@@ -1143,6 +1145,759 @@ def check_readme_counts_current() -> dict:
     )
 
 
+def check_readme_evidence_claims_current() -> dict:
+    """The README's statements ABOUT evidence levels must match the catalogue.
+
+    README_COUNTS_CURRENT verifies numbers. It does not read sentences, and
+    that gap has a name: correcting B-18 — a check classified E-1 that met
+    nothing E-1 requires — the README gained the sentence "no check in the
+    catalogue is above E-0". It was false when it was written. Three checks
+    in G-OPS-03 carry E-3, and have since the drift measurement landed. The
+    correction of a claim-without-a-counterpart was itself a claim without a
+    counterpart, and the suite that exists to catch exactly that was looking
+    at numbers one line above.
+
+    Two mechanisms, because a prose claim needs both:
+
+      1. ONE anchored sentence, derived from the gate files, must appear
+         verbatim. The distribution of evidence_level over all checks is a
+         fact of the catalogue; the README has to state the current one, and
+         the moment a check moves to another level the derived sentence
+         changes and the anchor is gone. Everything else in the README stays
+         free prose — exactly one sentence is word-bound, and that is the
+         price of having a claim that can be checked at all.
+
+      2. A contradiction detector for the sentence shape that failed here:
+         "no/none ... above E-0". It is the strongest and most flattering
+         claim the axis allows, so it is the one worth guarding, and it must
+         not stand anywhere in the README while a check sits above E-0.
+
+    Deliberately NOT attempted: reading the prose semantically. A check whose
+    verdict depends on interpretation is a check that gets argued with
+    instead of fixed.
+    """
+    readme = read_text(REPO_ROOT / "README.md")
+    findings = []
+
+    checks = [c for _, g in _load_gate_files() for c in (g.get("policy_checks") or [])]
+    levels = {}
+    for c in checks:
+        level = c.get("evidence_level") if isinstance(c, dict) else None
+        levels[level] = levels.get(level, 0) + 1
+    at_e1 = levels.get("E-1", 0)
+    at_e3 = levels.get("E-3", 0)
+    at_e0 = levels.get("E-0", 0)
+    unset = levels.get(None, 0)
+
+    # The anchored sentence. Written the way the README says it, so the
+    # expected string IS the claim rather than a paraphrase of it.
+    claim = (f"{at_e1 if at_e1 else 'no'} check{'' if at_e1 == 1 else 's'} at E-1, "
+             f"{at_e3} at E-3, {at_e0} at E-0, and {unset} without a level")
+    if claim not in readme:
+        findings.append(
+            f"README.md: does not state '{claim}' — the evidence-level "
+            f"distribution derived from the gate catalogue is not what the "
+            f"README claims about it"
+        )
+
+    # The claim shape that broke: an absolute "nothing is above E-0".
+    above = at_e1 + at_e3 + levels.get("E-2", 0)
+    if above:
+        for match in re.finditer(r"(?:no|none)[^.\n]{0,80}above E-0", readme, re.I):
+            findings.append(
+                f"README.md: says '{match.group(0).strip()}' while {above} check(s) "
+                f"sit above E-0 — the sentence that had to be corrected once "
+                f"already (B-18), stated again"
+            )
+
+    return make_result(
+        "README_EVIDENCE_CLAIMS_CURRENT",
+        "the README's statements about evidence levels match the catalogue",
+        "medium",
+        not findings,
+        "The front page describes the evidence axis as something other than "
+        "what the gate files hold — the failure type B-18 exposed, in the text "
+        "that corrects it." if findings
+        else f"README matches the catalogue: E-1 {at_e1}, E-3 {at_e3}, "
+             f"E-0 {at_e0}, without a level {unset}.",
+        findings,
+    )
+
+
+# Documents a reference may point at. A reference to source code is a
+# different thing — the file either compiles or it does not, and the build
+# says so. A reference to a DOCUMENT fails silently.
+_DOC_REFERENCE_ROOTS = ("docs/", "specs/")
+
+# "HANDBUCH 3.4", "HISTORIE H4.19", "SPEC-04b Teil 3.2" — a named section.
+# The keyword is captured, because "Teil 3.2" in a SPEC is NOT heading 3.2:
+# the SPECs number their headings (1., 2., 3.) and label their parts
+# independently ("## 5. Teil 3 — ..."), so "Teil 3.2" means the second
+# subsection of part 3, which is heading 5.2. Resolving that is the whole
+# reason this stage can say anything about SPEC references at all.
+_SECTION_REFERENCE = re.compile(
+    r"\b(HANDBUCH|HISTORIE|SPEC-\d+[a-z]?)\b[^\S\n]*"
+    r"(Abschnitt |Teil |Kapitel )?"
+    r"(H?\d+(?:\.\d+)*)"
+)
+
+# "## 5. Teil 3 — Drift messen": part 3 lives under heading 5.
+_PART_HEADING = re.compile(r"^#{1,6}\s*(\d+(?:\.\d+)*)\.?\s*Teil\s+(\d+)\b", re.M)
+
+# Headings a section number can live in: "## 3.4 ...", "### H4.19 ...",
+# "# TEIL 5 — ...", "## Teil 3 ..." — all four forms occur in these files.
+_HEADING_NUMBER = re.compile(r"^#{1,6}\s*(?:TEIL|Teil)?\s*(H?\d+(?:\.\d+)*)", re.M)
+
+
+def _tracked_files() -> set[str]:
+    """Everything git knows. The point of the check is what a CLONE contains."""
+    out = subprocess.run(
+        ["git", "-C", str(REPO_ROOT), "ls-files"],
+        capture_output=True, text=True, timeout=30,
+    )
+    if out.returncode != 0:
+        return set()
+    return set(out.stdout.split())
+
+
+def _part_map_of(path: Path) -> dict:
+    """part number -> heading number that carries it ("Teil 3" -> "5")."""
+    return {part: head for head, part in _PART_HEADING.findall(read_text(path))}
+
+
+def _headings_of(path: Path) -> set[str]:
+    numbers = set()
+    for n in _HEADING_NUMBER.findall(read_text(path)):
+        numbers.add(n)
+        # "7.3.1" also satisfies a reference to "7.3", which is how these
+        # documents are cited in practice.
+        parts = n.split(".")
+        for i in range(1, len(parts)):
+            numbers.add(".".join(parts[:i]))
+    return numbers
+
+
+# Inventory counts: a number that moves when the repository grows. The
+# distinction is HANDBUCH 5.1's, quoted rather than reinvented — an inventory
+# count changes through growth, an identifier changes through a decision.
+#
+# Every pattern is anchored with (?<![\w.-]) so that a digit belonging to an
+# identifier cannot start a match: "E-3 checks" is a level and a noun,
+# "3.4 Gate-Anatomie" is a section heading, and a guard that fires on those
+# gets switched off instead of fixed.
+_NO_ID_BEFORE = r"(?<![\w.\-/])"
+_COUNT_PATTERNS = [
+    (_NO_ID_BEFORE + r"\d+\s+(?:Quality[ -]?)?Gates?(?![\w-])", "gate count"),
+    (_NO_ID_BEFORE + r"\d+\s+(?:policy[ _-]?)?[Cc]hecks?(?![\w-])", "check count"),
+    (_NO_ID_BEFORE + r"\d+\s+(?:OPA[/ ])?(?:Rego[- ]?)?(?:Policies|Policy|policies)(?![\w-])",
+     "policy count"),
+    (_NO_ID_BEFORE + r"\d+\s+(?:Rego[- ]?)?(?:Regeln|rules)(?![\w-])", "rule count"),
+    (_NO_ID_BEFORE + r"\d+\s+(?:Unit[- ]?)?(?:Tests?|tests?)(?![\w-])", "test count"),
+    (_NO_ID_BEFORE + r"\d+\s+[Rr]equirements?(?![\w-])", "requirement count"),
+    (_NO_ID_BEFORE + r"\d+\s+[Ii]ntegrity[- ]?[Cc]hecks?(?![\w-])", "integrity-check count"),
+    (_NO_ID_BEFORE + r"\d+\s*(?:AUTO|HYBRID|MANUAL)(?![\w-])", "automation split"),
+    (_NO_ID_BEFORE + r"\d+\s*[:/]\s*\d+\s*[:/]\s*\d+(?![\w-])", "ratio"),
+    (_NO_ID_BEFORE + r"\d+\s+(?:von|of)\s+\d+\s+"
+     r"(?:Gates?|[Cc]hecks?|Tests?|[Rr]equirements?|Policies|Regeln|rules|Wirkungen)(?![\w-])",
+     "share of an inventory"),
+]
+
+# A date used as a deadline. AGENTS.md only: the handbook names statutory
+# periods (NIS2 hours, the AI Act's application dates), and a check that fires
+# on those is the false alarm this one exists to avoid.
+_DATE = r"(?:\d{1,2}\.\s?(?:Januar|Februar|M(?:ä|ae)rz|April|Mai|Juni|Juli|August|September|Oktober|November|Dezember)\s+\d{4}|\d{1,2}\.\d{1,2}\.\d{4}|\d{4}-\d{2}-\d{2})"
+_DEADLINE_WORD = r"(?:Deadline|Frist|Abgabe|Termin|f(?:ä|ae)llig|sp(?:ä|ae)testens|bis zum|bis spätestens|due|by the)"
+_DEADLINE_LINE = re.compile(
+    rf"(?:{_DEADLINE_WORD}[^\n]{{0,60}}{_DATE}|{_DATE}[^\n]{{0,40}}{_DEADLINE_WORD})"
+)
+
+# Scope. HISTORIE.md is deliberately absent: it is a historical record and
+# states counts about closed events on purpose — "the CI reported 173/173
+# while 187 tests ran" is the finding, not a stale number.
+_COUNT_FREE_DOCS = ("AGENTS.md", "HANDBUCH.md")
+
+
+# The three ways to make an identity-bound verification worthless
+# (SPEC-05 Abschnitt 6.1). They are named "insecure-*" for a reason; a
+# repository whose subject is evidential weight does not use them, and does
+# not rely on nobody having the idea — it checks.
+_PERMISSIVE_IDENTITY = re.compile(
+    r"--certificate-identity-regexp[= ]+['\"]?(\.\*|\.\+|\^?\.\*\$?)['\"]?"
+)
+_TLOG_OFF = "--insecure-ignore-tlog"
+_SCT_OFF = "--insecure-ignore-sct"
+
+# Only files that can EXECUTE something are held to the flags. Naming a flag
+# in order to forbid it is not using it, and the ban has to be explainable:
+# the SPEC says why the flags are refused, the policy comment says why C-07 is
+# a MUST, the fixtures say what they are. Scanning prose for the words it
+# needs in order to forbid them is the false alarm that gets a check switched
+# off rather than repaired (T-03, twice).
+#
+# Rego cannot invoke cosign, so .rego counts as prose here too. The two places
+# that CAN call it — the workflow and the verification script — are covered,
+# and both were counter-proved by planting each flag in them (T-05).
+_EXECUTABLE_SUFFIXES = (".py", ".sh", ".yml", ".yaml")
+_SIGNING_FLAG_PROSE = (
+    "tests/test_integrity_regression.py",
+    "evidence-store/scripts/verify_signature.py",
+)
+
+
+def _python_code_only(text: str) -> str:
+    """The source with comments and docstrings removed.
+
+    A file may NAME a forbidden flag in order to forbid it — this suite does,
+    the SPEC does, and so does the verification script's own docstring. What
+    matters is whether the flag is PASSED. Stripping prose separates the two;
+    a check that cannot tell "mentions" from "uses" produces exactly the kind
+    of false alarm that gets a check switched off (T-03).
+    """
+    import io
+    import tokenize
+
+    triple = ('"' * 3, "'" * 3, 'r' + '"' * 3, 'r' + "'" * 3)
+    kept = []
+    try:
+        for tok in tokenize.generate_tokens(io.StringIO(text).readline):
+            if tok.type == tokenize.COMMENT:
+                continue
+            if tok.type == tokenize.STRING and tok.line.strip().startswith(triple):
+                continue    # docstring
+            kept.append(tok.string)
+    except (tokenize.TokenError, IndentationError):
+        return text
+    return "\n".join(kept)
+
+
+def check_e1_claims_are_signed() -> dict:
+    """A check may only claim E-1 if a signature mechanism stands behind it.
+
+    This is the generalisation of REQUIRED_INPUTS_ENFORCED onto the evidence
+    axis, and it exists so that B-18 cannot happen twice. There, one check
+    carried `evidence_level: "E-1"` for a SHA-256 hash chain: a checksum, not
+    a signature, with `inserted_by` a string the writer picks. The claim was
+    wrong at the moment it was written, and nothing in the repository could
+    tell — a string in a YAML file breaks no test.
+
+    E-1 means: a produced and SIGNED artefact, signature and producer identity
+    verified, forgery costing the CI identity (HANDBUCH 3.3). So a gate that
+    carries an E-1 check must
+
+      * declare an input that IS a signature verification, produced by the
+        verification script, and
+      * have that obligation enforced by BOTH callers — the orchestrator and
+        the workflow. The lesson of B-17 is not "check harder" but: ask WHERE
+        a mechanism has to act. An E-1 claim enforced only locally would be an
+        E-0 claim with a better label in the environment that ships images.
+
+    Deliberately not checked here: whether the signature is any good. That is
+    what SIGNATURE_VERIFY_PINS_IDENTITY and the gate's own C-04..C-07 do. This
+    check answers one question only — is there a mechanism behind the claim.
+    """
+    findings = []
+    workflow = REPO_ROOT / ".github" / "workflows" / "gate-pipeline.yml"
+    wf_text = read_text(workflow) if workflow.is_file() else ""
+    orch_text = read_text(REPO_ROOT / "pipeline" / "gate_orchestrator.py")
+    runner = REPO_ROOT / "pipeline" / "ci" / "run_gate.sh"
+    runner_text = read_text(runner) if runner.is_file() else ""
+
+    for f, gate in _load_gate_files():
+        gate_id = gate.get("id", f.stem)
+        checks = gate.get("policy_checks") or []
+        e1 = [c.get("id") for c in checks
+              if isinstance(c, dict) and c.get("evidence_level") == "E-1"]
+        if not e1:
+            continue
+
+        rel = f.relative_to(REPO_ROOT)
+        inputs = gate.get("required_inputs") or []
+        signature_inputs = [
+            d for d in inputs
+            if "signature" in str(d.get("kind", ""))
+            or "verify_signature" in str(d.get("produced_by", ""))
+        ]
+        if not signature_inputs:
+            findings.append(
+                f"{rel}: {gate_id} carries E-1 on {', '.join(e1)} but declares no "
+                f"signature input. E-1 means a signed artefact with a verified "
+                f"producer identity — without one, the level is a label (B-18)"
+            )
+            continue
+
+        for decl in signature_inputs:
+            kind = decl.get("kind")
+            producer = str(decl.get("produced_by", ""))
+            if "verify_signature.py" not in producer:
+                findings.append(
+                    f"{rel}: {gate_id}'s '{kind}' is not produced by "
+                    f"verify_signature.py, so what the E-1 checks read is not a "
+                    f"signature verification"
+                )
+            # Both callers, or the obligation holds only where nobody ships.
+            if f"{gate_id}:{kind}=" not in wf_text:
+                findings.append(
+                    f".github/workflows/gate-pipeline.yml: supplies no '{kind}' for "
+                    f"{gate_id}, whose checks claim E-1 — the claim would hold "
+                    f"locally and not in the pipeline that decides what ships (B-17)"
+                )
+            if "check_required_inputs" not in orch_text:
+                findings.append(
+                    "pipeline/gate_orchestrator.py: does not enforce required inputs, "
+                    "so the E-1 claim rests on nothing locally"
+                )
+            if runner_text and "-inputs.args" not in runner_text and "-inputs.args" not in wf_text:
+                findings.append(
+                    "the CI gate runner never reads the resolved inputs — the "
+                    "signature document would be supplied and not evaluated"
+                )
+
+    # The signing side has to exist at all.
+    if any(c.get("evidence_level") == "E-1"
+           for _f, g in _load_gate_files()
+           for c in (g.get("policy_checks") or []) if isinstance(c, dict)):
+        if "sign-blob" not in wf_text:
+            findings.append(
+                ".github/workflows/gate-pipeline.yml: a check claims E-1 and nothing "
+                "in the workflow signs anything"
+            )
+        if "id-token" not in wf_text:
+            findings.append(
+                ".github/workflows/gate-pipeline.yml: a check claims E-1 and no job "
+                "requests the OIDC token — keyless signing cannot happen"
+            )
+
+    return make_result(
+        "E1_CLAIMS_ARE_SIGNED",
+        "every E-1 claim has a signature mechanism behind it, enforced by both callers",
+        "high",
+        not findings,
+        "A check claims signed evidence while nothing signs, or the obligation is "
+        "enforced in only one of the two places that run gates — B-18 with a "
+        "different label." if findings
+        else "Every E-1 check rests on a declared signature verification, enforced by "
+             "the orchestrator and by the workflow, with a signing job behind it.",
+        findings,
+    )
+
+
+def check_signature_verify_pins_identity() -> dict:
+    """Every signature verification names the signer, and nothing switches it off.
+
+    Keyless signing is only worth the OIDC round-trip if the verification is
+    bound to an identity. cosign covers the most obvious mistake itself — a
+    verify-blob without any identity argument aborts rather than passing. The
+    remaining three ways are quieter, and each one alone cancels the evidence
+    level:
+
+      * a permissive --certificate-identity-regexp (".*", ".+"): the call goes
+        green and pins nothing. The same hole as B-17 — the mechanism is
+        present and does not act.
+      * --insecure-ignore-tlog: no transparency log, so no independent
+        timestamp and no public verifiability. The proof falls back to "trust
+        whoever hands it to you".
+      * --insecure-ignore-sct: no proof of inclusion in the certificate
+        transparency log.
+
+    So: every `cosign verify-blob` in this repository must carry an exact
+    --certificate-identity and a --certificate-oidc-issuer, and none of the
+    three switches may appear anywhere outside the files that discuss them.
+
+    HIGH severity: a verification that pins nothing is indistinguishable from
+    one that pins everything, right up to the moment it matters.
+    """
+    findings = []
+    tracked = _tracked_files()
+
+    for f in sorted(tracked):
+        path = REPO_ROOT / f
+        if not path.is_file():
+            continue
+        try:
+            text = read_text(path)
+        except (OSError, UnicodeDecodeError):
+            continue
+
+        executable = f.endswith(_EXECUTABLE_SUFFIXES)
+        if executable and f not in _SIGNING_FLAG_PROSE:
+            for flag in (_TLOG_OFF, _SCT_OFF):
+                for line in find_lines(text, flag):
+                    findings.append(
+                        f"{f}:{line}: uses {flag} — the transparency-log proof is "
+                        f"the difference between an independently checkable "
+                        f"signature and one you have to take on trust"
+                    )
+            hit = _PERMISSIVE_IDENTITY.search(text)
+            if hit:
+                findings.append(
+                    f"{f}: uses a permissive identity regexp ({hit.group(0).strip()}) — "
+                    f"the verification goes green while pinning nothing"
+                )
+
+        # Every actual verify-blob invocation must pin identity and issuer.
+        if "verify-blob" in text and executable and f not in _SIGNING_FLAG_PROSE:
+            if "--certificate-identity" not in text:
+                findings.append(
+                    f"{f}: calls cosign verify-blob without --certificate-identity"
+                )
+            if "--certificate-oidc-issuer" not in text:
+                findings.append(
+                    f"{f}: calls cosign verify-blob without --certificate-oidc-issuer"
+                )
+
+    # The verification script is the one place that builds the invocation, so
+    # it is held to the flags positively rather than by absence.
+    script = REPO_ROOT / "evidence-store" / "scripts" / "verify_signature.py"
+    if script.is_file():
+        text = read_text(script)
+        for flag in ("--certificate-identity", "--certificate-oidc-issuer",
+                     "--certificate-github-workflow-repository",
+                     "--certificate-github-workflow-sha"):
+            if flag not in text:
+                findings.append(
+                    f"evidence-store/scripts/verify_signature.py: does not pass {flag} — "
+                    f"the signature would not be bound to {'the commit' if 'sha' in flag else 'an identity'}"
+                )
+        code = _python_code_only(text)
+        for flag in (_TLOG_OFF, _SCT_OFF):
+            if flag in code:
+                findings.append(
+                    f"evidence-store/scripts/verify_signature.py: passes {flag}"
+                )
+        if '"decision"' in code or "'decision'" in code:
+            findings.append(
+                "evidence-store/scripts/verify_signature.py: writes a 'decision' field — "
+                "the detector verifies, Rego decides (B-04)"
+            )
+    else:
+        findings.append("evidence-store/scripts/verify_signature.py is missing")
+
+    return make_result(
+        "SIGNATURE_VERIFY_PINS_IDENTITY",
+        "every signature verification is bound to an identity, and nothing switches the checks off",
+        "high",
+        not findings,
+        "A signature verification in this repository pins nothing, or a check that "
+        "makes it worth something is switched off — the evidence level is gone and "
+        "the call still reports success." if findings
+        else "Verification pins identity, issuer, repository and commit; no insecure "
+             "flag and no permissive identity regexp anywhere.",
+        findings,
+    )
+
+
+def check_signing_context_asserted() -> dict:
+    """CI reads `signing_context` back and refuses a run that calls itself local.
+
+    The manifest DECLARES the context it was produced in (SPEC-05 Abschnitt
+    8.1). A declaration is worth what the check behind it is worth, and this
+    project has found the same gap five times (B-02, B-11, B-12, B-13, B-17):
+    the field exists, nobody holds it against anything.
+
+    The obvious objection to `signing_context` is that somebody sets it to
+    "local" in CI and is off the hook. So CI asserts the value after building
+    the manifest and again in the job that signs it, and aborts otherwise —
+    and this check holds that both assertions are in the workflow.
+    """
+    workflow = REPO_ROOT / ".github" / "workflows" / "gate-pipeline.yml"
+    findings = []
+    if not workflow.is_file():
+        findings.append("gate-pipeline.yml is missing")
+    else:
+        text = read_text(workflow)
+        asserts = [
+            line for line in text.splitlines()
+            if 'CONTEXT' in line and '!=' in line and '"ci"' in line
+        ]
+        if not asserts:
+            findings.append(
+                ".github/workflows/gate-pipeline.yml: does not compare signing_context "
+                "against 'ci' — the manifest could declare itself local in CI and "
+                "nothing would notice"
+            )
+        elif len(asserts) < 2:
+            findings.append(
+                ".github/workflows/gate-pipeline.yml: asserts signing_context in only "
+                "one place. It is asserted where the manifest is built AND in the job "
+                "that signs it — the signing job runs on a downloaded artefact, so it "
+                "has to check what it actually received (B-17: ask where a mechanism "
+                "must act, not only whether it acts)"
+            )
+        if "signing_context" not in text:
+            findings.append(
+                ".github/workflows/gate-pipeline.yml: never mentions signing_context"
+            )
+        for marker in ("exit 1",):
+            if asserts and marker not in text:
+                findings.append(
+                    ".github/workflows/gate-pipeline.yml: compares signing_context but "
+                    "does not abort"
+                )
+
+    prepare = REPO_ROOT / "pipeline" / "prepare_inputs.py"
+    if prepare.is_file():
+        text = read_text(prepare)
+        for forbidden in ("signing_context", "cosign", "sign-blob", "signature_verification"):
+            if forbidden in text:
+                findings.append(
+                    f"pipeline/prepare_inputs.py: mentions '{forbidden}' — the walkthrough "
+                    f"may not issue its own signature evidence (B-03)"
+                )
+
+    return make_result(
+        "SIGNING_CONTEXT_ASSERTED",
+        "CI checks the manifest's declared signing context and refuses a local claim",
+        "medium",
+        not findings,
+        "The signing context is declared and not held against anything — the failure "
+        "type this project has now found six times." if findings
+        else "signing_context is asserted where the manifest is built and again where "
+             "it is signed; prepare_inputs.py issues no signature evidence.",
+        findings,
+    )
+
+
+def check_counts_live_in_readme_only() -> dict:
+    """The working contract and the handbook carry no inventory counts.
+
+    HANDBUCH 5.1 draws the line and this check only enforces it: an inventory
+    count changes through GROWTH, an identifier changes through a DECISION.
+    "Seventeen gates" is the first kind and is wrong as soon as an eighteenth
+    lands. "E-1", "schema_version: 2", "v06", "Exit 3", "Art. 26", "R001",
+    "DP1", "B-19", "SPEC-04b", "2.4" are the second kind: they move when
+    somebody decides they move, and they are the vocabulary these documents
+    are written in.
+
+    The counts live in the README, where README_COUNTS_CURRENT and
+    README_EVIDENCE_CLAIMS_CURRENT hold them against the repository. A second
+    set anywhere else has no guardian, and this project has the receipts:
+    AGENTS.md carried a gate count from before SPEC-01 and SPEC-03 for weeks
+    while every session read it first (T-03), the CI reported a hard-coded
+    test count while more tests ran (B-12), and the README denied a rung of
+    its own evidence axis (B-19).
+
+    HISTORIE.md is out of scope on purpose. It records closed events, and the
+    stale numbers in it are the subject matter.
+
+    Deadlines are checked in AGENTS.md only. The handbook names statutory
+    periods and application dates; a check that fires on those is the false
+    alarm that gets a check disabled rather than repaired.
+    """
+    findings = []
+    for name in _COUNT_FREE_DOCS:
+        path = REPO_ROOT / name
+        if not path.is_file():
+            findings.append(f"{name}: not found — this check cannot verify it")
+            continue
+        text = read_text(path)
+
+        in_code_fence = False
+        for number, line in enumerate(text.splitlines(), start=1):
+            if line.lstrip().startswith("```"):
+                in_code_fence = not in_code_fence
+                continue
+            if in_code_fence:
+                continue    # commit-message examples and templates quote reality
+
+            for pattern, label in _COUNT_PATTERNS:
+                for hit in re.finditer(pattern, line):
+                    findings.append(
+                        f"{name}:{number}: states '{hit.group(0).strip()}' — an inventory "
+                        f"{label} belongs in the README, where a check holds it against "
+                        f"the repository (HANDBUCH 5.1)"
+                    )
+
+            if name == "AGENTS.md":
+                deadline = _DEADLINE_LINE.search(line)
+                if deadline:
+                    findings.append(
+                        f"{name}:{number}: states a deadline ('{deadline.group(0).strip()}') "
+                        f"— the working contract describes how work is done, not when it is due"
+                    )
+
+    return make_result(
+        "COUNTS_LIVE_IN_README_ONLY",
+        "the working contract and the handbook delegate every inventory count to the README",
+        "medium",
+        not findings,
+        "A second set of counts has appeared outside the README, where nothing holds "
+        "it against the repository — the way AGENTS.md came to describe a catalogue "
+        "that no longer existed." if findings
+        else f"{len(_COUNT_FREE_DOCS)} documents carry identifiers and no inventory counts.",
+        findings,
+    )
+
+
+def check_doc_references_are_tracked() -> dict:
+    """A tracked file may not point at a document the clone does not contain.
+
+    HANDBUCH.md and HISTORIE.md carried the reasoning layer of this control
+    system — the E6 axis, the gate anatomy, the finding register B-01…B-19 —
+    and were excluded by .gitignore, in a block that listed generated
+    artefacts. Meanwhile 40 tracked files cited them: every gate definition,
+    the gate template, record_evidence.py, drift_detector.py, SPEC-04 and
+    SPEC-05. Anyone who cloned the repository found references to documents
+    that were not there.
+
+    That is worse than a wrong number, and it is why this check is HIGH: a
+    wrong number can be checked and disputed. A reference to a document the
+    reader does not have is a claim they cannot even reach.
+
+    Two stages, because the reference has two halves:
+
+      1. The FILE must be tracked. Not "must exist" — a file that exists only
+         on the author's machine is exactly the failure this check is named
+         after, and it looks identical from inside that machine.
+      2. The SECTION must exist. Forty references named the handbook and a
+         section in the sevens; the handbook ends in the sixes, and those
+         sections live in the history document. Nobody noticed for as long
+         as neither document could be opened from a clone. (The numbers are
+         spelled around here on purpose: this check reads its own file too,
+         and a quoted example would be a finding.)
+
+    Deliberately narrow: only documents (*.md at the root, docs/**, specs/**)
+    and only numbered sections. Prose references ("see the handbook") are not
+    machine-checkable and stay a matter of authorship.
+    """
+    tracked = _tracked_files()
+    if not tracked:
+        return make_result(
+            "DOC_REFERENCES_ARE_TRACKED",
+            "every document a tracked file names is itself tracked",
+            "high", False,
+            "git ls-files produced nothing — the check could not run, and a "
+            "check that cannot run must not report success.",
+            ["Could not enumerate tracked files."],
+        )
+
+    findings = []
+    doc_names = {}          # bare filename -> repo-relative path, for tracked docs
+    for f in tracked:
+        if f.endswith(".md") and ("/" not in f or f.startswith(_DOC_REFERENCE_ROOTS)):
+            doc_names[Path(f).name] = f
+
+    tracked_basenames = {Path(f).name for f in tracked}
+
+    # Every markdown file that is physically here, by basename. The first
+    # version of this check looked only in the repository ROOT, which let
+    # AGENTS.md keep pointing at a policy-candidates document: the file is
+    # real, it sits under legacy/, and .gitignore excludes it —
+    # so it was neither tracked nor found where the check was looking. A
+    # guard that only searches one directory reports "fine" for exactly the
+    # references that are hardest to notice by hand.
+    on_disk = {}
+    for path in REPO_ROOT.rglob("*.md"):
+        if any(part in (".git", ".claude", "node_modules") for part in path.parts):
+            continue
+        on_disk.setdefault(path.name, []).append(
+            str(path.relative_to(REPO_ROOT))
+        )
+
+    # Documents referenced by name anywhere in the tracked tree.
+    referenced = re.compile(r"\b([A-Z][A-Za-z0-9_-]*\.md)\b")
+    # ...and referenced by path, e.g. a file below docs/ or specs/.
+    referenced_path = re.compile(r"((?:[A-Za-z0-9_.-]+/)+[A-Za-z0-9_.-]+\.md)")
+
+    section_targets = {}    # document name -> set of heading numbers
+    for f in sorted(tracked):
+        path = REPO_ROOT / f
+        if not path.is_file():
+            continue
+        try:
+            text = read_text(path)
+        except (OSError, UnicodeDecodeError):
+            continue
+
+        # ── Stage 1: the document must be tracked ──
+        #
+        # .gitignore is exempt: naming files that are NOT in the repository
+        # is what that file is for.
+        for name in set(referenced.findall(text)) if f != ".gitignore" else ():
+            if name in tracked_basenames or name == Path(f).name:
+                continue
+            where = on_disk.get(name)
+            if where:
+                findings.append(
+                    f"{f}: names '{name}', which exists here ({', '.join(sorted(where))}) "
+                    f"but is NOT tracked — a clone of this repository does not contain it"
+                )
+
+        # A path-form reference is unambiguously repo-internal when its first
+        # segment is a directory of this repository. Then it must be tracked;
+        # there is no reading under which it points somewhere else.
+        for ref in set(referenced_path.findall(text)) if f != ".gitignore" else ():
+            # A relative link is resolved against the file that carries it —
+            # "../AGENTS.md" in docs/ is AGENTS.md, and reading it literally
+            # would report a file that is right there.
+            resolved = posixpath.normpath(
+                posixpath.join(posixpath.dirname(f), ref) if ref.startswith("..") else ref
+            )
+            if resolved in tracked or resolved == f:
+                continue
+            if resolved.startswith("..") or not (REPO_ROOT / resolved.split("/")[0]).is_dir():
+                continue    # points outside this repository — not this check's business
+            findings.append(
+                f"{f}: points at '{ref}', which is not tracked — the path is inside "
+                f"this repository, so a clone must be able to open it"
+            )
+
+        # ── Stage 2: the named section must exist ──
+        for doc, keyword, number in set(_SECTION_REFERENCE.findall(text)):
+            if doc.startswith("SPEC-"):
+                matches = [n for n in doc_names if n.startswith(doc + "-")]
+                if not matches:
+                    continue
+                target = doc_names[matches[0]]
+            else:
+                target = doc_names.get(doc + ".md")
+                if target is None:
+                    # The citation names the document without its extension —
+                    # "HANDBUCH 3.4" — which stage 1's filename scan cannot
+                    # see. This is the exact shape the 17 gate definitions
+                    # used while both documents sat in .gitignore.
+                    findings.append(
+                        f"{f}: cites '{doc}', which is not a tracked document — "
+                        f"a clone cannot open the section it points at"
+                    )
+                    continue
+            if target not in section_targets:
+                section_targets[target] = (
+                    _headings_of(REPO_ROOT / target),
+                    _part_map_of(REPO_ROOT / target),
+                )
+            headings, parts = section_targets[target]
+
+            wanted = number
+            if keyword.strip() == "Teil" and parts:
+                head, _, rest = number.partition(".")
+                if head not in parts:
+                    findings.append(
+                        f"{f}: cites '{doc} Teil {number}', but {target} has no "
+                        f"part {head}"
+                    )
+                    continue
+                wanted = f"{parts[head]}.{rest}" if rest else parts[head]
+
+            if wanted not in headings:
+                cited = f"{doc} {keyword}{number}".strip()
+                findings.append(
+                    f"{f}: cites '{cited}', but {target} has no section "
+                    f"with that number"
+                )
+
+    return make_result(
+        "DOC_REFERENCES_ARE_TRACKED",
+        "every document a tracked file names is tracked, and every cited section exists",
+        "high",
+        not findings,
+        "A tracked file points at a document or a section that a clone of this "
+        "repository does not contain — a claim the reader cannot even reach." if findings
+        else f"{len(doc_names)} documents referenced, every reference resolves to a "
+             f"tracked file and an existing section.",
+        sorted(set(findings)),
+    )
+
+
 def check_required_inputs_enforced() -> dict:
     """SPEC-04b Teil 3.2: a high-assurance check must not be bypassable.
 
@@ -1950,6 +2705,12 @@ def collect_results() -> list[dict]:
         check_waiver_not_declarative,
         check_runtime_mode_visible,
         check_readme_counts_current,
+        check_readme_evidence_claims_current,
+        check_doc_references_are_tracked,
+        check_counts_live_in_readme_only,
+        check_signature_verify_pins_identity,
+        check_signing_context_asserted,
+        check_e1_claims_are_signed,
         check_required_inputs_enforced,
         check_negative_cases_gate_the_build,
         check_workflow_claims_no_counts,

@@ -99,7 +99,7 @@ VALID_DERIVED_DECISIONS = ("block", "manual_review", "warn", "approve")
 # ────────────────────────────────────────────────────────────────
 # Die App exportiert seit jeher `scribe_mock_mode` — eine Metrik, die sagt
 # "ich tue nur so". Kein Gate hat sie je gelesen, und ein Mock-PASS war von
-# einem Echt-PASS in dieser Tabelle byte-identisch (HANDBUCH 7.5 (3)).
+# einem Echt-PASS in dieser Tabelle byte-identisch (HISTORIE 7.5 (3)).
 #
 # Entschieden wurde Variante C aus SPEC-04 3.3: nicht den Mock-Betrieb
 # verbieten (er ist ein legitimer PoC-Modus, und ein Gate, das immer

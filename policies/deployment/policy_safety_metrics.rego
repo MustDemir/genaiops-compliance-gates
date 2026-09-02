@@ -88,7 +88,7 @@ deny contains msg if {
 # gate_result.details = {"metric": "accuracy", "value": 0.91}. Two
 # invented values for one metric, not even consistent with each other,
 # and no rule ever compared them because this rule and the threshold
-# rules read separate paths (HANDBUCH 7.5 (1a)).
+# rules read separate paths (HISTORIE 7.5 (1a)).
 #
 # `gate_result` is gone from the produced document, so the
 # contradiction cannot recur — it is now structurally impossible
@@ -113,18 +113,18 @@ deny contains msg if {
 # ================================================================
 # SPEC-04 Teil 2.3. Since the evaluation document states, per metric
 # group, whether its numbers were measured, derived or merely asserted
-# (HANDBUCH 7.8), the gate can say out loud when a blocking check rests
+# (HISTORIE 7.8), the gate can say out loud when a blocking check rests
 # on an assertion.
 #
 # accuracy and safety_score are `declared` today and will stay that way
 # until a ground-truth channel exists: without labels there is no
-# accuracy in operation, only proxies (HANDBUCH 7.6). That is the
+# accuracy in operation, only proxies (HISTORIE 7.6). That is the
 # unsolved core problem of the field, not a defect to be blocked on.
 #
 # Hence SHOULD, not MUST. A MUST would turn the whole estate red on the
 # day it was introduced and would punish a gap this SPEC deliberately
 # leaves open — and a gate that always fails gets switched off within
-# weeks (HANDBUCH 7.3.1). The run stays green; the finding stands in
+# weeks (HISTORIE 7.3.1). The run stays green; the finding stands in
 # the evidence.
 
 warn contains msg if {

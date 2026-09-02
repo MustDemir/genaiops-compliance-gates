@@ -162,117 +162,12 @@ jobs:
       # Distinguishes Policy-FAIL (violations found) from
       # Tool-FAIL (Conftest crash, missing policy, syntax error).
       # ════════════════════════════════════════════════════════
-      - name: "Define gate runner"
+      - name: "Prepare the gate runner"
         run: |
-          cat > /tmp/run_gate.sh << 'GATESCRIPT'
-          #!/usr/bin/env bash
-          # Ein Gate, mehrere Eingabedokumente, EIN Ergebnis.
-          #
-          # Argumente 1-4 sind die Primaerauswertung (Manifest, Dokumentation,
-          # Fixture). Zusaetzlich liest das Skript die Pflichtinputs, die
-          # ci_required_inputs.py aus der Gate-Definition aufgeloest hat:
-          #
-          #   /tmp/<gate>-inputs.args   pfad TAB policy TAB namespace, je Zeile
-          #   /tmp/<gate>-inputs.fail   Meldungen, wenn ein Pflichtinput fehlt
-          #
-          # Beide Auswertungen fliessen in EINEN Evidence-Record — dieselbe Form
-          # wie role_scope BOTH in SPEC-03, das ebenfalls einmal wertet und
-          # einmal aufzeichnet. Sie getrennt aufzuzeichnen hiesse, ein Gate mit
-          # zwei Urteilen zu fuehren; genau das wurde bei G-OPS-03 in SPEC-04
-          # aufgeloest und wird hier nicht wieder eingefuehrt.
-          GATE_ID="$1"; FIXTURE="$2"; POLICY="$3"; NAMESPACE="$4"
-          LOWER="${GATE_ID,,}"
-          RESULT_FILE="/tmp/${LOWER}-result.json"
-          STDERR_FILE="/tmp/${LOWER}-result.stderr"
-          PARTS_LIST="/tmp/${LOWER}-parts.tsv"
-
-          : > "$STDERR_FILE"
-          rm -f /tmp/${LOWER}-part-*.json
-
-          printf '%s\t%s\t%s\n' "$FIXTURE" "$POLICY" "$NAMESPACE" > "$PARTS_LIST"
-          if [ -f "/tmp/${LOWER}-inputs.args" ]; then
-            cat "/tmp/${LOWER}-inputs.args" >> "$PARTS_LIST"
-          fi
-
-          PART=0
-          while IFS=$'\t' read -r F P N; do
-            [ -z "$F" ] && continue
-            PART=$((PART + 1))
-            conftest test "$F" \
-              --policy "$P" \
-              --namespace "$N" \
-              --no-color --output json \
-              > "/tmp/${LOWER}-part-${PART}.json" 2>> "$STDERR_FILE"
-          done < "$PARTS_LIST"
-
-          # Zusammenfuehren. Ein Pflichtinput, der FEHLT, wird als Verstoss in
-          # dasselbe Ergebnis geschrieben — nicht als Abbruch. Ein Gate, das
-          # seine Messung nicht vorgelegt bekommen hat, ist FAIL mit benanntem
-          # Grund, und dieser Grund gehoert in die Evidenz.
-          FAILURES=$(GATE_ID="$GATE_ID" LOWER="$LOWER" RESULT_FILE="$RESULT_FILE" python3 -c "
-          import glob, json, os, sys
-          gate, lower = os.environ['GATE_ID'], os.environ['LOWER']
-          merged, tool_error = [], False
-          for part in sorted(glob.glob(f'/tmp/{lower}-part-*.json')):
-            try:
-              with open(part) as f: merged.extend(json.load(f))
-            except Exception: tool_error = True
-          missing = []
-          try:
-            with open(f'/tmp/{lower}-inputs.fail') as f:
-              missing = [l.strip() for l in f if l.strip()]
-          except FileNotFoundError: pass
-          if missing:
-            merged.append({'filename': f'{gate}/required_inputs',
-                           'namespace': 'orchestrator',
-                           'successes': 0,
-                           'failures': [{'msg': m} for m in missing]})
-          with open(os.environ['RESULT_FILE'], 'w') as f: json.dump(merged, f)
-          print(-1 if tool_error else sum(len(r.get('failures', [])) for r in merged))
-          " 2>/dev/null || echo -1)
-
-          if [ "$FAILURES" = "-1" ]; then
-            echo "::error::$GATE_ID — Conftest tool error (not a policy violation)"
-            echo "--- stderr ---"
-            cat "$STDERR_FILE"
-            echo "--- parts ---"
-            cat /tmp/${LOWER}-part-*.json 2>/dev/null
-            exit 1
-          fi
-
-          if [ "$PART" -gt 1 ]; then
-            echo "   $GATE_ID: $PART Eingabedokumente ausgewertet, ein Ergebnis"
-          fi
-
-          # Log stderr if non-empty (warnings, deprecations)
-          if [ -s "$STDERR_FILE" ]; then
-            echo "::warning::$GATE_ID stderr: $(cat "$STDERR_FILE" | head -3)"
-          fi
-
-          if [ "$FAILURES" = "0" ]; then
-            echo "✅ $GATE_ID PASS"
-            echo "result=PASS" >> "$GITHUB_OUTPUT"
-          else
-            echo "❌ $GATE_ID FAIL ($FAILURES violations)"
-            python3 -c "
-          import json
-          with open('$RESULT_FILE') as f: data = json.load(f)
-          for r in data:
-            for f in r.get('failures', []):
-              print(f'  → {f[\"msg\"]}')
-          " 2>/dev/null || true
-            echo "result=FAIL" >> "$GITHUB_OUTPUT"
-          fi
-          GATESCRIPT
-          chmod +x /tmp/run_gate.sh
-
-      # ════════════════════════════════════════════════════════
-      # LAYER 1 — Rego Unit Tests (OPA, fail-fast)
-      # Runs BEFORE any Conftest gate check. Any rule-semantic failure
-      # aborts the pipeline before Gates evaluate → prevents silent
-      # rule drift. Umfang: alle Policies unter policies/ — die Anzahl wird
-      # vom Runner gemeldet und hier GELESEN, nicht behauptet (SPEC-04b).
-      # ════════════════════════════════════════════════════════
+          # The runner is a tracked file, not a heredoc: G-OPS-05 runs in the
+          # signing job (see there), and two copies of an evaluator drift.
+          chmod +x pipeline/ci/run_gate.sh
+          echo "gate runner: pipeline/ci/run_gate.sh"
       - name: "Rego Unit Tests (Layer 1 — OPA, fail-fast)"
         id: rego-unit-tests
         run: |
@@ -312,7 +207,7 @@ jobs:
         id: g-pre-01
         run: |
           echo "::group::G-PRE-01 Risk Classification"
-          bash /tmp/run_gate.sh G-PRE-01 \
+          bash pipeline/ci/run_gate.sh G-PRE-01 \
             "$SCENARIO_DIR/fixtures/app_documentation.json" \
             "policies/pre-deployment/policy_risk_classification.rego" \
             "genaiops.pre_deployment.risk_classification"
@@ -322,7 +217,7 @@ jobs:
         id: g-pre-04
         run: |
           echo "::group::G-PRE-04 Security Baseline"
-          bash /tmp/run_gate.sh G-PRE-04 \
+          bash pipeline/ci/run_gate.sh G-PRE-04 \
             "$SCENARIO_DIR/fixtures/deployment_compliant.yaml" \
             "policies/pre-deployment/policy_security_baseline.rego" \
             "genaiops.pre_deployment.security_baseline"
@@ -332,7 +227,7 @@ jobs:
         id: g-pre-05
         run: |
           echo "::group::G-PRE-05 Governance Approval"
-          bash /tmp/run_gate.sh G-PRE-05 \
+          bash pipeline/ci/run_gate.sh G-PRE-05 \
             "$SCENARIO_DIR/fixtures/app_documentation.json" \
             "policies/pre-deployment/policy_governance_approval.rego" \
             "genaiops.pre_deployment.governance_approval"
@@ -342,7 +237,7 @@ jobs:
         id: g-pre-02
         run: |
           echo "::group::G-PRE-02 Zweckbestimmung"
-          bash /tmp/run_gate.sh G-PRE-02 \
+          bash pipeline/ci/run_gate.sh G-PRE-02 \
             "$SCENARIO_DIR/fixtures/app_documentation.json" \
             "policies/pre-deployment/policy_purpose_declaration.rego" \
             "genaiops.pre_deployment.purpose_declaration"
@@ -352,7 +247,7 @@ jobs:
         id: g-pre-03
         run: |
           echo "::group::G-PRE-03 Risikomanagement-Vollstaendigkeit"
-          bash /tmp/run_gate.sh G-PRE-03 \
+          bash pipeline/ci/run_gate.sh G-PRE-03 \
             "$SCENARIO_DIR/fixtures/app_documentation.json" \
             "policies/pre-deployment/policy_risk_management_complete.rego" \
             "genaiops.pre_deployment.risk_management_complete"
@@ -366,7 +261,7 @@ jobs:
         id: g-dep-01
         run: |
           echo "::group::G-DEP-01 Data Provenance"
-          bash /tmp/run_gate.sh G-DEP-01 \
+          bash pipeline/ci/run_gate.sh G-DEP-01 \
             "$SCENARIO_DIR/fixtures/data_documentation_provenance_pass.json" \
             "policies/pre-deployment/policy_data_provenance_documented.rego" \
             "genaiops.pre_deployment.data_provenance_documented"
@@ -589,7 +484,7 @@ jobs:
         run: |
           echo "::group::G-DEP-02 Safety Metrics"
           # Geprueft wird das ERZEUGTE Dokument, nicht die Fixture.
-          bash /tmp/run_gate.sh G-DEP-02 \
+          bash pipeline/ci/run_gate.sh G-DEP-02 \
             "/tmp/eval_results.json" \
             "policies/deployment/policy_safety_metrics.rego" \
             "genaiops.deployment.safety_metrics"
@@ -599,7 +494,7 @@ jobs:
         id: g-dep-03
         run: |
           echo "::group::G-DEP-03 Transparency Docs"
-          bash /tmp/run_gate.sh G-DEP-03 \
+          bash pipeline/ci/run_gate.sh G-DEP-03 \
             "$SCENARIO_DIR/fixtures/app_documentation_transparency_pass.json" \
             "policies/deployment/policy_transparency_docs_present.rego" \
             "genaiops.deployment.transparency_docs_present"
@@ -609,7 +504,7 @@ jobs:
         id: g-dep-04
         run: |
           echo "::group::G-DEP-04 Konformitaets-Eingangspruefung"
-          bash /tmp/run_gate.sh G-DEP-04 \
+          bash pipeline/ci/run_gate.sh G-DEP-04 \
             "$SCENARIO_DIR/fixtures/app_documentation.json" \
             "policies/deployment/policy_conformity_verified.rego" \
             "genaiops.deployment.conformity_verified"
@@ -619,7 +514,7 @@ jobs:
         id: g-dep-05
         run: |
           echo "::group::G-DEP-05 Bias Assessment"
-          bash /tmp/run_gate.sh G-DEP-05 \
+          bash pipeline/ci/run_gate.sh G-DEP-05 \
             "$SCENARIO_DIR/fixtures/model_documentation_bias_pass.json" \
             "policies/pre-deployment/policy_bias_assessment_complete.rego" \
             "genaiops.pre_deployment.bias_assessment_complete"
@@ -629,7 +524,7 @@ jobs:
         id: g-dep-06
         run: |
           echo "::group::G-DEP-06 Logging Configuration"
-          bash /tmp/run_gate.sh G-DEP-06 \
+          bash pipeline/ci/run_gate.sh G-DEP-06 \
             "$SCENARIO_DIR/fixtures/app_documentation.json" \
             "policies/deployment/policy_logging_configured.rego" \
             "genaiops.deployment.logging_configured"
@@ -643,7 +538,7 @@ jobs:
         id: g-ops-01
         run: |
           echo "::group::G-OPS-01 Human Oversight"
-          bash /tmp/run_gate.sh G-OPS-01 \
+          bash pipeline/ci/run_gate.sh G-OPS-01 \
             "$SCENARIO_DIR/fixtures/app_documentation.json" \
             "policies/operations/policy_human_oversight_operational.rego" \
             "genaiops.operations.human_oversight_operational"
@@ -653,7 +548,7 @@ jobs:
         id: g-ops-02
         run: |
           echo "::group::G-OPS-02 Incident Process"
-          bash /tmp/run_gate.sh G-OPS-02 \
+          bash pipeline/ci/run_gate.sh G-OPS-02 \
             "$SCENARIO_DIR/fixtures/deployment_incident_pass.json" \
             "policies/operations/policy_incident_process_exists.rego" \
             "genaiops.operations.incident_process_exists"
@@ -663,7 +558,7 @@ jobs:
         id: g-ops-03
         run: |
           echo "::group::G-OPS-03 Monitoring Configuration"
-          bash /tmp/run_gate.sh G-OPS-03 \
+          bash pipeline/ci/run_gate.sh G-OPS-03 \
             "$SCENARIO_DIR/fixtures/deployment_compliant.yaml" \
             "policies/operations/policy_monitoring_configured.rego" \
             "genaiops.operations.monitoring_configured"
@@ -673,27 +568,17 @@ jobs:
         id: g-ops-04
         run: |
           echo "::group::G-OPS-04 Cybersecurity-Operations"
-          bash /tmp/run_gate.sh G-OPS-04 \
+          bash pipeline/ci/run_gate.sh G-OPS-04 \
             "$SCENARIO_DIR/fixtures/app_documentation.json" \
             "policies/operations/policy_data_security_controls.rego" \
             "genaiops.operations.data_security_controls"
-          echo "::endgroup::"
-
-      - name: "Gate G-OPS-05: Evidence Completeness (R005, Art.15) [AUTO]"
-        id: g-ops-05
-        run: |
-          echo "::group::G-OPS-05 Evidence Completeness"
-          bash /tmp/run_gate.sh G-OPS-05 \
-            "$SCENARIO_DIR/fixtures/deployment_compliant.yaml" \
-            "policies/operations/policy_evidence_completeness.rego" \
-            "genaiops.operations.evidence_completeness"
           echo "::endgroup::"
 
       - name: "Gate G-OPS-06: Rollenwechsel (R001, Art.25) [HYBRID]"
         id: g-ops-06
         run: |
           echo "::group::G-OPS-06 Rollenwechsel (Art. 25)"
-          bash /tmp/run_gate.sh G-OPS-06 \
+          bash pipeline/ci/run_gate.sh G-OPS-06 \
             "$SCENARIO_DIR/fixtures/art25_benign_change.json" \
             "policies/operations/policy_role_change_monitoring.rego" \
             "genaiops.operations.role_change_monitoring"
@@ -727,7 +612,6 @@ jobs:
             "G-OPS-02:R009:${{ steps.g-ops-02.outputs.result }}:AUTO:" \
             "G-OPS-03:R010:${{ steps.g-ops-03.outputs.result }}:AUTO:" \
             "G-OPS-04:R003:${{ steps.g-ops-04.outputs.result }}:AUTO:" \
-            "G-OPS-05:R005:${{ steps.g-ops-05.outputs.result }}:AUTO:" \
             "G-OPS-06:R001:${{ steps.g-ops-06.outputs.result }}:HYBRID:"
           do
             IFS=':' read -r GATE_ID REQ_ID DECISION METHOD DECISION_LOG <<< "$gate_info"
@@ -823,6 +707,31 @@ jobs:
           echo "✅ signing_context asserted: ci"
           echo "::endgroup::"
 
+      # SPEC-05 Teil 3: the manifest leaves the runner. Without this the
+      # evidence of a run is a property that comes into being with the job
+      # and ends with it (B-18) — verified, and then thrown away.
+      # The signing job evaluates G-OPS-05 against the signature and records
+      # its verdict, so it needs the chain this run wrote. The database goes
+      # with the manifest — a verdict recorded into a different store would
+      # be a verdict about nothing.
+      - name: "Upload the evidence store"
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a  # v7.0.1
+        with:
+          name: evidence-store-db
+          path: ${{ env.EVIDENCE_DB }}
+          if-no-files-found: error
+          retention-days: 90
+
+      - name: "Upload the evidence manifest"
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a  # v7.0.1
+        with:
+          name: evidence-manifest
+          path: evidence_manifest.json
+          if-no-files-found: error
+          retention-days: 90
+
       - name: "Stop the application under test"
         if: always()
         run: |
@@ -859,7 +768,7 @@ jobs:
           echo "║    G-OPS-02 Incident Process:     ${{ steps.g-ops-02.outputs.result }}  [AUTO]"
           echo "║    G-OPS-03 Monitoring Config:    ${{ steps.g-ops-03.outputs.result }}  [AUTO]"
           echo "║    G-OPS-04 Cybersecurity Ops:    ${{ steps.g-ops-04.outputs.result }}  [AUTO]"
-          echo "║    G-OPS-05 Evidence Complete:    ${{ steps.g-ops-05.outputs.result }}  [AUTO]"
+          echo "║    G-OPS-05 Evidence Complete:    evaluated in the signing job  [AUTO]"
           echo "║    G-OPS-06 Rollenwechsel:        ${{ steps.g-ops-06.outputs.result }}  [HYBRID]"
           echo "╠══════════════════════════════════════════════════════════╣"
 
@@ -927,6 +836,242 @@ jobs:
   # Eigener Job, damit ein erwarteter Fehlschlag den Hauptlauf nicht rot
   # faerbt. Ohne `needs`, damit die Negativfaelle auch dann laufen, wenn der
   # Hauptlauf blockiert — sonst verschwaende gerade der interessante Fall.
+  # ────────────────────────────────────────────────────────
+  # Job 2: Sign the evidence manifest, keyless — SPEC-05 Teil 3 und 4
+  # ────────────────────────────────────────────────────────
+  #
+  # Keyless has no local equivalent: the signature is issued against the OIDC
+  # token of THIS workflow run, so the producer identity is not "who held the
+  # key" but "which workflow, in which repository, on which commit". That is
+  # the identity E-1 means (HANDBUCH 3.3).
+  #
+  # The signature states ORIGIN and TIME. It does not state that the signed
+  # values are correct — that is what the rules decide, and where the numbers
+  # come from was SPEC-04's question (SPEC-05 Abschnitt 13).
+  sign-evidence:
+    name: "Sign the evidence manifest (keyless)"
+    runs-on: ubuntu-latest
+    needs: quality-gates
+    # always(): a blocked pipeline needs its signed evidence more than a green
+    # one does. If quality-gates died before the manifest existed, the
+    # download below fails and this job goes red — loudly, rather than
+    # skipping in silence.
+    if: always()
+
+    # DELIBERATE ELEVATION over the workflow-wide `contents: read`, scoped to
+    # this job alone. id-token: write lets the runner request the OIDC token
+    # that Sigstore exchanges for a short-lived certificate; without it there
+    # is no identity to bind and no keyless signature. No other job gets it.
+    permissions:
+      contents: read
+      id-token: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7
+
+      - name: "Set up Python 3.11"
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1  # v6
+        with:
+          python-version: "3.11"
+
+      # SHA-pinned like every other action here. A signing chain whose tool is
+      # pulled through a movable tag has given up its trust anchor one step
+      # earlier (SPEC-05 5.2).
+      - name: "Install OPA + Conftest"
+        run: |
+          CONFTEST_VERSION="0.56.0"
+          wget -q "https://github.com/open-policy-agent/conftest/releases/download/v${CONFTEST_VERSION}/conftest_${CONFTEST_VERSION}_Linux_x86_64.tar.gz" \
+            || { echo "::error::Failed to download Conftest v${CONFTEST_VERSION}"; exit 1; }
+          tar xzf "conftest_${CONFTEST_VERSION}_Linux_x86_64.tar.gz"
+          sudo mv conftest /usr/local/bin/
+          conftest --version
+
+      - name: "Install Python dependencies"
+        run: pip install PyYAML
+
+      - name: "Install cosign"
+        uses: sigstore/cosign-installer@6f9f17788090df1f26f669e9d70d6ae9567deba6  # v4.1.2
+        with:
+          cosign-release: "v3.1.3"
+
+      - name: "Download the evidence manifest"
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c  # v8.0.1
+        with:
+          name: evidence-manifest
+
+      - name: "Download the evidence store"
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c  # v8.0.1
+        with:
+          name: evidence-store-db
+          path: /tmp
+
+      - name: "Assert the signing context before signing"
+        run: |
+          echo "::group::signing_context"
+          # SPEC-05 Abschnitt 8.1: the manifest DECLARES its context, and a
+          # declaration nobody checks is the failure type this project keeps
+          # finding (B-02, B-11, B-12, B-13, B-17). Asserted a second time
+          # here, in the job that acts on it: signing a manifest that calls
+          # itself local would put a CI signature on a local claim.
+          CONTEXT=$(python3 -c "import json;print(json.load(open('evidence_manifest.json'))['evidence_manifest']['signing_context'])")
+          if [ "$CONTEXT" != "ci" ]; then
+            echo "::error::signing_context is '$CONTEXT', expected 'ci' — a CI run may not present itself as a local one"
+            exit 1
+          fi
+          echo "✅ signing_context asserted: ci"
+          echo "::endgroup::"
+
+      - name: "Sign the manifest, keyless"
+        run: |
+          echo "::group::cosign sign-blob"
+          # .sigstore.json is the bundle convention; it carries the
+          # certificate and the transparency-log entry alongside the signature.
+          cosign sign-blob --yes evidence_manifest.json \
+            --bundle evidence_manifest.sigstore.json \
+            || { echo "::error::Signing failed — no evidence leaves this run signed"; exit 1; }
+          echo "::endgroup::"
+
+      # SPEC-05 Teil 4. Identity-bound, or the call proves nothing: cosign
+      # requires SOME identity argument, and the remaining ways to make it
+      # worthless are a permissive regexp and the two --insecure-ignore-*
+      # flags. None of them appears here, and SIGNATURE_VERIFY_PINS_IDENTITY
+      # holds the whole repository to that.
+      - name: "Verify the signature, identity-bound"
+        run: |
+          echo "::group::cosign verify-blob"
+          python3 evidence-store/scripts/verify_signature.py \
+            --manifest evidence_manifest.json \
+            --bundle evidence_manifest.sigstore.json \
+            --out signature_verification.json \
+            --certificate-identity "https://github.com/${GITHUB_REPOSITORY}/.github/workflows/gate-pipeline.yml@${GITHUB_REF}" \
+            --certificate-oidc-issuer "https://token.actions.githubusercontent.com" \
+            --workflow-repository "${GITHUB_REPOSITORY}" \
+            --workflow-sha "${GITHUB_SHA}" \
+            --sqlite "$EVIDENCE_DB" \
+            --input-provenance ci-run \
+            || { echo "::error::Signature verification failed"; exit 1; }
+          echo "::endgroup::"
+
+      # ── G-OPS-05, an dieser Stelle und nicht frueher ──
+      #
+      # Der ORT wandert, nicht die Zustaendigkeit: G-OPS-05 bleibt ein Gate
+      # mit einem Evidence-Record und einem von Rego abgeleiteten Urteil. Es
+      # steht hier, weil das Manifest aus der fertigen Kette entsteht — die
+      # Signatur also nach dem Gate-Lauf — und weil id-token: write genau
+      # einem Job gehoeren soll. Also wandert das Gate zur Signatur, nicht
+      # die Rechteerhoehung zum Katalog.
+      - name: "Resolve the gate's required inputs"
+        run: |
+          echo "::group::required_inputs"
+          python3 pipeline/ci_required_inputs.py --out-dir /tmp \
+            --supplied G-OPS-05:signature_verification=signature_verification.json
+          echo "::endgroup::"
+
+      - name: "Gate G-OPS-05: Evidence Completeness (R005, Art.15) [AUTO]"
+        id: g-ops-05
+        run: |
+          echo "::group::G-OPS-05 Evidence Completeness"
+          chmod +x pipeline/ci/run_gate.sh
+          bash pipeline/ci/run_gate.sh G-OPS-05 \
+            "$SCENARIO_DIR/fixtures/deployment_compliant.yaml" \
+            "policies/operations/policy_evidence_completeness.rego" \
+            "genaiops.operations.evidence_completeness"
+          echo "::endgroup::"
+
+      - name: "Record the gate's evidence"
+        if: always()
+        run: |
+          echo "::group::Evidence"
+          # SELBSTBEZUGSGRENZE, benannt statt hingenommen: dieser Record
+          # entsteht NACH dem Manifest und liegt damit ausserhalb dessen, was
+          # signiert wurde. Ein Gate kann seinen eigenen Record nicht
+          # mitattestieren, so wenig wie eine Unterschrift sich selbst umfasst.
+          # Das ist die Form der Sache, keine Luecke — und es steht in der
+          # Gate-Definition und in SPEC-05, damit es niemand fuer ein Versehen
+          # haelt (D-32).
+          DECISION="${{ steps.g-ops-05.outputs.result }}"
+          python3 -c "
+          import json
+          conftest = {}
+          try:
+            with open('/tmp/g-ops-05-result.json') as f: conftest = json.load(f)
+          except Exception: pass
+          verification = {}
+          try:
+            with open('signature_verification.json') as f: verification = json.load(f)
+          except Exception: pass
+          evidence = {
+            'pipeline_run_id': '${{ needs.quality-gates.outputs.pipeline_run_id }}',
+            'commit_sha': '$GITHUB_SHA',
+            'trigger': '${{ github.event_name }}',
+            'actor': '${{ github.actor }}',
+            'gate_id': 'G-OPS-05',
+            'requirement_id': 'R005',
+            'decision': '$DECISION' or 'FAIL',
+            'method': 'AUTO',
+            'conftest_output': conftest,
+            'signature_verification': verification.get('signature_verification', {}),
+          }
+          with open('/tmp/evidence_g-ops-05.json', 'w') as f:
+            json.dump(evidence, f)
+          "
+          python3 evidence-store/scripts/record_evidence.py \
+            --sqlite "$EVIDENCE_DB" \
+            --gate "G-OPS-05" \
+            --method "AUTO" \
+            --source "/tmp/evidence_g-ops-05.json" \
+            && echo "  ✅ G-OPS-05 ($DECISION) [AUTO] → Evidence recorded" \
+            || { echo "::error::G-OPS-05 — Evidence recording FAILED"; exit 1; }
+          echo "::endgroup::"
+
+      - name: "Verify the hash chain once more"
+        if: always()
+        run: |
+          echo "::group::Hash Chain Verification"
+          python3 evidence-store/scripts/verify_hash_chain.py --sqlite "$EVIDENCE_DB" \
+            && echo "✅ Hash chain VALID — including the record written after signing" \
+            || { echo "::error::Hash chain verification FAILED"; exit 1; }
+          echo "::endgroup::"
+
+      - name: "Upload the completed evidence store"
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a  # v7.0.1
+        with:
+          name: evidence-store-db-final
+          path: ${{ env.EVIDENCE_DB }}
+          if-no-files-found: error
+          retention-days: 90
+
+      # Manifest, bundle and the verification document together. The bundle
+      # without the manifest proves nothing, and the manifest without the
+      # bundle is an unsigned summary — SPEC-05 Abschnitt 1.2 is only answered
+      # when both leave the runner.
+      - name: "Upload the signed evidence"
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a  # v7.0.1
+        with:
+          name: evidence-manifest-signed
+          path: |
+            evidence_manifest.json
+            evidence_manifest.sigstore.json
+            signature_verification.json
+          if-no-files-found: error
+          retention-days: 90
+
+      - name: "What this signature says, and what it does not"
+        if: always()
+        run: |
+          echo "The signature states ORIGIN and TIME: this workflow, in this"
+          echo "repository, on this commit, asserted this chain head and these"
+          echo "verdicts at this moment. It does NOT state that the values are"
+          echo "correct — the rules decide that, and where the numbers came"
+          echo "from was SPEC-04's question. A compromised CI signs a wrong"
+          echo "record flawlessly; what rises is the cost of forgery."
+          echo ""
+          echo "No gate reads this document yet. SPEC-05 Teil 5 wires it into"
+          echo "G-OPS-05; until then the mechanism exists and claims nothing."
+
   negative-cases:
     name: "Negative Cases — the gates would block"
     runs-on: ubuntu-latest
@@ -1083,6 +1228,178 @@ jobs:
           sed 's/^/     → /' /tmp/neg-present/g-ops-03-inputs.args
           echo "::endgroup::"
 
+      # ══════════════════════════════════════════════════════════
+      # SPEC-05 Abschnitt 11 — die sechs Faelle zur Signatur
+      # ══════════════════════════════════════════════════════════
+      #
+      # Kein Fall signiert. Signieren braucht die OIDC-Identitaet, und die
+      # gehoert genau einem Job; VERIFIZIEREN braucht sie nicht. Faelle 4
+      # und 5 laufen deshalb gegen eine echte Signatur aus einem echten
+      # frueheren Lauf (tests/signature/, Herkunft dort belegt),
+      # Faelle 7 und 8 gegen konstruierte Nachweisdokumente, weil die
+      # Zustaende, die sie beschreiben, sich nicht ehrlich erzeugen lassen:
+      # das tlog-Flag ist repo-weit verboten.
+      - name: "Install cosign (verification only, no signing identity)"
+        uses: sigstore/cosign-installer@6f9f17788090df1f26f669e9d70d6ae9567deba6  # v4.1.2
+        with:
+          cosign-release: "v3.1.3"
+
+      - name: "Case 4: a manifest changed after signing fails verification"
+        run: |
+          echo "::group::tampered vs. untouched"
+          IDENTITY="https://github.com/MustDemir/genaiops-compliance-gates/.github/workflows/gate-pipeline.yml@refs/heads/spec05-signing"
+
+          # (a) the manifest was edited after it was signed
+          if python3 evidence-store/scripts/verify_signature.py \
+               --manifest tests/signature/tampered_manifest.json \
+               --bundle tests/signature/signed_manifest.sigstore.json \
+               --out /tmp/neg-tampered.json \
+               --certificate-identity "$IDENTITY" \
+               --workflow-repository "" --workflow-sha "" \
+               --input-provenance fixture; then
+            echo "::error::A manifest edited after signing verified successfully. The signature would cover any content — the one thing it must not do."
+            exit 1
+          fi
+          echo "✅ tampered manifest — verification refused it"
+
+          # (b) counter-check: untouched, same bundle, same identity
+          python3 evidence-store/scripts/verify_signature.py \
+            --manifest tests/signature/signed_manifest.json \
+            --bundle tests/signature/signed_manifest.sigstore.json \
+            --out /tmp/neg-untouched.json \
+            --certificate-identity "$IDENTITY" \
+            --workflow-repository "" --workflow-sha "" \
+            --input-provenance fixture \
+            || { echo "::error::The untouched manifest failed too — then case (a) proves nothing about tampering, only that something is broken."; exit 1; }
+          echo "✅ counter-check: the untouched manifest verifies"
+          echo "::endgroup::"
+
+      - name: "Case 5: verification against the wrong identity fails"
+        run: |
+          echo "::group::wrong vs. right identity"
+          # (a) a signature from somewhere else must not pass
+          if python3 evidence-store/scripts/verify_signature.py \
+               --manifest tests/signature/signed_manifest.json \
+               --bundle tests/signature/signed_manifest.sigstore.json \
+               --out /tmp/neg-wrong-identity.json \
+               --certificate-identity "https://github.com/someone-else/other-repo/.github/workflows/build.yml@refs/heads/main" \
+               --workflow-repository "" --workflow-sha "" \
+               --input-provenance fixture; then
+            echo "::error::Verification passed against an identity that did not sign. 'Verified' would mean 'something signed', not 'who signed'."
+            exit 1
+          fi
+          echo "✅ wrong identity — verification refused it"
+
+          # (b) counter-check: the identity that actually signed
+          python3 evidence-store/scripts/verify_signature.py \
+            --manifest tests/signature/signed_manifest.json \
+            --bundle tests/signature/signed_manifest.sigstore.json \
+            --out /tmp/neg-right-identity.json \
+            --certificate-identity "https://github.com/MustDemir/genaiops-compliance-gates/.github/workflows/gate-pipeline.yml@refs/heads/spec05-signing" \
+            --workflow-repository "" --workflow-sha "" \
+            --input-provenance fixture \
+            || { echo "::error::The correct identity failed as well — case (a) then says nothing about identity."; exit 1; }
+          echo "✅ counter-check: the signing identity verifies"
+          echo "::endgroup::"
+
+      - name: "Case 6: an absent signature verification blocks G-OPS-05"
+        run: |
+          echo "::group::required_inputs enforcement"
+          # (a) nothing supplied -> a finding that NAMES the missing input
+          python3 pipeline/ci_required_inputs.py --out-dir /tmp/neg-nosig
+          if [ ! -f /tmp/neg-nosig/g-ops-05-inputs.fail ]; then
+            echo "::error::No finding for the absent signature verification. Four MUST checks on E-1 would be skipped by leaving the document out — B-11 and B-17 in one."
+            exit 1
+          fi
+          grep -q "signature_verification" /tmp/neg-nosig/g-ops-05-inputs.fail || {
+            echo "::error::The finding does not name the missing input."
+            exit 1
+          }
+          echo "✅ absent signature verification — finding names the input:"
+          sed 's/^/     → /' /tmp/neg-nosig/g-ops-05-inputs.fail
+
+          # (b) counter-check: supplied -> resolved to policy and namespace
+          python3 pipeline/ci_required_inputs.py --out-dir /tmp/neg-sig \
+            --supplied G-OPS-05:signature_verification=tests/signature/verification_valid.json
+          if [ -f /tmp/neg-sig/g-ops-05-inputs.fail ]; then
+            echo "::error::A supplied document still produced a finding — the enforcement fires on the wrong condition."
+            exit 1
+          fi
+          echo "✅ counter-check: supplied verification resolves"
+          sed 's/^/     → /' /tmp/neg-sig/g-ops-05-inputs.args
+          echo "::endgroup::"
+
+      - name: "Case 7: a signed head that is not the verified head blocks C-06"
+        run: |
+          echo "::group::head mismatch vs. match"
+          /tmp/expect_gate.sh BLOCK "G-OPS-05/C-06 with a foreign chain head" \
+            tests/signature/verification_head_mismatch.json \
+            policies/operations/policy_evidence_signature.rego \
+            genaiops.operations.evidence_signature
+
+          /tmp/expect_gate.sh PASS "G-OPS-05 with matching heads (counter-check)" \
+            tests/signature/verification_valid.json \
+            policies/operations/policy_evidence_signature.rego \
+            genaiops.operations.evidence_signature
+          echo "::endgroup::"
+
+      - name: "Case 8: an unchecked transparency log blocks C-07"
+        run: |
+          echo "::group::tlog off vs. on"
+          /tmp/expect_gate.sh BLOCK "G-OPS-05/C-07 without a log check" \
+            tests/signature/verification_tlog_off.json \
+            policies/operations/policy_evidence_signature.rego \
+            genaiops.operations.evidence_signature
+
+          /tmp/expect_gate.sh PASS "G-OPS-05 with the log checked (counter-check)" \
+            tests/signature/verification_valid.json \
+            policies/operations/policy_evidence_signature.rego \
+            genaiops.operations.evidence_signature
+          echo "::endgroup::"
+
+      - name: "Case 9: a CI run that declares itself local is refused"
+        run: |
+          echo "::group::signing_context local vs. ci"
+          # A store of this job's own: the checked-in ones are gitignored, and
+          # a case that depends on a file the clone does not have is a case
+          # that proves nothing (the failure this job exists to prevent).
+          python3 -c "
+          import json
+          json.dump({'gate_id': 'G-OPS-05', 'requirement_id': 'R005',
+                     'decision': 'PASS', 'method': 'AUTO',
+                     'pipeline_run_id': 'negative-cases', 'commit_sha': '$GITHUB_SHA'},
+                    open('/tmp/neg-evidence.json', 'w'))
+          "
+          python3 evidence-store/scripts/record_evidence.py \
+            --sqlite /tmp/neg-store.db --gate G-OPS-05 --method AUTO \
+            --source /tmp/neg-evidence.json >/dev/null
+
+          # (a) build a manifest that calls itself local, then run the same
+          #     assertion the pipeline runs. No signing involved.
+          python3 evidence-store/scripts/build_manifest.py \
+            --sqlite /tmp/neg-store.db \
+            --out /tmp/neg-manifest-local.json \
+            --signing-context local --quiet
+          CONTEXT=$(python3 -c "import json;print(json.load(open('/tmp/neg-manifest-local.json'))['evidence_manifest']['signing_context'])")
+          if [ "$CONTEXT" = "ci" ]; then
+            echo "::error::A manifest built with --signing-context local reports 'ci'. The declaration would say whatever the reader wants to hear."
+            exit 1
+          fi
+          echo "✅ a local declaration stays local — the assertion in the pipeline exits 1 on this value"
+
+          # (b) counter-check: the same store, declared as a CI run
+          python3 evidence-store/scripts/build_manifest.py \
+            --sqlite /tmp/neg-store.db \
+            --out /tmp/neg-manifest-ci.json \
+            --signing-context ci --quiet
+          CONTEXT=$(python3 -c "import json;print(json.load(open('/tmp/neg-manifest-ci.json'))['evidence_manifest']['signing_context'])")
+          if [ "$CONTEXT" != "ci" ]; then
+            echo "::error::A manifest built with --signing-context ci does not report 'ci' — then case (a) proves nothing."
+            exit 1
+          fi
+          echo "✅ counter-check: a CI declaration passes the same assertion"
+          echo "::endgroup::"
+
       - name: "Negative Cases — summary"
         run: |
           echo "╔══════════════════════════════════════════════════════════╗"
@@ -1091,7 +1408,15 @@ jobs:
           echo "║  1  measured drift        → G-OPS-03 blocks              ║"
           echo "║  2  missed safety metric  → G-DEP-02 blocks              ║"
           echo "║  3  absent measurement    → G-OPS-03 blocks              ║"
+          echo "║  4  tampered manifest     → verification refuses it      ║"
+          echo "║  5  wrong identity        → verification refuses it      ║"
+          echo "║  6  absent verification   → G-OPS-05 blocks              ║"
+          echo "║  7  foreign chain head    → C-06 blocks                  ║"
+          echo "║  8  unchecked tlog        → C-07 blocks                  ║"
+          echo "║  9  local claim in CI     → the run is refused           ║"
           echo "╚══════════════════════════════════════════════════════════╝"
+          echo "Each case carries its counter-check: a case that is red for the"
+          echo "wrong reason looks exactly like one that is red for the right one."
 
   # ────────────────────────────────────────────────────────
   # Job 3: Build + Push Docker Image
@@ -1114,7 +1439,10 @@ jobs:
   build-and-push:
     name: "Build & Push Image"
     runs-on: ubuntu-latest
-    needs: [quality-gates, negative-cases]
+    # sign-evidence gehoert in needs: sonst entstuende ein Image, dessen
+    # Evidenzsignatur nie geprueft wurde — und der Job haengt heute schon
+    # an gate_result == PASS, also waere das ein stiller Durchlass.
+    needs: [quality-gates, negative-cases, sign-evidence]
     if: needs.quality-gates.outputs.gate_result == 'PASS'
     permissions:
       contents: read

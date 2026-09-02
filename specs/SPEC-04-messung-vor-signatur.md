@@ -160,7 +160,7 @@ Für die Messung wird ein deterministischer Lastlauf gegen `/transcribe` gefahre
 "quality_metrics": {
   "provenance": "declared",
   "source": "offline evaluation set, manually maintained",
-  "note": "Kein Ground-Truth-Kanal im Betrieb — siehe HANDBUCH 7.6. Nicht als Betriebsmessung verwendbar.",
+  "note": "Kein Ground-Truth-Kanal im Betrieb — siehe HISTORIE 7.6. Nicht als Betriebsmessung verwendbar.",
   "accuracy": 0.89
 }
 ```

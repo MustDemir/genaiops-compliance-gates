@@ -69,7 +69,10 @@
       "method": "AUTO",
       "fixture": "scenarios/healthcare-ambient-ai-scribe/fixtures/deployment_compliant.yaml",
       "policy": "policies/operations/policy_evidence_completeness.rego",
-      "skip_reason": "Pipeline halted at G-DEP-02"
+      "skip_reason": "Pipeline halted at G-DEP-02",
+      "inputs": {
+        "signature_verification": "tmp/signature_verification.json"
+      }
     },
     {
       "gate_id": "G-DEP-05",
