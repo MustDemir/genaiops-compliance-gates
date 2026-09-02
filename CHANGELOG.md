@@ -10,6 +10,42 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased] — Post-Thesis Development (schema_version 2)
 
+### Fixed — the signed evidence names the mode the run was measured in (B-21, 2026-09-02)
+
+CI measured `runtime_mode`, asserted it, and then dropped it. `eval_runner.py`
+reads `scribe_mock_mode` from the running application and the workflow aborts if
+it is anything but `mock` — and the evidence source document built two steps
+later did not carry the field, so `record_evidence.py` fell back to `unknown`.
+Correctly: a silent `live` is the one assumption that field exists to prevent.
+The gap was a missing hand-over, not a missing mechanism.
+
+Since 2026-09-01 that `unknown` was signed and anchored in the transparency log.
+The signature did not make it worse — it made it durable, which is a fair
+demonstration of what E-1 is: it says who claimed what and when, not whether the
+claim is any good.
+
+- The measurement step publishes the mode it established as a step output, the
+  gate job hands it to every `record_evidence.py` call and to the manifest, and
+  the signing job — which never sees the evaluation document — receives it as a
+  job output rather than deriving a second one. A second derivation would not
+  measure, it would guess.
+- **Fail closed on the mode too.** Both jobs refuse to write evidence when the
+  hand-over produced nothing: a record claiming `unknown` about a run that knows
+  better is weaker than what the run established.
+- Nothing was written back. Records below the migration cutoff keep `unknown`,
+  because a retroactively filled field is what `verify_hash_chain.py` reads as a
+  tampering signal — and would be an invention besides.
+- `RUNTIME_MODE_VISIBLE` gained the hand-over duty on both sides, producer and
+  consumer. **It took three counter-proofs to get there:** the first version
+  only checked that something reads the published output and stayed green when
+  the line that writes it was deleted. A check a counter-proof cannot break is
+  not a check (B-16), including the check on the check.
+
+The finding's own wording was corrected in the register. It said "CI writes its
+records without an explicit mode", which is true and hides the point: CI knows
+the mode. It measures it and checks it. That does not make the gap larger, it
+makes it more embarrassing — and the register now says so.
+
 ### Added — four checks read a signature, and the E-1 rung is occupied again (SPEC-05 Teil 5, 2026-09-02)
 
 G-OPS-05 gains a second input and four checks. C-04 to C-07 evaluate an

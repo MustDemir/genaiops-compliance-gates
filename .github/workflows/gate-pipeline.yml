@@ -108,6 +108,10 @@ jobs:
       gates_total: ${{ steps.gate-summary.outputs.gates_total }}
       rego_tests: ${{ steps.rego-unit-tests.outputs.count }}
       pipeline_run_id: ${{ steps.init.outputs.pipeline_run_id }}
+      # The signing job records G-OPS-05 and never sees eval_results.json.
+      # It receives the measured mode rather than deriving one of its own:
+      # a second derivation would not measure, it would guess (B-21).
+      runtime_mode: ${{ steps.measure.outputs.runtime_mode }}
 
     steps:
       # ── Setup ──
@@ -322,6 +326,11 @@ jobs:
             echo "::error::runtime_mode is '$MODE' — the CI runs no real model, so anything but 'mock' means the mode was not established correctly."
             exit 1
           fi
+          # B-21: measured, checked — and until T-08 dropped on the way to the
+          # evidence record. It is handed on from here instead, as a step and
+          # job output, so every record and the signed manifest carry the mode
+          # the run was actually measured in.
+          echo "runtime_mode=$MODE" >> "$GITHUB_OUTPUT"
           echo "::endgroup::"
 
       - name: "Compare produced document against the checked-in fixture"
@@ -596,6 +605,17 @@ jobs:
           echo "   Database: $EVIDENCE_DB (SQLite for PoC)"
           echo ""
 
+          # Fail closed on the mode, too. The CI knows it — the measurement
+          # step asserted it — so an empty value here means the hand-over
+          # broke, and a record that says "unknown" while the run knew better
+          # is exactly the finding this closes (B-21).
+          RUNTIME_MODE="${{ steps.measure.outputs.runtime_mode }}"
+          if [ -z "$RUNTIME_MODE" ]; then
+            echo "::error::No runtime_mode was handed over from the measurement step. The run measured the mode and would record 'unknown' — refusing to write evidence that is weaker than what the run knows."
+            exit 1
+          fi
+          echo "runtime_mode for all records: $RUNTIME_MODE"
+
           for gate_info in \
             "G-PRE-01:R001:${{ steps.g-pre-01.outputs.result }}:HYBRID:decision_log_gpre01_manual.json" \
             "G-PRE-02:R012:${{ steps.g-pre-02.outputs.result }}:HYBRID:" \
@@ -655,6 +675,7 @@ jobs:
               --sqlite "$EVIDENCE_DB" \
               --gate "$GATE_ID" \
               --method "$METHOD" \
+              --runtime-mode "$RUNTIME_MODE" \
               --source "$EVIDENCE_SOURCE" \
               && echo "  ✅ $GATE_ID ($DECISION) [$METHOD] → Evidence recorded" \
               || { echo "::error::$GATE_ID — Evidence recording FAILED"; exit 1; }
@@ -692,6 +713,7 @@ jobs:
             --sqlite "$EVIDENCE_DB" \
             --out evidence_manifest.json \
             --commit-sha "$GITHUB_SHA" \
+            --runtime-mode "${{ steps.measure.outputs.runtime_mode }}" \
             || { echo "::error::Evidence manifest could not be built"; exit 1; }
 
           # SPEC-05 Abschnitt 8.1: the manifest DECLARES its context, and a
@@ -991,6 +1013,11 @@ jobs:
           # Gate-Definition und in SPEC-05, damit es niemand fuer ein Versehen
           # haelt (D-32).
           DECISION="${{ steps.g-ops-05.outputs.result }}"
+          RUNTIME_MODE="${{ needs.quality-gates.outputs.runtime_mode }}"
+          if [ -z "$RUNTIME_MODE" ]; then
+            echo "::error::No runtime_mode was handed over from the gate job. This record would say 'unknown' about a run whose mode was measured (B-21)."
+            exit 1
+          fi
           python3 -c "
           import json
           conftest = {}
@@ -1020,6 +1047,7 @@ jobs:
             --sqlite "$EVIDENCE_DB" \
             --gate "G-OPS-05" \
             --method "AUTO" \
+            --runtime-mode "$RUNTIME_MODE" \
             --source "/tmp/evidence_g-ops-05.json" \
             && echo "  ✅ G-OPS-05 ($DECISION) [AUTO] → Evidence recorded" \
             || { echo "::error::G-OPS-05 — Evidence recording FAILED"; exit 1; }
