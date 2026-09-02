@@ -1327,15 +1327,19 @@ _PERMISSIVE_IDENTITY = re.compile(
 _TLOG_OFF = "--insecure-ignore-tlog"
 _SCT_OFF = "--insecure-ignore-sct"
 
-# Files that legitimately name the forbidden flags: the check itself, the SPEC
-# that forbids them, and the running records of both. Naming a flag in order
-# to ban it is not using it — but the exemption is a list, not a pattern, so
-# adding a file to it is a visible act.
+# Only files that can EXECUTE something are held to the flags. Naming a flag
+# in order to forbid it is not using it, and the ban has to be explainable:
+# the SPEC says why the flags are refused, the policy comment says why C-07 is
+# a MUST, the fixtures say what they are. Scanning prose for the words it
+# needs in order to forbid them is the false alarm that gets a check switched
+# off rather than repaired (T-03, twice).
+#
+# Rego cannot invoke cosign, so .rego counts as prose here too. The two places
+# that CAN call it — the workflow and the verification script — are covered,
+# and both were counter-proved by planting each flag in them (T-05).
+_EXECUTABLE_SUFFIXES = (".py", ".sh", ".yml", ".yaml")
 _SIGNING_FLAG_PROSE = (
     "tests/test_integrity_regression.py",
-    "specs/SPEC-05-e1-signatur.md",
-    "CHANGELOG.md",
-    "HISTORIE.md",
     "evidence-store/scripts/verify_signature.py",
 )
 
@@ -1514,7 +1518,8 @@ def check_signature_verify_pins_identity() -> dict:
         except (OSError, UnicodeDecodeError):
             continue
 
-        if f not in _SIGNING_FLAG_PROSE:
+        executable = f.endswith(_EXECUTABLE_SUFFIXES)
+        if executable and f not in _SIGNING_FLAG_PROSE:
             for flag in (_TLOG_OFF, _SCT_OFF):
                 for line in find_lines(text, flag):
                     findings.append(
@@ -1530,7 +1535,7 @@ def check_signature_verify_pins_identity() -> dict:
                 )
 
         # Every actual verify-blob invocation must pin identity and issuer.
-        if "verify-blob" in text and f not in _SIGNING_FLAG_PROSE:
+        if "verify-blob" in text and executable and f not in _SIGNING_FLAG_PROSE:
             if "--certificate-identity" not in text:
                 findings.append(
                     f"{f}: calls cosign verify-blob without --certificate-identity"
