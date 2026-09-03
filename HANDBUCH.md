@@ -1,6 +1,6 @@
 # Handbuch — KI-Compliance-Kontrollsystem für Netzbetreiber
 
-**Version 1.1 · Stand 1. September 2026**
+**Version 1.2 · Stand 3. September 2026**
 Projekt „Cloud Architect AI Governance" · Mustafa Demir
 
 ---
@@ -388,12 +388,12 @@ Ausformuliert nach den fünf Fragen aus 3.4, weil dieses Gate die Lücke am deut
 | Punkt | Stand |
 |---|---|
 | Hartkodierte Zählstände aus dem CI-Workflow entfernen (B-12) | ✅ SPEC-04b Teil 1 |
-| **Feld `triggers` ins Gate-Template** (Frage 5 aus 3.4) — was folgt aus dem Urteil | B-13. Ohne das bleibt jede Meldepflicht eine Behauptung |
+| Feld `triggers` ins Gate-Template (Frage 5 aus 3.4) | ✅ 27.08. — jedes Gate nennt seine Wirkung und ob sie gebaut ist. Welche Wirkungen noch `declared_only` sind, steht im README |
 | **G-OPS-01, G-OPS-02, G-OPS-05 auf Laufzeit nachziehen** — sie feuern bei Admission, ihr Requirement verlangt „kontinuierlich" | B-14. G-OPS-03 zeigt den Weg: zwei Inputs, ein Gate |
-| **Integrity-Check `TRIGGER_MATCHES_REQUIREMENT`** — Gate-`trigger` gegen `audit_trigger` des Requirements | B-14 blieb unbemerkt, weil nichts die beiden gegeneinander hält |
+| Integrity-Check `TRIGGER_MATCHES_REQUIREMENT` — Gate-`trigger` gegen `audit_trigger` des Requirements | ✅ gebaut. B-14 selbst bleibt offen: die Deckung ist deklariert, nicht hergestellt |
 | **Außenaussagen gegen den Gate-Stand prüfen** — Beiträge behaupteten Fähigkeiten, die das Gate nicht hat | B-13. Analog zu `README_COUNTS_CURRENT`, nur für Beitragsentwürfe |
 | **`incident_thresholds.yaml`** — ab wann ist eine Fehlklassifikation ein schwerwiegender Vorfall | Bewusst manuell, aber versioniert und begründet. Sofort möglich, unabhängig von Ground Truth |
-| `policy_checks[].evidence_level` weiter füllen (B-07) | 10 von 47 |
+| `policy_checks[].evidence_level` weiter füllen (B-07) | laufend. Der Füllstand und die Verteilung über E-0…E-3 stehen im README, gehalten von `README_EVIDENCE_CLAIMS_CURRENT` |
 | Bucket-Auflösung für den Produktivfall prüfen (B-09) | 1 ms passt zum Mock, nicht zwingend zu einem echten Modell |
 | Art. 49 Abs. 1 — welche Registrierungsdaten sind öffentlich abfragbar? Entscheidet, ob E-2 für Fremdnachweise erreichbar ist | offen |
 | Art. 3 Nr. 23 („wesentliche Änderung") im Wortlaut; Schwelle bei Fine-Tuning und RAG | offen — deshalb bleibt C-25b advisory |
@@ -410,6 +410,9 @@ Ausformuliert nach den fünf Fragen aus 3.4, weil dieses Gate die Lücke am deut
 | Drift-CronJob im Cluster nicht lauffähig — braucht conftest und Policies im Image, kein Dockerfile vorhanden | dokumentiert |
 | Redispatch-Vignette bauen, inkl. Negativfall | offen — macht die Branchenwahl erst sichtbar |
 | Ersten Fachbeitrag zur Rollenabgrenzung schreiben | braucht EUR-Lex-Abgleich |
+| **Kettenkontinuität über Läufe hinweg** (D-32) — der Nachweis eines Laufs ist signiert und verlässt den Runner; ob zwischen zwei Läufen etwas fehlt, prüft nichts | offen, eigene SPEC. In SPEC-05 Abschnitt 13 benannt statt beantwortet |
+| **`make verify` ohne Cluster lauffähig** — hängt an `smoke`, fährt weder Rego noch Hash-Parität, Chain-Migration oder Manifest-Guards | offen, klein |
+| **Selbstbezugsgrenze von G-OPS-05** — der Record des Gates entsteht nach dem Manifest, das es prüft | benannt, nicht zu schließen ohne Punkt 1 dieser Liste (D-32). Steht in den `notes` des Gates und in SPEC-05 6.3 |
 
 ## 6.3 Pflege
 
@@ -420,31 +423,37 @@ Ausformuliert nach den fünf Fragen aus 3.4, weil dieses Gate die Lücke am deut
 
 # TEIL 7 — Wie es weitergeht
 
-**SPEC-04b ist seit dem 28.08. vollständig** — Punkte 1 bis 4 erledigt, in dieser Reihenfolge gebaut:
+**SPEC-04b (28.08.) und SPEC-05 (02.09.) sind vollständig.** Was dabei entstand, in der Reihenfolge, in der es gebaut wurde:
 
 1. ✅ **Anwesenheitspflicht des Messdokuments erzwingen** — im Orchestrator *und* in der CI
 2. ✅ **Hartkodierte Zählstände aus dem Workflow entfernen**
 3. ✅ **App im Runner starten, `eval_runner` in der CI** — ohne Kubernetes
-4. ✅ **Drift im Runner, Negativfälle als eigener Job** — drei Fälle, je mit Gegenprobe
+4. ✅ **Drift im Runner, Negativfälle als eigener Job** — je mit Gegenprobe
+5. ✅ **E-1-Signatur (SPEC-05)** — Evidenz-Manifest, keyless signiert gegen das OIDC-Token des Laufs, identitätsgebunden verifiziert; G-OPS-05 wertet die Prüfung aus und trägt damit die ersten Checks des Katalogs auf E-1. Das Gate bleibt auf E-0 (5.3)
+6. ✅ **Die Begründungsschicht liegt im Repo** — `HANDBUCH.md` und `HISTORIE.md` sind getrackt, `AGENTS.md` ist der Arbeitsvertrag und dupliziert dieses Handbuch nicht mehr
 
 **Sofort als Nächstes:**
 
-5. **E-1-Signatur (SPEC-05)** — jetzt sinnvoll, nicht vorher: eine Signatur auf einem erfundenen Wert demonstriert die These nur halb, und die Rückfrage wäre „woher kommt die Zahl?". Sie ist beantwortet.
-6. **Vier-Augen-Prinzip und Retirement-Pfad** — die zwei Prozesslücken aus 2.4
-7. **Deckungsanalyse Norm → Requirement** — Validierung statt Verifikation: woher weiß ich, dass der Katalog die richtigen Gates enthält?
+7. **Vier-Augen-Prinzip und Retirement-Pfad** — die zwei Prozesslücken aus 2.4, unverändert offen
+8. **Deckungsanalyse Norm → Requirement** — Validierung statt Verifikation: woher weiß ich, dass der Katalog die richtigen Gates enthält? Weiterhin der schwerwiegendste offene Punkt
+9. **Kettenkontinuität über Läufe hinweg** (D-32, SPEC-05 Abschnitt 13) — heute ist jeder *einzelne* Lauf überprüfbar und verlässt den Runner signiert. Ob zwischen zwei Läufen etwas fehlt, prüft nichts. Braucht einen persistenten Anker und eine eigene SPEC
+10. **`make verify` lauffähig machen** — das Target hängt an `smoke` und damit an einem Cluster, fährt aber weder Rego noch Hash-Parität, Chain-Migration oder die Manifest-Guards. Ein Prüfbefehl, der ohne Cluster nicht läuft, wird nicht benutzt
+11. **Nicht zurückgeführte `acceptance_criteria` schließen** — `ACCEPTANCE_CRITERIA_TRACED` weist sie aus; jede ist entweder auf einen Check zu ziehen oder als Lücke zu begründen
 
 **Danach:**
 
-8. Art. 13 im Wortlaut — Grundlage für Richtung B1
-9. NIS2 und EnWG § 11 als Primärquellen
-10. **Redispatch-Vignette inkl. Negativfall** — hängt an keinem Recherchepunkt und macht die Branchenwahl sichtbar
-11. Ersten Fachbeitrag zur Rollenabgrenzung
+12. Art. 13 im Wortlaut — Grundlage für Richtung B1
+13. NIS2 und EnWG § 11 als Primärquellen
+14. **Redispatch-Vignette inkl. Negativfall** — hängt an keinem Recherchepunkt und macht die Branchenwahl sichtbar
+15. Ersten Fachbeitrag zur Rollenabgrenzung
 
 **Mittelfristig:**
 
-12. Feedback-Kanal für Ground Truth, in die Redispatch-Domäne übersetzt
-13. Provider-Requirements aus Art. 16 ableiten
-14. Tag- und Versionierungsfrage klären
+16. Feedback-Kanal für Ground Truth (B-08), in die Redispatch-Domäne übersetzt
+17. Provider-Requirements aus Art. 16 ableiten
+18. Tag- und Versionierungsfrage klären
+
+> **Was die Reihenfolge trägt:** Punkte 7 bis 11 hängen an keiner Rechtsrecherche und sind allein im Repo entscheidbar. Punkte 12 bis 15 brauchen Primärquellen. Die Meldekaskade aus 6.1 bleibt gesperrt, bis Art. 26 Abs. 5 und Art. 73 EUR-Lex-abgeglichen sind — ein Bauverbot, kein Vergessen.
 
 ---
 
@@ -462,5 +471,5 @@ Alle Verweise dieser Tabelle zeigen auf Dateien **in diesem Repository**. Rechts
 
 ---
 
-*Handbuch v1.1 · 01.09.2026 · Der Stand — Begründungen in HISTORIE.md · Zählstände im README · Keine Rechtsberatung*
+*Handbuch v1.2 · 03.09.2026 · Der Stand — Begründungen in HISTORIE.md · Zählstände im README · Keine Rechtsberatung*
 
