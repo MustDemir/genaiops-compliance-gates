@@ -3531,17 +3531,23 @@ einheiten:
   saetze: 1
   beleg: (1)   Die Technik der Hochrisiko-KI-Systeme muss die automatische Aufzeichnung von Ereignissen
     (im Folgenden „Protokollierung“) während des Lebenszyklus des Systems ermöglichen.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Die Technik der Hochrisiko-KI-Systeme muss die automatische Aufzeichnung von Ereignissen (Protokollierung)
+    waehrend des Systemlebenszyklus ermoeglichen.
+  scope: out
+  scope_grund: Technische Design-/Entwicklungspflicht des Anbieters (das System muss protokollieren KOENNEN).
+    Die korrespondierende Betreiberpflicht - die tatsaechlich erzeugten Protokolle aufzubewahren - steht
+    separat in Art. 26 Abs. 6 (dort bereits als 'teilabdeckung' erfasst, Lauf 1).
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: 'unveraendert - Art. 12 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
+    (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf: die Liste geaenderter Artikel geht
+    von Nr. 10 [Art. 11] direkt auf Nr. 11 [Art. 17] ueber).'
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 12 Abs. 2
   artikel: '12'
   artikel_titel: Aufzeichnungspflichten
@@ -3553,17 +3559,21 @@ einheiten:
   beleg: '(2)   Zur Gewährleistung, dass das Funktionieren des Hochrisiko-KI-Systems in einem der Zweckbestimmung
     des Systems angemessenen Maße rückverfolgbar ist, ermöglichen die Protokollierungsfunktionen die Aufzeichnung
     von Ereignissen, die für Folgendes relevant sind:'
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Zur Ruecktverfolgbarkeit des Systemfunktionierens ermoeglichen die Protokollierungsfunktionen
+    die Aufzeichnung von Ereignissen, die fuer lit. a-c relevant sind.
+  scope: out
+  scope_grund: Anbieterpflicht wie Abs. 1; Chapeau zu lit. a-c.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: 'unveraendert - Art. 12 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
+    (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf: die Liste geaenderter Artikel geht
+    von Nr. 10 [Art. 11] direkt auf Nr. 11 [Art. 17] ueber).'
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 12 Abs. 2 lit. a
   artikel: '12'
   artikel_titel: Aufzeichnungspflichten
@@ -3574,17 +3584,21 @@ einheiten:
   saetze: 1
   beleg: a) die Ermittlung von Situationen, die dazu führen können, dass das Hochrisiko-KI-System ein
     Risiko im Sinne des Artikels 79 Absatz 1 birgt oder dass es zu einer wesentlichen Änderung kommt,
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Ermittlung von Situationen, die zu einem Risiko im Sinne von Art. 79 Abs. 1 oder zu einer wesentlichen
+    Aenderung fuehren koennen.
+  scope: out
+  scope_grund: Anbieterpflicht wie Abs. 1 - Protokollierungsfunktion als Systemeigenschaft.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: 'unveraendert - Art. 12 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
+    (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf: die Liste geaenderter Artikel geht
+    von Nr. 10 [Art. 11] direkt auf Nr. 11 [Art. 17] ueber).'
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 12 Abs. 2 lit. b
   artikel: '12'
   artikel_titel: Aufzeichnungspflichten
@@ -3594,17 +3608,21 @@ einheiten:
   laenge: 89
   saetze: 1
   beleg: b) die Erleichterung der Beobachtung nach dem Inverkehrbringen gemäß Artikel 72 und
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Erleichterung der Beobachtung nach dem Inverkehrbringen gemaess Art. 72.
+  scope: out
+  scope_grund: Anbieterpflicht wie Abs. 1; die Betreiber-Seite von Art. 72 (Post-Market Surveillance)
+    folgt in Lauf 2.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: 'unveraendert - Art. 12 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
+    (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf: die Liste geaenderter Artikel geht
+    von Nr. 10 [Art. 11] direkt auf Nr. 11 [Art. 17] ueber).'
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 12 Abs. 2 lit. c
   artikel: '12'
   artikel_titel: Aufzeichnungspflichten
@@ -3614,17 +3632,24 @@ einheiten:
   laenge: 90
   saetze: 1
   beleg: c) die Überwachung des Betriebs der Hochrisiko-KI-Systeme gemäß Artikel 26 Absatz 5.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Ueberwachung des Betriebs der Hochrisiko-KI-Systeme gemaess Art. 26 Abs. 5.
+  scope: out
+  scope_grund: 'Anbieterpflicht: die Protokollierungsfunktion muss die BETREIBER-Ueberwachungspflicht
+    aus Art. 26 Abs. 5 (dort bereits erfasst) technisch UNTERSTUETZEN - das ist eine Systemeigenschaft
+    des Anbieters, nicht die Ueberwachungshandlung selbst. Kreuzreferenz bestaetigt die in Art. 26 Abs.
+    5 dokumentierte Luecke: die eigentliche Ueberwachung ist im Katalog nicht operationalisiert, auch
+    die dafuer noetige technische Voraussetzung (protokollierungsfaehiges System) wird nirgends gepruefte.'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: 'unveraendert - Art. 12 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
+    (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf: die Liste geaenderter Artikel geht
+    von Nr. 10 [Art. 11] direkt auf Nr. 11 [Art. 17] ueber).'
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 12 Abs. 3
   artikel: '12'
   artikel_titel: Aufzeichnungspflichten
@@ -3635,17 +3660,24 @@ einheiten:
   saetze: 1
   beleg: '(3)   Die Protokollierungsfunktionen der in Anhang III Nummer 1 Buchstabe a genannten Hochrisiko-KI-Systeme
     müssen zumindest Folgendes umfassen:'
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Die Protokollierungsfunktionen der Anhang-III-Nr.-1-lit.-a-Systeme (biometrische Identifizierung)
+    muessen mindestens die in lit. a-d genannten Angaben umfassen.
+  scope: out
+  scope_grund: 'Anbieterpflicht (Protokollierungsfunktion als Systemeigenschaft) UND kategorial nicht
+    einschlaegig: gilt nur fuer Systeme nach Anhang III Nr. 1 lit. a (biometrische Identifizierung/Kategorisierung).
+    Der Anwendungsfall Redispatch faellt unter Anhang III Nr. 2 (kritische Infrastruktur) - scope: out
+    statt scope: in+nicht_einschlaegig, da bereits die erste Pruefstufe (Anbieterpflicht, kein Betreiberbezug)
+    nicht erreicht wird, unabhaengig von der Anhang-III-Kategorie.'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 12 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
+    (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 12 Abs. 3 lit. a
   artikel: '12'
   artikel_titel: Aufzeichnungspflichten
@@ -3656,17 +3688,23 @@ einheiten:
   saetze: 1
   beleg: a) Aufzeichnung jedes Zeitraums der Verwendung des Systems (Datum und Uhrzeit des Beginns und
     des Endes jeder Verwendung);
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Aufzeichnung jedes Nutzungszeitraums (Datum/Uhrzeit von Beginn und Ende jeder Verwendung).
+  scope: out
+  scope_grund: 'Anbieterpflicht (Protokollierungsfunktion als Systemeigenschaft) UND kategorial nicht
+    einschlaegig: gilt nur fuer Systeme nach Anhang III Nr. 1 lit. a (biometrische Identifizierung/Kategorisierung).
+    Der Anwendungsfall Redispatch faellt unter Anhang III Nr. 2 (kritische Infrastruktur) - scope: out
+    statt scope: in+nicht_einschlaegig, da bereits die erste Pruefstufe (Anbieterpflicht, kein Betreiberbezug)
+    nicht erreicht wird, unabhaengig von der Anhang-III-Kategorie.'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 12 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
+    (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 12 Abs. 3 lit. b
   artikel: '12'
   artikel_titel: Aufzeichnungspflichten
@@ -3676,17 +3714,23 @@ einheiten:
   laenge: 78
   saetze: 1
   beleg: b) die Referenzdatenbank, mit der das System die Eingabedaten abgleicht;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Die Referenzdatenbank, mit der das System die Eingabedaten abgleicht.
+  scope: out
+  scope_grund: 'Anbieterpflicht (Protokollierungsfunktion als Systemeigenschaft) UND kategorial nicht
+    einschlaegig: gilt nur fuer Systeme nach Anhang III Nr. 1 lit. a (biometrische Identifizierung/Kategorisierung).
+    Der Anwendungsfall Redispatch faellt unter Anhang III Nr. 2 (kritische Infrastruktur) - scope: out
+    statt scope: in+nicht_einschlaegig, da bereits die erste Pruefstufe (Anbieterpflicht, kein Betreiberbezug)
+    nicht erreicht wird, unabhaengig von der Anhang-III-Kategorie.'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 12 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
+    (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 12 Abs. 3 lit. c
   artikel: '12'
   artikel_titel: Aufzeichnungspflichten
@@ -3696,17 +3740,23 @@ einheiten:
   laenge: 86
   saetze: 1
   beleg: c) die Eingabedaten, mit denen die Abfrage zu einer Übereinstimmung geführt hat;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Die Eingabedaten, mit denen die Abfrage zu einer Uebereinstimmung gefuehrt hat.
+  scope: out
+  scope_grund: 'Anbieterpflicht (Protokollierungsfunktion als Systemeigenschaft) UND kategorial nicht
+    einschlaegig: gilt nur fuer Systeme nach Anhang III Nr. 1 lit. a (biometrische Identifizierung/Kategorisierung).
+    Der Anwendungsfall Redispatch faellt unter Anhang III Nr. 2 (kritische Infrastruktur) - scope: out
+    statt scope: in+nicht_einschlaegig, da bereits die erste Pruefstufe (Anbieterpflicht, kein Betreiberbezug)
+    nicht erreicht wird, unabhaengig von der Anhang-III-Kategorie.'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 12 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
+    (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 12 Abs. 3 lit. d
   artikel: '12'
   artikel_titel: Aufzeichnungspflichten
@@ -3717,17 +3767,24 @@ einheiten:
   saetze: 1
   beleg: d) die Identität der gemäß Artikel 14 Absatz 5 an der Überprüfung der Ergebnisse beteiligten
     natürlichen Personen.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Die Identitaet der nach Art. 14 Abs. 5 an der Ergebnisueberpruefung beteiligten natuerlichen
+    Personen.
+  scope: out
+  scope_grund: 'Anbieterpflicht (Protokollierungsfunktion als Systemeigenschaft) UND kategorial nicht
+    einschlaegig: gilt nur fuer Systeme nach Anhang III Nr. 1 lit. a (biometrische Identifizierung/Kategorisierung).
+    Der Anwendungsfall Redispatch faellt unter Anhang III Nr. 2 (kritische Infrastruktur) - scope: out
+    statt scope: in+nicht_einschlaegig, da bereits die erste Pruefstufe (Anbieterpflicht, kein Betreiberbezug)
+    nicht erreicht wird, unabhaengig von der Anhang-III-Kategorie.'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 12 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
+    (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 13 Abs. 1
   artikel: '13'
   artikel_titel: Transparenz und Bereitstellung von Informationen für die Betreiber
