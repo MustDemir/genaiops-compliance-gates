@@ -1,0 +1,48 @@
+#!/usr/bin/env bash
+#
+# pre-push — the push is the session's end, so the push is where the checks run.
+#
+# `make verify` fires everything that needs no cluster, at --fail-on low: the
+# integration suite, the integrity suite, the Rego unit tests, hash parity, chain
+# migration and the evidence manifest. About six and a half seconds.
+#
+# Why here and not in a habit: HANDBOOK_ROADMAP_CURRENT reports when HANDBUCH Teil 7
+# has fallen behind the gates, the pipeline and the specs — but only if somebody runs
+# the suite. Nothing in the workflow made that certain, which is the same dependence
+# on discipline the check was built against, one level down. The push IS certain.
+#
+# To activate in a clone:   git config core.hooksPath .githooks
+#
+# To override deliberately: git push --no-verify
+# That is not a hole to be closed. Every local hook can be bypassed, and one that
+# could not would eventually block a Friday evening and then be disabled for good.
+# The difference from having no hook is that the bypass has to be typed.
+
+set -u
+
+repo_root="$(git rev-parse --show-toplevel)"
+cd "$repo_root" || exit 1
+
+echo "pre-push: make verify (no cluster needed) …"
+
+if make verify; then
+    echo ""
+    echo "pre-push: verify green — pushing."
+    exit 0
+fi
+
+cat <<'MSG'
+
+────────────────────────────────────────────────────────────────────────
+  PUSH ANGEHALTEN — make verify ist rot.
+  Die Befunde stehen oben, jeder mit seiner Stufe und seiner Fundstelle.
+
+  Fällt HANDBOOK_ROADMAP_CURRENT auf: HANDBUCH Teil 7 liegt hinter dem,
+  was seitdem an Gates, Pipeline oder Specs passiert ist. Der Check nennt
+  die Commits — das ist die Liste, aus der der Nachzug besteht.
+
+  Bewusst überstimmen:  git push --no-verify
+────────────────────────────────────────────────────────────────────────
+
+MSG
+exit 1

@@ -343,14 +343,40 @@ genaiops-compliance-gates/
 ## Verification
 
 ```bash
+make verify                            # everything that runs without a cluster, ~6.5s
+make verify-cluster                    # the same, plus the smoke test (needs a cluster)
+```
+
+`make verify` runs the six suites below. They can also be run one at a time:
+
+```bash
 ./tests/run_all_rego_tests.sh          # 215 Rego unit tests
 python3 tests/test_all.py              # 36 integration tests across all five pillars
-python3 tests/test_integrity_regression.py --fail-on medium   # 35 credibility checks
+python3 tests/test_integrity_regression.py --fail-on medium   # 36 credibility checks
+python3 tests/test_hash_parity.py                  # the three hash implementations agree
+python3 tests/test_hash_chain_migration.py         # the chain verifies across payload generations
+python3 tests/test_evidence_manifest.py            # guards on the signable evidence manifest
+```
+
+Beyond the suites, for a full closed-loop run:
+
+```bash
 python3 pipeline/gate_orchestrator.py --scenario pipeline/scenarios/poc_healthcare_pass.json
 python3 evidence-store/scripts/verify_hash_chain.py --sqlite evidence-store/evidence_closed_loop.db
-python3 tests/test_evidence_manifest.py            # guards on the signable evidence manifest
-python3 tests/test_hash_parity.py                  # the three hash implementations agree
 ```
+
+**The push runs `make verify`.** `.githooks/pre-push` gates every push on it, at
+`--fail-on low`, so that the checks meet a moment that is certain to happen rather than
+one somebody has to remember. Activate it once per clone — a hook nobody activates is a
+claim, not a control:
+
+```bash
+git config core.hooksPath .githooks
+```
+
+If the suites cannot import `yaml`, point `PYTHON` at an interpreter that can, in an
+untracked `Makefile.local`; `make` says so and stops rather than producing a wall of
+stack traces. `git push --no-verify` overrides the hook deliberately.
 
 **Three test layers.** Rego unit tests (fail-fast, before any gate runs) → Conftest gate evaluations against fixtures → SHA-256 hash-chain verification per pipeline run.
 

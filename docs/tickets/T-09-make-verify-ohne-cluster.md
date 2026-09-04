@@ -1,37 +1,48 @@
-# T-09 — `make verify` läuft ohne Cluster
+# T-09 — `make verify` läuft ohne Cluster, und der Push prüft es
 
-**Status:** BEREIT · gestellt 04.09.2026
+**Status:** BEREIT · gestellt 04.09.2026 · PO-Entscheidungen getroffen
 **Bezug:** HANDBUCH Teil 7 Punkt 10 · AGENTS.md 5
 
 ---
 
 ## WARUM
 
-`verify: test test-integrity smoke` — `smoke` ruft `infrastructure/scripts/smoke-test.sh`
-und setzt ein laufendes Cluster voraus. Auf der Entwicklungsmaschine bricht das Target
-deshalb immer ab, und zwar erst **nach** den beiden Suiten, die durchgelaufen wären.
+**Erster Befund — `verify` prüft weniger und läuft trotzdem nicht.**
+`verify: test test-integrity smoke`. `smoke` ruft `infrastructure/scripts/smoke-test.sh`
+und setzt ein Cluster voraus; auf der Entwicklungsmaschine bricht das Target immer ab,
+und zwar erst *nach* den beiden Suiten. Gleichzeitig fährt es vier Prüfungen **nicht**,
+die kein Cluster brauchen: Rego (215 Tests), Hash-Parität, Chain-Migration,
+Evidenz-Manifest.
 
-Gleichzeitig fährt `verify` vier Prüfungen **nicht**, die keinerlei Cluster brauchen:
+Der eine Befehl, der „prüf alles" heißt, prüft also weniger als die Summe der
+Einzelbefehle **und** ist unbenutzbar. Ein Prüfbefehl, den niemand ausführen kann,
+ist funktional dasselbe wie kein Prüfbefehl.
 
-| Prüfung | Kommando | Umfang |
-|---|---|---|
-| Rego-Unit-Tests | `bash tests/run_all_rego_tests.sh --quiet` | 215 Tests, braucht `opa` auf PATH |
-| Hash-Parität | `python3 tests/test_hash_parity.py` | Exit 0 |
-| Chain-Migration | `python3 tests/test_hash_chain_migration.py` | Exit 0 |
-| Evidenz-Manifest | `python3 tests/test_evidence_manifest.py` | Exit 0 |
+**Zweiter Befund — das Cluster war nicht der einzige Grund.**
+Die Targets rufen `python3`. Das ist hier `/opt/homebrew/bin/python3` **ohne PyYAML**:
 
-Der Befund ist nicht, dass `smoke` falsch wäre. Er ist, dass **der eine Befehl, der
-„prüf alles" heißt, weniger prüft als die Summe der Einzelbefehle und trotzdem nicht
-durchläuft.** Ein Prüfbefehl, den niemand benutzen kann, ist funktional dasselbe wie
-kein Prüfbefehl — dieselbe Struktur wie eine Kontrolle, die deklariert ist und nicht
-greift (B-02, B-11, B-13).
+```
+make test-integrity
+  Actionable failures (>= MEDIUM): 13     ← alle 13: ModuleNotFoundError: No module named 'yaml'
+  make: *** [test-integrity] Error 1
+```
 
-Verschärfend: die Integrity-Suite läuft in **keinem** CI-Job. `.github/workflows/gate-pipeline.yml`
-ruft weder `tests/test_integrity_regression.py` noch `tests/test_all.py` auf. Damit sind
-36 Checks vollständig davon abhängig, dass jemand lokal `make test-integrity` tippt.
-**Das ist ein eigener Befund und nicht Teil dieses Tickets** (siehe SCOPE OUT) — es
-erhöht aber das Gewicht: der lokale Befehl ist derzeit der einzige Ort, an dem diese
-Checks überhaupt wirken.
+`make verify` liefe also **auch nach dem Entkoppeln von `smoke` nicht durch**. Wer nur
+Befund 1 behebt, liefert ein Target, das weiterhin niemand benutzen kann — und das
+Ticket wäre umsonst gewesen. Der Grund ist bekannt und nicht behebbar: pip ist auf
+dieser Maschine unbrauchbar (leeres `platform.mac_ver()` unter macOS 26.2), PyYAML
+liegt manuell entpackt unter `~/.local/pylibs`. Das ist eine **Maschineneigenschaft**
+und gehört nicht in ein getracktes Makefile.
+
+**Dritter Befund — die Kontrolle erinnert an nichts.**
+`HANDBOOK_ROADMAP_CURRENT` meldet, wenn HANDBUCH Teil 7 hinter Gates, Pipeline und
+Specs zurückfällt. Gemeldet wird es nur, wenn jemand die Suite fährt. Es gibt keinen
+Moment im Arbeitsablauf, an dem das zwingend geschieht — dieselbe Abhängigkeit von
+Disziplin, gegen die der Check gebaut ist, eine Ebene tiefer.
+
+Es gibt aber einen Moment, der **verlässlich** eintritt: der Push. Der PO pusht einmal
+pro Sitzung; der Push *ist* das Sitzungsende. Ein `pre-push`-Hook hängt sich an eine
+vorhandene Gewohnheit und verlangt keine neue.
 
 ## RECHTSBEZUG
 
@@ -39,56 +50,72 @@ keiner. Werkzeugfrage.
 
 ## PO-ENTSCHEIDUNGEN
 
-Keines der vier Ehrlichkeitsfelder ist betroffen — es wird kein Gate, kein Check und
-kein Requirement angefasst. Eine Festlegung braucht das Ticket dennoch:
+Keines der vier Ehrlichkeitsfelder ist betroffen — kein Gate, kein Check, kein
+Requirement wird angefasst. Zwei Festlegungen sind getroffen:
 
-- [ ] **`--fail-on`-Stufe für die Integrity-Suite in `verify`:** `medium` (Default,
-      der neue `HANDBOOK_ROADMAP_CURRENT` meldet sichtbar, blockiert aber nicht) oder
-      `low` (jeder Befund blockiert, auch der Roadmap-Drift mitten in der Sitzung).
-      **Vorschlag: `medium`** — begründet in derselben Überlegung, aus der der Check
-      LOW bekam. `verify` soll am Ende einer Arbeit grün sein können.
+- [x] **`--fail-on low` in `verify`.** Begründung: `verify` ist kein Alltagsbefehl,
+      sondern der Push-Torwächter — es fährt genau einmal pro Sitzung, im Hook. In
+      dieser Rolle ist `medium` wirkungslos: der Roadmap-Befund würde gedruckt und der
+      Push ginge durch, also Rauschen statt Erinnerung. Für Läufe zwischendurch bleibt
+      der Suite-Default `medium` unverändert; wer `tests/test_integrity_regression.py`
+      einzeln fährt, merkt nichts von dieser Entscheidung.
+- [x] **Ein Target, kein zweites Vokabular.** Kein `make session-close` neben `verify`.
+      Ein zweiter Befehl für denselben Moment ist eine zweite Definition desselben
+      Vorgangs — derselbe Grund, aus dem AGENTS.md das Handbuch nicht wiederholt.
 
 ## SCOPE IN
 
-- `Makefile` — die Test- und Verify-Targets
-- `README.md` — nur, falls dort ein Kommando genannt wird, das sich ändert
+- `Makefile` — Test- und Verify-Targets, Interpreter-Auflösung, Hilfetext
+- `.githooks/pre-push` (neu)
+- `README.md` — die Aktivierungszeile für `core.hooksPath`
+- `Makefile.local` — **nicht getrackt** (`.gitignore` deckt `*.local`), hält die
+  maschinenspezifische Interpreter-Angabe
 
 ## SCOPE OUT
 
 - `infrastructure/scripts/smoke-test.sh` bleibt unverändert
-- Die Integrity-Suite in die CI hängen — eigener Auftrag
+- Die Integrity-Suite in die CI hängen — eigener Auftrag, eigener Befund
 - Neue Tests schreiben. Dieses Ticket verdrahtet vorhandene, es erzeugt keine
+- Die `severity` eines bestehenden Checks ändern
+- Die Schlusszeile der Suite reparieren, die bei `--fail-on high` „PASSED" druckt,
+  während ein FAIL darübersteht — eigener Befund, eigener Auftrag
 
 ## DEFINITION OF READY
 
-1. Die vier oben genannten Kommandos laufen auf dieser Maschine einzeln durch.
-   **Vorbedingung:** `opa` auf PATH; PyYAML über `PYTHONPATH=$HOME/.local/pylibs`
-   und `/opt/homebrew/bin/python3.13`, weil pip auf dieser Maschine unbrauchbar ist.
-2. Die `--fail-on`-Stufe ist entschieden (siehe PO-ENTSCHEIDUNGEN).
+1. Die vier einzuhängenden Kommandos laufen einzeln durch. **Belegt:**
+   Rego 215/215 · Parität OK · Chain-Migration Exit 0 · Manifest Exit 0 · Gesamt ≈ 6,5 s.
+2. `opa` ist auf PATH (1.14.1).
+3. Die beiden PO-Festlegungen liegen vor (siehe oben).
 
 ## DEFINITION OF DONE — maschinell
 
-1. `make verify` läuft **ohne Cluster** vollständig durch und endet mit Exit 0.
-   Beleg: die vollständige Ausgabe mit den Zahlen jeder Suite.
-2. `make verify` fährt alle sechs Prüfungen: `test_all.py` (36), Integrity (36),
-   Rego (215), Hash-Parität, Chain-Migration, Evidenz-Manifest.
-   Beleg: die Zählstände aus der Ausgabe, nicht die Zusicherung.
-3. `make verify-cluster` existiert, hängt an `verify` **und** `smoke`, und bricht auf
-   dieser Maschine erwartungsgemäß im `smoke`-Schritt ab — **nachdem** alles andere
-   grün gelaufen ist. Beleg: die Ausgabe bis zum Abbruchpunkt.
-4. `grep -n "^verify" Makefile` zeigt kein `smoke` mehr in der `verify`-Zeile.
-5. Die Integrity-Suite bleibt grün: 36 Checks, 0 actionable auf der entschiedenen Stufe.
+1. `make verify` läuft **ohne Cluster** durch, Exit 0. Beleg: vollständige Ausgabe.
+2. `make verify` fährt sechs Prüfungen mit ihren Zählständen: `test_all.py` (36),
+   Integrity (36, `--fail-on low`), Rego (215), Parität, Chain-Migration, Manifest.
+3. `grep -n "^verify:" Makefile` zeigt kein `smoke`.
+4. `make verify-cluster` existiert und hängt an `verify` **und** `smoke`.
+5. **Der Interpreter ist gelöst:** `make verify` läuft auf dieser Maschine, ohne dass
+   der Aufrufer `PYTHONPATH` von Hand setzt. Fehlt ein tauglicher Interpreter, bricht
+   `make` mit einer Meldung ab, die sagt was zu tun ist — nicht mit 13 Stacktraces.
+6. `.githooks/pre-push` ruft `make verify` und bricht den Push bei Exit ≠ 0 ab.
+7. Der Hook ist aktiviert (`git config core.hooksPath .githooks`), und das README
+   nennt diesen Befehl — ein Hook, dessen Aktivierung nirgends steht, ist in einem
+   frischen Klon nicht vorhanden und behauptet trotzdem, zu schützen.
 
 ## ABNAHME DURCH DEN PO
 
-Der **rote Lauf** ist hier kein gebrochener Check, sondern der Nachweis, dass `verify`
-scheitert, wenn eine der neu eingehängten Prüfungen scheitert. Zu zeigen:
+Zwei rote Läufe, beide **gegen committeten Stand** (AGENTS.md 5 — erst committen,
+dann brechen, dann `git restore --source=HEAD --worktree`):
 
-- Eine Rego-Regel oder eine Hash-Prüfung **gegen committeten Stand** brechen, `make verify`
-  rot mit Exit ≠ 0, zurücknehmen, `make verify` grün.
-- Reihenfolge zwingend (AGENTS.md 5): erst committen, dann brechen, dann
-  `git restore --source=HEAD --worktree <datei>`.
+1. **`verify` bricht, wenn eine eingehängte Prüfung bricht.** Eine Rego-Regel brechen →
+   `make verify` Exit ≠ 0 → zurücknehmen → Exit 0.
+2. **Der Hook hält den Push an.** Einen Commit an `pipeline/` ohne Handbuch-Nachzug →
+   `git push` wird vom Hook abgebrochen, mit der Zeile aus `HANDBOOK_ROADMAP_CURRENT` →
+   zurücknehmen → Push läuft.
+
+Der zweite ist der eigentliche Nachweis: er zeigt, dass die Erinnerung an dem Moment
+ankommt, an dem sie ankommen soll.
 
 ## COMMIT
 
-Commit ja. Push: nach Abnahme.
+Commit ja. Push: nach Abnahme — und der Push ist ab dann selbst Teil der Prüfung.

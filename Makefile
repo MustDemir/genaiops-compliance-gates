@@ -1,5 +1,22 @@
 .PHONY: help install-conftest local-up local-down minikube gatekeeper monitoring app smoke \
-        aks-up aks-down test test-integrity verify clean-runtime
+        aks-up aks-down test test-integrity test-rego test-evidence check-python \
+        verify verify-cluster clean-runtime
+
+# ── Interpreter ──────────────────────────────────────────────────────
+#
+# The suites need PyYAML. Which interpreter has it is a property of the
+# MACHINE, not of this repository, so it is not hard-coded here: on the
+# development machine pip is unusable (macOS 26.2 returns an empty
+# platform.mac_ver(), which breaks pip's wheel-tag resolution) and PyYAML
+# lives unpacked under ~/.local/pylibs. Putting that path in a tracked
+# Makefile would make the build depend on one laptop.
+#
+# Instead: override PYTHON — and PYTHONPATH if needed — in Makefile.local,
+# which is untracked (.gitignore covers *.local). check-python fails loudly
+# and says what to do when no usable interpreter is found, rather than
+# letting thirteen checks die with a stack trace apiece.
+PYTHON ?= python3
+-include Makefile.local
 
 # Default target prints help
 help:
@@ -24,7 +41,10 @@ help:
 	@echo "Tests:"
 	@echo "  make test                   Run master integration test (tests/test_all.py)"
 	@echo "  make test-integrity         Run integrity regression suite (tests/test_integrity_regression.py)"
-	@echo "  make verify                 Run both test suites + smoke"
+	@echo "  make test-rego              Run all Rego unit tests (needs opa on PATH)"
+	@echo "  make test-evidence          Run hash parity, chain migration and manifest tests"
+	@echo "  make verify                 Everything that runs WITHOUT a cluster — the push gate"
+	@echo "  make verify-cluster         verify + smoke (needs a running cluster)"
 	@echo ""
 	@echo "Maintenance:"
 	@echo "  make clean-runtime          Remove evidence-store/data/{reports,sqlite}/ contents"
@@ -66,13 +86,44 @@ aks-down:
 
 # ── Tests ────────────────────────────────────────────────────────────
 
-test:
-	python3 tests/test_all.py
+check-python:
+	@$(PYTHON) -c 'import yaml' >/dev/null 2>&1 || { \
+	  echo ""; \
+	  echo "  $(PYTHON) cannot import yaml — the gate, requirement and README"; \
+	  echo "  checks would all fail with a stack trace instead of a verdict."; \
+	  echo ""; \
+	  echo "  Point PYTHON at an interpreter that has PyYAML. Machine-specific,"; \
+	  echo "  so put it in Makefile.local (untracked), for example:"; \
+	  echo ""; \
+	  echo "      PYTHON = /opt/homebrew/bin/python3.13"; \
+	  echo "      export PYTHONPATH := \$$(HOME)/.local/pylibs"; \
+	  echo ""; \
+	  exit 1; \
+	}
 
-test-integrity:
-	python3 tests/test_integrity_regression.py
+test: check-python
+	$(PYTHON) tests/test_all.py
 
-verify: test test-integrity smoke
+test-integrity: check-python
+	$(PYTHON) tests/test_integrity_regression.py
+
+test-rego:
+	@command -v opa >/dev/null 2>&1 || { echo "opa is not on PATH — Rego tests cannot run"; exit 1; }
+	bash tests/run_all_rego_tests.sh --quiet
+
+test-evidence: check-python
+	$(PYTHON) tests/test_hash_parity.py
+	$(PYTHON) tests/test_hash_chain_migration.py
+	$(PYTHON) tests/test_evidence_manifest.py
+
+# Everything that runs WITHOUT a cluster. This is the push gate: .githooks/pre-push
+# runs it, which is why the integrity suite runs at --fail-on low here. At medium the
+# roadmap check would print and the push would go through — noise, not a reminder.
+# The suite's own default stays medium for standalone runs.
+verify: check-python test test-rego test-evidence
+	$(PYTHON) tests/test_integrity_regression.py --fail-on low
+
+verify-cluster: verify smoke
 
 # ── Maintenance ──────────────────────────────────────────────────────
 
