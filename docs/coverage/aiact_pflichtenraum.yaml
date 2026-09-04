@@ -3779,17 +3779,32 @@ einheiten:
   beleg: (1)   Hochrisiko-KI-Systeme werden so konzipiert und entwickelt, dass sie während der Dauer ihrer
     Verwendung — auch mit geeigneten Instrumenten einer Mensch-Maschine-Schnittstelle — von natürlichen
     Personen wirksam beaufsichtigt werden können.
-  adressat: null
-  pflicht: null
-  scope: null
+  adressat: anbieter
+  pflicht: Hochrisiko-KI-Systeme werden so konzipiert und entwickelt, dass sie waehrend ihrer Verwendung
+    von natuerlichen Personen wirksam beaufsichtigt werden koennen (auch mittels Mensch-Maschine-Schnittstelle).
+  scope: in
   scope_grund: null
-  verifikation: null
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
-  befund: null
-  befund_grund: null
+  omnibus: 'unveraendert - Art. 14 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
+    (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf: die Liste geaenderter Artikel geht
+    von Nr. 10 [Art. 11] direkt auf Nr. 11 [Art. 17] ueber).'
+  requirement:
+  - R004
+  - R008
+  gate:
+  - G-PRE-05
+  - G-OPS-01
+  befund: teilabdeckung
+  befund_grund: 'Design-/Entwicklungspflicht des Anbieters (Faehigkeit zur wirksamen Beaufsichtigung muss
+    im System angelegt sein), Vorbedingung fuer die Betreiberpflicht aus Art. 26 Abs. 2 (Uebertragung
+    der Aufsicht) - deshalb scope: in trotz Anbieter-Duty-Bearer, analog Art. 9 Abs. 5 lit. c. G-PRE-05/C-01
+    prueft ''human_oversight_model + oversight_lead definiert, kill_switch fuer High-Risk'' (Selbstauskunft,
+    E-0); G-OPS-01/C-01 prueft Rollen-/Eskalations-/Override-/Monitoring-Dokumentation (E-0). Beide pruefen
+    Betreiber-seitige DOKUMENTATION der Aufsicht, nicht ob das SYSTEM selbst technisch wirksam beaufsichtigbar
+    ist (das waere eine Anbieter-seitige, am System pruefbare Eigenschaft, E-2-faehig - HANDBUCH 4.5 nennt
+    Beweiskraft als Rang-1-Achse, hier nicht erreicht).'
+  po_bestaetigt: false
 - id: Art. 14 Abs. 2
   artikel: '14'
   artikel_titel: Menschliche Aufsicht
@@ -3802,17 +3817,27 @@ einheiten:
     Sicherheit oder Grundrechte, die entstehen können, wenn ein Hochrisiko-KI-System im Einklang mit seiner
     Zweckbestimmung oder im Rahmen einer vernünftigerweise vorhersehbaren Fehlanwendung verwendet wird,
     insbesondere wenn solche Risiken trotz der Einhaltung anderer Anforderungen dieses Abschnitts fortbestehen.
-  adressat: null
-  pflicht: null
-  scope: null
+  adressat: anbieter
+  pflicht: Die menschliche Aufsicht dient der Verhinderung oder Minimierung von Risiken fuer Gesundheit,
+    Sicherheit oder Grundrechte bei zweckbestimmungsgemaesser Verwendung oder vernuenftigerweise vorhersehbarer
+    Fehlanwendung, insbesondere wenn Risiken trotz Einhaltung anderer Anforderungen fortbestehen.
+  scope: in
   scope_grund: null
-  verifikation: null
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
-  befund: null
-  befund_grund: null
+  omnibus: 'unveraendert - Art. 14 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
+    (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf: die Liste geaenderter Artikel geht
+    von Nr. 10 [Art. 11] direkt auf Nr. 11 [Art. 17] ueber).'
+  requirement:
+  - R008
+  gate: []
+  befund: luecke
+  befund_grund: 'Zweckbestimmungsnorm: Aufsicht MUSS Risiken tatsaechlich verhindern/minimieren - eine
+    Wirksamkeitsfrage, keine Dokumentationsfrage. R008 fuehrt genau das bereits als declared_gap: ''periodische
+    Wirksamkeitspruefung wird nicht ausgefuehrt'', ''es gibt keine Eskalation, weil es keine Messung der
+    Sterz-Bedingungen (Causal Power, Epistemic Access, Self-Control, Fitting Intentions) gibt''. Kein
+    Gate im Katalog prueft, ob Aufsicht wirkt statt nur existiert.'
+  po_bestaetigt: false
 - id: Art. 14 Abs. 3
   artikel: '14'
   artikel_titel: Menschliche Aufsicht
@@ -3824,17 +3849,27 @@ einheiten:
   beleg: '(3)   Die Aufsichtsmaßnahmen müssen den Risiken, dem Grad der Autonomie und dem Kontext der
     Nutzung des Hochrisiko-KI-Systems angemessen sein und werden durch eine oder beide der folgenden Arten
     von Vorkehrungen gewährleistet:'
-  adressat: null
-  pflicht: null
-  scope: null
+  adressat: anbieter
+  pflicht: Die Aufsichtsmassnahmen muessen Risiken, Autonomiegrad und Nutzungskontext angemessen sein
+    und werden durch Vorkehrungen nach lit. a oder b (oder beide) gewaehrleistet.
+  scope: in
   scope_grund: null
-  verifikation: null
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
-  befund: null
-  befund_grund: null
+  omnibus: 'unveraendert - Art. 14 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
+    (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf: die Liste geaenderter Artikel geht
+    von Nr. 10 [Art. 11] direkt auf Nr. 11 [Art. 17] ueber).'
+  requirement:
+  - R004
+  - R008
+  gate:
+  - G-PRE-05
+  - G-OPS-01
+  befund: teilabdeckung
+  befund_grund: Rahmenklausel; die Angemessenheitspruefung (Risiken/Autonomiegrad/Kontext) ist inhaltlicher
+    Teil des manuellen Reviews in G-PRE-05/G-OPS-01 (beide HYBRID), aber nicht als eigener automatisierter
+    Check ausformuliert - abhaengig von Review-Qualitaet, nicht strukturell erzwungen.
+  po_bestaetigt: false
 - id: Art. 14 Abs. 3 lit. a
   artikel: '14'
   artikel_titel: Menschliche Aufsicht
@@ -3845,17 +3880,23 @@ einheiten:
   saetze: 1
   beleg: a) Vorkehrungen, die vor dem Inverkehrbringen oder der Inbetriebnahme vom Anbieter bestimmt und,
     sofern technisch machbar, in das Hochrisiko-KI-System eingebaut werden;
-  adressat: null
-  pflicht: null
-  scope: null
+  adressat: anbieter
+  pflicht: 'Eine Art der Vorkehrung: vom Anbieter vor Inverkehrbringen/Inbetriebnahme bestimmte und, soweit
+    technisch machbar, in das System eingebaute Massnahmen.'
+  scope: in
   scope_grund: null
-  verifikation: null
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
-  befund: null
-  befund_grund: null
+  omnibus: 'unveraendert - Art. 14 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
+    (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf: die Liste geaenderter Artikel geht
+    von Nr. 10 [Art. 11] direkt auf Nr. 11 [Art. 17] ueber).'
+  requirement: []
+  gate: []
+  befund: luecke
+  befund_grund: Ob das System eingebaute Aufsichtsvorkehrungen tatsaechlich enthaelt, ist eine Systemzustands-Frage
+    (E-2, Cluster-/Produktpruefung); kein Gate im Katalog prueft dies am System selbst - G-OPS-01/G-PRE-05
+    pruefen Betreiber-seitige Dokumentation, nicht die vom Anbieter geleistete technische Einbettung.
+  po_bestaetigt: false
 - id: Art. 14 Abs. 3 lit. b
   artikel: '14'
   artikel_titel: Menschliche Aufsicht
@@ -3866,17 +3907,28 @@ einheiten:
   saetze: 1
   beleg: b) Vorkehrungen, die vor dem Inverkehrbringen oder der Inbetriebnahme des Hochrisiko-KI-Systems
     vom Anbieter bestimmt werden und dazu geeignet sind, vom Betreiber umgesetzt zu werden.
-  adressat: null
-  pflicht: null
-  scope: null
+  adressat: anbieter
+  pflicht: 'Die andere Art der Vorkehrung: vom Anbieter vor Inverkehrbringen/Inbetriebnahme bestimmte
+    Massnahmen, die dazu geeignet sind, vom Betreiber umgesetzt zu werden.'
+  scope: in
   scope_grund: null
-  verifikation: null
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
-  befund: null
-  befund_grund: null
+  omnibus: 'unveraendert - Art. 14 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
+    (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf: die Liste geaenderter Artikel geht
+    von Nr. 10 [Art. 11] direkt auf Nr. 11 [Art. 17] ueber).'
+  requirement:
+  - R004
+  - R008
+  gate:
+  - G-PRE-05
+  - G-OPS-01
+  befund: teilabdeckung
+  befund_grund: Ausdruecklich auf Betreiber-Umsetzung angelegt - klarste Betreiber-Bruecke in Art. 14
+    Abs. 3. G-PRE-05/G-OPS-01 pruefen, DASS ein Aufsichtsmodell dokumentiert ist, nicht ob die dokumentierten
+    Massnahmen tatsaechlich vom Anbieter so BESTIMMT wurden (Nachweiskette Anbieter -> Betreiber fehlt;
+    das Manifest ist reine Betreiber-Selbstauskunft).
+  po_bestaetigt: false
 - id: Art. 14 Abs. 4
   artikel: '14'
   artikel_titel: Menschliche Aufsicht
@@ -3888,17 +3940,27 @@ einheiten:
   beleg: (4)   Für die Zwecke der Durchführung der Absätze 1, 2 und 3 wird das Hochrisiko-KI-System dem
     Betreiber so zur Verfügung gestellt, dass die natürlichen Personen, denen die menschliche Aufsicht
     übertragen wurde, angemessen und verhältnismäßig in der Lage sind,
-  adressat: null
-  pflicht: null
-  scope: null
+  adressat: anbieter
+  pflicht: Zur Durchfuehrung der Abs. 1-3 wird das Hochrisiko-KI-System dem Betreiber so zur Verfuegung
+    gestellt, dass die mit der Aufsicht betrauten natuerlichen Personen angemessen und verhaeltnismaessig
+    in der Lage sind, lit. a-e auszufuehren.
+  scope: in
   scope_grund: null
-  verifikation: null
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
-  befund: null
-  befund_grund: null
+  omnibus: 'unveraendert - Art. 14 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
+    (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf: die Liste geaenderter Artikel geht
+    von Nr. 10 [Art. 11] direkt auf Nr. 11 [Art. 17] ueber).'
+  requirement:
+  - R008
+  gate:
+  - G-OPS-01
+  befund: teilabdeckung
+  befund_grund: Bereitstellungspflicht des Anbieters, direkt auf die vom Betreiber nach Art. 26 Abs. 2
+    beauftragten Personen bezogen - definiert die Kompetenzanforderungen, die Art. 26 Abs. 2 voraussetzt.
+    G-OPS-01/C-01 prueft Rollen-/Eskalations-/Override-/Monitoring-Dokumentation (E-0); ob die BEREITSTELLUNG
+    des Systems diese Faehigkeiten tatsaechlich ermoeglicht (lit. a-e im Einzelnen), siehe dort.
+  po_bestaetigt: false
 - id: Art. 14 Abs. 4 lit. a
   artikel: '14'
   artikel_titel: Menschliche Aufsicht
@@ -3910,17 +3972,26 @@ einheiten:
   beleg: a) die einschlägigen Fähigkeiten und Grenzen des Hochrisiko-KI-Systems angemessen zu verstehen
     und seinen Betrieb ordnungsgemäß zu überwachen, einschließlich in Bezug auf das Erkennen und Beheben
     von Anomalien, Fehlfunktionen und unerwarteter Leistung;
-  adressat: null
-  pflicht: null
-  scope: null
+  adressat: anbieter
+  pflicht: Die Aufsichtsperson kann die einschlaegigen Faehigkeiten und Grenzen des Systems angemessen
+    verstehen und seinen Betrieb ordnungsgemaess ueberwachen, einschliesslich Erkennen und Beheben von
+    Anomalien, Fehlfunktionen und unerwarteter Leistung.
+  scope: in
   scope_grund: null
-  verifikation: null
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
-  befund: null
-  befund_grund: null
+  omnibus: 'unveraendert - Art. 14 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
+    (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf: die Liste geaenderter Artikel geht
+    von Nr. 10 [Art. 11] direkt auf Nr. 11 [Art. 17] ueber).'
+  requirement:
+  - R008
+  gate:
+  - G-OPS-01
+  befund: teilabdeckung
+  befund_grund: Deckt sich am ehesten mit G-OPS-01/C-01's Feld 'real_time_monitoring' und 'oversight_roles'
+    (Dokumentation, dass ueberwacht wird), nicht mit der Faehigkeit der Person, Anomalien tatsaechlich
+    zu erkennen (keine Kompetenz-/Schulungspruefung, s. auch Art. 9 Abs. 5 lit. c).
+  po_bestaetigt: false
 - id: Art. 14 Abs. 4 lit. b
   artikel: '14'
   artikel_titel: Menschliche Aufsicht
@@ -3933,17 +4004,25 @@ einheiten:
     einem Hochrisiko-KI-System hervorgebrachte Ausgabe („Automatisierungsbias“) bewusst zu bleiben, insbesondere
     wenn Hochrisiko-KI-Systeme Informationen oder Empfehlungen ausgeben, auf deren Grundlage natürliche
     Personen Entscheidungen treffen;
-  adressat: null
-  pflicht: null
-  scope: null
+  adressat: anbieter
+  pflicht: Die Aufsichtsperson bleibt sich einer moeglichen Neigung zu automatischem oder uebermaessigem
+    Vertrauen in die Systemausgabe (Automatisierungsbias) bewusst, insbesondere bei Informationen/Empfehlungen,
+    auf deren Grundlage Entscheidungen getroffen werden.
+  scope: in
   scope_grund: null
-  verifikation: null
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
-  befund: null
-  befund_grund: null
+  omnibus: 'unveraendert - Art. 14 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
+    (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf: die Liste geaenderter Artikel geht
+    von Nr. 10 [Art. 11] direkt auf Nr. 11 [Art. 17] ueber).'
+  requirement: []
+  gate: []
+  befund: luecke
+  befund_grund: Kein Feld in G-OPS-01/C-01 ('oversight_roles, escalation_procedure, output_override, real_time_monitoring')
+    adressiert Automatisierungsbias-Bewusstsein oder eine entsprechende Schulung. Fuer den Anwendungsfall
+    Redispatch (Leitstellenpersonal uebernimmt haeufig KI-Empfehlungen unter Zeitdruck) potenziell praxisrelevant
+    - kein Requirement zieht diese Pflicht heran.
+  po_bestaetigt: false
 - id: Art. 14 Abs. 4 lit. c
   artikel: '14'
   artikel_titel: Menschliche Aufsicht
@@ -3954,17 +4033,23 @@ einheiten:
   saetze: 1
   beleg: c) die Ausgabe des Hochrisiko-KI-Systems richtig zu interpretieren, wobei beispielsweise die
     vorhandenen Interpretationsinstrumente und -methoden zu berücksichtigen sind;
-  adressat: null
-  pflicht: null
-  scope: null
+  adressat: anbieter
+  pflicht: Die Aufsichtsperson kann die Systemausgabe richtig interpretieren, unter Beruecksichtigung
+    vorhandener Interpretationsinstrumente und -methoden.
+  scope: in
   scope_grund: null
-  verifikation: null
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
-  befund: null
-  befund_grund: null
+  omnibus: 'unveraendert - Art. 14 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
+    (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf: die Liste geaenderter Artikel geht
+    von Nr. 10 [Art. 11] direkt auf Nr. 11 [Art. 17] ueber).'
+  requirement: []
+  gate: []
+  befund: luecke
+  befund_grund: Keine Interpretationsfaehigkeit/-hilfsmittel-Pruefung im Katalog; ueberschneidet sich
+    inhaltlich mit Art. 13 Abs. 3 lit. b Ziff. iv/vii (Erlaeuterungs-/Interpretationsinformationen), die
+    ebenfalls keinem Gate zugeordnet sind (siehe dort).
+  po_bestaetigt: false
 - id: Art. 14 Abs. 4 lit. d
   artikel: '14'
   artikel_titel: Menschliche Aufsicht
@@ -3976,17 +4061,26 @@ einheiten:
   beleg: d) in einer bestimmten Situation zu beschließen, das Hochrisiko-KI-System nicht zu verwenden
     oder die Ausgabe des Hochrisiko-KI-Systems außer Acht zu lassen, außer Kraft zu setzen oder rückgängig
     zu machen;
-  adressat: null
-  pflicht: null
-  scope: null
+  adressat: anbieter
+  pflicht: Die Aufsichtsperson kann beschliessen, das System in einer bestimmten Situation nicht zu verwenden
+    oder seine Ausgabe ausser Acht zu lassen, ausser Kraft zu setzen oder rueckgaengig zu machen.
+  scope: in
   scope_grund: null
-  verifikation: null
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
-  befund: null
-  befund_grund: null
+  omnibus: 'unveraendert - Art. 14 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
+    (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf: die Liste geaenderter Artikel geht
+    von Nr. 10 [Art. 11] direkt auf Nr. 11 [Art. 17] ueber).'
+  requirement:
+  - R008
+  gate:
+  - G-OPS-01
+  befund: teilabdeckung
+  befund_grund: Deckt sich unmittelbar mit dem Feld 'output_override' aus G-OPS-01/C-01 - die praeziseste
+    Uebereinstimmung zwischen Art. 14 Abs. 4 und dem Katalog. Gepruefte Reichweite bleibt E-0 (Dokumentation,
+    dass ein Override-Mechanismus existiert), nicht ob er im Betrieb tatsaechlich genutzt wird/genutzt
+    werden kann (Override-Rate fehlt, R008 declared_gap 'Luecke 2').
+  po_bestaetigt: false
 - id: Art. 14 Abs. 4 lit. e
   artikel: '14'
   artikel_titel: Menschliche Aufsicht
@@ -3998,17 +4092,26 @@ einheiten:
   beleg: e) in den Betrieb des Hochrisiko-KI-Systems einzugreifen oder den Systembetrieb mit einer „Stopptaste“
     oder einem ähnlichen Verfahren zu unterbrechen, was dem System ermöglicht, in einem sicheren Zustand
     zum Stillstand zu kommen.
-  adressat: null
-  pflicht: null
-  scope: null
+  adressat: anbieter
+  pflicht: Die Aufsichtsperson kann in den Betrieb eingreifen oder ihn mit einer 'Stopptaste' oder einem
+    aehnlichen Verfahren unterbrechen, sodass das System sicher zum Stillstand kommt.
+  scope: in
   scope_grund: null
-  verifikation: null
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
-  befund: null
-  befund_grund: null
+  omnibus: 'unveraendert - Art. 14 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
+    (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf: die Liste geaenderter Artikel geht
+    von Nr. 10 [Art. 11] direkt auf Nr. 11 [Art. 17] ueber).'
+  requirement:
+  - R004
+  gate:
+  - G-PRE-05
+  befund: teilabdeckung
+  befund_grund: 'G-PRE-05/C-01 prueft explizit ''kill_switch fuer High-Risk'' (Selbstauskunft, E-0) -
+    direkter Bezug zur ''Stopptaste''. Nicht geprueft: ob der Stillstand tatsaechlich SICHER erfolgt (sicherer
+    Zustand als Systemeigenschaft, E-2/E-3-Territorium) und ob G-OPS-01 denselben Sachverhalt zur Laufzeit
+    erneut prueft (Redundanz-/Konsistenzfrage zwischen G-PRE-05 und G-OPS-01 nicht geklaert).'
+  po_bestaetigt: false
 - id: Art. 14 Abs. 5
   artikel: '14'
   artikel_titel: Menschliche Aufsicht
@@ -4025,17 +4128,24 @@ einheiten:
     einer getrennten Überprüfung durch mindestens zwei natürliche Personen gilt nicht für Hochrisiko-KI-Systeme,
     die für Zwecke in den Bereichen Strafverfolgung, Migration, Grenzkontrolle oder Asyl verwendet werden,
     wenn die Anwendung dieser Anforderung nach Unionsrecht oder nationalem Recht unverhältnismäßig wäre.
-  adressat: null
-  pflicht: null
-  scope: null
+  adressat: betreiber
+  pflicht: Bei Hochrisiko-KI-Systemen nach Anhang III Nr. 1 lit. a trifft der Betreiber keine Massnahme/Entscheidung
+    allein aufgrund des biometrischen Identifizierungsergebnisses, solange dieses nicht von mindestens
+    zwei kompetenten, ausgebildeten und befugten natuerlichen Personen getrennt ueberprueft und bestaetigt
+    wurde; Ausnahme fuer Strafverfolgung/Migration/Grenzkontrolle/Asyl bei Unverhaeltnismaessigkeit.
+  scope: in
   scope_grund: null
-  verifikation: null
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
-  befund: null
-  befund_grund: null
+  omnibus: unveraendert - Art. 14 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
+    (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
+  befund: nicht_einschlaegig
+  befund_grund: Gilt ausschliesslich fuer Hochrisiko-KI-Systeme nach Anhang III Nr. 1 lit. a (biometrische
+    Identifizierung). Der Anwendungsfall Redispatch faellt unter Anhang III Nr. 2 (kritische Infrastruktur)
+    - kategorial nicht einschlaegig, analog Art. 26 Abs. 10 und Art. 26 Abs. 8.
+  po_bestaetigt: false
 - id: Art. 15 Abs. 1
   artikel: '15'
   artikel_titel: Genauigkeit, Robustheit und Cybersicherheit
