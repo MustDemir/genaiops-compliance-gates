@@ -1,6 +1,10 @@
 # T-09 — `make verify` läuft ohne Cluster, und der Push prüft es
 
-**Status:** BEREIT · gestellt 04.09.2026 · PO-Entscheidungen getroffen
+**Status:** ERLEDIGT · gestellt und geliefert 04.09.2026 · abgenommen vom PO
+**Beleg:** `make verify` Exit 0 in 6,46 s — 36 Integration · 36 Integrity (`--fail-on low`) ·
+215 Rego · Parität · Chain-Migration · Manifest. Zwei Gegenproben gegen committeten Stand:
+eine gebrochene Rego-Assertion macht `verify` rot (Exit 2, `FAIL: 1/215`), und ein
+Substanz-Commit ohne Handbuch-Nachzug lässt den `pre-push`-Hook den Push abbrechen.
 **Bezug:** HANDBUCH Teil 7 Punkt 10 · AGENTS.md 5
 
 ---

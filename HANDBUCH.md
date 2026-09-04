@@ -411,7 +411,7 @@ Ausformuliert nach den fünf Fragen aus 3.4, weil dieses Gate die Lücke am deut
 | Redispatch-Vignette bauen, inkl. Negativfall | offen — macht die Branchenwahl erst sichtbar |
 | Ersten Fachbeitrag zur Rollenabgrenzung schreiben | braucht EUR-Lex-Abgleich |
 | **Kettenkontinuität über Läufe hinweg** (D-32) — der Nachweis eines Laufs ist signiert und verlässt den Runner; ob zwischen zwei Läufen etwas fehlt, prüft nichts | offen, eigene SPEC. In SPEC-05 Abschnitt 13 benannt statt beantwortet |
-| **`make verify` ohne Cluster lauffähig** — hängt an `smoke`, fährt weder Rego noch Hash-Parität, Chain-Migration oder Manifest-Guards | offen, klein |
+| **`make verify` ohne Cluster lauffähig** | ✅ T-09, 04.09. — sechs Suiten in rund 6,5 s, `verify-cluster` für den Smoke-Test, `PYTHON` aus `Makefile.local`. Der `pre-push`-Hook fährt es bei jedem Push |
 | **Selbstbezugsgrenze von G-OPS-05** — der Record des Gates entsteht nach dem Manifest, das es prüft | benannt, nicht zu schließen ohne Punkt 1 dieser Liste (D-32). Steht in den `notes` des Gates und in SPEC-05 6.3 |
 
 ## 6.3 Pflege
@@ -431,14 +431,14 @@ Ausformuliert nach den fünf Fragen aus 3.4, weil dieses Gate die Lücke am deut
 4. ✅ **Drift im Runner, Negativfälle als eigener Job** — je mit Gegenprobe
 5. ✅ **E-1-Signatur (SPEC-05)** — Evidenz-Manifest, keyless signiert gegen das OIDC-Token des Laufs, identitätsgebunden verifiziert; G-OPS-05 wertet die Prüfung aus und trägt damit die ersten Checks des Katalogs auf E-1. Das Gate bleibt auf E-0 (5.3)
 6. ✅ **Die Begründungsschicht liegt im Repo** — `HANDBUCH.md` und `HISTORIE.md` sind getrackt, `AGENTS.md` ist der Arbeitsvertrag und dupliziert dieses Handbuch nicht mehr
+7. ✅ **`make verify` läuft ohne Cluster, und der Push prüft es** (T-09, 04.09.) — das Target hing an `smoke` und fuhr zugleich vier Prüfungen nicht, die kein Cluster brauchen. Es fährt jetzt sechs Suiten in rund sechseinhalb Sekunden; `verify-cluster` hält den Smoke-Test erreichbar. Zweiter Grund, der nichts mit dem Cluster zu tun hatte: die Targets riefen einen Interpreter ohne PyYAML, `PYTHON` ist jetzt aus einem ungetrackten `Makefile.local` überschreibbar. **`.githooks/pre-push` fährt `make verify` bei jedem Push** — damit trifft `HANDBOOK_ROADMAP_CURRENT` einen Moment, der sicher eintritt, statt einen, an den jemand denken muss
 
 **Sofort als Nächstes:**
 
-7. **Vier-Augen-Prinzip und Retirement-Pfad** — die zwei Prozesslücken aus 2.4, unverändert offen
-8. **Deckungsanalyse Norm → Requirement** — Validierung statt Verifikation: woher weiß ich, dass der Katalog die richtigen Gates enthält? Weiterhin der schwerwiegendste offene Punkt
-9. **Kettenkontinuität über Läufe hinweg** (D-32, SPEC-05 Abschnitt 13) — heute ist jeder *einzelne* Lauf überprüfbar und verlässt den Runner signiert. Ob zwischen zwei Läufen etwas fehlt, prüft nichts. Braucht einen persistenten Anker und eine eigene SPEC
-10. **`make verify` lauffähig machen** — das Target hängt an `smoke` und damit an einem Cluster, fährt aber weder Rego noch Hash-Parität, Chain-Migration oder die Manifest-Guards. Ein Prüfbefehl, der ohne Cluster nicht läuft, wird nicht benutzt
-11. **Nicht zurückgeführte `acceptance_criteria` schließen** — `ACCEPTANCE_CRITERIA_TRACED` weist sie aus; jede ist entweder auf einen Check zu ziehen oder als Lücke zu begründen
+8. **Vier-Augen-Prinzip und Retirement-Pfad** — die zwei Prozesslücken aus 2.4, unverändert offen. Als [`T-11`](docs/tickets/T-11-vier-augen-und-retirement.md) gestellt, **nicht bereit**: die Grundsatzfrage bauen oder als Limitation benennen ist eine Entscheidung des PO, weil sie den Umfang des Vorhabens kürzt
+9. **Deckungsanalyse Norm → Requirement** — Validierung statt Verifikation: woher weiß ich, dass der Katalog die richtigen Gates enthält? Weiterhin der schwerwiegendste offene Punkt
+10. **Kettenkontinuität über Läufe hinweg** (D-32, SPEC-05 Abschnitt 13) — heute ist jeder *einzelne* Lauf überprüfbar und verlässt den Runner signiert. Ob zwischen zwei Läufen etwas fehlt, prüft nichts. Braucht einen persistenten Anker und eine eigene SPEC
+11. **Nicht zurückgeführte `acceptance_criteria` schließen** — `ACCEPTANCE_CRITERIA_TRACED` weist die sechs offenen namentlich aus. Als [`T-10`](docs/tickets/T-10-acceptance-criteria-zurueckfuehren.md) gestellt, **nicht bereit**: `met` ist eine Behauptung über Wirklichkeit und wird je Kriterium vom PO gesetzt, nicht von der KI
 
 **Danach:**
 
@@ -453,7 +453,7 @@ Ausformuliert nach den fünf Fragen aus 3.4, weil dieses Gate die Lücke am deut
 17. Provider-Requirements aus Art. 16 ableiten
 18. Tag- und Versionierungsfrage klären
 
-> **Was die Reihenfolge trägt:** Punkte 7 bis 11 hängen an keiner Rechtsrecherche und sind allein im Repo entscheidbar. Punkte 12 bis 15 brauchen Primärquellen. Die Meldekaskade aus 6.1 bleibt gesperrt, bis Art. 26 Abs. 5 und Art. 73 EUR-Lex-abgeglichen sind — ein Bauverbot, kein Vergessen.
+> **Was die Reihenfolge trägt:** Punkte 8 bis 11 hängen an keiner Rechtsrecherche und sind allein im Repo entscheidbar. Punkte 12 bis 15 brauchen Primärquellen. Die Meldekaskade aus 6.1 bleibt gesperrt, bis Art. 26 Abs. 5 und Art. 73 EUR-Lex-abgeglichen sind — ein Bauverbot, kein Vergessen.
 
 ---
 
@@ -466,6 +466,7 @@ Ausformuliert nach den fünf Fragen aus 3.4, weil dieses Gate die Lücke am deut
 | [`specs/`](specs/) | SPEC-01…05 — die Aufträge, aus denen der Code entstanden ist |
 | [`CHANGELOG.md`](CHANGELOG.md) | Vollständige Begründung je Codeänderung |
 | [`AGENTS.md`](AGENTS.md) | Dauergrundsätze für die Arbeit im Repo |
+| [`docs/tickets/`](docs/tickets/) | Die Aufträge selbst — WARUM, Scope, DoR, DoD, Abnahme |
 
 Alle Verweise dieser Tabelle zeigen auf Dateien **in diesem Repository**. Rechtsaussagen dieses Handbuchs tragen ihre Evidenzstufe (2.3) und den Normbezug in H3 — sie setzen keine Datei voraus, die hier nicht liegt.
 

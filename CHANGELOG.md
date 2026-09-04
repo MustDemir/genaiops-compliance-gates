@@ -10,6 +10,58 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased] — Post-Thesis Development (schema_version 2)
 
+### Added — `make verify` runs without a cluster, and the push runs it (T-09, 2026-09-04)
+
+Three findings, one target.
+
+**`verify` checked less than the sum of the single commands and was unusable besides.**
+It hung on `smoke` and therefore on a cluster, so it never ran on the development
+machine — and it did not fire four suites that need no cluster at all: 215 Rego unit
+tests, hash parity, chain migration and the evidence-manifest guards. A check command
+nobody can execute is functionally the same as no check command.
+
+**The cluster was not the only reason, and finding out mattered.** The targets called
+`python3`, which on that machine is an interpreter without PyYAML: `make test-integrity`
+died with thirteen `ModuleNotFoundError`s. Fixing only the first finding would have
+shipped a target that still nobody can run, and the ticket would have been wasted.
+Which interpreter carries `yaml` is a property of the **machine**, not of this
+repository, so it is not hard-coded: `PYTHON` is overridable from an untracked
+`Makefile.local`, and a `check-python` prerequisite fails with an instruction instead
+of a wall of stack traces.
+
+**The roadmap guard reported only when somebody ran the suite.** Nothing in the workflow
+made that certain — the same dependence on discipline `HANDBOOK_ROADMAP_CURRENT` was
+built against, one level down. The push is certain: it happens once per session, and it
+*is* the session's end.
+
+- `verify` now runs six suites in about 6.5 seconds. `verify-cluster` keeps the smoke
+  test reachable rather than dropping it.
+- **`.githooks/pre-push` runs `make verify`**, which is why the integrity suite runs at
+  `--fail-on low` *there*: at `medium` the roadmap finding would print and the push
+  would go through — noise, not a reminder. The suite's own default stays `medium`, so
+  standalone runs are unaffected. Activation is `git config core.hooksPath .githooks`,
+  once per clone, and it is in the README: a hook whose activation is documented
+  nowhere is absent in a fresh clone while still claiming to protect.
+- `git push --no-verify` overrides it. That is not a hole to be closed. Every local hook
+  can be bypassed, and one that could not would eventually block a Friday evening and
+  then be disabled for good. The difference from having no hook is that the bypass has
+  to be typed.
+- Counter-proofs, both against committed state: a broken Rego assertion turns `verify`
+  red (exit 2, `FAIL: 1/215`) and restoring it turns it green; a commit to `pipeline/`
+  without a roadmap update makes the hook abort the push, naming the offending commit,
+  and taking it back lets the push run.
+
+Also corrected while in the file: the README named **35 credibility checks** in a
+second, differently worded place next to the count `README_COUNTS_CURRENT` does match.
+That guard requires its phrases verbatim, so a stale paraphrase can sit beside a correct
+number and stay green — the same weakness that let four numbers go stale on 02.09.
+
+**What this does not do.** `HANDBOOK_ROADMAP_CURRENT` measures *movement*, not
+correctness: any commit touching `HANDBUCH.md` turns it green. It showed its limit on
+its own case immediately — this work touched neither `gate-definitions/`, `pipeline/`
+nor `specs/`, so the check stayed green while Teil 7 still listed `make verify` as
+pending. The roadmap was updated by hand, as it always will have to be.
+
 ### Added — the roadmap is held against the work it orders (2026-09-04)
 
 `HANDBUCH.md` Teil 7 is the handover point of this project: whoever comes back
