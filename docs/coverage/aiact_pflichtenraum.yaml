@@ -5866,11 +5866,22 @@ einheiten:
   gate:
   - G-DEP-04
   befund: teilabdeckung
-  befund_grund: 'MUSTERZEILE — inhaltlich am 04.09. nur angerissen, abschliessend zu pruefen. R011 nennt
-    Art. 26 Abs. 1 als Fundstelle, traegt aber den Titel "Konformitaetserklaerung und CE-Kennzeichnung
-    muessen vor Einsatz geprueft sein" und zielt damit auf Art. 47/48. Der Wortlaut von Abs. 1 verlangt
-    etwas anderes: organisatorische Massnahmen fuer den betriebsanleitungskonformen EINSATZ. Ob diese
-    Pflicht anderswo im Katalog getroffen wird, ist offen.'
+  befund_grund: 'VERDACHT GEPRUEFT (T-12 Lauf 1): R011 zielt ausweislich seines Titels und seiner eu_ai_act_refs
+    (Art. 26 Abs. 1, Art. 47, Art. 48) auf die CE-/Konformitaetserklaerungs-Eingangspruefung; G-DEP-04/C-01
+    prueft genau das ("CE-Kennzeichnung verifiziert, Provider-Doku erhalten und kontaktierbar") und schliesst
+    Art. 47/48 laut eigener notes ausdruecklich als Anbieterpflicht aus. Die Pflicht aus Abs. 1 selbst
+    - geeignete technische und organisatorische Massnahmen fuer den betriebsanleitungskonformen Einsatz
+    - ist etwas anderes: eine allgemeine Umsetzungspflicht, kein CE-Check. Im gesamten Katalog (G-PRE-01..05,
+    G-DEP-01..06, G-OPS-01..06) prueft kein Gate diese allgemeine Umsetzungspflicht als solche; die naechstliegenden
+    Gates (G-OPS-01 Human Oversight, G-PRE-05 Governance-Freigabe) decken jeweils nur einen Teilaspekt
+    (Aufsicht, Freigabe), nicht die Betriebsanleitungskonformitaet im Allgemeinen. Ergebnis: die Zuordnung
+    R011/G-DEP-04 zu Art. 26 Abs. 1 ist eine Fehlzuordnung (die Pflicht, die G-DEP-04 tatsaechlich prueft,
+    steht sachlich naeher bei Art. 47/48); die tatsaechliche Pflicht aus Abs. 1 ist im Katalog nicht gezielt
+    abgebildet. PO-Entscheidung noetig: R011 auf Art. 47/48 als eu_ai_act_refs praezisieren (Anbieterpflicht,
+    durchschlagend nur als Betreiber-Eingangspruefung) und fuer Abs. 1 selbst ein eigenes Requirement
+    erwaegen, oder Abs. 1 als durch die Summe der uebrigen Art.-26-Gates (Abs. 2, 5, 6 u.a.) als hinreichend
+    operationalisiert ansehen. befund bleibt auf ''teilabdeckung'' stehen, bis die PO entscheidet.'
+  po_bestaetigt: false
 - id: Art. 26 Abs. 2
   artikel: '26'
   artikel_titel: Pflichten der Betreiber von Hochrisiko-KI-Systemen
@@ -5881,17 +5892,31 @@ einheiten:
   saetze: 1
   beleg: (2)   Die Betreiber übertragen natürlichen Personen, die über die erforderliche Kompetenz, Ausbildung
     und Befugnis verfügen, die menschliche Aufsicht und lassen ihnen die erforderliche Unterstützung zukommen.
-  adressat: null
-  pflicht: null
-  scope: null
+  adressat: betreiber
+  pflicht: Der Betreiber ueberträgt die menschliche Aufsicht natuerlichen Personen mit der erforderlichen
+    Kompetenz, Ausbildung und Befugnis und stellt ihnen die erforderliche Unterstuetzung bereit.
+  scope: in
   scope_grund: null
-  verifikation: null
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
-  befund: null
-  befund_grund: null
+  omnibus: unveraendert - VO (EU) 2026/1744 Art. 1 aendert Art. 25 und Art. 27, Art. 26 ist in der Aenderungsliste
+    nicht enthalten (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement:
+  - R008
+  gate:
+  - G-OPS-01
+  - G-PRE-01
+  befund: teilabdeckung
+  befund_grund: 'G-OPS-01/C-01 prueft, dass oversight_roles, escalation_procedure, output_override und
+    real_time_monitoring dokumentiert sind (Pod-Annotation, E-0) - das deckt die UEBERTRAGUNG an eine
+    benannte Rolle, nicht dass diese Person tatsaechlich ueber Kompetenz, Ausbildung und Befugnis verfuegt
+    oder laufend Unterstuetzung erhaelt (R008 selbst fuehrt das als declared_gap: ''Wirksamkeit der Aufsicht
+    ... wird nicht gemessen''). G-PRE-01/C-A7 (SHOULD) prueft zusaetzlich, ob eine behauptete menschliche
+    Kontrolle einen Wirksamkeitsnachweis referenziert (Ziel G-OPS-01) - ASYMMETRIE: G-PRE-01 traegt in
+    links.requirements nur R001, nicht R008, obwohl C-A7 legal_refs explizit Art. 26 Abs. 2 nennt; umgekehrt
+    fuehrt R008.linked_gates nur G-OPS-01, nicht G-PRE-01 (SPEC-06 Abschnitt 1.2, Befund 2 - hier ein
+    weiteres Beispiel derselben Asymmetrie-Klasse, PO-Entscheidung noetig).'
+  po_bestaetigt: false
 - id: Art. 26 Abs. 3
   artikel: '26'
   artikel_titel: Pflichten der Betreiber von Hochrisiko-KI-Systemen
@@ -5903,17 +5928,23 @@ einheiten:
   beleg: (3)   Die Pflichten nach den Absätzen 1 und 2 lassen sonstige Pflichten der Betreiber nach Unionsrecht
     oder nationalem Recht sowie die Freiheit der Betreiber bei der Organisation ihrer eigenen Ressourcen
     und Tätigkeiten zur Wahrnehmung der vom Anbieter angegebenen Maßnahmen der menschlichen Aufsicht unberührt.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: betreiber
+  pflicht: Absatz 3 stellt klar, dass die Pflichten aus Abs. 1 und 2 weder sonstige Betreiberpflichten
+    nach Unions- oder nationalem Recht noch die organisatorische Freiheit der Betreiber bei der Umsetzung
+    der vom Anbieter vorgegebenen Aufsichtsmassnahmen beruehren.
+  scope: out
+  scope_grund: Unberuehrtheits-/Verhaeltnisbestimmungsklausel ohne eigenstaendigen, pruefbaren Regelungsgehalt
+    - sie begruendet keine zusaetzliche Pflicht, sondern grenzt Abs. 1/2 gegen anderes Recht und organisatorische
+    Freiheit ab. Kein Gate kann eine Nicht-Beeintraechtigungsklausel als solche pruefen.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - VO (EU) 2026/1744 Art. 1 aendert Art. 25 und Art. 27, Art. 26 ist in der Aenderungsliste
+    nicht enthalten.
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 26 Abs. 4
   artikel: '26'
   artikel_titel: Pflichten der Betreiber von Hochrisiko-KI-Systemen
@@ -5925,17 +5956,28 @@ einheiten:
   beleg: (4)   Unbeschadet der Absätze 1 und 2 und soweit die Eingabedaten ihrer Kontrolle unterliegen,
     sorgen die Betreiber dafür, dass die Eingabedaten der Zweckbestimmung des Hochrisiko-KI-Systems entsprechen
     und ausreichend repräsentativ sind.
-  adressat: null
-  pflicht: null
-  scope: null
+  adressat: betreiber
+  pflicht: Soweit die Eingabedaten der Kontrolle des Betreibers unterliegen, stellt der Betreiber sicher,
+    dass sie der Zweckbestimmung des Hochrisiko-KI-Systems entsprechen und hinreichend repraesentativ
+    sind.
+  scope: in
   scope_grund: null
-  verifikation: null
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
-  befund: null
-  befund_grund: null
+  omnibus: unveraendert - VO (EU) 2026/1744 Art. 1 aendert Art. 25 und Art. 27, Art. 26 ist in der Aenderungsliste
+    nicht enthalten (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement:
+  - R006
+  gate:
+  - G-DEP-01
+  befund: luecke
+  befund_grund: 'R006 selbst fuehrt alle drei acceptance_criteria als ''gap'': G-DEP-01 prueft die Dokumentation
+    der TRAININGSdaten des Anbieters (Art. 10/11), nicht die Konformitaet der vom Betreiber kontrollierten
+    EINGABEdaten pro Inferenz mit der Zweckbestimmung. Es existiert keine Schema-/Plausibilitaetspruefung
+    der Eingabedaten und keine Persistierung eines Validierungsergebnisses. runtime_coverage in R006 bereits
+    als declared_gap gefuehrt. Damit ist Abs. 4 - die einzige originaere Betreiberpflicht zur Datenqualitaet
+    in Art. 26 - im Katalog nicht operationalisiert.'
+  po_bestaetigt: false
 - id: Art. 26 Abs. 5
   artikel: '26'
   artikel_titel: Pflichten der Betreiber von Hochrisiko-KI-Systemen
@@ -5958,17 +6000,39 @@ einheiten:
     gilt die in Unterabsatz 1 festgelegte Überwachungspflicht als erfüllt, wenn die Vorschriften über
     Regelungen, Verfahren oder Mechanismen der internen Unternehmensführung gemäß einschlägigem Recht
     über Finanzdienstleistungen eingehalten werden.
-  adressat: null
-  pflicht: null
-  scope: null
+  adressat: betreiber
+  pflicht: Der Betreiber ueberwacht den Betrieb des Hochrisiko-KI-Systems anhand der Betriebsanleitung;
+    erkennt er ein Risiko im Sinne von Art. 79 Abs. 1, informiert er unverzueglich Anbieter/Haendler und
+    die zustaendige Marktueberwachungsbehoerde und setzt die Verwendung aus; stellt er einen schwerwiegenden
+    Vorfall fest, informiert er unverzueglich zuerst den Anbieter, dann Einfuehrer/Haendler und die zustaendigen
+    Behoerden (bei Unerreichbarkeit des Anbieters gilt Art. 73 entsprechend); Sonderregeln gelten fuer
+    Strafverfolgungsbehoerden (Ausnahme fuer sensible operative Daten) und Finanzinstitute (Erfuellung
+    durch bestehende Governance-Vorschriften).
+  scope: in
   scope_grund: null
-  verifikation: null
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
-  befund: null
-  befund_grund: null
+  omnibus: unveraendert - VO (EU) 2026/1744 Art. 1 aendert Art. 25 und Art. 27, Art. 26 ist in der Aenderungsliste
+    nicht enthalten (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement:
+  - R009
+  gate:
+  - G-OPS-02
+  befund: teilabdeckung
+  befund_grund: 'BAUVERBOT-KONTEXT (HANDBUCH 6.1): dieser Lauf liest und erfasst Abs. 5 nur, baut nichts
+    - die Meldekaskade bleibt gesperrt, bis Art. 26 Abs. 5 und Art. 73 EUR-Lex-abgeglichen sind; mit dieser
+    Zeile ist genau dieser Abgleich (fuer Abs. 5) erstmals im Wortlaut gefuehrt (Art. 73 folgt in Lauf
+    2). G-OPS-02 prueft heute drei Pod-Annotationen (incident-response-configured, incident-contact, rollback-mechanism,
+    alle E-0) plus C-02..C-05 gegen governance/incident_thresholds.yaml (Fristen, Beweissicherung). Nicht
+    abgedeckt: (1) die eigentliche UEBERWACHUNG des Betriebs anhand der Betriebsanleitung als solche -
+    kein Gate prueft, dass ueberwacht WIRD, nur dass ein Incident-Prozess deklariert ist; (2) die Risikoerkennung
+    nach Art. 79 Abs. 1 mit Aussetzungspflicht - existiert nicht; (3) die REIHENFOLGE der Meldekette (zuerst
+    Anbieter, dann Einfuehrer/Haendler, dann Behoerde) - C-01 prueft nur ''incident-contact'' pauschal,
+    nicht die Reihenfolge; (4) der Ausweichfall ''Anbieter nicht erreichbar -> Art. 73 entsprechend'';
+    (5) die Sonderregeln fuer Strafverfolgungsbehoerden/Finanzinstitute. Die triggers ''start_deadline''
+    und ''open_incident'' sind in G-OPS-02 explizit als declared_only gefuehrt - die Luecke ist im Gate
+    selbst bereits benannt, nicht neu.'
+  po_bestaetigt: false
 - id: Art. 26 Abs. 6
   artikel: '26'
   artikel_titel: Pflichten der Betreiber von Hochrisiko-KI-Systemen
@@ -5985,17 +6049,33 @@ einheiten:
     der Union über Finanzdienstleistungen Anforderungen in Bezug auf ihre Regelungen oder Verfahren der
     internen Unternehmensführung unterliegen, bewahren die Protokolle als Teil der gemäß einschlägigem
     Unionsecht über Finanzdienstleistungen aufzubewahrenden Dokumentation auf.
-  adressat: null
-  pflicht: null
-  scope: null
+  adressat: betreiber
+  pflicht: Der Betreiber bewahrt die von seinem Hochrisiko-KI-System automatisch erzeugten, seiner Kontrolle
+    unterliegenden Protokolle fuer einen der Zweckbestimmung angemessenen Zeitraum von mindestens sechs
+    Monaten auf, soweit Unions- oder nationales Recht (insb. Datenschutzrecht) nichts anderes bestimmt;
+    Finanzinstitute bewahren sie im Rahmen ihrer finanzaufsichtsrechtlichen Dokumentationspflichten auf.
+  scope: in
   scope_grund: null
-  verifikation: null
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
-  befund: null
-  befund_grund: null
+  omnibus: unveraendert - VO (EU) 2026/1744 Art. 1 aendert Art. 25 und Art. 27, Art. 26 ist in der Aenderungsliste
+    nicht enthalten (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement:
+  - R014
+  gate:
+  - G-DEP-06
+  befund: teilabdeckung
+  befund_grund: 'G-DEP-06/C-01 prueft, ob retention_days >= 180 im Manifest STEHT (E-0, Konfiguration);
+    ob 180 Tage lueckenlos VORLIEGEN, prueft niemand (R014 selbst: declared_gap, die Antwort stuende in
+    der eigenen Datenbank). Die Sonderregel fuer Finanzinstitute (Satz 2) ist im Manifest nicht abgebildet
+    - fuer den Anwendungsfall Redispatch/Netzbetreiber ohne praktische Relevanz. ZUSAETZLICHER BEFUND:
+    G-DEP-06.legal_refs und .links.eu_ai_act_refs nennen fuer C-01 ''Art. 26 Abs. 3'' - das ist falsch.
+    Art. 26 Abs. 3 ist die Unberuehrtheitsklausel zu Abs. 1/2 ohne Aufbewahrungsbezug (siehe Art. 26 Abs.
+    3 in diesem Pflichtenraum); die Aufbewahrungspflicht steht in Abs. 6. R014.yaml haelt genau diese
+    Korrektur bereits in seinen eigenen notes fest (''[Fix 2026-05-27: Abs. 3 -> Abs. 6 korrigiert]'')
+    - der Fix wurde im Requirement nachvollzogen, aber nie in gate-definitions/deployment/G-DEP-06_protokollierungskonfiguration.yaml
+    selbst uebertragen. PO-Entscheidung: G-DEP-06 legal_refs/eu_ai_act_refs auf ''Art. 26 Abs. 6'' korrigieren.'
+  po_bestaetigt: false
 - id: Art. 26 Abs. 7
   artikel: '26'
   artikel_titel: Pflichten der Betreiber von Hochrisiko-KI-Systemen
@@ -6009,17 +6089,29 @@ einheiten:
     dass sie der Verwendung des Hochrisiko-KI-Systems unterliegen werden. Diese Informationen werden gegebenenfalls
     im Einklang mit den Vorschriften und Gepflogenheiten auf Unionsebene und nationaler Ebene in Bezug
     auf die Unterrichtung der Arbeitnehmer und ihrer Vertreter bereitgestellt.
-  adressat: null
-  pflicht: null
-  scope: null
+  adressat: betreiber
+  pflicht: Betreiber, die Arbeitgeber sind, informieren vor Inbetriebnahme oder Verwendung eines Hochrisiko-KI-Systems
+    am Arbeitsplatz die Arbeitnehmervertreter und betroffenen Arbeitnehmer darueber, dass sie der Verwendung
+    des Systems unterliegen werden.
+  scope: in
   scope_grund: null
-  verifikation: null
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
-  befund: null
-  befund_grund: null
+  omnibus: unveraendert - VO (EU) 2026/1744 Art. 1 aendert Art. 25 und Art. 27, Art. 26 ist in der Aenderungsliste
+    nicht enthalten (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement:
+  - R007
+  gate:
+  - G-DEP-03
+  befund: teilabdeckung
+  befund_grund: 'R007 fuehrt das eigene acceptance_criterion ''Informationspflichten gemaess Art. 13 und
+    Art. 26 Abs. 7 sind dokumentiert'' als ''met'' (Evidenz G-DEP-03/C-01). Am Wortlaut der Check-Beschreibung
+    selbst gepruefte Praezisierung: G-DEP-03/C-01 prueft ''Deployer-Anleitung, Faehigkeiten, Limitationen,
+    KI-Content-Kennzeichnung dokumentiert'' - die Arbeitnehmervertreter- bzw. Arbeitsplatz-Unterrichtung
+    nach Abs. 7 ist darin nicht namentlich enthalten. Die ''gedeckt''-Einstufung von R007 beruht auf der
+    Requirement-Ebene (allgemeine Transparenzdokumentation), nicht auf einem am Policy-Wortlaut nachpruefbaren,
+    spezifischen Arbeitsplatz-Unterrichtungscheck - deshalb hier ''teilabdeckung'' statt ''gedeckt''.'
+  po_bestaetigt: false
 - id: Art. 26 Abs. 8
   artikel: '26'
   artikel_titel: Pflichten der Betreiber von Hochrisiko-KI-Systemen
@@ -6033,17 +6125,25 @@ einheiten:
     diese Betreiber fest, dass das Hochrisiko-KI-System, dessen Verwendung sie planen, nicht in der in
     Artikel 71 genannten EU-Datenbank registriert wurde, sehen sie von der Verwendung dieses Systems ab
     und informieren den Anbieter oder den Händler.
-  adressat: null
-  pflicht: null
-  scope: null
+  adressat: betreiber
+  pflicht: Betreiber von Hochrisiko-KI-Systemen, die Organe, Einrichtungen oder sonstige Stellen der Union
+    sind, erfuellen die Registrierungspflichten nach Art. 49 und verwenden das System nicht, wenn es nicht
+    in der EU-Datenbank nach Art. 71 registriert ist, sondern informieren stattdessen Anbieter oder Haendler.
+  scope: in
   scope_grund: null
-  verifikation: null
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
-  befund: null
-  befund_grund: null
+  omnibus: unveraendert - VO (EU) 2026/1744 Art. 1 aendert Art. 25 und Art. 27, Art. 26 ist in der Aenderungsliste
+    nicht enthalten (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
+  befund: nicht_einschlaegig
+  befund_grund: 'Adressiert ausschliesslich Betreiber, die Organe, Einrichtungen oder sonstige Stellen
+    der Union sind (Registrierungspflicht nach Art. 49). Der Zieladressat dieses Projekts ist ein Verteilnetzbetreiber
+    (HANDBUCH 4.4), keine Unionsstelle - die Pflicht ist fuer den Anwendungsfall Redispatch nicht einschlaegig,
+    obwohl sie textlich zu Art. 26 gehoert (scope: in gemaess PO-Festlegung 1, ''Art. 26 ganz''). Kein
+    Requirement/Gate im Katalog adressiert diesen Fall; das ist konsistent, keine Luecke.'
+  po_bestaetigt: false
 - id: Art. 26 Abs. 9
   artikel: '26'
   artikel_titel: Pflichten der Betreiber von Hochrisiko-KI-Systemen
@@ -6056,17 +6156,25 @@ einheiten:
     der vorliegenden Verordnung bereitgestellten Informationen, um ihrer Pflicht zur Durchführung einer
     Datenschutz-Folgenabschätzung gemäß Artikel 35 der Verordnung (EU) 2016/679 oder Artikel 27 der Richtlinie
     (EU) 2016/680 nachzukommen.
-  adressat: null
-  pflicht: null
-  scope: null
+  adressat: betreiber
+  pflicht: Der Betreiber nutzt gegebenenfalls die nach Art. 13 bereitgestellten Informationen zur Erfuellung
+    einer datenschutzrechtlichen Folgenabschaetzungspflicht nach Art. 35 DSGVO bzw. Art. 27 RL (EU) 2016/680.
+  scope: in
   scope_grund: null
-  verifikation: null
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
-  befund: null
-  befund_grund: null
+  omnibus: unveraendert - VO (EU) 2026/1744 Art. 1 aendert Art. 25 und Art. 27, Art. 26 ist in der Aenderungsliste
+    nicht enthalten (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
+  befund: luecke
+  befund_grund: Verknuepft die Art.-13-Informationen des Anbieters mit einer DSGVO-Pflicht (Datenschutz-Folgenabschaetzung,
+    Art. 35 DSGVO). Kein Requirement im Katalog (R001-R014) modelliert DSGVO-Pflichten; HANDBUCH 6.2 fuehrt
+    'DSGVO-Volltext' explizit als offenen, niedrig priorisierten Pflegepunkt. Die Pflicht ist real und
+    durchschlagend auf den Betreiber (im redispatch-Kontext, sofern die KI-Verarbeitung personenbezogene
+    Daten beruehrt, z.B. Kundendaten bei Lastabwurf-Priorisierung), aber bewusst unbearbeitet - kein Gate
+    deckt sie.
+  po_bestaetigt: false
 - id: Art. 26 Abs. 10
   artikel: '26'
   artikel_titel: Pflichten der Betreiber von Hochrisiko-KI-Systemen
@@ -6107,17 +6215,26 @@ einheiten:
     mehr als einen Einsatz abdecken. Die Mitgliedstaaten können im Einklang mit dem Unionsrecht strengere
     Rechtsvorschriften für die Verwendung von Systemen zur nachträglichen biometrischen Fernidentifizierung
     erlassen.
-  adressat: null
-  pflicht: null
-  scope: null
+  adressat: betreiber
+  pflicht: Der Betreiber eines Hochrisiko-KI-Systems zur nachtraeglichen biometrischen Fernidentifizierung
+    zu Strafverfolgungszwecken holt vor (im Ausnahmefall unverzueglich binnen 48 Stunden nach) der Nutzung
+    eine gerichtliche/verwaltungsbehoerdliche Genehmigung ein, beschraenkt die Nutzung auf das Erforderliche,
+    loescht bei Ablehnung die erhobenen Daten, dokumentiert jede Nutzung in der Polizeiakte und legt den
+    Behoerden Jahresberichte vor.
+  scope: in
   scope_grund: null
-  verifikation: null
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
-  befund: null
-  befund_grund: null
+  omnibus: unveraendert - VO (EU) 2026/1744 Art. 1 aendert Art. 25 und Art. 27, Art. 26 ist in der Aenderungsliste
+    nicht enthalten (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
+  befund: nicht_einschlaegig
+  befund_grund: Adressiert ausschliesslich Strafverfolgungsbehoerden als Betreiber eines spezifischen
+    Hochrisiko-KI-Systemtyps (nachtraegliche biometrische Fernidentifizierung, Anhang III Nr. 1 lit. a).
+    Der Adressat dieses Projekts (Verteilnetzbetreiber, Anwendungsfall Redispatch, Anhang III Nr. 2) betreibt
+    kein solches System und ist keine Strafverfolgungsbehoerde - nicht einschlaegig fuer den Anwendungsfall.
+  po_bestaetigt: false
 - id: Art. 26 Abs. 11
   artikel: '26'
   artikel_titel: Pflichten der Betreiber von Hochrisiko-KI-Systemen
@@ -6131,17 +6248,33 @@ einheiten:
     treffen oder bei solchen Entscheidungen Unterstützung leisten, die natürlichen Personen darüber, dass
     sie der Verwendung des Hochrisiko-KI-Systems unterliegen. Für Hochrisiko-KI-Systeme, die zu Strafverfolgungszwecken
     verwendet werden, gilt Artikel 13 der Richtlinie (EU) 2016/680.
-  adressat: null
-  pflicht: null
-  scope: null
+  adressat: betreiber
+  pflicht: Unbeschadet Art. 50 informieren Betreiber der in Anhang III aufgefuehrten Hochrisiko-KI-Systeme,
+    die Entscheidungen ueber natuerliche Personen treffen oder dabei Unterstuetzung leisten, die betroffenen
+    Personen darueber, dass sie der Verwendung des Systems unterliegen; fuer Strafverfolgungszwecke gilt
+    Art. 13 RL (EU) 2016/680.
+  scope: in
   scope_grund: null
-  verifikation: null
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
-  befund: null
-  befund_grund: null
+  omnibus: unveraendert - VO (EU) 2026/1744 Art. 1 aendert Art. 25 und Art. 27, Art. 26 ist in der Aenderungsliste
+    nicht enthalten (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement:
+  - R007
+  gate:
+  - G-DEP-03
+  befund: teilabdeckung
+  befund_grund: 'AUSLEGUNGSFRAGE, PO-Entscheidung noetig: die Pflicht gilt fuer Systeme, die ''Entscheidungen
+    ueber natuerliche Personen treffen oder dabei Unterstuetzung leisten''. Der Anwendungsfall Redispatch
+    (Anhang III Nr. 2, kritische Infrastruktur) trifft technische Netzsteuerungsentscheidungen (Erzeugungs-/Lastanpassung);
+    ob dies ''Entscheidungen ueber natuerliche Personen'' im Sinne dieser Vorschrift sind (z.B. mittelbar
+    betroffene Verbraucher bei einer Lastabwurf-Priorisierung), ist am Wortlaut nicht abschliessend zu
+    klaeren und wird hier NICHT einseitig verneint. R007/G-DEP-03 decken die allgemeine Transparenzdokumentation
+    (Art. 13, Art. 26 Abs. 7) ab, aber keine eigene, auf Abs. 11 zugeschnittene Betroffenenunterrichtung;
+    selbst wenn die Anwendbarkeit bejaht wird, waere die Deckung folglich nur teilweise. Fuer den PR-Bericht
+    als offene PO-Frage vorgemerkt: Trifft Redispatch ''Entscheidungen ueber natuerliche Personen'' i.S.d.
+    Art. 26 Abs. 11?'
+  po_bestaetigt: false
 - id: Art. 26 Abs. 12
   artikel: '26'
   artikel_titel: Pflichten der Betreiber von Hochrisiko-KI-Systemen
@@ -6152,17 +6285,24 @@ einheiten:
   saetze: 1
   beleg: (12)   Die Betreiber arbeiten mit den zuständigen Behörden bei allen Maßnahmen zusammen, die
     diese Behörden im Zusammenhang mit dem Hochrisiko-KI-System zur Umsetzung dieser Verordnung ergreifen.
-  adressat: null
-  pflicht: null
-  scope: null
+  adressat: betreiber
+  pflicht: Der Betreiber arbeitet mit den zustaendigen Behoerden bei allen Massnahmen zur Umsetzung dieser
+    Verordnung im Zusammenhang mit dem Hochrisiko-KI-System zusammen.
+  scope: in
   scope_grund: null
-  verifikation: null
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
-  befund: null
-  befund_grund: null
+  omnibus: unveraendert - VO (EU) 2026/1744 Art. 1 aendert Art. 25 und Art. 27, Art. 26 ist in der Aenderungsliste
+    nicht enthalten (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
+  befund: luecke
+  befund_grund: 'Allgemeine, unbefristete Kooperationspflicht gegenueber Behoerden; kein Requirement/Gate
+    im Katalog adressiert sie. Strukturell schwer automatisierbar (eine ''arbeite mit den Behoerden zusammen''-Pflicht
+    ist kein Schwellenwert-/Dokumenten-Check), aber ein leichtgewichtiger Dokumentencheck waere denkbar,
+    analog zu ''incident-contact'' in G-OPS-02/C-01 (Ansprechpartner benannt). Als offene PO-Frage vorgemerkt:
+    soll ein solcher Minimal-Check (z.B. ''Behoerdenkontakt benannt und aktuell'') ergaenzt werden?'
+  po_bestaetigt: false
 - id: Art. 27 Abs. 1
   artikel: '27'
   artikel_titel: Grundrechte-Folgenabschätzung für Hochrisiko-KI-Systeme
