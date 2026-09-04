@@ -2265,17 +2265,24 @@ einheiten:
     wobei ihrer Zweckbestimmung sowie dem allgemein anerkannten Stand der Technik in Bezug auf KI und
     KI-bezogene Technologien Rechnung zu tragen ist. Bei der Gewährleistung der Einhaltung dieser Anforderungen
     wird dem in Artikel 9 genannten Risikomanagementsystem Rechnung getragen.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Hochrisiko-KI-Systeme muessen die Abschnitt-2-Anforderungen erfuellen, unter Beruecksichtigung
+    ihrer Zweckbestimmung und des Stands der Technik; das Risikomanagementsystem nach Art. 9 wird dabei
+    beruecksichtigt.
+  scope: out
+  scope_grund: Anbieterpflicht (Kapitel III Abschnitt 2 i.V.m. Art. 16 lit. a); allgemeine Chapeau-Norm
+    zu Abschnitt 2 ohne im Wortlaut erkennbare Betreiber-Handlungspflicht - kein R00x zieht Art. 8 als
+    Rechtsgrundlage heran.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: 'unveraendert - Art. 8 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
+    (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf: die Liste geaenderter Artikel beginnt
+    bei Nr. 8 [Art. 6]).'
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 8 Abs. 2
   artikel: '8'
   artikel_titel: Einhaltung der Anforderungen
@@ -2295,17 +2302,25 @@ einheiten:
     mit ihrem Produkt bereitstellen, gegebenenfalls in Dokumentationen und Verfahren zu integrieren, die
     bereits bestehen und gemäß den in Anhang I Abschnitt A aufgeführten Harmonisierungsrechtsvorschriften
     der Union vorgeschrieben sind.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Bei Produkten mit KI-System unter zusaetzlichen Harmonisierungsrechtsvorschriften (Anhang I
+    Abschnitt A) ist der Anbieter fuer die vollstaendige Erfuellung aller geltenden Anforderungen verantwortlich;
+    Test-/Berichterstattungsverfahren koennen zur Vermeidung von Doppelarbeit in bestehende Dokumentationen
+    integriert werden.
+  scope: out
+  scope_grund: Anbieterpflicht (Kapitel III Abschnitt 2 i.V.m. Art. 16 lit. a); allgemeine Chapeau-Norm
+    zu Abschnitt 2 ohne im Wortlaut erkennbare Betreiber-Handlungspflicht - kein R00x zieht Art. 8 als
+    Rechtsgrundlage heran. Rein anbieterinterne Konformitaets-/Koordinierungsfrage bei Doppelregulierung.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: 'unveraendert - Art. 8 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
+    (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf: die Liste geaenderter Artikel beginnt
+    bei Nr. 8 [Art. 6]).'
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 9 Abs. 1
   artikel: '9'
   artikel_titel: Risikomanagementsystem
