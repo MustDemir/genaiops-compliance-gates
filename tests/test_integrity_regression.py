@@ -7,7 +7,7 @@ Static regression checks for credibility risks in the GenAIOps Compliance Gates 
 This suite intentionally focuses on "does the PoC prove what it claims to prove?"
 instead of only checking functional green paths.
 
-What it checks (20 checks, fail-fast ordering):
+What it checks (the registry in collect_results() is the list; the count lives in the README):
   1.  Demo fallbacks that can mask missing real enforcement (check_orchestrator_fallbacks)
   2.  Optional/non-critical handling of Evidence Store recording (check_ci_evidence_mandatory)
   3.  Drift detection wiring to the Evidence Store (check_drift_evidence_wiring)
@@ -2723,6 +2723,107 @@ def check_gate_role_scope_valid() -> dict:
     )
 
 
+# Teil 7 des Handbuchs ist der Übergabepunkt: "wie es weitergeht". Diese Pfade
+# tragen das, was die Reihenfolge dort verändern kann — Gates, Pipeline und die
+# Aufträge, aus denen beides entsteht. Absichtlich schmal: Doku, Evidence Store
+# und Tooling ändern sich, ohne dass die Roadmap dadurch falsch wird.
+_ROADMAP_SUBSTANCE_PATHS = ("gate-definitions", "pipeline", "specs")
+_ROADMAP_DOC = "HANDBUCH.md"
+
+
+def _git(*args: str) -> subprocess.CompletedProcess:
+    return subprocess.run(
+        ["git", "-C", str(REPO_ROOT), *args],
+        capture_output=True, text=True, timeout=30,
+    )
+
+
+def _roadmap_drift(doc: str, substance_paths: tuple[str, ...]) -> list[str] | None:
+    """Commits that changed substance after `doc` was last touched.
+
+    Returns None when git cannot answer — the caller must not read that as
+    "nothing drifted".
+    """
+    head = _git("log", "-1", "--format=%H %ct", "--", doc)
+    if head.returncode != 0 or not head.stdout.strip():
+        return None
+
+    doc_sha, doc_time = head.stdout.split()
+
+    later = _git(
+        "log", f"--since=@{doc_time}", "--format=%H\t%h\t%ad\t%s",
+        "--date=short", "--", *substance_paths,
+    )
+    if later.returncode != 0:
+        return None
+
+    drift = []
+    for line in later.stdout.splitlines():
+        if not line.strip():
+            continue
+        sha, short, date, subject = line.split("\t", 3)
+        # The commit that carried the document itself is not drift, and
+        # --since is inclusive of its own second.
+        if sha == doc_sha:
+            continue
+        drift.append(f"{short} {date} {subject}")
+    return drift
+
+
+def check_handbook_roadmap_is_current() -> dict:
+    """The roadmap in HANDBUCH Teil 7 is younger than the work it orders.
+
+    Teil 7 is the handover point of this project: whoever comes back after a
+    pause reads it and knows what to do next. Nothing holds it to reality.
+    It is maintained when the author thinks of it, and it was — on 03.09.2026
+    it was the last commit of the session. A session that ends unplanned
+    leaves a roadmap that describes a state the repository has left, and the
+    next reader starts from it in good faith.
+
+    That is the same failure as a stale count, one level up: AGENTS.md carried
+    a gate inventory from before SPEC-01 while every session read it first
+    (T-03). The fix there was a guardian, not a rule, and it is the fix here.
+
+    The check does not read a date out of the prose. A date in the text is a
+    second statement of the same fact and would need its own guardian. Git
+    already knows when the handbook was last written and when the gates, the
+    pipeline and the specifications last moved; the comparison is between
+    those two, and there is nothing new to keep in sync.
+
+    Severity is LOW on purpose, and that is a PO decision open to revision.
+    Drift here is not a credibility defect — no claim is wrong, no evidence is
+    overstated. It is a maintenance signal, and it appears mid-session by
+    design: the moment a gate changes, the roadmap is behind until the session
+    closes. A guard that turns the suite red while the work is still being
+    done is a guard that gets skipped, and then it guards nothing.
+    """
+    drift = _roadmap_drift(_ROADMAP_DOC, _ROADMAP_SUBSTANCE_PATHS)
+
+    if drift is None:
+        return make_result(
+            "HANDBOOK_ROADMAP_CURRENT",
+            "the roadmap is younger than the work it orders (HANDBUCH Teil 7)",
+            "low", False,
+            "git could not be asked when the handbook and the substance last "
+            "moved — a check that cannot run must not report success. A shallow "
+            "clone is the usual reason.",
+            ["git log returned nothing for HANDBUCH.md or for the substance paths."],
+        )
+
+    covered = ", ".join(_ROADMAP_SUBSTANCE_PATHS)
+    return make_result(
+        "HANDBOOK_ROADMAP_CURRENT",
+        "the roadmap is younger than the work it orders (HANDBUCH Teil 7)",
+        "low",
+        not drift,
+        f"{len(drift)} commit(s) changed {covered} after HANDBUCH.md was last "
+        f"written. Teil 7 describes a state the repository has left, and it is "
+        f"the first thing the next session reads." if drift
+        else f"HANDBUCH.md is at least as young as the newest commit to {covered}.",
+        drift,
+    )
+
+
 def collect_results() -> list[dict]:
     checks = [
         check_orchestrator_fallbacks,
@@ -2762,6 +2863,7 @@ def collect_results() -> list[dict]:
         check_acceptance_criteria_traced,
         check_evidence_fail_closed,
         check_gate_declares_effect,
+        check_handbook_roadmap_is_current,
     ]
     results = []
     for check in checks:

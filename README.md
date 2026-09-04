@@ -91,7 +91,7 @@ The third source had sat unused in this repository since the thesis: 14 of 14 re
 |---|---|
 | Gates / requirements | 17 gates · 14 requirements · 55 checks (48 enforced, 7 design-only) |
 | Policies | 19 Rego policies · 196 deny/warn/violation rules |
-| Tests | 215 Rego unit tests · 36 integration tests · 35 integrity checks · hash-chain verification per run |
+| Tests | 215 Rego unit tests · 36 integration tests · 36 integrity checks · hash-chain verification per run |
 | Evidence schema | v06 (`ai_act_role`, `derived_decision`, `runtime_mode` sealed into the payload) |
 | Evidence signing | Keyless `cosign` per CI run, verified against the workflow identity, the repository and the commit · manifest, bundle and verification document retained as run artefacts |
 | Deployment verified | Local (Minikube, Docker) and Azure AKS, Sweden Central |
