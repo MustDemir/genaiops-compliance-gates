@@ -4157,17 +4157,33 @@ einheiten:
   beleg: (1)   Hochrisiko-KI-Systeme werden so konzipiert und entwickelt, dass sie ein angemessenes Maß
     an Genauigkeit, Robustheit und Cybersicherheit erreichen und in dieser Hinsicht während ihres gesamten
     Lebenszyklus beständig funktionieren.
-  adressat: null
-  pflicht: null
-  scope: null
+  adressat: anbieter
+  pflicht: Hochrisiko-KI-Systeme werden so konzipiert und entwickelt, dass sie ein angemessenes Mass an
+    Genauigkeit, Robustheit und Cybersicherheit erreichen und waehrend ihres gesamten Lebenszyklus bestaendig
+    funktionieren.
+  scope: in
   scope_grund: null
-  verifikation: null
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
-  befund: null
-  befund_grund: null
+  omnibus: 'unveraendert - Art. 15 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
+    (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf: die Liste geaenderter Artikel geht
+    von Nr. 10 [Art. 11] direkt auf Nr. 11 [Art. 17] ueber).'
+  requirement:
+  - R003
+  gate:
+  - G-PRE-04
+  - G-DEP-02
+  - G-OPS-04
+  befund: teilabdeckung
+  befund_grund: 'Design-/Entwicklungspflicht des Anbieters (Modell-Ebene), aber scope: in, weil ein Teil
+    der Betriebsumgebung, in der ''bestaendiges Funktionieren'' erreicht wird, unter der Kontrolle des
+    Betreibers steht - G-PRE-04 (runAsNonRoot, resource limits, kein Klartext-Secret, keine Privilege
+    Escalation) und G-OPS-04 (Image-Scanning, NetworkPolicies, Verschluesselung) pruefen genau diese Infrastruktur-seitige
+    Haelfte und liegen echt beim Betreiber. Die Modell-Ebene (accuracy, safety_score in G-DEP-02) bleibt
+    dagegen laut G-DEP-02s eigener rationale durchgehend E-0/deklariert - ''ohne Ground Truth ist Genauigkeit
+    im Betrieb nicht messbar''. Ergebnis: Infrastruktur-Cybersicherheit ist real getestet, Modell-Genauigkeit/-Robustheit
+    bleibt Selbstauskunft.'
+  po_bestaetigt: false
 - id: Art. 15 Abs. 2
   artikel: '15'
   artikel_titel: Genauigkeit, Robustheit und Cybersicherheit
@@ -4180,17 +4196,22 @@ einheiten:
     und Robustheit gemäß Absatz 1 und anderer einschlägiger Leistungsmetriken anzugehen, fördert die Kommission
     in Zusammenarbeit mit einschlägigen Interessenträgern und Organisationen wie Metrologie- und Benchmarking-Behörden
     gegebenenfalls die Entwicklung von Benchmarks und Messmethoden.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: Die Kommission foerdert in Zusammenarbeit mit Interessentraegern die Entwicklung von Benchmarks
+    und Messmethoden fuer Genauigkeit, Robustheit und weitere Leistungsmetriken.
+  scope: out
+  scope_grund: Foerderauftrag an die Kommission - weder Anbieter- noch Betreiberpflicht, keine durchschlagende
+    Wirkung.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: 'unveraendert - Art. 15 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
+    (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf: die Liste geaenderter Artikel geht
+    von Nr. 10 [Art. 11] direkt auf Nr. 11 [Art. 17] ueber).'
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 15 Abs. 3
   artikel: '15'
   artikel_titel: Genauigkeit, Robustheit und Cybersicherheit
@@ -4201,17 +4222,25 @@ einheiten:
   saetze: 1
   beleg: (3)   Die Maße an Genauigkeit und die relevanten Genauigkeitsmetriken von Hochrisiko-KI-Systemen
     werden in den ihnen beigefügten Betriebsanleitungen angegeben.
-  adressat: null
-  pflicht: null
-  scope: null
+  adressat: anbieter
+  pflicht: Die Genauigkeitsmasse und relevanten Genauigkeitsmetriken von Hochrisiko-KI-Systemen werden
+    in den beigefuegten Betriebsanleitungen angegeben.
+  scope: in
   scope_grund: null
-  verifikation: null
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
-  befund: null
-  befund_grund: null
+  omnibus: 'unveraendert - Art. 15 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
+    (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf: die Liste geaenderter Artikel geht
+    von Nr. 10 [Art. 11] direkt auf Nr. 11 [Art. 17] ueber).'
+  requirement:
+  - R007
+  gate:
+  - G-DEP-03
+  befund: teilabdeckung
+  befund_grund: Ueberschneidet sich mit Art. 13 Abs. 3 lit. b Ziff. ii (Genauigkeitsmass in der Betriebsanleitung).
+    G-DEP-03/C-01 prueft die Existenz von Anleitungs-/Model-Dokumentation allgemein, nicht spezifisch
+    das Vorhandensein von Genauigkeitsmetriken darin.
+  po_bestaetigt: false
 - id: Art. 15 Abs. 4
   artikel: '15'
   artikel_titel: Genauigkeit, Robustheit und Cybersicherheit
@@ -4230,17 +4259,29 @@ einheiten:
     Ausgaben, die künftige Vorgänge beeinflussen („Rückkopplungsschleifen“), beseitigt oder so gering
     wie möglich gehalten wird und sichergestellt wird, dass auf solche Rückkopplungsschleifen angemessen
     mit geeigneten Risikominderungsmaßnahmen eingegangen wird.
-  adressat: null
-  pflicht: null
-  scope: null
+  adressat: anbieter
+  pflicht: Hochrisiko-KI-Systeme muessen so widerstandsfaehig wie moeglich gegenueber Fehlern/Stoerungen/Unstimmigkeiten
+    sein (technische und organisatorische Massnahmen, ggf. technische Redundanz); weiterlernende Systeme
+    muessen das Risiko verzerrter Ausgaben durch Rueckkopplungsschleifen beseitigen oder minimieren.
+  scope: in
   scope_grund: null
-  verifikation: null
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
-  befund: null
-  befund_grund: null
+  omnibus: 'unveraendert - Art. 15 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
+    (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf: die Liste geaenderter Artikel geht
+    von Nr. 10 [Art. 11] direkt auf Nr. 11 [Art. 17] ueber).'
+  requirement:
+  - R003
+  gate:
+  - G-DEP-02
+  - G-OPS-04
+  befund: teilabdeckung
+  befund_grund: 'Wie Abs. 1: Infrastruktur-Redundanz/-Resilienz teilweise ueber G-OPS-04 pruefbar. Echte
+    Luecke: die ''Rueckkopplungsschleifen'' bei weiterlernenden Systemen (Bias-Verstaerkung durch eigene
+    Ausgaben als kuenftige Eingaben) wird von keinem Gate erfasst - G-OPS-03 misst Drift (PSI/JSD) allgemein,
+    nicht spezifisch selbstverstaerkende Rueckkopplungseffekte; G-DEP-05 (Bias) prueft einmalig vor Freigabe,
+    nicht die Feedback-Loop-Dynamik im Betrieb.'
+  po_bestaetigt: false
 - id: Art. 15 Abs. 5
   artikel: '15'
   artikel_titel: Genauigkeit, Robustheit und Cybersicherheit
@@ -4259,17 +4300,31 @@ einheiten:
     „model evasions“), Angriffe auf vertrauliche Daten oder Modellmängel zu verhüten, zu erkennen, darauf
     zu reagieren, sie zu beseitigen und zu kontrollieren. ABSCHNITT 3 Pflichten der Anbieter und Betreiber
     von Hochrisiko-KI-Systemen und anderer Beteiligter
-  adressat: null
-  pflicht: null
-  scope: null
+  adressat: anbieter
+  pflicht: Hochrisiko-KI-Systeme muessen widerstandsfaehig gegen Manipulationsversuche unbefugter Dritter
+    sein; die technischen Loesungen umfassen ggf. Massnahmen gegen data poisoning, model poisoning, adversarial
+    examples/model evasion sowie Angriffe auf vertrauliche Daten oder Modellmaengel.
+  scope: in
   scope_grund: null
-  verifikation: null
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
-  befund: null
-  befund_grund: null
+  omnibus: 'unveraendert - Art. 15 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
+    (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf: die Liste geaenderter Artikel geht
+    von Nr. 10 [Art. 11] direkt auf Nr. 11 [Art. 17] ueber).'
+  requirement:
+  - R003
+  gate:
+  - G-OPS-04
+  befund: teilabdeckung
+  befund_grund: 'PRAEZISER BEFUND: G-OPS-04/C-01 prueft generische Infrastruktur-Cybersicherheit (Image-Scanning,
+    NetworkPolicies, Verschluesselung at-rest/in-transit) - real und wirksam fuer ''Angriffe auf vertrauliche
+    Daten''. Die von Abs. 5 NAMENTLICH genannten KI-spezifischen Bedrohungsklassen - data poisoning, model
+    poisoning, adversarial examples/model evasion - haben dagegen KEINE Entsprechung in irgendeinem Gate
+    des Katalogs. Weder G-DEP-02 (Safety-Metriken) noch G-DEP-05 (Bias) noch G-OPS-04 testen adversariale
+    Robustheit im engeren Sinn (adversarial_tests wird in G-DEP-02/C-02 zwar als Feld erwaehnt, aber als
+    SHOULD und nur ''durchgefuehrt''-Flag, keine inhaltliche Pruefung). Substantielle, nicht nur formale
+    Luecke.'
+  po_bestaetigt: false
 - id: Art. 16
   artikel: '16'
   artikel_titel: Pflichten der Anbieter von Hochrisiko-KI-Systemen
