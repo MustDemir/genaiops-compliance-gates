@@ -2316,17 +2316,39 @@ einheiten:
   saetze: 1
   beleg: (1)   Für Hochrisiko-KI-Systeme wird ein Risikomanagementsystem eingerichtet, angewandt, dokumentiert
     und aufrechterhalten.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Fuer Hochrisiko-KI-Systeme wird ein Risikomanagementsystem eingerichtet, angewandt, dokumentiert
+    und aufrechterhalten.
+  scope: out
+  scope_grund: 'ANBIETERPFLICHT - HAUPTBEFUND FUER ART. 9 (gilt sinngemaess fuer alle Abs./lit. dieses
+    Artikels, dort jeweils kurz referenziert). Art. 9 steht in Kapitel III Abschnitt 2 (''Anforderungen
+    an Hochrisiko-KI-Systeme''); die Pflicht, diese Anforderungen zu erfuellen, liegt nach Art. 16 lit.
+    a beim Anbieter. Der Wortlaut selbst nennt in Abs. 9 und Abs. 10 explizit ''die Anbieter'' bzw. ''Bei
+    Anbietern''; Abs. 1-8 sind impersonal (''wird eingerichtet'') formuliert, adressieren aber denselben
+    Akteur. Im Zukauf-Regelfall K1 (HANDBUCH 4.4: ''Zukauf (DEPLOYER, Regelfall)'') trifft diese konkrete
+    Pflicht NICHT den Betreiber; sie durchschlaegt nur mittelbar (Art. 26 Abs. 1: Verwendung gemaess Betriebsanleitung,
+    die das Ergebnis dieses Prozesses widerspiegelt) oder unmittelbar in den Rollenaufstiegs-Konstellationen
+    K2/K3 (Eigenentwicklung/wesentliche Anpassung), in denen der Betreiber selbst zum Anbieter wird. SPANNUNG
+    ZUM BESTAND, PO-ENTSCHEIDUNG NOETIG: R001 (role: deployer) fuehrt ''Art. 9'' als eu_ai_act_refs, linked_gates
+    G-PRE-01/G-PRE-03; G-PRE-03/C-01 verlangt vom BETREIBER ein eigenes ''risk_management''-Artefakt mit
+    Risikoregister und Mitigation je Risiko - inhaltlich eine Spiegelung von Art. 9 Abs. 2 lit. a/b/d,
+    aber am Betreiber statt am Anbieter ansetzend. Das ist entweder (a) eine bewusste ''business ready''-Uebererfuellung
+    ueber die gesetzliche Anbieterpflicht hinaus (HANDBUCH 2.1 erlaubt das ausdruecklich), oder (b) eine
+    Verwechslung der Adressatenrolle - strukturell identisch mit dem bereits dokumentierten Befund bei
+    G-DEP-01 zu Art. 10/11 (''OFFENER BEFUND, Rollenabgrenzung'', G-DEP-01 notes, 2026-08-15), hier zum
+    ersten Mal auf R001/Art. 9 selbst angewandt. Diese Zeile entscheidet das NICHT; scope: out spiegelt
+    die wortlautgetreue Adressierung (Anbieter), das R001-Verhaeltnis ist im PR-Bericht als zentrale offene
+    Frage vorgemerkt.'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: 'unveraendert - Art. 9 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
+    (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf: die Liste geaenderter Artikel geht
+    von Nr. 8 [Art. 6] auf Nr. 9 [Art. 10] ueber).'
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 9 Abs. 2
   artikel: '9'
   artikel_titel: Risikomanagementsystem
@@ -2338,17 +2360,23 @@ einheiten:
   beleg: '(2)   Das Risikomanagementsystem versteht sich als ein kontinuierlicher iterativer Prozess,
     der während des gesamten Lebenszyklus eines Hochrisiko-KI-Systems geplant und durchgeführt wird und
     eine regelmäßige systematische Überprüfung und Aktualisierung erfordert. Es umfasst folgende Schritte:'
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Das Risikomanagementsystem ist ein kontinuierlicher iterativer Prozess ueber den gesamten Lebenszyklus
+    des Hochrisiko-KI-Systems mit regelmaessiger Ueberpruefung und Aktualisierung, bestehend aus den in
+    lit. a-d genannten Schritten.
+  scope: out
+  scope_grund: Anbieterpflicht wie Art. 9 Abs. 1 (dort ausfuehrliche Begruendung inkl. Spannung zu R001/G-PRE-01/G-PRE-03);
+    keine im Wortlaut dieses Absatzes erkennbare eigenstaendige Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: 'unveraendert - Art. 9 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
+    (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf: die Liste geaenderter Artikel geht
+    von Nr. 8 [Art. 6] auf Nr. 9 [Art. 10] ueber).'
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 9 Abs. 2 lit. a
   artikel: '9'
   artikel_titel: Risikomanagementsystem
@@ -2360,17 +2388,22 @@ einheiten:
   beleg: a) die Ermittlung und Analyse der bekannten und vernünftigerweise vorhersehbaren Risiken, die
     vom Hochrisiko-KI-System für die Gesundheit, Sicherheit oder Grundrechte ausgehen können, wenn es
     entsprechend seiner Zweckbestimmung verwendet wird;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Das Risikomanagementsystem ermittelt und analysiert die bekannten und vernuenftigerweise vorhersehbaren
+    Risiken fuer Gesundheit, Sicherheit oder Grundrechte bei zweckbestimmungsgemaesser Verwendung.
+  scope: out
+  scope_grund: Anbieterpflicht wie Art. 9 Abs. 1 (dort ausfuehrliche Begruendung inkl. Spannung zu R001/G-PRE-01/G-PRE-03);
+    keine im Wortlaut dieses Absatzes erkennbare eigenstaendige Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: 'unveraendert - Art. 9 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
+    (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf: die Liste geaenderter Artikel geht
+    von Nr. 8 [Art. 6] auf Nr. 9 [Art. 10] ueber).'
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 9 Abs. 2 lit. b
   artikel: '9'
   artikel_titel: Risikomanagementsystem
@@ -2382,17 +2415,22 @@ einheiten:
   beleg: b) die Abschätzung und Bewertung der Risiken, die entstehen können, wenn das Hochrisiko-KI-System
     entsprechend seiner Zweckbestimmung oder im Rahmen einer vernünftigerweise vorhersehbaren Fehlanwendung
     verwendet wird;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Das Risikomanagementsystem schaetzt und bewertet die Risiken, die bei zweckbestimmungsgemaesser
+    Verwendung oder vernuenftigerweise vorhersehbarer Fehlanwendung entstehen koennen.
+  scope: out
+  scope_grund: Anbieterpflicht wie Art. 9 Abs. 1 (dort ausfuehrliche Begruendung inkl. Spannung zu R001/G-PRE-01/G-PRE-03);
+    keine im Wortlaut dieses Absatzes erkennbare eigenstaendige Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: 'unveraendert - Art. 9 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
+    (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf: die Liste geaenderter Artikel geht
+    von Nr. 8 [Art. 6] auf Nr. 9 [Art. 10] ueber).'
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 9 Abs. 2 lit. c
   artikel: '9'
   artikel_titel: Risikomanagementsystem
@@ -2403,17 +2441,23 @@ einheiten:
   saetze: 1
   beleg: c) die Bewertung anderer möglicherweise auftretender Risiken auf der Grundlage der Auswertung
     der Daten aus dem in Artikel 72 genannten System zur Beobachtung nach dem Inverkehrbringen;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Das Risikomanagementsystem bewertet weitere moeglicherweise auftretende Risiken auf Grundlage
+    der Auswertung der Daten aus dem Beobachtungssystem nach dem Inverkehrbringen (Art. 72).
+  scope: out
+  scope_grund: Anbieterpflicht wie Art. 9 Abs. 1 (dort ausfuehrliche Begruendung inkl. Spannung zu R001/G-PRE-01/G-PRE-03);
+    keine im Wortlaut dieses Absatzes erkennbare eigenstaendige Betreiber-Handlungspflicht. Der Betreiber-seitige
+    Beitrag zu Art. 72 (Post-Market Surveillance) wird gesondert in Lauf 2 unter Art. 72 erfasst.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: 'unveraendert - Art. 9 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
+    (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf: die Liste geaenderter Artikel geht
+    von Nr. 8 [Art. 6] auf Nr. 9 [Art. 10] ueber).'
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 9 Abs. 2 lit. d
   artikel: '9'
   artikel_titel: Risikomanagementsystem
@@ -2424,17 +2468,22 @@ einheiten:
   saetze: 1
   beleg: d) die Ergreifung geeigneter und gezielter Risikomanagementmaßnahmen zur Bewältigung der gemäß
     Buchstabe a ermittelten Risiken.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Das Risikomanagementsystem ergreift geeignete und gezielte Massnahmen zur Bewaeltigung der
+    gemaess lit. a ermittelten Risiken.
+  scope: out
+  scope_grund: Anbieterpflicht wie Art. 9 Abs. 1 (dort ausfuehrliche Begruendung inkl. Spannung zu R001/G-PRE-01/G-PRE-03);
+    keine im Wortlaut dieses Absatzes erkennbare eigenstaendige Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: 'unveraendert - Art. 9 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
+    (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf: die Liste geaenderter Artikel geht
+    von Nr. 8 [Art. 6] auf Nr. 9 [Art. 10] ueber).'
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 9 Abs. 3
   artikel: '9'
   artikel_titel: Risikomanagementsystem
@@ -2446,17 +2495,24 @@ einheiten:
   beleg: (3)   Die in diesem Artikel genannten Risiken betreffen nur solche Risiken, die durch die Entwicklung
     oder Konzeption des Hochrisiko-KI-Systems oder durch die Bereitstellung ausreichender technischer
     Informationen angemessen gemindert oder behoben werden können.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Die betrachteten Risiken sind auf solche beschraenkt, die durch die Entwicklung/Konzeption
+    des Hochrisiko-KI-Systems oder durch ausreichende technische Informationen angemessen gemindert oder
+    behoben werden koennen.
+  scope: out
+  scope_grund: Anbieterpflicht wie Art. 9 Abs. 1 (dort ausfuehrliche Begruendung inkl. Spannung zu R001/G-PRE-01/G-PRE-03);
+    keine im Wortlaut dieses Absatzes erkennbare eigenstaendige Betreiber-Handlungspflicht. Scope-Begrenzungsklausel
+    zum Anbieter-Risikomanagement.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: 'unveraendert - Art. 9 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
+    (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf: die Liste geaenderter Artikel geht
+    von Nr. 8 [Art. 6] auf Nr. 9 [Art. 10] ueber).'
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 9 Abs. 4
   artikel: '9'
   artikel_titel: Risikomanagementsystem
@@ -2469,17 +2525,22 @@ einheiten:
     und möglichen Wechselwirkungen, die sich aus der kombinierten Anwendung der Anforderungen dieses Abschnitts
     ergeben, gebührend berücksichtigt, um die Risiken wirksamer zu minimieren und gleichzeitig ein angemessenes
     Gleichgewicht bei der Durchführung der Maßnahmen zur Erfüllung dieser Anforderungen sicherzustellen.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Bei den Risikomanagementmassnahmen nach Abs. 2 lit. d sind Wechselwirkungen aus der kombinierten
+    Anwendung der Abschnitt-2-Anforderungen zu beruecksichtigen, um Risiken wirksam zu minimieren.
+  scope: out
+  scope_grund: Anbieterpflicht wie Art. 9 Abs. 1 (dort ausfuehrliche Begruendung inkl. Spannung zu R001/G-PRE-01/G-PRE-03);
+    keine im Wortlaut dieses Absatzes erkennbare eigenstaendige Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: 'unveraendert - Art. 9 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
+    (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf: die Liste geaenderter Artikel geht
+    von Nr. 8 [Art. 6] auf Nr. 9 [Art. 10] ueber).'
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 9 Abs. 5
   artikel: '9'
   artikel_titel: Risikomanagementsystem
@@ -2492,17 +2553,22 @@ einheiten:
     jedes mit einer bestimmten Gefahr verbundene relevante Restrisiko sowie das Gesamtrestrisiko der Hochrisiko-KI-Systeme
     als vertretbar beurteilt wird. Bei der Festlegung der am besten geeigneten Risikomanagementmaßnahmen
     ist Folgendes sicherzustellen:'
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Die Risikomanagementmassnahmen sind so zu gestalten, dass jedes Restrisiko und das Gesamtrestrisiko
+    als vertretbar beurteilt wird; bei der Festlegung ist lit. a-c sicherzustellen.
+  scope: out
+  scope_grund: Anbieterpflicht wie Art. 9 Abs. 1 (dort ausfuehrliche Begruendung inkl. Spannung zu R001/G-PRE-01/G-PRE-03);
+    keine im Wortlaut dieses Absatzes erkennbare eigenstaendige Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: 'unveraendert - Art. 9 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
+    (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf: die Liste geaenderter Artikel geht
+    von Nr. 8 [Art. 6] auf Nr. 9 [Art. 10] ueber).'
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 9 Abs. 5 lit. a
   artikel: '9'
   artikel_titel: Risikomanagementsystem
@@ -2513,17 +2579,22 @@ einheiten:
   saetze: 1
   beleg: a) soweit technisch möglich, Beseitigung oder Verringerung der gemäß Absatz 2 ermittelten und
     bewerteten Risiken durch eine geeignete Konzeption und Entwicklung des Hochrisiko-KI-Systems;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Soweit technisch moeglich, werden ermittelte Risiken durch geeignete Konzeption und Entwicklung
+    des Hochrisiko-KI-Systems beseitigt oder verringert.
+  scope: out
+  scope_grund: Anbieterpflicht wie Art. 9 Abs. 1 (dort ausfuehrliche Begruendung inkl. Spannung zu R001/G-PRE-01/G-PRE-03);
+    keine im Wortlaut dieses Absatzes erkennbare eigenstaendige Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: 'unveraendert - Art. 9 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
+    (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf: die Liste geaenderter Artikel geht
+    von Nr. 8 [Art. 6] auf Nr. 9 [Art. 10] ueber).'
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 9 Abs. 5 lit. b
   artikel: '9'
   artikel_titel: Risikomanagementsystem
@@ -2534,17 +2605,22 @@ einheiten:
   saetze: 1
   beleg: b) gegebenenfalls Anwendung angemessener Minderungs- und Kontrollmaßnahmen zur Bewältigung nicht
     auszuschließender Risiken;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Gegebenenfalls werden angemessene Minderungs- und Kontrollmassnahmen fuer nicht auszuschliessende
+    Risiken angewandt.
+  scope: out
+  scope_grund: Anbieterpflicht wie Art. 9 Abs. 1 (dort ausfuehrliche Begruendung inkl. Spannung zu R001/G-PRE-01/G-PRE-03);
+    keine im Wortlaut dieses Absatzes erkennbare eigenstaendige Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: 'unveraendert - Art. 9 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
+    (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf: die Liste geaenderter Artikel geht
+    von Nr. 8 [Art. 6] auf Nr. 9 [Art. 10] ueber).'
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 9 Abs. 5 lit. c
   artikel: '9'
   artikel_titel: Risikomanagementsystem
@@ -2558,17 +2634,28 @@ einheiten:
     des Hochrisiko-KI-Systems werden die technischen Kenntnisse, die Erfahrungen und der Bildungsstand,
     die vom Betreiber erwartet werden können, sowie der voraussichtliche Kontext, in dem das System eingesetzt
     werden soll, gebührend berücksichtigt.
-  adressat: null
-  pflicht: null
-  scope: null
+  adressat: anbieter
+  pflicht: Der Anbieter stellt die nach Art. 13 erforderlichen Informationen bereit und schult gegebenenfalls
+    die Betreiber, wobei deren voraussichtliche Kenntnisse, Erfahrung, Bildungsstand und Einsatzkontext
+    zu beruecksichtigen sind.
+  scope: in
   scope_grund: null
-  verifikation: null
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
-  befund: null
-  befund_grund: null
+  omnibus: 'unveraendert - Art. 9 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
+    (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf: die Liste geaenderter Artikel geht
+    von Nr. 8 [Art. 6] auf Nr. 9 [Art. 10] ueber).'
+  requirement: []
+  gate: []
+  befund: luecke
+  befund_grund: 'EINZIGE STELLE IN ART. 9, DIE ''DIE BETREIBER'' NAMENTLICH NENNT - deshalb hier scope:
+    in trotz Anbieter-Duty-Bearer (der Anbieter stellt bereit/schult; die Betreiber sind Empfaenger/Zweck
+    der Massnahme, ein durchschlagender Beruehrungspunkt). Der Informationsteil ueberschneidet sich mit
+    Art. 13 (Betriebsanleitung, R007/G-DEP-03); die SCHULUNG der Betreiber ist im Katalog nirgends abgebildet
+    - kein Gate prueft, ob Betreiber-Personal tatsaechlich geschult wurde. Da ''gegebenenfalls'' (konditional)
+    formuliert ist, waere selbst ein Nachweis der Konditionsprüfung (wann ist Schulung erforderlich) ein
+    sinnvoller Ansatzpunkt fuer ein spaeteres Requirement.'
+  po_bestaetigt: false
 - id: Art. 9 Abs. 6
   artikel: '9'
   artikel_titel: Risikomanagementsystem
@@ -2580,17 +2667,24 @@ einheiten:
   beleg: (6)   Hochrisiko-KI-Systeme müssen getestet werden, um die am besten geeigneten gezielten Risikomanagementmaßnahmen
     zu ermitteln. Durch das Testen wird sichergestellt, dass Hochrisiko-KI-Systeme stets im Einklang mit
     ihrer Zweckbestimmung funktionieren und die Anforderungen dieses Abschnitts erfüllen.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Hochrisiko-KI-Systeme muessen getestet werden, um die am besten geeigneten Risikomanagementmassnahmen
+    zu ermitteln; das Testen stellt sicher, dass das System stets zweckbestimmungsgemaess funktioniert
+    und die Abschnitt-2-Anforderungen erfuellt.
+  scope: out
+  scope_grund: Anbieterpflicht wie Art. 9 Abs. 1 (dort ausfuehrliche Begruendung inkl. Spannung zu R001/G-PRE-01/G-PRE-03);
+    keine im Wortlaut dieses Absatzes erkennbare eigenstaendige Betreiber-Handlungspflicht. Test-/Entwicklungspflicht
+    vor Inverkehrbringen.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: 'unveraendert - Art. 9 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
+    (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf: die Liste geaenderter Artikel geht
+    von Nr. 8 [Art. 6] auf Nr. 9 [Art. 10] ueber).'
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 9 Abs. 7
   artikel: '9'
   artikel_titel: Risikomanagementsystem
@@ -2600,17 +2694,21 @@ einheiten:
   laenge: 92
   saetze: 1
   beleg: (7)   Die Testverfahren können einen Test unter Realbedingungen gemäß Artikel 60 umfassen.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Die Testverfahren koennen einen Test unter Realbedingungen gemaess Art. 60 umfassen.
+  scope: out
+  scope_grund: Anbieterpflicht wie Art. 9 Abs. 1 (dort ausfuehrliche Begruendung inkl. Spannung zu R001/G-PRE-01/G-PRE-03);
+    keine im Wortlaut dieses Absatzes erkennbare eigenstaendige Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: 'unveraendert - Art. 9 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
+    (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf: die Liste geaenderter Artikel geht
+    von Nr. 8 [Art. 6] auf Nr. 9 [Art. 10] ueber).'
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 9 Abs. 8
   artikel: '9'
   artikel_titel: Risikomanagementsystem
@@ -2623,17 +2721,22 @@ einheiten:
     gesamten Entwicklungsprozesses und in jedem Fall vor ihrem Inverkehrbringen oder ihrer Inbetriebnahme.
     Das Testen erfolgt anhand vorab festgelegter Metriken und Wahrscheinlichkeitsschwellenwerte, die für
     die Zweckbestimmung des Hochrisiko-KI-Systems geeignet sind.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Das Testen erfolgt zu jedem geeigneten Zeitpunkt waehrend der Entwicklung, in jedem Fall vor
+    Inverkehrbringen oder Inbetriebnahme, anhand vorab festgelegter Metriken und Wahrscheinlichkeitsschwellenwerte.
+  scope: out
+  scope_grund: Anbieterpflicht wie Art. 9 Abs. 1 (dort ausfuehrliche Begruendung inkl. Spannung zu R001/G-PRE-01/G-PRE-03);
+    keine im Wortlaut dieses Absatzes erkennbare eigenstaendige Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: 'unveraendert - Art. 9 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
+    (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf: die Liste geaenderter Artikel geht
+    von Nr. 8 [Art. 6] auf Nr. 9 [Art. 10] ueber).'
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 9 Abs. 9
   artikel: '9'
   artikel_titel: Risikomanagementsystem
@@ -2646,17 +2749,24 @@ einheiten:
     die Anbieter, ob angesichts seiner Zweckbestimmung das Hochrisiko-KI-System wahrscheinlich nachteilige
     Auswirkungen auf Personen unter 18 Jahren oder gegebenenfalls andere schutzbedürftige Gruppen haben
     wird.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Bei der Umsetzung des Risikomanagementsystems beruecksichtigen die Anbieter, ob das Hochrisiko-KI-System
+    wahrscheinlich nachteilige Auswirkungen auf Personen unter 18 Jahren oder andere schutzbeduerftige
+    Gruppen hat.
+  scope: out
+  scope_grund: Explizit 'die Anbieter' im Wortlaut; Anbieterpflicht wie Art. 9 Abs. 1 (dort ausfuehrliche
+    Begruendung inkl. Spannung zu R001/G-PRE-01/G-PRE-03); keine im Wortlaut dieses Absatzes erkennbare
+    eigenstaendige Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: 'unveraendert - Art. 9 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
+    (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf: die Liste geaenderter Artikel geht
+    von Nr. 8 [Art. 6] auf Nr. 9 [Art. 10] ueber).'
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 9 Abs. 10
   artikel: '9'
   artikel_titel: Risikomanagementsystem
@@ -2669,17 +2779,24 @@ einheiten:
     gemäß anderen einschlägigen Bestimmungen des Unionsrechts unterliegen, können die in den Absätzen
     1 bis 9 enthaltenen Aspekte Bestandteil der nach diesem Recht festgelegten Risikomanagementverfahren
     sein oder mit diesen Verfahren kombiniert werden.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Bei Anbietern, die anderweitigen unionsrechtlichen Anforderungen an interne Risikomanagementprozesse
+    unterliegen, koennen die Absaetze 1-9 Bestandteil dieser Verfahren sein oder mit ihnen kombiniert
+    werden.
+  scope: out
+  scope_grund: Explizit 'Bei Anbietern' im Wortlaut; Anbieterpflicht wie Art. 9 Abs. 1 (dort ausfuehrliche
+    Begruendung inkl. Spannung zu R001/G-PRE-01/G-PRE-03); keine im Wortlaut dieses Absatzes erkennbare
+    eigenstaendige Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: 'unveraendert - Art. 9 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
+    (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf: die Liste geaenderter Artikel geht
+    von Nr. 8 [Art. 6] auf Nr. 9 [Art. 10] ueber).'
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 10 Abs. 1
   artikel: '10'
   artikel_titel: Daten und Daten-Governance
