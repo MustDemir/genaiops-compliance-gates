@@ -91,7 +91,7 @@ The third source had sat unused in this repository since the thesis: 14 of 14 re
 |---|---|
 | Gates / requirements | 17 gates · 14 requirements · 55 checks (48 enforced, 7 design-only) |
 | Policies | 19 Rego policies · 196 deny/warn/violation rules |
-| Tests | 215 Rego unit tests · 36 integration tests · 36 integrity checks · hash-chain verification per run |
+| Tests | 215 Rego unit tests · 36 integration tests · 37 integrity checks · hash-chain verification per run |
 | Evidence schema | v06 (`ai_act_role`, `derived_decision`, `runtime_mode` sealed into the payload) |
 | Evidence signing | Keyless `cosign` per CI run, verified against the workflow identity, the repository and the commit · manifest, bundle and verification document retained as run artefacts |
 | Deployment verified | Local (Minikube, Docker) and Azure AKS, Sweden Central |
@@ -352,7 +352,7 @@ make verify-cluster                    # the same, plus the smoke test (needs a 
 ```bash
 ./tests/run_all_rego_tests.sh          # 215 Rego unit tests
 python3 tests/test_all.py              # 36 integration tests across all five pillars
-python3 tests/test_integrity_regression.py --fail-on medium   # 36 credibility checks
+python3 tests/test_integrity_regression.py --fail-on medium   # 37 credibility checks
 python3 tests/test_hash_parity.py                  # the three hash implementations agree
 python3 tests/test_hash_chain_migration.py         # the chain verifies across payload generations
 python3 tests/test_evidence_manifest.py            # guards on the signable evidence manifest

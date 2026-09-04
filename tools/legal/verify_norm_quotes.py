@@ -15,8 +15,21 @@ Zusaetzlich geprueft:
   * Kein Eintrag ohne Scope-Entscheidung: 'out' verlangt einen Grund. Stilles
     Weglassen ist der gefaehrlichste Fehler und deshalb hier ein Fehlschlag.
 
+Zwei Modi, weil zwei verschiedene Dinge gemessen werden:
+
+  --modus belege        Nur Quell-Hash und Wortgleichheit der Zitate. Das ist der
+                        Glaubwuerdigkeitsteil, und er blockiert den Build: ein
+                        veraendertes Zitat ist ein Mangel, egal wie weit die Analyse ist.
+  --modus vollstaendig  Zusaetzlich, dass jede Einheit Scope, Verifikationsstufe und
+                        Befund traegt (Vorgabe). Das ist der Fortschrittsteil und die
+                        Definition of Done — waehrend der Bearbeitung erwartungsgemaess rot.
+
+Die Trennung ist Absicht. Ein Waechter, der von der ersten bis zur letzten Sitzung rot
+steht, weil die Arbeit noch laeuft, wird abgeschaltet und schuetzt dann nichts.
+
 Aufruf:
   python3 tools/legal/verify_norm_quotes.py docs/coverage/aiact_pflichtenraum.yaml
+  python3 tools/legal/verify_norm_quotes.py <datei> --modus belege
 """
 
 from __future__ import annotations
@@ -49,6 +62,7 @@ def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("pflichtenraum", type=Path)
     ap.add_argument("--repo-root", type=Path, default=Path(__file__).resolve().parents[2])
+    ap.add_argument("--modus", choices=["belege", "vollstaendig"], default="vollstaendig")
     a = ap.parse_args()
 
     doc = yaml.safe_load(a.pflichtenraum.read_text(encoding="utf-8"))
@@ -89,6 +103,10 @@ def main() -> int:
             )
             continue
 
+        if a.modus == "belege":
+            ok += 1
+            continue
+
         stufe = u.get("verifikation")
         if stufe not in STUFEN:
             findings.append(f"{uid}: verifikation '{stufe}' ist nicht {sorted(STUFEN)}")
@@ -112,11 +130,11 @@ def main() -> int:
 
         ok += 1
 
-    _report(findings, ok, len(units))
+    _report(findings, ok, len(units), a.modus)
     return 1 if findings else 0
 
 
-def _report(findings: list[str], ok: int, total: int = 0) -> None:
+def _report(findings: list[str], ok: int, total: int = 0, modus: str = "vollstaendig") -> None:
     if findings:
         print(f"\nLEGAL_QUOTES_VERBATIM — {len(findings)} Befund(e):\n")
         for f in findings:
@@ -124,8 +142,10 @@ def _report(findings: list[str], ok: int, total: int = 0) -> None:
         print(f"\n{ok} von {total} Einheiten wortgleich belegt.")
         print("FEHLGESCHLAGEN\n")
     else:
-        print(f"\nLEGAL_QUOTES_VERBATIM — {ok} von {total} Einheiten wortgleich "
-              f"gegen die Quelle geprueft, SHA-256 stimmt.")
+        was = ("wortgleich gegen die Quelle geprueft" if modus == "belege"
+               else "wortgleich belegt und vollstaendig eingeordnet")
+        print(f"\nLEGAL_QUOTES_VERBATIM ({modus}) — {ok} von {total} Einheiten {was}, "
+              f"SHA-256 stimmt.")
         print("BESTANDEN\n")
 
 

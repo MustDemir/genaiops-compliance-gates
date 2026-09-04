@@ -2824,6 +2824,71 @@ def check_handbook_roadmap_is_current() -> dict:
     )
 
 
+def check_legal_quotes_verbatim() -> dict:
+    """Jedes Belegzitat der Deckungsanalyse steht wortgleich in seiner Quelle.
+
+    SPEC-06 stellt den Pflichtenraum des AI Act auf: eine Zeile je Norm-Einheit,
+    mit dem Wortlaut daneben. Der Wert dieser Analyse haengt an genau einer
+    Eigenschaft — dass die Zitate echt sind. Ein Zitat, das jemand umformuliert,
+    kuerzt oder aus dem Gedaechtnis ergaenzt, sieht in jedem Review richtig aus
+    und traegt trotzdem eine Rechtsaussage, die der Text nicht hergibt.
+
+    Deshalb traegt jede Zeile ihren Zeichen-Offset, und dieser Check laesst
+    tools/legal/verify_norm_quotes.py die Quelle erneut lesen. Der Unterschied
+    zu jedem anderen Waechter hier ist keiner: eine Behauptung wird gegen ihren
+    Gegenstand gehalten. Neu ist nur, dass der Gegenstand ein Gesetzestext ist.
+
+    Geprueft wird der Modus `belege` — Quell-Hash und Wortgleichheit. NICHT
+    geprueft wird, ob die Analysefelder schon gefuellt sind: waehrend der
+    Bearbeitung sind sie es nicht, und ein Waechter, der ueber Wochen rot steht,
+    weil die Arbeit laeuft, wird abgeschaltet und schuetzt dann nichts. Die
+    Vollstaendigkeit ist Definition of Done des Tickets, nicht Integritaet.
+
+    HIGH, weil der Fehler unsichtbar ist und eine Rechtsaussage traegt. Ein
+    falscher Zaehlstand laesst sich nachrechnen; ein erfundenes Zitat aus einer
+    Verordnung glaubt der Leser, weil er den Text nicht danebenliegen hat.
+    """
+    raum = sorted((REPO_ROOT / "docs" / "coverage").glob("*.yaml"))
+    if not raum:
+        return make_result(
+            "LEGAL_QUOTES_VERBATIM",
+            "jedes Belegzitat der Deckungsanalyse steht wortgleich in seiner Quelle (SPEC-06)",
+            "high", True,
+            "Kein Pflichtenraum unter docs/coverage/ — nichts zu pruefen.",
+        )
+
+    script = REPO_ROOT / "tools" / "legal" / "verify_norm_quotes.py"
+    findings = []
+    geprueft = 0
+    for datei in raum:
+        out = subprocess.run(
+            [sys.executable, str(script), str(datei), "--modus", "belege"],
+            capture_output=True, text=True, timeout=120,
+        )
+        if out.returncode != 0:
+            lines = [l.strip() for l in out.stdout.splitlines() if l.strip().startswith("-")]
+            findings.append(
+                f"{datei.relative_to(REPO_ROOT)}: {len(lines) or 'mehrere'} Belege stimmen "
+                f"nicht mit der Quelle ueberein"
+            )
+            findings.extend(f"  {l}" for l in lines[:5])
+        else:
+            m = re.search(r"— (\d+) von (\d+)", out.stdout)
+            geprueft += int(m.group(1)) if m else 0
+
+    return make_result(
+        "LEGAL_QUOTES_VERBATIM",
+        "jedes Belegzitat der Deckungsanalyse steht wortgleich in seiner Quelle (SPEC-06)",
+        "high",
+        not findings,
+        "Ein Belegzitat weicht von seiner Quelle ab — damit traegt eine Zeile des "
+        "Pflichtenraums eine Rechtsaussage, die der Wortlaut nicht hergibt." if findings
+        else f"{geprueft} Einheiten aus {len(raum)} Pflichtenraum-Datei(en) wortgleich "
+             f"gegen ihre Quelle geprueft, Quell-Hash stimmt.",
+        findings,
+    )
+
+
 def collect_results() -> list[dict]:
     checks = [
         check_orchestrator_fallbacks,
@@ -2864,6 +2929,7 @@ def collect_results() -> list[dict]:
         check_evidence_fail_closed,
         check_gate_declares_effect,
         check_handbook_roadmap_is_current,
+        check_legal_quotes_verbatim,
     ]
     results = []
     for check in checks:

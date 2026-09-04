@@ -60,8 +60,9 @@ markiert**: jede angefasste Zeile bekommt zusätzlich `po_bestaetigt: false`.
 ## DEFINITION OF DONE — maschinell
 
 1. `python3 tools/legal/verify_norm_quotes.py docs/coverage/aiact_pflichtenraum.yaml`
-   meldet **BESTANDEN**
-2. `make verify` grün — 36 Integration, 36 Integrity, 215 Rego, Parität, Migration, Manifest
+   meldet **BESTANDEN** — ohne `--modus`, also inklusive Vollständigkeit der Analysefelder
+2. `make verify` grün. Darin läuft `LEGAL_QUOTES_VERBATIM` (HIGH) im Modus `belege`;
+   dieser Teil muss **während der gesamten Bearbeitung** grün sein, nicht erst am Ende
 3. `python3 tools/legal/fortschritt.py docs/coverage/aiact_pflichtenraum.yaml` meldet
    **0 offen**
 4. Jede Einheit trägt `scope` und `verifikation`; `out` und `HYPOTHESE` tragen ihren Grund
@@ -147,11 +148,18 @@ UNVERHANDELBARE REGELN
   Stilles Weglassen ist ein Fehlschlag, kein Zeitgewinn.
 
 VOR JEDEM COMMIT
-  python3 tools/legal/verify_norm_quotes.py docs/coverage/aiact_pflichtenraum.yaml
+  python3 tools/legal/verify_norm_quotes.py docs/coverage/aiact_pflichtenraum.yaml --modus belege
+  make verify
 
-Meldet es FEHLGESCHLAGEN wegen eines Belegs, hast du eine Quellzeile
-verändert — nimm das zurück. Meldungen zu fehlenden Analysefeldern der noch
-offenen Einheiten sind erwartet und kein Fehler.
+Der Modus "belege" prüft nur Quell-Hash und Wortgleichheit der Zitate. Er muss
+IMMER grün sein — auch mitten in der Arbeit. Ist er rot, hast du einen Beleg
+verändert; nimm das zurück, bevor du weitermachst.
+
+make verify enthält denselben Check als LEGAL_QUOTES_VERBATIM (HIGH) und
+blockiert damit den Commit-Pfad. Es enthält NICHT die Vollständigkeitsprüfung
+der Analysefelder — die läuft ohne --modus und ist während der Bearbeitung
+erwartungsgemäß rot. Das ist kein Fehler, sondern der Unterschied zwischen
+Glaubwürdigkeit und Fortschritt.
 
 COMMITS
 Ein Commit je Artikelgruppe, nicht einer am Ende. Die Nachricht sagt, was jetzt
