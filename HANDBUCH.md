@@ -436,7 +436,7 @@ Ausformuliert nach den fünf Fragen aus 3.4, weil dieses Gate die Lücke am deut
 **Sofort als Nächstes:**
 
 8. **Vier-Augen-Prinzip und Retirement-Pfad** — die zwei Prozesslücken aus 2.4, unverändert offen. Als [`T-11`](docs/tickets/T-11-vier-augen-und-retirement.md) gestellt, **nicht bereit**: die Grundsatzfrage bauen oder als Limitation benennen ist eine Entscheidung des PO, weil sie den Umfang des Vorhabens kürzt
-9. **Deckungsanalyse Norm → Requirement** — Validierung statt Verifikation: woher weiß ich, dass der Katalog die richtigen Gates enthält? Weiterhin der schwerwiegendste offene Punkt
+9. **Deckungsanalyse Norm → Requirement** — Validierung statt Verifikation: woher weiß ich, dass der Katalog die richtigen Gates enthält? Weiterhin der schwerwiegendste offene Punkt. **Als [`SPEC-06`](specs/SPEC-06-deckungsanalyse-norm-requirement.md) beauftragt (04.09.); Stufe 0 ist gebaut und läuft:** der Wortlaut von VO (EU) 2024/1689 liegt jetzt als `docs/legal/wortlaut/` im Repo (bis dahin lag hier nur der ändernde Omnibus), `tools/legal/` schneidet ihn in 1027 Pflichteneinheiten, und `verify_norm_quotes.py` hält jedes Belegzitat wortgleich gegen die Quelle. Vier PO-Festlegungen: Betreiberpflichten samt durchschlagender · Satz- und Pflichtenebene · Art. 25 inbegriffen · Sektorstapel im Anschluss
 10. **Kettenkontinuität über Läufe hinweg** (D-32, SPEC-05 Abschnitt 13) — heute ist jeder *einzelne* Lauf überprüfbar und verlässt den Runner signiert. Ob zwischen zwei Läufen etwas fehlt, prüft nichts. Braucht einen persistenten Anker und eine eigene SPEC
 11. **Nicht zurückgeführte `acceptance_criteria` schließen** — `ACCEPTANCE_CRITERIA_TRACED` weist die sechs offenen namentlich aus. Als [`T-10`](docs/tickets/T-10-acceptance-criteria-zurueckfuehren.md) gestellt, **nicht bereit**: `met` ist eine Behauptung über Wirklichkeit und wird je Kriterium vom PO gesetzt, nicht von der KI
 
@@ -463,10 +463,12 @@ Ausformuliert nach den fünf Fragen aus 3.4, weil dieses Gate die Lücke am deut
 |---|---|
 | **[`HISTORIE.md`](HISTORIE.md)** | Begründungen (D-01…D-31), Befunde (B-01…B-19), Forschungsstand, Normenreferenz, Revidiertes, Fassungsgeschichte |
 | [`README.md`](README.md) | Außendarstellung und alle Zählstände, maschinell gegen das Repository gehalten |
-| [`specs/`](specs/) | SPEC-01…05 — die Aufträge, aus denen der Code entstanden ist |
+| [`specs/`](specs/) | SPEC-01…06 — die Aufträge, aus denen der Code entstanden ist |
 | [`CHANGELOG.md`](CHANGELOG.md) | Vollständige Begründung je Codeänderung |
 | [`AGENTS.md`](AGENTS.md) | Dauergrundsätze für die Arbeit im Repo |
 | [`docs/tickets/`](docs/tickets/) | Die Aufträge selbst — WARUM, Scope, DoR, DoD, Abnahme |
+| [`docs/legal/`](docs/legal/) | Die Primärquellen im Wortlaut — VO (EU) 2024/1689 und der Omnibus 2026/1744, je mit SHA-256 |
+| [`docs/coverage/`](docs/coverage/) | Der Pflichtenraum aus SPEC-06: je Einheit Belegzitat, Offset, Verifikationsstufe, Befund |
 
 Alle Verweise dieser Tabelle zeigen auf Dateien **in diesem Repository**. Rechtsaussagen dieses Handbuchs tragen ihre Evidenzstufe (2.3) und den Normbezug in H3 — sie setzen keine Datei voraus, die hier nicht liegt.
 
