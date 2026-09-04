@@ -2824,17 +2824,25 @@ einheiten:
     trainiert werden, müssen mit Trainings-, Validierungs- und Testdatensätzen entwickelt werden, die
     den in den Absätzen 2 bis 5 genannten Qualitätskriterien entsprechen, wenn solche Datensätze verwendet
     werden.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Hochrisiko-KI-Systeme mit trainierten KI-Modellen muessen mit Trainings-, Validierungs- und
+    Testdatensaetzen entwickelt werden, die den Qualitaetskriterien der Abs. 2-5 entsprechen, soweit solche
+    Datensaetze verwendet werden.
+  scope: out
+  scope_grund: 'Anbieterpflicht (Daten-Governance bei der Entwicklung/dem Training des Systems, Kapitel
+    III Abschnitt 2 i.V.m. Art. 16 lit. a); R006 selbst haelt fest: ''Art. 10 primaer Provider-Pflicht,
+    fuer Deployer relevant via Art. 26 Abs. 4'' - die Betreiber-seitige Entsprechung ist dort (Lauf 1,
+    bereits erfasst) und nicht hier abgebildet.'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 9 lit. a - neue Fassung verweist zusaetzlich auf
+    die Qualitaetskriterien aus dem neuen Art. 4a Abs. 1 (Verzerrungserkennung/-korrektur), materiell
+    sonst unveraendert (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 10 Abs. 2
   artikel: '10'
   artikel_titel: Daten und Daten-Governance
@@ -2845,17 +2853,24 @@ einheiten:
   saetze: 2
   beleg: (2)   Für Trainings-, Validierungs- und Testdatensätze gelten Daten-Governance- und Datenverwaltungsverfahren,
     die für die Zweckbestimmung des Hochrisiko-KI-Systems geeignet sind. Diese Verfahren betreffen insbesondere
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Fuer Trainings-, Validierungs- und Testdatensaetze gelten zweckangemessene Daten-Governance-
+    und Datenverwaltungsverfahren, die insbesondere lit. a-h betreffen.
+  scope: out
+  scope_grund: 'Anbieterpflicht (Daten-Governance bei der Entwicklung/dem Training des Systems, Kapitel
+    III Abschnitt 2 i.V.m. Art. 16 lit. a); R006 selbst haelt fest: ''Art. 10 primaer Provider-Pflicht,
+    fuer Deployer relevant via Art. 26 Abs. 4'' - die Betreiber-seitige Entsprechung ist dort (Lauf 1,
+    bereits erfasst) und nicht hier abgebildet.'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - dieser Absatz/Buchstabe ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744
+    (Nr. 9, Art. 10) nicht gesondert erwaehnt (geaendert wurden nur Abs. 1, Abs. 5 [gestrichen] und Abs.
+    6; geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 10 Abs. 2 lit. a
   artikel: '10'
   artikel_titel: Daten und Daten-Governance
@@ -2865,17 +2880,23 @@ einheiten:
   laenge: 58
   saetze: 1
   beleg: a) die einschlägigen konzeptionellen Entscheidungen,
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Die einschlaegigen konzeptionellen Entscheidungen.
+  scope: out
+  scope_grund: 'Anbieterpflicht (Daten-Governance bei der Entwicklung/dem Training des Systems, Kapitel
+    III Abschnitt 2 i.V.m. Art. 16 lit. a); R006 selbst haelt fest: ''Art. 10 primaer Provider-Pflicht,
+    fuer Deployer relevant via Art. 26 Abs. 4'' - die Betreiber-seitige Entsprechung ist dort (Lauf 1,
+    bereits erfasst) und nicht hier abgebildet.'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - dieser Absatz/Buchstabe ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744
+    (Nr. 9, Art. 10) nicht gesondert erwaehnt (geaendert wurden nur Abs. 1, Abs. 5 [gestrichen] und Abs.
+    6; geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 10 Abs. 2 lit. b
   artikel: '10'
   artikel_titel: Daten und Daten-Governance
@@ -2886,17 +2907,24 @@ einheiten:
   saetze: 1
   beleg: b) die Datenerhebungsverfahren und die Herkunft der Daten und im Falle personenbezogener Daten
     den ursprünglichen Zweck der Datenerhebung,
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Die Datenerhebungsverfahren und Datenherkunft, bei personenbezogenen Daten der urspruengliche
+    Erhebungszweck.
+  scope: out
+  scope_grund: 'Anbieterpflicht (Daten-Governance bei der Entwicklung/dem Training des Systems, Kapitel
+    III Abschnitt 2 i.V.m. Art. 16 lit. a); R006 selbst haelt fest: ''Art. 10 primaer Provider-Pflicht,
+    fuer Deployer relevant via Art. 26 Abs. 4'' - die Betreiber-seitige Entsprechung ist dort (Lauf 1,
+    bereits erfasst) und nicht hier abgebildet.'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - dieser Absatz/Buchstabe ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744
+    (Nr. 9, Art. 10) nicht gesondert erwaehnt (geaendert wurden nur Abs. 1, Abs. 5 [gestrichen] und Abs.
+    6; geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 10 Abs. 2 lit. c
   artikel: '10'
   artikel_titel: Daten und Daten-Governance
@@ -2907,17 +2935,24 @@ einheiten:
   saetze: 1
   beleg: c) relevante Datenaufbereitungsvorgänge wie Annotation, Kennzeichnung, Bereinigung, Aktualisierung,
     Anreicherung und Aggregierung,
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Relevante Datenaufbereitungsvorgaenge (Annotation, Kennzeichnung, Bereinigung, Aktualisierung,
+    Anreicherung, Aggregierung).
+  scope: out
+  scope_grund: 'Anbieterpflicht (Daten-Governance bei der Entwicklung/dem Training des Systems, Kapitel
+    III Abschnitt 2 i.V.m. Art. 16 lit. a); R006 selbst haelt fest: ''Art. 10 primaer Provider-Pflicht,
+    fuer Deployer relevant via Art. 26 Abs. 4'' - die Betreiber-seitige Entsprechung ist dort (Lauf 1,
+    bereits erfasst) und nicht hier abgebildet.'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - dieser Absatz/Buchstabe ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744
+    (Nr. 9, Art. 10) nicht gesondert erwaehnt (geaendert wurden nur Abs. 1, Abs. 5 [gestrichen] und Abs.
+    6; geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 10 Abs. 2 lit. d
   artikel: '10'
   artikel_titel: Daten und Daten-Governance
@@ -2928,17 +2963,23 @@ einheiten:
   saetze: 1
   beleg: d) die Aufstellung von Annahmen, insbesondere in Bezug auf die Informationen, die mit den Daten
     erfasst und dargestellt werden sollen,
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Die Aufstellung von Annahmen, insbesondere zu den mit den Daten erfassten/dargestellten Informationen.
+  scope: out
+  scope_grund: 'Anbieterpflicht (Daten-Governance bei der Entwicklung/dem Training des Systems, Kapitel
+    III Abschnitt 2 i.V.m. Art. 16 lit. a); R006 selbst haelt fest: ''Art. 10 primaer Provider-Pflicht,
+    fuer Deployer relevant via Art. 26 Abs. 4'' - die Betreiber-seitige Entsprechung ist dort (Lauf 1,
+    bereits erfasst) und nicht hier abgebildet.'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - dieser Absatz/Buchstabe ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744
+    (Nr. 9, Art. 10) nicht gesondert erwaehnt (geaendert wurden nur Abs. 1, Abs. 5 [gestrichen] und Abs.
+    6; geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 10 Abs. 2 lit. e
   artikel: '10'
   artikel_titel: Daten und Daten-Governance
@@ -2948,17 +2989,23 @@ einheiten:
   laenge: 87
   saetze: 1
   beleg: e) eine Bewertung der Verfügbarkeit, Menge und Eignung der benötigten Datensätze,
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Eine Bewertung der Verfuegbarkeit, Menge und Eignung der benoetigten Datensaetze.
+  scope: out
+  scope_grund: 'Anbieterpflicht (Daten-Governance bei der Entwicklung/dem Training des Systems, Kapitel
+    III Abschnitt 2 i.V.m. Art. 16 lit. a); R006 selbst haelt fest: ''Art. 10 primaer Provider-Pflicht,
+    fuer Deployer relevant via Art. 26 Abs. 4'' - die Betreiber-seitige Entsprechung ist dort (Lauf 1,
+    bereits erfasst) und nicht hier abgebildet.'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - dieser Absatz/Buchstabe ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744
+    (Nr. 9, Art. 10) nicht gesondert erwaehnt (geaendert wurden nur Abs. 1, Abs. 5 [gestrichen] und Abs.
+    6; geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 10 Abs. 2 lit. f
   artikel: '10'
   artikel_titel: Daten und Daten-Governance
@@ -2971,17 +3018,29 @@ einheiten:
     von Personen beeinträchtigen, sich negativ auf die Grundrechte auswirken oder zu einer nach den Rechtsvorschriften
     der Union verbotenen Diskriminierung führen könnten, insbesondere wenn die Datenausgaben die Eingaben
     für künftige Operationen beeinflussen,
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Untersuchung im Hinblick auf moegliche Verzerrungen (Bias), die Gesundheit/Sicherheit beeintraechtigen,
+    Grundrechte negativ beruehren oder verbotene Diskriminierung bewirken koennten, insbesondere bei Rueckkopplung
+    der Datenausgaben in kuenftige Operationen.
+  scope: out
+  scope_grund: 'Anbieterpflicht (Daten-Governance bei der Entwicklung/dem Training des Systems, Kapitel
+    III Abschnitt 2 i.V.m. Art. 16 lit. a); R006 selbst haelt fest: ''Art. 10 primaer Provider-Pflicht,
+    fuer Deployer relevant via Art. 26 Abs. 4'' - die Betreiber-seitige Entsprechung ist dort (Lauf 1,
+    bereits erfasst) und nicht hier abgebildet. GLEICHE SPANNUNG WIE BEI ART. 9 ABS. 1 ZU R001: R013 (Bias-/Fairness-Monitoring,
+    role: deployer) fuehrt ''Art. 10 Abs. 2 lit. f'' explizit als eu_ai_act_refs, linked_gates G-DEP-05.
+    G-DEP-05/C-01 verlangt vom BETREIBER ein ''Bias-/Fairness-Assessment'' - spiegelt inhaltlich diese
+    Anbieterpflicht am falschen Adressaten, strukturell identisch mit dem R001/Art.-9-Befund. Nicht entschieden,
+    nur erfasst; im PR-Bericht gesammelt.'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - dieser Absatz/Buchstabe ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744
+    (Nr. 9, Art. 10) nicht gesondert erwaehnt (geaendert wurden nur Abs. 1, Abs. 5 [gestrichen] und Abs.
+    6; geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 10 Abs. 2 lit. g
   artikel: '10'
   artikel_titel: Daten und Daten-Governance
@@ -2992,17 +3051,24 @@ einheiten:
   saetze: 1
   beleg: g) geeignete Maßnahmen zur Erkennung, Verhinderung und Abschwächung möglicher gemäß Buchstabe
     f ermittelter Verzerrungen,
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Geeignete Massnahmen zur Erkennung, Verhinderung und Abschwaechung der nach lit. f ermittelten
+    Verzerrungen.
+  scope: out
+  scope_grund: 'Anbieterpflicht (Daten-Governance bei der Entwicklung/dem Training des Systems, Kapitel
+    III Abschnitt 2 i.V.m. Art. 16 lit. a); R006 selbst haelt fest: ''Art. 10 primaer Provider-Pflicht,
+    fuer Deployer relevant via Art. 26 Abs. 4'' - die Betreiber-seitige Entsprechung ist dort (Lauf 1,
+    bereits erfasst) und nicht hier abgebildet. Siehe Art. 10 Abs. 2 lit. f zur R013/G-DEP-05-Spannung.'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - dieser Absatz/Buchstabe ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744
+    (Nr. 9, Art. 10) nicht gesondert erwaehnt (geaendert wurden nur Abs. 1, Abs. 5 [gestrichen] und Abs.
+    6; geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 10 Abs. 2 lit. h
   artikel: '10'
   artikel_titel: Daten und Daten-Governance
@@ -3013,17 +3079,24 @@ einheiten:
   saetze: 1
   beleg: h) die Ermittlung relevanter Datenlücken oder Mängel, die der Einhaltung dieser Verordnung entgegenstehen,
     und wie diese Lücken und Mängel behoben werden können.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Ermittlung relevanter Datenluecken oder -maengel, die der Einhaltung dieser Verordnung entgegenstehen,
+    und wie sie behoben werden koennen.
+  scope: out
+  scope_grund: 'Anbieterpflicht (Daten-Governance bei der Entwicklung/dem Training des Systems, Kapitel
+    III Abschnitt 2 i.V.m. Art. 16 lit. a); R006 selbst haelt fest: ''Art. 10 primaer Provider-Pflicht,
+    fuer Deployer relevant via Art. 26 Abs. 4'' - die Betreiber-seitige Entsprechung ist dort (Lauf 1,
+    bereits erfasst) und nicht hier abgebildet.'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - dieser Absatz/Buchstabe ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744
+    (Nr. 9, Art. 10) nicht gesondert erwaehnt (geaendert wurden nur Abs. 1, Abs. 5 [gestrichen] und Abs.
+    6; geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 10 Abs. 3
   artikel: '10'
   artikel_titel: Daten und Daten-Governance
@@ -3038,17 +3111,25 @@ einheiten:
     für die das Hochrisiko-KI-System bestimmungsgemäß verwendet werden soll, haben. Diese Merkmale der
     Datensätze können auf der Ebene einzelner Datensätze oder auf der Ebene einer Kombination davon erfüllt
     werden.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Trainings-, Validierungs- und Testdatensaetze muessen zweckbestimmungsrelevant, hinreichend
+    repraesentativ und soweit moeglich fehlerfrei und vollstaendig sein sowie geeignete statistische Merkmale
+    aufweisen.
+  scope: out
+  scope_grund: 'Anbieterpflicht (Daten-Governance bei der Entwicklung/dem Training des Systems, Kapitel
+    III Abschnitt 2 i.V.m. Art. 16 lit. a); R006 selbst haelt fest: ''Art. 10 primaer Provider-Pflicht,
+    fuer Deployer relevant via Art. 26 Abs. 4'' - die Betreiber-seitige Entsprechung ist dort (Lauf 1,
+    bereits erfasst) und nicht hier abgebildet.'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - dieser Absatz/Buchstabe ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744
+    (Nr. 9, Art. 10) nicht gesondert erwaehnt (geaendert wurden nur Abs. 1, Abs. 5 [gestrichen] und Abs.
+    6; geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 10 Abs. 4
   artikel: '10'
   artikel_titel: Daten und Daten-Governance
@@ -3061,17 +3142,24 @@ einheiten:
     Merkmale oder Elemente berücksichtigen, die für die besonderen geografischen, kontextuellen, verhaltensbezogenen
     oder funktionalen Rahmenbedingungen, unter denen das Hochrisiko-KI-System bestimmungsgemäß verwendet
     werden soll, typisch sind.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Datensaetze muessen, soweit fuer die Zweckbestimmung erforderlich, die fuer den geografischen/kontextuellen/verhaltensbezogenen/funktionalen
+    Einsatzrahmen typischen Merkmale beruecksichtigen.
+  scope: out
+  scope_grund: 'Anbieterpflicht (Daten-Governance bei der Entwicklung/dem Training des Systems, Kapitel
+    III Abschnitt 2 i.V.m. Art. 16 lit. a); R006 selbst haelt fest: ''Art. 10 primaer Provider-Pflicht,
+    fuer Deployer relevant via Art. 26 Abs. 4'' - die Betreiber-seitige Entsprechung ist dort (Lauf 1,
+    bereits erfasst) und nicht hier abgebildet.'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - dieser Absatz/Buchstabe ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744
+    (Nr. 9, Art. 10) nicht gesondert erwaehnt (geaendert wurden nur Abs. 1, Abs. 5 [gestrichen] und Abs.
+    6; geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 10 Abs. 5
   artikel: '10'
   artikel_titel: Daten und Daten-Governance
@@ -3087,17 +3175,27 @@ einheiten:
     treffen müssen. Zusätzlich zu den Bestimmungen der Verordnungen (EU) 2016/679 und (EU) 2018/1725 und
     der Richtlinie (EU) 2016/680 müssen alle folgenden Bedingungen erfüllt sein, damit eine solche Verarbeitung
     stattfinden kann:'
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Soweit zur Verzerrungserkennung/-korrektur (Abs. 2 lit. f/g) unbedingt erforderlich, duerfen
+    Anbieter ausnahmsweise besondere Kategorien personenbezogener Daten unter den Bedingungen lit. a-f
+    verarbeiten.
+  scope: out
+  scope_grund: Anbieterpflicht ('duerfen die Anbieter ... verarbeiten', Wortlaut explizit); zusaetzlich
+    durch die VO (EU) 2026/1744 gestrichen und durch Art. 4a ersetzt - die Zeile im Quelltext aiact_2024-1689_DE.txt
+    (Stand vor dem Omnibus) beschreibt damit geltendes Recht zum Zeitpunkt 2024/1689, nicht mehr die aktuelle
+    Fassung.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: 'gestrichen durch VO (EU) 2026/1744 Art. 1 Nr. 9 lit. b (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf:
+    ''b) Absatz 5 wird gestrichen.''). Regelungsgehalt in den neuen Art. 4a ueberfuehrt: Art. 4a Abs.
+    1 fuer Anbieter (inhaltsgleich zu diesem Absatz), Art. 4a Abs. 2 fuer Betreiber - dort aber als Erlaubnisnorm
+    ohne Handlungspflicht ausgestaltet (''Dieser Absatz begruendet keine Verpflichtung''), siehe R013.yaml
+    notes (NEUBEWERTUNG 2026-08-15).'
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 10 Abs. 5 lit. a
   artikel: '10'
   artikel_titel: Daten und Daten-Governance
@@ -3108,17 +3206,26 @@ einheiten:
   saetze: 1
   beleg: a) Die Erkennung und Korrektur von Verzerrungen kann durch die Verarbeitung anderer Daten, einschließlich
     synthetischer oder anonymisierter Daten, nicht effektiv durchgeführt werden;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Die Erkennung/Korrektur der Verzerrung kann durch andere (auch synthetische/anonymisierte)
+    Daten nicht effektiv erfolgen.
+  scope: out
+  scope_grund: Anbieterpflicht ('duerfen die Anbieter ... verarbeiten', Wortlaut explizit); zusaetzlich
+    durch die VO (EU) 2026/1744 gestrichen und durch Art. 4a ersetzt - die Zeile im Quelltext aiact_2024-1689_DE.txt
+    (Stand vor dem Omnibus) beschreibt damit geltendes Recht zum Zeitpunkt 2024/1689, nicht mehr die aktuelle
+    Fassung.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: 'gestrichen durch VO (EU) 2026/1744 Art. 1 Nr. 9 lit. b (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf:
+    ''b) Absatz 5 wird gestrichen.''). Regelungsgehalt in den neuen Art. 4a ueberfuehrt: Art. 4a Abs.
+    1 fuer Anbieter (inhaltsgleich zu diesem Absatz), Art. 4a Abs. 2 fuer Betreiber - dort aber als Erlaubnisnorm
+    ohne Handlungspflicht ausgestaltet (''Dieser Absatz begruendet keine Verpflichtung''), siehe R013.yaml
+    notes (NEUBEWERTUNG 2026-08-15).'
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 10 Abs. 5 lit. b
   artikel: '10'
   artikel_titel: Daten und Daten-Governance
@@ -3130,17 +3237,26 @@ einheiten:
   beleg: b) die besonderen Kategorien personenbezogener Daten unterliegen technischen Beschränkungen einer
     Weiterverwendung der personenbezogenen Daten und modernsten Sicherheits- und Datenschutzmaßnahmen,
     einschließlich Pseudonymisierung;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Die Daten unterliegen technischen Weiterverwendungsbeschraenkungen und modernsten Sicherheits-/Datenschutzmassnahmen
+    (inkl. Pseudonymisierung).
+  scope: out
+  scope_grund: Anbieterpflicht ('duerfen die Anbieter ... verarbeiten', Wortlaut explizit); zusaetzlich
+    durch die VO (EU) 2026/1744 gestrichen und durch Art. 4a ersetzt - die Zeile im Quelltext aiact_2024-1689_DE.txt
+    (Stand vor dem Omnibus) beschreibt damit geltendes Recht zum Zeitpunkt 2024/1689, nicht mehr die aktuelle
+    Fassung.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: 'gestrichen durch VO (EU) 2026/1744 Art. 1 Nr. 9 lit. b (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf:
+    ''b) Absatz 5 wird gestrichen.''). Regelungsgehalt in den neuen Art. 4a ueberfuehrt: Art. 4a Abs.
+    1 fuer Anbieter (inhaltsgleich zu diesem Absatz), Art. 4a Abs. 2 fuer Betreiber - dort aber als Erlaubnisnorm
+    ohne Handlungspflicht ausgestaltet (''Dieser Absatz begruendet keine Verpflichtung''), siehe R013.yaml
+    notes (NEUBEWERTUNG 2026-08-15).'
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 10 Abs. 5 lit. c
   artikel: '10'
   artikel_titel: Daten und Daten-Governance
@@ -3154,17 +3270,26 @@ einheiten:
     Sicherheitsvorkehrungen sind, wozu auch strenge Kontrollen des Zugriffs und seine Dokumentation gehören,
     um Missbrauch zu verhindern und sicherzustellen, dass nur befugte Personen Zugang zu diesen personenbezogenen
     Daten mit angemessenen Vertraulichkeitspflichten haben;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Die Daten unterliegen Sicherheitsmassnahmen inkl. strenger Zugriffskontrolle/-dokumentation
+    und Vertraulichkeitspflichten der Zugriffsberechtigten.
+  scope: out
+  scope_grund: Anbieterpflicht ('duerfen die Anbieter ... verarbeiten', Wortlaut explizit); zusaetzlich
+    durch die VO (EU) 2026/1744 gestrichen und durch Art. 4a ersetzt - die Zeile im Quelltext aiact_2024-1689_DE.txt
+    (Stand vor dem Omnibus) beschreibt damit geltendes Recht zum Zeitpunkt 2024/1689, nicht mehr die aktuelle
+    Fassung.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: 'gestrichen durch VO (EU) 2026/1744 Art. 1 Nr. 9 lit. b (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf:
+    ''b) Absatz 5 wird gestrichen.''). Regelungsgehalt in den neuen Art. 4a ueberfuehrt: Art. 4a Abs.
+    1 fuer Anbieter (inhaltsgleich zu diesem Absatz), Art. 4a Abs. 2 fuer Betreiber - dort aber als Erlaubnisnorm
+    ohne Handlungspflicht ausgestaltet (''Dieser Absatz begruendet keine Verpflichtung''), siehe R013.yaml
+    notes (NEUBEWERTUNG 2026-08-15).'
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 10 Abs. 5 lit. d
   artikel: '10'
   artikel_titel: Daten und Daten-Governance
@@ -3175,17 +3300,26 @@ einheiten:
   saetze: 1
   beleg: d) die besonderen Kategorien personenbezogener Daten werden nicht an Dritte übermittelt oder
     übertragen, noch haben diese Dritten anderweitigen Zugang zu diesen Daten;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Die Daten werden nicht an Dritte uebermittelt/uebertragen; Dritte erhalten keinen anderweitigen
+    Zugang.
+  scope: out
+  scope_grund: Anbieterpflicht ('duerfen die Anbieter ... verarbeiten', Wortlaut explizit); zusaetzlich
+    durch die VO (EU) 2026/1744 gestrichen und durch Art. 4a ersetzt - die Zeile im Quelltext aiact_2024-1689_DE.txt
+    (Stand vor dem Omnibus) beschreibt damit geltendes Recht zum Zeitpunkt 2024/1689, nicht mehr die aktuelle
+    Fassung.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: 'gestrichen durch VO (EU) 2026/1744 Art. 1 Nr. 9 lit. b (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf:
+    ''b) Absatz 5 wird gestrichen.''). Regelungsgehalt in den neuen Art. 4a ueberfuehrt: Art. 4a Abs.
+    1 fuer Anbieter (inhaltsgleich zu diesem Absatz), Art. 4a Abs. 2 fuer Betreiber - dort aber als Erlaubnisnorm
+    ohne Handlungspflicht ausgestaltet (''Dieser Absatz begruendet keine Verpflichtung''), siehe R013.yaml
+    notes (NEUBEWERTUNG 2026-08-15).'
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 10 Abs. 5 lit. e
   artikel: '10'
   artikel_titel: Daten und Daten-Governance
@@ -3197,17 +3331,26 @@ einheiten:
   beleg: e) die besonderen Kategorien personenbezogener Daten werden gelöscht, sobald die Verzerrung korrigiert
     wurde oder das Ende der Speicherfrist für die personenbezogenen Daten erreicht ist, je nachdem, was
     zuerst eintritt;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Die Daten werden geloescht, sobald die Verzerrung korrigiert ist oder die Speicherfrist endet,
+    je nachdem was zuerst eintritt.
+  scope: out
+  scope_grund: Anbieterpflicht ('duerfen die Anbieter ... verarbeiten', Wortlaut explizit); zusaetzlich
+    durch die VO (EU) 2026/1744 gestrichen und durch Art. 4a ersetzt - die Zeile im Quelltext aiact_2024-1689_DE.txt
+    (Stand vor dem Omnibus) beschreibt damit geltendes Recht zum Zeitpunkt 2024/1689, nicht mehr die aktuelle
+    Fassung.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: 'gestrichen durch VO (EU) 2026/1744 Art. 1 Nr. 9 lit. b (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf:
+    ''b) Absatz 5 wird gestrichen.''). Regelungsgehalt in den neuen Art. 4a ueberfuehrt: Art. 4a Abs.
+    1 fuer Anbieter (inhaltsgleich zu diesem Absatz), Art. 4a Abs. 2 fuer Betreiber - dort aber als Erlaubnisnorm
+    ohne Handlungspflicht ausgestaltet (''Dieser Absatz begruendet keine Verpflichtung''), siehe R013.yaml
+    notes (NEUBEWERTUNG 2026-08-15).'
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 10 Abs. 5 lit. f
   artikel: '10'
   artikel_titel: Daten und Daten-Governance
@@ -3220,17 +3363,25 @@ einheiten:
     (EU) 2018/1725 und der Richtlinie (EU) 2016/680 enthalten die Gründe, warum die Verarbeitung besonderer
     Kategorien personenbezogener Daten für die Erkennung und Korrektur von Verzerrungen unbedingt erforderlich
     war und warum dieses Ziel mit der Verarbeitung anderer Daten nicht erreicht werden konnte.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Die Verarbeitungsverzeichnisse nach DSGVO/EUDPR/RL 2016/680 enthalten die Gruende der Erforderlichkeit.
+  scope: out
+  scope_grund: Anbieterpflicht ('duerfen die Anbieter ... verarbeiten', Wortlaut explizit); zusaetzlich
+    durch die VO (EU) 2026/1744 gestrichen und durch Art. 4a ersetzt - die Zeile im Quelltext aiact_2024-1689_DE.txt
+    (Stand vor dem Omnibus) beschreibt damit geltendes Recht zum Zeitpunkt 2024/1689, nicht mehr die aktuelle
+    Fassung.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: 'gestrichen durch VO (EU) 2026/1744 Art. 1 Nr. 9 lit. b (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf:
+    ''b) Absatz 5 wird gestrichen.''). Regelungsgehalt in den neuen Art. 4a ueberfuehrt: Art. 4a Abs.
+    1 fuer Anbieter (inhaltsgleich zu diesem Absatz), Art. 4a Abs. 2 fuer Betreiber - dort aber als Erlaubnisnorm
+    ohne Handlungspflicht ausgestaltet (''Dieser Absatz begruendet keine Verpflichtung''), siehe R013.yaml
+    notes (NEUBEWERTUNG 2026-08-15).'
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 10 Abs. 6
   artikel: '10'
   artikel_titel: Daten und Daten-Governance
@@ -3241,17 +3392,33 @@ einheiten:
   saetze: 1
   beleg: (6)   Bei der Entwicklung von Hochrisiko-KI-Systemen, in denen keine Techniken eingesetzt werden,
     bei denen KI-Modelle trainiert werden, gelten die Absätze 2 bis 5 nur für Testdatensätze.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Bei der Entwicklung von Hochrisiko-KI-Systemen ohne trainierte KI-Modelle gelten Abs. 2-5 nur
+    fuer Testdatensaetze.
+  scope: out
+  scope_grund: 'ANHANG-M.3-HYPOTHESE GEPRUEFT (Ticket-Auftrag T-12 Lauf 1), NICHT BESTAETIGT: Die Masterarbeit
+    (Anhang M.3) haelt fest, dass fuer Betreiber, die Foundation Models ueber API nutzen, ''nur Abs. 6
+    einschlaegig'' sei. Der Wortlaut (auch in der durch VO (EU) 2026/1744 geaenderten Fassung, s. omnibus-Feld)
+    adressiert jedoch durchgaengig die ''ENTWICKLUNG von Hochrisiko-KI-Systemen'' - eine Handlung des
+    Anbieters (Art. 3 Nr. 3: wer entwickelt/entwickeln laesst UND in Verkehr bringt/in Betrieb nimmt),
+    nicht des Betreibers. Ein Betreiber, der ein Foundation Model lediglich ueber API konsumiert, ''entwickelt''
+    im Sinne dieser Norm nichts und wird von Abs. 6 - wie von Art. 10 insgesamt - gar nicht erst adressiert
+    (es sei denn, die API-Integration selbst begruendet einen Rollenaufstieg zum Anbieter nach Art. 25,
+    HANDBUCH 4.4 K2/K3). Ergebnis: scope: out wie der Rest von Art. 10; die Anhang-M.3-Aussage duerfte
+    auf einer verkuerzten Lesart beruhen (moeglicherweise verwechselt mit der Anwendungslogik von Abs.
+    6 als SCHWELLENWERT dafuer, WELCHE Anbieter-Pruefungen im Trainingsfall entfallen - nicht damit, dass
+    der Betreiber selbst geprueft wird). PO-Entscheidung: Anhang M.3 der Masterarbeit an dieser Stelle
+    korrigieren oder Gegenargument nachreichen.'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 9 lit. c - verweist zusaetzlich auf Art. 4a Abs.
+    1 statt (wie zuvor) auf den gestrichenen Abs. 5; die durch Abs. 2-4 gesetzte Grundregel ('nur fuer
+    Testdatensaetze') bleibt inhaltlich unveraendert (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 11 Abs. 1
   artikel: '11'
   artikel_titel: Technische Dokumentation
