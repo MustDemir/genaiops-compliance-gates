@@ -3440,17 +3440,34 @@ einheiten:
     ein KMU, einschließlich Start-up-Unternehmen, für eine vereinfachte Bereitstellung der in Anhang IV
     vorgeschriebenen Angaben, so verwendet es das in diesem Absatz genannte Formular. Die notifizierten
     Stellen akzeptieren das Formular für die Zwecke der Konformitätsbewertung.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Die technische Dokumentation eines Hochrisiko-KI-Systems wird vor Inverkehrbringen/Inbetriebnahme
+    erstellt und aktuell gehalten, so dass sie den Nachweis der Abschnitt-2-Konformitaet gegenueber Behoerden/notifizierten
+    Stellen fuehrt und mindestens die Anhang-IV-Angaben enthaelt; KMU koennen ein vereinfachtes Formular
+    nutzen.
+  scope: out
+  scope_grund: 'PRAEZEDENZFALL BEREITS IM REPO DOKUMENTIERT: gate-definitions/deployment/G-DEP-01_data_governance.yaml
+    haelt in den notes einen ''OFFENEN BEFUND (Rollenabgrenzung)'' fest: ''Die technische Dokumentation
+    nach Art. 11 / Anhang IV ist zudem eine Pflicht des Anbieters GEGENUEBER BEHOERDEN und kein Anspruch
+    des Betreibers; ein Gate, das sie vom Betreiber verlangt, pruefte eine Pflicht, die es fuer ihn nicht
+    gibt.'' Diese Zeile bestaetigt genau das am vollstaendigen Wortlaut: die Pflicht (''wird erstellt'',
+    Handlung des Anbieters vor Inverkehrbringen) ist an den Anbieter gerichtet, Zweck ist die Beurteilung
+    durch nationale Behoerden/notifizierte Stellen - kein Bezugspunkt fuer den Betreiber. R002 (role:
+    deployer, eu_ai_act_refs Art. 11, linked_gates G-DEP-01) tragt dieselbe Spannung wie R001/Art. 9 und
+    R013/Art. 10 Abs. 2 lit. f - hier aber nicht neu entdeckt, sondern der Gate-eigene Befund bestaetigt
+    scope: out.'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: 'geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 10 - Abs. 1 UAbs. 2 neu gefasst: KMU- Vereinfachung
+    ausdruecklich auf ''einschliesslich Start-up-Unternehmen, und kleine Midcap-Unternehmen'' erweitert
+    (zuvor nur KMU/Start-ups); der hier archivierte Wortlaut (vor dem Omnibus) nennt nur KMU/Start-up-Unternehmen.
+    Materiell fuer diesen Betreiber-fokussierten Pflichtenraum ohne Auswirkung, da Abs. 1 durchgaengig
+    Anbieterpflicht bleibt (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).'
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 11 Abs. 2
   artikel: '11'
   artikel_titel: Technische Dokumentation
@@ -3463,17 +3480,21 @@ einheiten:
     I Abschnitt A aufgeführten Harmonisierungsrechtsvorschriften der Union fällt, in Verkehr gebracht
     oder in Betrieb genommen, so wird eine einzige technische Dokumentation erstellt, die alle in Absatz
     1 genannten Informationen sowie die nach diesen Rechtsakten erforderlichen Informationen enthält.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Bei einem mit einem Produkt verbundenen Hochrisiko-KI-System unter zusaetzlichen Harmonisierungsrechtsvorschriften
+    (Anhang I Abschnitt A) wird eine einzige technische Dokumentation mit allen erforderlichen Informationen
+    erstellt.
+  scope: out
+  scope_grund: Anbieterpflicht wie Abs. 1 (Konsolidierung der technischen Dokumentation bei Doppelregulierung).
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nur Abs. 1 UAbs. 2 wird durch VO (EU) 2026/1744 Art. 1 Nr. 10 geaendert, Abs.
+    2 ist in der Aenderung nicht erwaehnt (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 11 Abs. 3
   artikel: '11'
   artikel_titel: Technische Dokumentation
@@ -3486,17 +3507,20 @@ einheiten:
     zur Änderung des Anhangs IV zu erlassen, damit die technische Dokumentation in Anbetracht des technischen
     Fortschritts stets alle Informationen enthält, die erforderlich sind, um zu beurteilen, ob das System
     die Anforderungen dieses Abschnitts erfüllt.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: Die Kommission ist ermaechtigt, bei Bedarf delegierte Rechtsakte nach Art. 97 zur Aenderung
+    von Anhang IV zu erlassen, um die technische Dokumentation dem technischen Fortschritt anzupassen.
+  scope: out
+  scope_grund: Ermaechtigung der Kommission zum Erlass delegierter Rechtsakte; keine Anbieter- oder Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nur Abs. 1 UAbs. 2 wird durch VO (EU) 2026/1744 Art. 1 Nr. 10 geaendert, Abs.
+    3 ist in der Aenderung nicht erwaehnt (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 12 Abs. 1
   artikel: '12'
   artikel_titel: Aufzeichnungspflichten
