@@ -3534,17 +3534,29 @@ einheiten:
     transparent ist, damit die Betreiber die Ausgaben eines Systems angemessen interpretieren und verwenden
     können. Die Transparenz wird auf eine geeignete Art und in einem angemessenen Maß gewährleistet, damit
     die Anbieter und Betreiber ihre in Abschnitt 3 festgelegten einschlägigen Pflichten erfüllen können.
-  adressat: null
-  pflicht: null
-  scope: null
+  adressat: anbieter
+  pflicht: Hochrisiko-KI-Systeme werden so konzipiert und entwickelt, dass ihr Betrieb hinreichend transparent
+    ist, damit die Betreiber die Ausgaben angemessen interpretieren und verwenden koennen; die Transparenz
+    muss es Anbietern UND Betreibern ermoeglichen, ihre Abschnitt-3-Pflichten zu erfuellen.
+  scope: in
   scope_grund: null
-  verifikation: null
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
-  befund: null
-  befund_grund: null
+  omnibus: unveraendert - Art. 13 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
+    (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf; SPEC-06 Abschnitt 2 haelt das ebenso
+    fest).
+  requirement:
+  - R007
+  gate:
+  - G-DEP-03
+  befund: teilabdeckung
+  befund_grund: Design-/Entwicklungspflicht des Anbieters, aber der Wortlaut nennt 'die Betreiber' und
+    'Anbieter und Betreiber' ausdruecklich als Zweck der Transparenz - durchschlaegt direkt auf Art. 26
+    Abs. 1 (Verwendung gemaess Betriebsanleitung) und Art. 26 Abs. 9 (Nutzung der Art.-13-Informationen
+    fuer DSGVO-Folgenabschaetzung). G-DEP-03/C-01 prueft, DASS Anleitungs-/Model-Dokumentation existiert,
+    nicht die materielle Transparenz-Qualitaet ('hinreichend, damit Betreiber angemessen interpretieren
+    koennen').
+  po_bestaetigt: false
 - id: Art. 13 Abs. 2
   artikel: '13'
   artikel_titel: Transparenz und Bereitstellung von Informationen für die Betreiber
@@ -3557,17 +3569,26 @@ einheiten:
     bereitgestellt oder auf andere Weise mit Betriebsanleitungen versehen, die präzise, vollständige,
     korrekte und eindeutige Informationen in einer für die Betreiber relevanten, barrierefrei zugänglichen
     und verständlichen Form enthalten.
-  adressat: null
-  pflicht: null
-  scope: null
+  adressat: anbieter
+  pflicht: Hochrisiko-KI-Systeme werden mit Betriebsanleitungen in geeignetem digitalen Format oder auf
+    andere Weise bereitgestellt, die praezise, vollstaendige, korrekte und eindeutige, fuer Betreiber
+    relevante, barrierefrei zugaengliche und verstaendliche Informationen enthalten.
+  scope: in
   scope_grund: null
-  verifikation: null
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
-  befund: null
-  befund_grund: null
+  omnibus: unveraendert - Art. 13 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
+    (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf; SPEC-06 Abschnitt 2 haelt das ebenso
+    fest).
+  requirement:
+  - R007
+  gate:
+  - G-DEP-03
+  befund: teilabdeckung
+  befund_grund: 'Wie Abs. 1: G-DEP-03/C-01 prueft Existenz der Deployer-Anleitung, nicht die Qualitaetsmerkmale
+    (praezise/vollstaendig/korrekt/eindeutig/barrierefrei/verstaendlich), die der Wortlaut ausdruecklich
+    verlangt.'
+  po_bestaetigt: false
 - id: Art. 13 Abs. 3
   artikel: '13'
   artikel_titel: Transparenz und Bereitstellung von Informationen für die Betreiber
@@ -3577,17 +3598,22 @@ einheiten:
   laenge: 76
   saetze: 1
   beleg: '(3)   Die Betriebsanleitungen enthalten mindestens folgende Informationen:'
-  adressat: null
-  pflicht: null
-  scope: null
+  adressat: anbieter
+  pflicht: Die Betriebsanleitungen enthalten mindestens die in lit. a-f genannten Informationen.
+  scope: in
   scope_grund: null
-  verifikation: null
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
-  befund: null
-  befund_grund: null
+  omnibus: unveraendert - Art. 13 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
+    (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf; SPEC-06 Abschnitt 2 haelt das ebenso
+    fest).
+  requirement:
+  - R007
+  gate:
+  - G-DEP-03
+  befund: teilabdeckung
+  befund_grund: Chapeau-Norm zur Mindestinhalts-Liste lit. a-f; Einzelbefunde je Buchstabe.
+  po_bestaetigt: false
 - id: Art. 13 Abs. 3 lit. a
   artikel: '13'
   artikel_titel: Transparenz und Bereitstellung von Informationen für die Betreiber
@@ -3597,17 +3623,24 @@ einheiten:
   laenge: 101
   saetze: 1
   beleg: a) den Namen und die Kontaktangaben des Anbieters sowie gegebenenfalls seines Bevollmächtigten;
-  adressat: null
-  pflicht: null
-  scope: null
+  adressat: anbieter
+  pflicht: Name und Kontaktangaben des Anbieters (sowie ggf. seines Bevollmaechtigten).
+  scope: in
   scope_grund: null
-  verifikation: null
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
-  befund: null
-  befund_grund: null
+  omnibus: unveraendert - Art. 13 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
+    (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf; SPEC-06 Abschnitt 2 haelt das ebenso
+    fest).
+  requirement:
+  - R011
+  gate:
+  - G-DEP-04
+  befund: gedeckt
+  befund_grund: 'Direkter Treffer: G-DEP-04/C-01 prueft explizit, dass ''Provider-Doku erhalten und kontaktierbar''
+    ist - genau der Inhalt dieses Buchstabens. Einziger ''gedeckt''-Befund innerhalb Art. 13 in diesem
+    Lauf.'
+  po_bestaetigt: false
 - id: Art. 13 Abs. 3 lit. b
   artikel: '13'
   artikel_titel: Transparenz und Bereitstellung von Informationen für die Betreiber
@@ -3617,17 +3650,23 @@ einheiten:
   laenge: 97
   saetze: 1
   beleg: b) die Merkmale, Fähigkeiten und Leistungsgrenzen des Hochrisiko-KI-Systems, einschließlich
-  adressat: null
-  pflicht: null
-  scope: null
+  adressat: anbieter
+  pflicht: Merkmale, Faehigkeiten und Leistungsgrenzen des Systems (Chapeau zu Ziff. i-vii, einzeln in
+    Art. 13 Abs. 3 lit. i und lit. v erfasst).
+  scope: in
   scope_grund: null
-  verifikation: null
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
-  befund: null
-  befund_grund: null
+  omnibus: unveraendert - Art. 13 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
+    (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf; SPEC-06 Abschnitt 2 haelt das ebenso
+    fest).
+  requirement:
+  - R007
+  gate:
+  - G-DEP-03
+  befund: teilabdeckung
+  befund_grund: Chapeau; G-DEP-03/C-01 prueft 'Faehigkeiten, Limitationen' pauschal, ohne die Ziff.-i-vii-Detailtiefe.
+  po_bestaetigt: false
 - id: Art. 13 Abs. 3 lit. i
   artikel: '13'
   artikel_titel: Transparenz und Bereitstellung von Informationen für die Betreiber
@@ -3645,17 +3684,30 @@ einheiten:
     Artikel 9 Absatz 2 genannten Risiken für die Gesundheit und Sicherheit oder die Grundrechte führen
     können, iv) gegebenenfalls der technischen Fähigkeiten und Merkmale des Hochrisiko-KI-Systems, um
     Informationen bereitzustellen, die zur Erläuterung seiner Ausgaben relevant sind;
-  adressat: null
-  pflicht: null
-  scope: null
+  adressat: anbieter
+  pflicht: Zweckbestimmung; Mass an Genauigkeit/Robustheit/Cybersicherheit (Art. 15) samt Metriken und
+    bekannten/vorhersehbaren Umstaenden, die dieses Mass beeinflussen; bekannte/vorhersehbare Umstaende
+    bei zweckbestimmungsgemaesser Verwendung oder vorhersehbarer Fehlanwendung, die zu Art.-9-Abs.-2-Risiken
+    fuehren koennen; ggf. technische Faehigkeiten zur Erlaeuterung der Ausgaben.
+  scope: in
   scope_grund: null
-  verifikation: null
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
-  befund: null
-  befund_grund: null
+  omnibus: unveraendert - Art. 13 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
+    (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement:
+  - R007
+  - R003
+  gate:
+  - G-DEP-03
+  - G-DEP-02
+  befund: teilabdeckung
+  befund_grund: 'Verknuepft Art. 13 mit Art. 15 (Genauigkeit/Robustheit/Cybersicherheit, G-DEP-02) und
+    Art. 9 Abs. 2 (Risiken, G-PRE-01/G-PRE-03 - dort scope: out als Anbieterpflicht erfasst). G-DEP-02
+    misst accuracy/safety_score (teils E-0/E-3 gemischt), aber nicht ob diese Werte in der BETRIEBSANLEITUNG
+    dokumentiert sind. Die Erlaeuterbarkeits-Faehigkeiten (XAI) sind in G-DEP-03/C-02 als ''design_only''
+    gefuehrt - explizit noch nicht implementiert.'
+  po_bestaetigt: false
 - id: Art. 13 Abs. 3 lit. v
   artikel: '13'
   artikel_titel: Transparenz und Bereitstellung von Informationen für die Betreiber
@@ -3670,17 +3722,30 @@ einheiten:
     und Testdatensätze, unter Berücksichtigung der Zweckbestimmung des Hochrisiko-KI-Systems; vii) gegebenenfalls
     Informationen, die es den Betreibern ermöglichen, die Ausgabe des Hochrisiko-KI-Systems zu interpretieren
     und es angemessen zu nutzen;
-  adressat: null
-  pflicht: null
-  scope: null
+  adressat: anbieter
+  pflicht: Ggf. Leistung bzgl. bestimmter Personen(-gruppen); ggf. Spezifikationen der Eingabedaten oder
+    relevante Informationen zu Trainings-/Validierungs-/Testdatensaetzen; ggf. Informationen zur Interpretation
+    und angemessenen Nutzung der Ausgabe durch Betreiber.
+  scope: in
   scope_grund: null
-  verifikation: null
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
-  befund: null
-  befund_grund: null
+  omnibus: unveraendert - Art. 13 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
+    (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement:
+  - R013
+  - R006
+  - R007
+  gate:
+  - G-DEP-05
+  befund: teilabdeckung
+  befund_grund: Leistung nach Personengruppen ueberschneidet sich mit Bias/Fairness (R013, G-DEP-05, SHOULD);
+    Eingabedaten-Spezifikation ueberschneidet sich mit R006/Art. 26 Abs. 4 (dort als 'luecke' erfasst
+    - G-DEP-01 prueft Trainingsdaten, nicht Eingabedaten-Spezifikationen in der Anleitung). Kein Gate
+    prueft, ob diese Angaben tatsaechlich in der Betriebsanleitung STEHEN; die verlinkten Gates pruefen
+    die zugrundeliegenden Sachverhalte (Bias-Assessment, Datenherkunft), nicht deren Dokumentation im
+    Anleitungsdokument selbst.
+  po_bestaetigt: false
 - id: Art. 13 Abs. 3 lit. c
   artikel: '13'
   artikel_titel: Transparenz und Bereitstellung von Informationen für die Betreiber
@@ -3691,17 +3756,22 @@ einheiten:
   saetze: 1
   beleg: c) etwaige Änderungen des Hochrisiko-KI-Systems und seiner Leistung, die der Anbieter zum Zeitpunkt
     der ersten Konformitätsbewertung vorab bestimmt hat;
-  adressat: null
-  pflicht: null
-  scope: null
+  adressat: anbieter
+  pflicht: Etwaige Aenderungen des Systems und seiner Leistung, die der Anbieter zum Zeitpunkt der ersten
+    Konformitaetsbewertung vorab bestimmt hat.
+  scope: in
   scope_grund: null
-  verifikation: null
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
-  befund: null
-  befund_grund: null
+  omnibus: unveraendert - Art. 13 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
+    (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
+  befund: luecke
+  befund_grund: Kein Gate prueft, ob vorab bestimmte Aenderungen aus der urspruenglichen Konformitaetsbewertung
+    in der Betriebsanleitung dokumentiert sind; G-DEP-04 prueft nur das VORLIEGEN einer gueltigen Konformitaetserklaerung,
+    nicht deren Aenderungshistorie.
+  po_bestaetigt: false
 - id: Art. 13 Abs. 3 lit. d
   artikel: '13'
   artikel_titel: Transparenz und Bereitstellung von Informationen für die Betreiber
@@ -3713,17 +3783,28 @@ einheiten:
   beleg: d) die in Artikel 14 genannten Maßnahmen zur Gewährleistung der menschlichen Aufsicht, einschließlich
     der technischen Maßnahmen, die getroffen wurden, um den Betreibern die Interpretation der Ausgaben
     von Hochrisiko-KI-Systemen zu erleichtern;
-  adressat: null
-  pflicht: null
-  scope: null
+  adressat: anbieter
+  pflicht: Die nach Art. 14 genannten Massnahmen zur menschlichen Aufsicht, einschliesslich technischer
+    Massnahmen zur Erleichterung der Ausgaben-Interpretation durch Betreiber.
+  scope: in
   scope_grund: null
-  verifikation: null
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
-  befund: null
-  befund_grund: null
+  omnibus: unveraendert - Art. 13 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
+    (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement:
+  - R004
+  - R008
+  - R007
+  gate:
+  - G-PRE-05
+  - G-OPS-01
+  - G-DEP-03
+  befund: teilabdeckung
+  befund_grund: Verknuepft Art. 13 mit Art. 14 (dort im Detail erfasst, ueberwiegend teilabdeckung/luecke).
+    G-DEP-03 prueft allgemeine Anleitungsdokumentation, nicht spezifisch, ob die Art.-14-Massnahmen DARIN
+    beschrieben sind.
+  po_bestaetigt: false
 - id: Art. 13 Abs. 3 lit. e
   artikel: '13'
   artikel_titel: Transparenz und Bereitstellung von Informationen für die Betreiber
@@ -3735,17 +3816,22 @@ einheiten:
   beleg: e) die erforderlichen Rechen- und Hardware-Ressourcen, die erwartete Lebensdauer des Hochrisiko-KI-Systems
     und alle erforderlichen Wartungs- und Pflegemaßnahmen einschließlich deren Häufigkeit zur Gewährleistung
     des ordnungsgemäßen Funktionierens dieses KI-Systems, auch in Bezug auf Software-Updates;
-  adressat: null
-  pflicht: null
-  scope: null
+  adressat: anbieter
+  pflicht: Erforderliche Rechen-/Hardware-Ressourcen, erwartete Lebensdauer und Wartungs-/Pflegemassnahmen
+    (inkl. Haeufigkeit, auch Software-Updates) zur Gewaehrleistung des ordnungsgemaessen Funktionierens.
+  scope: in
   scope_grund: null
-  verifikation: null
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
-  befund: null
-  befund_grund: null
+  omnibus: unveraendert - Art. 13 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
+    (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
+  befund: luecke
+  befund_grund: Keine Gate-Zuordnung im Katalog. Ressourcen-/Lebensdauer-/Wartungsangaben sind operativ
+    relevant fuer den Redispatch-Anwendungsfall (Verfuegbarkeit kritischer Infrastruktur), aber weder
+    R007/G-DEP-03 noch ein anderes Requirement prueft ihre Dokumentation.
+  po_bestaetigt: false
 - id: Art. 13 Abs. 3 lit. f
   artikel: '13'
   artikel_titel: Transparenz und Bereitstellung von Informationen für die Betreiber
@@ -3757,17 +3843,26 @@ einheiten:
   beleg: f) gegebenenfalls eine Beschreibung der in das Hochrisiko-KI-System integrierten Mechanismen,
     die es den Betreibern ermöglicht, die Protokolle im Einklang mit Artikel 12 ordnungsgemäß zu erfassen,
     zu speichern und auszuwerten.
-  adressat: null
-  pflicht: null
-  scope: null
+  adressat: anbieter
+  pflicht: Ggf. Beschreibung der in das System integrierten Mechanismen, die es Betreibern ermoeglichen,
+    Protokolle gemaess Art. 12 ordnungsgemaess zu erfassen, zu speichern und auszuwerten.
+  scope: in
   scope_grund: null
-  verifikation: null
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
-  befund: null
-  befund_grund: null
+  omnibus: unveraendert - Art. 13 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
+    (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement:
+  - R014
+  - R007
+  gate:
+  - G-DEP-06
+  - G-DEP-03
+  befund: teilabdeckung
+  befund_grund: Verknuepft Art. 13 mit Art. 12 (Logging-Mechanismen). G-DEP-06/C-01 prueft, DASS Logging
+    konfiguriert und aufbewahrbar ist, nicht ob die Betriebsanleitung diese Mechanismen fuer den Betreiber
+    BESCHREIBT.
+  po_bestaetigt: false
 - id: Art. 14 Abs. 1
   artikel: '14'
   artikel_titel: Menschliche Aufsicht
