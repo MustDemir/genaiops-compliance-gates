@@ -10,6 +10,47 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased] — Post-Thesis Development (schema_version 2)
 
+### Added — the roadmap is held against the work it orders (2026-09-04)
+
+`HANDBUCH.md` Teil 7 is the handover point of this project: whoever comes back
+after a pause reads it and knows what to do next. Nothing held it to reality. It
+was maintained when the author thought of it — on 03.09. it was in fact the last
+commit of the session — and a session that ends unplanned leaves a roadmap
+describing a state the repository has left. The next reader starts from it in
+good faith. That is a stale count one level up, and it has a precedent: AGENTS.md
+carried a gate inventory from before SPEC-01 for weeks while every session read
+it first (T-03).
+
+The alternative on the table was a process document — a session protocol
+alongside HANDBUCH Teil 0 and AGENTS.md 5. It was rejected. A third process
+definition drifts from the other two, which is the reason AGENTS.md refers to the
+handbook instead of repeating it, and prose has no counter-proof.
+
+- `HANDBOOK_ROADMAP_CURRENT` compares the last commit to `HANDBUCH.md` against
+  the last commits to `gate-definitions/`, `pipeline/` and `specs/`, and lists
+  the commits that came after. It reads **no date out of the prose**: a date in
+  the text is a second statement of a fact git already holds, and it would need a
+  guardian of its own. The paths are deliberately narrow — documentation,
+  evidence store and tooling move without making the roadmap wrong.
+- **Severity LOW, a PO decision open to revision.** Drift here overstates no
+  evidence and voids no claim; it is a maintenance signal, and it appears
+  mid-session by design, because the moment a gate changes the roadmap is behind
+  until the session closes. A guard that reddens the suite while the work is
+  still being done is a guard that gets skipped, and then it guards nothing.
+- When git cannot answer — a shallow clone is the usual reason — the check
+  **fails** rather than passing. A check that cannot run must not report success.
+- Counter-proof against committed state: a commit touching `pipeline/` after the
+  handbook turns it red and names the offending commit; taking it back turns it
+  green. The detection itself was proved separately by pointing it at a document
+  git knows to be old (`Makefile` → 33 commits) and at one git does not know
+  (→ cannot-run, not "clean").
+
+Two consequences of the check existing: `README_COUNTS_CURRENT` caught the
+integrity-check count itself and moved it from 35 to 36, and the suite's own
+module docstring lost its hard-coded "20 checks" — wrong since the catalogue
+passed twenty. The registry in `collect_results()` is the list; the count lives
+in the README, like every other.
+
 ### Fixed — the signed evidence names the mode the run was measured in (B-21, 2026-09-02)
 
 CI measured `runtime_mode`, asserted it, and then dropped it. `eval_runner.py`
