@@ -10348,17 +10348,32 @@ einheiten:
     Ermittlung oder Verfolgung von Straftaten zugelassene KI-Systeme, wenn geeignete Schutzvorkehrungen
     für die Rechte und Freiheiten Dritter bestehen, es sei denn, diese Systeme stehen der Öffentlichkeit
     zur Anzeige einer Straftat zur Verfügung.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Die Anbieter stellen sicher, dass zur direkten Interaktion mit natuerlichen Personen bestimmte
+    KI-Systeme so konzipiert/entwickelt werden, dass die Personen ueber die KI-Interaktion informiert
+    werden - ausser dies ist nach den Umstaenden offensichtlich; Ausnahme fuer gesetzlich zugelassene
+    Strafverfolgungssysteme mit Schutzvorkehrungen.
+  scope: out
+  scope_grund: 'HAUPTBEFUND FUER ART. 50 (gilt sinngemaess auch fuer Abs. 2, dort kurz referenziert).
+    Der Wortlaut adressiert durchgaengig ''die Anbieter'' - eine Konzeptions-/Entwicklungspflicht am System
+    selbst (Kapitel-III-nahe Bauart-Pflicht), keine Betreiber-Handlungspflicht im Betrieb. SPANNUNG ZUM
+    BESTAND, PO-ENTSCHEIDUNG NOETIG: R007 (role: deployer) fuehrt ''Art. 50'' pauschal als eu_ai_act_refs,
+    deployer_implication verlangt vom Betreiber, ''KI-generierte Inhalte gemaess Art. 50 kennzeichnen''
+    - strukturell derselbe Adressaten-Befund wie bei R001/Art. 9, R002/Art. 11 und R013/Art. 10 Abs. 2
+    lit. f (Lauf 1) und bei R010/Art. 72 (dieser Lauf, s. dort): entweder bewusste Uebererfuellung (Betreiber
+    bestaetigt eine Anbieter-Eigenschaft des zugekauften Systems) oder Adressatenverwechslung. G-DEP-03/C-01
+    prueft laut eigener Beschreibung nur, ob eine Dokumentation (''ai_content_labeling_config'') vorliegt
+    - lesbar als Betreiber-seitige Bestaetigung, dass das (vom Anbieter gebaute) System die Abs.-1/2-Anforderungen
+    erfuellt, aber keine eigenstaendige Betreiberpflicht aus dem Wortlaut selbst.'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert (Art. 50 Abs. 1 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht
+    enthalten - Nr. 20 aendert nur Abs. 7).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 50 Abs. 2
   artikel: '50'
   artikel_titel: Transparenzpflichten für Anbieter und Betreiber bestimmter KI-Systeme
@@ -10378,17 +10393,23 @@ einheiten:
     ausführen oder die vom Betreiber bereitgestellten Eingabedaten oder deren Semantik nicht wesentlich
     verändern oder wenn sie zur Aufdeckung, Verhütung, Ermittlung oder Verfolgung von Straftaten gesetzlich
     zugelassen sind.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Anbieter von KI-Systemen (auch GPAI), die synthetische Audio-, Bild-, Video- oder Textinhalte
+    erzeugen, kennzeichnen die Ausgaben maschinenlesbar als kuenstlich erzeugt/manipuliert, soweit technisch
+    moeglich wirksam/interoperabel/belastbar/zuverlaessig; Ausnahmen fuer Standardbearbeitung, unwesentliche
+    Aenderung von Betreiber-Eingabedaten, gesetzlich zugelassene Strafverfolgung.
+  scope: out
+  scope_grund: Wie Art. 50 Abs. 1 (dort ausfuehrliche Begruendung) - dies ist die konkrete technische
+    Kennzeichnungspflicht, auf die sich R007/G-DEP-03 der Sache nach beziehen ('KI-generierte Inhalte
+    kennzeichnen'), textlich aber ausschliesslich an 'Anbieter von KI-Systemen' gerichtet.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert (s. Art. 50 Abs. 1).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 50 Abs. 3
   artikel: '50'
   artikel_titel: Transparenzpflichten für Anbieter und Betreiber bestimmter KI-Systeme
@@ -10404,17 +10425,25 @@ einheiten:
     Straftaten zugelassene KI-Systeme, die zur biometrischen Kategorisierung und Emotionserkennung im
     Einklang mit dem Unionsrecht verwendet werden, sofern geeignete Schutzvorkehrungen für die Rechte
     und Freiheiten Dritter bestehen.
-  adressat: null
-  pflicht: null
-  scope: null
+  adressat: betreiber
+  pflicht: Der Betreiber eines Emotionserkennungssystems oder Systems zur biometrischen Kategorisierung
+    informiert die betroffenen natuerlichen Personen ueber den Systembetrieb und verarbeitet personenbezogene
+    Daten nach DSGVO/JI-Richtlinie; Ausnahme fuer gesetzlich zugelassene Strafverfolgung mit Schutzvorkehrungen.
+  scope: in
   scope_grund: null
-  verifikation: null
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
-  befund: null
-  befund_grund: null
+  omnibus: unveraendert (s. Art. 50 Abs. 1).
+  requirement: []
+  gate: []
+  befund: luecke
+  befund_grund: 'Echte, im Wortlaut ausdruecklich an den Betreiber gerichtete Informationspflicht - anders
+    als Abs. 1/2 (dort Adressaten-Befund). Kein R0xx/G-xxx bildet sie gezielt ab: R007/G-DEP-03 pruefen
+    nur eine allgemeine ''KI-Content-Kennzeichnung'' (der Sache nach Abs. 2, s. dort), nicht die hier
+    verlangte Informationspflicht ueber den Betrieb eines Emotionserkennungs-/Kategorisierungssystems.
+    Ob ein solches System im Redispatch-Anwendungsfall (Anhang III Nr. 2) ueberhaupt zum Einsatz kommt,
+    ist eine Systemfrage ausserhalb dieser Wortlautanalyse und daher hier nicht entschieden.'
+  po_bestaetigt: false
 - id: Art. 50 Abs. 4
   artikel: '50'
   artikel_titel: Transparenzpflichten für Anbieter und Betreiber bestimmter KI-Systeme
@@ -10437,17 +10466,23 @@ einheiten:
     Inhalte einem Verfahren der menschlichen Überprüfung oder redaktionellen Kontrolle unterzogen wurden
     und wenn eine natürliche oder juristische Person die redaktionelle Verantwortung für die Veröffentlichung
     der Inhalte trägt.
-  adressat: null
-  pflicht: null
-  scope: null
+  adressat: betreiber
+  pflicht: 'Der Betreiber eines Deepfake-erzeugenden/manipulierenden Bild-/Ton-/Videosystems legt dies
+    offen (Ausnahmen: Strafverfolgung, offensichtlich kuenstlerisch/kreativ/satirisch/fiktional mit angemessener
+    Offenlegung); der Betreiber eines Systems, das oeffentlich-relevanten Text erzeugt/manipuliert, legt
+    dies ebenfalls offen (Ausnahmen: Strafverfolgung, redaktionelle Kontrolle mit Verantwortungsuebernahme).'
+  scope: in
   scope_grund: null
-  verifikation: null
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
-  befund: null
-  befund_grund: null
+  omnibus: unveraendert (s. Art. 50 Abs. 1).
+  requirement: []
+  gate: []
+  befund: luecke
+  befund_grund: Echte Betreiberpflicht (Deepfake-/Text-Offenlegung), im Requirement-Katalog nicht gezielt
+    abgebildet - R007/G-DEP-03 decken nur die allgemeine Content-Kennzeichnung (Abs. 2, Anbieterpflicht),
+    nicht diese spezifische Betreiber-Offenlegungspflicht mit ihren eigenen Ausnahmetatbestaenden.
+  po_bestaetigt: false
 - id: Art. 50 Abs. 5
   artikel: '50'
   artikel_titel: Transparenzpflichten für Anbieter und Betreiber bestimmter KI-Systeme
@@ -10459,17 +10494,24 @@ einheiten:
   beleg: (5)   Die in den Absätzen 1 bis 4 genannten Informationen werden den betreffenden natürlichen
     Personen spätestens zum Zeitpunkt der ersten Interaktion oder Aussetzung in klarer und eindeutiger
     Weise bereitgestellt. Die Informationen müssen den geltenden Barrierefreiheitsanforderungen entsprechen.
-  adressat: null
-  pflicht: null
-  scope: null
+  adressat: betreiber
+  pflicht: Die Informationen nach Abs. 1-4 werden den betroffenen Personen spaetestens bei der ersten
+    Interaktion/Aussetzung klar und eindeutig bereitgestellt und muessen den geltenden Barrierefreiheitsanforderungen
+    entsprechen.
+  scope: in
   scope_grund: null
-  verifikation: null
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
-  befund: null
-  befund_grund: null
+  omnibus: unveraendert (s. Art. 50 Abs. 1).
+  requirement: []
+  gate: []
+  befund: luecke
+  befund_grund: Zeitpunkt- und Barrierefreiheitsanforderung, die - soweit sie die echten Betreiberpflichten
+    aus Abs. 3/4 betrifft - denselben Deckungsluecken unterliegt (kein R0xx/G-xxx); soweit sie die Anbieterpflichten
+    aus Abs. 1/2 betrifft, gilt dort der Adressaten-Vorbehalt aus Abs. 1 (dort ausfuehrliche Begruendung).
+    B-14-Charakter (Laufzeit-/UI-Eigenschaft, kein Gate beobachtet den Betrieb), analog R007s eigenem
+    declared_gap zur Sichtbarkeit von Transparenzhinweisen.
+  po_bestaetigt: false
 - id: Art. 50 Abs. 6
   artikel: '50'
   artikel_titel: Transparenzpflichten für Anbieter und Betreiber bestimmter KI-Systeme
@@ -10481,17 +10523,19 @@ einheiten:
   beleg: (6)   Die Absätze 1 bis 4 lassen die in Kapitel III festgelegten Anforderungen und Pflichten
     unberührt und berühren nicht andere Transparenzpflichten, die im Unionsrecht oder dem nationalen Recht
     für Betreiber von KI-Systemen festgelegt sind.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: Abs. 1-4 lassen die Kapitel-III-Anforderungen/-Pflichten sowie andere unions-/nationalrechtliche
+    Transparenzpflichten fuer Betreiber unberuehrt.
+  scope: out
+  scope_grund: Reine Verhaeltnis-/Konkurrenzklausel ohne eigene Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert (s. Art. 50 Abs. 1).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 50 Abs. 7
   artikel: '50'
   artikel_titel: Transparenzpflichten für Anbieter und Betreiber bestimmter KI-Systeme
@@ -10508,17 +10552,24 @@ einheiten:
     dem in Artikel 98 Absatz 2 genannten Prüfverfahren erlassen, in dem gemeinsame Vorschriften für die
     Umsetzung dieser Pflichten festgelegt werden. KAPITEL V KI-MODELLE MIT ALLGEMEINEM VERWENDUNGSZWECK
     ABSCHNITT 1 Einstufungsvorschriften
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Das KI-Buero foerdert/erleichtert Praxisleitfaeden zur wirksamen Umsetzung der Feststellungs-/Kennzeichnungspflichten
+    fuer kuenstlich erzeugte/manipulierte Inhalte; die Kommission kann Praxisleitfaeden per Durchfuehrungsrechtsakt
+    genehmigen oder bei Unzulaenglichkeit gemeinsame Vorschriften erlassen.
+  scope: out
+  scope_grund: Adressat ist das KI-Buero/die Kommission (Verfahren zur Praxisleitfaden-Entwicklung), keine
+    Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: 'GEAENDERT durch VO (EU) 2026/1744 Art. 1 Nr. 20: rein verfahrensbezogene Neufassung (Zustaendigkeit/Verfahren
+    fuer Praxisleitfaeden-Pruefung und Durchfuehrungsrechtsakte, u.a. Bezug auf Art. 56 Abs. 6 UAbs. 1
+    und Art. 98 Abs. 2). Die materiellen Kennzeichnungspflichten aus Abs. 2 und 4, auf die sich Abs. 7
+    bezieht, bleiben unveraendert - bestaetigt SPEC-06 Abschnitt 2 (''Kennzeichnungspflicht selbst unveraendert'').'
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 51 Abs. 1
   artikel: '51'
   artikel_titel: Einstufung von KI-Modellen mit allgemeinem Verwendungszweck als KI-Modelle mit allgemeinem
