@@ -15743,17 +15743,36 @@ einheiten:
   saetze: 1
   beleg: (1)   Anbieter von in der Union in Verkehr gebrachten Hochrisiko-KI-Systemen melden schwerwiegende
     Vorfälle den Marktüberwachungsbehörden der Mitgliedstaaten, in denen der Vorfall stattgefunden hat.
-  adressat: null
-  pflicht: null
-  scope: null
+  adressat: anbieter
+  pflicht: Anbieter von in der Union in Verkehr gebrachten Hochrisiko-KI-Systemen melden schwerwiegende
+    Vorfaelle den Marktueberwachungsbehoerden der Mitgliedstaaten, in denen der Vorfall stattfand.
+  scope: in
   scope_grund: null
-  verifikation: null
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
-  befund: null
-  befund_grund: null
+  omnibus: unveraendert (Art. 73 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
+    - die Liste springt von Nr. 30 [Art. 72] auf Nr. 31 [Art. 75]; neu eingefuegt wird Art. 75 Abs. 1a,
+    der fuer KI-Buero-zustaendige Systeme einen Parallelweg zu Art. 73 schafft, Anhang-III-Nr.-2-Systeme
+    davon aber ausdruecklich ausnimmt (Art. 75 Abs. 1 UAbs. 1 lit. a Ziffer ii n.F.) - fuer den Redispatch-Fall
+    bleibt Art. 73 damit der massgebliche Weg, unveraendert durch den Omnibus).
+  requirement:
+  - R009
+  gate:
+  - G-OPS-02
+  befund: teilabdeckung
+  befund_grund: 'HAUPTBEFUND FUER ART. 73 (gilt fuer Abs. 2-4, dort kurz referenziert). Der Wortlaut adressiert
+    die Meldepflicht selbst an ''Anbieter''. Fuer den Betreiber durchschlagend wird Art. 73 ausdruecklich
+    erst ueber Art. 26 Abs. 5 Satz 4 (bereits Lauf 1, scope: in): ''Kann der Betreiber den Anbieter nicht
+    erreichen, so gilt Artikel 73 entsprechend'' - also nur als Ausweich-/Auffangregel, wenn der primaere
+    Meldeweg ueber den Anbieter versagt. R009/G-OPS-02 zitieren ''Art. 26 Abs. 5'' und ''Art. 73'' gemeinsam
+    als Rechtsgrundlage und behandeln die Art.-73-Mechanik (Fristen, Verfahren) durchgaengig als auf den
+    Betreiber anwendbar, ohne diese Bedingtheit (nur bei Unerreichbarkeit des Anbieters) abzubilden -
+    weder G-OPS-02/C-01 noch C-02 bis C-05 unterscheiden den Regelfall (Anbieter meldet) vom Ausnahmefall
+    (Betreiber meldet ''entsprechend''). Zusaetzlich, unabhaengig von dieser Frage: G-OPS-02 prueft laut
+    eigenen notes nur drei Pod-Annotationen und vier Schwellenwert-/Fristendokument-Merkmale (E-0); eine
+    tatsaechliche Vorfallerkennung, Fristenuhr oder Meldekaskade existiert nicht (B-08 Luecke 5, R009
+    eigener gap_reason: ''es gibt keine Vorfallerkennung... die Fristenuhr existiert nicht'').'
+  po_bestaetigt: false
 - id: Art. 73 Abs. 2
   artikel: '73'
   artikel_titel: Meldung schwerwiegender Vorfälle
@@ -15768,17 +15787,26 @@ einheiten:
     oder gegebenenfalls der Betreiber Kenntnis von diesem schwerwiegenden Vorfall erlangt hat. Bezüglich
     des in Unterabsatz 1 genannten Meldezeitraums wird der Schwere des schwerwiegenden Vorfalls Rechnung
     getragen.
-  adressat: null
-  pflicht: null
-  scope: null
+  adressat: anbieter
+  pflicht: Die Meldung erfolgt unmittelbar nach Feststellung des (wahrscheinlichen) Kausalzusammenhangs,
+    spaetestens 15 Tage nach Kenntniserlangung durch Anbieter oder ggf. Betreiber; die Schwere des Vorfalls
+    wird bei der Fristbemessung beruecksichtigt.
+  scope: in
   scope_grund: null
-  verifikation: null
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
-  befund: null
-  befund_grund: null
+  omnibus: unveraendert (s. Art. 73 Abs. 1).
+  requirement:
+  - R009
+  gate:
+  - G-OPS-02
+  befund: teilabdeckung
+  befund_grund: Regelfrist (15 Tage = 360h) fuer den Meldefall aus Abs. 1; durchschlagend fuer den Betreiber
+    nur im Unerreichbarkeits-Fallback (s. Art. 73 Abs. 1). G-OPS-02/C-04 gibt '360h Regelfall' zutreffend
+    wieder (15 Tage x 24h = 360h). Dass eine Frist tatsaechlich laeuft und eingehalten wird, misst nichts
+    (Fristenuhr fehlt, s. Art. 73 Abs. 1); die Betreiber-Kenntnis als alternativer Fristbeginn ('nachdem
+    der Anbieter oder gegebenenfalls der Betreiber Kenntnis... erlangt hat') wird von keinem Gate ausgewertet.
+  po_bestaetigt: false
 - id: Art. 73 Abs. 3
   artikel: '73'
   artikel_titel: Meldung schwerwiegender Vorfälle
@@ -15791,17 +15819,27 @@ einheiten:
     Meldung im Falle eines weitverbreiteten Verstoßes oder eines schwerwiegenden Vorfalls im Sinne des
     Artikels 3 Nummer 49 Buchstabe b unverzüglich, spätestens jedoch zwei Tage nachdem der Anbieter oder
     gegebenenfalls der Betreiber von diesem Vorfall Kenntnis erlangt hat.
-  adressat: null
-  pflicht: null
-  scope: null
+  adressat: anbieter
+  pflicht: Bei weitverbreitetem Verstoss oder einem schwerwiegenden Vorfall im Sinne des Art. 3 Nr. 49
+    lit. b (schwere/unumkehrbare Stoerung kritischer Infrastruktur) erfolgt die Meldung unverzueglich,
+    spaetestens 2 Tage nach Kenntniserlangung durch Anbieter oder ggf. Betreiber.
+  scope: in
   scope_grund: null
-  verifikation: null
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
-  befund: null
-  befund_grund: null
+  omnibus: unveraendert (s. Art. 73 Abs. 1).
+  requirement:
+  - R009
+  gate:
+  - G-OPS-02
+  befund: teilabdeckung
+  befund_grund: 'Kuerzeste Frist (2 Tage = 48h) und fuer den Redispatch-Anwendungsfall (Anhang III Nr.
+    2, kritische Infrastruktur/Stromversorgung) die praktisch wichtigste - Art. 3 Nr. 49 lit. b (''schwere
+    und unumkehrbare Stoerung der Verwaltung oder des Betriebs kritischer Infrastrukturen'') trifft die
+    Kernrisikoklasse dieses Adressaten unmittelbar. G-OPS-02/C-04 gibt ''48h kritische Infrastruktur''
+    zutreffend wieder (2 Tage x 24h = 48h). Sonst wie Art. 73 Abs. 2: durchschlagend fuer den Betreiber
+    nur im Unerreichbarkeits-Fallback, keine Fristenuhr, keine Vorfallerkennung.'
+  po_bestaetigt: false
 - id: Art. 73 Abs. 4
   artikel: '73'
   artikel_titel: Meldung schwerwiegender Vorfälle
@@ -15815,17 +15853,23 @@ einheiten:
     und dem schwerwiegenden Vorfall festgestellt hat, oder einen solchen vermutet, spätestens jedoch zehn
     Tage nach dem Datum, an dem der Anbieter oder gegebenenfalls der Betreiber von dem schwerwiegenden
     Vorfall Kenntnis erlangt hat.
-  adressat: null
-  pflicht: null
-  scope: null
+  adressat: anbieter
+  pflicht: Bei Tod einer Person erfolgt die Meldung unverzueglich nach Feststellung/Vermutung des Kausalzusammenhangs
+    durch Anbieter oder Betreiber, spaetestens 10 Tage nach Kenntniserlangung.
+  scope: in
   scope_grund: null
-  verifikation: null
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
-  befund: null
-  befund_grund: null
+  omnibus: unveraendert (s. Art. 73 Abs. 1).
+  requirement:
+  - R009
+  gate:
+  - G-OPS-02
+  befund: teilabdeckung
+  befund_grund: 'Todesfall-Frist (10 Tage = 240h) - G-OPS-02/C-04 gibt ''240h Tod'' zutreffend wieder.
+    Sonst wie Art. 73 Abs. 2/3: durchschlagend fuer den Betreiber nur im Unerreichbarkeits-Fallback, keine
+    Fristenuhr, keine Vorfallerkennung.'
+  po_bestaetigt: false
 - id: Art. 73 Abs. 5
   artikel: '73'
   artikel_titel: Meldung schwerwiegender Vorfälle
@@ -15837,17 +15881,26 @@ einheiten:
   beleg: (5)   Wenn es zur Gewährleistung der rechtzeitigen Meldung erforderlich ist, kann der Anbieter
     oder gegebenenfalls der Betreiber einen unvollständigen Erstbericht vorlegen, dem ein vollständiger
     Bericht folgt.
-  adressat: null
-  pflicht: null
-  scope: null
+  adressat: betreiber
+  pflicht: Ist es zur fristgerechten Meldung erforderlich, kann der Anbieter oder ggf. der Betreiber einen
+    unvollstaendigen Erstbericht vorlegen, dem ein vollstaendiger Bericht folgt.
+  scope: in
   scope_grund: null
-  verifikation: null
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
-  befund: null
-  befund_grund: null
+  omnibus: unveraendert (s. Art. 73 Abs. 1).
+  requirement:
+  - R009
+  gate:
+  - G-OPS-02
+  befund: luecke
+  befund_grund: 'Staerkste eigenstaendige Textstelle fuer eine Betreiber-Handlungsmoeglichkeit in Art.
+    73 (anders als Abs. 2-4, wo er nur als Kenntnis-Zeitpunkt erscheint, wird der Betreiber hier als gleichrangige
+    Alternative zum Anbieter genannt: ''kann der Anbieter oder gegebenenfalls der Betreiber... vorlegen'').
+    Kein Gate bildet diese Option ab: G-OPS-02 erzeugt laut R009 acceptance_criteria keine Incident-Records
+    ueberhaupt (''Es werden keine Incident-Records erzeugt, also auch keine versioniert''), unabhaengig
+    davon, wer sie einreichen wuerde.'
+  po_bestaetigt: false
 - id: Art. 73 Abs. 6
   artikel: '73'
   artikel_titel: Meldung schwerwiegender Vorfälle
@@ -15864,17 +15917,29 @@ einheiten:
     die zu einer Veränderung des betroffenen KI-Systems in einer Weise führt, die möglicherweise Auswirkungen
     auf eine spätere Bewertung der Ursachen des Vorfalls hat, bevor er die zuständigen Behörden über eine
     solche Maßnahme nicht unterrichtet hat.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Nach einer Vorfallmeldung fuehrt der Anbieter unverzueglich die erforderlichen Untersuchungen
+    (inkl. Risikobewertung, Korrekturmassnahmen) durch, kooperiert mit den zustaendigen Behoerden/der
+    notifizierten Stelle und veraendert das System nicht vor Unterrichtung der Behoerden ueber eine Massnahme,
+    die die Ursachenbewertung beeintraechtigen koennte.
+  scope: out
+  scope_grund: 'Untersuchungspflicht nach erfolgter Meldung, textlich durchgaengig an ''der Anbieter''
+    gerichtet. OFFENE FRAGE, NICHT ENTSCHIEDEN: ob die ''entsprechend''-Verweisung aus Art. 26 Abs. 5
+    Satz 4 (Unerreichbarkeits-Fallback, s. Art. 73 Abs. 1) auch auf die Post-Meldungs-Untersuchungspflicht
+    aus Abs. 6 durchschlaegt, wenn der Betreiber selbst gemeldet hat, ist im Wortlaut nicht ausdruecklich
+    geregelt und daher eine Auslegungsfrage (HYPOTHESE-Niveau), die diese Zeile nicht entscheidet - scope:
+    out folgt der woertlichen Adressierung. SACHBEZUG: G-OPS-02/C-01 wertet ''rollback-mechanism: true''
+    als erfuellt, waehrend genau dieser Absatz Systemveraenderungen vor Behoerdenunterrichtung untersagt,
+    wenn sie die Ursachenbewertung beeintraechtigen koennten - ein Rollback nach einem Vorfall kann selbst
+    meldepflichtig sein (G-OPS-02/C-05 warnt laut eigener notes bereits darauf).'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert (s. Art. 73 Abs. 1).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 73 Abs. 7
   artikel: '73'
   artikel_titel: Meldung schwerwiegender Vorfälle
@@ -15888,17 +15953,20 @@ einheiten:
     genannten nationalen Behörden oder öffentlichen Stellen. Zur leichteren Einhaltung der Pflichten nach
     Absatz 1 dieses Artikels arbeitet die Kommission entsprechende Leitlinien aus. Diese Leitlinien werden
     bis zum 2. August 2025 veröffentlicht und regelmäßig bewertet.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Erhaelt die zustaendige Marktueberwachungsbehoerde eine Meldung zu einem Vorfall nach Art.
+    3 Nr. 49 lit. c (Grundrechte), informiert sie die nach Art. 77 Abs. 1 zustaendigen nationalen Stellen;
+    die Kommission erarbeitet dazu bis 2. August 2025 Leitlinien.
+  scope: out
+  scope_grund: Behoerden-/Kommissionspflicht (Weiterleitung, Leitlinienerstellung), keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert (s. Art. 73 Abs. 1).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 73 Abs. 8
   artikel: '73'
   artikel_titel: Meldung schwerwiegender Vorfälle
@@ -15910,17 +15978,19 @@ einheiten:
   beleg: (8)   Die Marktüberwachungsbehörde ergreift innerhalb von sieben Tagen nach Eingang der in Absatz
     1 dieses Artikels genannten Meldung geeignete Maßnahmen gemäß Artikel 19 der Verordnung (EU) 2019/1020
     und befolgt die in der genannten Verordnung vorgesehenen Meldeverfahren.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Die Marktueberwachungsbehoerde ergreift binnen 7 Tagen nach Meldungseingang geeignete Massnahmen
+    nach Art. 19 VO (EU) 2019/1020 und befolgt deren Meldeverfahren.
+  scope: out
+  scope_grund: Reine Behoerdenpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert (s. Art. 73 Abs. 1).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 73 Abs. 9
   artikel: '73'
   artikel_titel: Meldung schwerwiegender Vorfälle
@@ -15933,17 +16003,34 @@ einheiten:
     in Betrieb genommen wurden, die Rechtsinstrumenten der Union mit gleichwertigen Meldepflichten wie
     jenen in dieser Verordnung festgesetzten unterliegen, müssen nur jene schwerwiegenden Vorfälle gemeldet
     werden, die in Artikel 3 Nummer 49 Buchstabe c genannt werden.
-  adressat: null
-  pflicht: null
-  scope: null
+  adressat: anbieter
+  pflicht: Bei Anhang-III-Hochrisiko-Systemen, deren Anbieter bereits gleichwertigen unionsrechtlichen
+    Meldepflichten unterliegen, muessen nur die Vorfaelle nach Art. 3 Nr. 49 lit. c (Grundrechte) gemeldet
+    werden.
+  scope: in
   scope_grund: null
-  verifikation: null
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
-  befund: null
-  befund_grund: null
+  omnibus: unveraendert (s. Art. 73 Abs. 1).
+  requirement:
+  - R009
+  gate:
+  - G-OPS-02
+  befund: teilabdeckung
+  befund_grund: 'Zentrale Reduktionsnorm fuer diesen Adressaten: G-OPS-02/C-02-C-03 implementieren bereits
+    eine Reduktion ''auf Art. 3 Abs. 49 lit. c - GRUNDRECHTE'' fuer Anhang-III-Nr.-2-Systeme, die bereits
+    CER/NIS2 unterliegen (Gate-notes, gestuetzt auf einen Entwurf der Kommissionsleitlinien vom 26.09.2025,
+    Rn. 57/60 - SEKUNDAERQUELLE/HYPOTHESE-Niveau, kein bindendes Recht). HYPOTHESE, NICHT ENTSCHIEDEN:
+    Der Wortlaut verlangt, dass ''Anbieter... Rechtsinstrumenten der Union mit gleichwertigen Meldepflichten...
+    unterliegen'' - es ist der ANBIETER, der CER/NIS2 unterliegen muss, nicht das System oder der Betreiber.
+    CER/NIS2-Pflichten treffen typischerweise den Betreiber kritischer Infrastruktur, nicht dessen KI-System-Zulieferer.
+    Die Reduktion greift damit zweifelsfrei nur in der HANDBUCH-4.4-Konstellation K2 (Eigenentwicklung,
+    Betreiber = Anbieter und damit selbst CER/NIS2-Adressat) - im Regelfall K1 (Zukauf von einem externen
+    Anbieter, der selbst regelmaessig nicht CER/NIS2 unterliegt) ist unklar, ob Abs. 9 ueberhaupt greift.
+    G-OPS-02/C-02/C-03 pruefen diese Anbieter-Identitaetsfrage nicht, sondern setzen die Reduktion pauschal
+    fuer Anhang-III-Nr.-2-Systeme an. PO-ENTSCHEIDUNG NOETIG: gilt die Reduktion auch im Zukauf-Regelfall
+    K1, oder nur bei Eigenentwicklung (K2)?'
+  po_bestaetigt: false
 - id: Art. 73 Abs. 10
   artikel: '73'
   artikel_titel: Meldung schwerwiegender Vorfälle
@@ -15957,17 +16044,23 @@ einheiten:
     sind, müssen nur die in Artikel 3 Nummer 49 Buchstabe c dieser Verordnung genannten schwerwiegenden
     Vorfälle gemeldet werden, und zwar der zuständigen nationalen Behörde, die für diesen Zweck von den
     Mitgliedstaaten, in denen der Vorfall stattgefunden hat, ausgewählt wurde.
-  adressat: null
-  pflicht: null
-  scope: null
+  adressat: anbieter
+  pflicht: Bei Hochrisiko-Systemen, die Sicherheitsbauteile von Medizinprodukten (VO (EU) 2017/745/746)
+    sind oder selbst solche Produkte sind, muessen nur Vorfaelle nach Art. 3 Nr. 49 lit. c gemeldet werden,
+    und zwar an die dafuer ausgewaehlte zustaendige nationale Behoerde.
+  scope: in
   scope_grund: null
-  verifikation: null
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
-  befund: null
-  befund_grund: null
+  omnibus: unveraendert (s. Art. 73 Abs. 1).
+  requirement: []
+  gate: []
+  befund: nicht_einschlaegig
+  befund_grund: Gilt ausschliesslich fuer Hochrisiko-KI-Systeme, die Sicherheitsbauteile von Medizinprodukten
+    nach VO (EU) 2017/745/746 sind oder selbst solche sind. Der Anwendungsfall Redispatch faellt unter
+    Anhang III Nr. 2 (kritische Infrastruktur/Stromversorgung), nicht unter die Medizinprodukte-Verordnungen
+    - kategorial nicht einschlaegig, analog Art. 26 Abs. 8/10 und Art. 14 Abs. 5 (Lauf 1).
+  po_bestaetigt: false
 - id: Art. 73 Abs. 11
   artikel: '73'
   artikel_titel: Meldung schwerwiegender Vorfälle
@@ -15979,17 +16072,19 @@ einheiten:
   beleg: (11)   Die zuständigen nationalen Behörden melden der Kommission unverzüglich jeden schwerwiegenden
     Vorfall gemäß Artikel 20 der Verordnung (EU) 2019/1020, unabhängig davon, ob sie diesbezüglich Maßnahmen
     ergriffen haben. ABSCHNITT 3 Durchsetzung
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Die zustaendigen nationalen Behoerden melden der Kommission unverzueglich jeden schwerwiegenden
+    Vorfall nach Art. 20 VO (EU) 2019/1020, unabhaengig von eigenen Massnahmen.
+  scope: out
+  scope_grund: Reine Behoerdenpflicht (nationale Behoerde -> Kommission).
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert (s. Art. 73 Abs. 1).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 74 Abs. 1
   artikel: '74'
   artikel_titel: Marktüberwachung und Kontrolle von KI-Systemen auf dem Unionsmarkt
