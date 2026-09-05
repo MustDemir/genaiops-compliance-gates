@@ -15600,17 +15600,31 @@ einheiten:
   saetze: 1
   beleg: (1)   Anbieter müssen ein System zur Beobachtung nach dem Inverkehrbringen, das im Verhältnis
     zur Art der KI-Technik und zu den Risiken des Hochrisiko-KI-Systems steht, einrichten und dokumentieren.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Anbieter richten ein der KI-Technik und den Systemrisiken angemessenes System zur Beobachtung
+    nach dem Inverkehrbringen (PMS) ein und dokumentieren es.
+  scope: out
+  scope_grund: 'HAUPTBEFUND FUER ART. 72 (gilt sinngemaess fuer Abs. 2-4, dort referenziert). Der Wortlaut
+    adressiert durchgaengig ''die Anbieter'' - das PMS-System wird vom Anbieter betrieben. Art. 26 Abs.
+    5 (bereits Lauf 1, scope: in) bestaetigt das ausdruecklich: der Betreiber ''ueberwacht den Betrieb...
+    und informiert gegebenenfalls die Anbieter gemaess Artikel 72'' - die Betreiber-Ueberwachungspflicht
+    ist in Art. 26 Abs. 5 verankert, ihr Ergebnis fliesst dem Anbieter-PMS nach Art. 72 nur zu. SPANNUNG
+    ZUM BESTAND, PO-ENTSCHEIDUNG NOETIG: R010 (role: deployer) fuehrt ''Art. 72'' UND ''Art. 9 Abs. 2''
+    als eu_ai_act_refs und G-OPS-03 (role_scope deployer) uebernimmt das unveraendert - R010s eigene notes
+    raeumen die Spannung bereits ein (''Art. 72 primaer Provider-Pflicht, Deployer via Art. 26 Abs. 1
+    zur Ueberwachung verpflichtet''), praezisieren aber nicht, dass die tatsaechliche Rechtsgrundlage
+    fuer ein Betreiber-Drift-Monitoring eher Art. 26 Abs. 1 (bzw. Abs. 5) waere als Art. 72 selbst. Strukturell
+    identisch mit R001/Art. 9, R002/Art. 11, R013/Art. 10 Abs. 2 lit. f (Lauf 1) und R007/Art. 50 Abs.
+    1-2 (dieser Lauf) - fuenfte dokumentierte Instanz desselben Musters.'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert (Art. 72 Abs. 1 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht
+    enthalten - Nr. 30 aendert nur Abs. 3).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 72 Abs. 2
   artikel: '72'
   artikel_titel: Beobachtung nach dem Inverkehrbringen durch die Anbieter und Plan für die Beobachtung
@@ -15628,17 +15642,24 @@ einheiten:
     umfasst die Beobachtung nach dem Inverkehrbringen eine Analyse der Interaktion mit anderen KI-Systemen.
     Diese Pflicht gilt nicht für sensible operative Daten von Betreibern, die Strafverfolgungsbehörden
     sind.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Das PMS erhebt/dokumentiert/analysiert aktiv und systematisch einschlaegige Leistungsdaten
+    (von Anbietern/Betreibern bereitgestellt oder anderweitig erhoben) ueber die Lebensdauer, damit der
+    Anbieter die fortdauernde Einhaltung von Kapitel III Abschnitt 2 bewerten kann; ggf. Analyse der Interaktion
+    mit anderen KI-Systemen; Ausnahme fuer sensible operative Strafverfolgungsdaten.
+  scope: out
+  scope_grund: Wie Art. 72 Abs. 1 (dort ausfuehrliche Begruendung). Betreiber wird hier nur als moegliche
+    Datenquelle genannt ('von den Anbietern oder den Betreibern bereitgestellt'), nicht als Traeger der
+    Bewertungspflicht - diese liegt ausdruecklich beim Anbieter ('der Anbieter muss damit... bewerten
+    koennen').
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert (s. Art. 72 Abs. 1).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 72 Abs. 3
   artikel: '72'
   artikel_titel: Beobachtung nach dem Inverkehrbringen durch die Anbieter und Plan für die Beobachtung
@@ -15655,17 +15676,26 @@ einheiten:
     nach dem Inverkehrbringen sowie die Liste der in den Plan aufzunehmenden Elemente bis zum 2. Februar
     2026 detailliert festlegt. Dieser Durchführungsrechtsakt wird gemäß dem in Artikel 98 Absatz 2 genannten
     Prüfverfahren erlassen.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Das PMS beruht auf einem PMS-Plan, der seit der Aenderung Teil der Anhang-IV-Dokumentation
+    ist; die Kommission erlaesst dazu Leitlinien einschliesslich eines Musters bis 2. September 2027 (Verfahren
+    nach Art. 98 Abs. 2).
+  scope: out
+  scope_grund: Wie Art. 72 Abs. 1 (dort ausfuehrliche Begruendung) - Anbieter-Dokumentationspflicht (PMS-Plan
+    als Teil der Anhang-IV-Technikdokumentation) plus Kommissions-Leitlinienpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: 'GEAENDERT durch VO (EU) 2026/1744 Art. 1 Nr. 30 (vollstaendige Neufassung von Abs. 3): Neu
+    ist erstens die ausdrueckliche Einordnung des PMS-Plans als ''Teil der in Anhang IV genannten technischen
+    Dokumentation'' (in der Grundfassung nicht so explizit), zweitens eine neue Frist (Kommissions-Durchfuehrungsrechtsakt
+    mit Muster/Leitlinien bis 2. September 2027 statt, wie in der Grundfassung, bis zum 2. Februar 2026
+    fuer detaillierte Bestimmungen zum Plan-Muster). Bestaetigt R010s eigenen gap_reason (''Art. 72 Abs.
+    3 macht den Monitoring-Plan seit VO 2026/1744 zum Teil der Annex-IV-Dokumentation'').'
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 72 Abs. 4
   artikel: '72'
   artikel_titel: Beobachtung nach dem Inverkehrbringen durch die Anbieter und Plan für die Beobachtung
@@ -15686,17 +15716,23 @@ einheiten:
     in Verkehr gebracht oder in Betrieb genommen wurden, die bezüglich ihrer internen Unternehmensführung,
     Regelungen oder Verfahren Anforderungen gemäß den Rechtsvorschriften der Union über Finanzdienstleistungen
     unterliegen. ABSCHNITT 2 Austausch von Informationen über schwerwiegende Vorfälle
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Fuer Hochrisiko-Systeme unter Anhang-I-Abschnitt-A-Vorschriften mit bereits bestehendem PMS/Plan
+    koennen Anbieter zur Kohaerenz/Vermeidung von Doppelarbeit die Abs.-1-3-Elemente in die bestehenden
+    Systeme/Plaene integrieren, bei gleichwertigem Schutzniveau; gilt entsprechend fuer Anhang-III-Nr.-5-Systeme
+    von Finanzinstituten mit bestehenden Governance-Anforderungen.
+  scope: out
+  scope_grund: Wie Art. 72 Abs. 1 (dort ausfuehrliche Begruendung) - Anbieter-Koordinierungsoption bei
+    Doppelregulierung; sachlich zudem auf Anhang-I-Abschnitt-A- bzw. Anhang-III-Nr.-5-Finanzinstitut-Faelle
+    beschraenkt, nicht auf den Anhang-III-Nr.-2-Fall dieses Adressaten.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert (s. Art. 72 Abs. 1).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 73 Abs. 1
   artikel: '73'
   artikel_titel: Meldung schwerwiegender Vorfälle
