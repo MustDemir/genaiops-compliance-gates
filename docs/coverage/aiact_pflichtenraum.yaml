@@ -24387,17 +24387,24 @@ einheiten:
   beleg: a) biometrische Fernidentifizierungssysteme. Dazu gehören nicht KI-Systeme, die bestimmungsgemäß
     für die biometrische Verifizierung, deren einziger Zweck darin besteht, zu bestätigen, dass eine bestimmte
     natürliche Person die Person ist, für die sie sich ausgibt, verwendet werden sollen;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: '[Anhang III (Hochrisiko-Einstufung gemaess Art. 6 Abs. 2)] a) biometrische Fernidentifizierungssysteme.
+    Dazu gehören nicht KI-Systeme, die bestimmungsgemäß für die biometrische Verifizierung, deren einziger
+    Zweck darin besteht, zu bestätigen, dass eine bes...'
+  scope: out
+  scope_grund: 'TOOLING-DEFEKT (s. Abschlussbericht): faelschlich als ''Art. 113 Abs. 58'' extrahiert
+    - inhaltlich ist dies Anhang III (Hochrisiko-Einstufung gemaess Art. 6 Abs. 2), nicht Art. 113. Klassifizierungskatalog,
+    adressiert den Anbieter/die Kommission bei der Einstufung; keine eigene Betreiber-Handlungspflicht
+    (dazu Art. 26 ff., bereits erfasst).'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Anhang III (Hochrisiko-Einstufung gemaess Art. 6 Abs. 2) ist in der Aenderungsliste
+    der VO (EU) 2026/1744 nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 113 Abs. 58 lit. b
   artikel: '113'
   artikel_titel: Inkrafttreten und Geltungsbeginn
@@ -24409,17 +24416,24 @@ einheiten:
   beleg: b) KI-Systeme, die bestimmungsgemäß für die biometrische Kategorisierung nach sensiblen oder
     geschützten Attributen oder Merkmalen auf der Grundlage von Rückschlüssen auf diese Attribute oder
     Merkmale verwendet werden sollen;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: '[Anhang III (Hochrisiko-Einstufung gemaess Art. 6 Abs. 2)] b) KI-Systeme, die bestimmungsgemäß
+    für die biometrische Kategorisierung nach sensiblen oder geschützten Attributen oder Merkmalen auf
+    der Grundlage von Rückschlüssen auf diese Attribute oder Merkm...'
+  scope: out
+  scope_grund: 'TOOLING-DEFEKT (s. Abschlussbericht): faelschlich als ''Art. 113 Abs. 58'' extrahiert
+    - inhaltlich ist dies Anhang III (Hochrisiko-Einstufung gemaess Art. 6 Abs. 2), nicht Art. 113. Klassifizierungskatalog,
+    adressiert den Anbieter/die Kommission bei der Einstufung; keine eigene Betreiber-Handlungspflicht
+    (dazu Art. 26 ff., bereits erfasst).'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Anhang III (Hochrisiko-Einstufung gemaess Art. 6 Abs. 2) ist in der Aenderungsliste
+    der VO (EU) 2026/1744 nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 113 Abs. 58 lit. c
   artikel: '113'
   artikel_titel: Inkrafttreten und Geltungsbeginn
@@ -24432,17 +24446,30 @@ einheiten:
     Infrastruktur: KI-Systeme, die bestimmungsgemäß als Sicherheitsbauteile im Rahmen der Verwaltung und
     des Betriebs kritischer digitaler Infrastruktur, des Straßenverkehrs oder der Wasser-, Gas-, Wärme-
     oder Stromversorgung verwendet werden sollen 3. Allgemeine und berufliche Bildung'
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: 'Enthaelt satzweise eingebettet die Definition von Anhang III Nr. 2 (''Kritische Infrastruktur:
+    KI-Systeme, die bestimmungsgemaess als Sicherheitsbauteile im Rahmen der Verwaltung und des Betriebs
+    kritischer digitaler Infrastruktur, des Strassenverkehrs oder der Wasser-, Gas-, Waerme- oder Stromversorgung
+    verwendet werden sollen''), neben lit. c der Biometrie-Kategorie (Emotionserkennung).'
+  scope: out
+  scope_grund: 'TOOLING-DEFEKT (s. Abschlussbericht): faelschlich als ''Art. 113 Abs. 58'' extrahiert
+    - inhaltlich ist dies Anhang III (Hochrisiko-Einstufung), nicht Art. 113. ZENTRALER FUND: dies ist
+    woertlich die Definition von Anhang III Nr. 2 (''kritische Infrastruktur'') - die tragende Einstufung,
+    auf der die Klassifizierung des Redispatch-Anwendungsfalls als Hochrisiko-KI-System im gesamten Projekt
+    beruht (HANDBUCH 4.4). Sie existiert im Pflichtenraum an KEINER anderen, korrekt attribuierten Stelle
+    als eigene Einheit - Art. 6 Abs. 2 verweist nur auf ''die in Anhang III genannten KI-Systeme'', ohne
+    den Wortlaut der Nr. 2 selbst zu zitieren. Klassifizierungsnorm, adressiert Anbieter/Kommission bei
+    der Einstufung, keine eigene Betreiberpflicht - aber PO sollte pruefen, ob diese Definition als eigene,
+    korrekt attribuierte Einheit ins Repo aufgenommen werden soll (Tooling-Fix noetig).'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Anhang III Nr. 2 ist in der Aenderungsliste der VO (EU) 2026/1744 nicht erwaehnt
+    (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 113 Abs. 58 lit. a
   artikel: '113'
   artikel_titel: Inkrafttreten und Geltungsbeginn
@@ -24454,17 +24481,24 @@ einheiten:
   beleg: a) KI-Systeme, die bestimmungsgemäß zur Feststellung des Zugangs oder der Zulassung oder zur
     Zuweisung natürlicher Personen zu Einrichtungen aller Ebenen der allgemeinen und beruflichen Bildung
     verwendet werden sollen;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: '[Anhang III (Hochrisiko-Einstufung gemaess Art. 6 Abs. 2)] a) KI-Systeme, die bestimmungsgemäß
+    zur Feststellung des Zugangs oder der Zulassung oder zur Zuweisung natürlicher Personen zu Einrichtungen
+    aller Ebenen der allgemeinen und beruflichen Bildung ver...'
+  scope: out
+  scope_grund: 'TOOLING-DEFEKT (s. Abschlussbericht): faelschlich als ''Art. 113 Abs. 58'' extrahiert
+    - inhaltlich ist dies Anhang III (Hochrisiko-Einstufung gemaess Art. 6 Abs. 2), nicht Art. 113. Klassifizierungskatalog,
+    adressiert den Anbieter/die Kommission bei der Einstufung; keine eigene Betreiber-Handlungspflicht
+    (dazu Art. 26 ff., bereits erfasst).'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Anhang III (Hochrisiko-Einstufung gemaess Art. 6 Abs. 2) ist in der Aenderungsliste
+    der VO (EU) 2026/1744 nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 113 Abs. 58 lit. b
   artikel: '113'
   artikel_titel: Inkrafttreten und Geltungsbeginn
@@ -24476,17 +24510,24 @@ einheiten:
   beleg: b) KI-Systeme, die bestimmungsgemäß für die Bewertung von Lernergebnissen verwendet werden sollen,
     einschließlich des Falles, dass diese Ergebnisse dazu dienen, den Lernprozess natürlicher Personen
     in Einrichtungen oder Programmen aller Ebenen der allgemeinen und beruflichen Bildung zu steuern;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: '[Anhang III (Hochrisiko-Einstufung gemaess Art. 6 Abs. 2)] b) KI-Systeme, die bestimmungsgemäß
+    für die Bewertung von Lernergebnissen verwendet werden sollen, einschließlich des Falles, dass diese
+    Ergebnisse dazu dienen, den Lernprozess natürlicher Personen...'
+  scope: out
+  scope_grund: 'TOOLING-DEFEKT (s. Abschlussbericht): faelschlich als ''Art. 113 Abs. 58'' extrahiert
+    - inhaltlich ist dies Anhang III (Hochrisiko-Einstufung gemaess Art. 6 Abs. 2), nicht Art. 113. Klassifizierungskatalog,
+    adressiert den Anbieter/die Kommission bei der Einstufung; keine eigene Betreiber-Handlungspflicht
+    (dazu Art. 26 ff., bereits erfasst).'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Anhang III (Hochrisiko-Einstufung gemaess Art. 6 Abs. 2) ist in der Aenderungsliste
+    der VO (EU) 2026/1744 nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 113 Abs. 58 lit. c
   artikel: '113'
   artikel_titel: Inkrafttreten und Geltungsbeginn
@@ -24498,17 +24539,24 @@ einheiten:
   beleg: c) KI-Systeme, die bestimmungsgemäß zum Zweck der Bewertung des angemessenen Bildungsniveaus,
     das eine Person im Rahmen von oder innerhalb von Einrichtungen aller Ebenen der allgemeinen und beruflichen
     Bildung erhalten wird oder zu denen sie Zugang erhalten wird, verwendet werden sollen;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: '[Anhang III (Hochrisiko-Einstufung gemaess Art. 6 Abs. 2)] c) KI-Systeme, die bestimmungsgemäß
+    zum Zweck der Bewertung des angemessenen Bildungsniveaus, das eine Person im Rahmen von oder innerhalb
+    von Einrichtungen aller Ebenen der allgemeinen und berufli...'
+  scope: out
+  scope_grund: 'TOOLING-DEFEKT (s. Abschlussbericht): faelschlich als ''Art. 113 Abs. 58'' extrahiert
+    - inhaltlich ist dies Anhang III (Hochrisiko-Einstufung gemaess Art. 6 Abs. 2), nicht Art. 113. Klassifizierungskatalog,
+    adressiert den Anbieter/die Kommission bei der Einstufung; keine eigene Betreiber-Handlungspflicht
+    (dazu Art. 26 ff., bereits erfasst).'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Anhang III (Hochrisiko-Einstufung gemaess Art. 6 Abs. 2) ist in der Aenderungsliste
+    der VO (EU) 2026/1744 nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 113 Abs. 58 lit. d
   artikel: '113'
   artikel_titel: Inkrafttreten und Geltungsbeginn
@@ -24521,17 +24569,24 @@ einheiten:
     Schülern bei Prüfungen im Rahmen von oder innerhalb von Einrichtungen aller Ebenen der allgemeinen
     und beruflichen Bildung verwendet werden sollen. 4. Beschäftigung, Personalmanagement und Zugang zur
     Selbstständigkeit
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: '[Anhang III (Hochrisiko-Einstufung gemaess Art. 6 Abs. 2)] d) KI-Systeme, die bestimmungsgemäß
+    zur Überwachung und Erkennung von verbotenem Verhalten von Schülern bei Prüfungen im Rahmen von oder
+    innerhalb von Einrichtungen aller Ebenen der allgemeinen und...'
+  scope: out
+  scope_grund: 'TOOLING-DEFEKT (s. Abschlussbericht): faelschlich als ''Art. 113 Abs. 58'' extrahiert
+    - inhaltlich ist dies Anhang III (Hochrisiko-Einstufung gemaess Art. 6 Abs. 2), nicht Art. 113. Klassifizierungskatalog,
+    adressiert den Anbieter/die Kommission bei der Einstufung; keine eigene Betreiber-Handlungspflicht
+    (dazu Art. 26 ff., bereits erfasst).'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Anhang III (Hochrisiko-Einstufung gemaess Art. 6 Abs. 2) ist in der Aenderungsliste
+    der VO (EU) 2026/1744 nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 113 Abs. 58 lit. a
   artikel: '113'
   artikel_titel: Inkrafttreten und Geltungsbeginn
@@ -24543,17 +24598,24 @@ einheiten:
   beleg: a) KI-Systeme, die bestimmungsgemäß für die Einstellung oder Auswahl natürlicher Personen verwendet
     werden sollen, insbesondere um gezielte Stellenanzeigen zu schalten, Bewerbungen zu sichten oder zu
     filtern und Bewerber zu bewerten;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: '[Anhang III (Hochrisiko-Einstufung gemaess Art. 6 Abs. 2)] a) KI-Systeme, die bestimmungsgemäß
+    für die Einstellung oder Auswahl natürlicher Personen verwendet werden sollen, insbesondere um gezielte
+    Stellenanzeigen zu schalten, Bewerbungen zu sichten oder ...'
+  scope: out
+  scope_grund: 'TOOLING-DEFEKT (s. Abschlussbericht): faelschlich als ''Art. 113 Abs. 58'' extrahiert
+    - inhaltlich ist dies Anhang III (Hochrisiko-Einstufung gemaess Art. 6 Abs. 2), nicht Art. 113. Klassifizierungskatalog,
+    adressiert den Anbieter/die Kommission bei der Einstufung; keine eigene Betreiber-Handlungspflicht
+    (dazu Art. 26 ff., bereits erfasst).'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Anhang III (Hochrisiko-Einstufung gemaess Art. 6 Abs. 2) ist in der Aenderungsliste
+    der VO (EU) 2026/1744 nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 113 Abs. 58 lit. b
   artikel: '113'
   artikel_titel: Inkrafttreten und Geltungsbeginn
@@ -24568,17 +24630,24 @@ einheiten:
     für die Beobachtung und Bewertung der Leistung und des Verhaltens von Personen in solchen Beschäftigungsverhältnissen
     verwendet werden soll. 5. Zugänglichkeit und Inanspruchnahme grundlegender privater und grundlegender
     öffentlicher Dienste und Leistungen:'
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: '[Anhang III (Hochrisiko-Einstufung gemaess Art. 6 Abs. 2)] b) KI-Systeme, die bestimmungsgemäß
+    für Entscheidungen, die die Bedingungen von Arbeitsverhältnissen, Beförderungen und Kündigungen von
+    Arbeitsvertragsverhältnissen beeinflussen, für die Zuweisung ...'
+  scope: out
+  scope_grund: 'TOOLING-DEFEKT (s. Abschlussbericht): faelschlich als ''Art. 113 Abs. 58'' extrahiert
+    - inhaltlich ist dies Anhang III (Hochrisiko-Einstufung gemaess Art. 6 Abs. 2), nicht Art. 113. Klassifizierungskatalog,
+    adressiert den Anbieter/die Kommission bei der Einstufung; keine eigene Betreiber-Handlungspflicht
+    (dazu Art. 26 ff., bereits erfasst).'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Anhang III (Hochrisiko-Einstufung gemaess Art. 6 Abs. 2) ist in der Aenderungsliste
+    der VO (EU) 2026/1744 nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 113 Abs. 58 lit. a
   artikel: '113'
   artikel_titel: Inkrafttreten und Geltungsbeginn
@@ -24591,17 +24660,24 @@ einheiten:
     sollen, um zu beurteilen, ob natürliche Personen Anspruch auf grundlegende öffentliche Unterstützungsleistungen
     und -dienste, einschließlich Gesundheitsdiensten, haben und ob solche Leistungen und Dienste zu gewähren,
     einzuschränken, zu widerrufen oder zurückzufordern sind;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: '[Anhang III (Hochrisiko-Einstufung gemaess Art. 6 Abs. 2)] a) KI-Systeme, die bestimmungsgemäß
+    von Behörden oder im Namen von Behörden verwendet werden sollen, um zu beurteilen, ob natürliche Personen
+    Anspruch auf grundlegende öffentliche Unterstützungslei...'
+  scope: out
+  scope_grund: 'TOOLING-DEFEKT (s. Abschlussbericht): faelschlich als ''Art. 113 Abs. 58'' extrahiert
+    - inhaltlich ist dies Anhang III (Hochrisiko-Einstufung gemaess Art. 6 Abs. 2), nicht Art. 113. Klassifizierungskatalog,
+    adressiert den Anbieter/die Kommission bei der Einstufung; keine eigene Betreiber-Handlungspflicht
+    (dazu Art. 26 ff., bereits erfasst).'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Anhang III (Hochrisiko-Einstufung gemaess Art. 6 Abs. 2) ist in der Aenderungsliste
+    der VO (EU) 2026/1744 nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 113 Abs. 58 lit. b
   artikel: '113'
   artikel_titel: Inkrafttreten und Geltungsbeginn
@@ -24613,17 +24689,24 @@ einheiten:
   beleg: b) KI-Systeme, die bestimmungsgemäß für die Kreditwürdigkeitsprüfung und Bonitätsbewertung natürlicher
     Personen verwendet werden sollen, mit Ausnahme von KI-Systemen, die zur Aufdeckung von Finanzbetrug
     verwendet werden;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: '[Anhang III (Hochrisiko-Einstufung gemaess Art. 6 Abs. 2)] b) KI-Systeme, die bestimmungsgemäß
+    für die Kreditwürdigkeitsprüfung und Bonitätsbewertung natürlicher Personen verwendet werden sollen,
+    mit Ausnahme von KI-Systemen, die zur Aufdeckung von Finanzb...'
+  scope: out
+  scope_grund: 'TOOLING-DEFEKT (s. Abschlussbericht): faelschlich als ''Art. 113 Abs. 58'' extrahiert
+    - inhaltlich ist dies Anhang III (Hochrisiko-Einstufung gemaess Art. 6 Abs. 2), nicht Art. 113. Klassifizierungskatalog,
+    adressiert den Anbieter/die Kommission bei der Einstufung; keine eigene Betreiber-Handlungspflicht
+    (dazu Art. 26 ff., bereits erfasst).'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Anhang III (Hochrisiko-Einstufung gemaess Art. 6 Abs. 2) ist in der Aenderungsliste
+    der VO (EU) 2026/1744 nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 113 Abs. 58 lit. c
   artikel: '113'
   artikel_titel: Inkrafttreten und Geltungsbeginn
@@ -24634,17 +24717,24 @@ einheiten:
   saetze: 1
   beleg: c) KI-Systeme, die bestimmungsgemäß für die Risikobewertung und Preisbildung in Bezug auf natürliche
     Personen im Fall von Lebens- und Krankenversicherungen verwendet werden sollen;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: '[Anhang III (Hochrisiko-Einstufung gemaess Art. 6 Abs. 2)] c) KI-Systeme, die bestimmungsgemäß
+    für die Risikobewertung und Preisbildung in Bezug auf natürliche Personen im Fall von Lebens- und
+    Krankenversicherungen verwendet werden sollen;'
+  scope: out
+  scope_grund: 'TOOLING-DEFEKT (s. Abschlussbericht): faelschlich als ''Art. 113 Abs. 58'' extrahiert
+    - inhaltlich ist dies Anhang III (Hochrisiko-Einstufung gemaess Art. 6 Abs. 2), nicht Art. 113. Klassifizierungskatalog,
+    adressiert den Anbieter/die Kommission bei der Einstufung; keine eigene Betreiber-Handlungspflicht
+    (dazu Art. 26 ff., bereits erfasst).'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Anhang III (Hochrisiko-Einstufung gemaess Art. 6 Abs. 2) ist in der Aenderungsliste
+    der VO (EU) 2026/1744 nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 113 Abs. 58 lit. d
   artikel: '113'
   artikel_titel: Inkrafttreten und Geltungsbeginn
@@ -24658,17 +24748,24 @@ einheiten:
     Polizei, Feuerwehr und medizinischer Nothilfe, sowie für Systeme für die Triage von Patienten bei
     der Notfallversorgung verwendet werden sollen. 6. Strafverfolgung, soweit ihr Einsatz nach einschlägigem
     Unionsrecht oder nationalem Recht zugelassen ist:'
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: '[Anhang III (Hochrisiko-Einstufung gemaess Art. 6 Abs. 2)] d) KI-Systeme, die bestimmungsgemäß
+    zur Bewertung und Klassifizierung von Notrufen von natürlichen Personen oder für die Entsendung oder
+    Priorisierung des Einsatzes von Not- und Rettungsdiensten, e...'
+  scope: out
+  scope_grund: 'TOOLING-DEFEKT (s. Abschlussbericht): faelschlich als ''Art. 113 Abs. 58'' extrahiert
+    - inhaltlich ist dies Anhang III (Hochrisiko-Einstufung gemaess Art. 6 Abs. 2), nicht Art. 113. Klassifizierungskatalog,
+    adressiert den Anbieter/die Kommission bei der Einstufung; keine eigene Betreiber-Handlungspflicht
+    (dazu Art. 26 ff., bereits erfasst).'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Anhang III (Hochrisiko-Einstufung gemaess Art. 6 Abs. 2) ist in der Aenderungsliste
+    der VO (EU) 2026/1744 nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 113 Abs. 58 lit. a
   artikel: '113'
   artikel_titel: Inkrafttreten und Geltungsbeginn
@@ -24681,17 +24778,24 @@ einheiten:
     Organen, Einrichtungen und sonstigen Stellen der Union zur Unterstützung von Strafverfolgungsbehörden
     oder in deren Namen zur Bewertung des Risikos einer natürlichen Person, zum Opfer von Straftaten zu
     werden, verwendet werden sollen;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: '[Anhang III (Hochrisiko-Einstufung gemaess Art. 6 Abs. 2)] a) KI-Systeme, die bestimmungsgemäß
+    von Strafverfolgungsbehörden oder in deren Namen oder von Organen, Einrichtungen und sonstigen Stellen
+    der Union zur Unterstützung von Strafverfolgungsbehörden o...'
+  scope: out
+  scope_grund: 'TOOLING-DEFEKT (s. Abschlussbericht): faelschlich als ''Art. 113 Abs. 58'' extrahiert
+    - inhaltlich ist dies Anhang III (Hochrisiko-Einstufung gemaess Art. 6 Abs. 2), nicht Art. 113. Klassifizierungskatalog,
+    adressiert den Anbieter/die Kommission bei der Einstufung; keine eigene Betreiber-Handlungspflicht
+    (dazu Art. 26 ff., bereits erfasst).'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Anhang III (Hochrisiko-Einstufung gemaess Art. 6 Abs. 2) ist in der Aenderungsliste
+    der VO (EU) 2026/1744 nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 113 Abs. 58 lit. b
   artikel: '113'
   artikel_titel: Inkrafttreten und Geltungsbeginn
@@ -24703,17 +24807,24 @@ einheiten:
   beleg: b) KI-Systeme, die bestimmungsgemäß von Strafverfolgungsbehörden oder in deren Namen oder von
     Organen, Einrichtungen und sonstigen Stellen der Union zur Unterstützung von Strafverfolgungsbehörden
     als Lügendetektoren oder ähnliche Instrumente verwendet werden sollen;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: '[Anhang III (Hochrisiko-Einstufung gemaess Art. 6 Abs. 2)] b) KI-Systeme, die bestimmungsgemäß
+    von Strafverfolgungsbehörden oder in deren Namen oder von Organen, Einrichtungen und sonstigen Stellen
+    der Union zur Unterstützung von Strafverfolgungsbehörden a...'
+  scope: out
+  scope_grund: 'TOOLING-DEFEKT (s. Abschlussbericht): faelschlich als ''Art. 113 Abs. 58'' extrahiert
+    - inhaltlich ist dies Anhang III (Hochrisiko-Einstufung gemaess Art. 6 Abs. 2), nicht Art. 113. Klassifizierungskatalog,
+    adressiert den Anbieter/die Kommission bei der Einstufung; keine eigene Betreiber-Handlungspflicht
+    (dazu Art. 26 ff., bereits erfasst).'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Anhang III (Hochrisiko-Einstufung gemaess Art. 6 Abs. 2) ist in der Aenderungsliste
+    der VO (EU) 2026/1744 nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 113 Abs. 58 lit. c
   artikel: '113'
   artikel_titel: Inkrafttreten und Geltungsbeginn
@@ -24726,17 +24837,24 @@ einheiten:
     Organen, Einrichtungen und sonstigen Stellen der Union zur Unterstützung von Strafverfolgungsbehörden
     zur Bewertung der Verlässlichkeit von Beweismitteln im Zuge der Ermittlung oder Verfolgung von Straftaten
     verwendet werden sollen;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: '[Anhang III (Hochrisiko-Einstufung gemaess Art. 6 Abs. 2)] c) KI-Systeme, die bestimmungsgemäß
+    von Strafverfolgungsbehörden oder in deren Namen oder von Organen, Einrichtungen und sonstigen Stellen
+    der Union zur Unterstützung von Strafverfolgungsbehörden z...'
+  scope: out
+  scope_grund: 'TOOLING-DEFEKT (s. Abschlussbericht): faelschlich als ''Art. 113 Abs. 58'' extrahiert
+    - inhaltlich ist dies Anhang III (Hochrisiko-Einstufung gemaess Art. 6 Abs. 2), nicht Art. 113. Klassifizierungskatalog,
+    adressiert den Anbieter/die Kommission bei der Einstufung; keine eigene Betreiber-Handlungspflicht
+    (dazu Art. 26 ff., bereits erfasst).'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Anhang III (Hochrisiko-Einstufung gemaess Art. 6 Abs. 2) ist in der Aenderungsliste
+    der VO (EU) 2026/1744 nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 113 Abs. 58 lit. d
   artikel: '113'
   artikel_titel: Inkrafttreten und Geltungsbeginn
@@ -24751,17 +24869,24 @@ einheiten:
     nur auf der Grundlage der Erstellung von Profilen natürlicher Personen gemäß Artikel 3 Absatz 4 der
     Richtlinie (EU) 2016/680 oder zur Bewertung persönlicher Merkmale und Eigenschaften oder vergangenen
     kriminellen Verhaltens von natürlichen Personen oder Gruppen verwendet werden sollen;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: '[Anhang III (Hochrisiko-Einstufung gemaess Art. 6 Abs. 2)] d) KI-Systeme, die bestimmungsgemäß
+    von Strafverfolgungsbehörden oder in deren Namen oder von Organen, Einrichtungen und sonstigen Stellen
+    der Union zur Unterstützung von Strafverfolgungsbehörden z...'
+  scope: out
+  scope_grund: 'TOOLING-DEFEKT (s. Abschlussbericht): faelschlich als ''Art. 113 Abs. 58'' extrahiert
+    - inhaltlich ist dies Anhang III (Hochrisiko-Einstufung gemaess Art. 6 Abs. 2), nicht Art. 113. Klassifizierungskatalog,
+    adressiert den Anbieter/die Kommission bei der Einstufung; keine eigene Betreiber-Handlungspflicht
+    (dazu Art. 26 ff., bereits erfasst).'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Anhang III (Hochrisiko-Einstufung gemaess Art. 6 Abs. 2) ist in der Aenderungsliste
+    der VO (EU) 2026/1744 nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 113 Abs. 58 lit. e
   artikel: '113'
   artikel_titel: Inkrafttreten und Geltungsbeginn
@@ -24776,17 +24901,24 @@ einheiten:
     im Zuge der Aufdeckung, Ermittlung oder Verfolgung von Straftaten verwendet werden sollen. 7. Migration,
     Asyl und Grenzkontrolle, soweit ihr Einsatz nach einschlägigem Unionsrecht oder nationalem Recht zugelassen
     ist:'
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: '[Anhang III (Hochrisiko-Einstufung gemaess Art. 6 Abs. 2)] e) KI-Systeme, die bestimmungsgemäß
+    von Strafverfolgungsbehörden oder in deren Namen oder von Organen, Einrichtungen und sonstigen Stellen
+    der Union zur Unterstützung von Strafverfolgungsbehörden z...'
+  scope: out
+  scope_grund: 'TOOLING-DEFEKT (s. Abschlussbericht): faelschlich als ''Art. 113 Abs. 58'' extrahiert
+    - inhaltlich ist dies Anhang III (Hochrisiko-Einstufung gemaess Art. 6 Abs. 2), nicht Art. 113. Klassifizierungskatalog,
+    adressiert den Anbieter/die Kommission bei der Einstufung; keine eigene Betreiber-Handlungspflicht
+    (dazu Art. 26 ff., bereits erfasst).'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Anhang III (Hochrisiko-Einstufung gemaess Art. 6 Abs. 2) ist in der Aenderungsliste
+    der VO (EU) 2026/1744 nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 113 Abs. 58 lit. a
   artikel: '113'
   artikel_titel: Inkrafttreten und Geltungsbeginn
@@ -24798,17 +24930,24 @@ einheiten:
   beleg: a) KI-Systeme, die bestimmungsgemäß von zuständigen Behörden oder in deren Namen oder Organen,
     Einrichtungen und sonstigen Stellen der Union als Lügendetektoren verwendet werden sollen oder ähnliche
     Instrumente;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: '[Anhang III (Hochrisiko-Einstufung gemaess Art. 6 Abs. 2)] a) KI-Systeme, die bestimmungsgemäß
+    von zuständigen Behörden oder in deren Namen oder Organen, Einrichtungen und sonstigen Stellen der
+    Union als Lügendetektoren verwendet werden sollen oder ähnlich...'
+  scope: out
+  scope_grund: 'TOOLING-DEFEKT (s. Abschlussbericht): faelschlich als ''Art. 113 Abs. 58'' extrahiert
+    - inhaltlich ist dies Anhang III (Hochrisiko-Einstufung gemaess Art. 6 Abs. 2), nicht Art. 113. Klassifizierungskatalog,
+    adressiert den Anbieter/die Kommission bei der Einstufung; keine eigene Betreiber-Handlungspflicht
+    (dazu Art. 26 ff., bereits erfasst).'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Anhang III (Hochrisiko-Einstufung gemaess Art. 6 Abs. 2) ist in der Aenderungsliste
+    der VO (EU) 2026/1744 nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 113 Abs. 58 lit. b
   artikel: '113'
   artikel_titel: Inkrafttreten und Geltungsbeginn
@@ -24822,17 +24961,24 @@ einheiten:
     einschließlich eines Sicherheitsrisikos, eines Risikos der irregulären Einwanderung oder eines Gesundheitsrisikos,
     das von einer natürlichen Person ausgeht, die in das Hoheitsgebiet eines Mitgliedstaats einzureisen
     beabsichtigt oder eingereist ist;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: '[Anhang III (Hochrisiko-Einstufung gemaess Art. 6 Abs. 2)] b) KI-Systeme, die bestimmungsgemäß
+    von zuständigen Behörden oder in deren Namen oder von Organen, Einrichtungen und sonstigen Stellen
+    der Union zur Bewertung eines Risikos verwendet werden sollen,...'
+  scope: out
+  scope_grund: 'TOOLING-DEFEKT (s. Abschlussbericht): faelschlich als ''Art. 113 Abs. 58'' extrahiert
+    - inhaltlich ist dies Anhang III (Hochrisiko-Einstufung gemaess Art. 6 Abs. 2), nicht Art. 113. Klassifizierungskatalog,
+    adressiert den Anbieter/die Kommission bei der Einstufung; keine eigene Betreiber-Handlungspflicht
+    (dazu Art. 26 ff., bereits erfasst).'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Anhang III (Hochrisiko-Einstufung gemaess Art. 6 Abs. 2) ist in der Aenderungsliste
+    der VO (EU) 2026/1744 nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 113 Abs. 58 lit. c
   artikel: '113'
   artikel_titel: Inkrafttreten und Geltungsbeginn
@@ -24846,17 +24992,24 @@ einheiten:
     der Prüfung von Asyl- und Visumanträgen sowie Aufenthaltstiteln und damit verbundenen Beschwerden
     im Hinblick auf die Feststellung der Berechtigung der den Antrag stellenden natürlichen Personen,
     einschließlich damit zusammenhängender Bewertungen der Verlässlichkeit von Beweismitteln, zu unterstützen;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: '[Anhang III (Hochrisiko-Einstufung gemaess Art. 6 Abs. 2)] c) KI-Systeme, die bestimmungsgemäß
+    von zuständigen Behörden oder in deren Namen oder von Organen, Einrichtungen und sonstigen Stellen
+    der Union verwendet werden sollen, um zuständige Behörden bei ...'
+  scope: out
+  scope_grund: 'TOOLING-DEFEKT (s. Abschlussbericht): faelschlich als ''Art. 113 Abs. 58'' extrahiert
+    - inhaltlich ist dies Anhang III (Hochrisiko-Einstufung gemaess Art. 6 Abs. 2), nicht Art. 113. Klassifizierungskatalog,
+    adressiert den Anbieter/die Kommission bei der Einstufung; keine eigene Betreiber-Handlungspflicht
+    (dazu Art. 26 ff., bereits erfasst).'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Anhang III (Hochrisiko-Einstufung gemaess Art. 6 Abs. 2) ist in der Aenderungsliste
+    der VO (EU) 2026/1744 nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 113 Abs. 58 lit. d
   artikel: '113'
   artikel_titel: Inkrafttreten und Geltungsbeginn
@@ -24869,17 +25022,24 @@ einheiten:
     Einrichtungen und sonstigen Stellen der Union, im Zusammenhang mit Migration, Asyl oder Grenzkontrolle
     zum Zwecke der Aufdeckung, Anerkennung oder Identifizierung natürlicher Personen verwendet werden
     sollen, mit Ausnahme der Überprüfung von Reisedokumenten. 8. Rechtspflege und demokratische Prozesse
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: '[Anhang III (Hochrisiko-Einstufung gemaess Art. 6 Abs. 2)] d) KI-Systeme, die bestimmungsgemäß
+    von oder im Namen der zuständigen Behörden oder Organen, Einrichtungen und sonstigen Stellen der Union,
+    im Zusammenhang mit Migration, Asyl oder Grenzkontrolle z...'
+  scope: out
+  scope_grund: 'TOOLING-DEFEKT (s. Abschlussbericht): faelschlich als ''Art. 113 Abs. 58'' extrahiert
+    - inhaltlich ist dies Anhang III (Hochrisiko-Einstufung gemaess Art. 6 Abs. 2), nicht Art. 113. Klassifizierungskatalog,
+    adressiert den Anbieter/die Kommission bei der Einstufung; keine eigene Betreiber-Handlungspflicht
+    (dazu Art. 26 ff., bereits erfasst).'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Anhang III (Hochrisiko-Einstufung gemaess Art. 6 Abs. 2) ist in der Aenderungsliste
+    der VO (EU) 2026/1744 nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 113 Abs. 58 lit. a
   artikel: '113'
   artikel_titel: Inkrafttreten und Geltungsbeginn
@@ -24892,17 +25052,24 @@ einheiten:
     sollen, um eine Justizbehörde bei der Ermittlung und Auslegung von Sachverhalten und Rechtsvorschriften
     und bei der Anwendung des Rechts auf konkrete Sachverhalte zu unterstützen, oder die auf ähnliche
     Weise für die alternative Streitbeilegung genutzt werden sollen;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: '[Anhang III (Hochrisiko-Einstufung gemaess Art. 6 Abs. 2)] a) KI-Systeme, die bestimmungsgemäß
+    von einer oder im Namen einer Justizbehörde verwendet werden sollen, um eine Justizbehörde bei der
+    Ermittlung und Auslegung von Sachverhalten und Rechtsvorschrif...'
+  scope: out
+  scope_grund: 'TOOLING-DEFEKT (s. Abschlussbericht): faelschlich als ''Art. 113 Abs. 58'' extrahiert
+    - inhaltlich ist dies Anhang III (Hochrisiko-Einstufung gemaess Art. 6 Abs. 2), nicht Art. 113. Klassifizierungskatalog,
+    adressiert den Anbieter/die Kommission bei der Einstufung; keine eigene Betreiber-Handlungspflicht
+    (dazu Art. 26 ff., bereits erfasst).'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Anhang III (Hochrisiko-Einstufung gemaess Art. 6 Abs. 2) ist in der Aenderungsliste
+    der VO (EU) 2026/1744 nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 113 Abs. 58 lit. b
   artikel: '113'
   artikel_titel: Inkrafttreten und Geltungsbeginn
@@ -24919,17 +25086,24 @@ einheiten:
     gemäß Artikel 11 Absatz 1 Die in Artikel 11 Absatz 1 genannte technische Dokumentation muss mindestens
     die folgenden Informationen enthalten, soweit sie für das betreffende KI-System von Belang sind: 1.
     Allgemeine Beschreibung des KI-Systems, darunter'
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: '[Anhang III (Hochrisiko-Einstufung gemaess Art. 6 Abs. 2)] b) KI-Systeme, die bestimmungsgemäß
+    verwendet werden sollen, um das Ergebnis einer Wahl oder eines Referendums oder das Wahlverhalten
+    natürlicher Personen bei der Ausübung ihres Wahlrechts bei eine...'
+  scope: out
+  scope_grund: 'TOOLING-DEFEKT (s. Abschlussbericht): faelschlich als ''Art. 113 Abs. 58'' extrahiert
+    - inhaltlich ist dies Anhang III (Hochrisiko-Einstufung gemaess Art. 6 Abs. 2), nicht Art. 113. Klassifizierungskatalog,
+    adressiert den Anbieter/die Kommission bei der Einstufung; keine eigene Betreiber-Handlungspflicht
+    (dazu Art. 26 ff., bereits erfasst).'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Anhang III (Hochrisiko-Einstufung gemaess Art. 6 Abs. 2) ist in der Aenderungsliste
+    der VO (EU) 2026/1744 nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 113 Abs. 58 lit. a
   artikel: '113'
   artikel_titel: Inkrafttreten und Geltungsbeginn
@@ -24940,17 +25114,25 @@ einheiten:
   saetze: 1
   beleg: a) Zweckbestimmung, Name des Anbieters und Version des Systems mit Angaben dazu, in welcher Beziehung
     sie zu vorherigen Versionen steht;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: '[Anhang IV (technische Dokumentation gemaess Art. 11 Abs. 1)] a) Zweckbestimmung, Name des
+    Anbieters und Version des Systems mit Angaben dazu, in welcher Beziehung sie zu vorherigen Versionen
+    steht;'
+  scope: out
+  scope_grund: 'TOOLING-DEFEKT (s. Abschlussbericht): faelschlich als ''Art. 113 Abs. 58'' extrahiert
+    - inhaltlich ist dies Anhang IV (technische Dokumentation gemaess Art. 11 Abs. 1), nicht Art. 113.
+    Inhaltsanforderung an die vom ANBIETER zu erstellende technische Dokumentation (ggf. mit Angaben ueber/fuer
+    den Betreiber als Empfaenger, z. B. Betriebsanleitungen); Pflicht liegt beim Anbieter, nicht beim
+    Betreiber - analog Art. 11 (bereits scope: out in Lauf 1).'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Anhang IV (technische Dokumentation gemaess Art. 11 Abs. 1) ist in der Aenderungsliste
+    der VO (EU) 2026/1744 nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 113 Abs. 58 lit. b
   artikel: '113'
   artikel_titel: Inkrafttreten und Geltungsbeginn
@@ -24961,17 +25143,25 @@ einheiten:
   saetze: 1
   beleg: b) gegebenenfalls Interaktion oder Verwendung des KI-Systems mit Hardware oder Software, einschließlich
     anderer KI-Systeme, die nicht Teil des KI-Systems selbst sind;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: '[Anhang IV (technische Dokumentation gemaess Art. 11 Abs. 1)] b) gegebenenfalls Interaktion
+    oder Verwendung des KI-Systems mit Hardware oder Software, einschließlich anderer KI-Systeme, die
+    nicht Teil des KI-Systems selbst sind;'
+  scope: out
+  scope_grund: 'TOOLING-DEFEKT (s. Abschlussbericht): faelschlich als ''Art. 113 Abs. 58'' extrahiert
+    - inhaltlich ist dies Anhang IV (technische Dokumentation gemaess Art. 11 Abs. 1), nicht Art. 113.
+    Inhaltsanforderung an die vom ANBIETER zu erstellende technische Dokumentation (ggf. mit Angaben ueber/fuer
+    den Betreiber als Empfaenger, z. B. Betriebsanleitungen); Pflicht liegt beim Anbieter, nicht beim
+    Betreiber - analog Art. 11 (bereits scope: out in Lauf 1).'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Anhang IV (technische Dokumentation gemaess Art. 11 Abs. 1) ist in der Aenderungsliste
+    der VO (EU) 2026/1744 nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 113 Abs. 58 lit. c
   artikel: '113'
   artikel_titel: Inkrafttreten und Geltungsbeginn
@@ -24982,17 +25172,24 @@ einheiten:
   saetze: 1
   beleg: c) Versionen der betreffenden Software oder Firmware und etwaige Anforderungen in Bezug auf Aktualisierungen
     der Versionen;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: '[Anhang IV (technische Dokumentation gemaess Art. 11 Abs. 1)] c) Versionen der betreffenden
+    Software oder Firmware und etwaige Anforderungen in Bezug auf Aktualisierungen der Versionen;'
+  scope: out
+  scope_grund: 'TOOLING-DEFEKT (s. Abschlussbericht): faelschlich als ''Art. 113 Abs. 58'' extrahiert
+    - inhaltlich ist dies Anhang IV (technische Dokumentation gemaess Art. 11 Abs. 1), nicht Art. 113.
+    Inhaltsanforderung an die vom ANBIETER zu erstellende technische Dokumentation (ggf. mit Angaben ueber/fuer
+    den Betreiber als Empfaenger, z. B. Betriebsanleitungen); Pflicht liegt beim Anbieter, nicht beim
+    Betreiber - analog Art. 11 (bereits scope: out in Lauf 1).'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Anhang IV (technische Dokumentation gemaess Art. 11 Abs. 1) ist in der Aenderungsliste
+    der VO (EU) 2026/1744 nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 113 Abs. 58 lit. d
   artikel: '113'
   artikel_titel: Inkrafttreten und Geltungsbeginn
@@ -25003,17 +25200,25 @@ einheiten:
   saetze: 1
   beleg: d) Beschreibung aller Formen, in denen das KI-System in Verkehr gebracht oder in Betrieb genommen
     wird, zum Beispiel in Hardware eingebettete Softwarepakete, Herunterladen oder API;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: '[Anhang IV (technische Dokumentation gemaess Art. 11 Abs. 1)] d) Beschreibung aller Formen,
+    in denen das KI-System in Verkehr gebracht oder in Betrieb genommen wird, zum Beispiel in Hardware
+    eingebettete Softwarepakete, Herunterladen oder API;'
+  scope: out
+  scope_grund: 'TOOLING-DEFEKT (s. Abschlussbericht): faelschlich als ''Art. 113 Abs. 58'' extrahiert
+    - inhaltlich ist dies Anhang IV (technische Dokumentation gemaess Art. 11 Abs. 1), nicht Art. 113.
+    Inhaltsanforderung an die vom ANBIETER zu erstellende technische Dokumentation (ggf. mit Angaben ueber/fuer
+    den Betreiber als Empfaenger, z. B. Betriebsanleitungen); Pflicht liegt beim Anbieter, nicht beim
+    Betreiber - analog Art. 11 (bereits scope: out in Lauf 1).'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Anhang IV (technische Dokumentation gemaess Art. 11 Abs. 1) ist in der Aenderungsliste
+    der VO (EU) 2026/1744 nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 113 Abs. 58 lit. e
   artikel: '113'
   artikel_titel: Inkrafttreten und Geltungsbeginn
@@ -25023,17 +25228,24 @@ einheiten:
   laenge: 80
   saetze: 1
   beleg: e) Beschreibung der Hardware, auf der das KI-System betrieben werden soll;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: '[Anhang IV (technische Dokumentation gemaess Art. 11 Abs. 1)] e) Beschreibung der Hardware,
+    auf der das KI-System betrieben werden soll;'
+  scope: out
+  scope_grund: 'TOOLING-DEFEKT (s. Abschlussbericht): faelschlich als ''Art. 113 Abs. 58'' extrahiert
+    - inhaltlich ist dies Anhang IV (technische Dokumentation gemaess Art. 11 Abs. 1), nicht Art. 113.
+    Inhaltsanforderung an die vom ANBIETER zu erstellende technische Dokumentation (ggf. mit Angaben ueber/fuer
+    den Betreiber als Empfaenger, z. B. Betriebsanleitungen); Pflicht liegt beim Anbieter, nicht beim
+    Betreiber - analog Art. 11 (bereits scope: out in Lauf 1).'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Anhang IV (technische Dokumentation gemaess Art. 11 Abs. 1) ist in der Aenderungsliste
+    der VO (EU) 2026/1744 nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 113 Abs. 58 lit. f
   artikel: '113'
   artikel_titel: Inkrafttreten und Geltungsbeginn
@@ -25044,17 +25256,25 @@ einheiten:
   saetze: 1
   beleg: 'f) falls das KI-System Bestandteil von Produkten ist: Fotografien oder Abbildungen, die äußere
     Merkmale, die Kennzeichnungen und den inneren Aufbau dieser Produkte zeigen;'
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: '[Anhang IV (technische Dokumentation gemaess Art. 11 Abs. 1)] f) falls das KI-System Bestandteil
+    von Produkten ist: Fotografien oder Abbildungen, die äußere Merkmale, die Kennzeichnungen und den
+    inneren Aufbau dieser Produkte zeigen;'
+  scope: out
+  scope_grund: 'TOOLING-DEFEKT (s. Abschlussbericht): faelschlich als ''Art. 113 Abs. 58'' extrahiert
+    - inhaltlich ist dies Anhang IV (technische Dokumentation gemaess Art. 11 Abs. 1), nicht Art. 113.
+    Inhaltsanforderung an die vom ANBIETER zu erstellende technische Dokumentation (ggf. mit Angaben ueber/fuer
+    den Betreiber als Empfaenger, z. B. Betriebsanleitungen); Pflicht liegt beim Anbieter, nicht beim
+    Betreiber - analog Art. 11 (bereits scope: out in Lauf 1).'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Anhang IV (technische Dokumentation gemaess Art. 11 Abs. 1) ist in der Aenderungsliste
+    der VO (EU) 2026/1744 nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 113 Abs. 58 lit. g
   artikel: '113'
   artikel_titel: Inkrafttreten und Geltungsbeginn
@@ -25065,17 +25285,24 @@ einheiten:
   saetze: 1
   beleg: g) eine grundlegende Beschreibung der Benutzerschnittstelle, die dem Betreiber zur Verfügung
     gestellt wird;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: '[Anhang IV (technische Dokumentation gemaess Art. 11 Abs. 1)] g) eine grundlegende Beschreibung
+    der Benutzerschnittstelle, die dem Betreiber zur Verfügung gestellt wird;'
+  scope: out
+  scope_grund: 'TOOLING-DEFEKT (s. Abschlussbericht): faelschlich als ''Art. 113 Abs. 58'' extrahiert
+    - inhaltlich ist dies Anhang IV (technische Dokumentation gemaess Art. 11 Abs. 1), nicht Art. 113.
+    Inhaltsanforderung an die vom ANBIETER zu erstellende technische Dokumentation (ggf. mit Angaben ueber/fuer
+    den Betreiber als Empfaenger, z. B. Betriebsanleitungen); Pflicht liegt beim Anbieter, nicht beim
+    Betreiber - analog Art. 11 (bereits scope: out in Lauf 1).'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Anhang IV (technische Dokumentation gemaess Art. 11 Abs. 1) ist in der Aenderungsliste
+    der VO (EU) 2026/1744 nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 113 Abs. 58 lit. h
   artikel: '113'
   artikel_titel: Inkrafttreten und Geltungsbeginn
@@ -25087,17 +25314,25 @@ einheiten:
   beleg: h) Betriebsanleitungen für den Betreiber und gegebenenfalls eine grundlegende Beschreibung der
     dem Betreiber zur Verfügung gestellten Benutzerschnittstelle; 2. Detaillierte Beschreibung der Bestandteile
     des KI-Systems und seines Entwicklungsprozesses, darunter
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: '[Anhang IV (technische Dokumentation gemaess Art. 11 Abs. 1)] h) Betriebsanleitungen für den
+    Betreiber und gegebenenfalls eine grundlegende Beschreibung der dem Betreiber zur Verfügung gestellten
+    Benutzerschnittstelle; 2. Detaillierte Beschreibung der Bestand...'
+  scope: out
+  scope_grund: 'TOOLING-DEFEKT (s. Abschlussbericht): faelschlich als ''Art. 113 Abs. 58'' extrahiert
+    - inhaltlich ist dies Anhang IV (technische Dokumentation gemaess Art. 11 Abs. 1), nicht Art. 113.
+    Inhaltsanforderung an die vom ANBIETER zu erstellende technische Dokumentation (ggf. mit Angaben ueber/fuer
+    den Betreiber als Empfaenger, z. B. Betriebsanleitungen); Pflicht liegt beim Anbieter, nicht beim
+    Betreiber - analog Art. 11 (bereits scope: out in Lauf 1).'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Anhang IV (technische Dokumentation gemaess Art. 11 Abs. 1) ist in der Aenderungsliste
+    der VO (EU) 2026/1744 nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 113 Abs. 58 lit. a
   artikel: '113'
   artikel_titel: Inkrafttreten und Geltungsbeginn
@@ -25109,17 +25344,25 @@ einheiten:
   beleg: a) Methoden und Schritte zur Entwicklung des KI-Systems, gegebenenfalls einschließlich des Einsatzes
     von durch Dritte bereitgestellten vortrainierten Systemen oder Instrumenten, und wie diese vom Anbieter
     verwendet, integriert oder verändert wurden;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: '[Anhang IV (technische Dokumentation gemaess Art. 11 Abs. 1)] a) Methoden und Schritte zur
+    Entwicklung des KI-Systems, gegebenenfalls einschließlich des Einsatzes von durch Dritte bereitgestellten
+    vortrainierten Systemen oder Instrumenten, und wie diese vom A...'
+  scope: out
+  scope_grund: 'TOOLING-DEFEKT (s. Abschlussbericht): faelschlich als ''Art. 113 Abs. 58'' extrahiert
+    - inhaltlich ist dies Anhang IV (technische Dokumentation gemaess Art. 11 Abs. 1), nicht Art. 113.
+    Inhaltsanforderung an die vom ANBIETER zu erstellende technische Dokumentation (ggf. mit Angaben ueber/fuer
+    den Betreiber als Empfaenger, z. B. Betriebsanleitungen); Pflicht liegt beim Anbieter, nicht beim
+    Betreiber - analog Art. 11 (bereits scope: out in Lauf 1).'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Anhang IV (technische Dokumentation gemaess Art. 11 Abs. 1) ist in der Aenderungsliste
+    der VO (EU) 2026/1744 nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 113 Abs. 58 lit. b
   artikel: '113'
   artikel_titel: Inkrafttreten und Geltungsbeginn
@@ -25136,17 +25379,25 @@ einheiten:
     erwarteten Qualität dieser Ausgabe; die über mögliche Kompromisse in Bezug auf die technischen Lösungen,
     mit denen die in Kapitel III Abschnitt 2 festgelegten Anforderungen erfüllt werden sollen, getroffenen
     Entscheidungen;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: '[Anhang IV (technische Dokumentation gemaess Art. 11 Abs. 1)] b) Entwurfsspezifikationen des
+    Systems, insbesondere die allgemeine Logik des KI-Systems und der Algorithmen; die wichtigsten Entwurfsentscheidungen
+    mit den Gründen und getroffenen Annahmen, einsch...'
+  scope: out
+  scope_grund: 'TOOLING-DEFEKT (s. Abschlussbericht): faelschlich als ''Art. 113 Abs. 58'' extrahiert
+    - inhaltlich ist dies Anhang IV (technische Dokumentation gemaess Art. 11 Abs. 1), nicht Art. 113.
+    Inhaltsanforderung an die vom ANBIETER zu erstellende technische Dokumentation (ggf. mit Angaben ueber/fuer
+    den Betreiber als Empfaenger, z. B. Betriebsanleitungen); Pflicht liegt beim Anbieter, nicht beim
+    Betreiber - analog Art. 11 (bereits scope: out in Lauf 1).'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Anhang IV (technische Dokumentation gemaess Art. 11 Abs. 1) ist in der Aenderungsliste
+    der VO (EU) 2026/1744 nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 113 Abs. 58 lit. c
   artikel: '113'
   artikel_titel: Inkrafttreten und Geltungsbeginn
@@ -25158,17 +25409,25 @@ einheiten:
   beleg: c) Beschreibung der Systemarchitektur, aus der hervorgeht, wie Softwarekomponenten aufeinander
     aufbauen oder einander zuarbeiten und in die Gesamtverarbeitung integriert sind; zum Entwickeln, Trainieren,
     Testen und Validieren des KI-Systems verwendete Rechenressourcen;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: '[Anhang IV (technische Dokumentation gemaess Art. 11 Abs. 1)] c) Beschreibung der Systemarchitektur,
+    aus der hervorgeht, wie Softwarekomponenten aufeinander aufbauen oder einander zuarbeiten und in die
+    Gesamtverarbeitung integriert sind; zum Entwickeln, Train...'
+  scope: out
+  scope_grund: 'TOOLING-DEFEKT (s. Abschlussbericht): faelschlich als ''Art. 113 Abs. 58'' extrahiert
+    - inhaltlich ist dies Anhang IV (technische Dokumentation gemaess Art. 11 Abs. 1), nicht Art. 113.
+    Inhaltsanforderung an die vom ANBIETER zu erstellende technische Dokumentation (ggf. mit Angaben ueber/fuer
+    den Betreiber als Empfaenger, z. B. Betriebsanleitungen); Pflicht liegt beim Anbieter, nicht beim
+    Betreiber - analog Art. 11 (bereits scope: out in Lauf 1).'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Anhang IV (technische Dokumentation gemaess Art. 11 Abs. 1) ist in der Aenderungsliste
+    der VO (EU) 2026/1744 nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 113 Abs. 58 lit. d
   artikel: '113'
   artikel_titel: Inkrafttreten und Geltungsbeginn
@@ -25182,17 +25441,25 @@ einheiten:
     Beschreibung dieser Datensätze sowie Informationen zu deren Herkunft, Umfang und Hauptmerkmalen; Angaben
     zur Beschaffung und Auswahl der Daten; Kennzeichnungsverfahren (zum Beispiel für überwachtes Lernen)
     und Datenbereinigungsmethoden (zum Beispiel Erkennung von Ausreißern);
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: '[Anhang IV (technische Dokumentation gemaess Art. 11 Abs. 1)] d) gegebenenfalls Datenanforderungen
+    in Form von Datenblättern, in denen die Trainingsmethoden und -techniken und die verwendeten Trainingsdatensätze
+    beschrieben werden, einschließlich einer allgem...'
+  scope: out
+  scope_grund: 'TOOLING-DEFEKT (s. Abschlussbericht): faelschlich als ''Art. 113 Abs. 58'' extrahiert
+    - inhaltlich ist dies Anhang IV (technische Dokumentation gemaess Art. 11 Abs. 1), nicht Art. 113.
+    Inhaltsanforderung an die vom ANBIETER zu erstellende technische Dokumentation (ggf. mit Angaben ueber/fuer
+    den Betreiber als Empfaenger, z. B. Betriebsanleitungen); Pflicht liegt beim Anbieter, nicht beim
+    Betreiber - analog Art. 11 (bereits scope: out in Lauf 1).'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Anhang IV (technische Dokumentation gemaess Art. 11 Abs. 1) ist in der Aenderungsliste
+    der VO (EU) 2026/1744 nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 113 Abs. 58 lit. e
   artikel: '113'
   artikel_titel: Inkrafttreten und Geltungsbeginn
@@ -25204,17 +25471,25 @@ einheiten:
   beleg: e) Bewertung der nach Artikel 14 erforderlichen Maßnahmen der menschlichen Aufsicht, mit einer
     Bewertung der technischen Maßnahmen, die erforderlich sind, um den Betreibern gemäß Artikel 13 Absatz
     3 Buchstabe d die Interpretation der Ausgaben von KI-Systemen zu erleichtern;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: '[Anhang IV (technische Dokumentation gemaess Art. 11 Abs. 1)] e) Bewertung der nach Artikel
+    14 erforderlichen Maßnahmen der menschlichen Aufsicht, mit einer Bewertung der technischen Maßnahmen,
+    die erforderlich sind, um den Betreibern gemäß Artikel 13 Absatz ...'
+  scope: out
+  scope_grund: 'TOOLING-DEFEKT (s. Abschlussbericht): faelschlich als ''Art. 113 Abs. 58'' extrahiert
+    - inhaltlich ist dies Anhang IV (technische Dokumentation gemaess Art. 11 Abs. 1), nicht Art. 113.
+    Inhaltsanforderung an die vom ANBIETER zu erstellende technische Dokumentation (ggf. mit Angaben ueber/fuer
+    den Betreiber als Empfaenger, z. B. Betriebsanleitungen); Pflicht liegt beim Anbieter, nicht beim
+    Betreiber - analog Art. 11 (bereits scope: out in Lauf 1).'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Anhang IV (technische Dokumentation gemaess Art. 11 Abs. 1) ist in der Aenderungsliste
+    der VO (EU) 2026/1744 nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 113 Abs. 58 lit. f
   artikel: '113'
   artikel_titel: Inkrafttreten und Geltungsbeginn
@@ -25227,17 +25502,25 @@ einheiten:
     und seiner Leistung mit allen einschlägigen Informationen zu den technischen Lösungen, mit denen sichergestellt
     wird, dass das KI-System die einschlägigen in Kapitel III Abschnitt 2 festgelegten Anforderungen weiterhin
     dauerhaft erfüllt;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: '[Anhang IV (technische Dokumentation gemaess Art. 11 Abs. 1)] f) gegebenenfalls detaillierte
+    Beschreibung der vorab bestimmten Änderungen an dem KI-System und seiner Leistung mit allen einschlägigen
+    Informationen zu den technischen Lösungen, mit denen sicherg...'
+  scope: out
+  scope_grund: 'TOOLING-DEFEKT (s. Abschlussbericht): faelschlich als ''Art. 113 Abs. 58'' extrahiert
+    - inhaltlich ist dies Anhang IV (technische Dokumentation gemaess Art. 11 Abs. 1), nicht Art. 113.
+    Inhaltsanforderung an die vom ANBIETER zu erstellende technische Dokumentation (ggf. mit Angaben ueber/fuer
+    den Betreiber als Empfaenger, z. B. Betriebsanleitungen); Pflicht liegt beim Anbieter, nicht beim
+    Betreiber - analog Art. 11 (bereits scope: out in Lauf 1).'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Anhang IV (technische Dokumentation gemaess Art. 11 Abs. 1) ist in der Aenderungsliste
+    der VO (EU) 2026/1744 nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 113 Abs. 58 lit. g
   artikel: '113'
   artikel_titel: Inkrafttreten und Geltungsbeginn
@@ -25252,17 +25535,25 @@ einheiten:
     Auswirkungen verwendet werden; Testprotokolle und alle von den verantwortlichen Personen datierten
     und unterzeichneten Testberichte, auch in Bezug auf die unter Buchstabe f genannten vorab bestimmten
     Änderungen;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: '[Anhang IV (technische Dokumentation gemaess Art. 11 Abs. 1)] g) verwendete Validierungs-
+    und Testverfahren, mit Informationen zu den verwendeten Validierungs- und Testdaten und deren Hauptmerkmalen;
+    Parameter, die zur Messung der Genauigkeit, Robustheit und ...'
+  scope: out
+  scope_grund: 'TOOLING-DEFEKT (s. Abschlussbericht): faelschlich als ''Art. 113 Abs. 58'' extrahiert
+    - inhaltlich ist dies Anhang IV (technische Dokumentation gemaess Art. 11 Abs. 1), nicht Art. 113.
+    Inhaltsanforderung an die vom ANBIETER zu erstellende technische Dokumentation (ggf. mit Angaben ueber/fuer
+    den Betreiber als Empfaenger, z. B. Betriebsanleitungen); Pflicht liegt beim Anbieter, nicht beim
+    Betreiber - analog Art. 11 (bereits scope: out in Lauf 1).'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Anhang IV (technische Dokumentation gemaess Art. 11 Abs. 1) ist in der Aenderungsliste
+    der VO (EU) 2026/1744 nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 113 Abs. 58 lit. h
   artikel: '113'
   artikel_titel: Inkrafttreten und Geltungsbeginn
@@ -25319,17 +25610,25 @@ einheiten:
     Entwicklung und das Testen von KI-Systemen nach Artikel 17 wird gemäß Nummer 3 geprüft und unterliegt
     der Überwachung gemäß Nummer 5. Die technische Dokumentation des KI-Systems wird gemäß Nummer 4 geprüft.
     3.   Qualitätsmanagementsystem 3.1. Der Antrag des Anbieters muss Folgendes enthalten:'
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: '[Anhang IV (technische Dokumentation gemaess Art. 11 Abs. 1)] h) ergriffene Cybersicherheitsmaßnahmen;
+    3. Detaillierte Informationen über die Überwachung, Funktionsweise und Kontrolle des KI-Systems, insbesondere
+    in Bezug auf Folgendes: die Fähigkeiten und Le...'
+  scope: out
+  scope_grund: 'TOOLING-DEFEKT (s. Abschlussbericht): faelschlich als ''Art. 113 Abs. 58'' extrahiert
+    - inhaltlich ist dies Anhang IV (technische Dokumentation gemaess Art. 11 Abs. 1), nicht Art. 113.
+    Inhaltsanforderung an die vom ANBIETER zu erstellende technische Dokumentation (ggf. mit Angaben ueber/fuer
+    den Betreiber als Empfaenger, z. B. Betriebsanleitungen); Pflicht liegt beim Anbieter, nicht beim
+    Betreiber - analog Art. 11 (bereits scope: out in Lauf 1).'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Anhang IV (technische Dokumentation gemaess Art. 11 Abs. 1) ist in der Aenderungsliste
+    der VO (EU) 2026/1744 nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 113 Abs. 58 lit. a
   artikel: '113'
   artikel_titel: Inkrafttreten und Geltungsbeginn
@@ -25340,17 +25639,24 @@ einheiten:
   saetze: 1
   beleg: a) Name und Anschrift des Anbieters sowie, wenn der Antrag von einem Bevollmächtigten eingereicht
     wird, auch dessen Namen und Anschrift;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: '[Anhang VII (Konformitaet auf Grundlage QMS-Bewertung, Abschnitt 3-4)] a) Name und Anschrift
+    des Anbieters sowie, wenn der Antrag von einem Bevollmächtigten eingereicht wird, auch dessen Namen
+    und Anschrift;'
+  scope: out
+  scope_grund: 'TOOLING-DEFEKT (s. Abschlussbericht): faelschlich als ''Art. 113 Abs. 58'' extrahiert
+    - inhaltlich ist dies Anhang VII (Konformitaet auf Grundlage QMS-Bewertung, Abschnitt 3-4), nicht
+    Art. 113. Antrags-/Mitwirkungspflicht des Anbieters gegenueber der notifizierten Stelle im Konformitaetsbewertungsverfahren,
+    keine Betreiberpflicht.'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Anhang VII (Konformitaet auf Grundlage QMS-Bewertung, Abschnitt 3-4) ist in
+    der Aenderungsliste der VO (EU) 2026/1744 nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 113 Abs. 58 lit. b
   artikel: '113'
   artikel_titel: Inkrafttreten und Geltungsbeginn
@@ -25360,17 +25666,23 @@ einheiten:
   laenge: 85
   saetze: 1
   beleg: b) die Liste der unter dasselbe Qualitätsmanagementsystem fallenden KI-Systeme;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: '[Anhang VII (Konformitaet auf Grundlage QMS-Bewertung, Abschnitt 3-4)] b) die Liste der unter
+    dasselbe Qualitätsmanagementsystem fallenden KI-Systeme;'
+  scope: out
+  scope_grund: 'TOOLING-DEFEKT (s. Abschlussbericht): faelschlich als ''Art. 113 Abs. 58'' extrahiert
+    - inhaltlich ist dies Anhang VII (Konformitaet auf Grundlage QMS-Bewertung, Abschnitt 3-4), nicht
+    Art. 113. Antrags-/Mitwirkungspflicht des Anbieters gegenueber der notifizierten Stelle im Konformitaetsbewertungsverfahren,
+    keine Betreiberpflicht.'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Anhang VII (Konformitaet auf Grundlage QMS-Bewertung, Abschnitt 3-4) ist in
+    der Aenderungsliste der VO (EU) 2026/1744 nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 113 Abs. 58 lit. c
   artikel: '113'
   artikel_titel: Inkrafttreten und Geltungsbeginn
@@ -25380,17 +25692,23 @@ einheiten:
   laenge: 108
   saetze: 1
   beleg: c) die technische Dokumentation für jedes unter dasselbe Qualitätsmanagementsystem fallende KI-System;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: '[Anhang VII (Konformitaet auf Grundlage QMS-Bewertung, Abschnitt 3-4)] c) die technische Dokumentation
+    für jedes unter dasselbe Qualitätsmanagementsystem fallende KI-System;'
+  scope: out
+  scope_grund: 'TOOLING-DEFEKT (s. Abschlussbericht): faelschlich als ''Art. 113 Abs. 58'' extrahiert
+    - inhaltlich ist dies Anhang VII (Konformitaet auf Grundlage QMS-Bewertung, Abschnitt 3-4), nicht
+    Art. 113. Antrags-/Mitwirkungspflicht des Anbieters gegenueber der notifizierten Stelle im Konformitaetsbewertungsverfahren,
+    keine Betreiberpflicht.'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Anhang VII (Konformitaet auf Grundlage QMS-Bewertung, Abschnitt 3-4) ist in
+    der Aenderungsliste der VO (EU) 2026/1744 nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 113 Abs. 58 lit. d
   artikel: '113'
   artikel_titel: Inkrafttreten und Geltungsbeginn
@@ -25401,17 +25719,23 @@ einheiten:
   saetze: 1
   beleg: d) die Dokumentation über das Qualitätsmanagementsystem mit allen in Artikel 17 aufgeführten
     Aspekten;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: '[Anhang VII (Konformitaet auf Grundlage QMS-Bewertung, Abschnitt 3-4)] d) die Dokumentation
+    über das Qualitätsmanagementsystem mit allen in Artikel 17 aufgeführten Aspekten;'
+  scope: out
+  scope_grund: 'TOOLING-DEFEKT (s. Abschlussbericht): faelschlich als ''Art. 113 Abs. 58'' extrahiert
+    - inhaltlich ist dies Anhang VII (Konformitaet auf Grundlage QMS-Bewertung, Abschnitt 3-4), nicht
+    Art. 113. Antrags-/Mitwirkungspflicht des Anbieters gegenueber der notifizierten Stelle im Konformitaetsbewertungsverfahren,
+    keine Betreiberpflicht.'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Anhang VII (Konformitaet auf Grundlage QMS-Bewertung, Abschnitt 3-4) ist in
+    der Aenderungsliste der VO (EU) 2026/1744 nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 113 Abs. 58 lit. e
   artikel: '113'
   artikel_titel: Inkrafttreten und Geltungsbeginn
@@ -25422,17 +25746,24 @@ einheiten:
   saetze: 1
   beleg: e) eine Beschreibung der bestehenden Verfahren, mit denen sichergestellt wird, dass das Qualitätsmanagementsystem
     angemessen und wirksam bleibt;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: '[Anhang VII (Konformitaet auf Grundlage QMS-Bewertung, Abschnitt 3-4)] e) eine Beschreibung
+    der bestehenden Verfahren, mit denen sichergestellt wird, dass das Qualitätsmanagementsystem angemessen
+    und wirksam bleibt;'
+  scope: out
+  scope_grund: 'TOOLING-DEFEKT (s. Abschlussbericht): faelschlich als ''Art. 113 Abs. 58'' extrahiert
+    - inhaltlich ist dies Anhang VII (Konformitaet auf Grundlage QMS-Bewertung, Abschnitt 3-4), nicht
+    Art. 113. Antrags-/Mitwirkungspflicht des Anbieters gegenueber der notifizierten Stelle im Konformitaetsbewertungsverfahren,
+    keine Betreiberpflicht.'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Anhang VII (Konformitaet auf Grundlage QMS-Bewertung, Abschnitt 3-4) ist in
+    der Aenderungsliste der VO (EU) 2026/1744 nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 113 Abs. 58 lit. f
   artikel: '113'
   artikel_titel: Inkrafttreten und Geltungsbeginn
@@ -25457,17 +25788,24 @@ einheiten:
     bei der notifizierten Stelle seiner Wahl einen Antrag auf Bewertung der technischen Dokumentation
     für das KI-System, das er in Verkehr zu bringen oder in Betrieb zu nehmen beabsichtigt und das unter
     das unter Nummer 3 genannte Qualitätsmanagementsystem fällt. 4.2. Der Antrag enthält Folgendes:'
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: '[Anhang VII (Konformitaet auf Grundlage QMS-Bewertung, Abschnitt 3-4)] f) eine schriftliche
+    Erklärung, dass derselbe Antrag bei keiner anderen notifizierten Stelle eingereicht wurde. 3.2. Das
+    Qualitätssicherungssystem wird von der notifizierten Stelle bewertet, um fes...'
+  scope: out
+  scope_grund: 'TOOLING-DEFEKT (s. Abschlussbericht): faelschlich als ''Art. 113 Abs. 58'' extrahiert
+    - inhaltlich ist dies Anhang VII (Konformitaet auf Grundlage QMS-Bewertung, Abschnitt 3-4), nicht
+    Art. 113. Antrags-/Mitwirkungspflicht des Anbieters gegenueber der notifizierten Stelle im Konformitaetsbewertungsverfahren,
+    keine Betreiberpflicht.'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Anhang VII (Konformitaet auf Grundlage QMS-Bewertung, Abschnitt 3-4) ist in
+    der Aenderungsliste der VO (EU) 2026/1744 nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 113 Abs. 58 lit. a
   artikel: '113'
   artikel_titel: Inkrafttreten und Geltungsbeginn
@@ -25477,17 +25815,23 @@ einheiten:
   laenge: 51
   saetze: 1
   beleg: a) den Namen und die Anschrift des Anbieters;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: '[Anhang VII (Konformitaet auf Grundlage QMS-Bewertung, Abschnitt 3-4)] a) den Namen und die
+    Anschrift des Anbieters;'
+  scope: out
+  scope_grund: 'TOOLING-DEFEKT (s. Abschlussbericht): faelschlich als ''Art. 113 Abs. 58'' extrahiert
+    - inhaltlich ist dies Anhang VII (Konformitaet auf Grundlage QMS-Bewertung, Abschnitt 3-4), nicht
+    Art. 113. Antrags-/Mitwirkungspflicht des Anbieters gegenueber der notifizierten Stelle im Konformitaetsbewertungsverfahren,
+    keine Betreiberpflicht.'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Anhang VII (Konformitaet auf Grundlage QMS-Bewertung, Abschnitt 3-4) ist in
+    der Aenderungsliste der VO (EU) 2026/1744 nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 113 Abs. 58 lit. b
   artikel: '113'
   artikel_titel: Inkrafttreten und Geltungsbeginn
@@ -25498,17 +25842,23 @@ einheiten:
   saetze: 1
   beleg: b) eine schriftliche Erklärung, dass derselbe Antrag bei keiner anderen notifizierten Stelle
     eingereicht wurde;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: '[Anhang VII (Konformitaet auf Grundlage QMS-Bewertung, Abschnitt 3-4)] b) eine schriftliche
+    Erklärung, dass derselbe Antrag bei keiner anderen notifizierten Stelle eingereicht wurde;'
+  scope: out
+  scope_grund: 'TOOLING-DEFEKT (s. Abschlussbericht): faelschlich als ''Art. 113 Abs. 58'' extrahiert
+    - inhaltlich ist dies Anhang VII (Konformitaet auf Grundlage QMS-Bewertung, Abschnitt 3-4), nicht
+    Art. 113. Antrags-/Mitwirkungspflicht des Anbieters gegenueber der notifizierten Stelle im Konformitaetsbewertungsverfahren,
+    keine Betreiberpflicht.'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Anhang VII (Konformitaet auf Grundlage QMS-Bewertung, Abschnitt 3-4) ist in
+    der Aenderungsliste der VO (EU) 2026/1744 nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 113 Abs. 58 lit. c
   artikel: '113'
   artikel_titel: Inkrafttreten und Geltungsbeginn
@@ -25619,17 +25969,26 @@ einheiten:
     über die Aussetzung oder den Abbruch des Tests unter Realbedingungen. ANHANG X Rechtsvorschriften
     der Union über IT-Großsysteme im Raum der Freiheit, der Sicherheit und des Rechts 1.   Schengener
     Informationssystem'
-  adressat: null
-  pflicht: null
-  scope: null
+  adressat: sonstige
+  pflicht: 'Enthaelt satzweise eingebettet Anhang VIII Abschnitt C: ''Von Betreibern von Hochrisiko-KI-Systemen
+    gemaess Artikel 49 Absatz 3 bereitzustellende Informationen'' - Name/Anschrift/Kontakt des Betreibers,
+    URL des Anbieter-Eintrags, Zusammenfassung der Grundrechte-Folgenabschaetzung (Art. 27) und ggf. der
+    DSGVO-Folgenabschaetzung. Umgibt daneben den Rest von Anhang VII (Kontrolle/Ueberwachung technischer
+    Dokumentation) und Anhang VIII Abschnitt A/B (Anbieter-Registrierungsangaben).'
+  scope: in
   scope_grund: null
-  verifikation: null
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
-  befund: null
-  befund_grund: null
+  omnibus: unveraendert - Anhang VIII ist in der Aenderungsliste der VO (EU) 2026/1744 nicht erwaehnt
+    (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
+  befund: nicht_einschlaegig
+  befund_grund: 'TOOLING-DEFEKT (s. Abschlussbericht): faelschlich als ''Art. 113 Abs. 58'' extrahiert
+    - inhaltlich ist das Anhang VIII Abschnitt C, die Datenfelder zur Registrierungspflicht aus Art. 49
+    Abs. 3. Direkter Beleg-Zusatz zum dortigen Befund: doppelt nicht einschlaegig fuer den Redispatch-Anwendungsfall
+    (Anhang-III-Nr.-2-Ausnahme UND Beschraenkung auf Betreiber-Behoerden), s. Art. 49 Abs. 3.'
+  po_bestaetigt: false
 - id: Art. 113 Abs. 58 lit. a
   artikel: '113'
   artikel_titel: Inkrafttreten und Geltungsbeginn
@@ -25641,17 +26000,24 @@ einheiten:
   beleg: a) Verordnung (EU) 2018/1860 des Europäischen Parlaments und des Rates vom 28. November 2018
     über die Nutzung des Schengener Informationssystems für die Rückkehr illegal aufhältiger Drittstaatsangehöriger
     (ABl. L 312 vom 7.12.2018, S. 1)
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: '[Anhang X (Rechtsvorschriften ueber IT-Grosssysteme, Anhang XI Beginn)] a) Verordnung (EU)
+    2018/1860 des Europäischen Parlaments und des Rates vom 28. November 2018 über die Nutzung des Schengener
+    Informationssystems für die Rückkehr illegal aufhältiger Drittstaatsange...'
+  scope: out
+  scope_grund: 'TOOLING-DEFEKT (s. Abschlussbericht): faelschlich als ''Art. 113 Abs. 58'' extrahiert
+    - inhaltlich ist dies Anhang X (Rechtsvorschriften ueber IT-Grosssysteme, Anhang XI Beginn), nicht
+    Art. 113. Reine Liste in Bezug genommener EU-Rechtsakte (Schengen/Grenzmanagement-IT-Systeme) bzw.
+    Beginn Anhang XI; keine Betreiberpflicht.'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Anhang X (Rechtsvorschriften ueber IT-Grosssysteme, Anhang XI Beginn) ist in
+    der Aenderungsliste der VO (EU) 2026/1744 nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 113 Abs. 58 lit. b
   artikel: '113'
   artikel_titel: Inkrafttreten und Geltungsbeginn
@@ -25664,17 +26030,24 @@ einheiten:
     über die Einrichtung, den Betrieb und die Nutzung des Schengener Informationssystems (SIS) im Bereich
     der Grenzkontrollen, zur Änderung des Übereinkommens zur Durchführung des Übereinkommens von Schengen
     und zur Änderung und Aufhebung der Verordnung (EG) Nr. 1987/2006 (ABl. L 312 vom 7.12.2018, S. 14)
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: '[Anhang X (Rechtsvorschriften ueber IT-Grosssysteme, Anhang XI Beginn)] b) Verordnung (EU)
+    2018/1861 des Europäischen Parlaments und des Rates vom 28. November 2018 über die Einrichtung, den
+    Betrieb und die Nutzung des Schengener Informationssystems (SIS) im Bereich de...'
+  scope: out
+  scope_grund: 'TOOLING-DEFEKT (s. Abschlussbericht): faelschlich als ''Art. 113 Abs. 58'' extrahiert
+    - inhaltlich ist dies Anhang X (Rechtsvorschriften ueber IT-Grosssysteme, Anhang XI Beginn), nicht
+    Art. 113. Reine Liste in Bezug genommener EU-Rechtsakte (Schengen/Grenzmanagement-IT-Systeme) bzw.
+    Beginn Anhang XI; keine Betreiberpflicht.'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Anhang X (Rechtsvorschriften ueber IT-Grosssysteme, Anhang XI Beginn) ist in
+    der Aenderungsliste der VO (EU) 2026/1744 nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 113 Abs. 58 lit. c
   artikel: '113'
   artikel_titel: Inkrafttreten und Geltungsbeginn
@@ -25689,17 +26062,24 @@ einheiten:
     und Aufhebung des Beschlusses 2007/533/JI des Rates und zur Aufhebung der Verordnung (EG) Nr. 1986/2006
     des Europäischen Parlaments und des Rates und des Beschlusses 2010/261/EU der Kommission (ABl. L 312
     vom 7.12.2018, S. 56) 2.   Visa-Informationssystem
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: '[Anhang X (Rechtsvorschriften ueber IT-Grosssysteme, Anhang XI Beginn)] c) Verordnung (EU)
+    2018/1862 des Europäischen Parlaments und des Rates vom 28. November 2018 über die Einrichtung, den
+    Betrieb und die Nutzung des Schengener Informationssystems (SIS) im Bereich de...'
+  scope: out
+  scope_grund: 'TOOLING-DEFEKT (s. Abschlussbericht): faelschlich als ''Art. 113 Abs. 58'' extrahiert
+    - inhaltlich ist dies Anhang X (Rechtsvorschriften ueber IT-Grosssysteme, Anhang XI Beginn), nicht
+    Art. 113. Reine Liste in Bezug genommener EU-Rechtsakte (Schengen/Grenzmanagement-IT-Systeme) bzw.
+    Beginn Anhang XI; keine Betreiberpflicht.'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Anhang X (Rechtsvorschriften ueber IT-Grosssysteme, Anhang XI Beginn) ist in
+    der Aenderungsliste der VO (EU) 2026/1744 nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 113 Abs. 58 lit. a
   artikel: '113'
   artikel_titel: Inkrafttreten und Geltungsbeginn
@@ -25712,17 +26092,24 @@ einheiten:
     der Verordnungen (EU) Nr. 603/2013, (EU) 2016/794, (EU) 2018/1862, (EU) 2019/816 und (EU) 2019/818
     hinsichtlich der Festlegung der Voraussetzungen für den Zugang zu anderen Informationssystemen der
     EU für Zwecke des Visa-Informationssystems (ABl. L 248 vom 13.7.2021, S. 1)
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: '[Anhang X (Rechtsvorschriften ueber IT-Grosssysteme, Anhang XI Beginn)] a) Verordnung (EU)
+    2021/1133 des Europäischen Parlaments und des Rates vom 7. Juli 2021 zur Änderung der Verordnungen
+    (EU) Nr. 603/2013, (EU) 2016/794, (EU) 2018/1862, (EU) 2019/816 und (EU) 2019/8...'
+  scope: out
+  scope_grund: 'TOOLING-DEFEKT (s. Abschlussbericht): faelschlich als ''Art. 113 Abs. 58'' extrahiert
+    - inhaltlich ist dies Anhang X (Rechtsvorschriften ueber IT-Grosssysteme, Anhang XI Beginn), nicht
+    Art. 113. Reine Liste in Bezug genommener EU-Rechtsakte (Schengen/Grenzmanagement-IT-Systeme) bzw.
+    Beginn Anhang XI; keine Betreiberpflicht.'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Anhang X (Rechtsvorschriften ueber IT-Grosssysteme, Anhang XI Beginn) ist in
+    der Aenderungsliste der VO (EU) 2026/1744 nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 113 Abs. 58 lit. b
   artikel: '113'
   artikel_titel: Inkrafttreten und Geltungsbeginn
@@ -25750,17 +26137,24 @@ einheiten:
     und zur Festlegung der Bedingungen für den Zugang zum EES zu Gefahrenabwehr- und Strafverfolgungszwecken
     und zur Änderung des Übereinkommens von Schengen sowie der Verordnungen (EG) Nr. 767/2008 und (EU)
     Nr. 1077/2011 (ABl. L 327 vom 9.12.2017, S. 20) 5.   Europäisches Reiseinformations- und -genehmigungssystem'
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: '[Anhang X (Rechtsvorschriften ueber IT-Grosssysteme, Anhang XI Beginn)] b) Verordnung (EU)
+    2021/1134 des Europäischen Parlaments und des Rates vom 7. Juli 2021 zur Änderung der Verordnungen
+    (EG) Nr. 767/2008, (EG) Nr. 810/2009, (EU) 2016/399, (EU) 2017/2226, (EU) 2018/...'
+  scope: out
+  scope_grund: 'TOOLING-DEFEKT (s. Abschlussbericht): faelschlich als ''Art. 113 Abs. 58'' extrahiert
+    - inhaltlich ist dies Anhang X (Rechtsvorschriften ueber IT-Grosssysteme, Anhang XI Beginn), nicht
+    Art. 113. Reine Liste in Bezug genommener EU-Rechtsakte (Schengen/Grenzmanagement-IT-Systeme) bzw.
+    Beginn Anhang XI; keine Betreiberpflicht.'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Anhang X (Rechtsvorschriften ueber IT-Grosssysteme, Anhang XI Beginn) ist in
+    der Aenderungsliste der VO (EU) 2026/1744 nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 113 Abs. 58 lit. a
   artikel: '113'
   artikel_titel: Inkrafttreten und Geltungsbeginn
@@ -25773,17 +26167,24 @@ einheiten:
     über die Einrichtung eines Europäischen Reiseinformations- und -genehmigungssystems (ETIAS) und zur
     Änderung der Verordnungen (EU) Nr. 1077/2011, (EU) Nr. 515/2014, (EU) 2016/399, (EU) 2016/1624 und
     (EU) 2017/2226 (ABl. L 236 vom 19.9.2018, S. 1)
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: '[Anhang X (Rechtsvorschriften ueber IT-Grosssysteme, Anhang XI Beginn)] a) Verordnung (EU)
+    2018/1240 des Europäischen Parlaments und des Rates vom 12. September 2018 über die Einrichtung eines
+    Europäischen Reiseinformations- und -genehmigungssystems (ETIAS) und zur Änd...'
+  scope: out
+  scope_grund: 'TOOLING-DEFEKT (s. Abschlussbericht): faelschlich als ''Art. 113 Abs. 58'' extrahiert
+    - inhaltlich ist dies Anhang X (Rechtsvorschriften ueber IT-Grosssysteme, Anhang XI Beginn), nicht
+    Art. 113. Reine Liste in Bezug genommener EU-Rechtsakte (Schengen/Grenzmanagement-IT-Systeme) bzw.
+    Beginn Anhang XI; keine Betreiberpflicht.'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Anhang X (Rechtsvorschriften ueber IT-Grosssysteme, Anhang XI Beginn) ist in
+    der Aenderungsliste der VO (EU) 2026/1744 nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 113 Abs. 58 lit. b
   artikel: '113'
   artikel_titel: Inkrafttreten und Geltungsbeginn
@@ -25800,17 +26201,24 @@ einheiten:
     Mitgliedstaaten, in denen Informationen zu Verurteilungen von Drittstaatsangehörigen und Staatenlosen
     (ECRIS-TCN) vorliegen, zur Ergänzung des Europäischen Strafregisterinformationssystems und zur Änderung
     der Verordnung (EU) 2018/1726 (ABl. L 135 vom 22.5.2019, S. 1) 7.   Interoperabilität
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: '[Anhang X (Rechtsvorschriften ueber IT-Grosssysteme, Anhang XI Beginn)] b) Verordnung (EU)
+    2018/1241 des Europäischen Parlaments und des Rates vom 12. September 2018 zur Änderung der Verordnung
+    (EU) 2016/794 für die Zwecke der Einrichtung eines Europäischen Reiseinform...'
+  scope: out
+  scope_grund: 'TOOLING-DEFEKT (s. Abschlussbericht): faelschlich als ''Art. 113 Abs. 58'' extrahiert
+    - inhaltlich ist dies Anhang X (Rechtsvorschriften ueber IT-Grosssysteme, Anhang XI Beginn), nicht
+    Art. 113. Reine Liste in Bezug genommener EU-Rechtsakte (Schengen/Grenzmanagement-IT-Systeme) bzw.
+    Beginn Anhang XI; keine Betreiberpflicht.'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Anhang X (Rechtsvorschriften ueber IT-Grosssysteme, Anhang XI Beginn) ist in
+    der Aenderungsliste der VO (EU) 2026/1744 nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 113 Abs. 58 lit. a
   artikel: '113'
   artikel_titel: Inkrafttreten und Geltungsbeginn
@@ -25824,17 +26232,24 @@ einheiten:
     und Visa und zur Änderung der Verordnungen (EG) Nr. 767/2008, (EU) 2016/399, (EU) 2017/2226, (EU)
     2018/1240, (EU) 2018/1726 und (EU) 2018/1861 des Europäischen Parlaments und des Rates, der Entscheidung
     2004/512/EG des Rates und des Beschlusses 2008/633/JI des Rates (ABl. L 135 vom 22.5.2019, S. 27)
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: '[Anhang X (Rechtsvorschriften ueber IT-Grosssysteme, Anhang XI Beginn)] a) Verordnung (EU)
+    2019/817 des Europäischen Parlaments und des Rates vom 20. Mai 2019 zur Errichtung eines Rahmens für
+    die Interoperabilität zwischen EU-Informationssystemen in den Bereichen Grenz...'
+  scope: out
+  scope_grund: 'TOOLING-DEFEKT (s. Abschlussbericht): faelschlich als ''Art. 113 Abs. 58'' extrahiert
+    - inhaltlich ist dies Anhang X (Rechtsvorschriften ueber IT-Grosssysteme, Anhang XI Beginn), nicht
+    Art. 113. Reine Liste in Bezug genommener EU-Rechtsakte (Schengen/Grenzmanagement-IT-Systeme) bzw.
+    Beginn Anhang XI; keine Betreiberpflicht.'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Anhang X (Rechtsvorschriften ueber IT-Grosssysteme, Anhang XI Beginn) ist in
+    der Aenderungsliste der VO (EU) 2026/1744 nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 113 Abs. 58 lit. b
   artikel: '113'
   artikel_titel: Inkrafttreten und Geltungsbeginn
@@ -25852,17 +26267,24 @@ einheiten:
     Informationen Die in Artikel 53 Absatz 1 Buchstabe a genannte technische Dokumentation muss mindestens
     die folgenden Informationen enthalten, soweit es anhand der Größe und des Risikoprofils des betreffenden
     Modells angemessen ist: 1. Eine allgemeine Beschreibung des KI-Modells einschließlich'
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: '[Anhang X (Rechtsvorschriften ueber IT-Grosssysteme, Anhang XI Beginn)] b) Verordnung (EU)
+    2019/818 des Europäischen Parlaments und des Rates vom 20. Mai 2019 zur Errichtung eines Rahmens für
+    die Interoperabilität zwischen EU-Informationssystemen (polizeiliche und just...'
+  scope: out
+  scope_grund: 'TOOLING-DEFEKT (s. Abschlussbericht): faelschlich als ''Art. 113 Abs. 58'' extrahiert
+    - inhaltlich ist dies Anhang X (Rechtsvorschriften ueber IT-Grosssysteme, Anhang XI Beginn), nicht
+    Art. 113. Reine Liste in Bezug genommener EU-Rechtsakte (Schengen/Grenzmanagement-IT-Systeme) bzw.
+    Beginn Anhang XI; keine Betreiberpflicht.'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Anhang X (Rechtsvorschriften ueber IT-Grosssysteme, Anhang XI Beginn) ist in
+    der Aenderungsliste der VO (EU) 2026/1744 nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 113 Abs. 58 lit. a
   artikel: '113'
   artikel_titel: Inkrafttreten und Geltungsbeginn
@@ -25873,17 +26295,24 @@ einheiten:
   saetze: 1
   beleg: a) der Aufgaben, die das Modell erfüllen soll, sowie der Art und des Wesens der KI-Systeme, in
     die es integriert werden kann;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: '[Anhang XI (technische Dokumentation GPAI-Anbieter, Art. 53 Abs. 1 lit. a)] a) der Aufgaben,
+    die das Modell erfüllen soll, sowie der Art und des Wesens der KI-Systeme, in die es integriert werden
+    kann;'
+  scope: out
+  scope_grund: 'TOOLING-DEFEKT (s. Abschlussbericht): faelschlich als ''Art. 113 Abs. 58'' extrahiert
+    - inhaltlich ist dies Anhang XI (technische Dokumentation GPAI-Anbieter, Art. 53 Abs. 1 lit. a), nicht
+    Art. 113. Dokumentationspflicht des Anbieters eines KI-Modells mit allgemeinem Verwendungszweck, keine
+    Betreiberpflicht (Redispatch-System ist kein GPAI-Modell-Anbieter).'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Anhang XI (technische Dokumentation GPAI-Anbieter, Art. 53 Abs. 1 lit. a) ist
+    in der Aenderungsliste der VO (EU) 2026/1744 nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 113 Abs. 58 lit. b
   artikel: '113'
   artikel_titel: Inkrafttreten und Geltungsbeginn
@@ -25893,17 +26322,23 @@ einheiten:
   laenge: 60
   saetze: 1
   beleg: b) die anwendbaren Regelungen der akzeptablen Nutzung;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: '[Anhang XI (technische Dokumentation GPAI-Anbieter, Art. 53 Abs. 1 lit. a)] b) die anwendbaren
+    Regelungen der akzeptablen Nutzung;'
+  scope: out
+  scope_grund: 'TOOLING-DEFEKT (s. Abschlussbericht): faelschlich als ''Art. 113 Abs. 58'' extrahiert
+    - inhaltlich ist dies Anhang XI (technische Dokumentation GPAI-Anbieter, Art. 53 Abs. 1 lit. a), nicht
+    Art. 113. Dokumentationspflicht des Anbieters eines KI-Modells mit allgemeinem Verwendungszweck, keine
+    Betreiberpflicht (Redispatch-System ist kein GPAI-Modell-Anbieter).'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Anhang XI (technische Dokumentation GPAI-Anbieter, Art. 53 Abs. 1 lit. a) ist
+    in der Aenderungsliste der VO (EU) 2026/1744 nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 113 Abs. 58 lit. c
   artikel: '113'
   artikel_titel: Inkrafttreten und Geltungsbeginn
@@ -25913,17 +26348,23 @@ einheiten:
   laenge: 58
   saetze: 1
   beleg: c) das Datum der Freigabe und die Vertriebsmethoden;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: '[Anhang XI (technische Dokumentation GPAI-Anbieter, Art. 53 Abs. 1 lit. a)] c) das Datum der
+    Freigabe und die Vertriebsmethoden;'
+  scope: out
+  scope_grund: 'TOOLING-DEFEKT (s. Abschlussbericht): faelschlich als ''Art. 113 Abs. 58'' extrahiert
+    - inhaltlich ist dies Anhang XI (technische Dokumentation GPAI-Anbieter, Art. 53 Abs. 1 lit. a), nicht
+    Art. 113. Dokumentationspflicht des Anbieters eines KI-Modells mit allgemeinem Verwendungszweck, keine
+    Betreiberpflicht (Redispatch-System ist kein GPAI-Modell-Anbieter).'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Anhang XI (technische Dokumentation GPAI-Anbieter, Art. 53 Abs. 1 lit. a) ist
+    in der Aenderungsliste der VO (EU) 2026/1744 nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 113 Abs. 58 lit. d
   artikel: '113'
   artikel_titel: Inkrafttreten und Geltungsbeginn
@@ -25933,17 +26374,23 @@ einheiten:
   laenge: 54
   saetze: 1
   beleg: d) die Architektur und die Anzahl der Parameter;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: '[Anhang XI (technische Dokumentation GPAI-Anbieter, Art. 53 Abs. 1 lit. a)] d) die Architektur
+    und die Anzahl der Parameter;'
+  scope: out
+  scope_grund: 'TOOLING-DEFEKT (s. Abschlussbericht): faelschlich als ''Art. 113 Abs. 58'' extrahiert
+    - inhaltlich ist dies Anhang XI (technische Dokumentation GPAI-Anbieter, Art. 53 Abs. 1 lit. a), nicht
+    Art. 113. Dokumentationspflicht des Anbieters eines KI-Modells mit allgemeinem Verwendungszweck, keine
+    Betreiberpflicht (Redispatch-System ist kein GPAI-Modell-Anbieter).'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Anhang XI (technische Dokumentation GPAI-Anbieter, Art. 53 Abs. 1 lit. a) ist
+    in der Aenderungsliste der VO (EU) 2026/1744 nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 113 Abs. 58 lit. e
   artikel: '113'
   artikel_titel: Inkrafttreten und Geltungsbeginn
@@ -25953,17 +26400,23 @@ einheiten:
   laenge: 86
   saetze: 1
   beleg: e) die Modalität (zum Beispiel Text, Bild) und das Format der Ein- und Ausgaben;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: '[Anhang XI (technische Dokumentation GPAI-Anbieter, Art. 53 Abs. 1 lit. a)] e) die Modalität
+    (zum Beispiel Text, Bild) und das Format der Ein- und Ausgaben;'
+  scope: out
+  scope_grund: 'TOOLING-DEFEKT (s. Abschlussbericht): faelschlich als ''Art. 113 Abs. 58'' extrahiert
+    - inhaltlich ist dies Anhang XI (technische Dokumentation GPAI-Anbieter, Art. 53 Abs. 1 lit. a), nicht
+    Art. 113. Dokumentationspflicht des Anbieters eines KI-Modells mit allgemeinem Verwendungszweck, keine
+    Betreiberpflicht (Redispatch-System ist kein GPAI-Modell-Anbieter).'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Anhang XI (technische Dokumentation GPAI-Anbieter, Art. 53 Abs. 1 lit. a) ist
+    in der Aenderungsliste der VO (EU) 2026/1744 nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 113 Abs. 58 lit. f
   artikel: '113'
   artikel_titel: Inkrafttreten und Geltungsbeginn
@@ -25974,17 +26427,24 @@ einheiten:
   saetze: 2
   beleg: 'f) die Lizenz. 2. Eine ausführliche Beschreibung der Elemente des Modells gemäß Nummer 1 und
     relevante Informationen zum Entwicklungsverfahren, einschließlich der folgenden Elemente:'
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: '[Anhang XI (technische Dokumentation GPAI-Anbieter, Art. 53 Abs. 1 lit. a)] f) die Lizenz.
+    2. Eine ausführliche Beschreibung der Elemente des Modells gemäß Nummer 1 und relevante Informationen
+    zum Entwicklungsverfahren, einschließlich der folgenden Elemente:'
+  scope: out
+  scope_grund: 'TOOLING-DEFEKT (s. Abschlussbericht): faelschlich als ''Art. 113 Abs. 58'' extrahiert
+    - inhaltlich ist dies Anhang XI (technische Dokumentation GPAI-Anbieter, Art. 53 Abs. 1 lit. a), nicht
+    Art. 113. Dokumentationspflicht des Anbieters eines KI-Modells mit allgemeinem Verwendungszweck, keine
+    Betreiberpflicht (Redispatch-System ist kein GPAI-Modell-Anbieter).'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Anhang XI (technische Dokumentation GPAI-Anbieter, Art. 53 Abs. 1 lit. a) ist
+    in der Aenderungsliste der VO (EU) 2026/1744 nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 113 Abs. 58 lit. a
   artikel: '113'
   artikel_titel: Inkrafttreten und Geltungsbeginn
@@ -25995,17 +26455,24 @@ einheiten:
   saetze: 1
   beleg: a) die technischen Mittel (zum Beispiel Betriebsanleitungen, Infrastruktur, Instrumente), die
     für die Integration des KI-Modells mit allgemeinem Verwendungszweck in KI-Systeme erforderlich sind;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: '[Anhang XI (technische Dokumentation GPAI-Anbieter, Art. 53 Abs. 1 lit. a)] a) die technischen
+    Mittel (zum Beispiel Betriebsanleitungen, Infrastruktur, Instrumente), die für die Integration des
+    KI-Modells mit allgemeinem Verwendungszweck in KI-Systeme erforderlich sind;'
+  scope: out
+  scope_grund: 'TOOLING-DEFEKT (s. Abschlussbericht): faelschlich als ''Art. 113 Abs. 58'' extrahiert
+    - inhaltlich ist dies Anhang XI (technische Dokumentation GPAI-Anbieter, Art. 53 Abs. 1 lit. a), nicht
+    Art. 113. Dokumentationspflicht des Anbieters eines KI-Modells mit allgemeinem Verwendungszweck, keine
+    Betreiberpflicht (Redispatch-System ist kein GPAI-Modell-Anbieter).'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Anhang XI (technische Dokumentation GPAI-Anbieter, Art. 53 Abs. 1 lit. a) ist
+    in der Aenderungsliste der VO (EU) 2026/1744 nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 113 Abs. 58 lit. b
   artikel: '113'
   artikel_titel: Inkrafttreten und Geltungsbeginn
@@ -26017,17 +26484,24 @@ einheiten:
   beleg: b) die Entwurfsspezifikationen des Modells und des Trainingsverfahrens einschließlich Trainingsmethoden
     und -techniken, die wichtigsten Entwurfsentscheidungen mit den Gründen und getroffenen Annahmen; gegebenenfalls,
     was das Modell optimieren soll und welche Bedeutung den verschiedenen Parametern dabei zukommt;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: '[Anhang XI (technische Dokumentation GPAI-Anbieter, Art. 53 Abs. 1 lit. a)] b) die Entwurfsspezifikationen
+    des Modells und des Trainingsverfahrens einschließlich Trainingsmethoden und -techniken, die wichtigsten
+    Entwurfsentscheidungen mit den Gründen und getroffenen Annahm...'
+  scope: out
+  scope_grund: 'TOOLING-DEFEKT (s. Abschlussbericht): faelschlich als ''Art. 113 Abs. 58'' extrahiert
+    - inhaltlich ist dies Anhang XI (technische Dokumentation GPAI-Anbieter, Art. 53 Abs. 1 lit. a), nicht
+    Art. 113. Dokumentationspflicht des Anbieters eines KI-Modells mit allgemeinem Verwendungszweck, keine
+    Betreiberpflicht (Redispatch-System ist kein GPAI-Modell-Anbieter).'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Anhang XI (technische Dokumentation GPAI-Anbieter, Art. 53 Abs. 1 lit. a) ist
+    in der Aenderungsliste der VO (EU) 2026/1744 nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 113 Abs. 58 lit. c
   artikel: '113'
   artikel_titel: Inkrafttreten und Geltungsbeginn
@@ -26041,17 +26515,24 @@ einheiten:
     Filterung usw.), der Zahl der Datenpunkte, ihres Umfangs und ihrer Hauptmerkmale; gegebenenfalls die
     Art und Weise, wie die Daten erlangt und ausgewählt wurden, sowie alle anderen Maßnahmen zur Feststellung,
     ob Datenquellen ungeeignet sind, und Methoden zur Erkennung ermittelbarer Verzerrungen;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: '[Anhang XI (technische Dokumentation GPAI-Anbieter, Art. 53 Abs. 1 lit. a)] c) gegebenenfalls
+    Informationen über die für das Trainieren, Testen und Validieren verwendeten Daten, einschließlich
+    der Art und Herkunft der Daten und der Aufbereitungsmethoden (zum Beispiel Berei...'
+  scope: out
+  scope_grund: 'TOOLING-DEFEKT (s. Abschlussbericht): faelschlich als ''Art. 113 Abs. 58'' extrahiert
+    - inhaltlich ist dies Anhang XI (technische Dokumentation GPAI-Anbieter, Art. 53 Abs. 1 lit. a), nicht
+    Art. 113. Dokumentationspflicht des Anbieters eines KI-Modells mit allgemeinem Verwendungszweck, keine
+    Betreiberpflicht (Redispatch-System ist kein GPAI-Modell-Anbieter).'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Anhang XI (technische Dokumentation GPAI-Anbieter, Art. 53 Abs. 1 lit. a) ist
+    in der Aenderungsliste der VO (EU) 2026/1744 nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 113 Abs. 58 lit. d
   artikel: '113'
   artikel_titel: Inkrafttreten und Geltungsbeginn
@@ -26062,17 +26543,24 @@ einheiten:
   saetze: 1
   beleg: d) die für das Trainieren des Modells verwendeten Rechenressourcen (zum Beispiel Anzahl der Gleitkommaoperationen),
     die Trainingszeit und andere relevante Einzelheiten im Zusammenhang mit dem Trainieren;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: '[Anhang XI (technische Dokumentation GPAI-Anbieter, Art. 53 Abs. 1 lit. a)] d) die für das
+    Trainieren des Modells verwendeten Rechenressourcen (zum Beispiel Anzahl der Gleitkommaoperationen),
+    die Trainingszeit und andere relevante Einzelheiten im Zusammenhang mit dem Train...'
+  scope: out
+  scope_grund: 'TOOLING-DEFEKT (s. Abschlussbericht): faelschlich als ''Art. 113 Abs. 58'' extrahiert
+    - inhaltlich ist dies Anhang XI (technische Dokumentation GPAI-Anbieter, Art. 53 Abs. 1 lit. a), nicht
+    Art. 113. Dokumentationspflicht des Anbieters eines KI-Modells mit allgemeinem Verwendungszweck, keine
+    Betreiberpflicht (Redispatch-System ist kein GPAI-Modell-Anbieter).'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Anhang XI (technische Dokumentation GPAI-Anbieter, Art. 53 Abs. 1 lit. a) ist
+    in der Aenderungsliste der VO (EU) 2026/1744 nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 113 Abs. 58 lit. e
   artikel: '113'
   artikel_titel: Inkrafttreten und Geltungsbeginn
@@ -26096,17 +26584,24 @@ einheiten:
     Anbieter von KI-Modellen mit allgemeinem Verwendungszweck für nachgelagerte Anbieter, die das Modell
     in ihr KI-System integrieren Die in Artikel 53 Absatz 1 Buchstabe b genannten Informationen enthalten
     mindestens Folgendes: 1. eine allgemeine Beschreibung des KI-Modells einschließlich'
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: '[Anhang XI (technische Dokumentation GPAI-Anbieter, Art. 53 Abs. 1 lit. a)] e) bekannter oder
+    geschätzter Energieverbrauch des Modells. Wenn der Energieverbrauch des Modells nicht bekannt ist,
+    kann für Buchstabe e der Energieverbrauch auf Informationen über die eingesetzte...'
+  scope: out
+  scope_grund: 'TOOLING-DEFEKT (s. Abschlussbericht): faelschlich als ''Art. 113 Abs. 58'' extrahiert
+    - inhaltlich ist dies Anhang XI (technische Dokumentation GPAI-Anbieter, Art. 53 Abs. 1 lit. a), nicht
+    Art. 113. Dokumentationspflicht des Anbieters eines KI-Modells mit allgemeinem Verwendungszweck, keine
+    Betreiberpflicht (Redispatch-System ist kein GPAI-Modell-Anbieter).'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Anhang XI (technische Dokumentation GPAI-Anbieter, Art. 53 Abs. 1 lit. a) ist
+    in der Aenderungsliste der VO (EU) 2026/1744 nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 113 Abs. 58 lit. a
   artikel: '113'
   artikel_titel: Inkrafttreten und Geltungsbeginn
@@ -26117,17 +26612,25 @@ einheiten:
   saetze: 1
   beleg: a) der Aufgaben, die das Modell erfüllen soll, sowie der Art und des Wesens der KI-Systeme, in
     die es integriert werden kann;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: '[Anhang XII (Transparenzinformationen fuer nachgelagerte Anbieter, Art. 53 Abs. 1 lit. b)]
+    a) der Aufgaben, die das Modell erfüllen soll, sowie der Art und des Wesens der KI-Systeme, in die
+    es integriert werden kann;'
+  scope: out
+  scope_grund: 'TOOLING-DEFEKT (s. Abschlussbericht): faelschlich als ''Art. 113 Abs. 58'' extrahiert
+    - inhaltlich ist dies Anhang XII (Transparenzinformationen fuer nachgelagerte Anbieter, Art. 53 Abs.
+    1 lit. b), nicht Art. 113. Informationspflicht des GPAI-Anbieters gegenueber nachgelagerten (integrierenden)
+    Anbietern, keine Betreiberpflicht.'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Anhang XII (Transparenzinformationen fuer nachgelagerte Anbieter, Art. 53 Abs.
+    1 lit. b) ist in der Aenderungsliste der VO (EU) 2026/1744 nicht erwaehnt (geprueft am verfuegenden
+    Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 113 Abs. 58 lit. b
   artikel: '113'
   artikel_titel: Inkrafttreten und Geltungsbeginn
@@ -26137,17 +26640,24 @@ einheiten:
   laenge: 60
   saetze: 1
   beleg: b) die anwendbaren Regelungen der akzeptablen Nutzung;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: '[Anhang XII (Transparenzinformationen fuer nachgelagerte Anbieter, Art. 53 Abs. 1 lit. b)]
+    b) die anwendbaren Regelungen der akzeptablen Nutzung;'
+  scope: out
+  scope_grund: 'TOOLING-DEFEKT (s. Abschlussbericht): faelschlich als ''Art. 113 Abs. 58'' extrahiert
+    - inhaltlich ist dies Anhang XII (Transparenzinformationen fuer nachgelagerte Anbieter, Art. 53 Abs.
+    1 lit. b), nicht Art. 113. Informationspflicht des GPAI-Anbieters gegenueber nachgelagerten (integrierenden)
+    Anbietern, keine Betreiberpflicht.'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Anhang XII (Transparenzinformationen fuer nachgelagerte Anbieter, Art. 53 Abs.
+    1 lit. b) ist in der Aenderungsliste der VO (EU) 2026/1744 nicht erwaehnt (geprueft am verfuegenden
+    Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 113 Abs. 58 lit. c
   artikel: '113'
   artikel_titel: Inkrafttreten und Geltungsbeginn
@@ -26157,17 +26667,24 @@ einheiten:
   laenge: 58
   saetze: 1
   beleg: c) das Datum der Freigabe und die Vertriebsmethoden;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: '[Anhang XII (Transparenzinformationen fuer nachgelagerte Anbieter, Art. 53 Abs. 1 lit. b)]
+    c) das Datum der Freigabe und die Vertriebsmethoden;'
+  scope: out
+  scope_grund: 'TOOLING-DEFEKT (s. Abschlussbericht): faelschlich als ''Art. 113 Abs. 58'' extrahiert
+    - inhaltlich ist dies Anhang XII (Transparenzinformationen fuer nachgelagerte Anbieter, Art. 53 Abs.
+    1 lit. b), nicht Art. 113. Informationspflicht des GPAI-Anbieters gegenueber nachgelagerten (integrierenden)
+    Anbietern, keine Betreiberpflicht.'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Anhang XII (Transparenzinformationen fuer nachgelagerte Anbieter, Art. 53 Abs.
+    1 lit. b) ist in der Aenderungsliste der VO (EU) 2026/1744 nicht erwaehnt (geprueft am verfuegenden
+    Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 113 Abs. 58 lit. d
   artikel: '113'
   artikel_titel: Inkrafttreten und Geltungsbeginn
@@ -26178,17 +26695,25 @@ einheiten:
   saetze: 1
   beleg: d) gegebenenfalls wie das Modell mit Hardware oder Software interagiert, die nicht Teil des Modells
     selbst ist, oder wie es zu einer solchen Interaktion verwendet werden kann;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: '[Anhang XII (Transparenzinformationen fuer nachgelagerte Anbieter, Art. 53 Abs. 1 lit. b)]
+    d) gegebenenfalls wie das Modell mit Hardware oder Software interagiert, die nicht Teil des Modells
+    selbst ist, oder wie es zu einer solchen Interaktion verwendet werden kann;'
+  scope: out
+  scope_grund: 'TOOLING-DEFEKT (s. Abschlussbericht): faelschlich als ''Art. 113 Abs. 58'' extrahiert
+    - inhaltlich ist dies Anhang XII (Transparenzinformationen fuer nachgelagerte Anbieter, Art. 53 Abs.
+    1 lit. b), nicht Art. 113. Informationspflicht des GPAI-Anbieters gegenueber nachgelagerten (integrierenden)
+    Anbietern, keine Betreiberpflicht.'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Anhang XII (Transparenzinformationen fuer nachgelagerte Anbieter, Art. 53 Abs.
+    1 lit. b) ist in der Aenderungsliste der VO (EU) 2026/1744 nicht erwaehnt (geprueft am verfuegenden
+    Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 113 Abs. 58 lit. e
   artikel: '113'
   artikel_titel: Inkrafttreten und Geltungsbeginn
@@ -26199,17 +26724,25 @@ einheiten:
   saetze: 1
   beleg: e) gegebenenfalls die Versionen der einschlägigen Software im Zusammenhang mit der Verwendung
     des KI-Modells mit allgemeinem Verwendungszweck;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: '[Anhang XII (Transparenzinformationen fuer nachgelagerte Anbieter, Art. 53 Abs. 1 lit. b)]
+    e) gegebenenfalls die Versionen der einschlägigen Software im Zusammenhang mit der Verwendung des
+    KI-Modells mit allgemeinem Verwendungszweck;'
+  scope: out
+  scope_grund: 'TOOLING-DEFEKT (s. Abschlussbericht): faelschlich als ''Art. 113 Abs. 58'' extrahiert
+    - inhaltlich ist dies Anhang XII (Transparenzinformationen fuer nachgelagerte Anbieter, Art. 53 Abs.
+    1 lit. b), nicht Art. 113. Informationspflicht des GPAI-Anbieters gegenueber nachgelagerten (integrierenden)
+    Anbietern, keine Betreiberpflicht.'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Anhang XII (Transparenzinformationen fuer nachgelagerte Anbieter, Art. 53 Abs.
+    1 lit. b) ist in der Aenderungsliste der VO (EU) 2026/1744 nicht erwaehnt (geprueft am verfuegenden
+    Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 113 Abs. 58 lit. f
   artikel: '113'
   artikel_titel: Inkrafttreten und Geltungsbeginn
@@ -26219,17 +26752,24 @@ einheiten:
   laenge: 54
   saetze: 1
   beleg: f) die Architektur und die Anzahl der Parameter;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: '[Anhang XII (Transparenzinformationen fuer nachgelagerte Anbieter, Art. 53 Abs. 1 lit. b)]
+    f) die Architektur und die Anzahl der Parameter;'
+  scope: out
+  scope_grund: 'TOOLING-DEFEKT (s. Abschlussbericht): faelschlich als ''Art. 113 Abs. 58'' extrahiert
+    - inhaltlich ist dies Anhang XII (Transparenzinformationen fuer nachgelagerte Anbieter, Art. 53 Abs.
+    1 lit. b), nicht Art. 113. Informationspflicht des GPAI-Anbieters gegenueber nachgelagerten (integrierenden)
+    Anbietern, keine Betreiberpflicht.'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Anhang XII (Transparenzinformationen fuer nachgelagerte Anbieter, Art. 53 Abs.
+    1 lit. b) ist in der Aenderungsliste der VO (EU) 2026/1744 nicht erwaehnt (geprueft am verfuegenden
+    Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 113 Abs. 58 lit. g
   artikel: '113'
   artikel_titel: Inkrafttreten und Geltungsbeginn
@@ -26239,17 +26779,24 @@ einheiten:
   laenge: 86
   saetze: 1
   beleg: g) die Modalität (zum Beispiel Text, Bild) und das Format der Ein- und Ausgaben;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: '[Anhang XII (Transparenzinformationen fuer nachgelagerte Anbieter, Art. 53 Abs. 1 lit. b)]
+    g) die Modalität (zum Beispiel Text, Bild) und das Format der Ein- und Ausgaben;'
+  scope: out
+  scope_grund: 'TOOLING-DEFEKT (s. Abschlussbericht): faelschlich als ''Art. 113 Abs. 58'' extrahiert
+    - inhaltlich ist dies Anhang XII (Transparenzinformationen fuer nachgelagerte Anbieter, Art. 53 Abs.
+    1 lit. b), nicht Art. 113. Informationspflicht des GPAI-Anbieters gegenueber nachgelagerten (integrierenden)
+    Anbietern, keine Betreiberpflicht.'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Anhang XII (Transparenzinformationen fuer nachgelagerte Anbieter, Art. 53 Abs.
+    1 lit. b) ist in der Aenderungsliste der VO (EU) 2026/1744 nicht erwaehnt (geprueft am verfuegenden
+    Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 113 Abs. 58 lit. h
   artikel: '113'
   artikel_titel: Inkrafttreten und Geltungsbeginn
@@ -26260,17 +26807,25 @@ einheiten:
   saetze: 2
   beleg: h) die Lizenz für das Modell. 2. Eine Beschreibung der Bestandteile des Modells und seines Entwicklungsprozesses,
     einschließlich
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: '[Anhang XII (Transparenzinformationen fuer nachgelagerte Anbieter, Art. 53 Abs. 1 lit. b)]
+    h) die Lizenz für das Modell. 2. Eine Beschreibung der Bestandteile des Modells und seines Entwicklungsprozesses,
+    einschließlich'
+  scope: out
+  scope_grund: 'TOOLING-DEFEKT (s. Abschlussbericht): faelschlich als ''Art. 113 Abs. 58'' extrahiert
+    - inhaltlich ist dies Anhang XII (Transparenzinformationen fuer nachgelagerte Anbieter, Art. 53 Abs.
+    1 lit. b), nicht Art. 113. Informationspflicht des GPAI-Anbieters gegenueber nachgelagerten (integrierenden)
+    Anbietern, keine Betreiberpflicht.'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Anhang XII (Transparenzinformationen fuer nachgelagerte Anbieter, Art. 53 Abs.
+    1 lit. b) ist in der Aenderungsliste der VO (EU) 2026/1744 nicht erwaehnt (geprueft am verfuegenden
+    Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 113 Abs. 58 lit. a
   artikel: '113'
   artikel_titel: Inkrafttreten und Geltungsbeginn
@@ -26281,17 +26836,25 @@ einheiten:
   saetze: 1
   beleg: a) die technischen Mittel (zum Beispiel Betriebsanleitungen, Infrastruktur, Instrumente), die
     für die Integration des KI-Modells mit allgemeinem Verwendungszweck in KI-Systeme erforderlich sind;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: '[Anhang XII (Transparenzinformationen fuer nachgelagerte Anbieter, Art. 53 Abs. 1 lit. b)]
+    a) die technischen Mittel (zum Beispiel Betriebsanleitungen, Infrastruktur, Instrumente), die für
+    die Integration des KI-Modells mit allgemeinem Verwendungszweck in KI-Systeme erforderlich sind;'
+  scope: out
+  scope_grund: 'TOOLING-DEFEKT (s. Abschlussbericht): faelschlich als ''Art. 113 Abs. 58'' extrahiert
+    - inhaltlich ist dies Anhang XII (Transparenzinformationen fuer nachgelagerte Anbieter, Art. 53 Abs.
+    1 lit. b), nicht Art. 113. Informationspflicht des GPAI-Anbieters gegenueber nachgelagerten (integrierenden)
+    Anbietern, keine Betreiberpflicht.'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Anhang XII (Transparenzinformationen fuer nachgelagerte Anbieter, Art. 53 Abs.
+    1 lit. b) ist in der Aenderungsliste der VO (EU) 2026/1744 nicht erwaehnt (geprueft am verfuegenden
+    Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 113 Abs. 58 lit. b
   artikel: '113'
   artikel_titel: Inkrafttreten und Geltungsbeginn
@@ -26302,17 +26865,25 @@ einheiten:
   saetze: 1
   beleg: b) Modalität (zum Beispiel Text, Bild usw.) und Format der Ein- und Ausgaben und deren maximale
     Größe (zum Beispiel Länge des Kontextfensters usw.);
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: '[Anhang XII (Transparenzinformationen fuer nachgelagerte Anbieter, Art. 53 Abs. 1 lit. b)]
+    b) Modalität (zum Beispiel Text, Bild usw.) und Format der Ein- und Ausgaben und deren maximale Größe
+    (zum Beispiel Länge des Kontextfensters usw.);'
+  scope: out
+  scope_grund: 'TOOLING-DEFEKT (s. Abschlussbericht): faelschlich als ''Art. 113 Abs. 58'' extrahiert
+    - inhaltlich ist dies Anhang XII (Transparenzinformationen fuer nachgelagerte Anbieter, Art. 53 Abs.
+    1 lit. b), nicht Art. 113. Informationspflicht des GPAI-Anbieters gegenueber nachgelagerten (integrierenden)
+    Anbietern, keine Betreiberpflicht.'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Anhang XII (Transparenzinformationen fuer nachgelagerte Anbieter, Art. 53 Abs.
+    1 lit. b) ist in der Aenderungsliste der VO (EU) 2026/1744 nicht erwaehnt (geprueft am verfuegenden
+    Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 113 Abs. 58 lit. c
   artikel: '113'
   artikel_titel: Inkrafttreten und Geltungsbeginn
@@ -26327,17 +26898,25 @@ einheiten:
     51 Um festzustellen, ob ein KI-Modell mit allgemeinem Verwendungszweck über Fähigkeiten oder eine
     Wirkung verfügt, die den in Artikel 51 Absatz 1 Buchstabe a genannten gleichwertig sind, berücksichtigt
     die Kommission folgende Kriterien:'
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: '[Anhang XII (Transparenzinformationen fuer nachgelagerte Anbieter, Art. 53 Abs. 1 lit. b)]
+    c) gegebenenfalls Informationen über die für das Trainieren, Testen und Validieren verwendeten Daten,
+    einschließlich der Art und Herkunft der Daten und der Aufbereitungsmethoden. ANHANG XIII Kriter...'
+  scope: out
+  scope_grund: 'TOOLING-DEFEKT (s. Abschlussbericht): faelschlich als ''Art. 113 Abs. 58'' extrahiert
+    - inhaltlich ist dies Anhang XII (Transparenzinformationen fuer nachgelagerte Anbieter, Art. 53 Abs.
+    1 lit. b), nicht Art. 113. Informationspflicht des GPAI-Anbieters gegenueber nachgelagerten (integrierenden)
+    Anbietern, keine Betreiberpflicht.'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Anhang XII (Transparenzinformationen fuer nachgelagerte Anbieter, Art. 53 Abs.
+    1 lit. b) ist in der Aenderungsliste der VO (EU) 2026/1744 nicht erwaehnt (geprueft am verfuegenden
+    Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 113 Abs. 58 lit. a
   artikel: '113'
   artikel_titel: Inkrafttreten und Geltungsbeginn
@@ -26347,17 +26926,23 @@ einheiten:
   laenge: 46
   saetze: 1
   beleg: a) die Anzahl der Parameter des Modells;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: '[Anhang XIII (Kriterien fuer KI-Modelle mit systemischem Risiko, Art. 51)] a) die Anzahl der
+    Parameter des Modells;'
+  scope: out
+  scope_grund: 'TOOLING-DEFEKT (s. Abschlussbericht): faelschlich als ''Art. 113 Abs. 58'' extrahiert
+    - inhaltlich ist dies Anhang XIII (Kriterien fuer KI-Modelle mit systemischem Risiko, Art. 51), nicht
+    Art. 113. Bewertungskriterien der Kommission zur Einstufung von GPAI-Modellen mit systemischem Risiko,
+    keine Betreiberpflicht.'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Anhang XIII (Kriterien fuer KI-Modelle mit systemischem Risiko, Art. 51) ist
+    in der Aenderungsliste der VO (EU) 2026/1744 nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 113 Abs. 58 lit. b
   artikel: '113'
   artikel_titel: Inkrafttreten und Geltungsbeginn
@@ -26367,17 +26952,23 @@ einheiten:
   laenge: 85
   saetze: 1
   beleg: b) die Qualität oder Größe des Datensatzes, zum Beispiel durch Tokens gemessen;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: '[Anhang XIII (Kriterien fuer KI-Modelle mit systemischem Risiko, Art. 51)] b) die Qualität
+    oder Größe des Datensatzes, zum Beispiel durch Tokens gemessen;'
+  scope: out
+  scope_grund: 'TOOLING-DEFEKT (s. Abschlussbericht): faelschlich als ''Art. 113 Abs. 58'' extrahiert
+    - inhaltlich ist dies Anhang XIII (Kriterien fuer KI-Modelle mit systemischem Risiko, Art. 51), nicht
+    Art. 113. Bewertungskriterien der Kommission zur Einstufung von GPAI-Modellen mit systemischem Risiko,
+    keine Betreiberpflicht.'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Anhang XIII (Kriterien fuer KI-Modelle mit systemischem Risiko, Art. 51) ist
+    in der Aenderungsliste der VO (EU) 2026/1744 nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 113 Abs. 58 lit. c
   artikel: '113'
   artikel_titel: Inkrafttreten und Geltungsbeginn
@@ -26389,17 +26980,24 @@ einheiten:
   beleg: c) die Menge der für das Trainieren des Modells verwendeten Berechnungen, gemessen in Gleitkommaoperationen
     oder anhand einer Kombination anderer Variablen, wie geschätzte Trainingskosten, geschätzter Zeitaufwand
     für das Trainieren oder geschätzter Energieverbrauch für das Trainieren;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: '[Anhang XIII (Kriterien fuer KI-Modelle mit systemischem Risiko, Art. 51)] c) die Menge der
+    für das Trainieren des Modells verwendeten Berechnungen, gemessen in Gleitkommaoperationen oder anhand
+    einer Kombination anderer Variablen, wie geschätzte Trainingskosten, geschätz...'
+  scope: out
+  scope_grund: 'TOOLING-DEFEKT (s. Abschlussbericht): faelschlich als ''Art. 113 Abs. 58'' extrahiert
+    - inhaltlich ist dies Anhang XIII (Kriterien fuer KI-Modelle mit systemischem Risiko, Art. 51), nicht
+    Art. 113. Bewertungskriterien der Kommission zur Einstufung von GPAI-Modellen mit systemischem Risiko,
+    keine Betreiberpflicht.'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Anhang XIII (Kriterien fuer KI-Modelle mit systemischem Risiko, Art. 51) ist
+    in der Aenderungsliste der VO (EU) 2026/1744 nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 113 Abs. 58 lit. d
   artikel: '113'
   artikel_titel: Inkrafttreten und Geltungsbeginn
@@ -26412,17 +27010,24 @@ einheiten:
     Multimodalität, Schwellenwerte auf dem Stand der Technik für die Bestimmung der Fähigkeiten mit hoher
     Wirkkraft für jede Modalität und die spezifische Art der Ein- und Ausgaben (zum Beispiel biologische
     Sequenzen);
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: '[Anhang XIII (Kriterien fuer KI-Modelle mit systemischem Risiko, Art. 51)] d) die Ein- und
+    Ausgabemodalitäten des Modells, wie Text-Text (Große Sprachmodelle), Text-Bild, Multimodalität, Schwellenwerte
+    auf dem Stand der Technik für die Bestimmung der Fähigkeiten mit hoher...'
+  scope: out
+  scope_grund: 'TOOLING-DEFEKT (s. Abschlussbericht): faelschlich als ''Art. 113 Abs. 58'' extrahiert
+    - inhaltlich ist dies Anhang XIII (Kriterien fuer KI-Modelle mit systemischem Risiko, Art. 51), nicht
+    Art. 113. Bewertungskriterien der Kommission zur Einstufung von GPAI-Modellen mit systemischem Risiko,
+    keine Betreiberpflicht.'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Anhang XIII (Kriterien fuer KI-Modelle mit systemischem Risiko, Art. 51) ist
+    in der Aenderungsliste der VO (EU) 2026/1744 nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 113 Abs. 58 lit. e
   artikel: '113'
   artikel_titel: Inkrafttreten und Geltungsbeginn
@@ -26434,17 +27039,24 @@ einheiten:
   beleg: e) die Benchmarks und Beurteilungen der Fähigkeiten des Modells, einschließlich unter Berücksichtigung
     der Zahl der Aufgaben ohne zusätzliches Training, der Anpassungsfähigkeit zum Erlernen neuer, unterschiedlicher
     Aufgaben, des Grades an Autonomie und Skalierbarkeit sowie der Instrumente, zu denen es Zugang hat;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: '[Anhang XIII (Kriterien fuer KI-Modelle mit systemischem Risiko, Art. 51)] e) die Benchmarks
+    und Beurteilungen der Fähigkeiten des Modells, einschließlich unter Berücksichtigung der Zahl der
+    Aufgaben ohne zusätzliches Training, der Anpassungsfähigkeit zum Erlernen neuer, ...'
+  scope: out
+  scope_grund: 'TOOLING-DEFEKT (s. Abschlussbericht): faelschlich als ''Art. 113 Abs. 58'' extrahiert
+    - inhaltlich ist dies Anhang XIII (Kriterien fuer KI-Modelle mit systemischem Risiko, Art. 51), nicht
+    Art. 113. Bewertungskriterien der Kommission zur Einstufung von GPAI-Modellen mit systemischem Risiko,
+    keine Betreiberpflicht.'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Anhang XIII (Kriterien fuer KI-Modelle mit systemischem Risiko, Art. 51) ist
+    in der Aenderungsliste der VO (EU) 2026/1744 nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 113 Abs. 58 lit. f
   artikel: '113'
   artikel_titel: Inkrafttreten und Geltungsbeginn
@@ -26456,17 +27068,24 @@ einheiten:
   beleg: f) ob es aufgrund seiner Reichweite große Auswirkungen auf den Binnenmarkt hat — davon wird ausgegangen,
     wenn es mindestens 10 000 in der Union niedergelassenen registrierten gewerblichen Nutzern zur Verfügung
     gestellt wurde;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: '[Anhang XIII (Kriterien fuer KI-Modelle mit systemischem Risiko, Art. 51)] f) ob es aufgrund
+    seiner Reichweite große Auswirkungen auf den Binnenmarkt hat — davon wird ausgegangen, wenn es mindestens
+    10 000 in der Union niedergelassenen registrierten gewerblichen Nutzern z...'
+  scope: out
+  scope_grund: 'TOOLING-DEFEKT (s. Abschlussbericht): faelschlich als ''Art. 113 Abs. 58'' extrahiert
+    - inhaltlich ist dies Anhang XIII (Kriterien fuer KI-Modelle mit systemischem Risiko, Art. 51), nicht
+    Art. 113. Bewertungskriterien der Kommission zur Einstufung von GPAI-Modellen mit systemischem Risiko,
+    keine Betreiberpflicht.'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Anhang XIII (Kriterien fuer KI-Modelle mit systemischem Risiko, Art. 51) ist
+    in der Aenderungsliste der VO (EU) 2026/1744 nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 113 Abs. 58 lit. g
   artikel: '113'
   artikel_titel: Inkrafttreten und Geltungsbeginn
@@ -26477,14 +27096,21 @@ einheiten:
   saetze: 2
   beleg: 'g) die Zahl der registrierten Endnutzer. ELI: http://data.europa.eu/eli/reg/2024/1689/oj ISSN
     1977-0642 (electronic edition)'
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: '[Anhang XIII (Kriterien fuer KI-Modelle mit systemischem Risiko, Art. 51)] g) die Zahl der
+    registrierten Endnutzer. ELI: http://data.europa.eu/eli/reg/2024/1689/oj ISSN 1977-0642 (electronic
+    edition)'
+  scope: out
+  scope_grund: 'TOOLING-DEFEKT (s. Abschlussbericht): faelschlich als ''Art. 113 Abs. 58'' extrahiert
+    - inhaltlich ist dies Anhang XIII (Kriterien fuer KI-Modelle mit systemischem Risiko, Art. 51), nicht
+    Art. 113. Bewertungskriterien der Kommission zur Einstufung von GPAI-Modellen mit systemischem Risiko,
+    keine Betreiberpflicht.'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Anhang XIII (Kriterien fuer KI-Modelle mit systemischem Risiko, Art. 51) ist
+    in der Aenderungsliste der VO (EU) 2026/1744 nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
