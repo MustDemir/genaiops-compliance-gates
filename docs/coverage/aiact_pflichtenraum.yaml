@@ -13566,17 +13566,22 @@ einheiten:
   beleg: b) dass die KI-Reallabore einen breiten und gleichberechtigten Zugang ermöglichen und mit der
     Nachfrage nach Beteiligung Schritt halten; die Anbieter und zukünftigen Anbieter auch Anträge zusammen
     mit Betreibern oder einschlägigen Dritten, die ihre Partner sind, stellen können;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Der Durchfuehrungsrechtsakt der Kommission zu KI-Reallaboren stellt sicher, dass Anbieter auch
+    gemeinsam mit Betreibern oder Partnern Antraege stellen koennen.
+  scope: out
+  scope_grund: Inhaltsvorgabe fuer den Durchfuehrungsrechtsakt der Kommission (Art. 58); nennt Betreiber
+    nur als moeglichen Mitantragsteller, keine eigene Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 22 - Art. 57 Abs. 1/3 neu gefasst, Abs. 3a (Buero
+    fuer KI als Reallabor-Traeger) neu eingefuegt; Art. 58 selbst ist in der Aenderungsliste nicht gesondert
+    erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 58 Abs. 2 lit. c
   artikel: '58'
   artikel_titel: Detaillierte Regelungen für KI-Reallabore und deren Funktionsweise
@@ -14182,17 +14187,23 @@ einheiten:
   beleg: (2)   Anbieter oder zukünftige Anbieter können in Anhang III genannte Hochrisiko-KI-Systeme vor
     deren Inverkehrbringen oder Inbetriebnahme jederzeit selbst oder in Partnerschaft mit einem oder mehreren
     Betreibern oder zukünftigen Betreibern unter Realbedingungen testen.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Anbieter oder zukuenftige Anbieter koennen Anhang-III-Systeme vor Inverkehrbringen/Inbetriebnahme
+    jederzeit selbst oder in Partnerschaft mit einem oder mehreren Betreibern/zukuenftigen Betreibern
+    unter Realbedingungen testen.
+  scope: out
+  scope_grund: Erlaubnisnorm/Option fuer den Anbieter (Test unter Realbedingungen); nennt den Betreiber
+    nur als moeglichen freiwilligen Partner, keine eigene Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: 'unveraendert - Art. 60 Abs. 1/2 sind von VO (EU) 2026/1744 Art. 1 Nr. 24 betroffen (Abs. 1
+    UAbs. 1 und Abs. 2 neu gefasst: neu ''oder unter die Anhang-I-Abschnitt-A-Harmonisierungsvorschriften
+    fallende Systeme''); materiell fuer den Anwendungsfall unveraendert (geprueft am verfuegenden Teil).'
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 60 Abs. 3
   artikel: '60'
   artikel_titel: Tests von Hochrisiko-KI-Systemen unter Realbedingungen außerhalb von KI-Reallaboren
@@ -14414,17 +14425,26 @@ einheiten:
     Anbieter und der Betreiber oder zukünftige Betreiber schließen eine Vereinbarung, in der ihre Aufgaben
     und Zuständigkeiten festgelegt sind, um für die Einhaltung der nach dieser Verordnung und anderem
     Unionsrecht und nationalem Recht für Tests unter Realbedingungen geltenden Bestimmungen zu sorgen;
-  adressat: null
-  pflicht: null
-  scope: null
+  adressat: betreiber
+  pflicht: Organisiert ein Anbieter den Test unter Realbedingungen in Zusammenarbeit mit einem oder mehreren
+    Betreibern, werden Letztere vorab ueber alle teilnahmerelevanten Aspekte informiert und erhalten die
+    Art.-13-Betriebsanleitungen; Anbieter und Betreiber schliessen eine Vereinbarung ueber ihre Aufgaben.
+  scope: in
   scope_grund: null
-  verifikation: null
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
-  befund: null
-  befund_grund: null
+  omnibus: unveraendert - Art. 60 Abs. 4 lit. h ist von der Aenderung des Abs. 1/2 (Nr. 24) nicht betroffen
+    (geprueft am verfuegenden Teil).
+  requirement: []
+  gate: []
+  befund: nicht_einschlaegig
+  befund_grund: 'PO-FRAGE (ausserhalb SPEC-06 Abschnitt 3): echte, aber KONDITIONALE Betreiberpflicht
+    - entsteht nur, wenn der Betreiber freiwillig an einem vorab-marktreifen Realbedingungstest eines
+    Anbieters teilnimmt (Art. 60, Titel VI KI-Reallabore/Innovation). Der Redispatch-Anwendungsfall (K1,
+    Zukauf eines bereits zertifizierten Systems, HANDBUCH 4.4) sieht keine Teilnahme an Anbieter-Pre-Market-Tests
+    vor - kategorial ausserhalb der Standard-Betriebsrealitaet dieses Projekts, aber kein Ausschlusstatbestand
+    im Gesetz selbst (anders als Art. 26 Abs. 8/10).'
+  po_bestaetigt: false
 - id: Art. 60 Abs. 4 lit. i
   artikel: '60'
   artikel_titel: Tests von Hochrisiko-KI-Systemen unter Realbedingungen außerhalb von KI-Reallaboren
@@ -14461,17 +14481,22 @@ einheiten:
     Test unter Realbedingungen von Personen wirksam überwachen, die auf dem betreffenden Gebiet angemessen
     qualifiziert sind und über die Fähigkeit, Ausbildung und Befugnis verfügen, die für die Wahrnehmung
     ihrer Aufgaben erforderlich sind;
-  adressat: null
-  pflicht: null
-  scope: null
+  adressat: betreiber
+  pflicht: Anbieter/zukuenftiger Anbieter UND Betreiber/zukuenftige Betreiber lassen den Test unter Realbedingungen
+    von angemessen qualifizierten, befugten Personen wirksam ueberwachen.
+  scope: in
   scope_grund: null
-  verifikation: null
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
-  befund: null
-  befund_grund: null
+  omnibus: unveraendert - Art. 60 Abs. 4 lit. j ist von der Aenderung des Abs. 1/2 (Nr. 24) nicht betroffen
+    (geprueft am verfuegenden Teil).
+  requirement: []
+  gate: []
+  befund: nicht_einschlaegig
+  befund_grund: 'Wie Art. 60 Abs. 4 lit. h: echte, aber konditionale Mitwirkungspflicht bei freiwilliger
+    Teilnahme an einem Anbieter-Realbedingungstest vor Marktreife - im K1-Zukauf-Szenario des Redispatch-Anwendungsfalls
+    nicht die Betriebsrealitaet, kein gesetzlicher Ausschluss.'
+  po_bestaetigt: false
 - id: Art. 60 Abs. 4 lit. k
   artikel: '60'
   artikel_titel: Tests von Hochrisiko-KI-Systemen unter Realbedingungen außerhalb von KI-Reallaboren
@@ -14824,17 +14849,21 @@ einheiten:
   beleg: b) sie führen besondere Sensibilisierungs- und Schulungsmaßnahmen für die Anwendung dieser Verordnung
     durch, die auf die Bedürfnisse von KMU, einschließlich Start-up-Unternehmen, Betreibern sowie gegebenenfalls
     lokalen Behörden ausgerichtet sind;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Die Mitgliedstaaten fuehren Sensibilisierungs- und Schulungsmassnahmen zur Anwendung dieser
+    Verordnung durch, ausgerichtet auf die Beduerfnisse von KMU, Betreibern und ggf. lokalen Behoerden.
+  scope: out
+  scope_grund: Foerder-/Unterstuetzungspflicht der Mitgliedstaaten; Betreiber ist Nutzniesser der Massnahme,
+    keine eigene Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 62 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 26
+    betrifft nur Art. 63) nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 62 Abs. 1 lit. c
   artikel: '62'
   artikel_titel: Maßnahmen für Anbieter und Betreiber, insbesondere KMU, einschließlich Start-up-Unternehmen
@@ -14847,17 +14876,21 @@ einheiten:
     Kommunikation mit KMU, einschließlich Start-up-Unternehmen, Betreibern, anderen Innovatoren sowie
     gegebenenfalls lokalen Behörden ein, um Ratschläge zu geben und Fragen zur Durchführung dieser Verordnung,
     auch bezüglich der Beteiligung an KI-Reallaboren, zu beantworten;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Die Mitgliedstaaten nutzen bestehende bzw. richten neue Kommunikationskanaele fuer KMU, Betreiber,
+    andere Innovatoren und ggf. lokale Behoerden ein, um Fragen zur Durchfuehrung der Verordnung zu beantworten.
+  scope: out
+  scope_grund: Foerder-/Unterstuetzungspflicht der Mitgliedstaaten; Betreiber ist Nutzniesser der Massnahme,
+    keine eigene Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 62 ist in der Aenderungsliste nicht erwaehnt (geprueft am verfuegenden
+    Teil).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 62 Abs. 1 lit. d
   artikel: '62'
   artikel_titel: Maßnahmen für Anbieter und Betreiber, insbesondere KMU, einschließlich Start-up-Unternehmen
@@ -16606,17 +16639,21 @@ einheiten:
   beleg: (3)   Die in Anhang VIII Abschnitt C aufgeführten Daten werden vom Betreiber, der eine Behörde,
     Einrichtung oder sonstige Stelle ist oder in deren Namen handelt, gemäß Artikel 49 Absätze 3 und 4
     in die EU-Datenbank eingegeben.
-  adressat: null
-  pflicht: null
-  scope: null
+  adressat: betreiber
+  pflicht: Die Anhang-VIII-Abschnitt-C-Daten werden vom Betreiber, der eine Behoerde/EU-Einrichtung ist
+    oder in deren Namen handelt, gemaess Art. 49 Abs. 3/4 in die EU-Datenbank eingegeben.
+  scope: in
   scope_grund: null
-  verifikation: null
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
-  befund: null
-  befund_grund: null
+  omnibus: unveraendert - Art. 71 ist in der Aenderungsliste der VO (EU) 2026/1744 nicht erwaehnt (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
+  befund: nicht_einschlaegig
+  befund_grund: 'Operative Ergaenzung zu Art. 49 Abs. 3 (dort bereits erfasst): doppelt nicht einschlaegig
+    - Anhang-III-Nr.-2-Ausnahme UND Beschraenkung auf Betreiber-Behoerden.'
+  po_bestaetigt: false
 - id: Art. 71 Abs. 4
   artikel: '71'
   artikel_titel: EU-Datenbank für die in Anhang III aufgeführten Hochrisiko-KI-Systeme
@@ -16655,17 +16692,21 @@ einheiten:
     Verarbeitung von Informationen gemäß dieser Verordnung erforderlich ist. Zu diesen Informationen gehören
     die Namen und Kontaktdaten der natürlichen Personen, die für die Registrierung des Systems verantwortlich
     sind und die rechtlich befugt sind, den Anbieter oder gegebenenfalls den Betreiber zu vertreten.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Die EU-Datenbank enthaelt nur die fuer die Registrierung erforderlichen personenbezogenen Daten,
+    namentlich Name/Kontaktdaten der zur Vertretung von Anbieter oder Betreiber befugten Personen.
+  scope: out
+  scope_grund: Regelt den zulaessigen Dateninhalt der von der Kommission betriebenen EU-Datenbank; Betreiber
+    wird nur als moeglicher Vertretener genannt, keine eigene Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 71 ist in der Aenderungsliste nicht erwaehnt (geprueft am verfuegenden
+    Teil).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 71 Abs. 6
   artikel: '71'
   artikel_titel: EU-Datenbank für die in Anhang III aufgeführten Hochrisiko-KI-Systeme
@@ -16678,17 +16719,22 @@ einheiten:
     Anbietern und Betreibern angemessene technische und administrative Unterstützung bereit. Die EU-Datenbank
     muss den geltenden Barrierefreiheitsanforderungen entsprechen. KAPITEL IX BEOBACHTUNG NACH DEM INVERKEHRBRINGEN,
     INFORMATIONSAUSTAUSCH UND MARKTÜBERWACHUNG ABSCHNITT 1 Beobachtung nach dem Inverkehrbringen
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Die Kommission ist Verantwortliche der EU-Datenbank, stellt Anbietern/zukuenftigen Anbietern
+    und Betreibern angemessene technische/administrative Unterstuetzung bereit; die Datenbank muss barrierefrei
+    sein.
+  scope: out
+  scope_grund: Betreiberpflicht der Kommission als Datenbankverantwortliche; Betreiber ist Empfaenger
+    der Unterstuetzung, keine eigene Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 71 ist in der Aenderungsliste nicht erwaehnt (geprueft am verfuegenden
+    Teil).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 72 Abs. 1
   artikel: '72'
   artikel_titel: Beobachtung nach dem Inverkehrbringen durch die Anbieter und Plan für die Beobachtung
@@ -17648,17 +17694,25 @@ einheiten:
     in dieser Verordnung festgelegten Anforderungen konform sind, so arbeiten sie bei der Durchführung
     von Konformitätsbewertungen mit dem Büro für Künstliche Intelligenz zusammen und unterrichten das
     KI-Gremium und andere Marktüberwachungsbehörden entsprechend.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Haben Marktueberwachungsbehoerden hinreichenden Grund zur Annahme, dass von Betreibern direkt
+    hochriskant genutzte GPAI-Systeme nicht konform sind, arbeiten sie mit dem Buero fuer KI zusammen
+    und unterrichten KI-Gremium und andere Behoerden.
+  scope: out
+  scope_grund: Kooperationspflicht der Marktueberwachungsbehoerden untereinander und mit dem Buero fuer
+    KI; Betreiber wird nur als Nutzungskontext genannt, keine eigene Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 31 - Art. 75 umfassend neu gefasst (u.a. neue
+    Ueberschrift, neue Abs. 1a-1e und 2a); Abs. 2 selbst (Kooperationspflicht bei GPAI) ist in der neuen
+    Fassung nicht mehr enthalten bzw. in Abs. 1 aufgegangen - Praezisierung dem PO ueberlassen, da die
+    exakte Zuordnung der Restnummerierung eine eigene Pruefung erfordert (geprueft am verfuegenden Teil,
+    docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 75 Abs. 3
   artikel: '75'
   artikel_titel: Amtshilfe, Marktüberwachung und Kontrolle von KI-Systemen mit allgemeinem Verwendungszweck
@@ -17786,17 +17840,21 @@ einheiten:
   saetze: 1
   beleg: b) den Anbieter oder zukünftigen Anbieter und die Betreiber oder zukünftigen Betreiber zur Änderung
     eines beliebigen Aspekts des Tests unter Realbedingungen zu verpflichten.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Die Marktueberwachungsbehoerde kann Anbieter/zukuenftigen Anbieter UND Betreiber/zukuenftige
+    Betreiber zur Aenderung eines beliebigen Aspekts des Tests unter Realbedingungen verpflichten.
+  scope: out
+  scope_grund: Durchsetzungsbefugnis der Marktueberwachungsbehoerde (Art. 76); bindet den Betreiber erst
+    durch Ausuebung dieser Befugnis im Einzelfall, keine eigenstaendige, standing Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 76 ist in der Aenderungsliste der VO (EU) 2026/1744 nicht erwaehnt (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 76 Abs. 4
   artikel: '76'
   artikel_titel: Beaufsichtigung von Tests unter Realbedingungen durch Marktüberwachungsbehörden
@@ -18114,17 +18172,24 @@ einheiten:
     auf Anfrage unverzüglich Zugang zu dieser Dokumentation oder eine Kopie davon erhalten. Zugang zu
     dieser Dokumentation oder zu einer Kopie davon darf nur das Personal der Marktüberwachungsbehörde
     erhalten, das über eine entsprechende Sicherheitsfreigabe verfügt.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Der Austausch vertraulicher Informationen zwischen Behoerden/Kommission darf bei Anhang-III-Nr.-1/6/7-Systemen
+    (Strafverfolgung/Grenzschutz/Migration/Asyl) nicht ohne vorherige Ruecksprache mit der Quellbehoerde
+    UND dem Betreiber offengelegt werden, wenn dies Sicherheitsinteressen gefaehrden wuerde.
+  scope: out
+  scope_grund: Vertraulichkeits-Verfahrenspflicht zwischen Behoerden; Betreiber ist Ruecksprachepartner,
+    keine eigene Handlungspflicht. Zudem kategorial auf Anhang III Nr. 1/6/7 beschraenkt (Strafverfolgung/Migration/Asyl/Grenzkontrolle)
+    - nicht Nr. 2 (kritische Infrastruktur), also fuer den Redispatch-Anwendungsfall ohnehin nicht einschlaegig.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 78 ist in der Aenderungsliste der VO (EU) 2026/1744 nicht erwaehnt, wird
+    aber in Art. 1 Nr. 1 lit. b (neuer Art. 2 Abs. 2) als fruehanwendbare Norm ab 2. August 2025 genannt
+    (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 78 Abs. 4
   artikel: '78'
   artikel_titel: Vertraulichkeit
@@ -19133,17 +19198,28 @@ einheiten:
     ihre Sicherheit oder ihre Grundrechte beeinträchtigt, haben das Recht, vom Betreiber eine klare und
     aussagekräftige Erläuterung zur Rolle des KI-Systems im Entscheidungsprozess und zu den wichtigsten
     Elementen der getroffenen Entscheidung zu erhalten.
-  adressat: null
-  pflicht: null
-  scope: null
+  adressat: betreiber
+  pflicht: Von einer Entscheidung des Betreibers auf Grundlage der Ausgaben eines Anhang-III-Systems (ausser
+    Nr. 2) betroffene Personen, deren Gesundheit/Sicherheit/Grundrechte dadurch nach ihrer Auffassung
+    erheblich beeintraechtigt werden, haben das Recht, vom Betreiber eine klare, aussagekraeftige Erlaeuterung
+    zur Rolle des KI-Systems und den wichtigsten Entscheidungselementen zu erhalten.
+  scope: in
   scope_grund: null
-  verifikation: null
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
-  befund: null
-  befund_grund: null
+  omnibus: unveraendert - Art. 86 ist in der Aenderungsliste der VO (EU) 2026/1744 nicht erwaehnt (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
+  befund: nicht_einschlaegig
+  befund_grund: 'PO-FRAGE (ausserhalb SPEC-06 Abschnitt 3): echte, individualrechtlich einklagbare Betreiberpflicht
+    (Erlaeuterungsrecht Betroffener) - DRITTER Anhang-III-Nr.-2-Carve-out neben Art. 27 (FRIA, Lauf 2)
+    und Art. 49 Abs. 1/3 (Registrierung, dieser Lauf): der Wortlaut nimmt Nr.-2-Systeme (kritische Infrastruktur/Redispatch)
+    ausdruecklich aus. Kein Requirement/Gate im Katalog bildet ein Erlaeuterungsrecht ab (grep ''Art.
+    86'', ''Erlaeuterung'' ohne Treffer) - fuer den konkreten Anwendungsfall aber wegen des Carve-outs
+    nicht einschlaegig, nicht luecke. Musterhaftes drittes Beispiel des wiederkehrenden Anhang-III-Nr.-2-Ausschlussmusters
+    - im Abschlussbericht zusammen mit Art. 27 und Art. 49 zu nennen.'
+  po_bestaetigt: false
 - id: Art. 86 Abs. 2
   artikel: '86'
   artikel_titel: Recht auf Erläuterung der Entscheidungsfindung im Einzelfall
@@ -19155,17 +19231,21 @@ einheiten:
   beleg: (2)   Absatz 1 gilt nicht für die Verwendung von KI-Systemen, bei denen sich Ausnahmen von oder
     Beschränkungen der Pflicht nach dem genannten Absatz aus dem Unionsrecht oder dem nationalen Recht
     im Einklang mit dem Unionsrecht ergeben.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: Abs. 1 gilt nicht, soweit sich Ausnahmen/Beschraenkungen der Erlaeuterungspflicht aus Unions-
+    oder nationalem Recht ergeben.
+  scope: out
+  scope_grund: Scope-modulierende Ausnahmeklausel zu Abs. 1, adressiert den Rechtsrahmen (anderweitiges
+    Unionsrecht/nationales Recht), keine eigenstaendige Handlungspflicht des Betreibers.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 86 ist in der Aenderungsliste nicht erwaehnt (geprueft am verfuegenden
+    Teil).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 86 Abs. 3
   artikel: '86'
   artikel_titel: Recht auf Erläuterung der Entscheidungsfindung im Einzelfall
@@ -19176,17 +19256,21 @@ einheiten:
   saetze: 1
   beleg: (3)   Dieser Artikel gilt nur insoweit, als das Recht gemäß Absatz 1 nicht anderweitig im Unionsrecht
     festgelegt ist.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: Art. 86 gilt nur, soweit das Recht aus Abs. 1 nicht bereits anderweitig im Unionsrecht festgelegt
+    ist.
+  scope: out
+  scope_grund: Subsidiaritaets-/Kollisionsklausel, adressiert das Verhaeltnis zu anderem Unionsrecht,
+    keine eigenstaendige Handlungspflicht des Betreibers.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 86 ist in der Aenderungsliste nicht erwaehnt (geprueft am verfuegenden
+    Teil).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 87
   artikel: '87'
   artikel_titel: Meldung von Verstößen und Schutz von Hinweisgebern
@@ -20036,17 +20120,21 @@ einheiten:
     von Verhaltenskodizes in Bezug auf die freiwillige Anwendung spezifischer Anforderungen auf alle KI-Systeme,
     einschließlich durch Betreiber, auf der Grundlage klarer Zielsetzungen sowie wesentlicher Leistungsindikatoren
     zur Messung der Erfüllung dieser Zielsetzungen, einschließlich unter anderem folgender Elemente:'
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Das Buero fuer KI und die Mitgliedstaaten erleichtern die Aufstellung freiwilliger Verhaltenskodizes
+    fuer alle KI-Systeme, einschliesslich durch Betreiber, anhand klarer Ziele und Leistungsindikatoren.
+  scope: out
+  scope_grund: Foerderungspflicht von Buero fuer KI/Mitgliedstaaten fuer FREIWILLIGE Kodizes; Betreiber
+    als moeglicher Teilnehmer einer freiwilligen Massnahme, keine eigene verpflichtende Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 95 ist in der Aenderungsliste der VO (EU) 2026/1744 nicht erwaehnt (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 95 Abs. 2 lit. a
   artikel: '95'
   artikel_titel: Verhaltenskodizes für die freiwillige Anwendung bestimmter Anforderungen
@@ -20167,17 +20255,22 @@ einheiten:
     sowie deren Interessenvertretungen einschließlich Organisationen der Zivilgesellschaft und Hochschulen.
     Verhaltenskodizes können sich auf ein oder mehrere KI-Systeme erstrecken, um ähnlichen Zweckbestimmungen
     der jeweiligen Systeme Rechnung zu tragen.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: Verhaltenskodizes koennen von einzelnen Anbietern/Betreibern oder deren Interessenvertretungen
+    (auch gemeinsam mit weiteren Interessentraegern) aufgestellt werden und sich auf ein oder mehrere
+    KI-Systeme erstrecken.
+  scope: out
+  scope_grund: Rein permissive Norm (freiwillige Selbstverpflichtung 'koennen'), keine Handlungspflicht
+    des Betreibers.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 95 ist in der Aenderungsliste nicht erwaehnt (geprueft am verfuegenden
+    Teil).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 95 Abs. 4
   artikel: '95'
   artikel_titel: Verhaltenskodizes für die freiwillige Anwendung bestimmter Anforderungen
@@ -20640,17 +20733,24 @@ einheiten:
     mit Ausnahme der in Artikel 5 genannten, werden Geldbußen von bis zu 15 000 000 EUR oder — im Falle
     von Unternehmen — von bis zu 3 % des gesamten weltweiten Jahresumsatzes des vorangegangenen Geschäftsjahres
     verhängt, je nachdem, welcher Betrag höher ist:'
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Fuer Verstoesse gegen die in lit. a-i genannten, fuer Akteure/notifizierte Stellen geltenden
+    Bestimmungen (ausser Art. 5) werden Geldbussen bis 15 Mio. EUR bzw. 3% des weltweiten Jahresumsatzes
+    verhaengt.
+  scope: out
+  scope_grund: Sanktionsrahmen-Festlegung fuer Mitgliedstaaten/Aufsichtsbehoerden, keine eigenstaendige
+    Betreiberpflicht (die materiellen Pflichten stehen in den in Anspruch genommenen Artikeln selbst,
+    z.B. Art. 26).
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 38 - Art. 99 wird geaendert (u.a. Abs. 5 zu Geldbussen
+    fuer irrefuehrende Informationsbereitstellung); genaue Betroffenheit von Abs. 4 selbst dem PO zur
+    Praezisierung ueberlassen (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 99 Abs. 4 lit. a
   artikel: '99'
   artikel_titel: Sanktionen
@@ -20740,17 +20840,20 @@ einheiten:
   laenge: 50
   saetze: 1
   beleg: e) Pflichten der Betreiber gemäß Artikel 26;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Nennt 'Pflichten der Betreiber gemaess Artikel 26' als eine der bussgeldbewehrten Verstossvarianten.
+  scope: out
+  scope_grund: Meta-Verweis im Sanktionskatalog (Art. 99), bestaetigt lediglich, dass Art.-26-Verstoesse
+    bussgeldbewehrt sind - begruendet selbst keine neue, eigenstaendige Betreiberpflicht (die materielle
+    Pflicht steht in Art. 26, dort bereits vollstaendig erfasst).
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - dieselbe Praezisierungslage wie Abs. 4 chapeau (geprueft am verfuegenden Teil).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 99 Abs. 4 lit. f
   artikel: '99'
   artikel_titel: Sanktionen
@@ -20781,17 +20884,21 @@ einheiten:
   laenge: 74
   saetze: 1
   beleg: g) Transparenzpflichten für Anbieter und Betreiber gemäß Artikel 50.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Nennt 'Transparenzpflichten fuer Anbieter und Betreiber gemaess Artikel 50' als eine der bussgeldbewehrten
+    Verstossvarianten.
+  scope: out
+  scope_grund: Meta-Verweis im Sanktionskatalog (Art. 99), bestaetigt lediglich, dass Art.-50-Verstoesse
+    bussgeldbewehrt sind - begruendet selbst keine neue, eigenstaendige Betreiberpflicht (die materielle
+    Pflicht steht in Art. 50, dort bereits vollstaendig erfasst).
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - dieselbe Praezisierungslage wie Abs. 4 chapeau (geprueft am verfuegenden Teil).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 99 Abs. 5
   artikel: '99'
   artikel_titel: Sanktionen
@@ -21939,17 +22046,24 @@ einheiten:
     mit den in Anhang X aufgeführten Rechtsakten eingerichtet wurde, berücksichtigt, wobei die Bewertung
     entsprechend den Vorgaben der jeweiligen Rechtsakte und bei Ersetzung oder Änderung dieser Rechtsakte
     erfolgt.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: KI-Systeme als Komponenten der Anhang-X-IT-Grosssysteme (Schengen u.a.), die vor dem 2.8.2027
+    in Verkehr gebracht/in Betrieb genommen wurden, werden bis 31.12.2030 mit der Verordnung in Einklang
+    gebracht; die Anforderungen fliessen in die jeweilige Rechtsakt-Bewertung ein.
+  scope: out
+  scope_grund: Uebergangsregelung ausschliesslich fuer die in Anhang X gelisteten EU-Justiz-/Inneres-IT-Grosssysteme
+    (Schengen, Eurodac, ETIAS u.a.) - kategorial ausserhalb des Redispatch-Anwendungsfalls (kritische
+    Infrastruktur, Anhang III Nr. 2); adressiert zudem die fuer diese Systeme zustaendigen EU-Einrichtungen,
+    nicht den hier betrachteten Betreiber.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 111 ist in der Aenderungsliste der VO (EU) 2026/1744 nicht erwaehnt (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 111 Abs. 2
   artikel: '111'
   artikel_titel: Bereits in Verkehr gebrachte oder in Betrieb genommene KI-Systeme und bereits in Verkehr
@@ -21966,17 +22080,31 @@ einheiten:
     Fall treffen die Anbieter und Betreiber von Hochrisiko-KI-Systemen, die bestimmungsgemäß von Behörden
     verwendet werden sollen, die erforderlichen Maßnahmen für die Erfüllung der Anforderungen und Pflichten
     dieser Verordnung bis zum 2. August 2030.
-  adressat: null
-  pflicht: null
-  scope: null
+  adressat: betreiber
+  pflicht: Fuer vor dem 2.8.2026 in Verkehr gebrachte/in Betrieb genommene Hochrisiko-KI-Systeme (ausser
+    Anhang-X-Systemen) gilt die Verordnung fuer deren Betreiber nur bei danach erfolgter wesentlicher
+    Konzeptionsaenderung; fuer von Behoerden bestimmungsgemaess genutzte Systeme treffen Anbieter UND
+    Betreiber die erforderlichen Massnahmen in jedem Fall bis zum 2.8.2030.
+  scope: in
   scope_grund: null
-  verifikation: null
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
-  befund: null
-  befund_grund: null
+  omnibus: unveraendert - Art. 111 ist in der Aenderungsliste nicht erwaehnt (geprueft am verfuegenden
+    Teil).
+  requirement: []
+  gate: []
+  befund: luecke
+  befund_grund: 'ZENTRALER BEFUND (im Abschlussbericht gesondert hervorzuheben): echte Uebergangs-/Bestandsschutzregelung
+    fuer den Betreiber. WENN das Redispatch-KI-System bereits vor dem 2. August 2026 in Verkehr gebracht/in
+    Betrieb genommen wurde UND seither keine wesentliche Konzeptionsaenderung erfahren hat, greifen die
+    Art.-26-Betreiberpflichten fuer dieses spezifische System derzeit MOEGLICHERWEISE NOCH NICHT (es sei
+    denn, der Netzbetreiber gilt als ''Behoerde'' i.S.d. Satz 2, dann Frist 2.8.2030). Kein Requirement/Gate
+    im Katalog prueft das Inverkehrbringungsdatum oder den Aenderungsstatus des konkret eingesetzten Systems
+    - die zeitliche Anwendbarkeit der gesamten Deckungsanalyse (Art. 26 ff.) auf DIESES Projekt ist damit
+    ungeklaert und haengt von einer Tatsachenfrage ab (Inverkehrbringungsdatum, Aenderungshistorie, Rechtsnatur
+    des Betreibers), die der PO klaeren muss, bevor die uebrigen Befunde dieses Pflichtenraums als ''bereits
+    anwendbar'' gelten koennen.'
+  po_bestaetigt: false
 - id: Art. 111 Abs. 3
   artikel: '111'
   artikel_titel: Bereits in Verkehr gebrachte oder in Betrieb genommene KI-Systeme und bereits in Verkehr
@@ -21989,17 +22117,20 @@ einheiten:
   beleg: (3)   Anbieter von KI-Modellen mit allgemeinem Verwendungszweck, die vor dem 2. August 2025 in
     Verkehr gebracht wurden, treffen die erforderlichen Maßnahmen für die Erfüllung der in dieser Verordnung
     festgelegten Pflichten bis zum 2. August 2027.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Anbieter von GPAI-Modellen, die vor dem 2.8.2025 in Verkehr gebracht wurden, treffen die erforderlichen
+    Massnahmen zur Pflichterfuellung bis zum 2.8.2027.
+  scope: out
+  scope_grund: Uebergangsregelung ausschliesslich fuer GPAI-Modell-Anbieter (Titel V), keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 111 ist in der Aenderungsliste nicht erwaehnt (geprueft am verfuegenden
+    Teil).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 112 Abs. 1
   artikel: '112'
   artikel_titel: Bewertung und Überprüfung
