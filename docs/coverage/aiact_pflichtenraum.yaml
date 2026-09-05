@@ -7034,17 +7034,35 @@ einheiten:
     gemäß Anhang III Nummer 5 Buchstaben b und c eine Abschätzung der Auswirkungen, die die Verwendung
     eines solchen Systems auf die Grundrechte haben kann, durch. Zu diesem Zweck führen die Betreiber
     eine Abschätzung durch, die Folgendes umfasst:'
-  adressat: null
-  pflicht: null
-  scope: null
+  adressat: betreiber
+  pflicht: Vor Erstinbetriebnahme eines Hochrisiko-KI-Systems (ausser Anhang-III-Nr.-2-Systemen) fuehren
+    Betreiber, die oeffentliche/oeffentliche-Dienste-Einrichtungen sind, sowie Betreiber von Anhang-III-Nr.-5-lit.-b/c-Systemen,
+    eine Grundrechte-Folgenabschaetzung (FRIA) mit den in lit. a-f genannten Elementen durch.
+  scope: in
   scope_grund: null
-  verifikation: null
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
-  befund: null
-  befund_grund: null
+  omnibus: unveraendert (Art. 27 Abs. 1 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht
+    enthalten - Nr. 13 aendert nur Abs. 4 und Abs. 5).
+  requirement: []
+  gate: []
+  befund: nicht_einschlaegig
+  befund_grund: 'ZENTRALER BEFUND DIESES LAUFS: Der Chapeau von Abs. 1 nimmt Hochrisiko-KI-Systeme ''die
+    in dem in Anhang III Nummer 2 aufgefuehrten Bereich verwendet werden sollen'' ausdruecklich von der
+    FRIA-Pflicht aus (''mit Ausnahme von...''). Anhang III Nr. 2 (''Kritische Infrastruktur: KI-Systeme,
+    die bestimmungsgemaess als Sicherheitsbauteile im Rahmen der Verwaltung und des Betriebs kritischer...
+    Wasser-, Gas-, Waerme- oder Stromversorgung verwendet werden sollen'') ist exakt die fuer diesen Adressaten
+    einschlaegige Einstufung (HANDBUCH 4.4, Anwendungsfall Redispatch/Engpassmanagement). Die FRIA-Pflicht
+    bindet damit weder oeffentlich-rechtliche noch private Betreiber dieses konkreten Anwendungsfalls
+    - unabhaengig von der Betreiber-Kategorie, die die uebrigen Tatbestandsmerkmale sonst verlangen wuerden.
+    PO-RELEVANT: R012/G-PRE-02 fuehren ''Art. 27'' pauschal (ohne Absatzbezug und ohne den Anhang-III-Nr.-2-Carve-out)
+    als Rechtsgrundlage fuer eine als ''Best Practice'' deklarierte FRIA-MUST-Pruefung; R012s eigene notes
+    sagen zutreffend ''Pflicht nur fuer bestimmte Deployer-Kategorien'', erwaehnen aber nicht, dass der
+    Redispatch-Anwendungsfall selbst durch den Wortlaut kategorial ausgenommen ist. Requirement/Gate werden
+    hier bewusst leer gelassen (analog Art. 14 Abs. 5), weil der Wortlaut fuer diesen Anwendungsfall keine
+    Pflicht begruendet, an die ein R0xx/G-xxx anknuepfen koennte; die ''Best Practice''-Charakterisierung
+    von R012 bleibt davon unberuehrt, ist aber PO-seitig zu pruefen (siehe Bericht).'
+  po_bestaetigt: false
 - id: Art. 27 Abs. 1 lit. a
   artikel: '27'
   artikel_titel: Grundrechte-Folgenabschätzung für Hochrisiko-KI-Systeme
@@ -7055,17 +7073,20 @@ einheiten:
   saetze: 1
   beleg: a) eine Beschreibung der Verfahren des Betreibers, bei denen das Hochrisiko-KI-System im Einklang
     mit seiner Zweckbestimmung verwendet wird;
-  adressat: null
-  pflicht: null
-  scope: null
+  adressat: betreiber
+  pflicht: 'Element 1 der FRIA: Beschreibung der Verfahren, in denen das System zweckbestimmungsgemaess
+    verwendet wird.'
+  scope: in
   scope_grund: null
-  verifikation: null
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
-  befund: null
-  befund_grund: null
+  omnibus: unveraendert (s. Art. 27 Abs. 1).
+  requirement: []
+  gate: []
+  befund: nicht_einschlaegig
+  befund_grund: Unselbststaendiges Element der FRIA-Pflicht aus Abs. 1; teilt deren kategorialen Ausschluss
+    fuer Anhang-III-Nr.-2-Systeme (dort ausfuehrliche Begruendung).
+  po_bestaetigt: false
 - id: Art. 27 Abs. 1 lit. b
   artikel: '27'
   artikel_titel: Grundrechte-Folgenabschätzung für Hochrisiko-KI-Systeme
@@ -7076,17 +7097,19 @@ einheiten:
   saetze: 1
   beleg: b) eine Beschreibung des Zeitraums und der Häufigkeit, innerhalb dessen bzw. mit der jedes Hochrisiko-KI-System
     verwendet werden soll;
-  adressat: null
-  pflicht: null
-  scope: null
+  adressat: betreiber
+  pflicht: 'Element 2 der FRIA: Beschreibung von Zeitraum und Haeufigkeit der vorgesehenen Verwendung.'
+  scope: in
   scope_grund: null
-  verifikation: null
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
-  befund: null
-  befund_grund: null
+  omnibus: unveraendert (s. Art. 27 Abs. 1).
+  requirement: []
+  gate: []
+  befund: nicht_einschlaegig
+  befund_grund: Unselbststaendiges Element der FRIA-Pflicht aus Abs. 1; teilt deren kategorialen Ausschluss
+    fuer Anhang-III-Nr.-2-Systeme (dort ausfuehrliche Begruendung).
+  po_bestaetigt: false
 - id: Art. 27 Abs. 1 lit. c
   artikel: '27'
   artikel_titel: Grundrechte-Folgenabschätzung für Hochrisiko-KI-Systeme
@@ -7097,17 +7120,19 @@ einheiten:
   saetze: 1
   beleg: c) die Kategorien der natürlichen Personen und Personengruppen, die von seiner Verwendung im
     spezifischen Kontext betroffen sein könnten;
-  adressat: null
-  pflicht: null
-  scope: null
+  adressat: betreiber
+  pflicht: 'Element 3 der FRIA: Kategorien der betroffenen natuerlichen Personen/Personengruppen.'
+  scope: in
   scope_grund: null
-  verifikation: null
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
-  befund: null
-  befund_grund: null
+  omnibus: unveraendert (s. Art. 27 Abs. 1).
+  requirement: []
+  gate: []
+  befund: nicht_einschlaegig
+  befund_grund: Unselbststaendiges Element der FRIA-Pflicht aus Abs. 1; teilt deren kategorialen Ausschluss
+    fuer Anhang-III-Nr.-2-Systeme (dort ausfuehrliche Begruendung).
+  po_bestaetigt: false
 - id: Art. 27 Abs. 1 lit. d
   artikel: '27'
   artikel_titel: Grundrechte-Folgenabschätzung für Hochrisiko-KI-Systeme
@@ -7119,17 +7144,20 @@ einheiten:
   beleg: d) die spezifischen Schadensrisiken, die sich auf die gemäß Buchstabe c dieses Absatzes ermittelten
     Kategorien natürlicher Personen oder Personengruppen auswirken könnten, unter Berücksichtigung der
     vom Anbieter gemäß Artikel 13 bereitgestellten Informationen;
-  adressat: null
-  pflicht: null
-  scope: null
+  adressat: betreiber
+  pflicht: 'Element 4 der FRIA: spezifische Schadensrisiken fuer die unter lit. c ermittelten Personen(-gruppen),
+    unter Beruecksichtigung der vom Anbieter nach Art. 13 bereitgestellten Informationen.'
+  scope: in
   scope_grund: null
-  verifikation: null
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
-  befund: null
-  befund_grund: null
+  omnibus: unveraendert (s. Art. 27 Abs. 1).
+  requirement: []
+  gate: []
+  befund: nicht_einschlaegig
+  befund_grund: Unselbststaendiges Element der FRIA-Pflicht aus Abs. 1; teilt deren kategorialen Ausschluss
+    fuer Anhang-III-Nr.-2-Systeme (dort ausfuehrliche Begruendung).
+  po_bestaetigt: false
 - id: Art. 27 Abs. 1 lit. e
   artikel: '27'
   artikel_titel: Grundrechte-Folgenabschätzung für Hochrisiko-KI-Systeme
@@ -7139,17 +7167,20 @@ einheiten:
   laenge: 118
   saetze: 1
   beleg: e) eine Beschreibung der Umsetzung von Maßnahmen der menschlichen Aufsicht entsprechend den Betriebsanleitungen;
-  adressat: null
-  pflicht: null
-  scope: null
+  adressat: betreiber
+  pflicht: 'Element 5 der FRIA: Beschreibung der Umsetzung menschlicher Aufsichtsmassnahmen entsprechend
+    der Betriebsanleitung.'
+  scope: in
   scope_grund: null
-  verifikation: null
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
-  befund: null
-  befund_grund: null
+  omnibus: unveraendert (s. Art. 27 Abs. 1).
+  requirement: []
+  gate: []
+  befund: nicht_einschlaegig
+  befund_grund: Unselbststaendiges Element der FRIA-Pflicht aus Abs. 1; teilt deren kategorialen Ausschluss
+    fuer Anhang-III-Nr.-2-Systeme (dort ausfuehrliche Begruendung).
+  po_bestaetigt: false
 - id: Art. 27 Abs. 1 lit. f
   artikel: '27'
   artikel_titel: Grundrechte-Folgenabschätzung für Hochrisiko-KI-Systeme
@@ -7160,17 +7191,20 @@ einheiten:
   saetze: 1
   beleg: f) die Maßnahmen, die im Falle des Eintretens dieser Risiken zu ergreifen sind, einschließlich
     der Regelungen für die interne Unternehmensführung und Beschwerdemechanismen.
-  adressat: null
-  pflicht: null
-  scope: null
+  adressat: betreiber
+  pflicht: 'Element 6 der FRIA: Massnahmen bei Risikoeintritt, einschliesslich interner Governance-Regelungen
+    und Beschwerdemechanismen.'
+  scope: in
   scope_grund: null
-  verifikation: null
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
-  befund: null
-  befund_grund: null
+  omnibus: unveraendert (s. Art. 27 Abs. 1).
+  requirement: []
+  gate: []
+  befund: nicht_einschlaegig
+  befund_grund: Unselbststaendiges Element der FRIA-Pflicht aus Abs. 1; teilt deren kategorialen Ausschluss
+    fuer Anhang-III-Nr.-2-Systeme (dort ausfuehrliche Begruendung).
+  po_bestaetigt: false
 - id: Art. 27 Abs. 2
   artikel: '27'
   artikel_titel: Grundrechte-Folgenabschätzung für Hochrisiko-KI-Systeme
@@ -7185,17 +7219,21 @@ einheiten:
     der Betreiber während der Verwendung des Hochrisiko-KI-Systems zur Auffassung, dass sich eines der
     in Absatz 1 aufgeführten Elemente geändert hat oder nicht mehr auf dem neuesten Stand ist, so unternimmt
     der Betreiber die erforderlichen Schritte, um die Informationen zu aktualisieren.
-  adressat: null
-  pflicht: null
-  scope: null
+  adressat: betreiber
+  pflicht: Die FRIA-Pflicht gilt fuer die Erstverwendung; der Betreiber kann sich in aehnlichen Faellen
+    auf frueher durchgefuehrte eigene oder Anbieter-Folgenabschaetzungen stuetzen; aendern sich die Abs.-1-Elemente
+    wesentlich, muss der Betreiber die Informationen aktualisieren.
+  scope: in
   scope_grund: null
-  verifikation: null
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
-  befund: null
-  befund_grund: null
+  omnibus: unveraendert (s. Art. 27 Abs. 1 - Nr. 13 aendert nur Abs. 4/5).
+  requirement: []
+  gate: []
+  befund: nicht_einschlaegig
+  befund_grund: Verfahrensregel zur bereits nach Abs. 1 nicht bestehenden FRIA-Pflicht (Anhang-III-Nr.-2-Ausschluss,
+    dort ausfuehrliche Begruendung); ohne Grundpflicht keine Aktualisierungspflicht.
+  po_bestaetigt: false
 - id: Art. 27 Abs. 3
   artikel: '27'
   artikel_titel: Grundrechte-Folgenabschätzung für Hochrisiko-KI-Systeme
@@ -7208,17 +7246,21 @@ einheiten:
     der Betreiber der Marktüberwachungsbehörde ihre Ergebnisse mit, indem er das ausgefüllte, in Absatz
     5 des vorliegenden Artikels genannte Muster als Teil der Mitteilung übermittelt. In dem in Artikel
     46 Absatz 1 genannten Fall können die Betreiber von der Mitteilungspflicht befreit werden.
-  adressat: null
-  pflicht: null
-  scope: null
+  adressat: betreiber
+  pflicht: Nach Abschluss der FRIA teilt der Betreiber der Marktueberwachungsbehoerde die Ergebnisse mittels
+    des Musters aus Abs. 5 mit; im Fall des Art. 46 Abs. 1 kann von dieser Mitteilungspflicht befreit
+    werden.
+  scope: in
   scope_grund: null
-  verifikation: null
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
-  befund: null
-  befund_grund: null
+  omnibus: unveraendert (s. Art. 27 Abs. 1).
+  requirement: []
+  gate: []
+  befund: nicht_einschlaegig
+  befund_grund: Mitteilungspflicht setzt eine durchgefuehrte FRIA nach Abs. 1 voraus, die fuer Anhang-III-Nr.-2-Systeme
+    kategorial nicht besteht (dort ausfuehrliche Begruendung).
+  po_bestaetigt: false
 - id: Art. 27 Abs. 4
   artikel: '27'
   artikel_titel: Grundrechte-Folgenabschätzung für Hochrisiko-KI-Systeme
@@ -7231,17 +7273,29 @@ einheiten:
     35 der Verordnung (EU) 2016/679 oder Artikel 27 der Richtlinie (EU) 2016/680 durchgeführten Datenschutz-Folgenabschätzung
     erfüllt, so ergänzt die Grundrechte-Folgenabschätzung gemäß Absatz 1 des vorliegenden Artikels diese
     Datenschutz-Folgenabschätzung.
-  adressat: null
-  pflicht: null
-  scope: null
+  adressat: betreiber
+  pflicht: Ist eine Art.-27-Pflicht bereits durch eine DSGVO-/JI-Richtlinien-Datenschutz-Folgenabschaetzung
+    erfuellt, kann der Betreiber bei der FRIA auf die einschlaegigen Abschnitte/Teile dieser Datenschutz-Folgenabschaetzung
+    verweisen, statt sie zu wiederholen.
+  scope: in
   scope_grund: null
-  verifikation: null
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
-  befund: null
-  befund_grund: null
+  omnibus: 'GEAENDERT durch VO (EU) 2026/1744 Art. 1 Nr. 13 lit. a: Die Grundfassung ordnete an, dass
+    die FRIA die Datenschutz-Folgenabschaetzung automatisch ''ergaenzt''. Die neue Fassung raeumt dem
+    Betreiber stattdessen eine ausdrueckliche Wahloption ein: er ''kann... entweder Verweise auf die einschlaegigen
+    Abschnitte... oder die einschlaegigen Teile ebendieser in die Grundrechte-Folgenabschaetzung aufnehmen''
+    - eine Vereinfachung/Klarstellung des Verhaeltnisses FRIA/DSFA, kein automatischer Ergaenzungsmechanismus
+    mehr.'
+  requirement: []
+  gate: []
+  befund: nicht_einschlaegig
+  befund_grund: Setzt eine bestehende FRIA-Pflicht nach Abs. 1 voraus, die fuer den Anhang-III-Nr.-2-Anwendungsfall
+    dieses Adressaten kategorial nicht besteht (dort ausfuehrliche Begruendung). Die Omnibus-Aenderung
+    selbst ist damit fuer diesen Adressaten derzeit folgenlos, aber dokumentationspflichtig fuer den Fall
+    einer PO-Korrektur der Scope-Einordnung. R012 haengt laut Ticket-Hinweis an dieser Aenderung - die
+    Aenderung ist erfasst, ihre praktische Relevanz haengt von der PO-Entscheidung zu Abs. 1 ab.
+  po_bestaetigt: false
 - id: Art. 27 Abs. 5
   artikel: '27'
   artikel_titel: Grundrechte-Folgenabschätzung für Hochrisiko-KI-Systeme
@@ -7254,17 +7308,21 @@ einheiten:
     eines automatisierten Instruments — aus, um die Betreiber in die Lage zu versetzen, ihren Pflichten
     gemäß diesem Artikel in vereinfachter Weise nachzukommen. ABSCHNITT 4 Notifizierende Behörden und
     notifizierte Stellen
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Das KI-Buero erarbeitet ein Fragebogen-Muster (ggf. mit automatisiertem Instrument), das dem
+    Betreiber die vereinfachte Erfuellung seiner Art.-27-Pflichten ermoeglicht.
+  scope: out
+  scope_grund: Adressat ist das Buero fuer Kuenstliche Intelligenz (Kommission), keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: 'GEAENDERT durch VO (EU) 2026/1744 Art. 1 Nr. 13 lit. b: Ergaenzt, dass das Fragebogen-Muster
+    den Betreibern die neue Verweis-Option aus dem geaenderten Abs. 4 (Bezugnahme auf die Datenschutz-Folgenabschaetzung)
+    explizit eroeffnen muss; sonst redaktionell unveraendert (''arbeitet aus'' -> ''erarbeitet'').'
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 28 Abs. 1
   artikel: '28'
   artikel_titel: Notifizierende Behörden
