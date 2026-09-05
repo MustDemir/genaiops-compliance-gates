@@ -22081,29 +22081,39 @@ einheiten:
     verwendet werden sollen, die erforderlichen Maßnahmen für die Erfüllung der Anforderungen und Pflichten
     dieser Verordnung bis zum 2. August 2030.
   adressat: betreiber
-  pflicht: Fuer vor dem 2.8.2026 in Verkehr gebrachte/in Betrieb genommene Hochrisiko-KI-Systeme (ausser
-    Anhang-X-Systemen) gilt die Verordnung fuer deren Betreiber nur bei danach erfolgter wesentlicher
-    Konzeptionsaenderung; fuer von Behoerden bestimmungsgemaess genutzte Systeme treffen Anbieter UND
-    Betreiber die erforderlichen Massnahmen in jedem Fall bis zum 2.8.2030.
+  pflicht: Fuer vor Beginn der Anwendung von Kapitel III (Art. 113 Abs. 3 - fuer Anhang-III-Systeme der
+    2.12.2027) in Verkehr gebrachte/in Betrieb genommene Hochrisiko-KI-Systeme (ausser Anhang-X-Systemen)
+    gilt die Verordnung fuer deren AKTEURE nur bei danach erfolgter wesentlicher Konzeptionsaenderung;
+    fuer von Behoerden bestimmungsgemaess genutzte Systeme treffen Anbieter UND Betreiber die erforderlichen
+    Massnahmen in jedem Fall bis zum 2.8.2030.
   scope: in
   scope_grund: null
   verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: unveraendert - Art. 111 ist in der Aenderungsliste nicht erwaehnt (geprueft am verfuegenden
-    Teil).
+  omnibus: 'GEAENDERT durch VO (EU) 2026/1744 Art. 1 Nr. 39 lit. a - Abs. 2 neu gefasst: (1) der Adressatenkreis
+    wurde von ''Betreiber'' auf ''AKTEURE'' erweitert (umfasst jetzt auch Anbieter/Einfuehrer/Haendler/Bevollmaechtigte);
+    (2) der Stichtag wurde von einem festen Datum (''vor dem 2. August 2026'') auf einen VARIABLEN Stichtag
+    (''vor Beginn der Anwendung des Kapitels III gemaess Artikel 113'') umgestellt. Dieser variable Stichtag
+    ist durch die gleichzeitige Neufassung von Art. 113 Abs. 3 lit. c (Omnibus Nr. 40) bestimmt: Kapitel
+    III (Art. 6-27, inkl. Art. 26 Betreiberpflichten) gilt fuer Anhang-III-Systeme (unser Anwendungsfall,
+    Nr. 2) erst ab dem 2. Dezember 2027, fuer Anhang-I-Systeme ab dem 2. August 2028 (geprueft am verfuegenden
+    Teil, docs/legal/OJ_L_202601744_DE.pdf). Damit verschiebt sich der in befund_grund beschriebene Bestandsschutz-Stichtag
+    inhaltlich auf den 2. Dezember 2027 (statt 2. August 2026) - die zeitliche Anwendbarkeitsfrage wird
+    dadurch NOCH bedeutsamer, nicht kleiner.'
   requirement: []
   gate: []
   befund: luecke
-  befund_grund: 'ZENTRALER BEFUND (im Abschlussbericht gesondert hervorzuheben): echte Uebergangs-/Bestandsschutzregelung
-    fuer den Betreiber. WENN das Redispatch-KI-System bereits vor dem 2. August 2026 in Verkehr gebracht/in
-    Betrieb genommen wurde UND seither keine wesentliche Konzeptionsaenderung erfahren hat, greifen die
-    Art.-26-Betreiberpflichten fuer dieses spezifische System derzeit MOEGLICHERWEISE NOCH NICHT (es sei
-    denn, der Netzbetreiber gilt als ''Behoerde'' i.S.d. Satz 2, dann Frist 2.8.2030). Kein Requirement/Gate
-    im Katalog prueft das Inverkehrbringungsdatum oder den Aenderungsstatus des konkret eingesetzten Systems
-    - die zeitliche Anwendbarkeit der gesamten Deckungsanalyse (Art. 26 ff.) auf DIESES Projekt ist damit
-    ungeklaert und haengt von einer Tatsachenfrage ab (Inverkehrbringungsdatum, Aenderungshistorie, Rechtsnatur
-    des Betreibers), die der PO klaeren muss, bevor die uebrigen Befunde dieses Pflichtenraums als ''bereits
-    anwendbar'' gelten koennen.'
+  befund_grund: 'ZENTRALER BEFUND (im Abschlussbericht gesondert hervorzuheben), NACH OMNIBUS-PRUEFUNG
+    PRAEZISIERT: Kapitel III (und damit Art. 26) gilt fuer bereits vor dem Stichtag in Verkehr gebrachte/in
+    Betrieb genommene Anhang-III-Systeme erst ab dem 2. Dezember 2027 (Art. 113 Abs. 3 lit. c Ziff. i
+    n.F.), AUSSER bei nachtraeglicher wesentlicher Konzeptionsaenderung oder bei einem Behoerden-Betreiber
+    (Frist 2.8.2030 statt eines Bestandsschutzes). WENN das Redispatch-KI-System bereits vor diesem Stichtag
+    in Verkehr gebracht/in Betrieb genommen wurde UND seither nicht wesentlich veraendert wurde UND der
+    Netzbetreiber keine Behoerde ist, greifen die in diesem Pflichtenraum geprueften Art.-26-Betreiberpflichten
+    fuer dieses spezifische System derzeit (Stand dieses Laufs: September 2026) noch gar nicht. Kein Requirement/Gate
+    im Katalog prueft das Inverkehrbringungsdatum, die Aenderungshistorie oder die Rechtsnatur des Betreibers
+    - die zeitliche Anwendbarkeit der gesamten uebrigen Deckungsanalyse (Art. 26 ff.) auf DIESES Projekt
+    ist damit eine ungeklaerte Tatsachenfrage, die der PO vorab klaeren sollte.'
   po_bestaetigt: false
 - id: Art. 111 Abs. 3
   artikel: '111'
