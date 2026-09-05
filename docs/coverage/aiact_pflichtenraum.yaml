@@ -20097,17 +20097,20 @@ einheiten:
     auf KI-Systeme, die kein hohes Risiko bergen, gefördert werden soll, wobei den verfügbaren technischen
     Lösungen und bewährten Verfahren der Branche, die die Anwendung dieser Anforderungen ermöglichen,
     Rechnung zu tragen ist.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Buero fuer KI und Mitgliedstaaten foerdern Verhaltenskodizes zur freiwilligen Anwendung von
+    Kapitel-III-Abschnitt-2-Anforderungen auf nicht-hochriskante KI-Systeme.
+  scope: out
+  scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 95 Abs. 2
   artikel: '95'
   artikel_titel: Verhaltenskodizes für die freiwillige Anwendung bestimmter Anforderungen
@@ -20144,17 +20147,20 @@ einheiten:
   laenge: 104
   saetze: 1
   beleg: a) in den Ethik-Leitlinien der Union für eine vertrauenswürdige KI enthaltene anwendbare Elemente;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: 'Kodex-Element a): anwendbare Elemente der Ethik-Leitlinien der Union fuer vertrauenswuerdige
+    KI.'
+  scope: out
+  scope_grund: Adressiert sonstige, keine Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 95 Abs. 2 lit. b
   artikel: '95'
   artikel_titel: Verhaltenskodizes für die freiwillige Anwendung bestimmter Anforderungen
@@ -20166,17 +20172,19 @@ einheiten:
   beleg: b) Beurteilung und Minimierung der Auswirkungen von KI-Systemen auf die ökologische Nachhaltigkeit,
     einschließlich im Hinblick auf energieeffizientes Programmieren, und Techniken, um KI effizient zu
     gestalten, zu trainieren und zu nutzen;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: 'Kodex-Element b): Beurteilung/Minimierung oekologischer Auswirkungen, energieeffizientes Programmieren.'
+  scope: out
+  scope_grund: Adressiert sonstige, keine Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 95 Abs. 2 lit. c
   artikel: '95'
   artikel_titel: Verhaltenskodizes für die freiwillige Anwendung bestimmter Anforderungen
@@ -20187,17 +20195,19 @@ einheiten:
   saetze: 1
   beleg: c) Förderung der KI-Kompetenz, insbesondere der von Personen, die mit der Entwicklung, dem Betrieb
     und der Nutzung von KI befasst sind;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: 'Kodex-Element c): Foerderung der KI-Kompetenz von Entwicklungs-/Betriebs-/Nutzungspersonal.'
+  scope: out
+  scope_grund: Adressiert sonstige, keine Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 95 Abs. 2 lit. d
   artikel: '95'
   artikel_titel: Verhaltenskodizes für die freiwillige Anwendung bestimmter Anforderungen
@@ -20209,17 +20219,19 @@ einheiten:
   beleg: d) Erleichterung einer inklusiven und vielfältigen Gestaltung von KI-Systemen, unter anderem
     durch die Einsetzung inklusiver und vielfältiger Entwicklungsteams und die Förderung der Beteiligung
     der Interessenträger an diesem Prozess;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: 'Kodex-Element d): inklusive/vielfaeltige Gestaltung von KI-Systemen und Entwicklungsteams.'
+  scope: out
+  scope_grund: Adressiert sonstige, keine Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 95 Abs. 2 lit. e
   artikel: '95'
   artikel_titel: Verhaltenskodizes für die freiwillige Anwendung bestimmter Anforderungen
@@ -20231,17 +20243,20 @@ einheiten:
   beleg: e) Bewertung und Verhinderung der negativen Auswirkungen von KI-Systemen auf schutzbedürftige
     Personen oder Gruppen schutzbedürftiger Personen, einschließlich im Hinblick auf die Barrierefreiheit
     für Personen mit Behinderungen, sowie auf die Gleichstellung der Geschlechter.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: 'Kodex-Element e): Bewertung/Verhinderung negativer Auswirkungen auf schutzbeduerftige Personen,
+    Barrierefreiheit, Geschlechtergleichstellung.'
+  scope: out
+  scope_grund: Adressiert sonstige, keine Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 95 Abs. 3
   artikel: '95'
   artikel_titel: Verhaltenskodizes für die freiwillige Anwendung bestimmter Anforderungen
@@ -20282,17 +20297,20 @@ einheiten:
   beleg: (4)   Das Büro für Künstliche Intelligenz und die Mitgliedstaaten berücksichtigen die besonderen
     Interessen und Bedürfnisse von KMU, einschließlich Startups, bei der Förderung und Erleichterung der
     Aufstellung von Verhaltenskodizes.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Buero fuer KI und Mitgliedstaaten beruecksichtigen bei der Kodex-Foerderung die besonderen
+    Beduerfnisse von KMU/Start-ups.
+  scope: out
+  scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 96 Abs. 1
   artikel: '96'
   artikel_titel: Leitlinien der Kommission zur Durchführung dieser Verordnung
@@ -20303,17 +20321,21 @@ einheiten:
   saetze: 1
   beleg: '(1)   Die Kommission erarbeitet Leitlinien für die praktische Umsetzung dieser Verordnung, die
     sich insbesondere auf Folgendes beziehen:'
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Die Kommission erarbeitet Leitlinien zur praktischen Umsetzung der Verordnung.
+  scope: out
+  scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: 'GEAENDERT durch VO (EU) 2026/1744 Art. 1 Nr. 36 - Abs. 1: lit. a neu gefasst (nennt jetzt
+    auch Art. 26), neue lit. g (Leitlinien zu Art. 8 Abs. 2/Art. 9 Abs. 10/Art. 17 Abs. 3, Komplementaritaet
+    mit Anhang-I-Abschnitt-A-Recht, bis 1.8.2027), UAbs. 2 neu gefasst (KI-Gremium-Einbeziehung, kleine
+    Midcap-Unternehmen). Details je Einheit unten.'
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 96 Abs. 1 lit. a
   artikel: '96'
   artikel_titel: Leitlinien der Kommission zur Durchführung dieser Verordnung
@@ -20323,17 +20345,22 @@ einheiten:
   laenge: 108
   saetze: 1
   beleg: a) die Anwendung der in den Artikeln 8 bis 15 und in Artikel 25 genannten Anforderungen und Pflichten;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: 'Leitlinien-Gegenstand a): Anwendung der Art. 8-15 und Art. 25 Anforderungen/Pflichten.'
+  scope: out
+  scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: 'GEAENDERT durch VO (EU) 2026/1744 Art. 1 Nr. 36 - Abs. 1: lit. a neu gefasst (nennt jetzt
+    auch Art. 26), neue lit. g (Leitlinien zu Art. 8 Abs. 2/Art. 9 Abs. 10/Art. 17 Abs. 3, Komplementaritaet
+    mit Anhang-I-Abschnitt-A-Recht, bis 1.8.2027), UAbs. 2 neu gefasst (KI-Gremium-Einbeziehung, kleine
+    Midcap-Unternehmen). Details je Einheit unten. Diese Einheit betrifft direkt lit. a: neu gefasst,
+    nennt jetzt zusaetzlich Art. 26.'
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 96 Abs. 1 lit. b
   artikel: '96'
   artikel_titel: Leitlinien der Kommission zur Durchführung dieser Verordnung
@@ -20343,17 +20370,21 @@ einheiten:
   laenge: 57
   saetze: 1
   beleg: b) die in Artikel 5 genannten verbotenen Praktiken;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: 'Leitlinien-Gegenstand b): die in Art. 5 genannten verbotenen Praktiken.'
+  scope: out
+  scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: 'GEAENDERT durch VO (EU) 2026/1744 Art. 1 Nr. 36 - Abs. 1: lit. a neu gefasst (nennt jetzt
+    auch Art. 26), neue lit. g (Leitlinien zu Art. 8 Abs. 2/Art. 9 Abs. 10/Art. 17 Abs. 3, Komplementaritaet
+    mit Anhang-I-Abschnitt-A-Recht, bis 1.8.2027), UAbs. 2 neu gefasst (KI-Gremium-Einbeziehung, kleine
+    Midcap-Unternehmen). Details je Einheit unten.'
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 96 Abs. 1 lit. c
   artikel: '96'
   artikel_titel: Leitlinien der Kommission zur Durchführung dieser Verordnung
@@ -20363,17 +20394,21 @@ einheiten:
   laenge: 85
   saetze: 1
   beleg: c) die praktische Durchführung der Bestimmungen über wesentliche Veränderungen;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: 'Leitlinien-Gegenstand c): praktische Durchfuehrung der Bestimmungen ueber wesentliche Veraenderungen.'
+  scope: out
+  scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: 'GEAENDERT durch VO (EU) 2026/1744 Art. 1 Nr. 36 - Abs. 1: lit. a neu gefasst (nennt jetzt
+    auch Art. 26), neue lit. g (Leitlinien zu Art. 8 Abs. 2/Art. 9 Abs. 10/Art. 17 Abs. 3, Komplementaritaet
+    mit Anhang-I-Abschnitt-A-Recht, bis 1.8.2027), UAbs. 2 neu gefasst (KI-Gremium-Einbeziehung, kleine
+    Midcap-Unternehmen). Details je Einheit unten.'
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 96 Abs. 1 lit. d
   artikel: '96'
   artikel_titel: Leitlinien der Kommission zur Durchführung dieser Verordnung
@@ -20383,17 +20418,21 @@ einheiten:
   laenge: 76
   saetze: 1
   beleg: d) die praktische Umsetzung der Transparenzpflichten gemäß Artikel 50;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: 'Leitlinien-Gegenstand d): praktische Umsetzung der Transparenzpflichten nach Art. 50.'
+  scope: out
+  scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: 'GEAENDERT durch VO (EU) 2026/1744 Art. 1 Nr. 36 - Abs. 1: lit. a neu gefasst (nennt jetzt
+    auch Art. 26), neue lit. g (Leitlinien zu Art. 8 Abs. 2/Art. 9 Abs. 10/Art. 17 Abs. 3, Komplementaritaet
+    mit Anhang-I-Abschnitt-A-Recht, bis 1.8.2027), UAbs. 2 neu gefasst (KI-Gremium-Einbeziehung, kleine
+    Midcap-Unternehmen). Details je Einheit unten.'
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 96 Abs. 1 lit. e
   artikel: '96'
   artikel_titel: Leitlinien der Kommission zur Durchführung dieser Verordnung
@@ -20405,17 +20444,22 @@ einheiten:
   beleg: e) detaillierte Informationen über das Verhältnis dieser Verordnung zu den in Anhang I aufgeführten
     Harmonisierungsrechtsvorschriften der Union sowie zu anderen einschlägigen Rechtsvorschriften der
     Union, auch in Bezug auf deren kohärente Durchsetzung;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: 'Leitlinien-Gegenstand e): Verhaeltnis der Verordnung zu Anhang-I-Harmonisierungsvorschriften
+    und anderem Unionsrecht.'
+  scope: out
+  scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: 'GEAENDERT durch VO (EU) 2026/1744 Art. 1 Nr. 36 - Abs. 1: lit. a neu gefasst (nennt jetzt
+    auch Art. 26), neue lit. g (Leitlinien zu Art. 8 Abs. 2/Art. 9 Abs. 10/Art. 17 Abs. 3, Komplementaritaet
+    mit Anhang-I-Abschnitt-A-Recht, bis 1.8.2027), UAbs. 2 neu gefasst (KI-Gremium-Einbeziehung, kleine
+    Midcap-Unternehmen). Details je Einheit unten.'
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 96 Abs. 1 lit. f
   artikel: '96'
   artikel_titel: Leitlinien der Kommission zur Durchführung dieser Verordnung
@@ -20432,17 +20476,22 @@ einheiten:
     Spezifikationen, auf die in den Artikeln 40 und 41 Bezug genommen wird, oder den harmonisierten Normen
     oder technischen Spezifikationen, die gemäß den Harmonisierungsrechtsvorschriften der Union festgelegt
     wurden, gebührend Rechnung.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: 'Leitlinien-Gegenstand f): Anwendung der KI-System-Definition (Art. 3 Nr. 1); Leitlinien beruecksichtigen
+    KMU/lokale Behoerden/betroffene Sektoren sowie Stand der Technik und harmonisierte Normen.'
+  scope: out
+  scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: 'GEAENDERT durch VO (EU) 2026/1744 Art. 1 Nr. 36 - Abs. 1: lit. a neu gefasst (nennt jetzt
+    auch Art. 26), neue lit. g (Leitlinien zu Art. 8 Abs. 2/Art. 9 Abs. 10/Art. 17 Abs. 3, Komplementaritaet
+    mit Anhang-I-Abschnitt-A-Recht, bis 1.8.2027), UAbs. 2 neu gefasst (KI-Gremium-Einbeziehung, kleine
+    Midcap-Unternehmen). Details je Einheit unten.'
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 96 Abs. 2
   artikel: '96'
   artikel_titel: Leitlinien der Kommission zur Durchführung dieser Verordnung
@@ -20454,17 +20503,20 @@ einheiten:
   beleg: (2)   Auf Ersuchen der Mitgliedstaaten oder des Büros für Künstliche Intelligenz oder von sich
     aus aktualisiert die Kommission früher verabschiedete Leitlinien, wenn es als notwendig erachtet wird.
     KAPITEL XI BEFUGNISÜBERTRAGUNG UND AUSSCHUSSVERFAHREN
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Die Kommission aktualisiert fruehere Leitlinien auf Ersuchen der Mitgliedstaaten/des Buero
+    fuer KI oder von sich aus.
+  scope: out
+  scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 97 Abs. 1
   artikel: '97'
   artikel_titel: Ausübung der Befugnisübertragung
@@ -20475,17 +20527,20 @@ einheiten:
   saetze: 1
   beleg: (1)   Die Befugnis zum Erlass delegierter Rechtsakte wird der Kommission unter den in diesem
     Artikel festgelegten Bedingungen übertragen.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Die Befugnis zum Erlass delegierter Rechtsakte wird der Kommission unter den in Art. 97 festgelegten
+    Bedingungen uebertragen.
+  scope: out
+  scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 97 Abs. 2
   artikel: '97'
   artikel_titel: Ausübung der Befugnisübertragung
@@ -20502,17 +20557,23 @@ einheiten:
     verlängert sich stillschweigend um Zeiträume gleicher Länge, es sei denn, das Europäische Parlament
     oder der Rat widersprechen einer solchen Verlängerung spätestens drei Monate vor Ablauf des jeweiligen
     Zeitraums.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Die Befugnisuebertragung fuer die genannten Ermaechtigungsgrundlagen gilt fuer 5 Jahre ab 1.8.2024
+    mit stillschweigender Verlaengerung, vorbehaltlich eines Berichts der Kommission.
+  scope: out
+  scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: 'GEAENDERT durch VO (EU) 2026/1744 Art. 1 Nr. 37 - Abs. 2/3/6 neu gefasst: Liste der Ermaechtigungsgrundlagen
+    um Art. 2 Abs. 13 (neu) und Art. 30 Abs. 2 erweitert; fuer Art. 2 Abs. 13/Art. 30 Abs. 2 gilt eine
+    neue 5-Jahres-Frist ab 27. Juli 2026 (statt 1. August 2024 fuer die uebrigen). Details je Einheit
+    unten. Diese Einheit ist Abs. 2, direkt neu gefasst: erweitert um Art. 2 Abs. 13/Art. 30 Abs. 2 mit
+    eigener Frist ab 27.7.2026.'
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 97 Abs. 3
   artikel: '97'
   artikel_titel: Ausübung der Befugnisübertragung
@@ -20528,17 +20589,23 @@ einheiten:
     Befugnis. Er wird am Tag nach seiner Veröffentlichung im Amtsblatt der Europäischen Union oder zu
     einem darin angegebenen späteren Zeitpunkt wirksam. Die Gültigkeit von delegierten Rechtsakten, die
     bereits in Kraft sind, wird von dem Beschluss über den Widerruf nicht berührt.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Die Befugnisuebertragung kann vom Europaeischen Parlament oder Rat jederzeit widerrufen werden;
+    bereits erlassene delegierte Rechtsakte bleiben gueltig.
+  scope: out
+  scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: 'GEAENDERT durch VO (EU) 2026/1744 Art. 1 Nr. 37 - Abs. 2/3/6 neu gefasst: Liste der Ermaechtigungsgrundlagen
+    um Art. 2 Abs. 13 (neu) und Art. 30 Abs. 2 erweitert; fuer Art. 2 Abs. 13/Art. 30 Abs. 2 gilt eine
+    neue 5-Jahres-Frist ab 27. Juli 2026 (statt 1. August 2024 fuer die uebrigen). Details je Einheit
+    unten. Diese Einheit ist Abs. 3, direkt neu gefasst: Ermaechtigungsliste um Art. 2 Abs. 13/Art. 30
+    Abs. 2 erweitert.'
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 97 Abs. 4
   artikel: '97'
   artikel_titel: Ausübung der Befugnisübertragung
@@ -20550,17 +20617,20 @@ einheiten:
   beleg: (4)   Vor dem Erlass eines delegierten Rechtsakts konsultiert die Kommission die von den einzelnen
     Mitgliedstaaten benannten Sachverständigen im Einklang mit den in der Interinstitutionellen Vereinbarung
     vom 13. April 2016 über bessere Rechtsetzung niedergelegten Grundsätzen.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Vor Erlass eines delegierten Rechtsakts konsultiert die Kommission von den Mitgliedstaaten
+    benannte Sachverstaendige gemaess der Interinstitutionellen Vereinbarung.
+  scope: out
+  scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 97 Abs. 5
   artikel: '97'
   artikel_titel: Ausübung der Befugnisübertragung
@@ -20571,17 +20641,19 @@ einheiten:
   saetze: 1
   beleg: (5)   Sobald die Kommission einen delegierten Rechtsakt erlässt, übermittelt sie ihn gleichzeitig
     dem Europäischen Parlament und dem Rat.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Die Kommission uebermittelt jeden delegierten Rechtsakt gleichzeitig Parlament und Rat.
+  scope: out
+  scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 97 Abs. 6
   artikel: '97'
   artikel_titel: Ausübung der Befugnisübertragung
@@ -20598,17 +20670,23 @@ einheiten:
     Europäische Parlament und der Rat beide der Kommission mitgeteilt haben, dass sie keine Einwände erheben
     werden. Auf Initiative des Europäischen Parlaments oder des Rates wird diese Frist um drei Monate
     verlängert.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Ein delegierter Rechtsakt tritt nur in Kraft, wenn Parlament/Rat innerhalb von drei Monaten
+    keine Einwaende erheben (verlaengerbar um drei Monate).
+  scope: out
+  scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: 'GEAENDERT durch VO (EU) 2026/1744 Art. 1 Nr. 37 - Abs. 2/3/6 neu gefasst: Liste der Ermaechtigungsgrundlagen
+    um Art. 2 Abs. 13 (neu) und Art. 30 Abs. 2 erweitert; fuer Art. 2 Abs. 13/Art. 30 Abs. 2 gilt eine
+    neue 5-Jahres-Frist ab 27. Juli 2026 (statt 1. August 2024 fuer die uebrigen). Details je Einheit
+    unten. Diese Einheit ist Abs. 6, direkt neu gefasst: Ermaechtigungsliste um Art. 2 Abs. 13/Art. 30
+    Abs. 2 erweitert.'
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 98 Abs. 1
   artikel: '98'
   artikel_titel: Ausschussverfahren
@@ -20619,17 +20697,19 @@ einheiten:
   saetze: 2
   beleg: (1)   Die Kommission wird von einem Ausschuss unterstützt. Dieser Ausschuss ist ein Ausschuss
     im Sinne der Verordnung (EU) Nr. 182/2011.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Die Kommission wird von einem Ausschuss im Sinne der VO (EU) 182/2011 unterstuetzt.
+  scope: out
+  scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 98 Abs. 2
   artikel: '98'
   artikel_titel: Ausschussverfahren
@@ -20640,17 +20720,19 @@ einheiten:
   saetze: 2
   beleg: (2)   Wird auf diesen Absatz Bezug genommen, so gilt Artikel 5 der Verordnung (EU) Nr. 182/2011.
     KAPITEL XII SANKTIONEN
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Bei Verweis auf diesen Absatz gilt Art. 5 der VO (EU) 182/2011 (Pruefverfahren).
+  scope: out
+  scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 99 Abs. 1
   artikel: '99'
   artikel_titel: Sanktionen
@@ -20666,17 +20748,23 @@ einheiten:
     der Kommission gemäß Artikel 96 erteilten Leitlinien zu berücksichtigen sind. Die vorgesehenen Sanktionen
     müssen wirksam, verhältnismäßig und abschreckend sein. Sie berücksichtigen die Interessen von KMU,
     einschließlich Start-up-Unternehmen, sowie deren wirtschaftliches Überleben.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Die Mitgliedstaaten erlassen Sanktionsvorschriften (inkl. Geldbussen/Verwarnungen) fuer Verstoesse
+    von Akteuren und setzen sie wirksam durch; Sanktionen muessen wirksam/verhaeltnismaessig/abschreckend
+    sein und KMU-Interessen beruecksichtigen.
+  scope: out
+  scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: 'GEAENDERT durch VO (EU) 2026/1744 Art. 1 Nr. 38 lit. a - Abs. 1 neu gefasst: nennt jetzt ausdruecklich
+    ''Geldbussen'' als Sanktionsform, erstreckt sich auf ''jeglichen Verstoss'' (statt nur die aufgezaehlten),
+    und erwaehnt zusaetzlich kleine Midcap-Unternehmen bei der KMU-Ruecksichtnahme (geprueft am verfuegenden
+    Teil, docs/legal/OJ_L_202601744_DE.pdf).'
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 99 Abs. 2
   artikel: '99'
   artikel_titel: Sanktionen
@@ -20688,17 +20776,20 @@ einheiten:
   beleg: (2)   Die Mitgliedstaaten teilen der Kommission die Vorschriften für Sanktionen und andere Durchsetzungsmaßnahmen
     gemäß Absatz 1 unverzüglich und spätestens zum Zeitpunkt ihres Inkrafttretens mit und melden ihr unverzüglich
     etwaige spätere Änderungen.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Die Mitgliedstaaten teilen der Kommission ihre Sanktionsvorschriften und spaetere Aenderungen
+    unverzueglich mit.
+  scope: out
+  scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 99 Abs. 3
   artikel: '99'
   artikel_titel: Sanktionen
@@ -20710,17 +20801,19 @@ einheiten:
   beleg: (3)   Bei Missachtung des Verbots der in Artikel 5 genannten KI-Praktiken werden Geldbußen von
     bis zu 35 000 000 EUR oder — im Falle von Unternehmen — von bis zu 7 % des gesamten weltweiten Jahresumsatzes
     des vorangegangenen Geschäftsjahres verhängt, je nachdem, welcher Betrag höher ist.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: 'Bei Verstoss gegen das Art.-5-Verbot: Geldbussen bis 35 Mio. EUR bzw. 7% des weltweiten Jahresumsatzes.'
+  scope: out
+  scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 99 Abs. 4
   artikel: '99'
   artikel_titel: Sanktionen
@@ -20760,17 +20853,19 @@ einheiten:
   laenge: 49
   saetze: 1
   beleg: a) Pflichten der Anbieter gemäß Artikel 16;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Nennt 'Pflichten der Anbieter gemaess Art. 16' als bussgeldbewehrte Verstossvariante.
+  scope: out
+  scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 99 Abs. 4 lit. b
   artikel: '99'
   artikel_titel: Sanktionen
@@ -20780,17 +20875,19 @@ einheiten:
   laenge: 57
   saetze: 1
   beleg: b) Pflichten der Bevollmächtigten gemäß Artikel 22;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Nennt 'Pflichten der Bevollmaechtigten gemaess Art. 22' als bussgeldbewehrte Verstossvariante.
+  scope: out
+  scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 99 Abs. 4 lit. c
   artikel: '99'
   artikel_titel: Sanktionen
@@ -20800,17 +20897,19 @@ einheiten:
   laenge: 50
   saetze: 1
   beleg: c) Pflichten der Einführer gemäß Artikel 23;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Nennt 'Pflichten der Einfuehrer gemaess Art. 23' als bussgeldbewehrte Verstossvariante.
+  scope: out
+  scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 99 Abs. 4 lit. d
   artikel: '99'
   artikel_titel: Sanktionen
@@ -20820,17 +20919,19 @@ einheiten:
   laenge: 48
   saetze: 1
   beleg: d) Pflichten der Händler gemäß Artikel 24;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Nennt 'Pflichten der Haendler gemaess Art. 24' als bussgeldbewehrte Verstossvariante.
+  scope: out
+  scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 99 Abs. 4 lit. e
   artikel: '99'
   artikel_titel: Sanktionen
@@ -20864,17 +20965,21 @@ einheiten:
   saetze: 1
   beleg: f) für notifizierte Stellen geltende Anforderungen und Pflichten gemäß Artikel 31, Artikel 33
     Absätze 1, 3 und 4 bzw. Artikel 34;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Nennt 'fuer notifizierte Stellen geltende Anforderungen/Pflichten gemaess Art. 31, 33 Abs.
+    1/3/4 bzw. 34' als bussgeldbewehrte Verstossvariante.
+  scope: out
+  scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - lit. f selbst unveraendert; Nr. 38 lit. b fuegt eine NEUE lit. da (Pflichten
+    der Anbieter/Akteure gemaess Art. 25 Abs. 2/4) ein, die als eigene Einheit im Pflichtenraum nicht
+    existiert (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 99 Abs. 4 lit. g
   artikel: '99'
   artikel_titel: Sanktionen
@@ -20911,17 +21016,20 @@ einheiten:
     hin falsche, unvollständige oder irreführende Informationen bereitgestellt, so werden Geldbußen von
     bis zu 7 500 000 EUR oder — im Falle von Unternehmen — von bis zu 1 % des gesamten weltweiten Jahresumsatzes
     des vorangegangenen Geschäftsjahres verhängt, je nachdem, welcher Betrag höher ist.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: 'Bei falschen/unvollstaendigen/irrefuehrenden Auskuenften an notifizierte Stellen/Behoerden:
+    Geldbussen bis 7,5 Mio. EUR bzw. 1% des weltweiten Jahresumsatzes.'
+  scope: out
+  scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 99 Abs. 6
   artikel: '99'
   artikel_titel: Sanktionen
@@ -20933,17 +21041,20 @@ einheiten:
   beleg: (6)   Im Falle von KMU, einschließlich Start-up-Unternehmen, gilt für jede in diesem Artikel
     genannte Geldbuße der jeweils niedrigere Betrag aus den in den Absätzen 3, 4 und 5 genannten Prozentsätzen
     oder Summen.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Bei KMU/Start-ups gilt fuer jede Geldbusse nach Abs. 3-5 jeweils der niedrigere Betrag.
+  scope: out
+  scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Abs. 6 selbst unveraendert; Nr. 38 lit. c fuegt einen NEUEN Abs. 6a fuer kleine
+    Midcap-Unternehmen an, der als eigene Einheit im Pflichtenraum nicht existiert (geprueft am verfuegenden
+    Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 99 Abs. 7
   artikel: '99'
   artikel_titel: Sanktionen
@@ -20955,17 +21066,20 @@ einheiten:
   beleg: '(7)   Bei der Entscheidung, ob eine Geldbuße verhängt wird, und bei der Festsetzung der Höhe
     der Geldbuße werden in jedem Einzelfall alle relevanten Umstände der konkreten Situation sowie gegebenenfalls
     Folgendes berücksichtigt:'
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Bei der Bussgeldentscheidung/-bemessung werden alle relevanten Umstaende beruecksichtigt (Chapeau
+    zu lit. a-j).
+  scope: out
+  scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 99 Abs. 7 lit. a
   artikel: '99'
   artikel_titel: Sanktionen
@@ -20977,17 +21091,19 @@ einheiten:
   beleg: a) Art, Schwere und Dauer des Verstoßes und seiner Folgen, unter Berücksichtigung des Zwecks
     des KI-Systems sowie gegebenenfalls der Zahl der betroffenen Personen und des Ausmaßes des von ihnen
     erlittenen Schadens;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: 'Bemessungskriterium a): Art/Schwere/Dauer/Folgen des Verstosses, Zahl Betroffener, Schadensausmass.'
+  scope: out
+  scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 99 Abs. 7 lit. b
   artikel: '99'
   artikel_titel: Sanktionen
@@ -20998,17 +21114,20 @@ einheiten:
   saetze: 1
   beleg: b) ob demselben Akteur bereits von anderen Marktüberwachungsbehörden für denselben Verstoß Geldbußen
     auferlegt wurden;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: 'Bemessungskriterium b): bereits von anderen Marktueberwachungsbehoerden fuer denselben Verstoss
+    verhaengte Geldbussen.'
+  scope: out
+  scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 99 Abs. 7 lit. c
   artikel: '99'
   artikel_titel: Sanktionen
@@ -21020,17 +21139,20 @@ einheiten:
   beleg: c) ob demselben Akteur bereits von anderen Behörden für Verstöße gegen das Unionsrecht oder das
     nationale Recht Geldbußen auferlegt wurden, wenn diese Verstöße auf dieselbe Handlung oder Unterlassung
     zurückzuführen sind, die einen einschlägigen Verstoß gegen diese Verordnung darstellt;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: 'Bemessungskriterium c): bereits von anderen Behoerden fuer denselben zugrundeliegenden Sachverhalt
+    verhaengte Geldbussen.'
+  scope: out
+  scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 99 Abs. 7 lit. d
   artikel: '99'
   artikel_titel: Sanktionen
@@ -21040,17 +21162,19 @@ einheiten:
   laenge: 87
   saetze: 1
   beleg: d) Größe, Jahresumsatz und Marktanteil des Akteurs, der den Verstoß begangen hat;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: 'Bemessungskriterium d): Groesse, Jahresumsatz und Marktanteil des Akteurs.'
+  scope: out
+  scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 99 Abs. 7 lit. e
   artikel: '99'
   artikel_titel: Sanktionen
@@ -21061,17 +21185,20 @@ einheiten:
   saetze: 1
   beleg: e) jegliche anderen erschwerenden oder mildernden Umstände im jeweiligen Fall, wie etwa unmittelbar
     oder mittelbar durch den Verstoß erlangte finanzielle Vorteile oder vermiedene Verluste;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: 'Bemessungskriterium e): sonstige erschwerende/mildernde Umstaende, z.B. finanzielle Vorteile/vermiedene
+    Verluste.'
+  scope: out
+  scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 99 Abs. 7 lit. f
   artikel: '99'
   artikel_titel: Sanktionen
@@ -21082,17 +21209,20 @@ einheiten:
   saetze: 1
   beleg: f) Grad der Zusammenarbeit mit den zuständigen nationalen Behörden, um den Verstoß abzustellen
     und die möglichen nachteiligen Auswirkungen des Verstoßes abzumildern;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: 'Bemessungskriterium f): Grad der Zusammenarbeit mit Behoerden zur Abstellung/Abmilderung des
+    Verstosses.'
+  scope: out
+  scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 99 Abs. 7 lit. g
   artikel: '99'
   artikel_titel: Sanktionen
@@ -21103,17 +21233,20 @@ einheiten:
   saetze: 1
   beleg: g) Grad an Verantwortung des Akteurs unter Berücksichtigung der von ihm ergriffenen technischen
     und organisatorischen Maßnahmen;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: 'Bemessungskriterium g): Grad der Verantwortung unter Beruecksichtigung ergriffener technischer/organisatorischer
+    Massnahmen.'
+  scope: out
+  scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 99 Abs. 7 lit. h
   artikel: '99'
   artikel_titel: Sanktionen
@@ -21124,17 +21257,19 @@ einheiten:
   saetze: 1
   beleg: h) Art und Weise, wie der Verstoß den zuständigen nationalen Behörden bekannt wurde, insbesondere
     ob und gegebenenfalls in welchem Umfang der Akteur den Verstoß gemeldet hat;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: 'Bemessungskriterium h): Art und Weise, wie der Verstoss bekannt wurde, insb. Selbstmeldung.'
+  scope: out
+  scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 99 Abs. 7 lit. i
   artikel: '99'
   artikel_titel: Sanktionen
@@ -21144,17 +21279,19 @@ einheiten:
   laenge: 59
   saetze: 1
   beleg: i) Vorsätzlichkeit oder Fahrlässigkeit des Verstoßes;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: 'Bemessungskriterium i): Vorsatz oder Fahrlaessigkeit des Verstosses.'
+  scope: out
+  scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 99 Abs. 7 lit. j
   artikel: '99'
   artikel_titel: Sanktionen
@@ -21165,17 +21302,19 @@ einheiten:
   saetze: 1
   beleg: j) alle Maßnahmen, die der Akteur ergriffen hat, um den Schaden, der den betroffenen Personen
     zugefügt wird, zu mindern.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: 'Bemessungskriterium j): vom Akteur ergriffene Schadensminderungsmassnahmen.'
+  scope: out
+  scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 99 Abs. 8
   artikel: '99'
   artikel_titel: Sanktionen
@@ -21187,17 +21326,20 @@ einheiten:
   beleg: (8)   Jeder Mitgliedstaat erlässt Vorschriften darüber, in welchem Umfang gegen Behörden und
     öffentliche Stellen, die in dem betreffenden Mitgliedstaat niedergelassen sind, Geldbußen verhängt
     werden können.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Jeder Mitgliedstaat regelt, in welchem Umfang gegen dort niedergelassene Behoerden/oeffentliche
+    Stellen Geldbussen verhaengt werden koennen.
+  scope: out
+  scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 99 Abs. 9
   artikel: '99'
   artikel_titel: Sanktionen
@@ -21210,17 +21352,20 @@ einheiten:
     je nach den dort geltenden Regeln so angewandt werden, dass die Geldbußen von den zuständigen nationalen
     Gerichten oder von sonstigen Stellen verhängt werden. Die Anwendung dieser Vorschriften in diesen
     Mitgliedstaaten muss eine gleichwertige Wirkung haben.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Je nach Rechtssystem koennen Geldbussen auch von nationalen Gerichten/sonstigen Stellen verhaengt
+    werden, mit gleichwertiger Wirkung.
+  scope: out
+  scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 99 Abs. 10
   artikel: '99'
   artikel_titel: Sanktionen
@@ -21232,17 +21377,20 @@ einheiten:
   beleg: (10)   Die Ausübung der Befugnisse gemäß diesem Artikel muss angemessenen Verfahrensgarantien
     gemäß dem Unionsrecht und dem nationalen Recht, einschließlich wirksamer gerichtlicher Rechtsbehelfe
     und ordnungsgemäßer Verfahren, unterliegen.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Die Ausuebung der Bussgeldbefugnisse unterliegt angemessenen Verfahrensgarantien (wirksame
+    Rechtsbehelfe, ordnungsgemaesses Verfahren).
+  scope: out
+  scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 99 Abs. 11
   artikel: '99'
   artikel_titel: Sanktionen
@@ -21254,17 +21402,20 @@ einheiten:
   beleg: (11)   Die Mitgliedstaaten erstatten der Kommission jährlich Bericht über die Geldbußen, die
     sie in dem betreffenden Jahr gemäß diesem Artikel verhängt haben, und über damit zusammenhängende
     Rechtsstreitigkeiten oder Gerichtsverfahren.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Die Mitgliedstaaten erstatten der Kommission jaehrlich Bericht ueber verhaengte Geldbussen
+    und damit zusammenhaengende Rechtsstreitigkeiten.
+  scope: out
+  scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 100 Abs. 1
   artikel: '100'
   artikel_titel: Verhängung von Geldbußen gegen Organe, Einrichtungen und sonstige Stellen der Union
@@ -21277,17 +21428,20 @@ einheiten:
     der Union, die in den Anwendungsbereich dieser Verordnung fallen, Geldbußen verhängen. Bei der Entscheidung,
     ob eine Geldbuße verhängt wird, und bei der Festsetzung der Höhe der Geldbuße werden in jedem Einzelfall
     alle relevanten Umstände der konkreten Situation sowie Folgendes gebührend berücksichtigt:'
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Der Europaeische Datenschutzbeauftragte kann gegen EU-Organe/-Einrichtungen Geldbussen verhaengen,
+    unter Beruecksichtigung relevanter Umstaende (Chapeau zu lit. a-g).
+  scope: out
+  scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 100 Abs. 1 lit. a
   artikel: '100'
   artikel_titel: Verhängung von Geldbußen gegen Organe, Einrichtungen und sonstige Stellen der Union
@@ -21299,17 +21453,19 @@ einheiten:
   beleg: a) Art, Schwere und Dauer des Verstoßes und dessen Folgen, unter Berücksichtigung des Zwecks
     des betreffenden KI-Systems sowie gegebenenfalls der Zahl der betroffenen Personen und des Ausmaßes
     des von ihnen erlittenen Schadens;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: 'Bemessungskriterium a): Art/Schwere/Dauer/Folgen des Verstosses, Zahl Betroffener, Schadensausmass.'
+  scope: out
+  scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 100 Abs. 1 lit. b
   artikel: '100'
   artikel_titel: Verhängung von Geldbußen gegen Organe, Einrichtungen und sonstige Stellen der Union
@@ -21320,17 +21476,19 @@ einheiten:
   saetze: 1
   beleg: b) Grad der Verantwortung des Organs, der Einrichtung oder der sonstigen Stelle der Union unter
     Berücksichtigung der von diesem bzw. dieser ergriffenen technischen und organisatorischen Maßnahmen;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: 'Bemessungskriterium b): Verantwortungsgrad unter Beruecksichtigung ergriffener Massnahmen.'
+  scope: out
+  scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 100 Abs. 1 lit. c
   artikel: '100'
   artikel_titel: Verhängung von Geldbußen gegen Organe, Einrichtungen und sonstige Stellen der Union
@@ -21341,17 +21499,19 @@ einheiten:
   saetze: 1
   beleg: c) alle Maßnahmen, die das Organ, die Einrichtung oder die sonstige Stelle der Union zur Minderung
     des von den betroffenen Personen erlittenen Schadens ergriffen hat;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: 'Bemessungskriterium c): vom Organ ergriffene Schadensminderungsmassnahmen.'
+  scope: out
+  scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 100 Abs. 1 lit. d
   artikel: '100'
   artikel_titel: Verhängung von Geldbußen gegen Organe, Einrichtungen und sonstige Stellen der Union
@@ -21364,17 +21524,19 @@ einheiten:
     Verstoßes und der Minderung seiner möglichen nachteiligen Auswirkungen, einschließlich der Befolgung
     von Maßnahmen, die der Europäische Datenschutzbeauftragte dem Organ, der Einrichtung oder der sonstigen
     Stelle der Union im Hinblick auf denselben Gegenstand zuvor bereits auferlegt hatte;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: 'Bemessungskriterium d): Kooperationsgrad mit dem EDSB, Befolgung frueherer Massnahmen.'
+  scope: out
+  scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 100 Abs. 1 lit. e
   artikel: '100'
   artikel_titel: Verhängung von Geldbußen gegen Organe, Einrichtungen und sonstige Stellen der Union
@@ -21384,17 +21546,19 @@ einheiten:
   laenge: 99
   saetze: 1
   beleg: e) ähnliche frühere Verstöße des Organs, der Einrichtung oder der sonstigen Stelle der Union;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: 'Bemessungskriterium e): aehnliche fruehere Verstoesse des Organs.'
+  scope: out
+  scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 100 Abs. 1 lit. f
   artikel: '100'
   artikel_titel: Verhängung von Geldbußen gegen Organe, Einrichtungen und sonstige Stellen der Union
@@ -21406,17 +21570,19 @@ einheiten:
   beleg: f) Art und Weise, wie der Verstoß dem Europäischen Datenschutzbeauftragten bekannt wurde, insbesondere
     ob und gegebenenfalls in welchem Umfang das Organ, die Einrichtung oder die sonstige Stelle der Union
     den Verstoß gemeldet hat;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: 'Bemessungskriterium f): Art und Weise, wie der Verstoss dem EDSB bekannt wurde, insb. Selbstmeldung.'
+  scope: out
+  scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 100 Abs. 1 lit. g
   artikel: '100'
   artikel_titel: Verhängung von Geldbußen gegen Organe, Einrichtungen und sonstige Stellen der Union
@@ -21426,17 +21592,19 @@ einheiten:
   laenge: 92
   saetze: 1
   beleg: g) der Jahreshaushalt des Organs, der Einrichtung oder der sonstigen Stelle der Union.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: 'Bemessungskriterium g): Jahreshaushalt des Organs.'
+  scope: out
+  scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 100 Abs. 2
   artikel: '100'
   artikel_titel: Verhängung von Geldbußen gegen Organe, Einrichtungen und sonstige Stellen der Union
@@ -21447,17 +21615,19 @@ einheiten:
   saetze: 1
   beleg: (2)   Bei Missachtung des Verbots der in Artikel 5 genannten KI-Praktiken werden Geldbußen von
     bis zu 1 500 000 EUR verhängt.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: 'Bei Verstoss gegen das Art.-5-Verbot: Geldbussen bis 1,5 Mio. EUR.'
+  scope: out
+  scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 100 Abs. 3
   artikel: '100'
   artikel_titel: Verhängung von Geldbußen gegen Organe, Einrichtungen und sonstige Stellen der Union
@@ -21469,17 +21639,20 @@ einheiten:
   beleg: (3)   Bei Nichtkonformität des KI-Systems mit in dieser Verordnung festgelegten Anforderungen
     oder Pflichten, mit Ausnahme der in Artikel 5 festgelegten, werden Geldbußen von bis zu 750 000 EUR
     verhängt.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: 'Bei Nichtkonformitaet mit sonstigen Anforderungen/Pflichten (ausser Art. 5): Geldbussen bis
+    750.000 EUR.'
+  scope: out
+  scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 100 Abs. 4
   artikel: '100'
   artikel_titel: Verhängung von Geldbußen gegen Organe, Einrichtungen und sonstige Stellen der Union
@@ -21494,17 +21667,20 @@ einheiten:
     Der Europäische Datenschutzbeauftragte stützt seine Entscheidungen nur auf die Elemente und Umstände,
     zu denen sich die betreffenden Parteien äußern können. Beschwerdeführer, soweit vorhanden, müssen
     in das Verfahren eng einbezogen werden.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Vor einer Entscheidung gibt der EDSB dem betroffenen Organ Gelegenheit zur Stellungnahme; Beschwerdefuehrer
+    werden eng einbezogen.
+  scope: out
+  scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 100 Abs. 5
   artikel: '100'
   artikel_titel: Verhängung von Geldbußen gegen Organe, Einrichtungen und sonstige Stellen der Union
@@ -21517,17 +21693,19 @@ einheiten:
     Umfang gewahrt. Vorbehaltlich der legitimen Interessen von Einzelpersonen oder Unternehmen im Hinblick
     auf den Schutz ihrer personenbezogenen Daten oder Geschäftsgeheimnisse haben die betroffenen Parteien
     Anspruch auf Einsicht in die Unterlagen des Europäischen Datenschutzbeauftragten.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Die Verteidigungsrechte werden gewahrt; Parteien haben Akteneinsicht vorbehaltlich Datenschutz/Geschaeftsgeheimnissen.
+  scope: out
+  scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 100 Abs. 6
   artikel: '100'
   artikel_titel: Verhängung von Geldbußen gegen Organe, Einrichtungen und sonstige Stellen der Union
@@ -21539,17 +21717,20 @@ einheiten:
   beleg: (6)   Das Aufkommen aus den nach diesem Artikel verhängten Geldbußen trägt zum Gesamthaushalt
     der Union bei. Die Geldbußen dürfen nicht den wirksamen Betrieb des Organs, der Einrichtung oder der
     sonstigen Stelle der Union beeinträchtigen, dem bzw. der die Geldbuße auferlegt wurde.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Geldbusseneinnahmen fliessen in den EU-Gesamthaushalt; sie duerfen den wirksamen Organbetrieb
+    nicht beeintraechtigen.
+  scope: out
+  scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 100 Abs. 7
   artikel: '100'
   artikel_titel: Verhängung von Geldbußen gegen Organe, Einrichtungen und sonstige Stellen der Union
@@ -21561,17 +21742,19 @@ einheiten:
   beleg: (7)   Der Europäische Datenschutzbeauftragte macht der Kommission jährlich Mitteilung über die
     Geldbußen, die er nach Maßgabe dieses Artikels verhängt hat, und über die von ihm eingeleiteten Rechtsstreitigkeiten
     oder Gerichtsverfahren.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Der EDSB berichtet der Kommission jaehrlich ueber verhaengte Geldbussen und Rechtsstreitigkeiten.
+  scope: out
+  scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 101 Abs. 1
   artikel: '101'
   artikel_titel: Geldbußen für Anbieter von KI-Modellen mit allgemeinem Verwendungszweck
@@ -21584,17 +21767,20 @@ einheiten:
     von bis zu 3 % ihres gesamten weltweiten Jahresumsatzes im vorangegangenen Geschäftsjahr oder 15 000
     000 EUR verhängen, je nachdem, welcher Betrag höher ist, wenn sie feststellt, dass der Anbieter vorsätzlich
     oder fahrlässig
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Die Kommission kann gegen GPAI-Modell-Anbieter Geldbussen bis 3% des weltweiten Jahresumsatzes
+    bzw. 15 Mio. EUR verhaengen bei vorsaetzlichem/fahrlaessigem Fehlverhalten (Chapeau zu lit. a-d).
+  scope: out
+  scope_grund: Sanktionsnorm gegen GPAI-Modell-Anbieter, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 101 Abs. 1 lit. a
   artikel: '101'
   artikel_titel: Geldbußen für Anbieter von KI-Modellen mit allgemeinem Verwendungszweck
@@ -21604,17 +21790,19 @@ einheiten:
   laenge: 78
   saetze: 1
   beleg: a) gegen die einschlägigen Bestimmungen dieser Verordnung verstoßen hat;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: 'Sanktionstatbestand a): Verstoss gegen einschlaegige Bestimmungen der Verordnung.'
+  scope: out
+  scope_grund: Sanktionsnorm gegen GPAI-Modell-Anbieter, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 101 Abs. 1 lit. b
   artikel: '101'
   artikel_titel: Geldbußen für Anbieter von KI-Modellen mit allgemeinem Verwendungszweck
@@ -21625,17 +21813,19 @@ einheiten:
   saetze: 1
   beleg: b) der Anforderung eines Dokuments oder von Informationen gemäß Artikel 91 nicht nachgekommen
     ist oder falsche, unvollständige oder irreführende Informationen bereitgestellt hat;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: 'Sanktionstatbestand b): Nichtbefolgung eines Art.-91-Auskunftsersuchens oder Falschauskunft.'
+  scope: out
+  scope_grund: Sanktionsnorm gegen GPAI-Modell-Anbieter, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 101 Abs. 1 lit. c
   artikel: '101'
   artikel_titel: Geldbußen für Anbieter von KI-Modellen mit allgemeinem Verwendungszweck
@@ -21645,17 +21835,19 @@ einheiten:
   laenge: 76
   saetze: 1
   beleg: c) einer gemäß Artikel 93 geforderten Maßnahme nicht nachgekommen ist;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: 'Sanktionstatbestand c): Nichtbefolgung einer Art.-93-Massnahme.'
+  scope: out
+  scope_grund: Sanktionsnorm gegen GPAI-Modell-Anbieter, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 101 Abs. 1 lit. d
   artikel: '101'
   artikel_titel: Geldbußen für Anbieter von KI-Modellen mit allgemeinem Verwendungszweck
@@ -21670,17 +21862,20 @@ einheiten:
     Schwere und der Dauer des Verstoßes sowie den Grundsätzen der Verhältnismäßigkeit und der Angemessenheit
     gebührend Rechnung getragen. Die Kommission berücksichtigt außerdem Verpflichtungen, die gemäß Artikel
     93 Absatz 3 oder in den einschlägigen Praxisleitfäden nach Artikel 56 gemacht wurden.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: 'Sanktionstatbestand d): kein Zugang zum Modell fuer eine Art.-92-Bewertung; Bemessung nach
+    Verhaeltnismaessigkeit unter Beruecksichtigung von Art.-93-Zusagen/Praxisleitfaeden.'
+  scope: out
+  scope_grund: Sanktionsnorm gegen GPAI-Modell-Anbieter, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 101 Abs. 2
   artikel: '101'
   artikel_titel: Geldbußen für Anbieter von KI-Modellen mit allgemeinem Verwendungszweck
@@ -21692,17 +21887,20 @@ einheiten:
   beleg: (2)   Vor der Annahme einer Entscheidung nach Absatz 1 teilt die Kommission dem Anbieter des
     KI-Modells mit allgemeinem Verwendungszweck ihre vorläufige Beurteilung mit und gibt ihm Gelegenheit,
     Stellung zu nehmen.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Vor einer Entscheidung teilt die Kommission dem Anbieter ihre vorlaeufige Beurteilung mit und
+    gewaehrt Stellungnahme.
+  scope: out
+  scope_grund: Verfahrensrecht des GPAI-Modell-Anbieters, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 101 Abs. 3
   artikel: '101'
   artikel_titel: Geldbußen für Anbieter von KI-Modellen mit allgemeinem Verwendungszweck
@@ -21713,17 +21911,19 @@ einheiten:
   saetze: 1
   beleg: (3)   Die gemäß diesem Artikel verhängten Geldbußen müssen wirksam, verhältnismäßig und abschreckend
     sein.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Die nach Art. 101 verhaengten Geldbussen muessen wirksam/verhaeltnismaessig/abschreckend sein.
+  scope: out
+  scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 101 Abs. 4
   artikel: '101'
   artikel_titel: Geldbußen für Anbieter von KI-Modellen mit allgemeinem Verwendungszweck
@@ -21734,17 +21934,19 @@ einheiten:
   saetze: 1
   beleg: (4)   Informationen über gemäß diesem Artikel verhängte Geldbußen werden gegebenenfalls dem KI-Gremium
     mitgeteilt.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Informationen ueber verhaengte Geldbussen werden ggf. dem KI-Gremium mitgeteilt.
+  scope: out
+  scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 101 Abs. 5
   artikel: '101'
   artikel_titel: Geldbußen für Anbieter von KI-Modellen mit allgemeinem Verwendungszweck
@@ -21756,17 +21958,20 @@ einheiten:
   beleg: (5)   Der Gerichtshof der Europäischen Union hat die unbeschränkte Befugnis zur Überprüfung der
     Entscheidungen der Kommission über die Festsetzung einer Geldbuße gemäß diesem Artikel. Er kann die
     verhängte Geldbuße aufheben, herabsetzen oder erhöhen.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Der Gerichtshof der EU hat unbeschraenkte Ueberpruefungsbefugnis ueber Kommissions-Geldbussenentscheidungen
+    nach Art. 101.
+  scope: out
+  scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 101 Abs. 6
   artikel: '101'
   artikel_titel: Geldbußen für Anbieter von KI-Modellen mit allgemeinem Verwendungszweck
@@ -21779,17 +21984,19 @@ einheiten:
     für die Verfahren im Hinblick auf den möglichen Erlass von Beschlüssen gemäß Absatz 1 dieses Artikels.
     Diese Durchführungsrechtsakte werden gemäß dem in Artikel 98 Absatz 2 genannten Prüfverfahren erlassen.
     KAPITEL XIII SCHLUSSBESTIMMUNGEN
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Die Kommission erlaesst Durchfuehrungsrechtsakte mit Verfahrensregeln/-garantien fuer Art.-101-Beschluesse.
+  scope: out
+  scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 102
   artikel: '102'
   artikel_titel: Änderung der Verordnung (EG) Nr. 300/2008
@@ -21803,17 +22010,22 @@ einheiten:
     und den Einsatz von Sicherheitsausrüstung betreffen, bei der auch Systeme der künstlichen Intelligenz
     im Sinne der Verordnung (EU) 2024/1689 des Europäischen Parlaments und des Rates (*) zum Einsatz kommen,
     werden die in Kapitel III Abschnitt 2 jener Verordnung festgelegten Anforderungen berücksichtigt.'
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: 'Fuegt der VO (EG) 300/2008 (Luftsicherheit) eine Klausel an: delegierte Massnahmen zu KI-gestuetzter
+    Sicherheitsausruestung beruecksichtigen die Kapitel-III-Abschnitt-2-Anforderungen.'
+  scope: out
+  scope_grund: Aenderung eines sektorfremden Rechtsakts (Luftfahrt-/Fahrzeug-/Schiffs-/Bahn-/Verbandsklagerecht),
+    adressiert die Kommission bei kuenftigen delegierten/Durchfuehrungsrechtsakten jenes Rechtsakts; kein
+    Bezug zum Redispatch-Anwendungsfall, keine Betreiberpflicht dieser Verordnung.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 103
   artikel: '103'
   artikel_titel: Änderung der Verordnung (EU) Nr. 167/2013
@@ -21827,17 +22039,22 @@ einheiten:
     beziehen, bei denen es sich um Sicherheitsbauteile im Sinne der Verordnung (EU) 2024/1689 des Europäischen
     Parlaments und des Rates (*) handelt, werden die in Kapitel III Abschnitt 2 jener Verordnung festgelegten
     Anforderungen berücksichtigt.'
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Fuegt der VO (EU) 167/2013 (Land-/Forstfahrzeuge) dieselbe Beruecksichtigungsklausel fuer KI-Sicherheitsbauteile
+    an.
+  scope: out
+  scope_grund: Aenderung eines sektorfremden Rechtsakts (Luftfahrt-/Fahrzeug-/Schiffs-/Bahn-/Verbandsklagerecht),
+    adressiert die Kommission bei kuenftigen delegierten/Durchfuehrungsrechtsakten jenes Rechtsakts; kein
+    Bezug zum Redispatch-Anwendungsfall, keine Betreiberpflicht dieser Verordnung.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 104
   artikel: '104'
   artikel_titel: Änderung der Verordnung (EU) Nr. 168/2013
@@ -21851,17 +22068,21 @@ einheiten:
     beziehen, bei denen es sich um Sicherheitsbauteile im Sinne der Verordnung (EU) 2024/1689 des Europäischen
     Parlaments und des Rates (*) handelt, werden die in Kapitel III Abschnitt 2 jener Verordnung festgelegten
     Anforderungen berücksichtigt.'
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Fuegt der VO (EU) 168/2013 (Zwei-/Dreiradfahrzeuge) dieselbe Beruecksichtigungsklausel an.
+  scope: out
+  scope_grund: Aenderung eines sektorfremden Rechtsakts (Luftfahrt-/Fahrzeug-/Schiffs-/Bahn-/Verbandsklagerecht),
+    adressiert die Kommission bei kuenftigen delegierten/Durchfuehrungsrechtsakten jenes Rechtsakts; kein
+    Bezug zum Redispatch-Anwendungsfall, keine Betreiberpflicht dieser Verordnung.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 105
   artikel: '105'
   artikel_titel: Änderung der Richtlinie 2014/90/EU
@@ -21875,17 +22096,21 @@ einheiten:
     des Europäischen Parlaments und des Rates (*) handelt, berücksichtigt die Kommission bei der Ausübung
     ihrer Tätigkeiten nach Absatz 1 und bei Erlass technischer Spezifikationen und Prüfnormen nach den
     Absätzen 2 und 3 die in Kapitel III Abschnitt 2 jener Verordnung festgelegten Anforderungen.'
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Fuegt der RL 2014/90/EU (Schiffsausruestung) dieselbe Beruecksichtigungsklausel an.
+  scope: out
+  scope_grund: Aenderung eines sektorfremden Rechtsakts (Luftfahrt-/Fahrzeug-/Schiffs-/Bahn-/Verbandsklagerecht),
+    adressiert die Kommission bei kuenftigen delegierten/Durchfuehrungsrechtsakten jenes Rechtsakts; kein
+    Bezug zum Redispatch-Anwendungsfall, keine Betreiberpflicht dieser Verordnung.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 106
   artikel: '106'
   artikel_titel: Änderung der Richtlinie (EU) 2016/797
@@ -21899,17 +22124,22 @@ einheiten:
     auf Systeme der künstlichen Intelligenz beziehen, bei denen es sich um Sicherheitsbauteile im Sinne
     der Verordnung (EU) 2024/1689 des Europäischen Parlaments und des Rates (*) handelt, werden die in
     Kapitel III Abschnitt 2 jener Verordnung festgelegten Anforderungen berücksichtigt.'
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Fuegt der RL (EU) 2016/797 (Eisenbahn-Interoperabilitaet) dieselbe Beruecksichtigungsklausel
+    an.
+  scope: out
+  scope_grund: Aenderung eines sektorfremden Rechtsakts (Luftfahrt-/Fahrzeug-/Schiffs-/Bahn-/Verbandsklagerecht),
+    adressiert die Kommission bei kuenftigen delegierten/Durchfuehrungsrechtsakten jenes Rechtsakts; kein
+    Bezug zum Redispatch-Anwendungsfall, keine Betreiberpflicht dieser Verordnung.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 107
   artikel: '107'
   artikel_titel: Änderung der Verordnung (EU) 2018/858
@@ -21923,17 +22153,22 @@ einheiten:
     denen es sich um Sicherheitsbauteile im Sinne der Verordnung (EU) 2024/1689 des Europäischen Parlaments
     und des Rates (*) handelt, werden die in Kapitel III Abschnitt 2 jener Verordnung festgelegten Anforderungen
     berücksichtigt.'
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Fuegt der VO (EU) 2018/858 (Kraftfahrzeug-Typgenehmigung) dieselbe Beruecksichtigungsklausel
+    an.
+  scope: out
+  scope_grund: Aenderung eines sektorfremden Rechtsakts (Luftfahrt-/Fahrzeug-/Schiffs-/Bahn-/Verbandsklagerecht),
+    adressiert die Kommission bei kuenftigen delegierten/Durchfuehrungsrechtsakten jenes Rechtsakts; kein
+    Bezug zum Redispatch-Anwendungsfall, keine Betreiberpflicht dieser Verordnung.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 108
   artikel: '108'
   artikel_titel: Änderungen der Verordnung (EU) 2018/1139
@@ -21969,17 +22204,22 @@ einheiten:
     Erlass delegierter Rechtsakte nach den Absätzen 1 und 2, die sich auf Systeme der künstlichen Intelligenz
     beziehen, bei denen es sich um Sicherheitsbauteile im Sinne der Verordnung (EU) 2024/1689 handelt,
     werden die in Kapitel III Abschnitt 2 jener Verordnung festgelegten Anforderungen berücksichtigt.“'
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Fuegt der VO (EU) 2018/1139 (Zivilluftfahrt/EASA) an sechs Stellen (Art. 17/19/43/47/57/58)
+    dieselbe Beruecksichtigungsklausel an.
+  scope: out
+  scope_grund: Aenderung eines sektorfremden Rechtsakts (Luftfahrt-/Fahrzeug-/Schiffs-/Bahn-/Verbandsklagerecht),
+    adressiert die Kommission bei kuenftigen delegierten/Durchfuehrungsrechtsakten jenes Rechtsakts; kein
+    Bezug zum Redispatch-Anwendungsfall, keine Betreiberpflicht dieser Verordnung.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 109
   artikel: '109'
   artikel_titel: Änderung der Verordnung (EU) 2019/2144
@@ -21993,17 +22233,22 @@ einheiten:
     bei denen es sich um Sicherheitsbauteile im Sinne der Verordnung (EU) 2024/1689 des Europäischen Parlaments
     und des Rates (*) handelt, werden die in Kapitel III Abschnitt 2 jener Verordnung festgelegten Anforderungen
     berücksichtigt.'
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Fuegt der VO (EU) 2019/2144 (Fahrzeug-Typgenehmigung Sicherheit) dieselbe Beruecksichtigungsklausel
+    an.
+  scope: out
+  scope_grund: Aenderung eines sektorfremden Rechtsakts (Luftfahrt-/Fahrzeug-/Schiffs-/Bahn-/Verbandsklagerecht),
+    adressiert die Kommission bei kuenftigen delegierten/Durchfuehrungsrechtsakten jenes Rechtsakts; kein
+    Bezug zum Redispatch-Anwendungsfall, keine Betreiberpflicht dieser Verordnung.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 110
   artikel: '110'
   artikel_titel: Änderung der Richtlinie (EU) 2020/1828
@@ -22018,17 +22263,22 @@ einheiten:
     der Verordnungen (EG) Nr. 300/2008, (EU) Nr. 167/2013, (EU) Nr. 168/2013, (EU) 2018/858, (EU) 2018/1139
     und (EU) 2019/2144 sowie der Richtlinien 2014/90/EU, (EU) 2016/797 und (EU) 2020/1828 (Verordnung
     über künstliche Intelligenz) (ABl. L, 2024/1689, 12.7.2024, ELI: http://data.europa.eu/eli/reg/2024/1689/oj).“'
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Fuegt der RL (EU) 2020/1828 (Verbandsklagen) die vorliegende Verordnung in die Liste der von
+    Verbandsklagen erfassten Rechtsakte (Anhang I Nr. 68) ein.
+  scope: out
+  scope_grund: Aenderung eines sektorfremden Rechtsakts (Luftfahrt-/Fahrzeug-/Schiffs-/Bahn-/Verbandsklagerecht),
+    adressiert die Kommission bei kuenftigen delegierten/Durchfuehrungsrechtsakten jenes Rechtsakts; kein
+    Bezug zum Redispatch-Anwendungsfall, keine Betreiberpflicht dieser Verordnung.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 111 Abs. 1
   artikel: '111'
   artikel_titel: Bereits in Verkehr gebrachte oder in Betrieb genommene KI-Systeme und bereits in Verkehr
@@ -22153,17 +22403,20 @@ einheiten:
     gemäß Artikel 97 einmal jährlich, ob eine Änderung der Liste in Anhang III und der Liste der verbotenen
     Praktiken im KI-Bereich gemäß Artikel 5 erforderlich ist. Die Kommission übermittelt die Ergebnisse
     dieser Bewertung dem Europäischen Parlament und dem Rat.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Die Kommission prueft jaehrlich, ob Anhang III oder die Art.-5-Verbotsliste geaendert werden
+    muessen, und uebermittelt die Ergebnisse Parlament/Rat.
+  scope: out
+  scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 112 Abs. 2
   artikel: '112'
   artikel_titel: Bewertung und Überprüfung
@@ -22174,17 +22427,20 @@ einheiten:
   saetze: 1
   beleg: '(2)   Bis zum 2. August 2028 und danach alle vier Jahre bewertet die Kommission Folgendes und
     erstattet dem Europäischen Parlament und dem Rat Bericht darüber:'
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Bis 2.8.2028 und danach alle vier Jahre bewertet/berichtet die Kommission zu den in lit. a-c
+    genannten Themen.
+  scope: out
+  scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 112 Abs. 2 lit. a
   artikel: '112'
   artikel_titel: Bewertung und Überprüfung
@@ -22195,17 +22451,19 @@ einheiten:
   saetze: 1
   beleg: 'a) Notwendigkeit von Änderungen zur Erweiterung bestehender Bereiche oder zur Aufnahme neuer
     Bereiche in Anhang III:'
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: 'Bewertungsthema a): Notwendigkeit von Anhang-III-Erweiterungen/neuen Bereichen.'
+  scope: out
+  scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 112 Abs. 2 lit. b
   artikel: '112'
   artikel_titel: Bewertung und Überprüfung
@@ -22216,17 +22474,19 @@ einheiten:
   saetze: 1
   beleg: b) Änderungen der Liste der KI-Systeme, die zusätzliche Transparenzmaßnahmen erfordern, in Artikel
     50;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: 'Bewertungsthema b): Aenderungen der Art.-50-Transparenzmassnahmen-Liste.'
+  scope: out
+  scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 112 Abs. 2 lit. c
   artikel: '112'
   artikel_titel: Bewertung und Überprüfung
@@ -22236,17 +22496,19 @@ einheiten:
   laenge: 94
   saetze: 1
   beleg: c) Änderungen zur Verbesserung der Wirksamkeit des Überwachungs- und Governance-Systems.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: 'Bewertungsthema c): Verbesserung der Wirksamkeit von Ueberwachungs-/Governance-System.'
+  scope: out
+  scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 112 Abs. 3
   artikel: '112'
   artikel_titel: Bewertung und Überprüfung
@@ -22261,17 +22523,20 @@ einheiten:
     einer Agentur der Union zur Lösung der festgestellten Mängel. Auf der Grundlage der Ergebnisse wird
     diesem Bericht gegebenenfalls ein Vorschlag zur Änderung dieser Verordnung beigefügt. Die Berichte
     werden veröffentlicht.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Bis 2.8.2029 und danach alle vier Jahre legt die Kommission einen Gesamtbewertungsbericht vor,
+    inkl. Durchsetzungsstruktur und moeglicher EU-Agentur.
+  scope: out
+  scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 112 Abs. 4
   artikel: '112'
   artikel_titel: Bewertung und Überprüfung
@@ -22281,17 +22546,19 @@ einheiten:
   laenge: 98
   saetze: 1
   beleg: '(4)   In den in Absatz 2 genannten Berichten wird insbesondere auf folgende Aspekte eingegangen:'
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: In den Abs.-2-Berichten wird insbesondere auf die in lit. a-d genannten Aspekte eingegangen.
+  scope: out
+  scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 112 Abs. 4 lit. a
   artikel: '112'
   artikel_titel: Bewertung und Überprüfung
@@ -22303,17 +22570,19 @@ einheiten:
   beleg: a) Sachstand bezüglich der finanziellen, technischen und personellen Ressourcen der zuständigen
     nationalen Behörden im Hinblick auf deren Fähigkeit, die ihnen auf der Grundlage dieser Verordnung
     übertragenen Aufgaben wirksam zu erfüllen;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: 'Berichtsaspekt a): Ressourcenausstattung der zustaendigen nationalen Behoerden.'
+  scope: out
+  scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 112 Abs. 4 lit. b
   artikel: '112'
   artikel_titel: Bewertung und Überprüfung
@@ -22324,17 +22593,19 @@ einheiten:
   saetze: 1
   beleg: b) Stand der Sanktionen, insbesondere der Bußgelder nach Artikel 99 Absatz 1, die Mitgliedstaaten
     bei Verstößen gegen diese Verordnung verhängt haben;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: 'Berichtsaspekt b): Stand der verhaengten Sanktionen/Bussgelder.'
+  scope: out
+  scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 112 Abs. 4 lit. c
   artikel: '112'
   artikel_titel: Bewertung und Überprüfung
@@ -22345,17 +22616,19 @@ einheiten:
   saetze: 1
   beleg: c) angenommene harmonisierte Normen und gemeinsame Spezifikationen, die zur Unterstützung dieser
     Verordnung erarbeitet wurden;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: 'Berichtsaspekt c): angenommene harmonisierte Normen/gemeinsame Spezifikationen.'
+  scope: out
+  scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 112 Abs. 4 lit. d
   artikel: '112'
   artikel_titel: Bewertung und Überprüfung
@@ -22366,17 +22639,19 @@ einheiten:
   saetze: 1
   beleg: d) Zahl der Unternehmen, die nach Inkrafttreten dieser Verordnung in den Markt eintreten, und
     wie viele davon KMU sind.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: 'Berichtsaspekt d): Zahl der Marktneueintritte, davon KMU.'
+  scope: out
+  scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 112 Abs. 5
   artikel: '112'
   artikel_titel: Bewertung und Überprüfung
@@ -22391,17 +22666,20 @@ einheiten:
     Durchsetzung dieser Verordnung zweckmäßig und erforderlich wäre, das Büro für Künstliche Intelligenz
     und seine Durchsetzungskompetenzen zu erweitern und seine Ressourcen aufzustocken. Die Kommission
     übermittelt dem Europäischen Parlament und dem Rat einen Bericht über ihre Bewertung.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Bis 2.8.2028 bewertet die Kommission die Arbeitsweise/Ausstattung des Buero fuer KI und berichtet
+    Parlament/Rat.
+  scope: out
+  scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 112 Abs. 6
   artikel: '112'
   artikel_titel: Bewertung und Überprüfung
@@ -22415,17 +22693,20 @@ einheiten:
     Entwicklung von KI-Modellen mit allgemeinem Verwendungszweck vor und beurteilt die Notwendigkeit weiterer
     Maßnahmen oder Handlungen, einschließlich verbindlicher Maßnahmen oder Handlungen. Dieser Bericht
     wird dem Europäischen Parlament und dem Rat vorgelegt und veröffentlicht.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Bis 2.8.2028 und danach alle vier Jahre berichtet die Kommission ueber Normungsfortschritte
+    zur Energieeffizienz von GPAI-Modellen.
+  scope: out
+  scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 112 Abs. 7
   artikel: '112'
   artikel_titel: Bewertung und Überprüfung
@@ -22439,17 +22720,20 @@ einheiten:
     Kapitel III Abschnitt 2 festgelegten Anforderungen an andere KI-Systeme als Hochrisiko-KI-Systeme
     und möglicherweise auch zusätzlicher Anforderungen an andere KI-Systeme als Hochrisiko-KI-Systeme,
     auch in Bezug auf deren ökologische Nachhaltigkeit, gefördert werden soll.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Bis 2.8.2028 und danach alle drei Jahre bewertet die Kommission Folgen/Wirksamkeit freiwilliger
+    Verhaltenskodizes fuer Nicht-Hochrisiko-Systeme.
+  scope: out
+  scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 112 Abs. 8
   artikel: '112'
   artikel_titel: Bewertung und Überprüfung
@@ -22460,17 +22744,20 @@ einheiten:
   saetze: 1
   beleg: (8)   Für die Zwecke der Absätze 1 bis 7 übermitteln das KI-Gremium, die Mitgliedstaaten und
     die zuständigen nationalen Behörden der Kommission auf Anfrage unverzüglich die gewünschten Informationen.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: KI-Gremium, Mitgliedstaaten und zustaendige nationale Behoerden uebermitteln der Kommission
+    auf Anfrage die fuer Abs. 1-7 gewuenschten Informationen.
+  scope: out
+  scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 112 Abs. 9
   artikel: '112'
   artikel_titel: Bewertung und Überprüfung
@@ -22482,17 +22769,20 @@ einheiten:
   beleg: (9)   Bei den in den Absätzen 1 bis 7 genannten Bewertungen und Überprüfungen berücksichtigt
     die Kommission die Standpunkte und Feststellungen des KI-Gremiums, des Europäischen Parlaments, des
     Rates und anderer einschlägiger Stellen oder Quellen.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Bei den Bewertungen/Ueberpruefungen beruecksichtigt die Kommission Standpunkte von KI-Gremium,
+    Parlament, Rat und anderen einschlaegigen Stellen.
+  scope: out
+  scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 112 Abs. 10
   artikel: '112'
   artikel_titel: Bewertung und Überprüfung
@@ -22504,17 +22794,20 @@ einheiten:
   beleg: (10)   Die Kommission legt erforderlichenfalls geeignete Vorschläge zur Änderung dieser Verordnung
     vor und berücksichtigt dabei insbesondere technologische Entwicklungen, die Auswirkungen von KI-Systemen
     auf die Gesundheit und Sicherheit und auf die Grundrechte und die Fortschritte in der Informationsgesellschaft.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Die Kommission legt erforderlichenfalls Aenderungsvorschlaege vor, unter Beruecksichtigung
+    technologischer Entwicklungen und Grundrechtsauswirkungen.
+  scope: out
+  scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 112 Abs. 11
   artikel: '112'
   artikel_titel: Bewertung und Überprüfung
@@ -22527,17 +22820,20 @@ einheiten:
     entwickelt das Büro für Künstliche Intelligenz ein Ziel und eine partizipative Methode für die Bewertung
     der Risikoniveaus anhand der in den jeweiligen Artikeln genannten Kriterien und für die Einbeziehung
     neuer Systeme in
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Das Buero fuer KI entwickelt eine Methode zur Bewertung von Risikoniveaus und zur Einbeziehung
+    neuer Systeme in die in lit. a-c genannten Listen.
+  scope: out
+  scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 112 Abs. 11 lit. a
   artikel: '112'
   artikel_titel: Bewertung und Überprüfung
@@ -22548,17 +22844,19 @@ einheiten:
   saetze: 1
   beleg: a) die Liste gemäß Anhang III, einschließlich der Erweiterung bestehender Bereiche oder der Aufnahme
     neuer Bereiche in diesen Anhang;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: 'Listen-Bezug a): die Anhang-III-Liste (Erweiterung bestehender/neuer Bereiche).'
+  scope: out
+  scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 112 Abs. 11 lit. b
   artikel: '112'
   artikel_titel: Bewertung und Überprüfung
@@ -22568,17 +22866,19 @@ einheiten:
   laenge: 64
   saetze: 1
   beleg: b) die Liste der verbotenen Praktiken gemäß Artikel 5; und
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: 'Listen-Bezug b): die Art.-5-Verbotsliste.'
+  scope: out
+  scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 112 Abs. 11 lit. c
   artikel: '112'
   artikel_titel: Bewertung und Überprüfung
@@ -22588,17 +22888,19 @@ einheiten:
   laenge: 97
   saetze: 1
   beleg: c) die Liste der KI-Systeme, die zusätzliche Transparenzmaßnahmen erfordern, in Artikel 50.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: 'Listen-Bezug c): die Art.-50-Transparenzmassnahmen-Liste.'
+  scope: out
+  scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 112 Abs. 12
   artikel: '112'
   artikel_titel: Bewertung und Überprüfung
@@ -22612,17 +22914,20 @@ einheiten:
     Harmonisierung gemäß Anhang I Abschnitt B betreffen, berücksichtigen die regulatorischen Besonderheiten
     des jeweiligen Sektors und die in der Verordnung festgelegten bestehenden Governance-, Konformitätsbewertungs-
     und Durchsetzungsmechanismen und -behörden.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Aenderungen der Verordnung/delegierte-Durchfuehrungsrechtsakte zu sektorspezifischem Anhang-I-Abschnitt-B-Recht
+    beruecksichtigen sektorale Besonderheiten und bestehende Governance-/Durchsetzungsmechanismen.
+  scope: out
+  scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 112 Abs. 13
   artikel: '112'
   artikel_titel: Bewertung und Überprüfung
@@ -22637,17 +22942,20 @@ einheiten:
     der Ergebnisse wird dem Bericht gegebenenfalls ein Vorschlag zur Änderung dieser Verordnung beigefügt,
     der die Struktur der Durchsetzung und die Notwendigkeit einer Agentur der Union für die Lösung festgestellter
     Mängel betrifft.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Bis 2.8.2031 bewertet die Kommission die Durchsetzung der Verordnung und berichtet Parlament/Rat/EWSA,
+    ggf. mit Aenderungsvorschlag zur Durchsetzungsstruktur/EU-Agentur.
+  scope: out
+  scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 113 Abs. 1
   artikel: '113'
   artikel_titel: Inkrafttreten und Geltungsbeginn
