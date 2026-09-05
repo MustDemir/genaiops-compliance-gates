@@ -7979,17 +7979,21 @@ einheiten:
     Behörde, die für die Einrichtung und Durchführung der erforderlichen Verfahren zur Bewertung, Benennung
     und Notifizierung von Konformitätsbewertungsstellen und für deren Überwachung zuständig ist. Diese
     Verfahren werden in Zusammenarbeit zwischen den notifizierenden Behörden aller Mitgliedstaaten entwickelt.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Jeder Mitgliedstaat benennt oder schafft mindestens eine notifizierende Behoerde fuer Bewertung,
+    Benennung, Notifizierung und Ueberwachung von Konformitaetsbewertungsstellen, koordiniert mit den
+    anderen Mitgliedstaaten.
+  scope: out
+  scope_grund: Adressiert die Mitgliedstaaten/notifizierende Behoerde, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: &id001 []
-  gate: &id002 []
+  omnibus: unveraendert - Art. 28 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 28 Abs. 2
   artikel: '28'
   artikel_titel: Notifizierende Behörden
@@ -8001,17 +8005,20 @@ einheiten:
   beleg: (2)   Die Mitgliedstaaten können entscheiden, dass die Bewertung und Überwachung nach Absatz
     1 von einer nationalen Akkreditierungsstelle im Sinne und gemäß der Verordnung (EG) Nr. 765/2008 durchzuführen
     ist.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Mitgliedstaaten koennen die Bewertungs- und Ueberwachungsaufgabe stattdessen einer nationalen
+    Akkreditierungsstelle uebertragen.
+  scope: out
+  scope_grund: Adressiert die Mitgliedstaaten/Akkreditierungsstelle, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 28 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 28 Abs. 3
   artikel: '28'
   artikel_titel: Notifizierende Behörden
@@ -8023,17 +8030,20 @@ einheiten:
   beleg: (3)   Notifizierende Behörden werden so eingerichtet, organisiert und geführt, dass jegliche
     Interessenkonflikte mit Konformitätsbewertungsstellen vermieden werden und die Objektivität und die
     Unparteilichkeit ihrer Tätigkeiten gewährleistet sind.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Notifizierende Behoerden werden so eingerichtet und gefuehrt, dass Interessenkonflikte mit
+    Konformitaetsbewertungsstellen vermieden und Objektivitaet/Unparteilichkeit gewaehrleistet sind.
+  scope: out
+  scope_grund: Organisationspflicht der notifizierenden Behoerde, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 28 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 28 Abs. 4
   artikel: '28'
   artikel_titel: Notifizierende Behörden
@@ -8045,17 +8055,20 @@ einheiten:
   beleg: (4)   Notifizierende Behörden werden so organisiert, dass Entscheidungen über die Notifizierung
     von Konformitätsbewertungsstellen von kompetenten Personen getroffen werden, die nicht mit den Personen
     identisch sind, die die Bewertung dieser Stellen durchgeführt haben.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Notifizierende Behoerden trennen organisatorisch die Entscheidung ueber Notifizierungen von
+    den Personen, die die Bewertung der Stelle durchgefuehrt haben.
+  scope: out
+  scope_grund: Organisationspflicht der notifizierenden Behoerde, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 28 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 28 Abs. 5
   artikel: '28'
   artikel_titel: Notifizierende Behörden
@@ -8066,17 +8079,20 @@ einheiten:
   saetze: 1
   beleg: (5)   Notifizierende Behörden dürfen weder Tätigkeiten, die Konformitätsbewertungsstellen durchführen,
     noch Beratungsleistungen auf einer gewerblichen oder wettbewerblichen Basis anbieten oder erbringen.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Notifizierende Behoerden duerfen weder Taetigkeiten von Konformitaetsbewertungsstellen noch
+    kommerzielle Beratungsleistungen dazu anbieten oder erbringen.
+  scope: out
+  scope_grund: Unabhaengigkeitspflicht der notifizierenden Behoerde, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 28 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 28 Abs. 6
   artikel: '28'
   artikel_titel: Notifizierende Behörden
@@ -8087,17 +8103,20 @@ einheiten:
   saetze: 1
   beleg: (6)   Notifizierende Behörden gewährleisten gemäß Artikel 78 die Vertraulichkeit der von ihnen
     erlangten Informationen.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Notifizierende Behoerden wahren die Vertraulichkeit der von ihnen erlangten Informationen gemaess
+    Art. 78.
+  scope: out
+  scope_grund: Vertraulichkeitspflicht der notifizierenden Behoerde, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 28 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 28 Abs. 7
   artikel: '28'
   artikel_titel: Notifizierende Behörden
@@ -8110,17 +8129,22 @@ einheiten:
     sodass sie ihre Aufgaben ordnungsgemäß wahrnehmen können. Die kompetenten Mitarbeiter verfügen — wo
     erforderlich — über das für ihre Funktion erforderliche Fachwissen in Bereichen wie Informationstechnologie
     sowie KI und Recht, einschließlich der Überwachung der Grundrechte.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Notifizierende Behoerden muessen ueber ausreichend kompetentes Personal verfuegen, u.a. mit
+    Fachwissen in IT, KI, Recht und Grundrechtsueberwachung.
+  scope: out
+  scope_grund: Personalausstattungspflicht der notifizierenden Behoerde, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 28 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf). VO (EU) 2026/1744
+    Art. 1 Nr. 14 fuegt neue Absaetze 8-9 zum einheitlichen Notifizierungsverfahren an (nicht als eigene
+    Einheit im Pflichtenraum vorhanden, da Praeomnibus-Quelle).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 29 Abs. 1
   artikel: '29'
   artikel_titel: Antrag einer Konformitätsbewertungsstelle auf Notifizierung
@@ -8131,17 +8155,20 @@ einheiten:
   saetze: 1
   beleg: (1)   Konformitätsbewertungsstellen beantragen ihre Notifizierung bei der notifizierenden Behörde
     des Mitgliedstaats, in dem sie niedergelassen sind.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: Konformitaetsbewertungsstellen beantragen ihre Notifizierung bei der notifizierenden Behoerde
+    ihres Niederlassungsmitgliedstaats.
+  scope: out
+  scope_grund: Pflicht der (angehenden) Konformitaetsbewertungsstelle, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 29 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 29 Abs. 2
   artikel: '29'
   artikel_titel: Antrag einer Konformitätsbewertungsstelle auf Notifizierung
@@ -8157,17 +8184,21 @@ einheiten:
     die Anforderungen des Artikels 31 erfüllt. Sonstige gültige Dokumente in Bezug auf bestehende Benennungen
     der antragstellenden notifizierten Stelle im Rahmen anderer Harmonisierungsrechtsvorschriften der
     Union sind ebenfalls beizufügen.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: Dem Notifizierungsantrag sind eine Beschreibung der Bewertungstaetigkeiten/-module/Systemarten
+    sowie ggf. eine Akkreditierungsurkunde und Unterlagen zu bestehenden Benennungen nach anderem Unionsrecht
+    beizufuegen.
+  scope: out
+  scope_grund: Pflicht der antragstellenden Konformitaetsbewertungsstelle, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 29 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 29 Abs. 3
   artikel: '29'
   artikel_titel: Antrag einer Konformitätsbewertungsstelle auf Notifizierung
@@ -8180,17 +8211,20 @@ einheiten:
     so legt sie der notifizierenden Behörde als Nachweis alle Unterlagen vor, die erforderlich sind, um
     zu überprüfen, festzustellen und regelmäßig zu überwachen, ob sie die Anforderungen des Artikels 31
     erfüllt.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: Ohne Akkreditierungsurkunde legt die Konformitaetsbewertungsstelle der notifizierenden Behoerde
+    alle Nachweise vor, die zur Pruefung der Anforderungen des Art. 31 erforderlich sind.
+  scope: out
+  scope_grund: Pflicht der Konformitaetsbewertungsstelle, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 29 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 29 Abs. 4
   artikel: '29'
   artikel_titel: Antrag einer Konformitätsbewertungsstelle auf Notifizierung
@@ -8205,17 +8239,21 @@ einheiten:
     Stelle aktualisiert die in den Absätzen 2 und 3 des vorliegenden Artikels genannte Dokumentation immer
     dann, wenn sich relevante Änderungen ergeben, damit die für notifizierte Stellen zuständige Behörde
     überwachen und überprüfen kann, ob die Anforderungen des Artikels 31 kontinuierlich erfüllt sind.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: Bestehende Unterlagen aus anderen Benennungsverfahren koennen wiederverwendet werden; die notifizierte
+    Stelle aktualisiert ihre Dokumentation bei relevanten Aenderungen, damit die zustaendige Behoerde
+    die fortlaufende Erfuellung des Art. 31 pruefen kann.
+  scope: out
+  scope_grund: Aktualisierungspflicht der notifizierten Stelle, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 15 - Abs. 4 neu gefasst (einheitliches Bewertungsverfahren
+    fuer Mehrfach-Notifizierungen); geprueft am verfuegenden Teil.
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 30 Abs. 1
   artikel: '30'
   artikel_titel: Notifizierungsverfahren
@@ -8226,17 +8264,20 @@ einheiten:
   saetze: 1
   beleg: (1)   Die notifizierenden Behörden dürfen nur Konformitätsbewertungsstellen notifizieren, die
     die Anforderungen des Artikels 31 erfüllen.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Notifizierende Behoerden duerfen nur Konformitaetsbewertungsstellen notifizieren, die die Anforderungen
+    des Art. 31 erfuellen.
+  scope: out
+  scope_grund: Pflicht der notifizierenden Behoerde, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 30 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 30 Abs. 2
   artikel: '30'
   artikel_titel: Notifizierungsverfahren
@@ -8248,17 +8289,20 @@ einheiten:
   beleg: (2)   Die notifizierenden Behörden unterrichten die Kommission und die übrigen Mitgliedstaaten
     mithilfe des elektronischen Notifizierungsinstruments, das von der Kommission entwickelt und verwaltet
     wird, über jede Konformitätsbewertungsstelle gemäß Absatz 1.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Notifizierende Behoerden unterrichten Kommission und uebrige Mitgliedstaaten ueber jede notifizierte
+    Konformitaetsbewertungsstelle mittels des elektronischen Notifizierungsinstruments der Kommission.
+  scope: out
+  scope_grund: Unterrichtungspflicht der notifizierenden Behoerde, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 16 - Abs. 2 neu gefasst (Verweis auf delegierte
+    Rechtsakte fuer Anhang XIV); geprueft am verfuegenden Teil.
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 30 Abs. 3
   artikel: '30'
   artikel_titel: Notifizierungsverfahren
@@ -8275,17 +8319,21 @@ einheiten:
     vor, die die Kompetenz der Konformitätsbewertungsstelle und die Vereinbarungen nachweisen, die getroffen
     wurden, um sicherzustellen, dass die Stelle regelmäßig überwacht wird und weiterhin die Anforderungen
     des Artikels 31 erfüllt.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Die Notifizierung enthaelt vollstaendige Angaben zu Taetigkeiten, Modulen, Systemarten und
+    Kompetenznachweis; ohne Akkreditierungsurkunde legt die Behoerde ergaenzende Nachweise zur Kompetenz
+    und laufenden Ueberwachung vor.
+  scope: out
+  scope_grund: Pflicht der notifizierenden Behoerde, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 30 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 30 Abs. 4
   artikel: '30'
   artikel_titel: Notifizierungsverfahren
@@ -8300,17 +8348,20 @@ einheiten:
     gemäß Artikel 29 Absatz 2 vorgelegt wird, oder innerhalb von zwei Monaten nach einer Notifizierung
     durch eine notifizierende Behörde, falls als Nachweis Unterlagen gemäß Artikel 29 Absatz 3 vorgelegt
     werden, Einwände erhoben haben.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: Die Konformitaetsbewertungsstelle darf erst taetig werden, wenn Kommission und andere Mitgliedstaaten
+    innerhalb der Einspruchsfrist (zwei Wochen bzw. zwei Monate) keine Einwaende erhoben haben.
+  scope: out
+  scope_grund: Voraussetzung fuer die Taetigkeitsaufnahme der Konformitaetsbewertungsstelle, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 30 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 30 Abs. 5
   artikel: '30'
   artikel_titel: Notifizierungsverfahren
@@ -8323,17 +8374,20 @@ einheiten:
     und die Konformitätsbewertungsstelle. Im Hinblick darauf entscheidet die Kommission, ob die Genehmigung
     gerechtfertigt ist. Die Kommission richtet ihren Beschluss an die betroffenen Mitgliedstaaten und
     an die zuständige Konformitätsbewertungsstelle.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Bei Einwaenden konsultiert die Kommission unverzueglich die betroffenen Mitgliedstaaten und
+    die Konformitaetsbewertungsstelle und entscheidet per Beschluss ueber die Berechtigung der Genehmigung.
+  scope: out
+  scope_grund: Entscheidungspflicht der Kommission, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 30 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 31 Abs. 1
   artikel: '31'
   artikel_titel: Anforderungen an notifizierte Stellen
@@ -8344,17 +8398,20 @@ einheiten:
   saetze: 1
   beleg: (1)   Eine notifizierte Stelle wird nach dem nationalen Recht eines Mitgliedstaats gegründet
     und muss mit Rechtspersönlichkeit ausgestattet sein.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: Eine notifizierte Stelle muss nach nationalem Recht eines Mitgliedstaats gegruendet sein und
+    Rechtspersoenlichkeit besitzen.
+  scope: out
+  scope_grund: Gruendungsvoraussetzung der notifizierten Stelle, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 31 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 31 Abs. 2
   artikel: '31'
   artikel_titel: Anforderungen an notifizierte Stellen
@@ -8366,17 +8423,20 @@ einheiten:
   beleg: (2)   Die notifizierten Stellen müssen die zur Wahrnehmung ihrer Aufgaben erforderlichen Anforderungen
     an die Organisation, das Qualitätsmanagement, die Ressourcenausstattung und die Verfahren sowie angemessene
     Cybersicherheitsanforderungen erfüllen.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: Notifizierte Stellen muessen Anforderungen an Organisation, Qualitaetsmanagement, Ressourcen,
+    Verfahren und Cybersicherheit erfuellen.
+  scope: out
+  scope_grund: Anforderungen an die notifizierte Stelle, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 31 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 31 Abs. 3
   artikel: '31'
   artikel_titel: Anforderungen an notifizierte Stellen
@@ -8388,17 +8448,20 @@ einheiten:
   beleg: (3)   Die Organisationsstruktur, die Zuweisung der Zuständigkeiten, die Berichtslinien und die
     Funktionsweise der notifizierten Stellen müssen das Vertrauen in ihre Leistung und in die Ergebnisse
     der von ihnen durchgeführten Konformitätsbewertungstätigkeiten gewährleisten.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: Organisationsstruktur, Zustaendigkeitsverteilung, Berichtslinien und Arbeitsweise der notifizierten
+    Stellen muessen Vertrauen in ihre Leistung und Bewertungsergebnisse gewaehrleisten.
+  scope: out
+  scope_grund: Organisationsanforderung an die notifizierte Stelle, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 31 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 31 Abs. 4
   artikel: '31'
   artikel_titel: Anforderungen an notifizierte Stellen
@@ -8413,17 +8476,21 @@ einheiten:
     haben, und von allen Wettbewerbern des Anbieters unabhängig sein. Dies schließt die Verwendung von
     bewerteten Hochrisiko-KI-Systemen, die für die Tätigkeit der Konformitätsbewertungsstelle nötig sind,
     oder die Verwendung solcher Hochrisiko-KI-Systeme zum persönlichen Gebrauch nicht aus.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: Notifizierte Stellen muessen vom bewerteten Anbieter, von wirtschaftlich interessierten Akteuren
+    und von dessen Wettbewerbern unabhaengig sein; eigene Nutzung bewerteter Systeme zu Testzwecken oder
+    privat ist davon ausgenommen.
+  scope: out
+  scope_grund: Unabhaengigkeitsanforderung an die notifizierte Stelle gegenueber dem Anbieter, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 31 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 31 Abs. 5
   artikel: '31'
   artikel_titel: Anforderungen an notifizierte Stellen
@@ -8438,17 +8505,21 @@ einheiten:
     beteiligten Parteien vertreten. Sie dürfen sich nicht mit Tätigkeiten befassen, die ihre Unabhängigkeit
     bei der Beurteilung oder ihre Integrität im Zusammenhang mit den Konformitätsbewertungstätigkeiten,
     für die sie notifiziert sind, beeinträchtigen könnten. Dies gilt besonders für Beratungsdienstleistungen.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: Notifizierte Stelle, Leitung und Bewertungspersonal duerfen nicht an Entwurf, Entwicklung,
+    Vermarktung oder Verwendung von Hochrisiko-KI-Systemen beteiligt sein oder befangenheitsgefaehrdende
+    Taetigkeiten wie Beratung ausueben.
+  scope: out
+  scope_grund: Unabhaengigkeits-/Integritaetsanforderung an die notifizierte Stelle, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 31 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 31 Abs. 6
   artikel: '31'
   artikel_titel: Anforderungen an notifizierte Stellen
@@ -8462,17 +8533,20 @@ einheiten:
     eine Struktur und Verfahren dokumentiert und umgesetzt, die ihre Unparteilichkeit gewährleisten und
     sicherstellen, dass die Grundsätze der Unparteilichkeit in ihrer gesamten Organisation, von allen
     Mitarbeitern und bei allen Bewertungstätigkeiten gefördert und angewandt werden.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: Notifizierte Stellen werden so organisiert und gefuehrt, dass Unabhaengigkeit, Objektivitaet
+    und Unparteilichkeit gewahrt bleiben, dokumentiert durch entsprechende Strukturen und Verfahren.
+  scope: out
+  scope_grund: Organisationsanforderung an die notifizierte Stelle, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 31 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 31 Abs. 7
   artikel: '31'
   artikel_titel: Anforderungen an notifizierte Stellen
@@ -8488,17 +8562,21 @@ einheiten:
     vorgeschrieben ist. Informationen, von denen Mitarbeiter der notifizierten Stellen bei der Durchführung
     ihrer Aufgaben gemäß dieser Verordnung Kenntnis erlangen, unterliegen der beruflichen Schweigepflicht,
     außer gegenüber den notifizierenden Behörden des Mitgliedstaats, in dem sie ihre Tätigkeiten ausüben.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: Notifizierte Stellen sichern durch dokumentierte Verfahren die Vertraulichkeit der bei Konformitaetsbewertungen
+    erlangten Informationen einschliesslich beruflicher Schweigepflicht ihres Personals ab, ausser gegenueber
+    der zustaendigen notifizierenden Behoerde oder bei gesetzlicher Offenlegungspflicht.
+  scope: out
+  scope_grund: Vertraulichkeitspflicht der notifizierten Stelle, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 31 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 31 Abs. 8
   artikel: '31'
   artikel_titel: Anforderungen an notifizierte Stellen
@@ -8510,17 +8588,24 @@ einheiten:
   beleg: (8)   Die notifizierten Stellen verfügen über Verfahren zur Durchführung ihrer Tätigkeiten unter
     gebührender Berücksichtigung der Größe eines Betreibers, des Sektors, in dem er tätig ist, seiner
     Struktur sowie der Komplexität des betreffenden KI-Systems.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Notifizierte Stellen richten ihre Verfahren proportional zu Groesse, Sektor und Struktur des
+    zu bewertenden Akteurs sowie zur Systemkomplexitaet aus.
+  scope: out
+  scope_grund: 'Verfahrenspflicht der notifizierten Stelle selbst; die Erwaehnung ''eines Betreibers''
+    begruendet keine eigene Betreiberpflicht - HYPOTHESE-Hinweis: im Kontext von Konformitaetsbewertungen
+    (die typischerweise den Anbieter betreffen, nicht den Betreiber) ist unklar, ob ''Betreiber'' hier
+    terminologisch im Sinne der Art.-3-Nr.-4-Definition (Deployer) oder umgangssprachlich als ''Wirtschaftsakteur/Unternehmen''
+    gemeint ist - PO-Hinweis im Abschlussbericht.'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 31 ist in der Aenderungsliste der VO (EU) 2026/1744 nicht erwaehnt (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 31 Abs. 9
   artikel: '31'
   artikel_titel: Anforderungen an notifizierte Stellen
@@ -8533,17 +8618,20 @@ einheiten:
     ab, es sei denn, diese Haftpflicht wird aufgrund nationalen Rechts von dem Mitgliedstaat, in dem sie
     niedergelassen sind, gedeckt oder dieser Mitgliedstaat ist selbst unmittelbar für die Konformitätsbewertung
     zuständig.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: Notifizierte Stellen schliessen eine angemessene Haftpflichtversicherung fuer ihre Konformitaetsbewertungstaetigkeiten
+    ab, ausser diese ist bereits national gedeckt.
+  scope: out
+  scope_grund: Versicherungspflicht der notifizierten Stelle, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 31 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 31 Abs. 10
   artikel: '31'
   artikel_titel: Anforderungen an notifizierte Stellen
@@ -8556,17 +8644,20 @@ einheiten:
     mit höchster beruflicher Integrität und der erforderlichen Fachkompetenz in dem betreffenden Bereich
     auszuführen, gleichgültig, ob diese Aufgaben von den notifizierten Stellen selbst oder in ihrem Auftrag
     und in ihrer Verantwortung durchgeführt werden.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: Notifizierte Stellen muessen ihre Aufgaben mit hoechster beruflicher Integritaet und erforderlicher
+    Fachkompetenz ausfuehren, unabhaengig davon ob selbst oder in ihrem Auftrag durchgefuehrt.
+  scope: out
+  scope_grund: Kompetenz-/Integritaetsanforderung an die notifizierte Stelle, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 31 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 31 Abs. 11
   artikel: '31'
   artikel_titel: Anforderungen an notifizierte Stellen
@@ -8580,17 +8671,21 @@ einheiten:
     Stellen müssen ständig über ausreichendes administratives, technisches, juristisches und wissenschaftliches
     Personal verfügen, das Erfahrungen und Kenntnisse in Bezug auf einschlägige Arten der KI-Systeme,
     Daten und Datenverarbeitung sowie die in Abschnitt 2 festgelegten Anforderungen besitzt.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: Notifizierte Stellen muessen ueber ausreichende interne Kompetenz zur Beurteilung extern erbrachter
+    Aufgaben sowie staendig ueber administratives, technisches, juristisches und wissenschaftliches Fachpersonal
+    zu KI-Systemen und Datenverarbeitung verfuegen.
+  scope: out
+  scope_grund: Personal-/Kompetenzanforderung an die notifizierte Stelle, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 31 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 31 Abs. 12
   artikel: '31'
   artikel_titel: Anforderungen an notifizierte Stellen
@@ -8602,17 +8697,21 @@ einheiten:
   beleg: (12)   Die notifizierten Stellen wirken an den in Artikel 38 genannten Koordinierungstätigkeiten
     mit. Sie wirken außerdem unmittelbar oder mittelbar an der Arbeit der europäischen Normungsorganisationen
     mit oder stellen sicher, dass sie stets über den Stand der einschlägigen Normen unterrichtet sind.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: Notifizierte Stellen wirken an den Koordinierungstaetigkeiten nach Art. 38 mit und beteiligen
+    sich an der Arbeit der europaeischen Normungsorganisationen bzw. halten sich ueber einschlaegige Normen
+    auf dem Laufenden.
+  scope: out
+  scope_grund: Mitwirkungspflicht der notifizierten Stelle, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 31 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 32
   artikel: '32'
   artikel_titel: Vermutung der Konformität mit den Anforderungen an notifizierte Stellen
@@ -8625,17 +8724,21 @@ einheiten:
     Normen, deren Fundstellen im Amtsblatt der Europäischen Union veröffentlicht wurden, oder Teile dieser
     Normen erfüllt, so wird davon ausgegangen, dass sie die Anforderungen des Artikels 31, soweit diese
     von den geltenden harmonisierten Normen erfasst werden, erfüllt.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: Erfuellt eine Konformitaetsbewertungsstelle die Kriterien veroeffentlichter harmonisierter
+    Normen (oder Teile davon), so wird vermutet, dass sie die entsprechenden Anforderungen des Art. 31
+    erfuellt.
+  scope: out
+  scope_grund: Konformitaetsvermutung zugunsten der Konformitaetsbewertungsstelle, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 32 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 33 Abs. 1
   artikel: '33'
   artikel_titel: Zweigstellen notifizierter Stellen und Vergabe von Unteraufträgen
@@ -8648,17 +8751,20 @@ einheiten:
     an Unterauftragnehmer oder überträgt sie diese einer Zweigstelle, so stellt sie sicher, dass der Unterauftragnehmer
     oder die Zweigstelle die Anforderungen des Artikels 31 erfüllt, und informiert die notifizierende
     Behörde darüber.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: Vergibt eine notifizierte Stelle Aufgaben an Unterauftragnehmer oder Zweigstellen, stellt sie
+    deren Erfuellung des Art. 31 sicher und informiert die notifizierende Behoerde darueber.
+  scope: out
+  scope_grund: Pflicht der notifizierten Stelle, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 33 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 33 Abs. 2
   artikel: '33'
   artikel_titel: Zweigstellen notifizierter Stellen und Vergabe von Unteraufträgen
@@ -8669,17 +8775,20 @@ einheiten:
   saetze: 1
   beleg: (2)   Die notifizierten Stellen tragen die volle Verantwortung für Arbeiten, die von jedweden
     Unterauftragnehmern oder Zweigstellen ausgeführt werden.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: Notifizierte Stellen tragen die volle Verantwortung fuer Arbeiten ihrer Unterauftragnehmer
+    oder Zweigstellen.
+  scope: out
+  scope_grund: Verantwortungszuweisung an die notifizierte Stelle, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 33 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 33 Abs. 3
   artikel: '33'
   artikel_titel: Zweigstellen notifizierter Stellen und Vergabe von Unteraufträgen
@@ -8691,17 +8800,20 @@ einheiten:
   beleg: (3)   Tätigkeiten dürfen nur mit Zustimmung des Anbieters an einen Unterauftragnehmer vergeben
     oder einer Zweigstelle übertragen werden. Die notifizierten Stellen veröffentlichen ein Verzeichnis
     ihrer Zweigstellen.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: Unterauftraege/Uebertragungen an Zweigstellen beduerfen der Zustimmung des Anbieters; notifizierte
+    Stellen veroeffentlichen ein Verzeichnis ihrer Zweigstellen.
+  scope: out
+  scope_grund: Pflicht der notifizierten Stelle (mit Anbieter-Zustimmungserfordernis), keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 33 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 33 Abs. 4
   artikel: '33'
   artikel_titel: Zweigstellen notifizierter Stellen und Vergabe von Unteraufträgen
@@ -8714,17 +8826,20 @@ einheiten:
     oder der Zweigstelle und die von ihnen gemäß dieser Verordnung ausgeführten Arbeiten werden für einen
     Zeitraum von fünf Jahren ab dem Datum der Beendigung der Unterauftragsvergabe für die notifizierende
     Behörde bereitgehalten.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: Unterlagen zur Qualifikationsbewertung und den ausgefuehrten Arbeiten von Unterauftragnehmern/Zweigstellen
+    werden fuenf Jahre lang fuer die notifizierende Behoerde bereitgehalten.
+  scope: out
+  scope_grund: Aufbewahrungspflicht der notifizierten Stelle, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 33 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 34 Abs. 1
   artikel: '34'
   artikel_titel: Operative Pflichten der notifizierten Stellen
@@ -8735,17 +8850,20 @@ einheiten:
   saetze: 1
   beleg: (1)   Die notifizierten Stellen überprüfen die Konformität von Hochrisiko-KI-Systemen nach den
     in Artikel 43 festgelegten Konformitätsbewertungsverfahren.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: Notifizierte Stellen ueberpruefen die Konformitaet von Hochrisiko-KI-Systemen nach den Verfahren
+    des Art. 43.
+  scope: out
+  scope_grund: Operative Pflicht der notifizierten Stelle, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 34 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 34 Abs. 2
   artikel: '34'
   artikel_titel: Operative Pflichten der notifizierten Stellen
@@ -8761,17 +8879,22 @@ einheiten:
     der Empfehlung 2003/361/EG zu minimieren. Die notifizierte Stelle muss jedoch den Grad der Strenge
     und das Schutzniveau einhalten, die für die Konformität des Hochrisiko-KI-Systems mit den Anforderungen
     dieser Verordnung erforderlich sind.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: Notifizierte Stellen vermeiden unnoetige Belastungen fuer Anbieter und beruecksichtigen deren
+    Groesse, Sektor, Struktur und Systemkomplexitaet, insbesondere zur Entlastung von Kleinst-/Kleinunternehmen,
+    ohne dabei das erforderliche Strenge- und Schutzniveau abzusenken.
+  scope: out
+  scope_grund: Verhaeltnismaessigkeitspflicht der notifizierten Stelle gegenueber dem Anbieter, keine
+    Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 34 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 34 Abs. 3
   artikel: '34'
   artikel_titel: Operative Pflichten der notifizierten Stellen
@@ -8784,17 +8907,21 @@ einheiten:
     einschlägige Dokumentation, einschließlich der Dokumentation des Anbieters, zugänglich bzw. übermitteln
     diese auf Anfrage, damit diese Behörde ihre Bewertungs-, Benennungs-, Notifizierungs- und Überwachungstätigkeiten
     durchführen kann und die Bewertung gemäß diesem Abschnitt erleichtert wird.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: Notifizierte Stellen machen der notifizierenden Behoerde auf Anfrage saemtliche einschlaegige
+    Dokumentation einschliesslich der Anbieterdokumentation zugaenglich, damit diese ihre Aufsichtsaufgaben
+    erfuellen kann.
+  scope: out
+  scope_grund: Vorlagepflicht der notifizierten Stelle gegenueber der Behoerde, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 34 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 35 Abs. 1
   artikel: '35'
   artikel_titel: Identifizierungsnummern und Verzeichnisse notifizierter Stellen
@@ -8805,17 +8932,20 @@ einheiten:
   saetze: 1
   beleg: (1)   Die Kommission weist jeder notifizierten Stelle eine einzige Identifizierungsnummer zu,
     selbst wenn eine Stelle nach mehr als einem Rechtsakt der Union notifiziert wurde.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Die Kommission weist jeder notifizierten Stelle eine einzige Identifizierungsnummer zu, auch
+    bei Mehrfachnotifizierung nach mehreren Rechtsakten.
+  scope: out
+  scope_grund: Verwaltungspflicht der Kommission, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 35 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 35 Abs. 2
   artikel: '35'
   artikel_titel: Identifizierungsnummern und Verzeichnisse notifizierter Stellen
@@ -8827,17 +8957,20 @@ einheiten:
   beleg: (2)   Die Kommission veröffentlicht das Verzeichnis der nach dieser Verordnung notifizierten
     Stellen samt ihren Identifizierungsnummern und den Tätigkeiten, für die sie notifiziert wurden. Die
     Kommission stellt sicher, dass das Verzeichnis auf dem neuesten Stand gehalten wird.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Die Kommission veroeffentlicht und aktualisiert das Verzeichnis notifizierter Stellen mit Identifizierungsnummern
+    und Taetigkeitsbereichen.
+  scope: out
+  scope_grund: Veroeffentlichungspflicht der Kommission, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 35 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 36 Abs. 1
   artikel: '36'
   artikel_titel: Änderungen der Notifizierungen
@@ -8849,17 +8982,20 @@ einheiten:
   beleg: (1)   Die notifizierende Behörde unterrichtet die Kommission und die anderen Mitgliedstaaten
     mithilfe des in Artikel 30 Absatz 2 genannten elektronischen Notifizierungsinstruments über alle relevanten
     Änderungen der Notifizierung einer notifizierten Stelle.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Die notifizierende Behoerde unterrichtet Kommission und andere Mitgliedstaaten ueber alle relevanten
+    Aenderungen der Notifizierung einer notifizierten Stelle mittels des elektronischen Notifizierungsinstruments.
+  scope: out
+  scope_grund: Unterrichtungspflicht der notifizierenden Behoerde, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 36 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 36 Abs. 2
   artikel: '36'
   artikel_titel: Änderungen der Notifizierungen
@@ -8871,17 +9007,20 @@ einheiten:
   beleg: (2)   Für Erweiterungen des Anwendungsbereichs der Notifizierung gelten die in den Artikeln 29
     und 30 festgelegten Verfahren. Für andere Änderungen der Notifizierung als Erweiterungen ihres Anwendungsbereichs
     gelten die in den Absätzen 3 bis 9 dargelegten Verfahren.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Fuer Erweiterungen des Notifizierungsumfangs gelten die Verfahren der Art. 29/30, fuer sonstige
+    Aenderungen die Verfahren der Abs. 3-9 dieses Artikels.
+  scope: out
+  scope_grund: Verfahrensregel fuer notifizierende Behoerde/notifizierte Stelle, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 36 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 36 Abs. 3
   artikel: '36'
   artikel_titel: Änderungen der Notifizierungen
@@ -8900,17 +9039,23 @@ einheiten:
     von neun Monaten eine vollständige Bewertung der betroffenen Hochrisiko-KI-Systeme durch, bevor sie
     für diese neue Bescheinigungen ausstellt. Stellt die notifizierte Stelle ihre Tätigkeit ein, so widerruft
     die notifizierende Behörde die Benennung.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: Stellt eine notifizierte Stelle ihre Taetigkeit ein, informiert sie Behoerde und betroffene
+    Anbieter rechtzeitig; Bescheinigungen koennen befristet weitergelten, wenn eine andere notifizierte
+    Stelle die Verantwortung schriftlich uebernimmt und eine Neubewertung durchfuehrt; die notifizierende
+    Behoerde widerruft in diesem Fall die Benennung.
+  scope: out
+  scope_grund: Pflicht der (einstellenden) notifizierten Stelle bzw. der notifizierenden Behoerde, keine
+    Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 36 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 36 Abs. 4
   artikel: '36'
   artikel_titel: Änderungen der Notifizierungen
@@ -8928,17 +9073,21 @@ einheiten:
     oder dass sie ihren Pflichten nicht nachkommt, schränkt sie die Benennung gegebenenfalls ein, setzt
     sie aus oder widerruft sie, je nach Schwere der Nichterfüllung dieser Anforderungen oder Pflichtverletzung.
     Sie informiert die Kommission und die anderen Mitgliedstaaten unverzüglich darüber.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Hat die notifizierende Behoerde hinreichenden Grund zur Annahme mangelnder Anforderungserfuellung,
+    untersucht sie den Sachverhalt, gewaehrt rechtliches Gehoer und schraenkt die Benennung ggf. ein,
+    setzt sie aus oder widerruft sie, mit Unterrichtung von Kommission und Mitgliedstaaten.
+  scope: out
+  scope_grund: Aufsichts- und Entscheidungspflicht der notifizierenden Behoerde, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 36 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 36 Abs. 5
   artikel: '36'
   artikel_titel: Änderungen der Notifizierungen
@@ -8950,17 +9099,20 @@ einheiten:
   beleg: (5)   Wird die Benennung einer notifizierten Stelle ausgesetzt, eingeschränkt oder vollständig
     oder teilweise widerrufen, so informiert die notifizierte Stelle die betreffenden Anbieter innerhalb
     von zehn Tagen darüber.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: Bei Aussetzung, Einschraenkung oder Widerruf einer Benennung informiert die notifizierte Stelle
+    die betroffenen Anbieter innerhalb von zehn Tagen.
+  scope: out
+  scope_grund: Informationspflicht der notifizierten Stelle gegenueber dem Anbieter, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 36 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 36 Abs. 6
   artikel: '36'
   artikel_titel: Änderungen der Notifizierungen
@@ -8973,17 +9125,21 @@ einheiten:
     Behörde geeignete Maßnahmen, um sicherzustellen, dass die Akten der betreffenden notifizierten Stelle
     für die notifizierenden Behörden in anderen Mitgliedstaaten und die Marktüberwachungsbehörden bereitgehalten
     und ihnen auf deren Anfrage zur Verfügung gestellt werden.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Bei Einschraenkung, Aussetzung oder Widerruf einer Benennung stellt die notifizierende Behoerde
+    sicher, dass die Akten der betroffenen Stelle anderen notifizierenden Behoerden und Marktueberwachungsbehoerden
+    auf Anfrage zur Verfuegung gestellt werden.
+  scope: out
+  scope_grund: Aufbewahrungs-/Bereitstellungspflicht der notifizierenden Behoerde, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 36 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 36 Abs. 7
   artikel: '36'
   artikel_titel: Änderungen der Notifizierungen
@@ -8994,17 +9150,20 @@ einheiten:
   saetze: 1
   beleg: '(7)   Wird eine Benennung eingeschränkt, ausgesetzt oder widerrufen, so geht die notifizierende
     Behörde wie folgt vor:'
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Bei Einschraenkung, Aussetzung oder Widerruf einer Benennung geht die notifizierende Behoerde
+    in bestimmten Schritten vor (Chapeau zu lit. a-e).
+  scope: out
+  scope_grund: Verfahrenspflicht der notifizierenden Behoerde, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 36 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 36 Abs. 7 lit. a
   artikel: '36'
   artikel_titel: Änderungen der Notifizierungen
@@ -9014,17 +9173,19 @@ einheiten:
   laenge: 106
   saetze: 1
   beleg: a) Sie bewertet die Auswirkungen auf die von der notifizierten Stelle ausgestellten Bescheinigungen;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Die Behoerde bewertet die Auswirkungen auf die von der notifizierten Stelle ausgestellten Bescheinigungen.
+  scope: out
+  scope_grund: Verfahrensschritt der notifizierenden Behoerde, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 36 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 36 Abs. 7 lit. b
   artikel: '36'
   artikel_titel: Änderungen der Notifizierungen
@@ -9035,17 +9196,20 @@ einheiten:
   saetze: 1
   beleg: b) sie legt der Kommission und den anderen Mitgliedstaaten innerhalb von drei Monaten nach Notifizierung
     der Änderungen der Benennung einen Bericht über ihre diesbezüglichen Ergebnisse vor;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Die Behoerde legt Kommission und anderen Mitgliedstaaten innerhalb von drei Monaten einen Bericht
+    ueber ihre Ergebnisse vor.
+  scope: out
+  scope_grund: Berichtspflicht der notifizierenden Behoerde, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 36 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 36 Abs. 7 lit. c
   artikel: '36'
   artikel_titel: Änderungen der Notifizierungen
@@ -9057,17 +9221,20 @@ einheiten:
   beleg: c) sie weist die notifizierte Stelle zur Gewährleistung der fortlaufenden Konformität der im
     Verkehr befindlichen Hochrisiko-KI-Systeme an, sämtliche nicht ordnungsgemäß ausgestellten Bescheinigungen
     innerhalb einer von der Behörde festgelegten angemessenen Frist auszusetzen oder zu widerrufen;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Die Behoerde weist die notifizierte Stelle an, nicht ordnungsgemaess ausgestellte Bescheinigungen
+    innerhalb einer angemessenen Frist auszusetzen oder zu widerrufen.
+  scope: out
+  scope_grund: Anweisungsbefugnis der notifizierenden Behoerde, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 36 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 36 Abs. 7 lit. d
   artikel: '36'
   artikel_titel: Änderungen der Notifizierungen
@@ -9078,17 +9245,19 @@ einheiten:
   saetze: 1
   beleg: d) sie informiert die Kommission und die Mitgliedstaaten über Bescheinigungen, deren Aussetzung
     oder Widerruf sie angewiesen hat;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Die Behoerde informiert Kommission und Mitgliedstaaten ueber ausgesetzte oder widerrufene Bescheinigungen.
+  scope: out
+  scope_grund: Informationspflicht der notifizierenden Behoerde, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 36 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 36 Abs. 7 lit. e
   artikel: '36'
   artikel_titel: Änderungen der Notifizierungen
@@ -9101,17 +9270,21 @@ einheiten:
     eingetragene Niederlassung hat, alle relevanten Informationen über Bescheinigungen, deren Aussetzung
     oder Widerruf sie angewiesen hat, zur Verfügung; diese Behörde ergreift erforderlichenfalls geeignete
     Maßnahmen, um ein mögliches Risiko für Gesundheit, Sicherheit oder Grundrechte zu verhindern.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Die Behoerde stellt den zustaendigen nationalen Behoerden am Sitz des Anbieters alle relevanten
+    Informationen zu ausgesetzten/widerrufenen Bescheinigungen zur Verfuegung; diese ergreifen erforderlichenfalls
+    Massnahmen zur Risikoabwehr.
+  scope: out
+  scope_grund: Informations-/Kooperationspflicht zwischen Behoerden, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 36 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 36 Abs. 8
   artikel: '36'
   artikel_titel: Änderungen der Notifizierungen
@@ -9123,17 +9296,20 @@ einheiten:
   beleg: '(8)   Abgesehen von den Fällen, in denen Bescheinigungen nicht ordnungsgemäß ausgestellt wurden
     und in denen eine Benennung ausgesetzt oder eingeschränkt wurde, bleiben die Bescheinigungen unter
     einem der folgenden Umstände gültig:'
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Ausser bei nicht ordnungsgemaess ausgestellten Bescheinigungen bei ausgesetzter/eingeschraenkter
+    Benennung bleiben Bescheinigungen unter bestimmten Umstaenden gueltig (Chapeau zu lit. a/b).
+  scope: out
+  scope_grund: Regelung zur Zustaendigkeit der notifizierenden Behoerde, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 36 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 36 Abs. 8 lit. a
   artikel: '36'
   artikel_titel: Änderungen der Notifizierungen
@@ -9146,17 +9322,20 @@ einheiten:
     bestätigt, dass im Zusammenhang mit den von der Aussetzung oder Einschränkung betroffenen Bescheinigungen
     kein Risiko für Gesundheit, Sicherheit oder Grundrechte besteht, und die notifizierende Behörde hat
     einen Zeitplan für Maßnahmen zur Aufhebung der Aussetzung oder Einschränkung genannt oder
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Die notifizierende Behoerde hat binnen eines Monats nach Aussetzung/Einschraenkung bestaetigt,
+    dass kein Risiko besteht, und einen Zeitplan zur Aufhebung genannt.
+  scope: out
+  scope_grund: Bestaetigungspflicht der notifizierenden Behoerde, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 36 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 36 Abs. 8 lit. b
   artikel: '36'
   artikel_titel: Änderungen der Notifizierungen
@@ -9176,17 +9355,23 @@ einheiten:
     Einschränkung schriftlich, dass eine andere qualifizierte notifizierte Stelle vorübergehend die Aufgaben
     der notifizierten Stelle zur Überwachung der Bescheinigung übernimmt und dass sie während der Dauer
     der Aussetzung oder Einschränkung für die Bescheinigung verantwortlich bleibt.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Die notifizierende Behoerde hat bestaetigt, dass waehrend der Aussetzung/Einschraenkung keine
+    betroffenen Bescheinigungen ausgestellt/geaendert werden; kann die vormalige Stelle bestehende Bescheinigungen
+    nicht weiterfuehren, bestaetigt der betroffene Anbieter binnen drei Monaten schriftlich, dass eine
+    andere notifizierte Stelle die Ueberwachung vorruebergehend uebernimmt.
+  scope: out
+  scope_grund: Bestaetigungspflicht der Behoerde mit eingebetteter Anbieterpflicht im Ausnahmefall, keine
+    Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 36 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 36 Abs. 9
   artikel: '36'
   artikel_titel: Änderungen der Notifizierungen
@@ -9198,17 +9383,20 @@ einheiten:
   beleg: '(9)   Abgesehen von den Fällen, in denen Bescheinigungen nicht ordnungsgemäß ausgestellt wurden
     und in denen eine Benennung widerrufen wurde, bleiben die Bescheinigungen unter folgenden Umständen
     für eine Dauer von neun Monaten gültig:'
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Ausser bei nicht ordnungsgemaess ausgestellten Bescheinigungen bei widerrufener Benennung bleiben
+    Bescheinigungen unter bestimmten Umstaenden neun Monate gueltig (Chapeau zu lit. a/b).
+  scope: out
+  scope_grund: Regelung zur Zustaendigkeit der nationalen Behoerde, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 36 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 36 Abs. 9 lit. a
   artikel: '36'
   artikel_titel: Änderungen der Notifizierungen
@@ -9221,17 +9409,20 @@ einheiten:
     abgedeckten Hochrisiko-KI-Systems seine eingetragene Niederlassung hat, hat bestätigt, dass im Zusammenhang
     mit den betreffenden Hochrisiko-KI-Systemen kein Risiko für Gesundheit, Sicherheit oder Grundrechte
     besteht, und
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Die zustaendige nationale Behoerde am Sitz des Anbieters hat bestaetigt, dass kein Risiko fuer
+    Gesundheit, Sicherheit oder Grundrechte besteht.
+  scope: out
+  scope_grund: Bestaetigungspflicht der nationalen Behoerde, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 36 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 36 Abs. 9 lit. b
   artikel: '36'
   artikel_titel: Änderungen der Notifizierungen
@@ -9249,17 +9440,22 @@ einheiten:
     oder die notifizierte Stelle, die die Aufgaben der von der Benennungsänderung betroffenen notifizierten
     Stelle übernimmt, informiert unverzüglich die Kommission, die anderen Mitgliedstaaten und die anderen
     notifizierten Stellen darüber.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Eine andere notifizierte Stelle hat schriftlich die unmittelbare Verantwortung uebernommen
+    und schliesst die Bewertung binnen 12 Monaten ab; die zustaendige nationale Behoerde kann die vorlaeufige
+    Gueltigkeit um bis zu insgesamt 12 Monate verlaengern und informiert unverzueglich Kommission, Mitgliedstaaten
+    und andere notifizierte Stellen.
+  scope: out
+  scope_grund: Verfahrenspflicht von Behoerde und uebernehmender notifizierter Stelle, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 36 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 37 Abs. 1
   artikel: '37'
   artikel_titel: Anfechtungen der Kompetenz notifizierter Stellen
@@ -9271,17 +9467,20 @@ einheiten:
   beleg: (1)   Die Kommission untersucht erforderlichenfalls alle Fälle, in denen begründete Zweifel an
     der Kompetenz einer notifizierten Stelle oder daran bestehen, dass eine notifizierte Stelle die in
     Artikel 31 festgelegten Anforderungen und ihre geltenden Pflichten weiterhin erfüllt.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Die Kommission untersucht erforderlichenfalls Faelle begruendeter Zweifel an Kompetenz oder
+    fortlaufender Pflichterfuellung einer notifizierten Stelle.
+  scope: out
+  scope_grund: Untersuchungspflicht der Kommission, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 37 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 37 Abs. 2
   artikel: '37'
   artikel_titel: Anfechtungen der Kompetenz notifizierter Stellen
@@ -9292,17 +9491,20 @@ einheiten:
   saetze: 1
   beleg: (2)   Die notifizierende Behörde stellt der Kommission auf Anfrage alle Informationen über die
     Notifizierung oder die Aufrechterhaltung der Kompetenz der betreffenden notifizierten Stelle zur Verfügung.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Die notifizierende Behoerde stellt der Kommission auf Anfrage alle Informationen zur Notifizierung/Kompetenzerhaltung
+    der betreffenden Stelle zur Verfuegung.
+  scope: out
+  scope_grund: Auskunftspflicht der notifizierenden Behoerde, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 37 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 37 Abs. 3
   artikel: '37'
   artikel_titel: Anfechtungen der Kompetenz notifizierter Stellen
@@ -9313,17 +9515,20 @@ einheiten:
   saetze: 1
   beleg: (3)   Die Kommission stellt sicher, dass alle im Verlauf ihrer Untersuchungen gemäß diesem Artikel
     erlangten sensiblen Informationen gemäß Artikel 78 vertraulich behandelt werden.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Die Kommission behandelt alle in ihren Untersuchungen erlangten sensiblen Informationen vertraulich
+    gemaess Art. 78.
+  scope: out
+  scope_grund: Vertraulichkeitspflicht der Kommission, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 37 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 37 Abs. 4
   artikel: '37'
   artikel_titel: Anfechtungen der Kompetenz notifizierter Stellen
@@ -9339,17 +9544,21 @@ einheiten:
     Abhilfemaßnahmen zu ergreifen, kann die Kommission die Benennung im Wege eines Durchführungsrechtsakts
     aussetzen, einschränken oder widerrufen. Dieser Durchführungsrechtsakt wird gemäß dem in Artikel 98
     Absatz 2 genannten Prüfverfahren erlassen.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Stellt die Kommission mangelnde Anforderungserfuellung fest, informiert sie den Mitgliedstaat
+    und fordert Abhilfemassnahmen; bei Untaetigkeit kann sie die Benennung per Durchfuehrungsrechtsakt
+    aussetzen, einschraenken oder widerrufen.
+  scope: out
+  scope_grund: Durchsetzungsbefugnis der Kommission, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 37 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 38 Abs. 1
   artikel: '38'
   artikel_titel: Koordinierung der notifizierten Stellen
@@ -9362,17 +9571,20 @@ einheiten:
     und Zusammenarbeit zwischen den an den Konformitätsbewertungsverfahren im Rahmen dieser Verordnung
     beteiligten notifizierten Stellen in Form einer sektoralen Gruppe notifizierter Stellen eingerichtet
     und ordnungsgemäß weitergeführt wird.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Die Kommission richtet eine sektorale Gruppe notifizierter Stellen zur Koordinierung und Zusammenarbeit
+    bei Konformitaetsbewertungen von Hochrisiko-KI-Systemen ein und fuehrt sie fort.
+  scope: out
+  scope_grund: Einrichtungspflicht der Kommission, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 38 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 38 Abs. 2
   artikel: '38'
   artikel_titel: Koordinierung der notifizierten Stellen
@@ -9383,17 +9595,20 @@ einheiten:
   saetze: 1
   beleg: (2)   Jede notifizierende Behörde sorgt dafür, dass sich die von ihr notifizierten Stellen direkt
     oder über benannte Vertreter an der Arbeit der in Absatz 1 genannten Gruppe beteiligen.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Jede notifizierende Behoerde stellt sicher, dass die von ihr notifizierten Stellen direkt oder
+    ueber Vertreter an der Gruppenarbeit teilnehmen.
+  scope: out
+  scope_grund: Sicherstellungspflicht der notifizierenden Behoerde, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 38 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 38 Abs. 3
   artikel: '38'
   artikel_titel: Koordinierung der notifizierten Stellen
@@ -9404,17 +9619,20 @@ einheiten:
   saetze: 1
   beleg: (3)   Die Kommission sorgt für den Austausch von Wissen und bewährten Verfahren zwischen den
     notifizierenden Behörden.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Die Kommission sorgt fuer den Austausch von Wissen und bewaehrten Verfahren zwischen den notifizierenden
+    Behoerden.
+  scope: out
+  scope_grund: Foerderungspflicht der Kommission, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 38 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 39
   artikel: '39'
   artikel_titel: Konformitätsbewertungsstellen in Drittländern
@@ -9428,17 +9646,21 @@ einheiten:
     gemäß dieser Verordnung durchzuführen, sofern sie die Anforderungen gemäß Artikel 31 erfüllen oder
     das gleiche Maß an Konformität gewährleisten. ABSCHNITT 5 Normen, Konformitätsbewertung, Bescheinigungen,
     Registrierung
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: Konformitaetsbewertungsstellen aus Drittlaendern mit Unionsabkommen koennen zur Wahrnehmung
+    der Taetigkeiten notifizierter Stellen ermaechtigt werden, wenn sie Art. 31 erfuellen oder gleichwertige
+    Konformitaet gewaehrleisten.
+  scope: out
+  scope_grund: Regelung zur Ermaechtigung drittstaatlicher Konformitaetsbewertungsstellen, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 39 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 40 Abs. 1
   artikel: '40'
   artikel_titel: Harmonisierte Normen und Normungsdokumente
@@ -9453,17 +9675,21 @@ einheiten:
     gemäß Abschnitt 2 des vorliegenden Kapitels oder gegebenenfalls mit den Pflichten gemäß Kapitel V
     Abschnitte 2 und 3 der vorliegenden Verordnung vermutet, soweit diese Anforderungen oder Verpflichtungen
     von den Normen abgedeckt sind.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Erfuellen Hochrisiko-KI-Systeme oder KI-Modelle mit allgemeinem Verwendungszweck veroeffentlichte
+    harmonisierte Normen (oder Teile davon), wird die Konformitaet mit den entsprechenden Anforderungen/Pflichten
+    vermutet.
+  scope: out
+  scope_grund: Konformitaetsvermutungsregel im Normungskontext der Kommission, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 40 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 40 Abs. 2
   artikel: '40'
   artikel_titel: Harmonisierte Normen und Normungsdokumente
@@ -9490,17 +9716,21 @@ einheiten:
     auf, Nachweise dafür vorzulegen, dass sie sich nach besten Kräften bemühen, die in den Unterabsätzen
     1 und 2 dieses Absatzes genannten Ziele im Einklang mit Artikel 24 der Verordnung (EU) Nr. 1025/2012
     zu erreichen.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Die Kommission erteilt unverzueglich Normungsauftraege zu den Anforderungen/Pflichten des Kapitels,
+    verlangt dabei auch Berichterstattung zur Ressourcen-/Energieeffizienz, konsultiert KI-Gremium und
+    Interessentraeger und fordert Nachweise ueber die Zielerreichung von den europaeischen Normungsorganisationen.
+  scope: out
+  scope_grund: Normungsauftragspflicht der Kommission, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 17 - neuer Unterabsatz zur Beauftragung europaeischer
+    Normungsorganisationen angefuegt; geprueft am verfuegenden Teil.
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 40 Abs. 3
   artikel: '40'
   artikel_titel: Harmonisierte Normen und Normungsdokumente
@@ -9516,17 +9746,22 @@ einheiten:
     und Interessen der Union im Einklang stehen, beizutragen und die Multi-Stakeholder-Governance zu verbessern,
     indem eine ausgewogene Vertretung der Interessen und eine wirksame Beteiligung aller relevanten Interessenträger
     gemäß den Artikeln 5, 6 und 7 der Verordnung (EU) Nr. 1025/2012 sichergestellt werden.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: Die am Normungsprozess beteiligten europaeischen Normungsorganisationen/Interessentraeger sollen
+    Investitionen, Innovation, internationale Zusammenarbeit und ausgewogene Multi-Stakeholder-Beteiligung
+    foerdern.
+  scope: out
+  scope_grund: Zielvorgabe fuer Normungsteilnehmer (private/quasi-oeffentliche Normungsorganisationen),
+    keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 40 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 41 Abs. 1
   artikel: '41'
   artikel_titel: Gemeinsame Spezifikationen
@@ -9538,17 +9773,20 @@ einheiten:
   beleg: '(1)   Die Kommission kann Durchführungsrechtsakte zur Festlegung gemeinsamer Spezifikationen
     für die Anforderungen gemäß Abschnitt 2 dieses Kapitels oder gegebenenfalls die Pflichten gemäß Kapitel
     V Abschnitte 2 und 3 erlassen, wenn die folgenden Bedingungen erfüllt sind:'
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Die Kommission kann per Durchfuehrungsrechtsakt gemeinsame Spezifikationen fuer die Anforderungen/Pflichten
+    des Kapitels festlegen, sofern bestimmte Bedingungen erfuellt sind (Chapeau zu lit. a/b).
+  scope: out
+  scope_grund: Rechtsetzungsbefugnis der Kommission, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 41 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 41 Abs. 1 lit. a
   artikel: '41'
   artikel_titel: Gemeinsame Spezifikationen
@@ -9561,17 +9799,20 @@ einheiten:
     europäische Normungsorganisationen damit beauftragt, eine harmonisierte Norm für die in Abschnitt
     2 dieses Kapitels festgelegten Anforderungen oder gegebenenfalls für die in Kapitel V Abschnitte 2
     und 3 festgelegten Pflichten zu erarbeiten, und
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Die Kommission hat eine europaeische Normungsorganisation mit der Erarbeitung einer harmonisierten
+    Norm beauftragt.
+  scope: out
+  scope_grund: Voraussetzung im Rahmen der Kommissionsbefugnis, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 41 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 41 Abs. 1 lit. i
   artikel: '41'
   artikel_titel: Gemeinsame Spezifikationen
@@ -9585,17 +9826,21 @@ einheiten:
     10 Absatz 1 der Verordnung (EU) Nr. 1025/2012 festgelegten Frist erarbeitet oder iii) die einschlägigen
     harmonisierten Normen tragen den Bedenken im Bereich der Grundrechte nicht ausreichend Rechnung oder
     iv) die harmonisierten Normen entsprechen nicht dem Auftrag und
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: 'Weitere Voraussetzungen: der Normungsauftrag wurde nicht angenommen, die Normen wurden nicht
+    fristgerecht erarbeitet, tragen Grundrechtsbedenken nicht ausreichend Rechnung, oder entsprechen nicht
+    dem Auftrag.'
+  scope: out
+  scope_grund: Voraussetzungen im Rahmen der Kommissionsbefugnis, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 41 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 41 Abs. 1 lit. b
   artikel: '41'
   artikel_titel: Gemeinsame Spezifikationen
@@ -9611,17 +9856,21 @@ einheiten:
     wird. Bei der Verfassung der gemeinsamen Spezifikationen konsultiert die Kommission das in Artikel
     67 genannte Beratungsforum. Die in Unterabsatz 1 des vorliegenden Absatzes genannten Durchführungsrechtsakte
     werden gemäß dem in Artikel 98 Absatz 2 genannten Prüfverfahren erlassen.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: 'Weitere Voraussetzung: keine entsprechende harmonisierte Norm ist veroeffentlicht und auch
+    nicht absehbar; die Kommission konsultiert das Beratungsforum und erlaesst den Durchfuehrungsrechtsakt
+    im Pruefverfahren nach Art. 98 Abs. 2.'
+  scope: out
+  scope_grund: Voraussetzung und Verfahrenspflicht der Kommission, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 41 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 41 Abs. 2
   artikel: '41'
   artikel_titel: Gemeinsame Spezifikationen
@@ -9633,17 +9882,20 @@ einheiten:
   beleg: (2)   Vor der Ausarbeitung eines Entwurfs eines Durchführungsrechtsakts informiert die Kommission
     den in Artikel 22 der Verordnung (EU) Nr. 1025/2012 genannten Ausschuss darüber, dass sie die in Absatz
     1 des vorliegenden Artikels festgelegten Bedingungen als erfüllt erachtet.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Vor Ausarbeitung eines Entwurfs informiert die Kommission den Ausschuss nach Art. 22 der VO
+    (EU) 1025/2012 darueber, dass sie die Bedingungen des Abs. 1 als erfuellt ansieht.
+  scope: out
+  scope_grund: Informationspflicht der Kommission gegenueber dem Ausschuss, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 41 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 41 Abs. 3
   artikel: '41'
   artikel_titel: Gemeinsame Spezifikationen
@@ -9657,17 +9909,21 @@ einheiten:
     wird eine Konformität mit den Anforderungen in Abschnitt 2 dieses Kapitels oder gegebenenfalls die
     Einhaltung der in Kapitel V Abschnitte 2 und 3 genannten Pflichten vermutet, soweit diese Anforderungen
     oder diese Pflichten von den gemeinsamen Spezifikationen abgedeckt sind.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Erfuellen Hochrisiko-KI-Systeme oder KI-Modelle mit allgemeinem Verwendungszweck die gemeinsamen
+    Spezifikationen (oder Teile davon), wird die Konformitaet mit den entsprechenden Anforderungen/Pflichten
+    vermutet.
+  scope: out
+  scope_grund: Konformitaetsvermutungsregel der Kommission, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 41 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 41 Abs. 4
   artikel: '41'
   artikel_titel: Gemeinsame Spezifikationen
@@ -9683,17 +9939,21 @@ einheiten:
     die in Absatz 1 genannten Durchführungsrechtsakte, die dieselben Anforderungen gemäß Abschnitt 2 dieses
     Kapitels oder gegebenenfalls dieselben Pflichten gemäß Kapitel V Abschnitte 2 und 3 erfassen, von
     der Kommission ganz oder teilweise aufgehoben.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Wird eine harmonisierte Norm angenommen und im Amtsblatt veroeffentlicht, hebt die Kommission
+    die entsprechenden, dieselben Anforderungen abdeckenden Durchfuehrungsrechtsakte ganz oder teilweise
+    auf.
+  scope: out
+  scope_grund: Aufhebungspflicht der Kommission, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 41 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 41 Abs. 5
   artikel: '41'
   artikel_titel: Gemeinsame Spezifikationen
@@ -9706,17 +9966,21 @@ einheiten:
     die in Absatz 1 genannten gemeinsamen Spezifikationen nicht befolgen, müssen sie hinreichend nachweisen,
     dass sie technische Lösungen verwenden, die die in Abschnitt 2 dieses Kapitels aufgeführten Anforderungen
     oder gegebenenfalls die Pflichten gemäß Kapitel V Abschnitte 2 und 3 zumindest in gleichem Maße erfüllen;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Befolgen Anbieter von Hochrisiko-KI-Systemen oder KI-Modellen mit allgemeinem Verwendungszweck
+    die gemeinsamen Spezifikationen nicht, muessen sie nachweisen, dass ihre technischen Loesungen die
+    Anforderungen/Pflichten mindestens gleichwertig erfuellen.
+  scope: out
+  scope_grund: Nachweispflicht des Anbieters, keine Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 41 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 41 Abs. 6
   artikel: '41'
   artikel_titel: Gemeinsame Spezifikationen
@@ -9730,17 +9994,20 @@ einheiten:
     2 und 3 nicht vollständig erfüllt, so setzt er die Kommission im Rahmen einer ausführlichen Erläuterung
     davon in Kenntnis. Die Kommission bewertet die betreffende Information und ändert gegebenenfalls den
     Durchführungsrechtsakt, durch den die betreffende gemeinsame Spezifikation festgelegt wurde.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Haelt ein Mitgliedstaat eine gemeinsame Spezifikation fuer unzureichend, unterrichtet er die
+    Kommission mit Begruendung; die Kommission bewertet dies und aendert den Durchfuehrungsrechtsakt ggf.
+  scope: out
+  scope_grund: Beanstandungs-/Aenderungsverfahren zwischen Mitgliedstaat und Kommission, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 41 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 42 Abs. 1
   artikel: '42'
   artikel_titel: Vermutung der Konformität mit bestimmten Anforderungen
@@ -9753,17 +10020,20 @@ einheiten:
     kontextuellen oder funktionalen Rahmenbedingungen niederschlagen, unter denen sie verwendet werden
     sollen, trainiert und getestet wurden, gilt die Vermutung, dass sie die in Artikel 10 Absatz 4 festgelegten
     einschlägigen Anforderungen erfüllen.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Wurden Hochrisiko-KI-Systeme mit Daten trainiert/getestet, die die vorgesehenen Einsatzbedingungen
+    widerspiegeln, gilt die Vermutung der Erfuellung der Anforderungen des Art. 10 Abs. 4.
+  scope: out
+  scope_grund: Konformitaetsvermutungsregel, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 42 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 42 Abs. 2
   artikel: '42'
   artikel_titel: Vermutung der Konformität mit bestimmten Anforderungen
@@ -9778,17 +10048,21 @@ einheiten:
     Vermutung, dass sie die in Artikel 15 der vorliegenden Verordnung festgelegten Cybersicherheitsanforderungen
     erfüllen, sofern diese Anforderungen von der Cybersicherheitszertifizierung oder der Konformitätserklärung
     oder Teilen davon abdeckt sind.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Sind Hochrisiko-KI-Systeme nach einem veroeffentlichten Cybersicherheitszertifizierungssystem
+    zertifiziert oder liegt eine entsprechende Konformitaetserklaerung vor, gilt die Vermutung der Erfuellung
+    der Cybersicherheitsanforderungen des Art. 15, soweit abgedeckt.
+  scope: out
+  scope_grund: Konformitaetsvermutungsregel, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 42 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 43 Abs. 1
   artikel: '43'
   artikel_titel: Konformitätsbewertung
@@ -9801,17 +10075,20 @@ einheiten:
     die in Abschnitt 2 festgelegten Anforderungen erfüllt, harmonisierte Normen gemäß Artikel 40 oder
     gegebenenfalls gemeinsame Spezifikationen gemäß Artikel 41 angewandt, so entscheidet er sich für eines
     der folgenden Konformitätsbewertungsverfahren auf der Grundlage
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Hat ein Anbieter zum Nachweis der Anforderungserfuellung eines Anhang-III-Nr.-1-Systems harmonisierte
+    Normen oder gemeinsame Spezifikationen angewandt, waehlt er eines der im Folgenden genannten Konformitaetsbewertungsverfahren.
+  scope: out
+  scope_grund: Wahlpflicht des Anbieters, keine Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 43 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 43 Abs. 1 lit. a
   artikel: '43'
   artikel_titel: Konformitätsbewertung
@@ -9821,17 +10098,19 @@ einheiten:
   laenge: 52
   saetze: 1
   beleg: a) der internen Kontrolle gemäß Anhang VI oder
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: 'Option a): interne Kontrolle gemaess Anhang VI.'
+  scope: out
+  scope_grund: Verfahrensoption des Anbieters, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 43 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 43 Abs. 1 lit. b
   artikel: '43'
   artikel_titel: Konformitätsbewertung
@@ -9844,17 +10123,21 @@ einheiten:
     unter Beteiligung einer notifizierten Stelle gemäß Anhang VII. Zum Nachweis, dass sein Hochrisiko-KI-System
     die in Abschnitt 2 festgelegten Anforderungen erfüllt, befolgt der Anbieter das Konformitätsbewertungsverfahren
     gemäß Anhang VII, wenn
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: 'Option b): Bewertung des Qualitaetsmanagementsystems und der technischen Dokumentation unter
+    Beteiligung einer notifizierten Stelle gemaess Anhang VII; dieses Verfahren ist zwingend, wenn bestimmte
+    Voraussetzungen vorliegen (Chapeau zu lit. a-d).'
+  scope: out
+  scope_grund: Verfahrenspflicht des Anbieters, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 43 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 43 Abs. 1 lit. a
   artikel: '43'
   artikel_titel: Konformitätsbewertung
@@ -9865,17 +10148,19 @@ einheiten:
   saetze: 1
   beleg: a) es harmonisierte Normen gemäß Artikel 40 nicht gibt und keine gemeinsamen Spezifikationen
     gemäß Artikel 41 vorliegen,
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: 'Voraussetzung: es gibt keine harmonisierten Normen und keine gemeinsamen Spezifikationen.'
+  scope: out
+  scope_grund: Voraussetzung fuer die Anbieterpflicht zum Anhang-VII-Verfahren, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 43 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 43 Abs. 1 lit. b
   artikel: '43'
   artikel_titel: Konformitätsbewertung
@@ -9885,17 +10170,19 @@ einheiten:
   laenge: 84
   saetze: 1
   beleg: b) der Anbieter die harmonisierte Norm nicht oder nur teilweise angewandt hat;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: 'Voraussetzung: der Anbieter hat die harmonisierte Norm nicht oder nur teilweise angewandt.'
+  scope: out
+  scope_grund: Voraussetzung fuer die Anbieterpflicht zum Anhang-VII-Verfahren, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 43 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 43 Abs. 1 lit. c
   artikel: '43'
   artikel_titel: Konformitätsbewertung
@@ -9906,17 +10193,19 @@ einheiten:
   saetze: 1
   beleg: c) die unter Buchstabe a genannten gemeinsamen Spezifikationen zwar vorliegen, der Anbieter sie
     jedoch nicht angewandt hat;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: 'Voraussetzung: vorhandene gemeinsame Spezifikationen wurden vom Anbieter nicht angewandt.'
+  scope: out
+  scope_grund: Voraussetzung fuer die Anbieterpflicht zum Anhang-VII-Verfahren, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 43 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 43 Abs. 1 lit. d
   artikel: '43'
   artikel_titel: Konformitätsbewertung
@@ -9931,17 +10220,22 @@ einheiten:
     jedoch von Strafverfolgungs-, Einwanderungs- oder Asylbehörden oder von Organen, Einrichtungen oder
     sonstigen Stellen der Union in Betrieb genommen werden, so übernimmt die in Artikel 74 Absatz 8 bzw.
     9 genannte Marktüberwachungsbehörde die Funktion der notifizierten Stelle.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: 'Voraussetzung: eine oder mehrere harmonisierte Normen wurden nur eingeschraenkt veroeffentlicht;
+    fuer das Anhang-VII-Verfahren kann der Anbieter eine notifizierte Stelle waehlen, ausser bei Systemen
+    fuer Strafverfolgung/Einwanderung/Asyl oder EU-Organe, wo die zustaendige Marktueberwachungsbehoerde
+    deren Funktion uebernimmt.'
+  scope: out
+  scope_grund: Verfahrenspflicht/-wahlrecht des Anbieters mit Behoerdenausnahme, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 43 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 43 Abs. 2
   artikel: '43'
   artikel_titel: Konformitätsbewertung
@@ -9953,17 +10247,20 @@ einheiten:
   beleg: (2)   Bei den in Anhang III Nummern 2 bis 8 aufgeführten Hochrisiko-KI-Systemen befolgen die
     Anbieter das Konformitätsbewertungsverfahren auf der Grundlage einer internen Kontrolle gemäß Anhang
     VI, das keine Beteiligung einer notifizierten Stelle vorsieht.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Bei den in Anhang III Nr. 2-8 aufgefuehrten Hochrisiko-KI-Systemen befolgen die Anbieter das
+    Verfahren der internen Kontrolle nach Anhang VI ohne Beteiligung einer notifizierten Stelle.
+  scope: out
+  scope_grund: Verfahrenspflicht des Anbieters, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 43 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 43 Abs. 3
   artikel: '43'
   artikel_titel: Konformitätsbewertung
@@ -9987,17 +10284,23 @@ einheiten:
     dann von dieser Möglichkeit Gebrauch machen, wenn er auch harmonisierte Normen oder gegebenenfalls
     gemeinsame Spezifikationen gemäß Artikel 41, die alle in Abschnitt 2 dieses Kapitels festgelegten
     Anforderungen abdecken, angewandt hat.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Bei Hochrisiko-KI-Systemen, die unter Anhang-I-Abschnitt-A-Harmonisierungsrechtsakte fallen,
+    befolgt der Anbieter die dort vorgesehenen Konformitaetsbewertungsverfahren unter Einbeziehung der
+    Anforderungen dieses Kapitels; bestehende Notifizierungen anderer Rechtsakte koennen genutzt werden,
+    sofern Art. 31 Abs. 4/5/10/11 erfuellt sind, und ein Verzicht auf Drittbewertung nur zulaessig ist,
+    wenn auch die einschlaegigen harmonisierten Normen/Spezifikationen dieses Kapitels angewandt wurden.
+  scope: out
+  scope_grund: Verfahrenspflicht des Anbieters (Doppelregulierung mit anderem Produktrecht), keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 19 - Abs. 3 neu gefasst (Konformitaetsbewertung
+    bei Anhang-I-Abschnitt-A-Produkten, u.a. Fristsetzung 28. Januar 2028); geprueft am verfuegenden Teil.
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 43 Abs. 4
   artikel: '43'
   artikel_titel: Konformitätsbewertung
@@ -10014,17 +10317,22 @@ einheiten:
     zum Zeitpunkt der ursprünglichen Konformitätsbewertung vorab festgelegt wurden und in den Informationen
     der technischen Dokumentation gemäß Anhang IV Nummer 2 Buchstabe f enthalten sind, nicht als wesentliche
     Veränderung;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Eine wesentliche Aenderung eines Hochrisiko-KI-Systems loest ein neues Konformitaetsbewertungsverfahren
+    aus (unabhaengig von Weiterverwendung durch den derzeitigen Betreiber); vorab vom Anbieter festgelegte,
+    dokumentierte Lernaenderungen gelten nicht als wesentliche Veraenderung.
+  scope: out
+  scope_grund: Konformitaetsbewertungs-Retriggerung ist eine Anbieterpflicht; die Erwaehnung des 'derzeitigen
+    Betreibers' ist nur ein Bezugspunkt (Fortnutzung), keine eigene Handlungspflicht des Betreibers.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 19 - Art. 43 Abs. 3 (nicht Abs. 4) neu gefasst;
+    Abs. 4 selbst unveraendert (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 43 Abs. 5
   artikel: '43'
   artikel_titel: Konformitätsbewertung
@@ -10035,17 +10343,20 @@ einheiten:
   saetze: 1
   beleg: (5)   Die Kommission ist befugt, gemäß Artikel 97 delegierte Rechtsakte zu erlassen, um die Anhänge
     VI und VII zu ändern, indem sie sie angesichts des technischen Fortschritts aktualisiert.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Die Kommission ist befugt, delegierte Rechtsakte zur Aktualisierung der Anhaenge VI und VII
+    entsprechend dem technischen Fortschritt zu erlassen.
+  scope: out
+  scope_grund: Delegierte Rechtsetzungsbefugnis der Kommission, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 43 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 43 Abs. 6
   artikel: '43'
   artikel_titel: Konformitätsbewertung
@@ -10062,17 +10373,21 @@ einheiten:
     der von solchen Systemen ausgehenden Risiken für die Gesundheit und Sicherheit und den Schutz der
     Grundrechte sowie hinsichtlich der Verfügbarkeit angemessener Kapazitäten und Ressourcen in den notifizierten
     Stellen.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Die Kommission ist befugt, delegierte Rechtsakte zur Aenderung der Abs. 1/2 zu erlassen, um
+    Anhang-III-Nr.-2-8-Systeme (teilweise) dem Anhang-VII-Verfahren zu unterwerfen, unter Beruecksichtigung
+    von Wirksamkeit, Risiken und Kapazitaeten notifizierter Stellen.
+  scope: out
+  scope_grund: Delegierte Rechtsetzungsbefugnis der Kommission, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 43 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 44 Abs. 1
   artikel: '44'
   artikel_titel: Bescheinigungen
@@ -10084,17 +10399,20 @@ einheiten:
   beleg: (1)   Die von notifizierten Stellen gemäß Anhang VII ausgestellten Bescheinigungen werden in
     einer Sprache ausgefertigt, die für die einschlägigen Behörden des Mitgliedstaats, in dem die notifizierte
     Stelle niedergelassen ist, leicht verständlich ist.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: Von notifizierten Stellen ausgestellte Bescheinigungen nach Anhang VII werden in einer fuer
+    die Behoerden des Sitzmitgliedstaats der Stelle leicht verstaendlichen Sprache ausgefertigt.
+  scope: out
+  scope_grund: Formvorgabe fuer die notifizierte Stelle, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 44 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 44 Abs. 2
   artikel: '44'
   artikel_titel: Bescheinigungen
@@ -10110,17 +10428,21 @@ einheiten:
     höchstens fünf Jahren für unter Anhang I fallende KI-Systeme und höchstens vier Jahre für unter Anhang
     III fallende KI-Systeme verlängert werden. Eine Ergänzung zu einer Bescheinigung bleibt gültig, sofern
     die Bescheinigung, zu der sie gehört, gültig ist.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: Bescheinigungen sind hoechstens fuenf Jahre (Anhang I) bzw. vier Jahre (Anhang III) gueltig
+    und koennen auf Antrag des Anbieters nach Neubewertung um gleiche Zeitraeume verlaengert werden; Ergaenzungen
+    bleiben an die Gueltigkeit der Hauptbescheinigung gebunden.
+  scope: out
+  scope_grund: Gueltigkeits-/Verlaengerungsregel der notifizierten Stelle, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 44 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 44 Abs. 3
   artikel: '44'
   artikel_titel: Bescheinigungen
@@ -10136,17 +10458,22 @@ einheiten:
     einer von der notifizierten Stelle gesetzten angemessenen Frist wiederhergestellt wird. Die notifizierte
     Stelle begründet ihre Entscheidung. Es muss ein Einspruchsverfahren gegen die Entscheidungen der notifizierten
     Stellen, auch solche über ausgestellte Konformitätsbescheinigungen, vorgesehen sein.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: Stellt eine notifizierte Stelle fest, dass ein System die Anforderungen nicht mehr erfuellt,
+    setzt sie die Bescheinigung verhaeltnismaessig aus, widerruft oder schraenkt sie ein, sofern der Anbieter
+    nicht fristgerecht Abhilfe schafft; die Entscheidung ist zu begruenden und ein Einspruchsverfahren
+    vorzusehen.
+  scope: out
+  scope_grund: Aufsichts-/Entscheidungspflicht der notifizierten Stelle, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 44 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 45 Abs. 1
   artikel: '45'
   artikel_titel: Informationspflichten der notifizierten Stellen
@@ -10156,17 +10483,20 @@ einheiten:
   laenge: 77
   saetze: 1
   beleg: (1)   Die notifizierten Stellen informieren die notifizierende Behörde über
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: Notifizierte Stellen informieren die notifizierende Behoerde ueber bestimmte Sachverhalte (Chapeau
+    zu lit. a-e).
+  scope: out
+  scope_grund: Informationspflicht der notifizierten Stelle, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 45 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 45 Abs. 1 lit. a
   artikel: '45'
   artikel_titel: Informationspflichten der notifizierten Stellen
@@ -10178,17 +10508,20 @@ einheiten:
   beleg: a) alle Unionsbescheinigungen über die Bewertung der technischen Dokumentation, etwaige Ergänzungen
     dieser Bescheinigungen und alle Genehmigungen von Qualitätsmanagementsystemen, die gemäß den Anforderungen
     des Anhangs VII erteilt wurden;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: Ausgestellte Unionsbescheinigungen zur technischen Dokumentation, deren Ergaenzungen und QM-System-Genehmigungen
+    nach Anhang VII.
+  scope: out
+  scope_grund: Meldeinhalt der notifizierten Stelle, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 45 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 45 Abs. 1 lit. b
   artikel: '45'
   artikel_titel: Informationspflichten der notifizierten Stellen
@@ -10200,17 +10533,20 @@ einheiten:
   beleg: b) alle Verweigerungen, Einschränkungen, Aussetzungen oder Rücknahmen von Unionsbescheinigungen
     über die Bewertung der technischen Dokumentation oder Genehmigungen von Qualitätsmanagementsystemen,
     die gemäß den Anforderungen des Anhangs VII erteilt wurden;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: Verweigerungen, Einschraenkungen, Aussetzungen oder Ruecknahmen solcher Bescheinigungen oder
+    QM-Genehmigungen.
+  scope: out
+  scope_grund: Meldeinhalt der notifizierten Stelle, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 45 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 45 Abs. 1 lit. c
   artikel: '45'
   artikel_titel: Informationspflichten der notifizierten Stellen
@@ -10221,17 +10557,19 @@ einheiten:
   saetze: 1
   beleg: c) alle Umstände, die Folgen für den Anwendungsbereich oder die Bedingungen der Notifizierung
     haben;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: Umstaende mit Folgen fuer Umfang oder Bedingungen der Notifizierung.
+  scope: out
+  scope_grund: Meldeinhalt der notifizierten Stelle, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 45 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 45 Abs. 1 lit. d
   artikel: '45'
   artikel_titel: Informationspflichten der notifizierten Stellen
@@ -10242,17 +10580,19 @@ einheiten:
   saetze: 1
   beleg: d) alle Auskunftsersuchen über Konformitätsbewertungstätigkeiten, die sie von den Marktüberwachungsbehörden
     erhalten haben;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: Von Marktueberwachungsbehoerden erhaltene Auskunftsersuchen zu Konformitaetsbewertungstaetigkeiten.
+  scope: out
+  scope_grund: Meldeinhalt der notifizierten Stelle, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 45 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 45 Abs. 1 lit. e
   artikel: '45'
   artikel_titel: Informationspflichten der notifizierten Stellen
@@ -10264,17 +10604,20 @@ einheiten:
   beleg: e) auf Anfrage die Konformitätsbewertungstätigkeiten, denen sie im Anwendungsbereich ihrer Notifizierung
     nachgegangen sind, und sonstige Tätigkeiten, einschließlich grenzüberschreitender Tätigkeiten und
     Vergabe von Unteraufträgen, die sie durchgeführt haben.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: 'Auf Anfrage: die im Rahmen der Notifizierung durchgefuehrten Konformitaetsbewertungs- und
+    sonstigen Taetigkeiten einschliesslich grenzueberschreitender Taetigkeiten und Unterauftragsvergabe.'
+  scope: out
+  scope_grund: Auskunftspflicht der notifizierten Stelle, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 45 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 45 Abs. 2
   artikel: '45'
   artikel_titel: Informationspflichten der notifizierten Stellen
@@ -10284,17 +10627,20 @@ einheiten:
   laenge: 82
   saetze: 1
   beleg: (2)   Jede notifizierte Stelle informiert die anderen notifizierten Stellen über
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: Jede notifizierte Stelle informiert die anderen notifizierten Stellen ueber bestimmte Sachverhalte
+    (Chapeau zu lit. a/b).
+  scope: out
+  scope_grund: Informationspflicht zwischen notifizierten Stellen, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 45 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 45 Abs. 2 lit. a
   artikel: '45'
   artikel_titel: Informationspflichten der notifizierten Stellen
@@ -10305,17 +10651,19 @@ einheiten:
   saetze: 1
   beleg: a) die Genehmigungen von Qualitätsmanagementsystemen, die sie verweigert, ausgesetzt oder zurückgenommen
     hat, und auf Anfrage die Genehmigungen von Qualitätsmanagementsystemen, die sie erteilt hat;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: Verweigerte, ausgesetzte oder zurueckgenommene QM-System-Genehmigungen, auf Anfrage auch erteilte.
+  scope: out
+  scope_grund: Meldeinhalt zwischen notifizierten Stellen, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 45 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 45 Abs. 2 lit. b
   artikel: '45'
   artikel_titel: Informationspflichten der notifizierten Stellen
@@ -10327,17 +10675,20 @@ einheiten:
   beleg: b) die Bescheinigungen der Union über die Bewertung der technischen Dokumentation und deren etwaige
     Ergänzungen, die sie verweigert, ausgesetzt oder zurückgenommen oder anderweitig eingeschränkt hat,
     und auf Anfrage die Bescheinigungen und/oder deren Ergänzungen, die sie ausgestellt hat.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: Verweigerte, ausgesetzte, zurueckgenommene oder eingeschraenkte Unionsbescheinigungen zur technischen
+    Dokumentation und deren Ergaenzungen, auf Anfrage auch erteilte.
+  scope: out
+  scope_grund: Meldeinhalt zwischen notifizierten Stellen, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 45 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 45 Abs. 3
   artikel: '45'
   artikel_titel: Informationspflichten der notifizierten Stellen
@@ -10349,17 +10700,20 @@ einheiten:
   beleg: (3)   Jede notifizierte Stelle übermittelt den anderen notifizierten Stellen, die ähnlichen Konformitätsbewertungstätigkeiten
     für die gleichen Arten der KI-Systeme nachgehen, einschlägige Informationen über negative und auf
     Anfrage über positive Konformitätsbewertungsergebnisse.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: Jede notifizierte Stelle uebermittelt anderen, aehnliche Taetigkeiten fuer gleiche Systemarten
+    ausuebenden Stellen einschlaegige Informationen ueber negative und (auf Anfrage) positive Bewertungsergebnisse.
+  scope: out
+  scope_grund: Informationsaustauschpflicht zwischen notifizierten Stellen, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 45 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 45 Abs. 4
   artikel: '45'
   artikel_titel: Informationspflichten der notifizierten Stellen
@@ -10370,17 +10724,20 @@ einheiten:
   saetze: 1
   beleg: (4)   Notifizierende Behörden gewährleisten gemäß Artikel 78 die Vertraulichkeit der von ihnen
     erlangten Informationen.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Notifizierende Behoerden wahren die Vertraulichkeit der von ihnen erlangten Informationen gemaess
+    Art. 78.
+  scope: out
+  scope_grund: Vertraulichkeitspflicht der notifizierenden Behoerde, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 45 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 46 Abs. 1
   artikel: '46'
   artikel_titel: Ausnahme vom Konformitätsbewertungsverfahren
@@ -10396,17 +10753,22 @@ einheiten:
     und Infrastrukturanlagen genehmigen. Diese Genehmigung wird auf die Dauer der erforderlichen Konformitätsbewertungsverfahren
     befristet, wobei den außergewöhnlichen Gründen für die Ausnahme Rechnung getragen wird. Der Abschluss
     dieser Verfahren erfolgt unverzüglich.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Eine Marktueberwachungsbehoerde kann auf begruendetes Ersuchen aus aussergewoehnlichen Sicherheits-,
+    Gesundheits-, Umwelt- oder Infrastrukturschutzgruenden das Inverkehrbringen/die Inbetriebnahme bestimmter
+    Hochrisiko-KI-Systeme befristet auf die Dauer des Konformitaetsbewertungsverfahrens genehmigen, das
+    zuegig abzuschliessen ist.
+  scope: out
+  scope_grund: Genehmigungsbefugnis der Marktueberwachungsbehoerde, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 46 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 46 Abs. 2
   artikel: '46'
   artikel_titel: Ausnahme vom Konformitätsbewertungsverfahren
@@ -10422,17 +10784,23 @@ einheiten:
     diese Genehmigung während der Verwendung oder im Anschluss daran unverzüglich beantragt wird. Falls
     die Genehmigung gemäß Absatz 1 abgelehnt wird, wird Verwendung des Hochrisiko-KI-Systems mit sofortiger
     Wirkung eingestellt und sämtliche Ergebnisse und Ausgaben dieser Verwendung werden unverzüglich verworfen.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: In dringenden begruendeten Faellen koennen Strafverfolgungs- oder Katastrophenschutzbehoerden
+    ein Hochrisiko-KI-System ohne vorherige Genehmigung in Betrieb nehmen, sofern diese unverzueglich
+    nachtraeglich beantragt wird; wird sie abgelehnt, ist die Nutzung sofort einzustellen und Ergebnisse
+    zu verwerfen.
+  scope: out
+  scope_grund: Ausnahmeregelung fuer Strafverfolgungs-/Katastrophenschutzbehoerden als Anwenderbehoerden,
+    keine allgemeine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 46 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 46 Abs. 3
   artikel: '46'
   artikel_titel: Ausnahme vom Konformitätsbewertungsverfahren
@@ -10446,17 +10814,21 @@ einheiten:
     Die Marktüberwachungsbehörde informiert die Kommission und die anderen Mitgliedstaaten über alle von
     ihr gemäß den Absätzen 1 und 2 erteilten Genehmigungen. Diese Pflicht erstreckt sich nicht auf sensible
     operative Daten zu den Tätigkeiten von Strafverfolgungsbehörden.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Die Genehmigung wird nur erteilt, wenn die Marktueberwachungsbehoerde die Erfuellung der Anforderungen
+    feststellt; sie informiert Kommission und Mitgliedstaaten ueber erteilte Genehmigungen, ausgenommen
+    sensible operative Strafverfolgungsdaten.
+  scope: out
+  scope_grund: Voraussetzungs-/Informationspflicht der Marktueberwachungsbehoerde, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 46 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 46 Abs. 4
   artikel: '46'
   artikel_titel: Ausnahme vom Konformitätsbewertungsverfahren
@@ -10468,17 +10840,20 @@ einheiten:
   beleg: (4)   Erhebt weder ein Mitgliedstaat noch die Kommission innerhalb von 15 Kalendertagen nach
     Erhalt der in Absatz 3 genannten Mitteilung Einwände gegen die von einer Marktüberwachungsbehörde
     eines Mitgliedstaats gemäß Absatz 1 erteilte Genehmigung, so gilt diese Genehmigung als gerechtfertigt.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Erheben Mitgliedstaat oder Kommission binnen 15 Tagen keine Einwaende gegen eine erteilte Genehmigung,
+    gilt diese als gerechtfertigt.
+  scope: out
+  scope_grund: Verfahrensregel zwischen Behoerden, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 46 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 46 Abs. 5
   artikel: '46'
   artikel_titel: Ausnahme vom Konformitätsbewertungsverfahren
@@ -10496,17 +10871,21 @@ einheiten:
     dazu Stellung zu nehmen. In Anbetracht dessen entscheidet die Kommission, ob die Genehmigung gerechtfertigt
     ist. Die Kommission richtet ihren Beschluss an den betroffenen Mitgliedstaat und an die betroffenen
     Akteure.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Bei fristgerechten Einwaenden eines Mitgliedstaats oder Bedenken der Kommission nimmt die Kommission
+    Konsultationen mit dem betroffenen Mitgliedstaat und den betroffenen Akteuren auf und entscheidet
+    per Beschluss ueber die Berechtigung der Genehmigung.
+  scope: out
+  scope_grund: Entscheidungsverfahren der Kommission, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 46 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 46 Abs. 6
   artikel: '46'
   artikel_titel: Ausnahme vom Konformitätsbewertungsverfahren
@@ -10517,17 +10896,20 @@ einheiten:
   saetze: 1
   beleg: (6)   Wird die Genehmigung von der Kommission als ungerechtfertigt erachtet, so muss sie von
     der Marktüberwachungsbehörde des betreffenden Mitgliedstaats zurückgenommen werden.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Erachtet die Kommission die Genehmigung als ungerechtfertigt, muss die Marktueberwachungsbehoerde
+    sie zuruecknehmen.
+  scope: out
+  scope_grund: Ruecknahmepflicht der Marktueberwachungsbehoerde, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 46 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 46 Abs. 7
   artikel: '46'
   artikel_titel: Ausnahme vom Konformitätsbewertungsverfahren
@@ -10539,17 +10921,20 @@ einheiten:
   beleg: (7)   Für Hochrisiko-KI-Systeme im Zusammenhang mit Produkten, die unter die in Anhang I Abschnitt
     A aufgeführten Harmonisierungsrechtsvorschriften der Union fallen, gelten nur die in diesen Harmonisierungsrechtsvorschriften
     der Union festgelegten Ausnahmen von den Konformitätsbewertungsverfahren.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Fuer Hochrisiko-KI-Systeme im Zusammenhang mit Anhang-I-Abschnitt-A-Produkten gelten ausschliesslich
+    die dort vorgesehenen Ausnahmen von den Konformitaetsbewertungsverfahren.
+  scope: out
+  scope_grund: Kollisionsregel zugunsten sektoralen Produktrechts, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 46 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 47 Abs. 1
   artikel: '47'
   artikel_titel: EU-Konformitätserklärung
@@ -10564,17 +10949,21 @@ einheiten:
     nationalen Behörden bereit. Aus der EU-Konformitätserklärung geht hervor, für welches Hochrisiko-KI-System
     sie ausgestellt wurde. Eine Kopie der EU-Konformitätserklärung wird den zuständigen nationalen Behörden
     auf Anfrage übermittelt.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Der Anbieter stellt fuer jedes Hochrisiko-KI-System eine schriftliche, maschinenlesbare, unterzeichnete
+    EU-Konformitaetserklaerung aus, haelt sie zehn Jahre fuer die zustaendigen Behoerden bereit und uebermittelt
+    auf Anfrage eine Kopie.
+  scope: out
+  scope_grund: Anbieterpflicht, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 47 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 47 Abs. 2
   artikel: '47'
   artikel_titel: EU-Konformitätserklärung
@@ -10588,17 +10977,20 @@ einheiten:
     Anhang V festgelegten Informationen und wird in eine Sprache übersetzt, die für die zuständigen nationalen
     Behörden der Mitgliedstaaten, in denen das Hochrisiko-KI-System in Verkehr gebracht oder bereitgestellt
     wird, leicht verständlich ist.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Die EU-Konformitaetserklaerung bestaetigt die Anforderungserfuellung, enthaelt die Angaben
+    nach Anhang V und wird in eine fuer die zustaendigen nationalen Behoerden verstaendliche Sprache uebersetzt.
+  scope: out
+  scope_grund: Anbieterpflicht, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 47 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 47 Abs. 3
   artikel: '47'
   artikel_titel: EU-Konformitätserklärung
@@ -10612,17 +11004,20 @@ einheiten:
     ausgestellt, die sich auf alle für das Hochrisiko-KI-System geltenden Rechtsvorschriften der Union
     bezieht. Die Erklärung enthält alle erforderlichen Informationen zur Feststellung der Harmonisierungsrechtsvorschriften
     der Union, auf die sich die Erklärung bezieht.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Unterliegen Hochrisiko-KI-Systeme mehreren unionsrechtlichen Erklaerungspflichten, wird eine
+    einzige EU-Konformitaetserklaerung mit Bezug auf alle einschlaegigen Rechtsvorschriften ausgestellt.
+  scope: out
+  scope_grund: Anbieterpflicht, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 47 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 47 Abs. 4
   artikel: '47'
   artikel_titel: EU-Konformitätserklärung
@@ -10634,17 +11029,20 @@ einheiten:
   beleg: (4)   Mit der Ausstellung der EU-Konformitätserklärung übernimmt der Anbieter die Verantwortung
     für die Erfüllung der in Abschnitt 2 festgelegten Anforderungen. Der Anbieter hält die EU-Konformitätserklärung
     gegebenenfalls auf dem neuesten Stand.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Mit Ausstellung der Erklaerung uebernimmt der Anbieter die Verantwortung fuer die Anforderungserfuellung
+    und haelt die Erklaerung aktuell.
+  scope: out
+  scope_grund: Anbieterpflicht, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 47 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 47 Abs. 5
   artikel: '47'
   artikel_titel: EU-Konformitätserklärung
@@ -10657,17 +11055,20 @@ einheiten:
     in Anhang V festgelegten Inhalts der EU-Konformitätserklärung zu erlassen, um den genannten Anhang
     durch die Einführung von Elementen zu ändern, die angesichts des technischen Fortschritts erforderlich
     werden.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Die Kommission ist befugt, delegierte Rechtsakte zur Aktualisierung des Anhang-V-Inhalts der
+    EU-Konformitaetserklaerung entsprechend dem technischen Fortschritt zu erlassen.
+  scope: out
+  scope_grund: Delegierte Rechtsetzungsbefugnis der Kommission, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 47 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 48 Abs. 1
   artikel: '48'
   artikel_titel: CE-Kennzeichnung
@@ -10678,17 +11079,19 @@ einheiten:
   saetze: 1
   beleg: (1)   Für die CE-Kennzeichnung gelten die in Artikel 30 der Verordnung (EG) Nr. 765/2008 festgelegten
     allgemeinen Grundsätze.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Fuer die CE-Kennzeichnung gelten die allgemeinen Grundsaetze des Art. 30 der VO (EG) 765/2008.
+  scope: out
+  scope_grund: Kennzeichnungspflicht des Anbieters, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 48 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 48 Abs. 2
   artikel: '48'
   artikel_titel: CE-Kennzeichnung
@@ -10701,17 +11104,21 @@ einheiten:
     nur dann verwendet, wenn sie über die Schnittstelle, von der aus auf dieses System zugegriffen wird,
     oder über einen leicht zugänglichen maschinenlesbaren Code oder andere elektronische Mittel leicht
     zugänglich ist.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Bei digital bereitgestellten Hochrisiko-KI-Systemen wird eine digitale CE-Kennzeichnung nur
+    verwendet, wenn sie ueber die Zugriffsschnittstelle, einen maschinenlesbaren Code oder andere elektronische
+    Mittel leicht zugaenglich ist.
+  scope: out
+  scope_grund: Kennzeichnungspflicht des Anbieters, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 48 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 48 Abs. 3
   artikel: '48'
   artikel_titel: CE-Kennzeichnung
@@ -10723,17 +11130,20 @@ einheiten:
   beleg: (3)   Die CE-Kennzeichnung wird gut sichtbar, leserlich und dauerhaft an Hochrisiko-KI-Systemen
     angebracht. Falls die Art des Hochrisiko-KI-Systems dies nicht zulässt oder nicht rechtfertigt, wird
     sie auf der Verpackung bzw. der beigefügten Dokumentation angebracht.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Die CE-Kennzeichnung wird gut sichtbar, leserlich und dauerhaft am System angebracht, ersatzweise
+    auf Verpackung oder beigefuegter Dokumentation.
+  scope: out
+  scope_grund: Kennzeichnungspflicht des Anbieters, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 48 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 48 Abs. 4
   artikel: '48'
   artikel_titel: CE-Kennzeichnung
@@ -10748,17 +11158,21 @@ einheiten:
     Anweisungen durch den Anbieter oder den Bevollmächtigten des Anbieters anzubringen. Diese Identifizierungsnummer
     wird auch auf jeglichem Werbematerial angegeben, in dem darauf hingewiesen wird, dass das Hochrisiko-KI-System
     die Anforderungen für die CE-Kennzeichnung erfüllt.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Gegebenenfalls wird der CE-Kennzeichnung die Identifizierungsnummer der zustaendigen notifizierten
+    Stelle hinzugefuegt, die von der Stelle selbst oder nach deren Anweisung vom Anbieter/Bevollmaechtigten
+    angebracht wird und auch in Werbematerial anzugeben ist.
+  scope: out
+  scope_grund: Kennzeichnungspflicht des Anbieters (ggf. der notifizierten Stelle), keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 48 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 48 Abs. 5
   artikel: '48'
   artikel_titel: CE-Kennzeichnung
@@ -10770,17 +11184,20 @@ einheiten:
   beleg: (5)   Falls Hochrisiko-KI-Systeme ferner unter andere Rechtsvorschriften der Union fallen, in
     denen die CE-Kennzeichnung auch vorgesehen ist, bedeutet die CE-Kennzeichnung, dass das Hochrisiko-KI-System
     auch die Anforderungen dieser anderen Rechtsvorschriften erfüllt.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Fallen Hochrisiko-KI-Systeme zusaetzlich unter andere CE-Kennzeichnungsvorschriften, bestaetigt
+    die CE-Kennzeichnung auch deren Erfuellung.
+  scope: out
+  scope_grund: Kennzeichnungsfolge fuer den Anbieter, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 48 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 49 Abs. 1
   artikel: '49'
   artikel_titel: Registrierung
@@ -10792,17 +11209,21 @@ einheiten:
   beleg: (1)   Vor dem Inverkehrbringen oder der Inbetriebnahme eines in Anhang III aufgeführten Hochrisiko-KI-Systems
     — mit Ausnahme der in Anhang III Nummer 2 genannten Hochrisiko-KI-Systeme — registriert der Anbieter
     oder gegebenenfalls sein Bevollmächtigter sich und sein System in der in Artikel 71 genannten EU-Datenbank.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Vor Inverkehrbringen oder Inbetriebnahme eines Anhang-III-Systems (ausser Anhang III Nr. 2)
+    registriert sich der Anbieter oder sein Bevollmaechtigter samt System in der EU-Datenbank nach Art.
+    71.
+  scope: out
+  scope_grund: Registrierungspflicht des Anbieters, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 49 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 49 Abs. 2
   artikel: '49'
   artikel_titel: Registrierung
@@ -10815,17 +11236,21 @@ einheiten:
     Anbieter zu dem Schluss gelangt ist, dass es nicht hochriskant gemäß Artikel 6 Absatz 3 ist, registriert
     dieser Anbieter oder gegebenenfalls sein Bevollmächtigter sich und dieses System in der in Artikel
     71 genannten EU-Datenbank.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Kommt ein Anbieter zu dem Schluss, dass sein Hochrisiko-KI-System nach Art. 6 Abs. 3 nicht
+    hochriskant ist, registriert er sich (bzw. sein Bevollmaechtigter) dennoch vor Inverkehrbringen/Inbetriebnahme
+    mit dem System in der EU-Datenbank.
+  scope: out
+  scope_grund: Registrierungspflicht des Anbieters, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 49 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 49 Abs. 3
   artikel: '49'
   artikel_titel: Registrierung
@@ -10839,17 +11264,24 @@ einheiten:
     bei denen es sich um Behörden oder Organe, Einrichtungen oder sonstige Stellen der Union oder in ihrem
     Namen handelnde Personen handelt, in der in Artikel 71 genannten EU-Datenbank, wählen das System aus
     und registrieren es dort.
-  adressat: null
-  pflicht: null
-  scope: null
+  adressat: betreiber
+  pflicht: Betreiber, die Behoerden oder EU-Organe/-Einrichtungen (oder in deren Namen Handelnde) sind,
+    registrieren sich und das ausgewaehlte Anhang-III-System vor Inbetriebnahme/Verwendung in der EU-Datenbank
+    - AUSSER bei Anhang-III-Nr.-2-Systemen.
+  scope: in
   scope_grund: null
-  verifikation: null
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
-  befund: null
-  befund_grund: null
+  omnibus: unveraendert - Art. 49 ist in der Aenderungsliste der VO (EU) 2026/1744 nicht erwaehnt (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
+  befund: nicht_einschlaegig
+  befund_grund: 'Doppelt ausserhalb des Anwendungsfalls: (1) Anhang III Nr. 2 (kritische Infrastruktur/Redispatch)
+    ist von dieser Registrierungspflicht ausdruecklich ausgenommen - Parallelbefund zum Art.-27-FRIA-Carve-out
+    aus Lauf 2; (2) selbst ohne diese Ausnahme gilt die Pflicht nur fuer Betreiber, die Behoerden/EU-Organe
+    sind, nicht fuer einen privatrechtlich organisierten Netzbetreiber.'
+  po_bestaetigt: false
 - id: Art. 49 Abs. 4
   artikel: '49'
   artikel_titel: Registrierung
@@ -10862,17 +11294,21 @@ einheiten:
     Bereichen Strafverfolgung, Migration, Asyl und Grenzkontrolle die Registrierung gemäß den Absätzen
     1, 2 und 3 des vorliegenden Artikels in einem sicheren nicht öffentlichen Teil der in Artikel 71 genannten
     EU-Datenbank und enthält, soweit zutreffend, lediglich die Informationen gemäß
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Bei Anhang-III-Nr.-1/6/7-Systemen in den Bereichen Strafverfolgung, Migration, Asyl und Grenzkontrolle
+    erfolgt die Registrierung nach Abs. 1-3 in einem sicheren nicht oeffentlichen Datenbankteil und enthaelt
+    nur bestimmte Informationen (Chapeau zu lit. a-d).
+  scope: out
+  scope_grund: Regelung zur Beschraenkung des Datenbankzugangs, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 49 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 49 Abs. 4 lit. a
   artikel: '49'
   artikel_titel: Registrierung
@@ -10882,17 +11318,19 @@ einheiten:
   laenge: 86
   saetze: 1
   beleg: a) Anhang VIII Abschnitt A Nummern 1 bis 10 mit Ausnahme der Nummern 6, 8 und 9,
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Verweist auf Anhang VIII Abschnitt A Nr. 1-10 ausser Nr. 6, 8 und 9.
+  scope: out
+  scope_grund: Verweisregel zum beschraenkten Datenbankinhalt, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 49 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 49 Abs. 4 lit. b
   artikel: '49'
   artikel_titel: Registrierung
@@ -10902,17 +11340,19 @@ einheiten:
   laenge: 71
   saetze: 1
   beleg: b) Anhang VIII Abschnitt B Nummern 1 bis 5 sowie Nummern 8 und 9,
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Verweist auf Anhang VIII Abschnitt B Nr. 1-5 sowie Nr. 8 und 9.
+  scope: out
+  scope_grund: Verweisregel zum beschraenkten Datenbankinhalt, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 49 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 49 Abs. 4 lit. c
   artikel: '49'
   artikel_titel: Registrierung
@@ -10922,17 +11362,19 @@ einheiten:
   laenge: 49
   saetze: 1
   beleg: c) Anhang VIII Abschnitt C Nummern 1 bis 3,
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Verweist auf Anhang VIII Abschnitt C Nr. 1-3.
+  scope: out
+  scope_grund: Verweisregel zum beschraenkten Datenbankinhalt, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 49 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 49 Abs. 4 lit. d
   artikel: '49'
   artikel_titel: Registrierung
@@ -10944,17 +11386,20 @@ einheiten:
   beleg: d) Anhang IX Nummern 1, 2, 3 und Nummer 5. Nur die Kommission und die in Artikel 74 Absatz 8
     genannten nationalen Behörden haben Zugang zu den jeweiligen beschränkten Teilen der EU-Datenbank
     gemäß Unterabsatz 1 dieses Absatzes.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Verweist auf Anhang IX Nr. 1, 2, 3 und 5; nur Kommission und die nach Art. 74 Abs. 8 genannten
+    nationalen Behoerden haben Zugang zu den beschraenkten Datenbankteilen.
+  scope: out
+  scope_grund: Zugangsbeschraenkung auf Kommission/nationale Behoerden, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 49 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 49 Abs. 5
   artikel: '49'
   artikel_titel: Registrierung
@@ -10965,17 +11410,28 @@ einheiten:
   saetze: 2
   beleg: (5)   Die in Anhang III Nummer 2 genannten Hochrisiko-KI-Systeme werden auf nationaler Ebene
     registriert. KAPITEL IV TRANSPARENZPFLICHTEN FÜR ANBIETER UND BETREIBER BESTIMMTER KI-SYSTEME
-  adressat: null
-  pflicht: null
-  scope: null
+  adressat: sonstige
+  pflicht: Anhang-III-Nr.-2-Systeme (kritische Infrastruktur) werden nicht in der EU-Datenbank, sondern
+    auf nationaler Ebene registriert.
+  scope: in
   scope_grund: null
-  verifikation: null
-  hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
-  befund: null
-  befund_grund: null
+  verifikation: HYPOTHESE
+  hypothese_grund: Der Wortlaut nennt fuer die nationale Registrierung keinen Adressaten (Passivkonstruktion
+    'werden ... registriert'); dass diese Pflicht - in Analogie zu Abs. 1 (Anbieter) und Abs. 3 (Betreiber-Behoerde)
+    - im Regelfall den Betreiber des Anhang-III-Nr.-2-Systems trifft, ist eine Auslegung, kein unmittelbarer
+    Wortlautbefund. Welche nationale Stelle/welches Gesetz die Registrierung in Deutschland regelt, ist
+    im Pflichtenraum nicht ermittelt.
+  omnibus: unveraendert - Art. 49 ist in der Aenderungsliste der VO (EU) 2026/1744 nicht erwaehnt (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
+  befund: luecke
+  befund_grund: 'Genau der Anwendungsfall dieses Projekts (Anhang III Nr. 2, Redispatch): der Wortlaut
+    verlangt eine nationale Registrierung, aber kein Requirement/Gate im Katalog bildet sie ab, und das
+    nationale Umsetzungsrecht (welche deutsche Stelle, welches Verfahren) ist nicht referenziert. Zentraler
+    Befund fuer den Abschlussbericht - direkt neben dem Art.-27-Carve-out zu nennen, weil hier trotz Carve-out
+    von der EU-Datenbank eine Ersatzpflicht (national) sichtbar wird, die der Katalog komplett uebersieht.'
+  po_bestaetigt: false
 - id: Art. 50 Abs. 1
   artikel: '50'
   artikel_titel: Transparenzpflichten für Anbieter und Betreiber bestimmter KI-Systeme
@@ -11232,8 +11688,8 @@ einheiten:
   verifikation: null
   hypothese_grund: null
   omnibus: null
-  requirement: *id001
-  gate: *id002
+  requirement: &id001 []
+  gate: &id002 []
   befund: null
   befund_grund: null
 - id: Art. 51 Abs. 1 lit. a
