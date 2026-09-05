@@ -20,17 +20,22 @@ einheiten:
     zu fördern und gleichzeitig ein hohes Schutzniveau in Bezug auf Gesundheit, Sicherheit und die in
     der Charta verankerten Grundrechte, einschließlich Demokratie, Rechtsstaatlichkeit und Umweltschutz,
     vor schädlichen Auswirkungen von KI-Systemen in der Union zu gewährleisten und die Innovation zu unterstützen.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: 'Legt den Verordnungszweck fest: Funktionieren des Binnenmarkts verbessern, vertrauenswuerdige
+    KI foerdern, hohes Schutzniveau fuer Gesundheit, Sicherheit und Grundrechte gewaehrleisten und Innovation
+    unterstuetzen.'
+  scope: out
+  scope_grund: Zweckbestimmungs-/Inhaltsuebersichtsnorm (Art. 1) - keine Handlungspflicht fuer einen Akteur,
+    insbesondere keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: &id001 []
-  gate: &id002 []
+  omnibus: unveraendert - Art. 1 Abs. 1 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr.
+    1) nicht erwaehnt, nur Abs. 2 lit. g wird geaendert (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 1 Abs. 2
   artikel: '1'
   artikel_titel: Gegenstand
@@ -40,17 +45,20 @@ einheiten:
   laenge: 55
   saetze: 1
   beleg: '(2)   In dieser Verordnung wird Folgendes festgelegt:'
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: Kuendigt an, was die Verordnung regelt (Liste lit. a-g).
+  scope: out
+  scope_grund: Zweckbestimmungs-/Inhaltsuebersichtsnorm (Art. 1) - keine Handlungspflicht fuer einen Akteur,
+    insbesondere keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nur lit. g wird geaendert (Nr. 1 der Aenderungsliste, geprueft am verfuegenden
+    Teil).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 1 Abs. 2 lit. a
   artikel: '1'
   artikel_titel: Gegenstand
@@ -61,17 +69,20 @@ einheiten:
   saetze: 1
   beleg: a) harmonisierte Vorschriften für das Inverkehrbringen, die Inbetriebnahme und die Verwendung
     von KI-Systemen in der Union;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: 'Regelungsgegenstand: harmonisierte Vorschriften fuer Inverkehrbringen, Inbetriebnahme und
+    Verwendung von KI-Systemen in der Union.'
+  scope: out
+  scope_grund: Zweckbestimmungs-/Inhaltsuebersichtsnorm (Art. 1) - keine Handlungspflicht fuer einen Akteur,
+    insbesondere keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert (Nr. 1 der Aenderungsliste betrifft nur lit. g, geprueft am verfuegenden Teil).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 1 Abs. 2 lit. b
   artikel: '1'
   artikel_titel: Gegenstand
@@ -81,17 +92,19 @@ einheiten:
   laenge: 52
   saetze: 1
   beleg: b) Verbote bestimmter Praktiken im KI-Bereich;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: 'Regelungsgegenstand: Verbote bestimmter Praktiken im KI-Bereich.'
+  scope: out
+  scope_grund: Zweckbestimmungs-/Inhaltsuebersichtsnorm (Art. 1) - keine Handlungspflicht fuer einen Akteur,
+    insbesondere keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert (Nr. 1 der Aenderungsliste betrifft nur lit. g, geprueft am verfuegenden Teil).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 1 Abs. 2 lit. c
   artikel: '1'
   artikel_titel: Gegenstand
@@ -102,17 +115,20 @@ einheiten:
   saetze: 1
   beleg: c) besondere Anforderungen an Hochrisiko-KI-Systeme und Pflichten für Akteure in Bezug auf solche
     Systeme;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: 'Regelungsgegenstand: besondere Anforderungen an Hochrisiko-KI-Systeme und Pflichten fuer Akteure
+    in Bezug auf solche Systeme.'
+  scope: out
+  scope_grund: Zweckbestimmungs-/Inhaltsuebersichtsnorm (Art. 1) - keine Handlungspflicht fuer einen Akteur,
+    insbesondere keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert (Nr. 1 der Aenderungsliste betrifft nur lit. g, geprueft am verfuegenden Teil).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 1 Abs. 2 lit. d
   artikel: '1'
   artikel_titel: Gegenstand
@@ -122,17 +138,19 @@ einheiten:
   laenge: 72
   saetze: 1
   beleg: d) harmonisierte Transparenzvorschriften für bestimmte KI-Systeme;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: 'Regelungsgegenstand: harmonisierte Transparenzvorschriften fuer bestimmte KI-Systeme.'
+  scope: out
+  scope_grund: Zweckbestimmungs-/Inhaltsuebersichtsnorm (Art. 1) - keine Handlungspflicht fuer einen Akteur,
+    insbesondere keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert (Nr. 1 der Aenderungsliste betrifft nur lit. g, geprueft am verfuegenden Teil).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 1 Abs. 2 lit. e
   artikel: '1'
   artikel_titel: Gegenstand
@@ -142,17 +160,20 @@ einheiten:
   laenge: 110
   saetze: 1
   beleg: e) harmonisierte Vorschriften für das Inverkehrbringen von KI-Modellen mit allgemeinem Verwendungszweck;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: 'Regelungsgegenstand: harmonisierte Vorschriften fuer das Inverkehrbringen von KI-Modellen
+    mit allgemeinem Verwendungszweck.'
+  scope: out
+  scope_grund: Zweckbestimmungs-/Inhaltsuebersichtsnorm (Art. 1) - keine Handlungspflicht fuer einen Akteur,
+    insbesondere keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert (Nr. 1 der Aenderungsliste betrifft nur lit. g, geprueft am verfuegenden Teil).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 1 Abs. 2 lit. f
   artikel: '1'
   artikel_titel: Gegenstand
@@ -162,17 +183,20 @@ einheiten:
   laenge: 106
   saetze: 1
   beleg: f) Vorschriften für die Marktbeobachtung sowie die Governance und Durchsetzung der Marktüberwachung;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: 'Regelungsgegenstand: Vorschriften fuer Marktbeobachtung sowie Governance und Durchsetzung
+    der Marktueberwachung.'
+  scope: out
+  scope_grund: Zweckbestimmungs-/Inhaltsuebersichtsnorm (Art. 1) - keine Handlungspflicht fuer einen Akteur,
+    insbesondere keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert (Nr. 1 der Aenderungsliste betrifft nur lit. g, geprueft am verfuegenden Teil).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 1 Abs. 2 lit. g
   artikel: '1'
   artikel_titel: Gegenstand
@@ -182,17 +206,21 @@ einheiten:
   laenge: 113
   saetze: 1
   beleg: g) Maßnahmen zur Innovationsförderung mit besonderem Augenmerk auf KMU, einschließlich Start-up-Unternehmen.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: 'Regelungsgegenstand: Massnahmen zur Innovationsfoerderung mit Augenmerk auf KMU/Start-ups
+    (nach Omnibus: auch kleine Midcap-Unternehmen).'
+  scope: out
+  scope_grund: Zweckbestimmungs-/Inhaltsuebersichtsnorm (Art. 1) - keine Handlungspflicht fuer einen Akteur,
+    insbesondere keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: 'geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 1 - lit. g neu gefasst: ''kleine Midcap-Unternehmen''
+    zusaetzlich zu KMU/Start-ups aufgenommen (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).'
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 2 Abs. 1
   artikel: '2'
   artikel_titel: Anwendungsbereich
@@ -202,17 +230,20 @@ einheiten:
   laenge: 33
   saetze: 1
   beleg: (1)   Diese Verordnung gilt für
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: Legt fest, fuer wen die Verordnung gilt (Liste lit. a-g).
+  scope: out
+  scope_grund: Anwendungsbereichsnorm (Art. 2) - legt fest, wer/was der Verordnung unterliegt bzw. ausgenommen
+    ist, begruendet selbst keine Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Abs. 1 ist in der Aenderungsliste (Nr. 2) nicht erwaehnt, nur Abs. 2 und Abs.
+    7 werden geaendert (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 2 Abs. 1 lit. a
   artikel: '2'
   artikel_titel: Anwendungsbereich
@@ -224,17 +255,20 @@ einheiten:
   beleg: a) Anbieter, die in der Union KI-Systeme in Verkehr bringen oder in Betrieb nehmen oder KI-Modelle
     mit allgemeinem Verwendungszweck in Verkehr bringen, unabhängig davon, ob diese Anbieter in der Union
     oder in einem Drittland niedergelassen sind;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Erfasst Anbieter, die in der Union KI-Systeme in Verkehr bringen/in Betrieb nehmen oder KI-Modelle
+    mit allgemeinem Verwendungszweck in Verkehr bringen (auch aus Drittlaendern).
+  scope: out
+  scope_grund: Anwendungsbereichsnorm (Art. 2) - legt fest, wer/was der Verordnung unterliegt bzw. ausgenommen
+    ist, begruendet selbst keine Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert (nicht Teil der Aenderung von Abs. 2/Abs. 7, geprueft am verfuegenden Teil).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 2 Abs. 1 lit. b
   artikel: '2'
   artikel_titel: Anwendungsbereich
@@ -244,17 +278,19 @@ einheiten:
   laenge: 97
   saetze: 1
   beleg: b) Betreiber von KI-Systemen, die ihren Sitz in der Union haben oder in der Union befinden;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: betreiber
+  pflicht: Erfasst Betreiber von KI-Systemen mit Sitz oder Standort in der Union.
+  scope: out
+  scope_grund: 'Anwendungsbereichsnorm: stellt fest, dass Betreiber der Verordnung unterliegen; begruendet
+    selbst keine eigene Handlungspflicht (dazu Art. 26 und die weiteren Einzelpflichten).'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert (geprueft am verfuegenden Teil).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 2 Abs. 1 lit. c
   artikel: '2'
   artikel_titel: Anwendungsbereich
@@ -266,17 +302,20 @@ einheiten:
   beleg: c) Anbieter und Betreiber von KI-Systemen, die ihren Sitz in einem Drittland haben oder sich
     in einem Drittland befinden, wenn die vom KI-System hervorgebrachte Ausgabe in der Union verwendet
     wird;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: Erfasst Anbieter UND Betreiber mit Sitz in einem Drittland, wenn die Ausgabe des KI-Systems
+    in der Union verwendet wird (Marktortprinzip).
+  scope: out
+  scope_grund: Anwendungsbereichsnorm (Art. 2) - legt fest, wer/was der Verordnung unterliegt bzw. ausgenommen
+    ist, begruendet selbst keine Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert (geprueft am verfuegenden Teil).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 2 Abs. 1 lit. d
   artikel: '2'
   artikel_titel: Anwendungsbereich
@@ -286,17 +325,19 @@ einheiten:
   laenge: 47
   saetze: 1
   beleg: d) Einführer und Händler von KI-Systemen;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: Erfasst Einfuehrer und Haendler von KI-Systemen.
+  scope: out
+  scope_grund: Anwendungsbereichsnorm (Art. 2) - legt fest, wer/was der Verordnung unterliegt bzw. ausgenommen
+    ist, begruendet selbst keine Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert (geprueft am verfuegenden Teil).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 2 Abs. 1 lit. e
   artikel: '2'
   artikel_titel: Anwendungsbereich
@@ -307,17 +348,20 @@ einheiten:
   saetze: 1
   beleg: e) Produkthersteller, die KI-Systeme zusammen mit ihrem Produkt unter ihrem eigenen Namen oder
     ihrer Handelsmarke in Verkehr bringen oder in Betrieb nehmen;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: Erfasst Produkthersteller, die KI-Systeme unter eigenem Namen/eigener Marke zusammen mit ihrem
+    Produkt in Verkehr bringen oder in Betrieb nehmen.
+  scope: out
+  scope_grund: Anwendungsbereichsnorm (Art. 2) - legt fest, wer/was der Verordnung unterliegt bzw. ausgenommen
+    ist, begruendet selbst keine Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert (geprueft am verfuegenden Teil).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 2 Abs. 1 lit. f
   artikel: '2'
   artikel_titel: Anwendungsbereich
@@ -327,17 +371,19 @@ einheiten:
   laenge: 83
   saetze: 1
   beleg: f) Bevollmächtigte von Anbietern, die nicht in der Union niedergelassen sind;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: Erfasst Bevollmaechtigte von Anbietern, die nicht in der Union niedergelassen sind.
+  scope: out
+  scope_grund: Anwendungsbereichsnorm (Art. 2) - legt fest, wer/was der Verordnung unterliegt bzw. ausgenommen
+    ist, begruendet selbst keine Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert (geprueft am verfuegenden Teil).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 2 Abs. 1 lit. g
   artikel: '2'
   artikel_titel: Anwendungsbereich
@@ -347,17 +393,19 @@ einheiten:
   laenge: 61
   saetze: 1
   beleg: g) betroffene Personen, die sich in der Union befinden.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: Erfasst betroffene Personen, die sich in der Union befinden.
+  scope: out
+  scope_grund: Anwendungsbereichsnorm (Art. 2) - legt fest, wer/was der Verordnung unterliegt bzw. ausgenommen
+    ist, begruendet selbst keine Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert (geprueft am verfuegenden Teil).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 2 Abs. 2
   artikel: '2'
   artikel_titel: Anwendungsbereich
@@ -371,17 +419,22 @@ einheiten:
     der Union fallen, gelten nur Artikel 6 Absatz 1, die Artikel 102 bis 109 und Artikel 112. Artikel
     57 gilt nur, soweit die Anforderungen an Hochrisiko-KI-Systeme gemäß dieser Verordnung im Rahmen der
     genannten Harmonisierungsrechtsvorschriften der Union eingebunden wurden.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: Fuer Hochrisiko-KI-Systeme als Sicherheitsbauteile von Anhang-I-Abschnitt-B-Produkten gelten
+    nur eine eng umrissene Auswahl an Artikeln (Art. 6 Abs. 1, Art. 102-112 u.a.), nicht die volle Verordnung.
+  scope: out
+  scope_grund: Anwendungsbereichsnorm (Art. 2) - legt fest, wer/was der Verordnung unterliegt bzw. ausgenommen
+    ist, begruendet selbst keine Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: 'geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 2 lit. a - Anwendungsbereich erweitert: neu zusaetzlich
+    Art. 60a, Bereichsangabe von ''Art. 102-109'' auf ''Art. 102-112'' vergroessert, Bedingung erstreckt
+    sich neu auch auf Art. 58/59 (zuvor nur Art. 57) (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).'
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 2 Abs. 3
   artikel: '2'
   artikel_titel: Anwendungsbereich
@@ -400,17 +453,20 @@ einheiten:
     die nicht in der Union in Verkehr gebracht oder in Betrieb genommen werden, wenn die Ausgaben in der
     Union ausschließlich für militärische Zwecke, Verteidigungszwecke oder Zwecke der nationalen Sicherheit
     verwendet werden, unabhängig von der Art der Einrichtung, die diese Tätigkeiten ausübt.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: Schliesst KI-Systeme aus, die ausschliesslich fuer militaerische Zwecke, Verteidigungszwecke
+    oder nationale Sicherheit in Verkehr gebracht, in Betrieb genommen oder verwendet werden.
+  scope: out
+  scope_grund: Anwendungsbereichsnorm (Art. 2) - legt fest, wer/was der Verordnung unterliegt bzw. ausgenommen
+    ist, begruendet selbst keine Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert (geprueft am verfuegenden Teil).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 2 Abs. 4
   artikel: '2'
   artikel_titel: Anwendungsbereich
@@ -426,17 +482,20 @@ einheiten:
     verwenden und sofern ein solches Drittland oder eine solche internationale Organisation angemessene
     Garantien hinsichtlich des Schutz der Privatsphäre, der Grundrechte und der Grundfreiheiten von Personen
     bietet.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: Schliesst Drittlandsbehoerden und internationale Organisationen bei KI-Nutzung im Rahmen internationaler
+    Strafverfolgungs-/Justizzusammenarbeit unter Garantiebedingungen aus.
+  scope: out
+  scope_grund: Anwendungsbereichsnorm (Art. 2) - legt fest, wer/was der Verordnung unterliegt bzw. ausgenommen
+    ist, begruendet selbst keine Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert (geprueft am verfuegenden Teil).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 2 Abs. 5
   artikel: '2'
   artikel_titel: Anwendungsbereich
@@ -447,17 +506,20 @@ einheiten:
   saetze: 1
   beleg: (5)   Die Anwendung der Bestimmungen über die Haftung der Anbieter von Vermittlungsdiensten in
     Kapitel II der Verordnung 2022/2065 bleibt von dieser Verordnung unberührt.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: Laesst die Vermittlerhaftung nach Kapitel II der Verordnung (EU) 2022/2065 (Digital Services
+    Act) unberuehrt.
+  scope: out
+  scope_grund: Anwendungsbereichsnorm (Art. 2) - legt fest, wer/was der Verordnung unterliegt bzw. ausgenommen
+    ist, begruendet selbst keine Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert (geprueft am verfuegenden Teil).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 2 Abs. 6
   artikel: '2'
   artikel_titel: Anwendungsbereich
@@ -469,17 +531,20 @@ einheiten:
   beleg: (6)   Diese Verordnung gilt nicht für KI-Systeme oder KI-Modelle, einschließlich ihrer Ausgabe,
     die eigens für den alleinigen Zweck der wissenschaftlichen Forschung und Entwicklung entwickelt und
     in Betrieb genommen werden.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: Schliesst KI-Systeme/-Modelle aus, die ausschliesslich fuer wissenschaftliche Forschung und
+    Entwicklung entwickelt und in Betrieb genommen werden.
+  scope: out
+  scope_grund: Anwendungsbereichsnorm (Art. 2) - legt fest, wer/was der Verordnung unterliegt bzw. ausgenommen
+    ist, begruendet selbst keine Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert (geprueft am verfuegenden Teil).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 2 Abs. 7
   artikel: '2'
   artikel_titel: Anwendungsbereich
@@ -493,17 +558,21 @@ einheiten:
     mit den in dieser Verordnung festgelegten Rechten und Pflichten. Diese Verordnung berührt nicht die
     Verordnung (EU) 2016/679 bzw. (EU) 2018/1725 oder die Richtlinie 2002/58/EG bzw. (EU) 2016/680, unbeschadet
     des Artikels 10 Absatz 5 und des Artikels 59 der vorliegenden Verordnung.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: Stellt klar, dass EU-Datenschutzrecht (u.a. DSGVO) neben dieser Verordnung anwendbar bleibt.
+  scope: out
+  scope_grund: Anwendungsbereichsnorm (Art. 2) - legt fest, wer/was der Verordnung unterliegt bzw. ausgenommen
+    ist, begruendet selbst keine Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 2 lit. b - Unbeschadet-Klausel verweist nun auf
+    den neuen Art. 4a (Verarbeitung besonderer Datenkategorien) statt (wie zuvor) auf Art. 10 Abs. 5 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 2 Abs. 8
   artikel: '2'
   artikel_titel: Anwendungsbereich
@@ -516,17 +585,20 @@ einheiten:
     oder KI-Modellen, bevor diese in Verkehr gebracht oder in Betrieb genommen werden. Solche Tätigkeiten
     werden im Einklang mit dem geltenden Unionsrecht durchgeführt. Tests unter Realbedingungen fallen
     nicht unter diesen Ausschluss.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: Schliesst Forschungs-, Test- und Entwicklungstaetigkeiten vor Inverkehrbringen/Inbetriebnahme
+    aus; Tests unter Realbedingungen bleiben erfasst.
+  scope: out
+  scope_grund: Anwendungsbereichsnorm (Art. 2) - legt fest, wer/was der Verordnung unterliegt bzw. ausgenommen
+    ist, begruendet selbst keine Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert (geprueft am verfuegenden Teil).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 2 Abs. 9
   artikel: '2'
   artikel_titel: Anwendungsbereich
@@ -537,17 +609,19 @@ einheiten:
   saetze: 1
   beleg: (9)   Diese Verordnung berührt nicht die Vorschriften anderer Rechtsakte der Union zum Verbraucherschutz
     und zur Produktsicherheit.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: Laesst anderes Unionsrecht zu Verbraucherschutz und Produktsicherheit unberuehrt.
+  scope: out
+  scope_grund: Anwendungsbereichsnorm (Art. 2) - legt fest, wer/was der Verordnung unterliegt bzw. ausgenommen
+    ist, begruendet selbst keine Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert (geprueft am verfuegenden Teil).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 2 Abs. 10
   artikel: '2'
   artikel_titel: Anwendungsbereich
@@ -558,17 +632,21 @@ einheiten:
   saetze: 1
   beleg: (10)   Diese Verordnung gilt nicht für die Pflichten von Betreibern, die natürliche Personen
     sind und KI-Systeme im Rahmen einer ausschließlich persönlichen und nicht beruflichen Tätigkeit verwenden.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: betreiber
+  pflicht: Schliesst Betreiber aus, die natuerliche Personen sind und KI-Systeme im Rahmen einer ausschliesslich
+    persoenlichen und nicht beruflichen Taetigkeit verwenden.
+  scope: out
+  scope_grund: Bereichsausnahme fuer den privaten/nicht-beruflichen Betreiber, schliesst diese Gruppe
+    von der Verordnung aus; der Anwendungsfall Redispatch betrifft einen gewerblichen Netzbetreiber und
+    faellt nicht unter diese Ausnahme, die Norm begruendet aber selbst keine Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert (geprueft am verfuegenden Teil).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 2 Abs. 11
   artikel: '2'
   artikel_titel: Anwendungsbereich
@@ -582,17 +660,20 @@ einheiten:
     Schutz ihrer Rechte bei der Verwendung von KI-Systemen durch die Arbeitgeber vorteilhafter sind, oder
     die Anwendung von Kollektivvereinbarungen zu fördern oder zuzulassen, die für die Arbeitnehmer vorteilhafter
     sind.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: Laesst guenstigere arbeitnehmerschuetzende Vorschriften/Kollektivvereinbarungen der Mitgliedstaaten
+    zur KI-Nutzung durch Arbeitgeber unberuehrt.
+  scope: out
+  scope_grund: Anwendungsbereichsnorm (Art. 2) - legt fest, wer/was der Verordnung unterliegt bzw. ausgenommen
+    ist, begruendet selbst keine Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert (geprueft am verfuegenden Teil).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 2 Abs. 12
   artikel: '2'
   artikel_titel: Anwendungsbereich
@@ -604,17 +685,20 @@ einheiten:
   beleg: (12)   Diese Verordnung gilt nicht für KI-Systeme, die unter freien und quelloffenen Lizenzen
     bereitgestellt werden, es sei denn, sie werden als Hochrisiko-KI-Systeme oder als ein KI-System, das
     unter Artikel 5 oder 50 fällt, in Verkehr gebracht oder in Betrieb genommen.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: Schliesst frei/quelloffen bereitgestellte KI-Systeme aus, ausser sie sind Hochrisiko-Systeme
+    oder fallen unter Art. 5 oder 50.
+  scope: out
+  scope_grund: Anwendungsbereichsnorm (Art. 2) - legt fest, wer/was der Verordnung unterliegt bzw. ausgenommen
+    ist, begruendet selbst keine Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert (geprueft am verfuegenden Teil).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 3
   artikel: '3'
   artikel_titel: Begriffsbestimmungen
@@ -726,17 +810,23 @@ einheiten:
     einen einer unbestimmten Anzahl natürlicher Personen zugänglichen physischen Ort in privatem oder
     öffentlichem Eigentum, unabhängig davon, ob bestimmte Bedingungen für den Zugang gelten, und unabhängig
     von möglichen Kapazitätsbeschränkungen; 45. „Strafverfolgungsbehörde“
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: Definiert Kernbegriffe Nr. 1-44 der Verordnung (u.a. KI-System, Risiko, Anbieter, Betreiber,
+    Bevollmaechtigter, Einfuehrer, Haendler, Akteur, Inverkehrbringen, Zweckbestimmung, Sicherheitsbauteil,
+    Betriebsanleitungen).
+  scope: out
+  scope_grund: Begriffsbestimmung (Art. 3) - definiert Rechtsbegriffe der Verordnung, begruendet selbst
+    keine Handlungspflicht fuer einen Akteur.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 4 - Nr. 14 (Sicherheitsbauteil) neu gefasst, Nr.
+    14a (KMU) und 14b (kleines Midcap-Unternehmen) neu eingefuegt; die uebrigen in dieser Einheit zusammengefassten
+    Definitionen unveraendert (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 3 lit. a
   artikel: '3'
   artikel_titel: Begriffsbestimmungen
@@ -748,17 +838,21 @@ einheiten:
   beleg: a) eine Behörde, die für die Verhütung, Ermittlung, Aufdeckung oder Verfolgung von Straftaten
     oder die Strafvollstreckung, einschließlich des Schutzes vor und der Abwehr von Gefahren für die öffentliche
     Sicherheit, zuständig ist, oder
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: 'Teil der Definition ''Strafverfolgungsbehoerde'' (Nr. 45), Variante a): Behoerde fuer Verhuetung/Ermittlung/Verfolgung
+    von Straftaten oder Strafvollstreckung.'
+  scope: out
+  scope_grund: Begriffsbestimmung (Art. 3) - definiert Rechtsbegriffe der Verordnung, begruendet selbst
+    keine Handlungspflicht fuer einen Akteur.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - liegt ausserhalb der in Art. 1 Nr. 4 geaenderten Nr. 14/14a/14b (geprueft am
+    verfuegenden Teil).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 3 lit. b
   artikel: '3'
   artikel_titel: Begriffsbestimmungen
@@ -783,17 +877,21 @@ einheiten:
     dieser Verordnung als Bezugnahmen auf den Europäischen Datenschutzbeauftragten auszulegen; 49. „schwerwiegender
     Vorfall“ einen Vorfall oder eine Fehlfunktion bezüglich eines KI-Systems, das bzw. die direkt oder
     indirekt eine der nachstehenden Folgen hat:'
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Teil der Definition 'Strafverfolgungsbehoerde', Variante b) (sonstige mit hoheitlichen Befugnissen
+    betraute Stelle), sowie Definitionen Nr. 46-48 (Strafverfolgung, Buero fuer Kuenstliche Intelligenz,
+    zustaendige nationale Behoerde).
+  scope: out
+  scope_grund: Begriffsbestimmung (Art. 3) - definiert Rechtsbegriffe der Verordnung, begruendet selbst
+    keine Handlungspflicht fuer einen Akteur.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert (geprueft am verfuegenden Teil).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 3 lit. a
   artikel: '3'
   artikel_titel: Begriffsbestimmungen
@@ -803,17 +901,20 @@ einheiten:
   laenge: 74
   saetze: 1
   beleg: a) den Tod oder die schwere gesundheitliche Schädigung einer Person;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: 'Teil der Definition ''schwerwiegender Vorfall'' (Nr. 49), Variante a): Tod oder schwere Gesundheitsschaedigung
+    einer Person.'
+  scope: out
+  scope_grund: Begriffsbestimmung (Art. 3) - definiert Rechtsbegriffe der Verordnung, begruendet selbst
+    keine Handlungspflicht fuer einen Akteur.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert (geprueft am verfuegenden Teil).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 3 lit. b
   artikel: '3'
   artikel_titel: Begriffsbestimmungen
@@ -823,17 +924,20 @@ einheiten:
   laenge: 107
   saetze: 1
   beleg: b) eine schwere und unumkehrbare Störung der Verwaltung oder des Betriebs kritischer Infrastrukturen;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: 'Teil der Definition ''schwerwiegender Vorfall'', Variante b): schwere und unumkehrbare Stoerung
+    der Verwaltung oder des Betriebs kritischer Infrastrukturen.'
+  scope: out
+  scope_grund: Begriffsbestimmung (Art. 3) - definiert Rechtsbegriffe der Verordnung, begruendet selbst
+    keine Handlungspflicht fuer einen Akteur.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert (geprueft am verfuegenden Teil).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 3 lit. c
   artikel: '3'
   artikel_titel: Begriffsbestimmungen
@@ -843,17 +947,20 @@ einheiten:
   laenge: 98
   saetze: 1
   beleg: c) die Verletzung von Pflichten aus den Unionsrechtsvorschriften zum Schutz der Grundrechte;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: 'Teil der Definition ''schwerwiegender Vorfall'', Variante c): Verletzung von Pflichten aus
+    Unionsrecht zum Schutz der Grundrechte.'
+  scope: out
+  scope_grund: Begriffsbestimmung (Art. 3) - definiert Rechtsbegriffe der Verordnung, begruendet selbst
+    keine Handlungspflicht fuer einen Akteur.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert (geprueft am verfuegenden Teil).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 3 lit. d
   artikel: '3'
   artikel_titel: Begriffsbestimmungen
@@ -894,17 +1001,21 @@ einheiten:
     fälschlicherweise als echt oder wahrheitsgemäß erscheinen würde; 61. „weitverbreiteter Verstoß“ jede
     Handlung oder Unterlassung, die gegen das Unionsrecht verstößt, das die Interessen von Einzelpersonen
     schützt, und die
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: 'Teil der Definition ''schwerwiegender Vorfall'', Variante d): schwere Sach- oder Umweltschaeden,
+    sowie Definitionen Nr. 50-61 (u.a. personenbezogene Daten, Profiling, Plan fuer Test unter Realbedingungen,
+    KI-Reallabor, KI-Kompetenz, Deepfake, weitverbreiteter Verstoss).'
+  scope: out
+  scope_grund: Begriffsbestimmung (Art. 3) - definiert Rechtsbegriffe der Verordnung, begruendet selbst
+    keine Handlungspflicht fuer einen Akteur.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert (geprueft am verfuegenden Teil).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 3 lit. a
   artikel: '3'
   artikel_titel: Begriffsbestimmungen
@@ -915,17 +1026,20 @@ einheiten:
   saetze: 1
   beleg: a) die kollektiven Interessen von Einzelpersonen in mindestens zwei anderen Mitgliedstaaten als
     dem Mitgliedstaat schädigt oder zu schädigen droht, in dem
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: 'Teil der Definition ''weitverbreiteter Verstoss'' (Nr. 61), Variante a): schaedigt kollektive
+    Interessen von Einzelpersonen in mindestens zwei Mitgliedstaaten.'
+  scope: out
+  scope_grund: Begriffsbestimmung (Art. 3) - definiert Rechtsbegriffe der Verordnung, begruendet selbst
+    keine Handlungspflicht fuer einen Akteur.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert (geprueft am verfuegenden Teil).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 3 lit. i
   artikel: '3'
   artikel_titel: Begriffsbestimmungen
@@ -937,17 +1051,21 @@ einheiten:
   beleg: i) die Handlung oder die Unterlassung ihren Ursprung hatte oder stattfand, ii) der betreffende
     Anbieter oder gegebenenfalls sein Bevollmächtigter sich befindet oder niedergelassen ist oder iii)
     der Betreiber niedergelassen ist, sofern der Verstoß vom Betreiber begangen wird,
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: Anknuepfungspunkte i-iii fuer den Ort des weitverbreiteten Verstosses (Handlungsort, Sitz von
+    Anbieter/Bevollmaechtigtem, Sitz des Betreibers bei einem vom Betreiber begangenen Verstoss).
+  scope: out
+  scope_grund: Begriffsbestimmung (Art. 3 Nr. 61) - definiert den Anknuepfungspunkt eines 'weitverbreiteten
+    Verstosses' fuer die Zwecke der Durchsetzung nach Kapitel VIII; nennt den Betreiber als moeglichen
+    Verstossursprung, begruendet aber selbst keine Handlungspflicht des Betreibers.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert (geprueft am verfuegenden Teil).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 3 lit. b
   artikel: '3'
   artikel_titel: Begriffsbestimmungen
@@ -983,17 +1101,21 @@ einheiten:
     einschließlich eines KI-Systems mit allgemeinem Verwendungszweck, das ein KI-Modell integriert, unabhängig
     davon, ob das KI-Modell von ihm selbst bereitgestellt und vertikal integriert wird oder von einer
     anderen Einrichtung auf der Grundlage vertraglicher Beziehungen bereitgestellt wird.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: 'Teil der Definition ''weitverbreiteter Verstoss'', Variante b): gleichartige, gleichzeitige
+    Verstoesse in mindestens drei Mitgliedstaaten, sowie Definitionen Nr. 62-68 (u.a. kritische Infrastruktur,
+    KI-Modell mit allgemeinem Verwendungszweck, systemisches Risiko, nachgelagerter Anbieter).'
+  scope: out
+  scope_grund: Begriffsbestimmung (Art. 3) - definiert Rechtsbegriffe der Verordnung, begruendet selbst
+    keine Handlungspflicht fuer einen Akteur.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert (geprueft am verfuegenden Teil).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 4
   artikel: '4'
   artikel_titel: KI-Kompetenz
@@ -1008,17 +1130,31 @@ einheiten:
     ihre Erfahrung, ihre Ausbildung und Schulung und der Kontext, in dem die KI-Systeme eingesetzt werden
     sollen, sowie die Personen oder Personengruppen, bei denen die KI-Systeme eingesetzt werden sollen,
     zu berücksichtigen sind. KAPITEL II VERBOTENE PRAKTIKEN IM KI-BEREICH
-  adressat: null
-  pflicht: null
-  scope: null
+  adressat: betreiber
+  pflicht: Anbieter UND Betreiber von KI-Systemen ergreifen nach besten Kraeften Massnahmen, um sicherzustellen,
+    dass ihr mit Betrieb/Nutzung des KI-Systems befasstes Personal ueber ausreichende KI-Kompetenz verfuegt
+    (unter Beruecksichtigung von Kenntnissen, Erfahrung, Ausbildung, Einsatzkontext und betroffenen Personengruppen).
+  scope: in
   scope_grund: null
-  verifikation: null
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
-  befund: null
-  befund_grund: null
+  omnibus: 'geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 5 - Art. 4 komplett neu gefasst (neu in Abs.
+    1-3 gegliedert): Abs. 1 inhaltsgleich zur Altfassung, ergaenzt um die Klarstellung ''kein Pflicht
+    zur Garantie eines bestimmten Kompetenzniveaus''; Abs. 2 (Unterstuetzung durch Kommission/Mitgliedstaaten,
+    insb. KMU) und Abs. 3 (KI-Gremium-Empfehlungen) sind neu (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).'
+  requirement: []
+  gate: []
+  befund: luecke
+  befund_grund: 'PO-FRAGE: Art. 4 steht nicht auf der in SPEC-06 Abschnitt 3 namentlich genannten Artikelliste
+    (Art. 26, 8-15, 27, 50, 72, 73), ist aber ausweislich des Wortlauts eine unmittelbare, gleichrangig
+    mit dem Anbieter geteilte Betreiberpflicht (KI-Kompetenz des mit Betrieb/Nutzung befassten Personals)
+    - trifft damit unter der PO-Festlegung ''Betreiberpflichten vollstaendig'' (SPEC-06 Abschnitt 3 Nr.
+    1) grundsaetzlich zu, auch wenn nicht einzeln aufgefuehrt. Kein Requirement/Gate im Katalog (R001-R014,
+    alle gate-definitions/) prueft KI-Kompetenz/Schulungsnachweise des Betreiber-Personals (grep ''Art.
+    4'', ''KI-Kompetenz'' ohne Treffer) - echte Luecke. PO-Entscheidung noetig: (a) faellt Art. 4 in den
+    Scope dieser Deckungsanalyse trotz Nichtnennung in SPEC-06 Abschnitt 3? (b) falls ja: eigenes Requirement
+    fuer Nachweis der KI-Kompetenz-Massnahmen (z. B. Schulungsnachweis, Rollenprofil) erwaegen.'
+  po_bestaetigt: false
 - id: Art. 5 Abs. 1
   artikel: '5'
   artikel_titel: Verbotene Praktiken im KI-Bereich
@@ -1028,17 +1164,24 @@ einheiten:
   laenge: 55
   saetze: 1
   beleg: '(1)   Folgende Praktiken im KI-Bereich sind verboten:'
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: 'Einleitungssatz: listet die im Folgenden (lit. a-h) verbotenen Praktiken im KI-Bereich auf.'
+  scope: out
+  scope_grund: Einleitungssatz zur Liste der verbotenen Praktiken, keine eigenstaendige Pflicht (die Verbote
+    selbst stehen in lit. a-h).
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: 'unveraendert - VO (EU) 2026/1744 Art. 1 Nr. 7 fuegt lediglich neue Buchstaben ba/bb (Deepfake-/intime
+    Bildinhalte ohne Einwilligung) und neue Absaetze 1a/1b ein, aendert lit. a-h selbst nicht (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf). PO-HINWEIS: die neuen Tatbestaende ba/bb
+    existieren als eigene Einheiten NICHT im Pflichtenraum, da dieser aus der PRAE-Omnibus-Quelle geschnitten
+    ist (docs/legal/wortlaut/aiact_2024-1689_DE.txt) - echte inhaltliche Neuerung, im Abschlussbericht
+    vermerkt.'
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 5 Abs. 1 lit. a
   artikel: '5'
   artikel_titel: Verbotene Praktiken im KI-Bereich
@@ -1055,17 +1198,29 @@ einheiten:
     die sie andernfalls nicht getroffen hätte, und zwar in einer Weise, die dieser Person, einer anderen
     Person oder einer Gruppe von Personen erheblichen Schaden zufügt oder mit hinreichender Wahrscheinlichkeit
     zufügen wird.
-  adressat: null
-  pflicht: null
-  scope: null
+  adressat: betreiber
+  pflicht: Verboten ist u.a. die VERWENDUNG eines KI-Systems mit unterschwelligen oder absichtlich manipulativ-taeuschenden
+    Techniken, die das Verhalten einer Person wesentlich veraendern und ihr voraussichtlich erheblichen
+    Schaden zufuegen.
+  scope: in
   scope_grund: null
-  verifikation: null
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
-  befund: null
-  befund_grund: null
+  omnibus: 'unveraendert - VO (EU) 2026/1744 Art. 1 Nr. 7 fuegt lediglich neue Buchstaben ba/bb (Deepfake-/intime
+    Bildinhalte ohne Einwilligung) und neue Absaetze 1a/1b ein, aendert lit. a-h selbst nicht (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf). PO-HINWEIS: die neuen Tatbestaende ba/bb
+    existieren als eigene Einheiten NICHT im Pflichtenraum, da dieser aus der PRAE-Omnibus-Quelle geschnitten
+    ist (docs/legal/wortlaut/aiact_2024-1689_DE.txt) - echte inhaltliche Neuerung, im Abschlussbericht
+    vermerkt.'
+  requirement: []
+  gate: []
+  befund: luecke
+  befund_grund: Das Verbot bindet jeden, der ein solches System verwendet - einschliesslich des Betreibers
+    (Tatbestandsalternative 'Verwendung' neben Inverkehrbringen/Inbetriebnahme). Kein Requirement/Gate
+    im Katalog prueft, ob ein Betreiber-eingesetztes KI-System unter eine der Art.-5-Verbotstatbestaende
+    faellt (grep 'Art. 5' in requirements/, gate-definitions/ ohne Treffer) - echte Luecke, kein Compliance-by-Design-Check
+    gegen verbotene Praktiken.
+  po_bestaetigt: false
 - id: Art. 5 Abs. 1 lit. b
   artikel: '5'
   artikel_titel: Verbotene Praktiken im KI-Bereich
@@ -1080,17 +1235,25 @@ einheiten:
     dem Ziel oder der Wirkung ausnutzt, das Verhalten dieser Person oder einer dieser Gruppe angehörenden
     Person in einer Weise wesentlich zu verändern, die dieser Person oder einer anderen Person erheblichen
     Schaden zufügt oder mit hinreichender Wahrscheinlichkeit zufügen wird;
-  adressat: null
-  pflicht: null
-  scope: null
+  adressat: betreiber
+  pflicht: Verboten ist u.a. die Verwendung eines KI-Systems, das eine Vulnerabilitaet einer Person/Personengruppe
+    (Alter, Behinderung, soziale/wirtschaftliche Lage) ausnutzt, um deren Verhalten schaedigend zu veraendern.
+  scope: in
   scope_grund: null
-  verifikation: null
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
-  befund: null
-  befund_grund: null
+  omnibus: 'unveraendert - VO (EU) 2026/1744 Art. 1 Nr. 7 fuegt lediglich neue Buchstaben ba/bb (Deepfake-/intime
+    Bildinhalte ohne Einwilligung) und neue Absaetze 1a/1b ein, aendert lit. a-h selbst nicht (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf). PO-HINWEIS: die neuen Tatbestaende ba/bb
+    existieren als eigene Einheiten NICHT im Pflichtenraum, da dieser aus der PRAE-Omnibus-Quelle geschnitten
+    ist (docs/legal/wortlaut/aiact_2024-1689_DE.txt) - echte inhaltliche Neuerung, im Abschlussbericht
+    vermerkt.'
+  requirement: []
+  gate: []
+  befund: luecke
+  befund_grund: 'Wie Art. 5 Abs. 1 lit. a: kein Gate prueft Art.-5-Verbotstatbestaende gegen ein vom Betreiber
+    eingesetztes System.'
+  po_bestaetigt: false
 - id: Art. 5 Abs. 1 lit. c
   artikel: '5'
   artikel_titel: Verbotene Praktiken im KI-Bereich
@@ -1104,17 +1267,26 @@ einheiten:
     auf der Grundlage ihres sozialen Verhaltens oder bekannter, abgeleiteter oder vorhergesagter persönlicher
     Eigenschaften oder Persönlichkeitsmerkmale, wobei die soziale Bewertung zu einem oder beiden der folgenden
     Ergebnisse führt:'
-  adressat: null
-  pflicht: null
-  scope: null
+  adressat: betreiber
+  pflicht: Verboten ist u.a. die Verwendung von KI-Systemen zum soziale-Scoring (Bewertung/Einstufung
+    von Personen anhand sozialen Verhaltens oder abgeleiteter Eigenschaften) mit ungerechtfertigt benachteiligender
+    Wirkung.
+  scope: in
   scope_grund: null
-  verifikation: null
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
-  befund: null
-  befund_grund: null
+  omnibus: 'unveraendert - VO (EU) 2026/1744 Art. 1 Nr. 7 fuegt lediglich neue Buchstaben ba/bb (Deepfake-/intime
+    Bildinhalte ohne Einwilligung) und neue Absaetze 1a/1b ein, aendert lit. a-h selbst nicht (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf). PO-HINWEIS: die neuen Tatbestaende ba/bb
+    existieren als eigene Einheiten NICHT im Pflichtenraum, da dieser aus der PRAE-Omnibus-Quelle geschnitten
+    ist (docs/legal/wortlaut/aiact_2024-1689_DE.txt) - echte inhaltliche Neuerung, im Abschlussbericht
+    vermerkt.'
+  requirement: []
+  gate: []
+  befund: luecke
+  befund_grund: 'Wie Art. 5 Abs. 1 lit. a: kein Gate prueft Art.-5-Verbotstatbestaende gegen ein vom Betreiber
+    eingesetztes System.'
+  po_bestaetigt: false
 - id: Art. 5 Abs. 1 lit. i
   artikel: '5'
   artikel_titel: Verbotene Praktiken im KI-Bereich
@@ -1128,17 +1300,25 @@ einheiten:
     ursprünglich erzeugt oder erhoben wurden; ii) Schlechterstellung oder Benachteiligung bestimmter natürlicher
     Personen oder Gruppen von Personen in einer Weise, die im Hinblick auf ihr soziales Verhalten oder
     dessen Tragweite ungerechtfertigt oder unverhältnismäßig ist;
-  adressat: null
-  pflicht: null
-  scope: null
+  adressat: betreiber
+  pflicht: 'Konkretisiert lit. c (Social Scoring): erfasst sowohl kontextfremde Schlechterstellung als
+    auch unverhaeltnismaessige Schlechterstellung im Verhaeltnis zum bewerteten Sozialverhalten.'
+  scope: in
   scope_grund: null
-  verifikation: null
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
-  befund: null
-  befund_grund: null
+  omnibus: 'unveraendert - VO (EU) 2026/1744 Art. 1 Nr. 7 fuegt lediglich neue Buchstaben ba/bb (Deepfake-/intime
+    Bildinhalte ohne Einwilligung) und neue Absaetze 1a/1b ein, aendert lit. a-h selbst nicht (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf). PO-HINWEIS: die neuen Tatbestaende ba/bb
+    existieren als eigene Einheiten NICHT im Pflichtenraum, da dieser aus der PRAE-Omnibus-Quelle geschnitten
+    ist (docs/legal/wortlaut/aiact_2024-1689_DE.txt) - echte inhaltliche Neuerung, im Abschlussbericht
+    vermerkt.'
+  requirement: []
+  gate: []
+  befund: luecke
+  befund_grund: 'Teil desselben Social-Scoring-Verbots wie lit. c - dieselbe Luecke: kein Gate prueft
+    dagegen.'
+  po_bestaetigt: false
 - id: Art. 5 Abs. 1 lit. d
   artikel: '5'
   artikel_titel: Verbotene Praktiken im KI-Bereich
@@ -1155,17 +1335,26 @@ einheiten:
     durchgeführte Bewertung der Beteiligung einer Person an einer kriminellen Aktivität, die sich bereits
     auf objektive und überprüfbare Tatsachen stützt, die in unmittelbarem Zusammenhang mit einer kriminellen
     Aktivität stehen, zu unterstützen;
-  adressat: null
-  pflicht: null
-  scope: null
+  adressat: betreiber
+  pflicht: 'Verboten ist u.a. die Verwendung eines KI-Systems zur Straftat-Risikobewertung natuerlicher
+    Personen allein auf Basis von Profiling/Persoenlichkeitsmerkmalen (Ausnahme: Unterstuetzung menschlicher,
+    tatsachengestuetzter Bewertung).'
+  scope: in
   scope_grund: null
-  verifikation: null
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
-  befund: null
-  befund_grund: null
+  omnibus: 'unveraendert - VO (EU) 2026/1744 Art. 1 Nr. 7 fuegt lediglich neue Buchstaben ba/bb (Deepfake-/intime
+    Bildinhalte ohne Einwilligung) und neue Absaetze 1a/1b ein, aendert lit. a-h selbst nicht (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf). PO-HINWEIS: die neuen Tatbestaende ba/bb
+    existieren als eigene Einheiten NICHT im Pflichtenraum, da dieser aus der PRAE-Omnibus-Quelle geschnitten
+    ist (docs/legal/wortlaut/aiact_2024-1689_DE.txt) - echte inhaltliche Neuerung, im Abschlussbericht
+    vermerkt.'
+  requirement: []
+  gate: []
+  befund: luecke
+  befund_grund: 'Wie lit. a-c: kein Gate prueft Art.-5-Verbotstatbestaende; fuer den Redispatch-Anwendungsfall
+    zudem thematisch fernliegend, aber nicht kategorial ausgeschlossen wie lit. e-g.'
+  po_bestaetigt: false
 - id: Art. 5 Abs. 1 lit. e
   artikel: '5'
   artikel_titel: Verbotene Praktiken im KI-Bereich
@@ -1177,17 +1366,26 @@ einheiten:
   beleg: e) das Inverkehrbringen, die Inbetriebnahme für diesen spezifischen Zweck oder die Verwendung
     von KI-Systemen, die Datenbanken zur Gesichtserkennung durch das ungezielte Auslesen von Gesichtsbildern
     aus dem Internet oder von Überwachungsaufnahmen erstellen oder erweitern;
-  adressat: null
-  pflicht: null
-  scope: null
+  adressat: betreiber
+  pflicht: Verboten ist u.a. das Erstellen/Erweitern von Gesichtserkennungsdatenbanken durch ungezieltes
+    Auslesen von Gesichtsbildern aus dem Internet oder Ueberwachungsaufnahmen.
+  scope: in
   scope_grund: null
-  verifikation: null
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
-  befund: null
-  befund_grund: null
+  omnibus: 'unveraendert - VO (EU) 2026/1744 Art. 1 Nr. 7 fuegt lediglich neue Buchstaben ba/bb (Deepfake-/intime
+    Bildinhalte ohne Einwilligung) und neue Absaetze 1a/1b ein, aendert lit. a-h selbst nicht (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf). PO-HINWEIS: die neuen Tatbestaende ba/bb
+    existieren als eigene Einheiten NICHT im Pflichtenraum, da dieser aus der PRAE-Omnibus-Quelle geschnitten
+    ist (docs/legal/wortlaut/aiact_2024-1689_DE.txt) - echte inhaltliche Neuerung, im Abschlussbericht
+    vermerkt.'
+  requirement: []
+  gate: []
+  befund: nicht_einschlaegig
+  befund_grund: Das Verbot bindet grundsaetzlich auch einen 'verwendenden' Betreiber, das Redispatch-System
+    (Anhang III Nr. 2, Netzsteuerung) erstellt oder erweitert jedoch keine Gesichtserkennungsdatenbank
+    durch Scraping - kategorial ausserhalb des Anwendungsfalls, analog Art. 26 Abs. 8/10.
+  po_bestaetigt: false
 - id: Art. 5 Abs. 1 lit. f
   artikel: '5'
   artikel_titel: Verbotene Praktiken im KI-Bereich
@@ -1200,17 +1398,26 @@ einheiten:
     von KI-Systemen zur Ableitung von Emotionen einer natürlichen Person am Arbeitsplatz und in Bildungseinrichtungen,
     es sei denn, die Verwendung des KI-Systems soll aus medizinischen Gründen oder Sicherheitsgründen
     eingeführt oder auf den Markt gebracht werden;
-  adressat: null
-  pflicht: null
-  scope: null
+  adressat: betreiber
+  pflicht: 'Verboten ist u.a. die Verwendung von KI-Systemen zur Emotionsableitung natuerlicher Personen
+    am Arbeitsplatz/in Bildungseinrichtungen (Ausnahme: medizinische oder Sicherheitsgruende).'
+  scope: in
   scope_grund: null
-  verifikation: null
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
-  befund: null
-  befund_grund: null
+  omnibus: 'unveraendert - VO (EU) 2026/1744 Art. 1 Nr. 7 fuegt lediglich neue Buchstaben ba/bb (Deepfake-/intime
+    Bildinhalte ohne Einwilligung) und neue Absaetze 1a/1b ein, aendert lit. a-h selbst nicht (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf). PO-HINWEIS: die neuen Tatbestaende ba/bb
+    existieren als eigene Einheiten NICHT im Pflichtenraum, da dieser aus der PRAE-Omnibus-Quelle geschnitten
+    ist (docs/legal/wortlaut/aiact_2024-1689_DE.txt) - echte inhaltliche Neuerung, im Abschlussbericht
+    vermerkt.'
+  requirement: []
+  gate: []
+  befund: nicht_einschlaegig
+  befund_grund: Der Betreiber (Netzbetreiber als Arbeitgeber) faellt theoretisch unter das Verbot, das
+    Redispatch-System selbst ist aber kein Emotionserkennungssystem am Arbeitsplatz - kategorial ausserhalb
+    des Anwendungsfalls.
+  po_bestaetigt: false
 - id: Art. 5 Abs. 1 lit. g
   artikel: '5'
   artikel_titel: Verbotene Praktiken im KI-Bereich
@@ -1226,17 +1433,26 @@ einheiten:
     oder ihre sexuelle Ausrichtung zu erschließen oder abzuleiten; dieses Verbot gilt nicht für die Kennzeichnung
     oder Filterung rechtmäßig erworbener biometrischer Datensätze, wie z. B. Bilder auf der Grundlage
     biometrischer Daten oder die Kategorisierung biometrischer Daten im Bereich der Strafverfolgung;
-  adressat: null
-  pflicht: null
-  scope: null
+  adressat: betreiber
+  pflicht: Verboten ist u.a. die Verwendung von Systemen zur biometrischen Kategorisierung, die Rasse,
+    politische Einstellung, Gewerkschaftszugehoerigkeit, Religion, Sexualleben o.ae. aus biometrischen
+    Daten ableiten.
+  scope: in
   scope_grund: null
-  verifikation: null
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
-  befund: null
-  befund_grund: null
+  omnibus: 'unveraendert - VO (EU) 2026/1744 Art. 1 Nr. 7 fuegt lediglich neue Buchstaben ba/bb (Deepfake-/intime
+    Bildinhalte ohne Einwilligung) und neue Absaetze 1a/1b ein, aendert lit. a-h selbst nicht (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf). PO-HINWEIS: die neuen Tatbestaende ba/bb
+    existieren als eigene Einheiten NICHT im Pflichtenraum, da dieser aus der PRAE-Omnibus-Quelle geschnitten
+    ist (docs/legal/wortlaut/aiact_2024-1689_DE.txt) - echte inhaltliche Neuerung, im Abschlussbericht
+    vermerkt.'
+  requirement: []
+  gate: []
+  befund: nicht_einschlaegig
+  befund_grund: Das Redispatch-System verarbeitet keine biometrischen Daten zur Kategorisierung natuerlicher
+    Personen - kategorial ausserhalb des Anwendungsfalls.
+  po_bestaetigt: false
 - id: Art. 5 Abs. 1 lit. h
   artikel: '5'
   artikel_titel: Verbotene Praktiken im KI-Bereich
@@ -1248,17 +1464,27 @@ einheiten:
   beleg: 'h) die Verwendung biometrischer Echtzeit-Fernidentifizierungssysteme in öffentlich zugänglichen
     Räumen zu Strafverfolgungszwecken, außer wenn und insoweit dies im Hinblick auf eines der folgenden
     Ziele unbedingt erforderlich ist:'
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Verboten ist die Verwendung biometrischer Echtzeit-Fernidentifizierungssysteme in oeffentlich
+    zugaenglichen Raeumen zu Strafverfolgungszwecken, ausser fuer eng definierte Ziele (Opfersuche, Gefahrenabwehr,
+    Straftatverfolgung bei Schwerkriminalitaet).
+  scope: out
+  scope_grund: Adressiert ausschliesslich die Verwendung durch/fuer Strafverfolgungsbehoerden zu Strafverfolgungszwecken
+    im oeffentlichen Raum; der Netzbetreiber (Redispatch) ist keine Strafverfolgungsbehoerde und handelt
+    nicht zu diesem Zweck.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: 'unveraendert - VO (EU) 2026/1744 Art. 1 Nr. 7 fuegt lediglich neue Buchstaben ba/bb (Deepfake-/intime
+    Bildinhalte ohne Einwilligung) und neue Absaetze 1a/1b ein, aendert lit. a-h selbst nicht (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf). PO-HINWEIS: die neuen Tatbestaende ba/bb
+    existieren als eigene Einheiten NICHT im Pflichtenraum, da dieser aus der PRAE-Omnibus-Quelle geschnitten
+    ist (docs/legal/wortlaut/aiact_2024-1689_DE.txt) - echte inhaltliche Neuerung, im Abschlussbericht
+    vermerkt.'
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 5 Abs. 1 lit. i
   artikel: '5'
   artikel_titel: Verbotene Praktiken im KI-Bereich
@@ -1277,17 +1503,25 @@ einheiten:
     Recht mit einer Freiheitsstrafe oder einer freiheitsentziehenden Maßregel der Sicherung im Höchstmaß
     von mindestens vier Jahren bedroht ist. Unterabsatz 1 Buchstabe h gilt unbeschadet des Artikels 9
     der Verordnung (EU) 2016/679 für die Verarbeitung biometrischer Daten zu anderen Zwecken als der Strafverfolgung.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Nennt die drei zulaessigen Strafverfolgungsziele (i-iii) fuer die Ausnahme in lit. h und stellt
+    klar, dass die Regel Art. 9 DSGVO fuer andere Zwecke unberuehrt laesst.
+  scope: out
+  scope_grund: Teil derselben Strafverfolgungs-Ausnahme wie lit. h, adressiert Strafverfolgungsbehoerden,
+    nicht den Netzbetreiber.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: 'unveraendert - VO (EU) 2026/1744 Art. 1 Nr. 7 fuegt lediglich neue Buchstaben ba/bb (Deepfake-/intime
+    Bildinhalte ohne Einwilligung) und neue Absaetze 1a/1b ein, aendert lit. a-h selbst nicht (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf). PO-HINWEIS: die neuen Tatbestaende ba/bb
+    existieren als eigene Einheiten NICHT im Pflichtenraum, da dieser aus der PRAE-Omnibus-Quelle geschnitten
+    ist (docs/legal/wortlaut/aiact_2024-1689_DE.txt) - echte inhaltliche Neuerung, im Abschlussbericht
+    vermerkt.'
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 5 Abs. 2
   artikel: '5'
   artikel_titel: Verbotene Praktiken im KI-Bereich
@@ -1300,17 +1534,25 @@ einheiten:
     Räumen zu Strafverfolgungszwecken im Hinblick auf die in Absatz 1 Unterabsatz 1 Buchstabe h genannten
     Ziele darf für die in jenem Buchstaben genannten Zwecke nur zur Bestätigung der Identität der speziell
     betroffenen Person erfolgen, wobei folgende Elemente berücksichtigt werden:'
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Beschraenkt die RBI-Verwendung fuer Strafverfolgungszwecke auf die Bestaetigung der Identitaet
+    der spezifisch betroffenen Person, unter Beruecksichtigung mehrerer Abwaegungskriterien.
+  scope: out
+  scope_grund: Verfahrensnorm fuer die Strafverfolgungsausnahme aus Abs. 1 lit. h, adressiert die verwendende
+    Strafverfolgungsbehoerde, nicht den Netzbetreiber.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: 'unveraendert - VO (EU) 2026/1744 Art. 1 Nr. 7 fuegt lediglich neue Buchstaben ba/bb (Deepfake-/intime
+    Bildinhalte ohne Einwilligung) und neue Absaetze 1a/1b ein, aendert lit. a-h selbst nicht (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf). PO-HINWEIS: die neuen Tatbestaende ba/bb
+    existieren als eigene Einheiten NICHT im Pflichtenraum, da dieser aus der PRAE-Omnibus-Quelle geschnitten
+    ist (docs/legal/wortlaut/aiact_2024-1689_DE.txt) - echte inhaltliche Neuerung, im Abschlussbericht
+    vermerkt.'
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 5 Abs. 2 lit. a
   artikel: '5'
   artikel_titel: Verbotene Praktiken im KI-Bereich
@@ -1322,17 +1564,24 @@ einheiten:
   beleg: a) die Art der Situation, die der möglichen Verwendung zugrunde liegt, insbesondere die Schwere,
     die Wahrscheinlichkeit und das Ausmaß des Schadens, der entstehen würde, wenn das System nicht eingesetzt
     würde;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: 'Abwaegungskriterium a): Art, Schwere, Wahrscheinlichkeit und Ausmass des Schadens bei Nichtverwendung
+    des Systems.'
+  scope: out
+  scope_grund: Teil der RBI-Abwaegungskriterien fuer Strafverfolgungsbehoerden, nicht Betreiber-adressiert.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: 'unveraendert - VO (EU) 2026/1744 Art. 1 Nr. 7 fuegt lediglich neue Buchstaben ba/bb (Deepfake-/intime
+    Bildinhalte ohne Einwilligung) und neue Absaetze 1a/1b ein, aendert lit. a-h selbst nicht (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf). PO-HINWEIS: die neuen Tatbestaende ba/bb
+    existieren als eigene Einheiten NICHT im Pflichtenraum, da dieser aus der PRAE-Omnibus-Quelle geschnitten
+    ist (docs/legal/wortlaut/aiact_2024-1689_DE.txt) - echte inhaltliche Neuerung, im Abschlussbericht
+    vermerkt.'
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 5 Abs. 2 lit. b
   artikel: '5'
   artikel_titel: Verbotene Praktiken im KI-Bereich
@@ -1353,17 +1602,26 @@ einheiten:
     27 abgeschlossen und das System gemäß Artikel 49 in der EU-Datenbank registriert hat. In hinreichend
     begründeten dringenden Fällen kann jedoch mit der Verwendung solcher Systeme zunächst ohne Registrierung
     in der EU-Datenbank begonnen werden, sofern diese Registrierung unverzüglich erfolgt.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: 'Abwaegungskriterium b): Folgen der Systemverwendung fuer Rechte/Freiheiten Betroffener; verlangt
+    zusaetzlich Grundrechte-Folgenabschaetzung (Art. 27) und EU-Datenbank-Registrierung (Art. 49) vor
+    RBI-Einsatz.'
+  scope: out
+  scope_grund: Teil der RBI-Abwaegungskriterien und Verfahrensvoraussetzungen fuer Strafverfolgungsbehoerden,
+    nicht Betreiber-adressiert.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: 'unveraendert - VO (EU) 2026/1744 Art. 1 Nr. 7 fuegt lediglich neue Buchstaben ba/bb (Deepfake-/intime
+    Bildinhalte ohne Einwilligung) und neue Absaetze 1a/1b ein, aendert lit. a-h selbst nicht (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf). PO-HINWEIS: die neuen Tatbestaende ba/bb
+    existieren als eigene Einheiten NICHT im Pflichtenraum, da dieser aus der PRAE-Omnibus-Quelle geschnitten
+    ist (docs/legal/wortlaut/aiact_2024-1689_DE.txt) - echte inhaltliche Neuerung, im Abschlussbericht
+    vermerkt.'
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 5 Abs. 3
   artikel: '5'
   artikel_titel: Verbotene Praktiken im KI-Bereich
@@ -1391,17 +1649,24 @@ einheiten:
     über den Antrag berücksichtigt diese Behörde die in Absatz 2 genannten Elemente. Eine Entscheidung,
     aus der sich eine nachteilige Rechtsfolge für eine Person ergibt, darf nicht ausschließlich auf der
     Grundlage der Ausgabe des biometrischen Echtzeit-Fernidentifizierungssystems getroffen werden.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Verlangt eine vorherige gerichtliche oder unabhaengige verwaltungsbehoerdliche Genehmigung
+    fuer jede RBI-Verwendung zu Strafverfolgungszwecken (mit begrenzter Dringlichkeitsausnahme).
+  scope: out
+  scope_grund: Genehmigungsverfahren fuer Strafverfolgungsbehoerden/Justizbehoerden, nicht Betreiber-adressiert.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: 'unveraendert - VO (EU) 2026/1744 Art. 1 Nr. 7 fuegt lediglich neue Buchstaben ba/bb (Deepfake-/intime
+    Bildinhalte ohne Einwilligung) und neue Absaetze 1a/1b ein, aendert lit. a-h selbst nicht (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf). PO-HINWEIS: die neuen Tatbestaende ba/bb
+    existieren als eigene Einheiten NICHT im Pflichtenraum, da dieser aus der PRAE-Omnibus-Quelle geschnitten
+    ist (docs/legal/wortlaut/aiact_2024-1689_DE.txt) - echte inhaltliche Neuerung, im Abschlussbericht
+    vermerkt.'
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 5 Abs. 4
   artikel: '5'
   artikel_titel: Verbotene Praktiken im KI-Bereich
@@ -1415,17 +1680,23 @@ einheiten:
     und der nationalen Datenschutzbehörde gemäß den in Absatz 5 genannten nationalen Vorschriften mitgeteilt.
     Die Mitteilung muss mindestens die in Absatz 6 genannten Angaben enthalten und darf keine sensiblen
     operativen Daten enthalten.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Verlangt Mitteilung jeder RBI-Verwendung an Marktueberwachungs- und Datenschutzbehoerde.
+  scope: out
+  scope_grund: Mitteilungspflicht der Strafverfolgungsbehoerde gegenueber Aufsichtsbehoerden, nicht Betreiber-adressiert.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: 'unveraendert - VO (EU) 2026/1744 Art. 1 Nr. 7 fuegt lediglich neue Buchstaben ba/bb (Deepfake-/intime
+    Bildinhalte ohne Einwilligung) und neue Absaetze 1a/1b ein, aendert lit. a-h selbst nicht (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf). PO-HINWEIS: die neuen Tatbestaende ba/bb
+    existieren als eigene Einheiten NICHT im Pflichtenraum, da dieser aus der PRAE-Omnibus-Quelle geschnitten
+    ist (docs/legal/wortlaut/aiact_2024-1689_DE.txt) - echte inhaltliche Neuerung, im Abschlussbericht
+    vermerkt.'
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 5 Abs. 5
   artikel: '5'
   artikel_titel: Verbotene Praktiken im KI-Bereich
@@ -1446,17 +1717,24 @@ einheiten:
     zu verwenden. Die Mitgliedstaaten teilen der Kommission diese Vorschriften spätestens 30 Tage nach
     ihrem Erlass mit. Die Mitgliedstaaten können im Einklang mit dem Unionsrecht strengere Rechtsvorschriften
     für die Verwendung biometrischer Fernidentifizierungssysteme erlassen.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Erlaubt Mitgliedstaaten, RBI-Verwendung innerhalb der Grenzen der Abs. 1 lit. h, 2 und 3 zu
+    gestatten und verlangt nationale Detailregeln sowie Mitteilung an die Kommission.
+  scope: out
+  scope_grund: Adressiert die Mitgliedstaaten als Rechtsetzer, nicht den Betreiber.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: 'unveraendert - VO (EU) 2026/1744 Art. 1 Nr. 7 fuegt lediglich neue Buchstaben ba/bb (Deepfake-/intime
+    Bildinhalte ohne Einwilligung) und neue Absaetze 1a/1b ein, aendert lit. a-h selbst nicht (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf). PO-HINWEIS: die neuen Tatbestaende ba/bb
+    existieren als eigene Einheiten NICHT im Pflichtenraum, da dieser aus der PRAE-Omnibus-Quelle geschnitten
+    ist (docs/legal/wortlaut/aiact_2024-1689_DE.txt) - echte inhaltliche Neuerung, im Abschlussbericht
+    vermerkt.'
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 5 Abs. 6
   artikel: '5'
   artikel_titel: Verbotene Praktiken im KI-Bereich
@@ -1472,17 +1750,24 @@ einheiten:
     Marktüberwachungs- und Datenschutzbehörden ein Muster zur Verfügung, das Angaben über die Anzahl der
     Entscheidungen der zuständigen Justizbehörden oder einer unabhängigen Verwaltungsbehörde, deren Entscheidung
     über Genehmigungsanträge gemäß Absatz 3 bindend ist, und deren Ergebnis enthält.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Verlangt jaehrliche Berichte der nationalen Markueberwachungs-/Datenschutzbehoerden an die
+    Kommission ueber RBI-Verwendungen.
+  scope: out
+  scope_grund: Berichtspflicht nationaler Behoerden gegenueber der Kommission, nicht Betreiber-adressiert.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: 'unveraendert - VO (EU) 2026/1744 Art. 1 Nr. 7 fuegt lediglich neue Buchstaben ba/bb (Deepfake-/intime
+    Bildinhalte ohne Einwilligung) und neue Absaetze 1a/1b ein, aendert lit. a-h selbst nicht (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf). PO-HINWEIS: die neuen Tatbestaende ba/bb
+    existieren als eigene Einheiten NICHT im Pflichtenraum, da dieser aus der PRAE-Omnibus-Quelle geschnitten
+    ist (docs/legal/wortlaut/aiact_2024-1689_DE.txt) - echte inhaltliche Neuerung, im Abschlussbericht
+    vermerkt.'
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 5 Abs. 7
   artikel: '5'
   artikel_titel: Verbotene Praktiken im KI-Bereich
@@ -1495,17 +1780,24 @@ einheiten:
     in öffentlich zugänglichen Räumen zu Strafverfolgungszwecken, die auf aggregierten Daten aus den Mitgliedstaaten
     auf der Grundlage der in Absatz 6 genannten Jahresberichte beruhen. Diese Jahresberichte dürfen keine
     sensiblen operativen Daten im Zusammenhang mit den damit verbundenen Strafverfolgungsmaßnahmen enthalten.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Verpflichtet die Kommission, aggregierte Jahresberichte ueber RBI-Verwendung zu veroeffentlichen
+    (ohne sensible operative Daten).
+  scope: out
+  scope_grund: Veroeffentlichungspflicht der Kommission, nicht Betreiber-adressiert.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: 'unveraendert - VO (EU) 2026/1744 Art. 1 Nr. 7 fuegt lediglich neue Buchstaben ba/bb (Deepfake-/intime
+    Bildinhalte ohne Einwilligung) und neue Absaetze 1a/1b ein, aendert lit. a-h selbst nicht (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf). PO-HINWEIS: die neuen Tatbestaende ba/bb
+    existieren als eigene Einheiten NICHT im Pflichtenraum, da dieser aus der PRAE-Omnibus-Quelle geschnitten
+    ist (docs/legal/wortlaut/aiact_2024-1689_DE.txt) - echte inhaltliche Neuerung, im Abschlussbericht
+    vermerkt.'
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 5 Abs. 8
   artikel: '5'
   artikel_titel: Verbotene Praktiken im KI-Bereich
@@ -1517,17 +1809,24 @@ einheiten:
   beleg: (8)   Dieser Artikel berührt nicht die Verbote, die gelten, wenn KI-Praktiken gegen andere Rechtsvorschriften
     der Union verstoßen. KAPITEL III HOCHRISIKO-KI-SYSTEME ABSCHNITT 1 Einstufung von KI-Systemen als
     Hochrisiko-KI-Systeme
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: 'Klarstellung: Art. 5 laesst Verbote unberuehrt, die sich aus einem KI-Praktiken-Verstoss gegen
+    andere Unionsvorschriften ergeben.'
+  scope: out
+  scope_grund: Allgemeine Nichtausschluss-/Kumulationsklausel, keine eigene Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: 'unveraendert - VO (EU) 2026/1744 Art. 1 Nr. 7 fuegt lediglich neue Buchstaben ba/bb (Deepfake-/intime
+    Bildinhalte ohne Einwilligung) und neue Absaetze 1a/1b ein, aendert lit. a-h selbst nicht (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf). PO-HINWEIS: die neuen Tatbestaende ba/bb
+    existieren als eigene Einheiten NICHT im Pflichtenraum, da dieser aus der PRAE-Omnibus-Quelle geschnitten
+    ist (docs/legal/wortlaut/aiact_2024-1689_DE.txt) - echte inhaltliche Neuerung, im Abschlussbericht
+    vermerkt.'
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 6 Abs. 1
   artikel: '6'
   artikel_titel: Einstufungsvorschriften für Hochrisiko-KI-Systeme
@@ -1539,17 +1838,22 @@ einheiten:
   beleg: '(1)   Ungeachtet dessen, ob ein KI-System unabhängig von den unter den Buchstaben a und b genannten
     Produkten in Verkehr gebracht oder in Betrieb genommen wird, gilt es als Hochrisiko-KI-System, wenn
     die beiden folgenden Bedingungen erfüllt sind:'
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Definiert die zweistufige Bedingung, unter der ein KI-System als Hochrisiko-System gilt (Sicherheitsbauteil
+    eines Anhang-I-Produkts + Konformitaetsbewertungspflicht durch Dritte).
+  scope: out
+  scope_grund: Klassifizierungsnorm fuer die Hochrisiko-Einstufung (Art. 6) - adressiert den Anbieter
+    (Einstufung vor Inverkehrbringen) bzw. die Kommission (delegierte Rechtsakte); keine im Wortlaut erkennbare
+    Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - VO (EU) 2026/1744 Art. 1 Nr. 8 fuegt lediglich neue Absaetze 1a-1c ein (Klarstellungen
+    zu Sicherheitsbauteilen), aendert Abs. 1-8 selbst nicht (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 6 Abs. 1 lit. a
   artikel: '6'
   artikel_titel: Einstufungsvorschriften für Hochrisiko-KI-Systeme
@@ -1560,17 +1864,22 @@ einheiten:
   saetze: 1
   beleg: a) das KI-System soll als Sicherheitsbauteil eines unter die in Anhang I aufgeführten Harmonisierungsrechtsvorschriften
     der Union fallenden Produkts verwendet werden oder das KI-System ist selbst ein solches Produkt;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: 'Bedingung a): das KI-System soll Sicherheitsbauteil eines Anhang-I-Produkts sein oder ist
+    selbst ein solches Produkt.'
+  scope: out
+  scope_grund: Klassifizierungsnorm fuer die Hochrisiko-Einstufung (Art. 6) - adressiert den Anbieter
+    (Einstufung vor Inverkehrbringen) bzw. die Kommission (delegierte Rechtsakte); keine im Wortlaut erkennbare
+    Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - VO (EU) 2026/1744 Art. 1 Nr. 8 fuegt lediglich neue Absaetze 1a-1c ein (Klarstellungen
+    zu Sicherheitsbauteilen), aendert Abs. 1-8 selbst nicht (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 6 Abs. 1 lit. b
   artikel: '6'
   artikel_titel: Einstufungsvorschriften für Hochrisiko-KI-Systeme
@@ -1583,17 +1892,22 @@ einheiten:
     selbst als Produkt muss einer Konformitätsbewertung durch Dritte im Hinblick auf das Inverkehrbringen
     oder die Inbetriebnahme dieses Produkts gemäß den in Anhang I aufgeführten Harmonisierungsrechtsvorschriften
     der Union unterzogen werden.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: 'Bedingung b): das Produkt/System muss einer Konformitaetsbewertung durch Dritte gemaess Anhang-I-Harmonisierungsvorschriften
+    unterzogen werden.'
+  scope: out
+  scope_grund: Klassifizierungsnorm fuer die Hochrisiko-Einstufung (Art. 6) - adressiert den Anbieter
+    (Einstufung vor Inverkehrbringen) bzw. die Kommission (delegierte Rechtsakte); keine im Wortlaut erkennbare
+    Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - VO (EU) 2026/1744 Art. 1 Nr. 8 fuegt lediglich neue Absaetze 1a-1c ein (Klarstellungen
+    zu Sicherheitsbauteilen), aendert Abs. 1-8 selbst nicht (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 6 Abs. 2
   artikel: '6'
   artikel_titel: Einstufungsvorschriften für Hochrisiko-KI-Systeme
@@ -1604,17 +1918,22 @@ einheiten:
   saetze: 1
   beleg: (2)   Zusätzlich zu den in Absatz 1 genannten Hochrisiko-KI-Systemen gelten die in Anhang III
     genannten KI-Systeme als hochriskant.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Zusaetzlich zu Abs. 1 gelten auch die in Anhang III genannten KI-Systeme als hochriskant (Grundlage
+    der Einstufung des Redispatch-Anwendungsfalls unter Anhang III Nr. 2).
+  scope: out
+  scope_grund: Klassifizierungsnorm, adressiert den Anbieter bei der Einstufung vor Inverkehrbringen;
+    begruendet selbst keine Betreiberpflicht (die Betreiberpflichten knuepfen erst in Art. 26 an eine
+    bereits erfolgte Hochrisiko-Einstufung an).
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - VO (EU) 2026/1744 Art. 1 Nr. 8 fuegt lediglich neue Absaetze 1a-1c ein (Klarstellungen
+    zu Sicherheitsbauteilen), aendert Abs. 1-8 selbst nicht (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 6 Abs. 3
   artikel: '6'
   artikel_titel: Einstufungsvorschriften für Hochrisiko-KI-Systeme
@@ -1627,17 +1946,23 @@ einheiten:
     wenn es kein erhebliches Risiko der Beeinträchtigung in Bezug auf die Gesundheit, Sicherheit oder
     Grundrechte natürlicher Personen birgt, indem es unter anderem nicht das Ergebnis der Entscheidungsfindung
     wesentlich beeinflusst. Unterabsatz 1 gilt, wenn eine der folgenden Bedingungen erfüllt ist:'
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Ein in Anhang III genanntes System gilt abweichend NICHT als hochriskant, wenn es kein erhebliches
+    Risiko birgt (Ausnahmetatbestaende in lit. a-d), es sei denn, es fuehrt Profiling natuerlicher Personen
+    durch.
+  scope: out
+  scope_grund: Klassifizierungsnorm fuer die Hochrisiko-Einstufung (Art. 6) - adressiert den Anbieter
+    (Einstufung vor Inverkehrbringen) bzw. die Kommission (delegierte Rechtsakte); keine im Wortlaut erkennbare
+    Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - VO (EU) 2026/1744 Art. 1 Nr. 8 fuegt lediglich neue Absaetze 1a-1c ein (Klarstellungen
+    zu Sicherheitsbauteilen), aendert Abs. 1-8 selbst nicht (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 6 Abs. 3 lit. a
   artikel: '6'
   artikel_titel: Einstufungsvorschriften für Hochrisiko-KI-Systeme
@@ -1647,17 +1972,21 @@ einheiten:
   laenge: 92
   saetze: 1
   beleg: a) das KI-System ist dazu bestimmt, eine eng gefasste Verfahrensaufgabe durchzuführen;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: 'Ausnahme a): das System fuehrt eine eng gefasste Verfahrensaufgabe durch.'
+  scope: out
+  scope_grund: Klassifizierungsnorm fuer die Hochrisiko-Einstufung (Art. 6) - adressiert den Anbieter
+    (Einstufung vor Inverkehrbringen) bzw. die Kommission (delegierte Rechtsakte); keine im Wortlaut erkennbare
+    Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - VO (EU) 2026/1744 Art. 1 Nr. 8 fuegt lediglich neue Absaetze 1a-1c ein (Klarstellungen
+    zu Sicherheitsbauteilen), aendert Abs. 1-8 selbst nicht (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 6 Abs. 3 lit. b
   artikel: '6'
   artikel_titel: Einstufungsvorschriften für Hochrisiko-KI-Systeme
@@ -1668,17 +1997,22 @@ einheiten:
   saetze: 1
   beleg: b) das KI-System ist dazu bestimmt, das Ergebnis einer zuvor abgeschlossenen menschlichen Tätigkeit
     zu verbessern;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: 'Ausnahme b): das System verbessert das Ergebnis einer bereits abgeschlossenen menschlichen
+    Taetigkeit.'
+  scope: out
+  scope_grund: Klassifizierungsnorm fuer die Hochrisiko-Einstufung (Art. 6) - adressiert den Anbieter
+    (Einstufung vor Inverkehrbringen) bzw. die Kommission (delegierte Rechtsakte); keine im Wortlaut erkennbare
+    Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - VO (EU) 2026/1744 Art. 1 Nr. 8 fuegt lediglich neue Absaetze 1a-1c ein (Klarstellungen
+    zu Sicherheitsbauteilen), aendert Abs. 1-8 selbst nicht (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 6 Abs. 3 lit. c
   artikel: '6'
   artikel_titel: Einstufungsvorschriften für Hochrisiko-KI-Systeme
@@ -1690,17 +2024,22 @@ einheiten:
   beleg: c) das KI-System ist dazu bestimmt, Entscheidungsmuster oder Abweichungen von früheren Entscheidungsmustern
     zu erkennen, und ist nicht dazu gedacht, die zuvor abgeschlossene menschliche Bewertung ohne eine
     angemessene menschliche Überprüfung zu ersetzen oder zu beeinflussen; oder
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: 'Ausnahme c): das System erkennt Entscheidungsmuster/Abweichungen, ohne die menschliche Bewertung
+    ohne Ueberpruefung zu ersetzen.'
+  scope: out
+  scope_grund: Klassifizierungsnorm fuer die Hochrisiko-Einstufung (Art. 6) - adressiert den Anbieter
+    (Einstufung vor Inverkehrbringen) bzw. die Kommission (delegierte Rechtsakte); keine im Wortlaut erkennbare
+    Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - VO (EU) 2026/1744 Art. 1 Nr. 8 fuegt lediglich neue Absaetze 1a-1c ein (Klarstellungen
+    zu Sicherheitsbauteilen), aendert Abs. 1-8 selbst nicht (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 6 Abs. 3 lit. d
   artikel: '6'
   artikel_titel: Einstufungsvorschriften für Hochrisiko-KI-Systeme
@@ -1713,17 +2052,22 @@ einheiten:
     die für die Zwecke der in Anhang III aufgeführten Anwendungsfälle relevant ist. Ungeachtet des Unterabsatzes
     1 gilt ein in Anhang III aufgeführtes KI-System immer dann als hochriskant, wenn es ein Profiling
     natürlicher Personen vornimmt.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: 'Ausnahme d): das System fuehrt eine vorbereitende Aufgabe fuer eine Anhang-III-relevante Bewertung
+    durch; Profiling natuerlicher Personen schliesst die Ausnahme stets aus.'
+  scope: out
+  scope_grund: Klassifizierungsnorm fuer die Hochrisiko-Einstufung (Art. 6) - adressiert den Anbieter
+    (Einstufung vor Inverkehrbringen) bzw. die Kommission (delegierte Rechtsakte); keine im Wortlaut erkennbare
+    Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - VO (EU) 2026/1744 Art. 1 Nr. 8 fuegt lediglich neue Absaetze 1a-1c ein (Klarstellungen
+    zu Sicherheitsbauteilen), aendert Abs. 1-8 selbst nicht (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 6 Abs. 4
   artikel: '6'
   artikel_titel: Einstufungsvorschriften für Hochrisiko-KI-Systeme
@@ -1736,17 +2080,23 @@ einheiten:
     hochriskant ist, dokumentiert seine Bewertung, bevor dieses System in Verkehr gebracht oder in Betrieb
     genommen wird. Dieser Anbieter unterliegt der Registrierungspflicht gemäß Artikel 49 Absatz 2. Auf
     Verlangen der zuständigen nationalen Behörden legt der Anbieter die Dokumentation der Bewertung vor.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Ein Anbieter, der ein Anhang-III-System als nicht hochriskant einstuft, dokumentiert diese
+    Bewertung vor Inverkehrbringen, unterliegt der Registrierungspflicht nach Art. 49 Abs. 2 und legt
+    die Dokumentation auf Verlangen der Behoerden vor.
+  scope: out
+  scope_grund: Klassifizierungsnorm fuer die Hochrisiko-Einstufung (Art. 6) - adressiert den Anbieter
+    (Einstufung vor Inverkehrbringen) bzw. die Kommission (delegierte Rechtsakte); keine im Wortlaut erkennbare
+    Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - VO (EU) 2026/1744 Art. 1 Nr. 8 fuegt lediglich neue Absaetze 1a-1c ein (Klarstellungen
+    zu Sicherheitsbauteilen), aendert Abs. 1-8 selbst nicht (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 6 Abs. 5
   artikel: '6'
   artikel_titel: Einstufungsvorschriften für Hochrisiko-KI-Systeme
@@ -1759,17 +2109,22 @@ einheiten:
     (im Folgenden „KI-Gremium“) spätestens bis zum 2. Februar 2026 Leitlinien zur praktischen Umsetzung
     dieses Artikels gemäß Artikel 96 und eine umfassende Liste praktischer Beispiele für Anwendungsfälle
     für KI-Systeme, die hochriskant oder nicht hochriskant sind, bereit.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Die Kommission stellt bis 2. Februar 2026 Leitlinien und Praxisbeispiele zur Hochrisiko-Einstufung
+    bereit.
+  scope: out
+  scope_grund: Klassifizierungsnorm fuer die Hochrisiko-Einstufung (Art. 6) - adressiert den Anbieter
+    (Einstufung vor Inverkehrbringen) bzw. die Kommission (delegierte Rechtsakte); keine im Wortlaut erkennbare
+    Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - VO (EU) 2026/1744 Art. 1 Nr. 8 fuegt lediglich neue Absaetze 1a-1c ein (Klarstellungen
+    zu Sicherheitsbauteilen), aendert Abs. 1-8 selbst nicht (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 6 Abs. 6
   artikel: '6'
   artikel_titel: Einstufungsvorschriften für Hochrisiko-KI-Systeme
@@ -1784,17 +2139,22 @@ einheiten:
     Vorhandensein von KI-Systemen vorliegen, die in den Anwendungsbereich von Anhang III fallen, jedoch
     kein erhebliches Risiko der Beeinträchtigung in Bezug auf die Gesundheit, Sicherheit oder Grundrechte
     natürlicher Personen bergen.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Die Kommission kann per delegiertem Rechtsakt Abs. 3 Unterabsatz 2 um neue Ausnahmebedingungen
+    ergaenzen/aendern.
+  scope: out
+  scope_grund: Klassifizierungsnorm fuer die Hochrisiko-Einstufung (Art. 6) - adressiert den Anbieter
+    (Einstufung vor Inverkehrbringen) bzw. die Kommission (delegierte Rechtsakte); keine im Wortlaut erkennbare
+    Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - VO (EU) 2026/1744 Art. 1 Nr. 8 fuegt lediglich neue Absaetze 1a-1c ein (Klarstellungen
+    zu Sicherheitsbauteilen), aendert Abs. 1-8 selbst nicht (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 6 Abs. 7
   artikel: '6'
   artikel_titel: Einstufungsvorschriften für Hochrisiko-KI-Systeme
@@ -1808,17 +2168,22 @@ einheiten:
     wenn konkrete und zuverlässige Beweise dafür vorliegen, dass dies für die Aufrechterhaltung des Schutzniveaus
     in Bezug auf Gesundheit, Sicherheit und die in dieser Verordnung vorgesehenen Grundrechte erforderlich
     ist.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Die Kommission erlaesst delegierte Rechtsakte zur Streichung einer Ausnahmebedingung, wenn
+    dies zur Wahrung des Schutzniveaus erforderlich ist.
+  scope: out
+  scope_grund: Klassifizierungsnorm fuer die Hochrisiko-Einstufung (Art. 6) - adressiert den Anbieter
+    (Einstufung vor Inverkehrbringen) bzw. die Kommission (delegierte Rechtsakte); keine im Wortlaut erkennbare
+    Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - VO (EU) 2026/1744 Art. 1 Nr. 8 fuegt lediglich neue Absaetze 1a-1c ein (Klarstellungen
+    zu Sicherheitsbauteilen), aendert Abs. 1-8 selbst nicht (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 6 Abs. 8
   artikel: '6'
   artikel_titel: Einstufungsvorschriften für Hochrisiko-KI-Systeme
@@ -1832,17 +2197,22 @@ einheiten:
     Sicherheit und die in dieser Verordnung vorgesehenen Grundrechte nicht senken; dabei ist die Kohärenz
     mit den gemäß Artikel 7 Absatz 1 erlassenen delegierten Rechtsakten sicherzustellen und die Marktentwicklungen
     und die technologischen Entwicklungen sind zu berücksichtigen.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Aenderungen der Ausnahmebedingungen duerfen das Schutzniveau nicht senken und muessen mit Art.
+    7 Abs. 1 delegierten Rechtsakten kohaerent sein.
+  scope: out
+  scope_grund: Klassifizierungsnorm fuer die Hochrisiko-Einstufung (Art. 6) - adressiert den Anbieter
+    (Einstufung vor Inverkehrbringen) bzw. die Kommission (delegierte Rechtsakte); keine im Wortlaut erkennbare
+    Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - VO (EU) 2026/1744 Art. 1 Nr. 8 fuegt lediglich neue Absaetze 1a-1c ein (Klarstellungen
+    zu Sicherheitsbauteilen), aendert Abs. 1-8 selbst nicht (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 7 Abs. 1
   artikel: '7'
   artikel_titel: Änderungen des Anhangs III
@@ -1854,17 +2224,21 @@ einheiten:
   beleg: '(1)   Die Kommission ist befugt, gemäß Artikel 97 delegierte Rechtsakte zur Änderung von Anhang
     III durch Hinzufügung oder Änderung von Anwendungsfällen für Hochrisiko-KI-Systeme zu erlassen, die
     beide der folgenden Bedingungen erfüllen:'
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Die Kommission ist befugt, per delegiertem Rechtsakt Anhang III um Anwendungsfaelle zu ergaenzen/aendern,
+    sofern zwei Bedingungen (lit. a/b) erfuellt sind.
+  scope: out
+  scope_grund: Kommissionsbefugnis zur Aenderung von Anhang III per delegiertem Rechtsakt (Art. 7) - adressiert
+    ausschliesslich die Kommission, keine Betreiber- oder Anbieterpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 7 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 7 Abs. 1 lit. a
   artikel: '7'
   artikel_titel: Änderungen des Anhangs III
@@ -1874,17 +2248,20 @@ einheiten:
   laenge: 98
   saetze: 1
   beleg: a) Die KI-Systeme sollen in einem der in Anhang III aufgeführten Bereiche eingesetzt werden;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: 'Bedingung a): das KI-System soll in einem der Anhang-III-Bereiche eingesetzt werden.'
+  scope: out
+  scope_grund: Kommissionsbefugnis zur Aenderung von Anhang III per delegiertem Rechtsakt (Art. 7) - adressiert
+    ausschliesslich die Kommission, keine Betreiber- oder Anbieterpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 7 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 7 Abs. 1 lit. b
   artikel: '7'
   artikel_titel: Änderungen des Anhangs III
@@ -1897,17 +2274,21 @@ einheiten:
     oder haben nachteilige Auswirkungen auf die Grundrechte und dieses Risiko gleicht dem Risiko der Schädigung
     oder den nachteiligen Auswirkungen, das bzw. die von den in Anhang III bereits genannten Hochrisiko-KI-Systemen
     ausgeht bzw. ausgehen, oder übersteigt diese.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: 'Bedingung b): das Risiko fuer Gesundheit/Sicherheit/Grundrechte entspricht mindestens dem
+    bereits in Anhang III erfassten Risiko.'
+  scope: out
+  scope_grund: Kommissionsbefugnis zur Aenderung von Anhang III per delegiertem Rechtsakt (Art. 7) - adressiert
+    ausschliesslich die Kommission, keine Betreiber- oder Anbieterpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 7 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 7 Abs. 2
   artikel: '7'
   artikel_titel: Änderungen des Anhangs III
@@ -1918,17 +2299,21 @@ einheiten:
   saetze: 1
   beleg: '(2)   Bei der Bewertung der Bedingung gemäß Absatz 1 Buchstabe b berücksichtigt die Kommission
     folgende Kriterien:'
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Bei der Bewertung von Bedingung b) beruecksichtigt die Kommission die nachfolgenden Kriterien
+    (lit. a-k).
+  scope: out
+  scope_grund: Kommissionsbefugnis zur Aenderung von Anhang III per delegiertem Rechtsakt (Art. 7) - adressiert
+    ausschliesslich die Kommission, keine Betreiber- oder Anbieterpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 7 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 7 Abs. 2 lit. a
   artikel: '7'
   artikel_titel: Änderungen des Anhangs III
@@ -1938,17 +2323,20 @@ einheiten:
   laenge: 44
   saetze: 1
   beleg: a) die Zweckbestimmung des KI-Systems;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: 'Kriterium a): Zweckbestimmung des KI-Systems.'
+  scope: out
+  scope_grund: Kommissionsbefugnis zur Aenderung von Anhang III per delegiertem Rechtsakt (Art. 7) - adressiert
+    ausschliesslich die Kommission, keine Betreiber- oder Anbieterpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 7 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 7 Abs. 2 lit. b
   artikel: '7'
   artikel_titel: Änderungen des Anhangs III
@@ -1958,17 +2346,20 @@ einheiten:
   laenge: 100
   saetze: 1
   beleg: b) das Ausmaß, in dem ein KI-System verwendet wird oder voraussichtlich verwendet werden wird;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: 'Kriterium b): Ausmass der tatsaechlichen/voraussichtlichen Verwendung des Systems.'
+  scope: out
+  scope_grund: Kommissionsbefugnis zur Aenderung von Anhang III per delegiertem Rechtsakt (Art. 7) - adressiert
+    ausschliesslich die Kommission, keine Betreiber- oder Anbieterpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 7 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 7 Abs. 2 lit. c
   artikel: '7'
   artikel_titel: Änderungen des Anhangs III
@@ -1979,17 +2370,21 @@ einheiten:
   saetze: 1
   beleg: c) die Art und den Umfang der vom KI-System verarbeiteten und verwendeten Daten, insbesondere
     die Frage, ob besondere Kategorien personenbezogener Daten verarbeitet werden;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: 'Kriterium c): Art und Umfang der verarbeiteten Daten, insbesondere besondere Kategorien personenbezogener
+    Daten.'
+  scope: out
+  scope_grund: Kommissionsbefugnis zur Aenderung von Anhang III per delegiertem Rechtsakt (Art. 7) - adressiert
+    ausschliesslich die Kommission, keine Betreiber- oder Anbieterpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 7 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 7 Abs. 2 lit. d
   artikel: '7'
   artikel_titel: Änderungen des Anhangs III
@@ -2000,17 +2395,21 @@ einheiten:
   saetze: 1
   beleg: d) das Ausmaß, in dem das KI-System autonom handelt, und die Möglichkeit, dass ein Mensch eine
     Entscheidung oder Empfehlungen, die zu einem potenziellen Schaden führen können, außer Kraft setzt;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: 'Kriterium d): Grad der Autonomie des Systems und Moeglichkeit menschlicher Aufhebung schaedigender
+    Entscheidungen.'
+  scope: out
+  scope_grund: Kommissionsbefugnis zur Aenderung von Anhang III per delegiertem Rechtsakt (Art. 7) - adressiert
+    ausschliesslich die Kommission, keine Betreiber- oder Anbieterpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 7 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 7 Abs. 2 lit. e
   artikel: '7'
   artikel_titel: Änderungen des Anhangs III
@@ -2024,17 +2423,21 @@ einheiten:
     dokumentierten Behauptungen, die den zuständigen nationalen Behörden übermittelt werden, oder gegebenenfalls
     anderen Berichten Anlass zu erheblichen Bedenken hinsichtlich der Wahrscheinlichkeit eines solchen
     Schadens oder solcher nachteiligen Auswirkungen besteht;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: 'Kriterium e): bereits eingetretene oder gemeldete Schaeden/Grundrechtsbeeintraechtigungen
+    durch das System.'
+  scope: out
+  scope_grund: Kommissionsbefugnis zur Aenderung von Anhang III per delegiertem Rechtsakt (Art. 7) - adressiert
+    ausschliesslich die Kommission, keine Betreiber- oder Anbieterpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 7 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 7 Abs. 2 lit. f
   artikel: '7'
   artikel_titel: Änderungen des Anhangs III
@@ -2046,17 +2449,21 @@ einheiten:
   beleg: f) das potenzielle Ausmaß solcher Schäden oder nachteiligen Auswirkungen, insbesondere hinsichtlich
     ihrer Intensität und ihrer Eignung, mehrere Personen zu beeinträchtigen oder eine bestimmte Gruppe
     von Personen unverhältnismäßig stark zu beeinträchtigen;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: 'Kriterium f): potenzielles Ausmass der Schaeden, insbesondere Intensitaet und Zahl/Gruppengroesse
+    der Betroffenen.'
+  scope: out
+  scope_grund: Kommissionsbefugnis zur Aenderung von Anhang III per delegiertem Rechtsakt (Art. 7) - adressiert
+    ausschliesslich die Kommission, keine Betreiber- oder Anbieterpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 7 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 7 Abs. 2 lit. g
   artikel: '7'
   artikel_titel: Änderungen des Anhangs III
@@ -2068,17 +2475,21 @@ einheiten:
   beleg: g) das Ausmaß, in dem Personen, die potenziell geschädigt oder negative Auswirkungen erleiden
     werden, von dem von einem KI-System hervorgebrachten Ergebnis abhängen, weil es insbesondere aus praktischen
     oder rechtlichen Gründen nach vernünftigem Ermessen unmöglich ist, sich diesem Ergebnis zu entziehen;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: 'Kriterium g): Grad der Abhaengigkeit potenziell Geschaedigter vom Systemergebnis, wenn ein
+    Ausweichen praktisch/rechtlich unmoeglich ist.'
+  scope: out
+  scope_grund: Kommissionsbefugnis zur Aenderung von Anhang III per delegiertem Rechtsakt (Art. 7) - adressiert
+    ausschliesslich die Kommission, keine Betreiber- oder Anbieterpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 7 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 7 Abs. 2 lit. h
   artikel: '7'
   artikel_titel: Änderungen des Anhangs III
@@ -2091,17 +2502,22 @@ einheiten:
     oder negative Auswirkungen erleiden werden, gegenüber dem Betreiber eines KI-Systems schutzbedürftig
     sind, insbesondere aufgrund von Status, Autorität, Wissen, wirtschaftlichen oder sozialen Umständen
     oder Alter;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: 'Kriterium h): Machtungleichgewicht bzw. Schutzbeduerftigkeit Betroffener gegenueber dem Betreiber
+    des Systems.'
+  scope: out
+  scope_grund: Kommissionskriterium fuer die Anhang-III-Erweiterung; nennt den Betreiber nur als Bezugspunkt
+    eines Machtungleichgewichts, adressiert aber die Kommission bei der Rechtsetzung, nicht den Betreiber
+    selbst.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 7 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 7 Abs. 2 lit. i
   artikel: '7'
   artikel_titel: Änderungen des Anhangs III
@@ -2114,17 +2530,21 @@ einheiten:
     der verfügbaren technischen Lösungen für seine Korrektur oder Rückgängigmachung leicht zu korrigieren
     oder rückgängig zu machen ist, wobei Ergebnisse, die sich auf die Gesundheit, Sicherheit oder Grundrechte
     von Personen negativ auswirken, nicht als leicht korrigierbar oder rückgängig zu machen gelten;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: 'Kriterium i): Grad der Korrigierbarkeit/Umkehrbarkeit des Systemergebnisses (Gesundheits-/Sicherheits-/Grundrechtsschaeden
+    gelten nicht als leicht korrigierbar).'
+  scope: out
+  scope_grund: Kommissionsbefugnis zur Aenderung von Anhang III per delegiertem Rechtsakt (Art. 7) - adressiert
+    ausschliesslich die Kommission, keine Betreiber- oder Anbieterpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 7 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 7 Abs. 2 lit. j
   artikel: '7'
   artikel_titel: Änderungen des Anhangs III
@@ -2136,17 +2556,20 @@ einheiten:
   beleg: j) das Ausmaß und die Wahrscheinlichkeit, dass der Einsatz des KI-Systems für Einzelpersonen,
     Gruppen oder die Gesellschaft im Allgemeinen, einschließlich möglicher Verbesserungen der Produktsicherheit,
     nützlich ist;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: 'Kriterium j): Ausmass und Wahrscheinlichkeit des Nutzens des Systemeinsatzes fuer Einzelpersonen/Gesellschaft.'
+  scope: out
+  scope_grund: Kommissionsbefugnis zur Aenderung von Anhang III per delegiertem Rechtsakt (Art. 7) - adressiert
+    ausschliesslich die Kommission, keine Betreiber- oder Anbieterpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 7 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 7 Abs. 2 lit. k
   artikel: '7'
   artikel_titel: Änderungen des Anhangs III
@@ -2156,17 +2579,21 @@ einheiten:
   laenge: 71
   saetze: 1
   beleg: 'k) das Ausmaß, in dem bestehendes Unionsrecht Folgendes vorsieht:'
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: 'Kriterium k) Einleitung: Ausmass, in dem bestehendes Unionsrecht Abhilfe-/Praeventionsmassnahmen
+    vorsieht.'
+  scope: out
+  scope_grund: Kommissionsbefugnis zur Aenderung von Anhang III per delegiertem Rechtsakt (Art. 7) - adressiert
+    ausschliesslich die Kommission, keine Betreiber- oder Anbieterpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 7 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 7 Abs. 2 lit. i
   artikel: '7'
   artikel_titel: Änderungen des Anhangs III
@@ -2178,17 +2605,20 @@ einheiten:
   beleg: i) wirksame Abhilfemaßnahmen in Bezug auf die Risiken, die von einem KI-System ausgehen, mit
     Ausnahme von Schadenersatzansprüchen; ii) wirksame Maßnahmen zur Vermeidung oder wesentlichen Verringerung
     dieser Risiken.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: 'Kriterium k) Details: i) wirksame Abhilfemassnahmen (ausser Schadenersatz); ii) wirksame Praeventions-/Risikominderungsmassnahmen.'
+  scope: out
+  scope_grund: Kommissionsbefugnis zur Aenderung von Anhang III per delegiertem Rechtsakt (Art. 7) - adressiert
+    ausschliesslich die Kommission, keine Betreiber- oder Anbieterpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 7 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 7 Abs. 3
   artikel: '7'
   artikel_titel: Änderungen des Anhangs III
@@ -2200,17 +2630,21 @@ einheiten:
   beleg: '(3)   Die Kommission ist befugt, gemäß Artikel 97 delegierte Rechtsakte zur Änderung der Liste
     in Anhang III zu erlassen, um Hochrisiko-KI-Systeme zu streichen, die beide der folgenden Bedingungen
     erfüllen:'
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Die Kommission ist befugt, per delegiertem Rechtsakt Anhang-III-Eintraege zu STREICHEN, sofern
+    zwei Bedingungen (lit. a/b) erfuellt sind.
+  scope: out
+  scope_grund: Kommissionsbefugnis zur Aenderung von Anhang III per delegiertem Rechtsakt (Art. 7) - adressiert
+    ausschliesslich die Kommission, keine Betreiber- oder Anbieterpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 7 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 7 Abs. 3 lit. a
   artikel: '7'
   artikel_titel: Änderungen des Anhangs III
@@ -2221,17 +2655,21 @@ einheiten:
   saetze: 1
   beleg: a) Das betreffende Hochrisiko-KI-System weist unter Berücksichtigung der in Absatz 2 aufgeführten
     Kriterien keine erheblichen Risiken mehr für die Grundrechte, Gesundheit oder Sicherheit auf;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: 'Streichungsbedingung a): das System weist keine erheblichen Risiken fuer Grundrechte, Gesundheit
+    oder Sicherheit mehr auf.'
+  scope: out
+  scope_grund: Kommissionsbefugnis zur Aenderung von Anhang III per delegiertem Rechtsakt (Art. 7) - adressiert
+    ausschliesslich die Kommission, keine Betreiber- oder Anbieterpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 7 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 7 Abs. 3 lit. b
   artikel: '7'
   artikel_titel: Änderungen des Anhangs III
@@ -2242,17 +2680,21 @@ einheiten:
   saetze: 2
   beleg: b) durch die Streichung wird das allgemeine Schutzniveau in Bezug auf Gesundheit, Sicherheit
     und Grundrechte im Rahmen des Unionsrechts nicht gesenkt. ABSCHNITT 2 Anforderungen an Hochrisiko-KI-Systeme
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: 'Streichungsbedingung b): das allgemeine Schutzniveau nach Unionsrecht wird durch die Streichung
+    nicht gesenkt.'
+  scope: out
+  scope_grund: Kommissionsbefugnis zur Aenderung von Anhang III per delegiertem Rechtsakt (Art. 7) - adressiert
+    ausschliesslich die Kommission, keine Betreiber- oder Anbieterpflicht.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - Art. 7 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 8 Abs. 1
   artikel: '8'
   artikel_titel: Einhaltung der Anforderungen
@@ -4699,8 +5141,8 @@ einheiten:
   verifikation: null
   hypothese_grund: null
   omnibus: null
-  requirement: *id001
-  gate: *id002
+  requirement: &id001 []
+  gate: &id002 []
   befund: null
   befund_grund: null
 - id: Art. 16 lit. a
