@@ -6255,17 +6255,28 @@ einheiten:
   beleg: '(1)   In den folgenden Fällen gelten Händler, Einführer, Betreiber oder sonstige Dritte als
     Anbieter eines Hochrisiko-KI-Systems für die Zwecke dieser Verordnung und unterliegen den Anbieterpflichten
     gemäß Artikel 16:'
-  adressat: null
-  pflicht: null
-  scope: null
+  adressat: betreiber
+  pflicht: Erfuellt der Haendler, Einfuehrer, Betreiber oder ein sonstiger Dritter einen der in lit. a-c
+    genannten Tatbestaende, gilt er als Anbieter des Hochrisiko-KI-Systems und unterliegt den Anbieterpflichten
+    nach Art. 16.
+  scope: in
   scope_grund: null
-  verifikation: null
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
-  befund: null
-  befund_grund: null
+  omnibus: unveraendert - VO (EU) 2026/1744 Art. 1 Nr. 12 aendert nur Art. 25 Abs. 2 lit. a und Abs. 4
+    UAbs. 1 lit. b; Abs. 1 (Chapeau und lit. a-c) ist in der Aenderungsliste nicht enthalten.
+  requirement: []
+  gate:
+  - G-OPS-06
+  befund: teilabdeckung
+  befund_grund: 'G-OPS-06/C-25a-c erkennt die drei Ausloeser aus lit. a-c (Rebranding, wesentliche Veraenderung,
+    Zweckaenderung) und haelt bei MUST-Verstoss die Pipeline an; das ist die im Chapeau vorausgesetzte
+    Statusfeststellung. Was der Chapeau als Folge anordnet - ''unterliegen den Anbieterpflichten gemaess
+    Artikel 16'' - prueft kein Gate: Kapitel III Abschnitt 2 (Art. 8-15) und die Konformitaetsbewertung
+    (Art. 43-49) fuer den nun-Anbieter-gewordenen Betreiber sind nach SPEC-06 Abschnitt 4 ausdruecklich
+    eine spaetere Ausbaustufe. Kein R0xx nennt Art. 25 als eu_ai_act_refs (Befund 1 aus SPEC-06 Abschnitt
+    1.2, hiermit am Wortlaut bestaetigt: G-OPS-06 haengt ohne Requirement in der Kette).'
+  po_bestaetigt: false
 - id: Art. 25 Abs. 1 lit. a
   artikel: '25'
   artikel_titel: Verantwortlichkeiten entlang der KI-Wertschöpfungskette
@@ -6277,17 +6288,23 @@ einheiten:
   beleg: a) wenn sie ein bereits in Verkehr gebrachtes oder in Betrieb genommenes Hochrisiko-KI-System
     mit ihrem Namen oder ihrer Handelsmarke versehen, unbeschadet vertraglicher Vereinbarungen, die eine
     andere Aufteilung der Pflichten vorsehen;
-  adressat: null
-  pflicht: null
-  scope: null
+  adressat: betreiber
+  pflicht: Versieht der Betreiber (oder Haendler/Einfuehrer/Dritter) ein bereits in Verkehr gebrachtes
+    Hochrisiko-KI-System mit eigenem Namen/eigener Marke, gilt er als Anbieter - unbeschadet abweichender
+    vertraglicher Pflichtenverteilung.
+  scope: in
   scope_grund: null
-  verifikation: null
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
-  befund: null
-  befund_grund: null
+  omnibus: unveraendert (s. Art. 25 Abs. 1).
+  requirement: []
+  gate:
+  - G-OPS-06
+  befund: gedeckt
+  befund_grund: G-OPS-06/C-25a bildet exakt diesen Tatbestand ab (severity MUST, implemented) - 'eigener
+    Name oder eigene Marke auf einem bereits in Verkehr gebrachten Hochrisiko-System'. Wortlaut und Check-Beschreibung
+    decken sich woertlich. Requirement fehlt weiterhin (Befund 1).
+  po_bestaetigt: false
 - id: Art. 25 Abs. 1 lit. b
   artikel: '25'
   artikel_titel: Verantwortlichkeiten entlang der KI-Wertschöpfungskette
@@ -6299,17 +6316,25 @@ einheiten:
   beleg: b) wenn sie eine wesentliche Veränderung eines Hochrisiko-KI-Systems, das bereits in Verkehr
     gebracht oder in Betrieb genommen wurde, so vornehmen, dass es weiterhin ein Hochrisiko-KI-System
     gemäß Artikel 6 bleibt;
-  adressat: null
-  pflicht: null
-  scope: null
+  adressat: betreiber
+  pflicht: Nimmt der Betreiber (oder Haendler/Einfuehrer/Dritter) an einem bereits in Verkehr gebrachten
+    Hochrisiko-KI-System eine wesentliche Veraenderung vor, die es gemaess Art. 6 als Hochrisiko-System
+    bestehen laesst, gilt er als Anbieter.
+  scope: in
   scope_grund: null
-  verifikation: null
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
-  befund: null
-  befund_grund: null
+  omnibus: unveraendert (s. Art. 25 Abs. 1).
+  requirement: []
+  gate:
+  - G-OPS-06
+  befund: teilabdeckung
+  befund_grund: G-OPS-06/C-25b bildet den Tatbestand ab, aber als SHOULD/advisory (nicht MUST) - laut
+    Gate-eigener Notiz, weil die Schwellenwerte fuer 'wesentliche Veraenderung' (Art. 3 Nr. 23, konkretisiert
+    ueber Art. 97-Durchfuehrungsrechtsakte) fehlen. Ob Art. 97 diese Schwellenwerte tatsaechlich vorsieht,
+    ist in diesem Lauf nicht geprueft (Art. 97 ist nicht Teil von Lauf 2, s. Bericht). Requirement fehlt
+    (Befund 1).
+  po_bestaetigt: false
 - id: Art. 25 Abs. 1 lit. c
   artikel: '25'
   artikel_titel: Verantwortlichkeiten entlang der KI-Wertschöpfungskette
@@ -6322,17 +6347,23 @@ einheiten:
     Verwendungszweck, das nicht als hochriskant eingestuft wurde und bereits in Verkehr gebracht oder
     in Betrieb genommen wurde, so verändern, dass das betreffende KI-System zu einem Hochrisiko-KI-System
     im Sinne von Artikel 6 wird.
-  adressat: null
-  pflicht: null
-  scope: null
+  adressat: betreiber
+  pflicht: Veraendert der Betreiber (oder Haendler/Einfuehrer/Dritter) die Zweckbestimmung eines nicht
+    als hochriskant eingestuften KI-Systems so, dass es zu einem Hochrisiko-KI-System nach Art. 6 wird,
+    gilt er als Anbieter.
+  scope: in
   scope_grund: null
-  verifikation: null
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
-  befund: null
-  befund_grund: null
+  omnibus: unveraendert (s. Art. 25 Abs. 1).
+  requirement: []
+  gate:
+  - G-OPS-06
+  befund: gedeckt
+  befund_grund: G-OPS-06/C-25c bildet den Tatbestand als MUST ab und wertet dafuer die classification-Regel
+    aus G-PRE-01/SPEC-02 vor und nach der Zweckaenderung aus - keine blosse Selbstauskunft, sondern eine
+    abgeleitete Pruefung. Requirement fehlt weiterhin (Befund 1).
+  po_bestaetigt: false
 - id: Art. 25 Abs. 2
   artikel: '25'
   artikel_titel: Verantwortlichkeiten entlang der KI-Wertschöpfungskette
@@ -6350,17 +6381,33 @@ einheiten:
     sind. Dieser Absatz gilt nicht in Fällen, in denen der Erstanbieter eindeutig festgelegt hat, dass
     sein KI-System nicht in ein Hochrisiko-KI-System umgewandelt werden darf und daher nicht der Pflicht
     zur Übergabe der Dokumentation unterliegt.
-  adressat: null
-  pflicht: null
-  scope: null
+  adressat: betreiber
+  pflicht: Wird der Betreiber durch lit. a-c zum neuen Anbieter, muss der urspruengliche Anbieter (Erstanbieter)
+    mit ihm kooperieren, Informationen, technischen Zugang und Unterstuetzung fuer die Konformitaetsbewertung
+    bereitstellen - ausser der Erstanbieter hat den Uebergang zum Hochrisiko-System ausdruecklich ausgeschlossen.
+  scope: in
   scope_grund: null
-  verifikation: null
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
-  befund: null
-  befund_grund: null
+  omnibus: 'GEAENDERT durch VO (EU) 2026/1744 Art. 1 Nr. 12 lit. a: UAbs. 2 zaehlt die Kooperationspflicht
+    seit der Aenderung explizit in drei Elemente auf - a) Bereitstellung technischer Unterlagen fuer die
+    Art.-16-Bewertung, b) Unterrichtung ueber bekannte Einschraenkungen/Fehlerarten, c) gezielter technischer
+    Zugang auch zu Test-/Validierungszwecken (vorher nur allgemein ''Informationen... technischer Zugang...
+    Unterstuetzung''). Der Carve-out-Satz wird zugleich erweitert: er befreit nun ausdruecklich von der
+    Pflicht zur Zusammenarbeit MIT NEUEN ANBIETERN UND zur Uebergabe der Dokumentation (vorher nur von
+    der Uebergabepflicht allein). Beide Fassungen sind inhaltlich in dieselbe Richtung, die neue ist praeziser
+    und breiter im Carve-out.'
+  requirement: []
+  gate:
+  - G-OPS-06
+  befund: teilabdeckung
+  befund_grund: 'G-OPS-06/C-25d prueft, ob nach einem bindenden Ausloeser (C-25a/C-25c) die Uebergabeartefakte
+    vorliegen bzw. der Carve-out belegt ist (MUST, implemented) - das deckt die praktische Nachweisseite
+    dieser Pflicht fuer den Betreiber-als-neuen-Anbieter. Nicht gedeckt: der trigger ''notify'' (Anstossen
+    der eigentlichen Kooperation/Uebergabe beim Erstanbieter) ist laut Gate-eigener Deklaration ''declared_only'',
+    nicht durchgesetzt - das Gate stellt das Fehlen fest, loest die Kooperation aber nicht aus. Requirement
+    fehlt (Befund 1).'
+  po_bestaetigt: false
 - id: Art. 25 Abs. 3
   artikel: '25'
   artikel_titel: Verantwortlichkeiten entlang der KI-Wertschöpfungskette
@@ -6373,17 +6420,24 @@ einheiten:
     handelt, die unter die in Anhang I Abschnitt A aufgeführten Harmonisierungsrechtsvorschriften der
     Union fallen, gilt der Produkthersteller als Anbieter des Hochrisiko-KI-Systems und unterliegt in
     den beiden nachfolgenden Fällen den Pflichten nach Artikel 16:'
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Ist das Hochrisiko-KI-System Sicherheitsbauteil eines Produkts unter die Harmonisierungsvorschriften
+    des Anhang I Abschnitt A, gilt der Produkthersteller als Anbieter und unterliegt den Pflichten nach
+    Art. 16, wenn eine der Konstellationen aus lit. a/b vorliegt.
+  scope: out
+  scope_grund: Anbieterpflicht (Produkthersteller-Fiktion), kein Betreiber-Adressat im Wortlaut. Zusaetzlich
+    Anhang-I-Abschnitt-A-Produktregime (u.a. Maschinen-VO 2023/1230, Medizinprodukte) - nicht der Anhang-III-Nr.-2-Fall
+    (kritische Infrastruktur/Stromversorgung) dieses Adressaten (HANDBUCH 4.4). Die volle Anbieterpflichtenkette
+    nach einem Rollenwechsel ist laut SPEC-06 Abschnitt 4 zudem ausdruecklich eine spaetere Ausbaustufe.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert (Art. 25 Abs. 3 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht
+    enthalten - Nr. 12 aendert nur Abs. 2 lit. a und Abs. 4 UAbs. 1).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 25 Abs. 3 lit. a
   artikel: '25'
   artikel_titel: Verantwortlichkeiten entlang der KI-Wertschöpfungskette
@@ -6394,17 +6448,19 @@ einheiten:
   saetze: 1
   beleg: a) Das Hochrisiko-KI-System wird zusammen mit dem Produkt unter dem Namen oder der Handelsmarke
     des Produktherstellers in Verkehr gebracht;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: 'Erste Konstellation aus Abs. 3: Das Hochrisiko-KI-System wird zusammen mit dem Produkt unter
+    Name/Marke des Produktherstellers in Verkehr gebracht.'
+  scope: out
+  scope_grund: Wie Art. 25 Abs. 3 (dort ausfuehrliche Begruendung).
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert (s. Art. 25 Abs. 3).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 25 Abs. 3 lit. b
   artikel: '25'
   artikel_titel: Verantwortlichkeiten entlang der KI-Wertschöpfungskette
@@ -6415,17 +6471,19 @@ einheiten:
   saetze: 1
   beleg: b) das Hochrisiko-KI-System wird unter dem Namen oder der Handelsmarke des Produktherstellers
     in Betrieb genommen, nachdem das Produkt in Verkehr gebracht wurde.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: 'Zweite Konstellation aus Abs. 3: Das Hochrisiko-KI-System wird unter Name/Marke des Produktherstellers
+    in Betrieb genommen, nachdem das Produkt bereits in Verkehr gebracht wurde.'
+  scope: out
+  scope_grund: Wie Art. 25 Abs. 3 (dort ausfuehrliche Begruendung).
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert (s. Art. 25 Abs. 3).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 25 Abs. 4
   artikel: '25'
   artikel_titel: Verantwortlichkeiten entlang der KI-Wertschöpfungskette
@@ -6448,17 +6506,28 @@ einheiten:
     freiwilligen Musterbedingungen berücksichtigt das Büro für Künstliche Intelligenz mögliche vertragliche
     Anforderungen, die in bestimmten Sektoren oder Geschäftsfällen gelten. Die freiwilligen Musterbedingungen
     werden veröffentlicht und sind kostenlos in einem leicht nutzbaren elektronischen Format verfügbar.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Der Anbieter eines Hochrisiko-KI-Systems und der Dritte, der darin verwendete/integrierte KI-Systeme,
+    Instrumente, Dienste, Komponenten oder Verfahren bereitstellt, legen die dafuer noetigen Informationen/Faehigkeiten/den
+    technischen Zugang/die Unterstuetzung in einer schriftlichen Vereinbarung fest; Ausnahme fuer freie/quelloffene
+    Nicht-GPAI-Komponenten. Das KI-Buero kann freiwillige Musterbedingungen ausarbeiten.
+  scope: out
+  scope_grund: Regelt das Verhaeltnis Anbieter/Dritter (Komponenten-/Werkzeuglieferant) im Chapter-III-Kontext,
+    keine im Wortlaut erkennbare Betreiberpflicht in der Zukauf-Regelkonstellation K1 (HANDBUCH 4.4).
+    Wuerde der Betreiber selbst zum Anbieter (Art. 25 Abs. 1), traefe ihn diese Norm erst in seiner neuen
+    Anbieterrolle - die volle Anbieterpflichtenkette nach einem Rollenwechsel ist laut SPEC-06 Abschnitt
+    4 ausdruecklich eine spaetere Ausbaustufe, hier nicht mitentschieden.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: 'GEAENDERT durch VO (EU) 2026/1744 Art. 1 Nr. 12 lit. b: UAbs. 1 ergaenzt in der Aufzaehlung
+    dessen, was der Dritte bereitstellen kann, ausdruecklich ''ein KI-Modell'' (vorher nur ''KI-System,
+    Instrumente, Dienste, Komponenten oder Verfahren''). Inhaltlich eine Klarstellung/Erweiterung auf
+    Modell-Lieferanten, sonst unveraendert.'
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 25 Abs. 5
   artikel: '25'
   artikel_titel: Verantwortlichkeiten entlang der KI-Wertschöpfungskette
@@ -6470,17 +6539,24 @@ einheiten:
   beleg: (5)   Die Absätze 2 und 3 berühren nicht die Notwendigkeit, Rechte des geistigen Eigentums, vertrauliche
     Geschäftsinformationen und Geschäftsgeheimnisse im Einklang mit dem Unionsrecht und dem nationalen
     Recht zu achten und zu schützen.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: Die Kooperations-/Uebergabepflichten aus Abs. 2 und 3 beruehren nicht die Pflicht, geistiges
+    Eigentum, vertrauliche Geschaeftsinformationen und Geschaeftsgeheimnisse nach Unions- und nationalem
+    Recht zu achten und zu schuetzen.
+  scope: out
+  scope_grund: 'Reine Wahrungs-/Verhaeltnisklausel zu Abs. 2/3 ohne eigene Handlungspflicht und ohne spezifischen
+    Adressaten; soweit sie Abs. 2 (Erstanbieter-Kooperationspflicht, dort scope: in) begrenzt, aendert
+    sie nichts an der fuer den Betreiber-als-neuen-Anbieter relevanten Nachweispflicht selbst, sondern
+    zieht nur eine Grenze fuer das, was der Erstanbieter offenlegen muss.'
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert (Art. 25 Abs. 5 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht
+    enthalten).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 26 Abs. 1
   artikel: '26'
   artikel_titel: Pflichten der Betreiber von Hochrisiko-KI-Systemen
