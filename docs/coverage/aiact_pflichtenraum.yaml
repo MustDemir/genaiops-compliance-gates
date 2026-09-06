@@ -11681,17 +11681,24 @@ einheiten:
   saetze: 1
   beleg: '(1)   Ein KI-Modell mit allgemeinem Verwendungszweck wird als KI-Modell mit allgemeinem Verwendungszweck
     mit systemischem Risiko eingestuft, wenn eine der folgenden Bedingungen erfüllt ist:'
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
-  hypothese_grund: null
-  omnibus: null
-  requirement: &id001 []
-  gate: &id002 []
+  adressat: behoerde
+  pflicht: Die Vorschrift legt fest, unter welchen Bedingungen ein KI-Modell mit allgemeinem Verwendungszweck
+    als Modell mit systemischem Risiko eingestuft wird.
+  scope: out
+  scope_grund: Die Regelung betrifft eine Handlungs- oder Aufsichtspflicht der Kommission, des Buero fuer
+    Kuenstliche Intelligenz, des KI-Gremiums oder der zustaendigen Behoerden und begruendet keine Pflicht
+    des Betreibers.
+  verifikation: HYPOTHESE
+  hypothese_grund: Der Wortlaut nennt keinen ausdruecklichen Adressaten fuer die Einstufungskriterien;
+    die Zuordnung zu 'behoerde' folgt aus dem Kontext der kommissionsseitigen Einstufungsentscheidung
+    nach Art. 51 f.
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 51 Abs. 1 lit. a
   artikel: '51'
   artikel_titel: Einstufung von KI-Modellen mit allgemeinem Verwendungszweck als KI-Modelle mit allgemeinem
@@ -11703,17 +11710,24 @@ einheiten:
   saetze: 1
   beleg: a) Es verfügt über Fähigkeiten mit hohem Wirkungsgrad, die mithilfe geeigneter technischer Instrumente
     und Methoden, einschließlich Indikatoren und Benchmarks, bewertet werden;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
-  hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  adressat: behoerde
+  pflicht: Ein KI-Modell gilt als Modell mit hohem Wirkungsgrad, wenn seine Faehigkeiten mittels geeigneter
+    technischer Instrumente, Indikatoren und Benchmarks bewertet werden.
+  scope: out
+  scope_grund: Die Regelung betrifft eine Handlungs- oder Aufsichtspflicht der Kommission, des Buero fuer
+    Kuenstliche Intelligenz, des KI-Gremiums oder der zustaendigen Behoerden und begruendet keine Pflicht
+    des Betreibers.
+  verifikation: HYPOTHESE
+  hypothese_grund: Der Wortlaut nennt keinen ausdruecklichen Adressaten fuer die Einstufungskriterien;
+    die Zuordnung zu 'behoerde' folgt aus dem Kontext der kommissionsseitigen Einstufungsentscheidung
+    nach Art. 51 f.
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 51 Abs. 1 lit. b
   artikel: '51'
   artikel_titel: Einstufung von KI-Modellen mit allgemeinem Verwendungszweck als KI-Modelle mit allgemeinem
@@ -11726,17 +11740,23 @@ einheiten:
   beleg: b) einem unter Berücksichtigung der in Anhang XIII festgelegten Kriterien von der Kommission
     von Amts wegen oder aufgrund einer qualifizierten Warnung des wissenschaftlichen Gremiums getroffenen
     Entscheidung zufolge verfügt es über Fähigkeiten oder eine Wirkung, die denen gemäß Buchstabe a entsprechen.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Die Kommission kann ein KI-Modell aufgrund einer Entscheidung von Amts wegen oder nach qualifizierter
+    Warnung des wissenschaftlichen Gremiums als Modell mit vergleichbaren Faehigkeiten oder Wirkungen
+    einstufen.
+  scope: out
+  scope_grund: Die Regelung betrifft eine Handlungs- oder Aufsichtspflicht der Kommission, des Buero fuer
+    Kuenstliche Intelligenz, des KI-Gremiums oder der zustaendigen Behoerden und begruendet keine Pflicht
+    des Betreibers.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 51 Abs. 2
   artikel: '51'
   artikel_titel: Einstufung von KI-Modellen mit allgemeinem Verwendungszweck als KI-Modelle mit allgemeinem
@@ -11749,17 +11769,24 @@ einheiten:
   beleg: (2)   Bei einem KI-Modell mit allgemeinem Verwendungszweck wird angenommen, dass es über Fähigkeiten
     mit hohem Wirkungsgrad gemäß Absatz 1 Buchstabe a verfügt, wenn die kumulierte Menge der für sein
     Training verwendeten Berechnungen, gemessen in Gleitkommaoperationen, mehr als 1025 beträgt.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
-  hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  adressat: behoerde
+  pflicht: Bei einem Trainingsaufwand von mehr als 10^25 Gleitkommaoperationen wird vermutet, dass ein
+    KI-Modell ueber Faehigkeiten mit hohem Wirkungsgrad verfuegt.
+  scope: out
+  scope_grund: Die Regelung betrifft eine Handlungs- oder Aufsichtspflicht der Kommission, des Buero fuer
+    Kuenstliche Intelligenz, des KI-Gremiums oder der zustaendigen Behoerden und begruendet keine Pflicht
+    des Betreibers.
+  verifikation: HYPOTHESE
+  hypothese_grund: Der Wortlaut nennt keinen ausdruecklichen Adressaten fuer die Einstufungskriterien;
+    die Zuordnung zu 'behoerde' folgt aus dem Kontext der kommissionsseitigen Einstufungsentscheidung
+    nach Art. 51 f.
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 51 Abs. 3
   artikel: '51'
   artikel_titel: Einstufung von KI-Modellen mit allgemeinem Verwendungszweck als KI-Modelle mit allgemeinem
@@ -11774,17 +11801,22 @@ einheiten:
     Indikatoren vor dem Hintergrund sich wandelnder technologischer Entwicklungen, wie z. B. algorithmische
     Verbesserungen oder erhöhte Hardwareeffizienz, wenn dies erforderlich ist, damit diese Schwellenwerte
     dem Stand der Technik entsprechen.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Die Kommission kann per delegiertem Rechtsakt die Schwellenwerte sowie Benchmarks und Indikatoren
+    fuer die Einstufung an den Stand der Technik anpassen.
+  scope: out
+  scope_grund: Die Regelung betrifft eine Handlungs- oder Aufsichtspflicht der Kommission, des Buero fuer
+    Kuenstliche Intelligenz, des KI-Gremiums oder der zustaendigen Behoerden und begruendet keine Pflicht
+    des Betreibers.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 52 Abs. 1
   artikel: '52'
   artikel_titel: Verfahren
@@ -11800,17 +11832,21 @@ einheiten:
     dass die betreffende Bedingung erfüllt ist. Erlangt die Kommission Kenntnis von einem KI-Modell mit
     allgemeinem Verwendungszweck, das systemische Risiken birgt, die ihr nicht mitgeteilt wurden, so kann
     sie entscheiden, es als Modell mit systemischen Risiken auszuweisen.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Erfuellt ein KI-Modell die Bedingung fuer hohen Wirkungsgrad, muss der betreffende Anbieter
+    dies der Kommission binnen zwei Wochen mitteilen und die erforderlichen Nachweise liefern.
+  scope: out
+  scope_grund: Die Pflicht richtet sich an den Anbieter bzw. kuenftigen Anbieter des KI-Modells oder KI-Systems
+    und nicht an den Betreiber im Sinne der Verordnung.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 52 Abs. 2
   artikel: '52'
   artikel_titel: Verfahren
@@ -11825,17 +11861,21 @@ einheiten:
     Bedingung erfüllt, aufgrund seiner besonderen Merkmale außerordentlicherweise keine systemischen Risiken
     birgt und daher nicht als KI-Modell mit allgemeinem Verwendungszweck mit systemischem Risiko eingestuft
     werden sollte.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Der Anbieter kann in seiner Mitteilung hinreichend begruendete Argumente vorbringen, warum
+    sein Modell trotz Erfuellung der Bedingung ausnahmsweise kein systemisches Risiko birgt.
+  scope: out
+  scope_grund: Die Pflicht richtet sich an den Anbieter bzw. kuenftigen Anbieter des KI-Modells oder KI-Systems
+    und nicht an den Betreiber im Sinne der Verordnung.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 52 Abs. 3
   artikel: '52'
   artikel_titel: Verfahren
@@ -11849,17 +11889,22 @@ einheiten:
     mit allgemeinem Verwendungszweck aufgrund seiner besonderen Merkmale keine systemischen Risiken aufweist,
     weist sie diese Argumente zurück, und das KI-Modell mit allgemeinem Verwendungszweck gilt als KI-Modell
     mit allgemeiner Zweckbestimmung mit systemischem Risiko.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Haelt die Kommission die vorgebrachten Argumente des Anbieters fuer nicht hinreichend begruendet,
+    weist sie diese zurueck und das Modell gilt als Modell mit systemischem Risiko.
+  scope: out
+  scope_grund: Die Regelung betrifft eine Handlungs- oder Aufsichtspflicht der Kommission, des Buero fuer
+    Kuenstliche Intelligenz, des KI-Gremiums oder der zustaendigen Behoerden und begruendet keine Pflicht
+    des Betreibers.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 52 Abs. 4
   artikel: '52'
   artikel_titel: Verfahren
@@ -11874,17 +11919,23 @@ einheiten:
     ausweisen. Die Kommission ist befugt, gemäß Artikel 97 delegierte Rechtsakte zu erlassen, um Anhang
     XIII zu ändern, indem die in dem genannten Anhang genannten Indikatoren präzisiert und aktualisiert
     werden.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Die Kommission kann ein KI-Modell von Amts wegen oder aufgrund einer qualifizierten Warnung
+    als Modell mit systemischem Risiko ausweisen und ist befugt, Anhang XIII per delegiertem Rechtsakt
+    zu aendern.
+  scope: out
+  scope_grund: Die Regelung betrifft eine Handlungs- oder Aufsichtspflicht der Kommission, des Buero fuer
+    Kuenstliche Intelligenz, des KI-Gremiums oder der zustaendigen Behoerden und begruendet keine Pflicht
+    des Betreibers.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 52 Abs. 5
   artikel: '52'
   artikel_titel: Verfahren
@@ -11903,17 +11954,21 @@ einheiten:
     nach ihrer Neubewertung, die Ausweisung als KI-Modell mit allgemeiner Zweckbestimmung mit systemischem
     Risiko beizubehalten, können die Anbieter frühestens sechs Monate nach dieser Entscheidung eine Neubewertung
     beantragen.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Auf begruendeten Antrag des betroffenen Anbieters prueft die Kommission fruehestens sechs Monate
+    nach der Ausweisung erneut, ob das Modell weiterhin systemische Risiken aufweist.
+  scope: out
+  scope_grund: Die Pflicht richtet sich an den Anbieter bzw. kuenftigen Anbieter des KI-Modells oder KI-Systems
+    und nicht an den Betreiber im Sinne der Verordnung.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 52 Abs. 6
   artikel: '52'
   artikel_titel: Verfahren
@@ -11927,17 +11982,22 @@ einheiten:
     des geistigen Eigentums und vertrauliche Geschäftsinformationen oder Geschäftsgeheimnisse im Einklang
     mit dem Unionsrecht und dem nationalen Recht zu achten und zu schützen, auf dem neuesten Stand. ABSCHNITT
     2 Pflichten für Anbieter von KI-Modellen mit allgemeinem Verwendungszweck
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Die Kommission stellt sicher, dass eine aktuelle Liste der KI-Modelle mit systemischem Risiko
+    veroeffentlicht wird, unter Wahrung von Geschaeftsgeheimnissen.
+  scope: out
+  scope_grund: Die Regelung betrifft eine Handlungs- oder Aufsichtspflicht der Kommission, des Buero fuer
+    Kuenstliche Intelligenz, des KI-Gremiums oder der zustaendigen Behoerden und begruendet keine Pflicht
+    des Betreibers.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 53 Abs. 1
   artikel: '53'
   artikel_titel: Pflichten für Anbieter von KI-Modellen mit allgemeinem Verwendungszweck
@@ -11947,17 +12007,21 @@ einheiten:
   laenge: 65
   saetze: 1
   beleg: (1)   Anbieter von KI-Modellen mit allgemeinem Verwendungszweck
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Anbieter von KI-Modellen mit allgemeinem Verwendungszweck unterliegen den nachfolgend aufgefuehrten
+    Pflichten.
+  scope: out
+  scope_grund: Die Pflicht richtet sich an den Anbieter bzw. kuenftigen Anbieter des KI-Modells oder KI-Systems
+    und nicht an den Betreiber im Sinne der Verordnung.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 53 Abs. 1 lit. a
   artikel: '53'
   artikel_titel: Pflichten für Anbieter von KI-Modellen mit allgemeinem Verwendungszweck
@@ -11970,17 +12034,22 @@ einheiten:
     Trainings- und Testverfahrens und der Ergebnisse seiner Bewertung, die mindestens die in Anhang XI
     aufgeführten Informationen enthält, damit sie dem Büro für Künstliche Intelligenz und den zuständigen
     nationalen Behörden auf Anfrage zur Verfügung gestellt werden kann;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Der Anbieter muss die technische Dokumentation des Modells einschliesslich Trainings- und Testverfahren
+    erstellen und aktualisieren, damit sie dem Buero fuer Kuenstliche Intelligenz und den zustaendigen
+    Behoerden zur Verfuegung gestellt werden kann.
+  scope: out
+  scope_grund: Die Pflicht richtet sich an den Anbieter bzw. kuenftigen Anbieter des KI-Modells oder KI-Systems
+    und nicht an den Betreiber im Sinne der Verordnung.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 53 Abs. 1 lit. b
   artikel: '53'
   artikel_titel: Pflichten für Anbieter von KI-Modellen mit allgemeinem Verwendungszweck
@@ -11994,17 +12063,21 @@ einheiten:
     ihre KI-Systeme zu integrieren. Unbeschadet der Notwendigkeit, die Rechte des geistigen Eigentums
     und vertrauliche Geschäftsinformationen oder Geschäftsgeheimnisse im Einklang mit dem Unionsrecht
     und dem nationalen Recht zu achten und zu schützen, müssen die Informationen und die Dokumentation
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Der Anbieter muss Informationen und Dokumentation fuer nachgelagerte KI-System-Anbieter erstellen
+    und bereitstellen, unter Wahrung von Rechten des geistigen Eigentums und Geschaeftsgeheimnissen.
+  scope: out
+  scope_grund: Die Pflicht richtet sich an den Anbieter bzw. kuenftigen Anbieter des KI-Modells oder KI-Systems
+    und nicht an den Betreiber im Sinne der Verordnung.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 53 Abs. 1 lit. i
   artikel: '53'
   artikel_titel: Pflichten für Anbieter von KI-Modellen mit allgemeinem Verwendungszweck
@@ -12016,17 +12089,22 @@ einheiten:
   beleg: i) die Anbieter von KI-Systemen in die Lage versetzen, die Fähigkeiten und Grenzen des KI-Modells
     mit allgemeinem Verwendungszweck gut zu verstehen und ihren Pflichten gemäß dieser Verordnung nachzukommen,
     und ii) zumindest die in Anhang XII genannten Elemente enthalten;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Diese Informationen muessen es den KI-System-Anbietern ermoeglichen, Faehigkeiten und Grenzen
+    des Modells zu verstehen und ihre eigenen Pflichten zu erfuellen, und mindestens die in Anhang XII
+    genannten Elemente enthalten.
+  scope: out
+  scope_grund: Die Pflicht richtet sich an den Anbieter bzw. kuenftigen Anbieter des KI-Modells oder KI-Systems
+    und nicht an den Betreiber im Sinne der Verordnung.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 53 Abs. 1 lit. c
   artikel: '53'
   artikel_titel: Pflichten für Anbieter von KI-Modellen mit allgemeinem Verwendungszweck
@@ -12038,17 +12116,21 @@ einheiten:
   beleg: c) bringen eine Strategie zur Einhaltung des Urheberrechts der Union und damit zusammenhängender
     Rechte und insbesondere zur Ermittlung und Einhaltung eines gemäß Artikel 4 Absatz 3 der Richtlinie
     (EU) 2019/790 geltend gemachten Rechtsvorbehalts, auch durch modernste Technologien, auf den Weg;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Der Anbieter muss eine Strategie zur Einhaltung des Unionsurheberrechts verfolgen, insbesondere
+    zur Ermittlung und Beachtung von Rechtsvorbehalten.
+  scope: out
+  scope_grund: Die Pflicht richtet sich an den Anbieter bzw. kuenftigen Anbieter des KI-Modells oder KI-Systems
+    und nicht an den Betreiber im Sinne der Verordnung.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 53 Abs. 1 lit. d
   artikel: '53'
   artikel_titel: Pflichten für Anbieter von KI-Modellen mit allgemeinem Verwendungszweck
@@ -12060,17 +12142,21 @@ einheiten:
   beleg: d) erstellen und veröffentlichen eine hinreichend detaillierte Zusammenfassung der für das Training
     des KI-Modells mit allgemeinem Verwendungszweck verwendeten Inhalte nach einer vom Büro für Künstliche
     Intelligenz bereitgestellten Vorlage.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Der Anbieter muss eine hinreichend detaillierte Zusammenfassung der fuer das Training verwendeten
+    Inhalte nach einer Vorlage des Buero fuer Kuenstliche Intelligenz erstellen und veroeffentlichen.
+  scope: out
+  scope_grund: Die Pflicht richtet sich an den Anbieter bzw. kuenftigen Anbieter des KI-Modells oder KI-Systems
+    und nicht an den Betreiber im Sinne der Verordnung.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 53 Abs. 2
   artikel: '53'
   artikel_titel: Pflichten für Anbieter von KI-Modellen mit allgemeinem Verwendungszweck
@@ -12085,17 +12171,21 @@ einheiten:
     Informationen über die Modellarchitektur und Informationen über die Modellnutzung, öffentlich zugänglich
     gemacht werden. Diese Ausnahme gilt nicht für KI-Modellen mit allgemeinem Verwendungszweck mit systemischen
     Risiken.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Die Pflichten zu technischer Dokumentation und Information nachgelagerter Anbieter gelten nicht
+    fuer Anbieter frei und quelloffen lizenzierter Modelle, ausser bei systemischem Risiko.
+  scope: out
+  scope_grund: Die Pflicht richtet sich an den Anbieter bzw. kuenftigen Anbieter des KI-Modells oder KI-Systems
+    und nicht an den Betreiber im Sinne der Verordnung.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 53 Abs. 3
   artikel: '53'
   artikel_titel: Pflichten für Anbieter von KI-Modellen mit allgemeinem Verwendungszweck
@@ -12107,17 +12197,21 @@ einheiten:
   beleg: (3)   Anbieter von KI-Modellen mit allgemeinem Verwendungszweck arbeiten bei der Ausübung ihrer
     Zuständigkeiten und Befugnisse gemäß dieser Verordnung erforderlichenfalls mit der Kommission und
     den zuständigen nationalen Behörden zusammen.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Anbieter von KI-Modellen mit allgemeinem Verwendungszweck muessen bei Bedarf mit der Kommission
+    und den zustaendigen nationalen Behoerden zusammenarbeiten.
+  scope: out
+  scope_grund: Die Pflicht richtet sich an den Anbieter bzw. kuenftigen Anbieter des KI-Modells oder KI-Systems
+    und nicht an den Betreiber im Sinne der Verordnung.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 53 Abs. 4
   artikel: '53'
   artikel_titel: Pflichten für Anbieter von KI-Modellen mit allgemeinem Verwendungszweck
@@ -12133,17 +12227,22 @@ einheiten:
     diese Verpflichtungen abdecken. Anbieter von KI-Modellen mit allgemeinem Verwendungszweck, die keinen
     genehmigten Praxisleitfaden befolgen oder eine harmonisierte europäische Norm nicht einhalten, müssen
     geeignete alternative Verfahren der Einhaltung aufzeigen, die von der Kommission zu bewerten sind.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Bis zur Veroeffentlichung harmonisierter Normen koennen sich Anbieter zum Nachweis der Pflichterfuellung
+    auf Praxisleitfaeden stuetzen oder muessen andernfalls alternative, von der Kommission zu bewertende
+    Verfahren aufzeigen.
+  scope: out
+  scope_grund: Die Pflicht richtet sich an den Anbieter bzw. kuenftigen Anbieter des KI-Modells oder KI-Systems
+    und nicht an den Betreiber im Sinne der Verordnung.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 53 Abs. 5
   artikel: '53'
   artikel_titel: Pflichten für Anbieter von KI-Modellen mit allgemeinem Verwendungszweck
@@ -12155,17 +12254,22 @@ einheiten:
   beleg: (5)   Um die Einhaltung von Anhang XI, insbesondere Nummer 2 Buchstaben d und e, zu erleichtern,
     ist die Kommission befugt, gemäß Artikel 97 delegierte Rechtsakte zu erlassen, um die Mess- und Berechnungsmethoden
     im Einzelnen festzulegen, damit eine vergleichbare und überprüfbare Dokumentation ermöglicht wird.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Die Kommission ist befugt, per delegiertem Rechtsakt Mess- und Berechnungsmethoden fuer Anhang
+    XI festzulegen, um vergleichbare Dokumentation zu ermoeglichen.
+  scope: out
+  scope_grund: Die Regelung betrifft eine Handlungs- oder Aufsichtspflicht der Kommission, des Buero fuer
+    Kuenstliche Intelligenz, des KI-Gremiums oder der zustaendigen Behoerden und begruendet keine Pflicht
+    des Betreibers.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 53 Abs. 6
   artikel: '53'
   artikel_titel: Pflichten für Anbieter von KI-Modellen mit allgemeinem Verwendungszweck
@@ -12176,17 +12280,22 @@ einheiten:
   saetze: 1
   beleg: (6)   Die Kommission ist befugt, gemäß Artikel 97 Absatz 2 delegierte Rechtsakte zu erlassen,
     um die Anhänge XI und XII vor dem Hintergrund sich wandelnder technologischer Entwicklungen zu ändern.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Die Kommission ist befugt, die Anhaenge XI und XII per delegiertem Rechtsakt an den technischen
+    Fortschritt anzupassen.
+  scope: out
+  scope_grund: Die Regelung betrifft eine Handlungs- oder Aufsichtspflicht der Kommission, des Buero fuer
+    Kuenstliche Intelligenz, des KI-Gremiums oder der zustaendigen Behoerden und begruendet keine Pflicht
+    des Betreibers.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 53 Abs. 7
   artikel: '53'
   artikel_titel: Pflichten für Anbieter von KI-Modellen mit allgemeinem Verwendungszweck
@@ -12198,17 +12307,22 @@ einheiten:
   beleg: (7)   Jegliche Informationen oder Dokumentation, die gemäß diesem Artikel erlangt werden, einschließlich
     Geschäftsgeheimnisse, werden im Einklang mit den in Artikel 78 festgelegten Vertraulichkeitspflichten
     behandelt.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Nach diesem Artikel erlangte Informationen und Dokumentation, einschliesslich Geschaeftsgeheimnisse,
+    sind gemaess den Vertraulichkeitspflichten des Art. 78 zu behandeln.
+  scope: out
+  scope_grund: Die Regelung betrifft eine Handlungs- oder Aufsichtspflicht der Kommission, des Buero fuer
+    Kuenstliche Intelligenz, des KI-Gremiums oder der zustaendigen Behoerden und begruendet keine Pflicht
+    des Betreibers.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 54 Abs. 1
   artikel: '54'
   artikel_titel: Bevollmächtigte der Anbieter von KI-Modellen mit allgemeinem Verwendungszweck
@@ -12220,17 +12334,21 @@ einheiten:
   beleg: (1)   Anbieter, die in Drittländern niedergelassen sind, benennen vor dem Inverkehrbringen eines
     KI-Modells mit allgemeinem Verwendungszweck auf dem Unionsmarkt schriftlich einen in der Union niedergelassenen
     Bevollmächtigten.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Anbieter mit Sitz in Drittlaendern muessen vor Inverkehrbringen eines KI-Modells mit allgemeinem
+    Verwendungszweck schriftlich einen in der Union niedergelassenen Bevollmaechtigten benennen.
+  scope: out
+  scope_grund: Die Pflicht richtet sich an den Anbieter bzw. kuenftigen Anbieter des KI-Modells oder KI-Systems
+    und nicht an den Betreiber im Sinne der Verordnung.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 54 Abs. 2
   artikel: '54'
   artikel_titel: Bevollmächtigte der Anbieter von KI-Modellen mit allgemeinem Verwendungszweck
@@ -12241,17 +12359,20 @@ einheiten:
   saetze: 1
   beleg: (2)   Der Anbieter muss seinem Bevollmächtigten ermöglichen, die Aufgaben wahrzunehmen, die im
     vom Anbieter erhaltenen Auftrag festgelegt sind.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Der Anbieter muss seinem Bevollmaechtigten die im Auftrag festgelegte Aufgabenwahrnehmung ermoeglichen.
+  scope: out
+  scope_grund: Die Pflicht richtet sich an den Anbieter bzw. kuenftigen Anbieter des KI-Modells oder KI-Systems
+    und nicht an den Betreiber im Sinne der Verordnung.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 54 Abs. 3
   artikel: '54'
   artikel_titel: Bevollmächtigte der Anbieter von KI-Modellen mit allgemeinem Verwendungszweck
@@ -12264,17 +12385,23 @@ einheiten:
     festgelegt sind. Er stellt dem Büro für Künstliche Intelligenz auf Anfrage eine Kopie des Auftrags
     in einer der Amtssprachen der Institutionen der Union bereit. Für die Zwecke dieser Verordnung ermächtigt
     der Auftrag den Bevollmächtigten zumindest zur Wahrnehmung folgender Aufgaben:'
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
-  hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  adressat: sonstige
+  pflicht: Der Bevollmaechtigte nimmt die im Auftrag festgelegten Aufgaben wahr und stellt dem Buero fuer
+    Kuenstliche Intelligenz auf Anfrage eine Kopie des Auftrags bereit.
+  scope: out
+  scope_grund: Die Pflicht richtet sich an den vom Anbieter benannten Bevollmaechtigten und nicht an den
+    Betreiber im Sinne der Verordnung.
+  verifikation: HYPOTHESE
+  hypothese_grund: Der Bevollmaechtigte ist weder Anbieter noch Behoerde noch Betreiber im engeren Sinne;
+    die Einordnung als 'sonstige' ist eine eigene Kategorisierung, da die Vorgabe die Aufgabenwahrnehmung
+    des Bevollmaechtigten selbst betrifft.
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 54 Abs. 3 lit. a
   artikel: '54'
   artikel_titel: Bevollmächtigte der Anbieter von KI-Modellen mit allgemeinem Verwendungszweck
@@ -12285,17 +12412,23 @@ einheiten:
   saetze: 1
   beleg: a) Überprüfung, ob die technische Dokumentation gemäß Anhang XI erstellt wurde und alle Pflichten
     gemäß Artikel 53 und gegebenenfalls gemäß Artikel 55 vom Anbieter erfüllt wurden;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
-  hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  adressat: sonstige
+  pflicht: Der Bevollmaechtigte muss pruefen, ob die technische Dokumentation nach Anhang XI erstellt
+    und alle Pflichten nach Art. 53 und ggf. Art. 55 vom Anbieter erfuellt wurden.
+  scope: out
+  scope_grund: Die Pflicht richtet sich an den vom Anbieter benannten Bevollmaechtigten und nicht an den
+    Betreiber im Sinne der Verordnung.
+  verifikation: HYPOTHESE
+  hypothese_grund: Der Bevollmaechtigte ist weder Anbieter noch Behoerde noch Betreiber im engeren Sinne;
+    die Einordnung als 'sonstige' ist eine eigene Kategorisierung, da die Vorgabe die Aufgabenwahrnehmung
+    des Bevollmaechtigten selbst betrifft.
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 54 Abs. 3 lit. b
   artikel: '54'
   artikel_titel: Bevollmächtigte der Anbieter von KI-Modellen mit allgemeinem Verwendungszweck
@@ -12308,17 +12441,23 @@ einheiten:
     Intelligenz und die zuständigen nationalen Behörden für einen Zeitraum von zehn Jahren nach dem Inverkehrbringen
     des KI-Modells mit allgemeinem Verwendungszweck und der Kontaktdaten des Anbieters, der den Bevollmächtigten
     benannt hat;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
-  hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  adressat: sonstige
+  pflicht: Der Bevollmaechtigte muss die technische Dokumentation zehn Jahre lang fuer das Buero fuer
+    Kuenstliche Intelligenz und die zustaendigen nationalen Behoerden bereithalten.
+  scope: out
+  scope_grund: Die Pflicht richtet sich an den vom Anbieter benannten Bevollmaechtigten und nicht an den
+    Betreiber im Sinne der Verordnung.
+  verifikation: HYPOTHESE
+  hypothese_grund: Der Bevollmaechtigte ist weder Anbieter noch Behoerde noch Betreiber im engeren Sinne;
+    die Einordnung als 'sonstige' ist eine eigene Kategorisierung, da die Vorgabe die Aufgabenwahrnehmung
+    des Bevollmaechtigten selbst betrifft.
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 54 Abs. 3 lit. c
   artikel: '54'
   artikel_titel: Bevollmächtigte der Anbieter von KI-Modellen mit allgemeinem Verwendungszweck
@@ -12330,17 +12469,23 @@ einheiten:
   beleg: c) Bereitstellung sämtlicher zum Nachweis der Einhaltung der Pflichten gemäß diesem Kapitel erforderlichen
     Informationen und Dokumentation, einschließlich der unter Buchstabe b genannten Informationen und
     Dokumentation, an das Büro für Künstliche Intelligenz auf begründeten Antrag;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
-  hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  adressat: sonstige
+  pflicht: Der Bevollmaechtigte muss dem Buero fuer Kuenstliche Intelligenz auf begruendeten Antrag alle
+    zum Nachweis der Pflichterfuellung erforderlichen Informationen bereitstellen.
+  scope: out
+  scope_grund: Die Pflicht richtet sich an den vom Anbieter benannten Bevollmaechtigten und nicht an den
+    Betreiber im Sinne der Verordnung.
+  verifikation: HYPOTHESE
+  hypothese_grund: Der Bevollmaechtigte ist weder Anbieter noch Behoerde noch Betreiber im engeren Sinne;
+    die Einordnung als 'sonstige' ist eine eigene Kategorisierung, da die Vorgabe die Aufgabenwahrnehmung
+    des Bevollmaechtigten selbst betrifft.
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 54 Abs. 3 lit. d
   artikel: '54'
   artikel_titel: Bevollmächtigte der Anbieter von KI-Modellen mit allgemeinem Verwendungszweck
@@ -12353,17 +12498,23 @@ einheiten:
     Antrag bei allen Maßnahmen, die sie im Zusammenhang mit einem KI-Modell mit allgemeinem Verwendungszweck
     ergreifen, auch wenn das Modell in KI-Systeme integriert ist, die in der Union in Verkehr gebracht
     oder in Betrieb genommen werden.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
-  hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  adressat: sonstige
+  pflicht: Der Bevollmaechtigte muss mit dem Buero fuer Kuenstliche Intelligenz und den zustaendigen Behoerden
+    bei allen das Modell betreffenden Massnahmen zusammenarbeiten.
+  scope: out
+  scope_grund: Die Pflicht richtet sich an den vom Anbieter benannten Bevollmaechtigten und nicht an den
+    Betreiber im Sinne der Verordnung.
+  verifikation: HYPOTHESE
+  hypothese_grund: Der Bevollmaechtigte ist weder Anbieter noch Behoerde noch Betreiber im engeren Sinne;
+    die Einordnung als 'sonstige' ist eine eigene Kategorisierung, da die Vorgabe die Aufgabenwahrnehmung
+    des Bevollmaechtigten selbst betrifft.
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 54 Abs. 4
   artikel: '54'
   artikel_titel: Bevollmächtigte der Anbieter von KI-Modellen mit allgemeinem Verwendungszweck
@@ -12375,17 +12526,22 @@ einheiten:
   beleg: (4)   Mit dem Auftrag wird der Bevollmächtigte ermächtigt, neben oder anstelle des Anbieters
     als Ansprechpartner für das Büro für Künstliche Intelligenz oder die zuständigen Behörden in allen
     Fragen zu dienen, die die Gewährleistung der Einhaltung dieser Verordnung betreffen.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
-  hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  adressat: sonstige
+  pflicht: Der Auftrag ermaechtigt den Bevollmaechtigten, neben oder anstelle des Anbieters als Ansprechpartner
+    fuer das Buero fuer Kuenstliche Intelligenz oder die zustaendigen Behoerden zu fungieren.
+  scope: out
+  scope_grund: Die Pflicht richtet sich an den vom Anbieter benannten Bevollmaechtigten und nicht an den
+    Betreiber im Sinne der Verordnung.
+  verifikation: HYPOTHESE
+  hypothese_grund: Die Rolle des Bevollmaechtigten als Ansprechpartner ist keiner der Kategorien Anbieter/Behoerde/Betreiber
+    eindeutig zugeordnet; 'sonstige' folgt aus dem eigenstaendigen Charakter dieser Vertreterrolle.
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 54 Abs. 5
   artikel: '54'
   artikel_titel: Bevollmächtigte der Anbieter von KI-Modellen mit allgemeinem Verwendungszweck
@@ -12398,17 +12554,22 @@ einheiten:
     hat, dass der Anbieter gegen seine Pflichten gemäß dieser Verordnung verstößt. In einem solchen Fall
     informiert er auch das Büro für Künstliche Intelligenz unverzüglich über die Beendigung des Auftrags
     und die Gründe dafür.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
-  hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  adressat: sonstige
+  pflicht: Der Bevollmaechtigte muss den Auftrag beenden und das Buero fuer Kuenstliche Intelligenz unverzueglich
+    informieren, wenn er Grund zur Annahme hat, dass der Anbieter gegen seine Pflichten verstoesst.
+  scope: out
+  scope_grund: Die Pflicht richtet sich an den vom Anbieter benannten Bevollmaechtigten und nicht an den
+    Betreiber im Sinne der Verordnung.
+  verifikation: HYPOTHESE
+  hypothese_grund: Die Beendigungspflicht trifft den Bevollmaechtigten selbst; die Einordnung als 'sonstige'
+    beruht auf dessen eigenstaendiger Vertreterrolle, die im Schema nicht ausdruecklich vorgesehen ist.
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 54 Abs. 6
   artikel: '54'
   artikel_titel: Bevollmächtigte der Anbieter von KI-Modellen mit allgemeinem Verwendungszweck
@@ -12423,17 +12584,21 @@ einheiten:
     über die Modellarchitektur und Informationen über die Modellnutzung, öffentlich zugänglich gemacht
     werden, es sei denn, die KI-Modelle mit allgemeinem Verwendungszweck bergen systemische Risiken. ABSCHNITT
     3 Pflichten der Anbieter von KI-Modellen mit allgemeinem Verwendungszweck mit systemischem Risiko
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Die Pflicht zur Benennung eines Bevollmaechtigten gilt nicht fuer Anbieter frei und quelloffen
+    lizenzierter Modelle, ausser bei systemischem Risiko.
+  scope: out
+  scope_grund: Die Pflicht richtet sich an den Anbieter bzw. kuenftigen Anbieter des KI-Modells oder KI-Systems
+    und nicht an den Betreiber im Sinne der Verordnung.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 55 Abs. 1
   artikel: '55'
   artikel_titel: Pflichten der Anbieter von KI-Modellen mit allgemeinem Verwendungszweck mit systemischem
@@ -12445,17 +12610,21 @@ einheiten:
   saetze: 1
   beleg: (1)   Zusätzlich zu den in den Artikeln 53 und 54 aufgeführten Pflichten müssen Anbieter von
     KI-Modellen mit allgemeinem Verwendungszweck mit systemischem Risiko
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Zusaetzlich zu den Pflichten nach Art. 53 und 54 muessen Anbieter von KI-Modellen mit systemischem
+    Risiko weitere Pflichten erfuellen.
+  scope: out
+  scope_grund: Die Pflicht richtet sich an den Anbieter bzw. kuenftigen Anbieter des KI-Modells oder KI-Systems
+    und nicht an den Betreiber im Sinne der Verordnung.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 55 Abs. 1 lit. a
   artikel: '55'
   artikel_titel: Pflichten der Anbieter von KI-Modellen mit allgemeinem Verwendungszweck mit systemischem
@@ -12468,17 +12637,22 @@ einheiten:
   beleg: a) eine Modellbewertung mit standardisierten Protokollen und Instrumenten, die dem Stand der
     Technik entsprechen, durchführen, wozu auch die Durchführung und Dokumentation von Angriffstests beim
     Modell gehören, um systemische Risiken zu ermitteln und zu mindern,
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Der Anbieter muss eine Modellbewertung mit standardisierten, dem Stand der Technik entsprechenden
+    Protokollen durchfuehren, einschliesslich dokumentierter Angriffstests zur Ermittlung und Minderung
+    systemischer Risiken.
+  scope: out
+  scope_grund: Die Pflicht richtet sich an den Anbieter bzw. kuenftigen Anbieter des KI-Modells oder KI-Systems
+    und nicht an den Betreiber im Sinne der Verordnung.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 55 Abs. 1 lit. b
   artikel: '55'
   artikel_titel: Pflichten der Anbieter von KI-Modellen mit allgemeinem Verwendungszweck mit systemischem
@@ -12491,17 +12665,21 @@ einheiten:
   beleg: b) mögliche systemische Risiken auf Unionsebene — einschließlich ihrer Ursachen —, die sich aus
     der Entwicklung, dem Inverkehrbringen oder der Verwendung von KI-Modellen mit allgemeinem Verwendungszweck
     mit systemischem Risiko ergeben können, bewerten und mindern,
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Der Anbieter muss moegliche systemische Risiken auf Unionsebene einschliesslich ihrer Ursachen
+    bewerten und mindern.
+  scope: out
+  scope_grund: Die Pflicht richtet sich an den Anbieter bzw. kuenftigen Anbieter des KI-Modells oder KI-Systems
+    und nicht an den Betreiber im Sinne der Verordnung.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 55 Abs. 1 lit. c
   artikel: '55'
   artikel_titel: Pflichten der Anbieter von KI-Modellen mit allgemeinem Verwendungszweck mit systemischem
@@ -12514,17 +12692,22 @@ einheiten:
   beleg: c) einschlägige Informationen über schwerwiegende Vorfälle und mögliche Abhilfemaßnahmen erfassen
     und dokumentieren und das Büro für Künstliche Intelligenz und gegebenenfalls die zuständigen nationalen
     Behörden unverzüglich darüber unterrichten,
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Der Anbieter muss Informationen ueber schwerwiegende Vorfaelle und Abhilfemassnahmen erfassen,
+    dokumentieren und unverzueglich dem Buero fuer Kuenstliche Intelligenz sowie ggf. zustaendigen nationalen
+    Behoerden melden.
+  scope: out
+  scope_grund: Die Pflicht richtet sich an den Anbieter bzw. kuenftigen Anbieter des KI-Modells oder KI-Systems
+    und nicht an den Betreiber im Sinne der Verordnung.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 55 Abs. 1 lit. d
   artikel: '55'
   artikel_titel: Pflichten der Anbieter von KI-Modellen mit allgemeinem Verwendungszweck mit systemischem
@@ -12536,17 +12719,21 @@ einheiten:
   saetze: 1
   beleg: d) ein angemessenes Maß an Cybersicherheit für die KI-Modelle mit allgemeinem Verwendungszweck
     mit systemischem Risiko und die physische Infrastruktur des Modells gewährleisten.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Der Anbieter muss ein angemessenes Cybersicherheitsniveau fuer das Modell und dessen physische
+    Infrastruktur gewaehrleisten.
+  scope: out
+  scope_grund: Die Pflicht richtet sich an den Anbieter bzw. kuenftigen Anbieter des KI-Modells oder KI-Systems
+    und nicht an den Betreiber im Sinne der Verordnung.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 55 Abs. 2
   artikel: '55'
   artikel_titel: Pflichten der Anbieter von KI-Modellen mit allgemeinem Verwendungszweck mit systemischem
@@ -12564,17 +12751,22 @@ einheiten:
     mit systemischem Risiko, die einen genehmigten Praxisleitfaden nicht befolgen oder eine harmonisierte
     europäische Norm nicht einhalten, müssen geeignete alternative Verfahren der Einhaltung aufzeigen,
     die von der Kommission zu bewerten sind.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Bis zur Veroeffentlichung harmonisierter Normen koennen sich Anbieter von Modellen mit systemischem
+    Risiko auf Praxisleitfaeden stuetzen oder muessen alternative, von der Kommission zu bewertende Verfahren
+    nachweisen.
+  scope: out
+  scope_grund: Die Pflicht richtet sich an den Anbieter bzw. kuenftigen Anbieter des KI-Modells oder KI-Systems
+    und nicht an den Betreiber im Sinne der Verordnung.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 55 Abs. 3
   artikel: '55'
   artikel_titel: Pflichten der Anbieter von KI-Modellen mit allgemeinem Verwendungszweck mit systemischem
@@ -12586,17 +12778,22 @@ einheiten:
   saetze: 2
   beleg: (3)   Jegliche Informationen oder Dokumentation, die gemäß diesem Artikel erlangt werden, werden
     im Einklang mit den in Artikel 78 festgelegten Vertraulichkeitspflichten behandelt. ABSCHNITT 4 Praxisleitfäden
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Nach diesem Artikel erlangte Informationen sind gemaess den Vertraulichkeitspflichten des Art.
+    78 zu behandeln.
+  scope: out
+  scope_grund: Die Regelung betrifft eine Handlungs- oder Aufsichtspflicht der Kommission, des Buero fuer
+    Kuenstliche Intelligenz, des KI-Gremiums oder der zustaendigen Behoerden und begruendet keine Pflicht
+    des Betreibers.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 56 Abs. 1
   artikel: '56'
   artikel_titel: Praxisleitfäden
@@ -12608,17 +12805,22 @@ einheiten:
   beleg: (1)   Das Büro für Künstliche Intelligenz fördert und erleichtert die Ausarbeitung von Praxisleitfäden
     auf Unionsebene, um unter Berücksichtigung internationaler Ansätze zur ordnungsgemäßen Anwendung dieser
     Verordnung beizutragen.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Das Buero fuer Kuenstliche Intelligenz foerdert und erleichtert die Ausarbeitung von Praxisleitfaeden
+    auf Unionsebene.
+  scope: out
+  scope_grund: Die Regelung betrifft eine Handlungs- oder Aufsichtspflicht der Kommission, des Buero fuer
+    Kuenstliche Intelligenz, des KI-Gremiums oder der zustaendigen Behoerden und begruendet keine Pflicht
+    des Betreibers.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 56 Abs. 2
   artikel: '56'
   artikel_titel: Praxisleitfäden
@@ -12630,17 +12832,22 @@ einheiten:
   beleg: '(2)   Das Büro für Künstliche Intelligenz und das KI-Gremium streben an, sicherzustellen, dass
     die Praxisleitfäden mindestens die in den Artikeln 53 und 55 vorgesehenen Pflichten abdecken, einschließlich
     der folgenden Aspekte:'
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Das Buero fuer Kuenstliche Intelligenz und das KI-Gremium streben an, dass Praxisleitfaeden
+    mindestens die Pflichten nach Art. 53 und 55 abdecken.
+  scope: out
+  scope_grund: Die Regelung betrifft eine Handlungs- oder Aufsichtspflicht der Kommission, des Buero fuer
+    Kuenstliche Intelligenz, des KI-Gremiums oder der zustaendigen Behoerden und begruendet keine Pflicht
+    des Betreibers.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 56 Abs. 2 lit. a
   artikel: '56'
   artikel_titel: Praxisleitfäden
@@ -12652,17 +12859,22 @@ einheiten:
   beleg: a) Mittel, mit denen sichergestellt wird, dass die in Artikel 53 Absatz 1 Buchstaben a und b
     genannten Informationen vor dem Hintergrund der Marktentwicklungen und technologischen Entwicklungen
     auf dem neuesten Stand gehalten werden;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Die Praxisleitfaeden sollen Mittel vorsehen, mit denen Informationen nach Art. 53 Abs. 1 Buchst.
+    a und b vor dem Hintergrund technologischer Entwicklungen aktuell gehalten werden.
+  scope: out
+  scope_grund: Die Regelung betrifft eine Handlungs- oder Aufsichtspflicht der Kommission, des Buero fuer
+    Kuenstliche Intelligenz, des KI-Gremiums oder der zustaendigen Behoerden und begruendet keine Pflicht
+    des Betreibers.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 56 Abs. 2 lit. b
   artikel: '56'
   artikel_titel: Praxisleitfäden
@@ -12673,17 +12885,22 @@ einheiten:
   saetze: 1
   beleg: b) die angemessene Detailgenauigkeit bei der Zusammenfassung der für das Training verwendeten
     Inhalte;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Die Praxisleitfaeden sollen den angemessenen Detailgrad der Trainingsinhalts-Zusammenfassung
+    regeln.
+  scope: out
+  scope_grund: Die Regelung betrifft eine Handlungs- oder Aufsichtspflicht der Kommission, des Buero fuer
+    Kuenstliche Intelligenz, des KI-Gremiums oder der zustaendigen Behoerden und begruendet keine Pflicht
+    des Betreibers.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 56 Abs. 2 lit. c
   artikel: '56'
   artikel_titel: Praxisleitfäden
@@ -12694,17 +12911,22 @@ einheiten:
   saetze: 1
   beleg: c) die Ermittlung von Art und Wesen der systemischen Risiken auf Unionsebene, gegebenenfalls
     einschließlich ihrer Ursachen;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Die Praxisleitfaeden sollen Art und Wesen der systemischen Risiken auf Unionsebene einschliesslich
+    ihrer Ursachen bestimmen.
+  scope: out
+  scope_grund: Die Regelung betrifft eine Handlungs- oder Aufsichtspflicht der Kommission, des Buero fuer
+    Kuenstliche Intelligenz, des KI-Gremiums oder der zustaendigen Behoerden und begruendet keine Pflicht
+    des Betreibers.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 56 Abs. 2 lit. d
   artikel: '56'
   artikel_titel: Praxisleitfäden
@@ -12718,17 +12940,22 @@ einheiten:
     zu den Risiken stehen, ihrer Schwere und Wahrscheinlichkeit Rechnung tragen und die spezifischen Herausforderungen
     bei der Bewältigung dieser Risiken vor dem Hintergrund der möglichen Arten der Entstehung und des
     Eintretens solcher Risiken entlang der KI-Wertschöpfungskette berücksichtigen.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Die Praxisleitfaeden sollen risikoangemessene Massnahmen, Verfahren und Modalitaeten zum Management
+    systemischer Risiken entlang der KI-Wertschoepfungskette festlegen.
+  scope: out
+  scope_grund: Die Regelung betrifft eine Handlungs- oder Aufsichtspflicht der Kommission, des Buero fuer
+    Kuenstliche Intelligenz, des KI-Gremiums oder der zustaendigen Behoerden und begruendet keine Pflicht
+    des Betreibers.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 56 Abs. 3
   artikel: '56'
   artikel_titel: Praxisleitfäden
@@ -12742,17 +12969,23 @@ einheiten:
     von Praxisleitfäden zu beteiligen. Organisationen der Zivilgesellschaft, die Industrie, die Wissenschaft
     und andere einschlägige Interessenträger wie nachgelagerte Anbieter und unabhängige Sachverständige
     können den Prozess unterstützen.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Das Buero fuer Kuenstliche Intelligenz kann Anbieter von KI-Modellen mit allgemeinem Verwendungszweck
+    und zustaendige Behoerden zur Mitwirkung an Praxisleitfaeden auffordern; weitere Akteure koennen den
+    Prozess unterstuetzen.
+  scope: out
+  scope_grund: Die Regelung betrifft eine Handlungs- oder Aufsichtspflicht der Kommission, des Buero fuer
+    Kuenstliche Intelligenz, des KI-Gremiums oder der zustaendigen Behoerden und begruendet keine Pflicht
+    des Betreibers.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 56 Abs. 4
   artikel: '56'
   artikel_titel: Praxisleitfäden
@@ -12766,17 +12999,23 @@ einheiten:
     Maßnahmen, gegebenenfalls einschließlich wesentlicher Leistungsindikatoren, enthalten, um die Verwirklichung
     dieser Ziele gewährleisten, und dass sie den Bedürfnissen und Interessen aller interessierten Kreise,
     einschließlich betroffener Personen, auf Unionsebene gebührend Rechnung tragen.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Das Buero fuer Kuenstliche Intelligenz und das KI-Gremium streben an, dass Praxisleitfaeden
+    klare Ziele, Verpflichtungen und ggf. Leistungsindikatoren enthalten und die Interessen aller Beteiligten
+    beruecksichtigen.
+  scope: out
+  scope_grund: Die Regelung betrifft eine Handlungs- oder Aufsichtspflicht der Kommission, des Buero fuer
+    Kuenstliche Intelligenz, des KI-Gremiums oder der zustaendigen Behoerden und begruendet keine Pflicht
+    des Betreibers.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 56 Abs. 5
   artikel: '56'
   artikel_titel: Praxisleitfäden
@@ -12790,17 +13029,22 @@ einheiten:
     die ergriffenen Maßnahmen und deren Ergebnisse, die gegebenenfalls auch anhand der wesentlichen Leistungsindikatoren
     gemessen werden, Bericht erstatten. Bei den wesentlichen Leistungsindikatoren und den Berichtspflichten
     wird den Größen- und Kapazitätsunterschieden zwischen den verschiedenen Beteiligten Rechnung getragen.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Das Buero fuer Kuenstliche Intelligenz strebt an, dass Beteiligte regelmaessig ueber Umsetzung
+    und Ergebnisse der Praxisleitfaeden berichten.
+  scope: out
+  scope_grund: Die Regelung betrifft eine Handlungs- oder Aufsichtspflicht der Kommission, des Buero fuer
+    Kuenstliche Intelligenz, des KI-Gremiums oder der zustaendigen Behoerden und begruendet keine Pflicht
+    des Betreibers.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 56 Abs. 6
   artikel: '56'
   artikel_titel: Praxisleitfäden
@@ -12817,17 +13061,23 @@ einheiten:
     der Praxisleitfäden. Die Kommission kann im Wege eines Durchführungsrechtsakts einen Praxisleitfaden
     genehmigen und ihm in der Union allgemeine Gültigkeit verleihen. Dieser Durchführungsrechtsakt wird
     gemäß dem in Artikel 98 Absatz 2 genannten Prüfverfahren erlassen.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Buero fuer Kuenstliche Intelligenz und KI-Gremium ueberwachen und bewerten die Zielerreichung
+    der Praxisleitfaeden regelmaessig; die Kommission kann einen Praxisleitfaden per Durchfuehrungsrechtsakt
+    allgemeinguelitg erklaeren.
+  scope: out
+  scope_grund: Die Regelung betrifft eine Handlungs- oder Aufsichtspflicht der Kommission, des Buero fuer
+    Kuenstliche Intelligenz, des KI-Gremiums oder der zustaendigen Behoerden und begruendet keine Pflicht
+    des Betreibers.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 56 Abs. 7
   artikel: '56'
   artikel_titel: Praxisleitfäden
@@ -12841,17 +13091,23 @@ einheiten:
     Verwendungszweck, die keine systemischen Risiken bergen, kann diese Befolgung auf die in Artikel 53
     vorgesehenen Pflichten beschränkt werden, es sei denn, sie erklären ausdrücklich ihr Interesse, sich
     dem ganzen Kodex anzuschließen.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Das Buero fuer Kuenstliche Intelligenz kann alle Anbieter von KI-Modellen mit allgemeinem Verwendungszweck
+    ersuchen, die Praxisleitfaeden zu befolgen, wobei dies bei Modellen ohne systemisches Risiko auf die
+    Pflichten nach Art. 53 begrenzt werden kann.
+  scope: out
+  scope_grund: Die Regelung betrifft eine Handlungs- oder Aufsichtspflicht der Kommission, des Buero fuer
+    Kuenstliche Intelligenz, des KI-Gremiums oder der zustaendigen Behoerden und begruendet keine Pflicht
+    des Betreibers.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 56 Abs. 8
   artikel: '56'
   artikel_titel: Praxisleitfäden
@@ -12863,17 +13119,22 @@ einheiten:
   beleg: (8)   Das Büro für Künstliche Intelligenz fördert und erleichtert gegebenenfalls auch die Überprüfung
     und Anpassung der Praxisleitfäden, insbesondere vor dem Hintergrund neuer Normen. Das Büro für Künstliche
     Intelligenz unterstützt bei der Bewertung der verfügbaren Normen.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Das Buero fuer Kuenstliche Intelligenz foerdert die Ueberpruefung und Anpassung der Praxisleitfaeden,
+    insbesondere im Licht neuer Normen.
+  scope: out
+  scope_grund: Die Regelung betrifft eine Handlungs- oder Aufsichtspflicht der Kommission, des Buero fuer
+    Kuenstliche Intelligenz, des KI-Gremiums oder der zustaendigen Behoerden und begruendet keine Pflicht
+    des Betreibers.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 56 Abs. 9
   artikel: '56'
   artikel_titel: Praxisleitfäden
@@ -12890,17 +13151,23 @@ einheiten:
     für die Umsetzung der in den Artikeln 53 und 55 vorgesehenen Pflichten, einschließlich der in Absatz
     2 des vorliegenden Artikels genannten Aspekte, festlegen. Diese Durchführungsrechtsakte werden gemäß
     dem in Artikel 98 Absatz 2 genannten Prüfverfahren erlassen. KAPITEL VI MASSNAHMEN ZUR INNOVATIONSFÖRDERUNG
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Liegen bis zum 2. Mai 2025 keine Praxisleitfaeden vor bzw. sind sie bis zum 2. August 2025
+    nicht fertiggestellt, kann die Kommission per Durchfuehrungsrechtsakt gemeinsame Vorschriften zur
+    Umsetzung der Pflichten nach Art. 53 und 55 festlegen.
+  scope: out
+  scope_grund: Die Regelung betrifft eine Handlungs- oder Aufsichtspflicht der Kommission, des Buero fuer
+    Kuenstliche Intelligenz, des KI-Gremiums oder der zustaendigen Behoerden und begruendet keine Pflicht
+    des Betreibers.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 57 Abs. 1
   artikel: '57'
   artikel_titel: KI-Reallabore
@@ -12916,17 +13183,22 @@ einheiten:
     von KI-Reallaboren bereitstellen. Die Verpflichtung nach Unterabsatz 1 kann auch durch Beteiligung
     an einem bestehenden Reallabor erfüllt werden, sofern eine solche Beteiligung die nationale Abdeckung
     der teilnehmenden Mitgliedstaaten in gleichwertigem Maße gewährleistet.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Die Mitgliedstaaten muessen sicherstellen, dass ihre zustaendigen Behoerden bis zum 2. August
+    2026 mindestens ein nationales KI-Reallabor einrichten.
+  scope: out
+  scope_grund: Die Regelung betrifft eine Handlungs- oder Aufsichtspflicht der Kommission, des Buero fuer
+    Kuenstliche Intelligenz, des KI-Gremiums oder der zustaendigen Behoerden und begruendet keine Pflicht
+    des Betreibers.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 22 - Abs. 1 UAbs. 1 neu gefasst (Reallabor-Einrichtungsfrist
+    auf 2.8.2027 verschoben); geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf.
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 57 Abs. 2
   artikel: '57'
   artikel_titel: KI-Reallabore
@@ -12937,17 +13209,22 @@ einheiten:
   saetze: 1
   beleg: (2)   Es können auch zusätzliche KI-Reallabore auf regionaler oder lokaler Ebene oder gemeinsam
     mit den zuständigen Behörden anderer Mitgliedstaaten eingerichtet werden;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Zusaetzliche KI-Reallabore koennen auf regionaler oder lokaler Ebene oder gemeinsam mit anderen
+    Mitgliedstaaten eingerichtet werden.
+  scope: out
+  scope_grund: Die Regelung betrifft eine Handlungs- oder Aufsichtspflicht der Kommission, des Buero fuer
+    Kuenstliche Intelligenz, des KI-Gremiums oder der zustaendigen Behoerden und begruendet keine Pflicht
+    des Betreibers.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 57 Abs. 3
   artikel: '57'
   artikel_titel: KI-Reallabore
@@ -12959,17 +13236,22 @@ einheiten:
   beleg: (3)   Der Europäische Datenschutzbeauftragte kann auch ein KI-Reallabor für Organe, Einrichtungen
     und sonstige Stellen der Union einrichten und die Rollen und Aufgaben der zuständigen nationalen Behörden
     im Einklang mit diesem Kapitel wahrnehmen.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Der Europaeische Datenschutzbeauftragte kann ein KI-Reallabor fuer Organe und Einrichtungen
+    der Union einrichten und dabei die Rolle der zustaendigen nationalen Behoerden uebernehmen.
+  scope: out
+  scope_grund: Die Regelung betrifft eine Handlungs- oder Aufsichtspflicht der Kommission, des Buero fuer
+    Kuenstliche Intelligenz, des KI-Gremiums oder der zustaendigen Behoerden und begruendet keine Pflicht
+    des Betreibers.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 22 - Abs. 3 neu gefasst (Europaeischer Datenschutzbeauftragter
+    kann Reallabor fuer EU-Organe einrichten); geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf.
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 57 Abs. 4
   artikel: '57'
   artikel_titel: KI-Reallabore
@@ -12985,17 +13267,22 @@ einheiten:
     Unionsrechts oder des nationalen Rechts eingerichtet wurden, bleiben von diesem Artikel unberührt.
     Die Mitgliedstaaten sorgen dafür, dass die diese anderen Reallabore beaufsichtigenden Behörden und
     die zuständigen nationalen Behörden angemessen zusammenarbeiten.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Die Mitgliedstaaten muessen sicherstellen, dass die zustaendigen Behoerden ausreichende Mittel
+    fuer den Betrieb der Reallabore bereitstellen und mit anderen Behoerden zusammenarbeiten.
+  scope: out
+  scope_grund: Die Regelung betrifft eine Handlungs- oder Aufsichtspflicht der Kommission, des Buero fuer
+    Kuenstliche Intelligenz, des KI-Gremiums oder der zustaendigen Behoerden und begruendet keine Pflicht
+    des Betreibers.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 57 Abs. 5
   artikel: '57'
   artikel_titel: KI-Reallabore
@@ -13010,17 +13297,23 @@ einheiten:
     zwischen den Anbietern oder zukünftigen Anbietern und der zuständigen Behörde vereinbarten Reallabor-Plan
     zu erleichtern. In diesen Reallaboren können auch darin beaufsichtigte Tests unter Realbedingungen
     durchgeführt werden.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Die Reallabore bieten eine kontrollierte Umgebung, um Entwicklung, Training, Testen und Validierung
+    innovativer KI-Systeme vor Markteinfuehrung nach einem mit der Behoerde vereinbarten Plan zu erleichtern,
+    einschliesslich beaufsichtigter Tests unter Realbedingungen.
+  scope: out
+  scope_grund: Die Regelung betrifft eine Handlungs- oder Aufsichtspflicht der Kommission, des Buero fuer
+    Kuenstliche Intelligenz, des KI-Gremiums oder der zustaendigen Behoerden und begruendet keine Pflicht
+    des Betreibers.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 22 - Abs. 5 neu gefasst (Bezug auf Reallabor-Plan
+    inkl. Art. 60/60a ergaenzt); geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf.
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 57 Abs. 6
   artikel: '57'
   artikel_titel: KI-Reallabore
@@ -13034,17 +13327,22 @@ einheiten:
     und Sicherheit, Tests und Risikominderungsmaßnahmen sowie deren Wirksamkeit hinsichtlich der Pflichten
     und Anforderungen dieser Verordnung und gegebenenfalls anderem Unionsrecht und nationalem Recht, deren
     Einhaltung innerhalb des Reallabors beaufsichtigt wird, zu ermitteln.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Die zustaendigen Behoerden stellen innerhalb der Reallabore Anleitung, Aufsicht und Unterstuetzung
+    zur Risikoermittlung und -minderung bereit.
+  scope: out
+  scope_grund: Die Regelung betrifft eine Handlungs- oder Aufsichtspflicht der Kommission, des Buero fuer
+    Kuenstliche Intelligenz, des KI-Gremiums oder der zustaendigen Behoerden und begruendet keine Pflicht
+    des Betreibers.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 57 Abs. 7
   artikel: '57'
   artikel_titel: KI-Reallabore
@@ -13065,17 +13363,23 @@ einheiten:
     vorgelegten schriftlichen Nachweise von den Marktüberwachungsbehörden und den notifizierten Stellen
     im Hinblick auf eine Beschleunigung der Konformitätsbewertungsverfahren in angemessenem Maße positiv
     gewertet.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Die zustaendigen Behoerden stellen teilnehmenden Anbietern Leitfaeden bereit, legen auf Anfrage
+    schriftliche Nachweise und einen Abschlussbericht vor, die von Marktueberwachungsbehoerden und notifizierten
+    Stellen bei der Konformitaetsbewertung positiv beruecksichtigt werden.
+  scope: out
+  scope_grund: Die Regelung betrifft eine Handlungs- oder Aufsichtspflicht der Kommission, des Buero fuer
+    Kuenstliche Intelligenz, des KI-Gremiums oder der zustaendigen Behoerden und begruendet keine Pflicht
+    des Betreibers.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 57 Abs. 8
   artikel: '57'
   artikel_titel: KI-Reallabore
@@ -13090,17 +13394,22 @@ einheiten:
     Aufgaben gemäß dieser Verordnung Rechnung. Wenn der Anbieter oder der zukünftige Anbieter und die
     zuständige nationale Behörde ihr ausdrückliches Einverständnis erklären, kann der Abschlussbericht
     über die in diesem Artikel genannte zentrale Informationsplattform veröffentlicht werden.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Kommission und KI-Gremium duerfen im Einvernehmen mit den Anbietern die Abschlussberichte einsehen;
+    eine Veroeffentlichung ist mit ausdruecklicher Zustimmung von Anbieter und Behoerde moeglich.
+  scope: out
+  scope_grund: Die Regelung betrifft eine Handlungs- oder Aufsichtspflicht der Kommission, des Buero fuer
+    Kuenstliche Intelligenz, des KI-Gremiums oder der zustaendigen Behoerden und begruendet keine Pflicht
+    des Betreibers.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 57 Abs. 9
   artikel: '57'
   artikel_titel: KI-Reallabore
@@ -13110,17 +13419,22 @@ einheiten:
   laenge: 82
   saetze: 1
   beleg: '(9)   Die Einrichtung von KI-Reallaboren soll zu den folgenden Zielen beitragen:'
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Die Einrichtung von KI-Reallaboren soll zu bestimmten, in den folgenden Buchstaben genannten
+    Zielen beitragen.
+  scope: out
+  scope_grund: Die Regelung betrifft eine Handlungs- oder Aufsichtspflicht der Kommission, des Buero fuer
+    Kuenstliche Intelligenz, des KI-Gremiums oder der zustaendigen Behoerden und begruendet keine Pflicht
+    des Betreibers.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 57 Abs. 9 lit. a
   artikel: '57'
   artikel_titel: KI-Reallabore
@@ -13131,17 +13445,22 @@ einheiten:
   saetze: 1
   beleg: a) Verbesserung der Rechtssicherheit, um für die Einhaltung der Regulierungsvorschriften dieser
     Verordnung oder, gegebenenfalls, anderem geltenden Unionsrecht und nationalem Recht zu sorgen;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Ziel ist die Verbesserung der Rechtssicherheit im Hinblick auf die Einhaltung der Verordnung
+    und einschlaegigen Rechts.
+  scope: out
+  scope_grund: Die Regelung betrifft eine Handlungs- oder Aufsichtspflicht der Kommission, des Buero fuer
+    Kuenstliche Intelligenz, des KI-Gremiums oder der zustaendigen Behoerden und begruendet keine Pflicht
+    des Betreibers.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 57 Abs. 9 lit. b
   artikel: '57'
   artikel_titel: KI-Reallabore
@@ -13152,17 +13471,22 @@ einheiten:
   saetze: 1
   beleg: b) Förderung des Austauschs bewährter Verfahren durch Zusammenarbeit mit den am KI-Reallabor
     beteiligten Behörden;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Ziel ist die Foerderung des Austauschs bewaehrter Verfahren durch Zusammenarbeit der beteiligten
+    Behoerden.
+  scope: out
+  scope_grund: Die Regelung betrifft eine Handlungs- oder Aufsichtspflicht der Kommission, des Buero fuer
+    Kuenstliche Intelligenz, des KI-Gremiums oder der zustaendigen Behoerden und begruendet keine Pflicht
+    des Betreibers.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 57 Abs. 9 lit. c
   artikel: '57'
   artikel_titel: KI-Reallabore
@@ -13173,17 +13497,22 @@ einheiten:
   saetze: 1
   beleg: c) Förderung von Innovation und Wettbewerbsfähigkeit sowie Erleichterung der Entwicklung eines
     KI-Ökosystems;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Ziel ist die Foerderung von Innovation und Wettbewerbsfaehigkeit sowie die Erleichterung der
+    Entwicklung eines KI-Oekosystems.
+  scope: out
+  scope_grund: Die Regelung betrifft eine Handlungs- oder Aufsichtspflicht der Kommission, des Buero fuer
+    Kuenstliche Intelligenz, des KI-Gremiums oder der zustaendigen Behoerden und begruendet keine Pflicht
+    des Betreibers.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 57 Abs. 9 lit. d
   artikel: '57'
   artikel_titel: KI-Reallabore
@@ -13193,17 +13522,21 @@ einheiten:
   laenge: 76
   saetze: 1
   beleg: d) Leisten eines Beitrags zum evidenzbasierten regulatorischen Lernen;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Ziel ist ein Beitrag zum evidenzbasierten regulatorischen Lernen.
+  scope: out
+  scope_grund: Die Regelung betrifft eine Handlungs- oder Aufsichtspflicht der Kommission, des Buero fuer
+    Kuenstliche Intelligenz, des KI-Gremiums oder der zustaendigen Behoerden und begruendet keine Pflicht
+    des Betreibers.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 57 Abs. 9 lit. e
   artikel: '57'
   artikel_titel: KI-Reallabore
@@ -13214,17 +13547,22 @@ einheiten:
   saetze: 1
   beleg: e) Erleichterung und Beschleunigung des Zugangs von KI-Systemen zum Unionsmarkt, insbesondere
     wenn sie von KMU — einschließlich Start-up-Unternehmen — angeboten werden.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Ziel ist die Erleichterung und Beschleunigung des Marktzugangs von KI-Systemen, insbesondere
+    fuer KMU und Start-ups.
+  scope: out
+  scope_grund: Die Regelung betrifft eine Handlungs- oder Aufsichtspflicht der Kommission, des Buero fuer
+    Kuenstliche Intelligenz, des KI-Gremiums oder der zustaendigen Behoerden und begruendet keine Pflicht
+    des Betreibers.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 22 - Abs. 9 lit. e neu gefasst; geprueft am verfuegenden
+    Teil, docs/legal/OJ_L_202601744_DE.pdf.
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 57 Abs. 10
   artikel: '57'
   artikel_titel: KI-Reallabore
@@ -13239,17 +13577,22 @@ einheiten:
     dass die nationalen Datenschutzbehörden oder diese anderen nationalen oder zuständigen Behörden in
     den Betrieb des KI-Reallabors sowie in die Überwachung dieser Aspekte im vollen Umfang ihrer entsprechenden
     Aufgaben und Befugnisse einbezogen werden.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Verarbeiten die im Reallabor erprobten KI-Systeme personenbezogene Daten, muessen die zustaendigen
+    Behoerden die volle Einbeziehung der Datenschutzbehoerden in Betrieb und Aufsicht sicherstellen.
+  scope: out
+  scope_grund: Die Regelung betrifft eine Handlungs- oder Aufsichtspflicht der Kommission, des Buero fuer
+    Kuenstliche Intelligenz, des KI-Gremiums oder der zustaendigen Behoerden und begruendet keine Pflicht
+    des Betreibers.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 22 - Abs. 10 neu gefasst; geprueft am verfuegenden
+    Teil, docs/legal/OJ_L_202601744_DE.pdf.
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 57 Abs. 11
   artikel: '57'
   artikel_titel: KI-Reallabore
@@ -13268,17 +13611,23 @@ einheiten:
     zu fördern, üben die zuständigen nationalen Behörden ihre Aufsichtsbefugnisse im Rahmen des geltenden
     Rechts aus, indem sie bei der Anwendung der Rechtsvorschriften auf ein bestimmtes KI-Reallabor ihren
     Ermessensspielraum nutzen.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Die Reallabore lassen Aufsichts- und Abhilfebefugnisse unberuehrt; bei erheblichen Risiken
+    muessen die zustaendigen Behoerden sofortige Risikominderung veranlassen und koennen das Testverfahren
+    aussetzen.
+  scope: out
+  scope_grund: Die Regelung betrifft eine Handlungs- oder Aufsichtspflicht der Kommission, des Buero fuer
+    Kuenstliche Intelligenz, des KI-Gremiums oder der zustaendigen Behoerden und begruendet keine Pflicht
+    des Betreibers.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 57 Abs. 12
   artikel: '57'
   artikel_titel: KI-Reallabore
@@ -13295,17 +13644,21 @@ einheiten:
     verhängt. In Fällen, in denen andere zuständige Behörden, die für anderes Unionsrecht und nationales
     Recht zuständig sind, aktiv an der Beaufsichtigung des KI-Systems im Reallabor beteiligt waren und
     Anleitung für die Einhaltung gegeben haben, werden im Hinblick auf dieses Recht keine Geldbußen verhängt.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Am Reallabor beteiligte Anbieter und kuenftige Anbieter bleiben fuer Schaeden Dritter haftbar,
+    werden aber bei gutglaeubiger Befolgung der Behoerdenanleitung von Geldbussen fuer Verstoesse verschont.
+  scope: out
+  scope_grund: Die Pflicht richtet sich an den Anbieter bzw. kuenftigen Anbieter des KI-Modells oder KI-Systems
+    und nicht an den Betreiber im Sinne der Verordnung.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 57 Abs. 13
   artikel: '57'
   artikel_titel: KI-Reallabore
@@ -13316,17 +13669,22 @@ einheiten:
   saetze: 1
   beleg: (13)   Die KI-Reallabore sind so konzipiert und werden so umgesetzt, dass sie gegebenenfalls
     die grenzüberschreitende Zusammenarbeit zwischen zuständigen nationalen Behörden erleichtern.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Die Reallabore sind so zu gestalten, dass sie die grenzueberschreitende Zusammenarbeit zustaendiger
+    Behoerden erleichtern.
+  scope: out
+  scope_grund: Die Regelung betrifft eine Handlungs- oder Aufsichtspflicht der Kommission, des Buero fuer
+    Kuenstliche Intelligenz, des KI-Gremiums oder der zustaendigen Behoerden und begruendet keine Pflicht
+    des Betreibers.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 57 Abs. 14
   artikel: '57'
   artikel_titel: KI-Reallabore
@@ -13337,17 +13695,22 @@ einheiten:
   saetze: 1
   beleg: (14)   Die zuständigen nationalen Behörden koordinieren ihre Tätigkeiten und arbeiten im Rahmen
     des KI-Gremiums zusammen.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Die zustaendigen nationalen Behoerden koordinieren ihre Taetigkeiten und arbeiten im Rahmen
+    des KI-Gremiums zusammen.
+  scope: out
+  scope_grund: Die Regelung betrifft eine Handlungs- oder Aufsichtspflicht der Kommission, des Buero fuer
+    Kuenstliche Intelligenz, des KI-Gremiums oder der zustaendigen Behoerden und begruendet keine Pflicht
+    des Betreibers.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 22 - Abs. 14 neu gefasst; geprueft am verfuegenden
+    Teil, docs/legal/OJ_L_202601744_DE.pdf.
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 57 Abs. 15
   artikel: '57'
   artikel_titel: KI-Reallabore
@@ -13361,17 +13724,22 @@ einheiten:
     bitten. Das Büro für Künstliche Intelligenz veröffentlicht eine Liste der geplanten und bestehenden
     Reallabore und hält sie auf dem neuesten Stand, um eine stärkere Interaktion in den KI-Reallaboren
     und die grenzüberschreitende Zusammenarbeit zu fördern.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Die zustaendigen Behoerden informieren Buero fuer Kuenstliche Intelligenz und KI-Gremium ueber
+    die Einrichtung eines Reallabors; das Buero veroeffentlicht eine aktuelle Liste der Reallabore.
+  scope: out
+  scope_grund: Die Regelung betrifft eine Handlungs- oder Aufsichtspflicht der Kommission, des Buero fuer
+    Kuenstliche Intelligenz, des KI-Gremiums oder der zustaendigen Behoerden und begruendet keine Pflicht
+    des Betreibers.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 57 Abs. 16
   artikel: '57'
   artikel_titel: KI-Reallabore
@@ -13391,17 +13759,22 @@ einheiten:
     Behörden stellen diese jährlichen Berichte oder Zusammenfassungen davon der Öffentlichkeit online
     zur Verfügung. Die Kommission trägt den jährlichen Berichten gegebenenfalls bei der Wahrnehmung ihrer
     Aufgaben gemäß dieser Verordnung Rechnung.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Die zustaendigen Behoerden uebermitteln jaehrlich Berichte und einen Abschlussbericht ueber
+    Fortschritt, Ergebnisse und Erkenntnisse der Reallabore und veroeffentlichen diese online.
+  scope: out
+  scope_grund: Die Regelung betrifft eine Handlungs- oder Aufsichtspflicht der Kommission, des Buero fuer
+    Kuenstliche Intelligenz, des KI-Gremiums oder der zustaendigen Behoerden und begruendet keine Pflicht
+    des Betreibers.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 57 Abs. 17
   artikel: '57'
   artikel_titel: KI-Reallabore
@@ -13416,17 +13789,22 @@ einheiten:
     Konformität von innovativen Produkten, Dienstleistungen und Geschäftsmodellen mit integrierter KI-Technologie
     im Einklang mit Artikel 62 Absatz 1 Buchstabe c einzuholen. Die Kommission stimmt sich gegebenenfalls
     proaktiv mit den zuständigen nationalen Behörden ab.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Die Kommission richtet eine Schnittstelle ein, ueber die Interessentraeger mit Reallaboren
+    interagieren und unverbindliche Konformitaetsberatung einholen koennen.
+  scope: out
+  scope_grund: Die Regelung betrifft eine Handlungs- oder Aufsichtspflicht der Kommission, des Buero fuer
+    Kuenstliche Intelligenz, des KI-Gremiums oder der zustaendigen Behoerden und begruendet keine Pflicht
+    des Betreibers.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 58 Abs. 1
   artikel: '58'
   artikel_titel: Detaillierte Regelungen für KI-Reallabore und deren Funktionsweise
@@ -13439,17 +13817,23 @@ einheiten:
     in denen detaillierte Regelungen für die Einrichtung, Entwicklung, Umsetzung, den Betrieb und die
     Beaufsichtigung der KI-Reallabore enthalten sind. In den Durchführungsrechtsakten sind gemeinsame
     Grundsätze zu den folgenden Aspekten festgelegt:'
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Die Kommission erlaesst Durchfuehrungsrechtsakte mit gemeinsamen Grundsaetzen fuer Einrichtung,
+    Entwicklung, Betrieb und Beaufsichtigung der KI-Reallabore, um eine Zersplitterung in der Union zu
+    vermeiden.
+  scope: out
+  scope_grund: Die Regelung betrifft eine Handlungs- oder Aufsichtspflicht der Kommission, des Buero fuer
+    Kuenstliche Intelligenz, des KI-Gremiums oder der zustaendigen Behoerden und begruendet keine Pflicht
+    des Betreibers.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 23 - Einleitung von Abs. 1 UAbs. 1 neu gefasst;
+    geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf.
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 58 Abs. 1 lit. a
   artikel: '58'
   artikel_titel: Detaillierte Regelungen für KI-Reallabore und deren Funktionsweise
@@ -13459,17 +13843,22 @@ einheiten:
   laenge: 83
   saetze: 1
   beleg: a) Voraussetzungen und Auswahlkriterien für eine Beteiligung am KI-Reallabor;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Die Durchfuehrungsrechtsakte regeln Voraussetzungen und Auswahlkriterien fuer die Teilnahme
+    am Reallabor.
+  scope: out
+  scope_grund: Die Regelung betrifft eine Handlungs- oder Aufsichtspflicht der Kommission, des Buero fuer
+    Kuenstliche Intelligenz, des KI-Gremiums oder der zustaendigen Behoerden und begruendet keine Pflicht
+    des Betreibers.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 58 Abs. 1 lit. b
   artikel: '58'
   artikel_titel: Detaillierte Regelungen für KI-Reallabore und deren Funktionsweise
@@ -13480,17 +13869,22 @@ einheiten:
   saetze: 1
   beleg: b) Verfahren für Antragstellung, Beteiligung, Überwachung, Ausstieg und Beendigung bezüglich
     des KI-Reallabors, einschließlich Plan und Abschlussbericht für das Reallabor;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Die Durchfuehrungsrechtsakte regeln Verfahren fuer Antragstellung, Beteiligung, Ueberwachung,
+    Ausstieg und Beendigung, einschliesslich Plan und Abschlussbericht.
+  scope: out
+  scope_grund: Die Regelung betrifft eine Handlungs- oder Aufsichtspflicht der Kommission, des Buero fuer
+    Kuenstliche Intelligenz, des KI-Gremiums oder der zustaendigen Behoerden und begruendet keine Pflicht
+    des Betreibers.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 58 Abs. 1 lit. c
   artikel: '58'
   artikel_titel: Detaillierte Regelungen für KI-Reallabore und deren Funktionsweise
@@ -13501,17 +13895,22 @@ einheiten:
   saetze: 2
   beleg: c) für Beteiligte geltende Anforderungen und Bedingungen. Diese Durchführungsrechtsakte werden
     gemäß dem in Artikel 98 Absatz 2 genannten Prüfverfahren erlassen.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Die Durchfuehrungsrechtsakte legen die fuer Beteiligte geltenden Anforderungen und Bedingungen
+    fest.
+  scope: out
+  scope_grund: Die Regelung betrifft eine Handlungs- oder Aufsichtspflicht der Kommission, des Buero fuer
+    Kuenstliche Intelligenz, des KI-Gremiums oder der zustaendigen Behoerden und begruendet keine Pflicht
+    des Betreibers.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 58 Abs. 2
   artikel: '58'
   artikel_titel: Detaillierte Regelungen für KI-Reallabore und deren Funktionsweise
@@ -13521,17 +13920,22 @@ einheiten:
   laenge: 72
   saetze: 1
   beleg: (2)   Die in Absatz 1 genannten Durchführungsrechtsakte gewährleisten,
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Die Durchfuehrungsrechtsakte nach Absatz 1 muessen bestimmte, in den folgenden Buchstaben aufgefuehrte
+    Anforderungen gewaehrleisten.
+  scope: out
+  scope_grund: Die Regelung betrifft eine Handlungs- oder Aufsichtspflicht der Kommission, des Buero fuer
+    Kuenstliche Intelligenz, des KI-Gremiums oder der zustaendigen Behoerden und begruendet keine Pflicht
+    des Betreibers.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 58 Abs. 2 lit. a
   artikel: '58'
   artikel_titel: Detaillierte Regelungen für KI-Reallabore und deren Funktionsweise
@@ -13544,17 +13948,22 @@ einheiten:
     Antrag stellen und die Voraussetzungen und Auswahlkriterien erfüllen, offen stehen; diese Voraussetzungen
     und Kriterien sind transparent und fair und die zuständigen nationalen Behörden informieren die Antragsteller
     innerhalb von drei Monaten nach Antragstellung über ihre Entscheidung;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Reallabore muessen allen antragstellenden Anbietern und kuenftigen Anbietern offenstehen, die
+    transparente und faire Voraussetzungen erfuellen; ueber Antraege ist binnen drei Monaten zu entscheiden.
+  scope: out
+  scope_grund: Die Regelung betrifft eine Handlungs- oder Aufsichtspflicht der Kommission, des Buero fuer
+    Kuenstliche Intelligenz, des KI-Gremiums oder der zustaendigen Behoerden und begruendet keine Pflicht
+    des Betreibers.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 58 Abs. 2 lit. b
   artikel: '58'
   artikel_titel: Detaillierte Regelungen für KI-Reallabore und deren Funktionsweise
@@ -13593,17 +14002,22 @@ einheiten:
   beleg: c) dass die detaillierten Regelungen und Bedingungen für KI-Reallabore so gut wie möglich die
     Flexibilität der zuständigen nationalen Behörden bei der Einrichtung und dem Betrieb ihrer KI-Reallabore
     unterstützen;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Die Regelungen muessen den zustaendigen Behoerden moeglichst viel Flexibilitaet bei Einrichtung
+    und Betrieb ihrer Reallabore belassen.
+  scope: out
+  scope_grund: Die Regelung betrifft eine Handlungs- oder Aufsichtspflicht der Kommission, des Buero fuer
+    Kuenstliche Intelligenz, des KI-Gremiums oder der zustaendigen Behoerden und begruendet keine Pflicht
+    des Betreibers.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 58 Abs. 2 lit. d
   artikel: '58'
   artikel_titel: Detaillierte Regelungen für KI-Reallabore und deren Funktionsweise
@@ -13615,17 +14029,22 @@ einheiten:
   beleg: d) dass der Zugang zu KI-Reallaboren für KMU, einschließlich Start-up-Unternehmen, kostenlos
     ist, unbeschadet außergewöhnlicher Kosten, die die zuständigen nationalen Behörden in einer fairen
     und verhältnismäßigen Weise einfordern können;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Der Zugang zu Reallaboren muss fuer KMU einschliesslich Start-ups kostenlos sein, ausser bei
+    fair und verhaeltnismaessig erhobenen aussergewoehnlichen Kosten.
+  scope: out
+  scope_grund: Die Regelung betrifft eine Handlungs- oder Aufsichtspflicht der Kommission, des Buero fuer
+    Kuenstliche Intelligenz, des KI-Gremiums oder der zustaendigen Behoerden und begruendet keine Pflicht
+    des Betreibers.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 58 Abs. 2 lit. e
   artikel: '58'
   artikel_titel: Detaillierte Regelungen für KI-Reallabore und deren Funktionsweise
@@ -13637,17 +14056,22 @@ einheiten:
   beleg: e) dass den Anbietern und zukünftigen Anbietern die Einhaltung der Verpflichtungen zur Konformitätsbewertung
     nach dieser Verordnung oder die freiwillige Anwendung der in Artikel 95 genannten Verhaltenskodizes
     mittels der gewonnenen Erkenntnisse der KI-Reallabore erleichtert wird;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Die Regelungen muessen Anbietern und kuenftigen Anbietern die Konformitaetsbewertung bzw. freiwillige
+    Anwendung von Verhaltenskodizes anhand der Reallabor-Erkenntnisse erleichtern.
+  scope: out
+  scope_grund: Die Regelung betrifft eine Handlungs- oder Aufsichtspflicht der Kommission, des Buero fuer
+    Kuenstliche Intelligenz, des KI-Gremiums oder der zustaendigen Behoerden und begruendet keine Pflicht
+    des Betreibers.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 58 Abs. 2 lit. f
   artikel: '58'
   artikel_titel: Detaillierte Regelungen für KI-Reallabore und deren Funktionsweise
@@ -13661,17 +14085,23 @@ einheiten:
     Unternehmen, Innovatoren, Test- und Versuchseinrichtungen, Forschungs- und Versuchslabore, europäische
     digitale Innovationszentren, Kompetenzzentren und einzelne Forscher begünstigen, um die Zusammenarbeit
     mit dem öffentlichen und dem privaten Sektor zu ermöglichen und zu erleichtern;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Die Reallabore sollen die Einbeziehung weiterer Oekosystem-Akteure wie notifizierte Stellen,
+    Normungsorganisationen, KMU, Forschungseinrichtungen und einzelner Forscher zur Foerderung der Zusammenarbeit
+    ermoeglichen.
+  scope: out
+  scope_grund: Die Regelung betrifft eine Handlungs- oder Aufsichtspflicht der Kommission, des Buero fuer
+    Kuenstliche Intelligenz, des KI-Gremiums oder der zustaendigen Behoerden und begruendet keine Pflicht
+    des Betreibers.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 58 Abs. 2 lit. g
   artikel: '58'
   artikel_titel: Detaillierte Regelungen für KI-Reallabore und deren Funktionsweise
@@ -13687,17 +14117,23 @@ einheiten:
     Zersplitterung zu vermeiden, und dass die Beteiligung an einem von einem Mitgliedstaat oder dem Europäischen
     Datenschutzbeauftragten eingerichteten KI-Reallabor gegenseitig und einheitlich anerkannt wird und
     in der gesamten Union die gleiche Rechtswirkung hat;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Verfahren und administrative Anforderungen fuer Antragstellung, Auswahl, Beteiligung und Ausstieg
+    muessen einfach, klar kommuniziert und unionsweit gestrafft sein, und die Teilnahme muss in der gesamten
+    Union einheitlich anerkannt werden.
+  scope: out
+  scope_grund: Die Regelung betrifft eine Handlungs- oder Aufsichtspflicht der Kommission, des Buero fuer
+    Kuenstliche Intelligenz, des KI-Gremiums oder der zustaendigen Behoerden und begruendet keine Pflicht
+    des Betreibers.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 58 Abs. 2 lit. h
   artikel: '58'
   artikel_titel: Detaillierte Regelungen für KI-Reallabore und deren Funktionsweise
@@ -13709,17 +14145,22 @@ einheiten:
   beleg: h) dass die Beteiligung an dem KI-Reallabor auf einen der Komplexität und dem Umfang des Projekts
     entsprechenden Zeitraum beschränkt ist, der von der zuständigen nationalen Behörde verlängert werden
     kann;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Die Beteiligung am Reallabor ist auf einen dem Projekt angemessenen, von der zustaendigen Behoerde
+    verlaengerbaren Zeitraum zu beschraenken.
+  scope: out
+  scope_grund: Die Regelung betrifft eine Handlungs- oder Aufsichtspflicht der Kommission, des Buero fuer
+    Kuenstliche Intelligenz, des KI-Gremiums oder der zustaendigen Behoerden und begruendet keine Pflicht
+    des Betreibers.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 58 Abs. 2 lit. i
   artikel: '58'
   artikel_titel: Detaillierte Regelungen für KI-Reallabore und deren Funktionsweise
@@ -13733,17 +14174,22 @@ einheiten:
     für das regulatorische Lernen Bedeutung sind, wie etwa Genauigkeit, Robustheit und Cybersicherheit,
     sowie Maßnahmen zur Risikominderung im Hinblick auf die Grundrechte und die Gesellschaft als Ganzes
     fördern.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Die Reallabore sollen die Entwicklung von Instrumenten und Infrastruktur zum Testen, Benchmarking
+    und Erklaeren relevanter KI-System-Dimensionen sowie Massnahmen zur Risikominderung foerdern.
+  scope: out
+  scope_grund: Die Regelung betrifft eine Handlungs- oder Aufsichtspflicht der Kommission, des Buero fuer
+    Kuenstliche Intelligenz, des KI-Gremiums oder der zustaendigen Behoerden und begruendet keine Pflicht
+    des Betreibers.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 58 Abs. 3
   artikel: '58'
   artikel_titel: Detaillierte Regelungen für KI-Reallabore und deren Funktionsweise
@@ -13757,17 +14203,22 @@ einheiten:
     dieser Verordnung oder andere Mehrwertdienste wie Hilfe bei Normungsdokumenten bereitstellen, sowie
     an Zertifizierungs-, Test- und Versuchseinrichtungen, europäische digitale Innovationszentren und
     Exzellenzzentren.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Kuenftige Anbieter, insbesondere KMU und Start-ups, sollen vor Einrichtung des Reallabors ggf.
+    an Unterstuetzungsdienste wie Normungshilfe, Zertifizierungs- und Testeinrichtungen verwiesen werden.
+  scope: out
+  scope_grund: Die Regelung betrifft eine Handlungs- oder Aufsichtspflicht der Kommission, des Buero fuer
+    Kuenstliche Intelligenz, des KI-Gremiums oder der zustaendigen Behoerden und begruendet keine Pflicht
+    des Betreibers.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 58 Abs. 4
   artikel: '58'
   artikel_titel: Detaillierte Regelungen für KI-Reallabore und deren Funktionsweise
@@ -13782,17 +14233,23 @@ einheiten:
     und insbesondere geeignete Schutzvorkehrungen für Grundrechte, Gesundheit und Sicherheit. Gegebenenfalls
     arbeiten sie mit anderen zuständigen nationalen Behörden zusammen, um für unionsweit einheitliche
     Verfahren zu sorgen.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Erwaegen zustaendige Behoerden die Genehmigung von im Reallabor beaufsichtigten Tests unter
+    Realbedingungen, vereinbaren sie mit den Beteiligten ausdruecklich Anforderungen und Schutzvorkehrungen
+    fuer Grundrechte, Gesundheit und Sicherheit.
+  scope: out
+  scope_grund: Die Regelung betrifft eine Handlungs- oder Aufsichtspflicht der Kommission, des Buero fuer
+    Kuenstliche Intelligenz, des KI-Gremiums oder der zustaendigen Behoerden und begruendet keine Pflicht
+    des Betreibers.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 59 Abs. 1
   artikel: '59'
   artikel_titel: Weiterverarbeitung personenbezogener Daten zur Entwicklung bestimmter KI-Systeme im öffentlichen
@@ -13805,17 +14262,22 @@ einheiten:
   beleg: '(1)   Rechtmäßig für andere Zwecke erhobene personenbezogene Daten dürfen im KI-Reallabor ausschließlich
     für die Zwecke der Entwicklung, des Trainings und des Testens bestimmter KI-Systeme im Reallabor verarbeitet
     werden, wenn alle der folgenden Bedingungen erfüllt sind:'
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: Rechtmaessig fuer andere Zwecke erhobene personenbezogene Daten duerfen im Reallabor nur zur
+    Entwicklung, zum Training und Testen bestimmter KI-Systeme verarbeitet werden, wenn alle nachfolgenden
+    Bedingungen erfuellt sind.
+  scope: out
+  scope_grund: Die Regelung betrifft die Weiterverarbeitung personenbezogener Daten im Reallabor bzw.
+    Rechte und Schutz betroffener Personen/Testteilnehmer und begruendet keine Pflicht des Betreibers.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 59 Abs. 1 lit. a
   artikel: '59'
   artikel_titel: Weiterverarbeitung personenbezogener Daten zur Entwicklung bestimmter KI-Systeme im öffentlichen
@@ -13828,17 +14290,21 @@ einheiten:
   beleg: 'a) Die KI-Systeme werden zur Wahrung eines erheblichen öffentlichen Interesses durch eine Behörde
     oder eine andere natürliche oder juristische Person und in einem oder mehreren der folgenden Bereiche
     entwickelt:'
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: Die betreffenden KI-Systeme muessen zur Wahrung eines erheblichen oeffentlichen Interesses
+    in bestimmten, im Folgenden genannten Bereichen entwickelt werden.
+  scope: out
+  scope_grund: Die Regelung betrifft die Weiterverarbeitung personenbezogener Daten im Reallabor bzw.
+    Rechte und Schutz betroffener Personen/Testteilnehmer und begruendet keine Pflicht des Betreibers.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 59 Abs. 1 lit. i
   artikel: '59'
   artikel_titel: Weiterverarbeitung personenbezogener Daten zur Entwicklung bestimmter KI-Systeme im öffentlichen
@@ -13854,17 +14320,21 @@ einheiten:
     gegen Umweltverschmutzung, Maßnahmen für den grünen Wandel sowie Klimaschutz und Anpassung an den
     Klimawandel; iii) nachhaltige Energie; iv) Sicherheit und Widerstandsfähigkeit von Verkehrssystemen
     und Mobilität, kritischen Infrastrukturen und Netzen;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: Zu den erfassten Bereichen zaehlen u.a. oeffentliche Sicherheit und Gesundheit, Umweltschutz,
+    nachhaltige Energie sowie Sicherheit kritischer Infrastrukturen.
+  scope: out
+  scope_grund: Die Regelung betrifft die Weiterverarbeitung personenbezogener Daten im Reallabor bzw.
+    Rechte und Schutz betroffener Personen/Testteilnehmer und begruendet keine Pflicht des Betreibers.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 59 Abs. 1 lit. v
   artikel: '59'
   artikel_titel: Weiterverarbeitung personenbezogener Daten zur Entwicklung bestimmter KI-Systeme im öffentlichen
@@ -13875,17 +14345,21 @@ einheiten:
   laenge: 85
   saetze: 1
   beleg: v) Effizienz und Qualität der öffentlichen Verwaltung und öffentlicher Dienste;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: Ein weiterer erfasster Bereich ist die Effizienz und Qualitaet der oeffentlichen Verwaltung
+    und oeffentlicher Dienste.
+  scope: out
+  scope_grund: Die Regelung betrifft die Weiterverarbeitung personenbezogener Daten im Reallabor bzw.
+    Rechte und Schutz betroffener Personen/Testteilnehmer und begruendet keine Pflicht des Betreibers.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 59 Abs. 1 lit. b
   artikel: '59'
   artikel_titel: Weiterverarbeitung personenbezogener Daten zur Entwicklung bestimmter KI-Systeme im öffentlichen
@@ -13898,17 +14372,22 @@ einheiten:
   beleg: b) die verarbeiteten Daten sind für die Erfüllung einer oder mehrerer der in Kapitel III Abschnitt
     2 genannten Anforderungen erforderlich, sofern diese Anforderungen durch die Verarbeitung anonymisierter,
     synthetischer oder sonstiger nicht personenbezogener Daten nicht wirksam erfüllt werden können;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: Die verarbeiteten Daten muessen fuer die Erfuellung der Anforderungen nach Kapitel III Abschnitt
+    2 erforderlich sein, sofern dies nicht durch anonymisierte oder synthetische Daten ebenso wirksam
+    erreichbar ist.
+  scope: out
+  scope_grund: Die Regelung betrifft die Weiterverarbeitung personenbezogener Daten im Reallabor bzw.
+    Rechte und Schutz betroffener Personen/Testteilnehmer und begruendet keine Pflicht des Betreibers.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 59 Abs. 1 lit. c
   artikel: '59'
   artikel_titel: Weiterverarbeitung personenbezogener Daten zur Entwicklung bestimmter KI-Systeme im öffentlichen
@@ -13923,17 +14402,21 @@ einheiten:
     35 der Verordnung (EU) 2016/679 und gemäß Artikel 39 der Verordnung (EU) 2018/1725 auftreten können,
     sowie Reaktionsmechanismen, mit deren Hilfe diese Risiken umgehend eingedämmt werden können und die
     Verarbeitung bei Bedarf beendet werden kann;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: Es muessen wirksame Ueberwachungs- und Reaktionsmechanismen bestehen, um hohe Risiken fuer
+    Rechte und Freiheiten betroffener Personen waehrend der Reallaborversuche zu erkennen und einzudaemmen.
+  scope: out
+  scope_grund: Die Regelung betrifft die Weiterverarbeitung personenbezogener Daten im Reallabor bzw.
+    Rechte und Schutz betroffener Personen/Testteilnehmer und begruendet keine Pflicht des Betreibers.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 59 Abs. 1 lit. d
   artikel: '59'
   artikel_titel: Weiterverarbeitung personenbezogener Daten zur Entwicklung bestimmter KI-Systeme im öffentlichen
@@ -13946,17 +14429,22 @@ einheiten:
   beleg: d) personenbezogene Daten, die im Rahmen des Reallabors verarbeitet werden sollen, befinden sich
     in einer funktional getrennten, isolierten und geschützten Datenverarbeitungsumgebung unter der Kontrolle
     des zukünftigen Anbieters, und nur befugte Personen haben Zugriff auf diese Daten;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Die im Reallabor verarbeiteten personenbezogenen Daten muessen sich in einer funktional getrennten,
+    isolierten und geschuetzten Datenumgebung unter Kontrolle des kuenftigen Anbieters befinden, auf die
+    nur befugte Personen zugreifen.
+  scope: out
+  scope_grund: Die Pflicht richtet sich an den Anbieter bzw. kuenftigen Anbieter des KI-Modells oder KI-Systems
+    und nicht an den Betreiber im Sinne der Verordnung.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 59 Abs. 1 lit. e
   artikel: '59'
   artikel_titel: Weiterverarbeitung personenbezogener Daten zur Entwicklung bestimmter KI-Systeme im öffentlichen
@@ -13969,17 +14457,21 @@ einheiten:
   beleg: e) Anbieter dürfen die ursprünglich erhobenen Daten nur im Einklang mit dem Datenschutzrecht
     der Union weitergeben; personenbezogene Daten, die im Reallabor erstellt wurden, dürfen nicht außerhalb
     des Reallabors weitergegeben werden;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Anbieter duerfen urspruenglich erhobene Daten nur im Einklang mit dem Unionsdatenschutzrecht
+    weitergeben; im Reallabor erzeugte personenbezogene Daten duerfen das Reallabor nicht verlassen.
+  scope: out
+  scope_grund: Die Pflicht richtet sich an den Anbieter bzw. kuenftigen Anbieter des KI-Modells oder KI-Systems
+    und nicht an den Betreiber im Sinne der Verordnung.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 59 Abs. 1 lit. f
   artikel: '59'
   artikel_titel: Weiterverarbeitung personenbezogener Daten zur Entwicklung bestimmter KI-Systeme im öffentlichen
@@ -13993,17 +14485,21 @@ einheiten:
     oder Entscheidungen, die Auswirkungen auf die betroffenen Personen haben, und berührt nicht die Anwendung
     ihrer Rechte, die in den Rechtsvorschriften der Union über den Schutz personenbezogener Daten festgelegt
     sind;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: Die Verarbeitung personenbezogener Daten im Reallabor darf zu keinen Massnahmen oder Entscheidungen
+    mit Auswirkungen auf betroffene Personen fuehren und deren Datenschutzrechte unberuehrt lassen.
+  scope: out
+  scope_grund: Die Regelung betrifft die Weiterverarbeitung personenbezogener Daten im Reallabor bzw.
+    Rechte und Schutz betroffener Personen/Testteilnehmer und begruendet keine Pflicht des Betreibers.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 59 Abs. 1 lit. g
   artikel: '59'
   artikel_titel: Weiterverarbeitung personenbezogener Daten zur Entwicklung bestimmter KI-Systeme im öffentlichen
@@ -14016,17 +14512,21 @@ einheiten:
   beleg: g) im Rahmen des Reallabors verarbeitete personenbezogene Daten sind durch geeignete technische
     und organisatorische Maßnahmen geschützt und werden gelöscht, sobald die Beteiligung an dem Reallabor
     endet oder das Ende der Speicherfrist für die personenbezogenen Daten erreicht ist;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: Im Reallabor verarbeitete personenbezogene Daten sind durch geeignete technische und organisatorische
+    Massnahmen zu schuetzen und nach Ende der Beteiligung bzw. Speicherfrist zu loeschen.
+  scope: out
+  scope_grund: Die Regelung betrifft die Weiterverarbeitung personenbezogener Daten im Reallabor bzw.
+    Rechte und Schutz betroffener Personen/Testteilnehmer und begruendet keine Pflicht des Betreibers.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 59 Abs. 1 lit. h
   artikel: '59'
   artikel_titel: Weiterverarbeitung personenbezogener Daten zur Entwicklung bestimmter KI-Systeme im öffentlichen
@@ -14039,17 +14539,21 @@ einheiten:
   beleg: h) die Protokolle der Verarbeitung personenbezogener Daten im Rahmen des Reallabors werden für
     die Dauer der Beteiligung am Reallabor aufbewahrt, es sei denn, im Unionsrecht oder nationalen Recht
     ist etwas anderes bestimmt;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: Verarbeitungsprotokolle sind fuer die Dauer der Reallabor-Beteiligung aufzubewahren, sofern
+    Unions- oder nationales Recht nichts anderes bestimmt.
+  scope: out
+  scope_grund: Die Regelung betrifft die Weiterverarbeitung personenbezogener Daten im Reallabor bzw.
+    Rechte und Schutz betroffener Personen/Testteilnehmer und begruendet keine Pflicht des Betreibers.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 59 Abs. 1 lit. i
   artikel: '59'
   artikel_titel: Weiterverarbeitung personenbezogener Daten zur Entwicklung bestimmter KI-Systeme im öffentlichen
@@ -14062,17 +14566,22 @@ einheiten:
   beleg: i) eine vollständige und detaillierte Beschreibung des Prozesses und der Gründe für das Trainieren,
     Testen und Validieren des KI-Systems wird zusammen mit den Testergebnissen als Teil der technischen
     Dokumentation gemäß Anhang IV aufbewahrt;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: Eine vollstaendige und detaillierte Beschreibung von Prozess und Gruenden fuer Training, Test
+    und Validierung des KI-Systems ist zusammen mit den Testergebnissen als Teil der technischen Dokumentation
+    nach Anhang IV aufzubewahren.
+  scope: out
+  scope_grund: Die Regelung betrifft die Weiterverarbeitung personenbezogener Daten im Reallabor bzw.
+    Rechte und Schutz betroffener Personen/Testteilnehmer und begruendet keine Pflicht des Betreibers.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 59 Abs. 1 lit. j
   artikel: '59'
   artikel_titel: Weiterverarbeitung personenbezogener Daten zur Entwicklung bestimmter KI-Systeme im öffentlichen
@@ -14086,17 +14595,23 @@ einheiten:
     erwarteten Ergebnisse wird auf der Website der zuständigen Behörden veröffentlicht; diese Pflicht
     erstreckt sich nicht auf sensible operative Daten zu den Tätigkeiten von Strafverfolgungs-, Grenzschutz-,
     Einwanderungs- oder Asylbehörden.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Eine kurze Zusammenfassung des im Reallabor entwickelten Projekts, seiner Ziele und erwarteten
+    Ergebnisse ist auf der Website der zustaendigen Behoerden zu veroeffentlichen, ausser bei sensiblen
+    operativen Daten der Strafverfolgung.
+  scope: out
+  scope_grund: Die Regelung betrifft eine Handlungs- oder Aufsichtspflicht der Kommission, des Buero fuer
+    Kuenstliche Intelligenz, des KI-Gremiums oder der zustaendigen Behoerden und begruendet keine Pflicht
+    des Betreibers.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 59 Abs. 2
   artikel: '59'
   artikel_titel: Weiterverarbeitung personenbezogener Daten zur Entwicklung bestimmter KI-Systeme im öffentlichen
@@ -14111,17 +14626,23 @@ einheiten:
     Sicherheit — unter der Kontrolle und Verantwortung der Strafverfolgungsbehörden erfolgt die Verarbeitung
     personenbezogener Daten in KI-Reallaboren auf der Grundlage eines spezifischen Unionsrechts oder nationalen
     Rechts und unterliegt den kumulativen Bedingungen des Absatzes 1.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Fuer Zwecke der Strafverfolgung erfolgt die Verarbeitung personenbezogener Daten im Reallabor
+    unter Kontrolle der Strafverfolgungsbehoerden auf spezifischer Rechtsgrundlage und unter den kumulativen
+    Bedingungen des Absatzes 1.
+  scope: out
+  scope_grund: Die Regelung betrifft eine Handlungs- oder Aufsichtspflicht der Kommission, des Buero fuer
+    Kuenstliche Intelligenz, des KI-Gremiums oder der zustaendigen Behoerden und begruendet keine Pflicht
+    des Betreibers.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 59 Abs. 3
   artikel: '59'
   artikel_titel: Weiterverarbeitung personenbezogener Daten zur Entwicklung bestimmter KI-Systeme im öffentlichen
@@ -14137,17 +14658,21 @@ einheiten:
     innovativer KI-Systeme notwendige Verarbeitung personenbezogener Daten festgelegt sind, oder jegliche
     anderen dem Unionsrecht zum Schutz personenbezogener Daten entsprechenden Rechtsgrundlagen bleiben
     von Absatz 1 unberührt.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: Bestehendes Unions- oder nationales Recht zu Zweckbindung oder zu eigenen Rechtsgrundlagen
+    fuer die KI-Entwicklung bleibt von Absatz 1 unberuehrt.
+  scope: out
+  scope_grund: Die Regelung betrifft die Weiterverarbeitung personenbezogener Daten im Reallabor bzw.
+    Rechte und Schutz betroffener Personen/Testteilnehmer und begruendet keine Pflicht des Betreibers.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 60 Abs. 1
   artikel: '60'
   artikel_titel: Tests von Hochrisiko-KI-Systemen unter Realbedingungen außerhalb von KI-Reallaboren
@@ -14165,17 +14690,23 @@ einheiten:
     Recht für das Testen von Hochrisiko-KI-Systemen unter Realbedingungen im Zusammenhang mit Produkten,
     die unter die in Anhang I aufgeführten Harmonisierungsrechtsvorschriften der Union fallen, bleibt
     von dieser Bestimmung unberührt.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Anbieter oder kuenftige Anbieter von Hochrisiko-KI-Systemen nach Anhang III duerfen ausserhalb
+    von Reallaboren Tests unter Realbedingungen nach einem von der Kommission per Durchfuehrungsrechtsakt
+    naeher geregelten Testplan durchfuehren.
+  scope: out
+  scope_grund: Die Pflicht richtet sich an den Anbieter bzw. kuenftigen Anbieter des KI-Modells oder KI-Systems
+    und nicht an den Betreiber im Sinne der Verordnung.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: 'geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 24 - Abs. 1 UAbs. 1 / Abs. 2 neu gefasst: Anwendungsbereich
+    auf Anhang-I-Abschnitt-B-Systeme erweitert, neuer Verweis auf Art. 60a; materiell fuer den Anwendungsfall
+    unveraendert; geprueft am verfuegenden Teil.'
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 60 Abs. 2
   artikel: '60'
   artikel_titel: Tests von Hochrisiko-KI-Systemen unter Realbedingungen außerhalb von KI-Reallaboren
@@ -14214,17 +14745,21 @@ einheiten:
   saetze: 1
   beleg: (3)   Tests von KI-Systemen unter Realbedingungen gemäß diesem Artikel lassen nach dem Unionsrecht
     oder dem nationalen Recht gegebenenfalls vorgeschriebene Ethikprüfungen unberührt.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Tests unter Realbedingungen lassen nach Unions- oder nationalem Recht ggf. vorgeschriebene
+    Ethikpruefungen unberuehrt.
+  scope: out
+  scope_grund: Die Pflicht richtet sich an den Anbieter bzw. kuenftigen Anbieter des KI-Modells oder KI-Systems
+    und nicht an den Betreiber im Sinne der Verordnung.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 60 Abs. 4
   artikel: '60'
   artikel_titel: Tests von Hochrisiko-KI-Systemen unter Realbedingungen außerhalb von KI-Reallaboren
@@ -14235,17 +14770,21 @@ einheiten:
   saetze: 1
   beleg: '(4)   Tests unter Realbedingungen dürfen von Anbietern oder zukünftigen Anbietern nur durchgeführt
     werden, wenn alle der folgenden Bedingungen erfüllt sind:'
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Tests unter Realbedingungen duerfen von Anbietern oder kuenftigen Anbietern nur durchgefuehrt
+    werden, wenn alle nachfolgenden Bedingungen erfuellt sind.
+  scope: out
+  scope_grund: Die Pflicht richtet sich an den Anbieter bzw. kuenftigen Anbieter des KI-Modells oder KI-Systems
+    und nicht an den Betreiber im Sinne der Verordnung.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 60 Abs. 4 lit. a
   artikel: '60'
   artikel_titel: Tests von Hochrisiko-KI-Systemen unter Realbedingungen außerhalb von KI-Reallaboren
@@ -14257,17 +14796,21 @@ einheiten:
   beleg: a) Der Anbieter oder der zukünftige Anbieter hat einen Plan für einen Test unter Realbedingungen
     erstellt und diesen bei der Marktüberwachungsbehörde in dem Mitgliedstaat eingereicht, in dem der
     Test unter Realbedingungen stattfinden soll;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Der Anbieter muss einen Testplan erstellt und bei der zustaendigen Marktueberwachungsbehoerde
+    des Testmitgliedstaats eingereicht haben.
+  scope: out
+  scope_grund: Die Pflicht richtet sich an den Anbieter bzw. kuenftigen Anbieter des KI-Modells oder KI-Systems
+    und nicht an den Betreiber im Sinne der Verordnung.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 60 Abs. 4 lit. b
   artikel: '60'
   artikel_titel: Tests von Hochrisiko-KI-Systemen unter Realbedingungen außerhalb von KI-Reallaboren
@@ -14281,17 +14824,22 @@ einheiten:
     hat die Marktüberwachungsbehörde innerhalb von 30 Tagen keine Antwort gegeben, so gelten der Test
     unter Realbedingungen und der Plan für einen Test unter Realbedingungen als genehmigt; ist im nationalen
     Recht keine stillschweigende Genehmigung vorgesehen, so bleibt der Test unter Realbedingungen genehmigungspflichtig;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Die Marktueberwachungsbehoerde muss den Test und den Testplan genehmigt haben, wobei nach 30
+    Tagen ohne Antwort eine Genehmigungsfiktion greifen kann, falls das nationale Recht dies vorsieht.
+  scope: out
+  scope_grund: Die Regelung betrifft eine Handlungs- oder Aufsichtspflicht der Kommission, des Buero fuer
+    Kuenstliche Intelligenz, des KI-Gremiums oder der zustaendigen Behoerden und begruendet keine Pflicht
+    des Betreibers.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 60 Abs. 4 lit. c
   artikel: '60'
   artikel_titel: Tests von Hochrisiko-KI-Systemen unter Realbedingungen außerhalb von KI-Reallaboren
@@ -14311,17 +14859,21 @@ einheiten:
     Identifizierungsnummer und den darin festgelegten Informationen registriert; der Anbieter oder zukünftige
     Anbieter von Hochrisiko-KI-Systemen gemäß Anhang III Nummer 2 hat die Tests unter Realbedingungen
     gemäß Artikel 49 Absatz 5 registriert;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Der Anbieter muss den Test unter Angabe einer unionsweiten Kennnummer registriert haben, bei
+    bestimmten Hochrisikosystemen im nicht oeffentlichen Teil der EU-Datenbank.
+  scope: out
+  scope_grund: Die Pflicht richtet sich an den Anbieter bzw. kuenftigen Anbieter des KI-Modells oder KI-Systems
+    und nicht an den Betreiber im Sinne der Verordnung.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 60 Abs. 4 lit. d
   artikel: '60'
   artikel_titel: Tests von Hochrisiko-KI-Systemen unter Realbedingungen außerhalb von KI-Reallaboren
@@ -14333,17 +14885,21 @@ einheiten:
   beleg: d) der Anbieter oder der zukünftige Anbieter, der den Test unter Realbedingungen durchführt,
     ist in der Union niedergelassen oder hat einen in der Union niedergelassenen gesetzlichen Vertreter
     bestellt;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Der den Test durchfuehrende Anbieter muss in der Union niedergelassen sein oder einen dort
+    niedergelassenen gesetzlichen Vertreter bestellt haben.
+  scope: out
+  scope_grund: Die Pflicht richtet sich an den Anbieter bzw. kuenftigen Anbieter des KI-Modells oder KI-Systems
+    und nicht an den Betreiber im Sinne der Verordnung.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 60 Abs. 4 lit. e
   artikel: '60'
   artikel_titel: Tests von Hochrisiko-KI-Systemen unter Realbedingungen außerhalb von KI-Reallaboren
@@ -14355,17 +14911,21 @@ einheiten:
   beleg: e) die für die Zwecke des Tests unter Realbedingungen erhobenen und verarbeiteten Daten werden
     nur dann an Drittländer übermittelt, wenn gemäß Unionsrecht geeignete und anwendbare Schutzvorkehrungen
     greifen;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Fuer den Test erhobene Daten duerfen nur unter Beachtung geeigneter unionsrechtlicher Schutzvorkehrungen
+    an Drittlaender uebermittelt werden.
+  scope: out
+  scope_grund: Die Pflicht richtet sich an den Anbieter bzw. kuenftigen Anbieter des KI-Modells oder KI-Systems
+    und nicht an den Betreiber im Sinne der Verordnung.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 60 Abs. 4 lit. f
   artikel: '60'
   artikel_titel: Tests von Hochrisiko-KI-Systemen unter Realbedingungen außerhalb von KI-Reallaboren
@@ -14378,17 +14938,21 @@ einheiten:
     nötig und in keinem Fall länger als sechs Monate; dieser Zeitraum kann um weitere sechs Monate verlängert
     werden, sofern der Anbieter oder der zukünftige Anbieter die Marktüberwachungsbehörde davon vorab
     in Kenntnis setzt und erläutert, warum eine solche Verlängerung erforderlich ist;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Der Test darf nicht laenger als zur Zielerreichung noetig und hoechstens sechs Monate dauern,
+    mit einer moeglichen Verlaengerung um weitere sechs Monate nach vorheriger Anzeige und Begruendung.
+  scope: out
+  scope_grund: Die Pflicht richtet sich an den Anbieter bzw. kuenftigen Anbieter des KI-Modells oder KI-Systems
+    und nicht an den Betreiber im Sinne der Verordnung.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 60 Abs. 4 lit. g
   artikel: '60'
   artikel_titel: Tests von Hochrisiko-KI-Systemen unter Realbedingungen außerhalb von KI-Reallaboren
@@ -14399,17 +14963,20 @@ einheiten:
   saetze: 1
   beleg: g) Testteilnehmer im Rahmen von Tests unter Realbedingungen, die aufgrund ihres Alters oder einer
     Behinderung schutzbedürftigen Gruppen angehören, sind angemessen geschützt;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Schutzbeduerftige Testteilnehmer aufgrund von Alter oder Behinderung sind angemessen zu schuetzen.
+  scope: out
+  scope_grund: Die Pflicht richtet sich an den Anbieter bzw. kuenftigen Anbieter des KI-Modells oder KI-Systems
+    und nicht an den Betreiber im Sinne der Verordnung.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 60 Abs. 4 lit. h
   artikel: '60'
   artikel_titel: Tests von Hochrisiko-KI-Systemen unter Realbedingungen außerhalb von KI-Reallaboren
@@ -14458,17 +15025,22 @@ einheiten:
     den Test des KI-Systems verhindern würde, dürfen sich der Test und die Ergebnisse des Tests unter
     Realbedingungen nicht negativ auf die Testteilnehmer auswirken und ihre personenbezogenen Daten werden
     nach Durchführung des Tests gelöscht;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Testteilnehmer muessen informierte Einwilligung nach Art. 61 erteilt haben, ausser bei Strafverfolgung,
+    wo stattdessen sichergestellt sein muss, dass Test und Ergebnisse sich nicht nachteilig auswirken
+    und personenbezogene Daten geloescht werden.
+  scope: out
+  scope_grund: Die Pflicht richtet sich an den Anbieter bzw. kuenftigen Anbieter des KI-Modells oder KI-Systems
+    und nicht an den Betreiber im Sinne der Verordnung.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 60 Abs. 4 lit. j
   artikel: '60'
   artikel_titel: Tests von Hochrisiko-KI-Systemen unter Realbedingungen außerhalb von KI-Reallaboren
@@ -14507,17 +15079,21 @@ einheiten:
   saetze: 1
   beleg: k) die Vorhersagen, Empfehlungen oder Entscheidungen des KI-Systems können effektiv rückgängig
     gemacht und außer Acht gelassen werden.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Vorhersagen, Empfehlungen oder Entscheidungen des KI-Systems muessen effektiv rueckgaengig
+    gemacht oder ausser Acht gelassen werden koennen.
+  scope: out
+  scope_grund: Die Pflicht richtet sich an den Anbieter bzw. kuenftigen Anbieter des KI-Modells oder KI-Systems
+    und nicht an den Betreiber im Sinne der Verordnung.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 60 Abs. 5
   artikel: '60'
   artikel_titel: Tests von Hochrisiko-KI-Systemen unter Realbedingungen außerhalb von KI-Reallaboren
@@ -14532,17 +15108,22 @@ einheiten:
     verlangen, ohne dass ihm daraus Nachteile entstehen und er dies in irgendeiner Weise begründen müsste.
     Der Widerruf der informierten Einwilligung wirkt sich nicht auf bereits durchgeführte Tätigkeiten
     aus.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: sonstige
+  pflicht: Jeder Testteilnehmer oder sein gesetzlicher Vertreter kann die Teilnahme jederzeit durch Widerruf
+    der Einwilligung beenden und die sofortige Loeschung seiner Daten verlangen, ohne dass ihm daraus
+    Nachteile entstehen.
+  scope: out
+  scope_grund: Die Regelung betrifft die Weiterverarbeitung personenbezogener Daten im Reallabor bzw.
+    Rechte und Schutz betroffener Personen/Testteilnehmer und begruendet keine Pflicht des Betreibers.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 60 Abs. 6
   artikel: '60'
   artikel_titel: Tests von Hochrisiko-KI-Systemen unter Realbedingungen außerhalb von KI-Reallaboren
@@ -14556,17 +15137,23 @@ einheiten:
     unangekündigte Ferninspektionen oder Vor-Ort-Inspektionen durchzuführen und die Durchführung der Tests
     unter Realbedingungen und damit zusammenhängende Hochrisiko-KI-Systeme zu prüfen. Die Marktüberwachungsbehörden
     nutzen diese Befugnisse, um für die sichere Entwicklung von Tests unter Realbedingungen zu sorgen.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Die Mitgliedstaaten muessen ihren Marktueberwachungsbehoerden die Befugnis uebertragen, von
+    Anbietern Informationen zu verlangen, unangekuendigte Inspektionen durchzufuehren und die Tests zu
+    pruefen.
+  scope: out
+  scope_grund: Die Regelung betrifft eine Handlungs- oder Aufsichtspflicht der Kommission, des Buero fuer
+    Kuenstliche Intelligenz, des KI-Gremiums oder der zustaendigen Behoerden und begruendet keine Pflicht
+    des Betreibers.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 60 Abs. 7
   artikel: '60'
   artikel_titel: Tests von Hochrisiko-KI-Systemen unter Realbedingungen außerhalb von KI-Reallaboren
@@ -14581,17 +15168,22 @@ einheiten:
     aus, bis eine Schadensbegrenzung stattgefunden hat, oder bricht ihn ab. Im Fall eines solchen Abbruchs
     des Tests unter Realbedingungen richtet der Anbieter oder zukünftige Anbieter ein Verfahren für den
     sofortigen Rückruf des KI-Systems ein.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Schwerwiegende Vorfaelle waehrend des Tests sind den Marktueberwachungsbehoerden zu melden;
+    der Anbieter muss Sofortmassnahmen ergreifen, den Test aussetzen oder abbrechen und im Abbruchfall
+    ein Rueckrufverfahren einrichten.
+  scope: out
+  scope_grund: Die Pflicht richtet sich an den Anbieter bzw. kuenftigen Anbieter des KI-Modells oder KI-Systems
+    und nicht an den Betreiber im Sinne der Verordnung.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 60 Abs. 8
   artikel: '60'
   artikel_titel: Tests von Hochrisiko-KI-Systemen unter Realbedingungen außerhalb von KI-Reallaboren
@@ -14603,17 +15195,21 @@ einheiten:
   beleg: (8)   Anbieter oder zukünftige Anbieter setzen die nationalen Marktüberwachungsbehörde in dem
     Mitgliedstaat, in dem der Test unter Realbedingungen stattfindet, über die Aussetzung oder den Abbruch
     des Tests unter Realbedingungen und die Endergebnisse in Kenntnis.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Der Anbieter muss die zustaendige Marktueberwachungsbehoerde ueber Aussetzung, Abbruch und
+    Endergebnisse des Tests informieren.
+  scope: out
+  scope_grund: Die Pflicht richtet sich an den Anbieter bzw. kuenftigen Anbieter des KI-Modells oder KI-Systems
+    und nicht an den Betreiber im Sinne der Verordnung.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 60 Abs. 9
   artikel: '60'
   artikel_titel: Tests von Hochrisiko-KI-Systemen unter Realbedingungen außerhalb von KI-Reallaboren
@@ -14624,17 +15220,21 @@ einheiten:
   saetze: 1
   beleg: (9)   Anbieter oder zukünftige Anbieter sind nach geltendem Recht der Union und geltendem nationalen
     Recht für Schäden haftbar, die während ihrer Tests unter Realbedingungen entstehen.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Der Anbieter haftet nach geltendem Recht fuer Schaeden, die waehrend seiner Tests unter Realbedingungen
+    entstehen.
+  scope: out
+  scope_grund: Die Pflicht richtet sich an den Anbieter bzw. kuenftigen Anbieter des KI-Modells oder KI-Systems
+    und nicht an den Betreiber im Sinne der Verordnung.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 61 Abs. 1
   artikel: '61'
   artikel_titel: Informierte Einwilligung zur Teilnahme an einem Test unter Realbedingungen außerhalb
@@ -14648,17 +15248,22 @@ einheiten:
     eine freiwillig erteilte informierte Einwilligung einzuholen, bevor sie an dem Test teilnehmen und
     nachdem sie mit präzisen, klaren, relevanten und verständlichen Informationen über Folgendes ordnungsgemäß
     informiert wurden:'
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Vor Teilnahme an einem Test unter Realbedingungen ist von den Testteilnehmern eine freiwillige
+    informierte Einwilligung einzuholen, nachdem sie ueber die im Folgenden genannten Punkte informiert
+    wurden.
+  scope: out
+  scope_grund: Die Pflicht richtet sich an den Anbieter bzw. kuenftigen Anbieter des KI-Modells oder KI-Systems
+    und nicht an den Betreiber im Sinne der Verordnung.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 61 Abs. 1 lit. a
   artikel: '61'
   artikel_titel: Informierte Einwilligung zur Teilnahme an einem Test unter Realbedingungen außerhalb
@@ -14670,17 +15275,21 @@ einheiten:
   saetze: 1
   beleg: a) die Art und die Zielsetzungen des Tests unter Realbedingungen und etwaige mit ihrer Teilnahme
     verbundene Unannehmlichkeiten;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Die Testteilnehmer sind ueber Art und Ziele des Tests sowie etwaige damit verbundene Unannehmlichkeiten
+    zu informieren.
+  scope: out
+  scope_grund: Die Pflicht richtet sich an den Anbieter bzw. kuenftigen Anbieter des KI-Modells oder KI-Systems
+    und nicht an den Betreiber im Sinne der Verordnung.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 61 Abs. 1 lit. b
   artikel: '61'
   artikel_titel: Informierte Einwilligung zur Teilnahme an einem Test unter Realbedingungen außerhalb
@@ -14692,17 +15301,21 @@ einheiten:
   saetze: 1
   beleg: b) die Bedingungen, unter denen der Test unter Realbedingungen erfolgen soll, einschließlich
     der voraussichtlichen Dauer der Teilnahme des Testteilnehmers oder der Testteilnehmer;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Die Testteilnehmer sind ueber die Bedingungen des Tests einschliesslich der voraussichtlichen
+    Teilnahmedauer zu informieren.
+  scope: out
+  scope_grund: Die Pflicht richtet sich an den Anbieter bzw. kuenftigen Anbieter des KI-Modells oder KI-Systems
+    und nicht an den Betreiber im Sinne der Verordnung.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 61 Abs. 1 lit. c
   artikel: '61'
   artikel_titel: Informierte Einwilligung zur Teilnahme an einem Test unter Realbedingungen außerhalb
@@ -14716,17 +15329,21 @@ einheiten:
     Recht, die Teilnahme an dem Test unter Realbedingungen zu verweigern oder diese Teilnahme jederzeit
     zu beenden, ohne dass ihnen daraus Nachteile entstehen und sie dies in irgendeiner Weise begründen
     müssten;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Die Testteilnehmer sind ueber ihre Rechte und Garantien zu informieren, insbesondere das jederzeitige,
+    folgenlose Recht, die Teilnahme zu verweigern oder zu beenden.
+  scope: out
+  scope_grund: Die Pflicht richtet sich an den Anbieter bzw. kuenftigen Anbieter des KI-Modells oder KI-Systems
+    und nicht an den Betreiber im Sinne der Verordnung.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 61 Abs. 1 lit. d
   artikel: '61'
   artikel_titel: Informierte Einwilligung zur Teilnahme an einem Test unter Realbedingungen außerhalb
@@ -14738,17 +15355,21 @@ einheiten:
   saetze: 1
   beleg: d) die Regelungen, unter denen die Rückgängigmachung oder Außerachtlassung der Vorhersagen, Empfehlungen
     oder Entscheidungen des KI-Systems beantragt werden kann;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Die Testteilnehmer sind ueber die Regelungen zu informieren, unter denen die Rueckgaengigmachung
+    von Systemvorhersagen beantragt werden kann.
+  scope: out
+  scope_grund: Die Pflicht richtet sich an den Anbieter bzw. kuenftigen Anbieter des KI-Modells oder KI-Systems
+    und nicht an den Betreiber im Sinne der Verordnung.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 61 Abs. 1 lit. e
   artikel: '61'
   artikel_titel: Informierte Einwilligung zur Teilnahme an einem Test unter Realbedingungen außerhalb
@@ -14761,17 +15382,21 @@ einheiten:
   beleg: e) die unionsweit einmalige Identifizierungsnummer des Tests unter Realbedingungen gemäß Artikel
     60 Absatz 4 Buchstabe c und die Kontaktdaten des Anbieters oder seines gesetzlichen Vertreters, bei
     dem weitere Informationen eingeholt werden können.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Die Testteilnehmer sind ueber die unionsweite Kennnummer des Tests sowie die Kontaktdaten des
+    Anbieters oder seines Vertreters zu informieren.
+  scope: out
+  scope_grund: Die Pflicht richtet sich an den Anbieter bzw. kuenftigen Anbieter des KI-Modells oder KI-Systems
+    und nicht an den Betreiber im Sinne der Verordnung.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 61 Abs. 2
   artikel: '61'
   artikel_titel: Informierte Einwilligung zur Teilnahme an einem Test unter Realbedingungen außerhalb
@@ -14783,17 +15408,21 @@ einheiten:
   saetze: 1
   beleg: (2)   Die informierte Einwilligung ist zu datieren und zu dokumentieren, und eine Kopie wird
     den Testteilnehmern oder ihren gesetzlichen Vertretern ausgehändigt.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: anbieter
+  pflicht: Die informierte Einwilligung ist zu datieren und zu dokumentieren, und den Testteilnehmern
+    ist eine Kopie auszuhaendigen.
+  scope: out
+  scope_grund: Die Pflicht richtet sich an den Anbieter bzw. kuenftigen Anbieter des KI-Modells oder KI-Systems
+    und nicht an den Betreiber im Sinne der Verordnung.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 62 Abs. 1
   artikel: '62'
   artikel_titel: Maßnahmen für Anbieter und Betreiber, insbesondere KMU, einschließlich Start-up-Unternehmen
@@ -14803,17 +15432,21 @@ einheiten:
   laenge: 62
   saetze: 1
   beleg: '(1)   Die Mitgliedstaaten ergreifen die folgenden Maßnahmen:'
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Die Mitgliedstaaten muessen bestimmte, im Folgenden genannte Massnahmen ergreifen.
+  scope: out
+  scope_grund: Die Regelung betrifft eine Handlungs- oder Aufsichtspflicht der Kommission, des Buero fuer
+    Kuenstliche Intelligenz, des KI-Gremiums oder der zustaendigen Behoerden und begruendet keine Pflicht
+    des Betreibers.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 62 Abs. 1 lit. a
   artikel: '62'
   artikel_titel: Maßnahmen für Anbieter und Betreiber, insbesondere KMU, einschließlich Start-up-Unternehmen
@@ -14827,17 +15460,22 @@ einheiten:
     zu den KI-Reallaboren; der vorrangige Zugang schließt nicht aus, dass andere als die in diesem Absatz
     genannten KMU, einschließlich Start-up-Unternehmen, Zugang zum KI-Reallabor erhalten, sofern sie ebenfalls
     die Zulassungsvoraussetzungen und Auswahlkriterien erfüllen;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Die Mitgliedstaaten gewaehren KMU einschliesslich Start-ups mit Sitz in der Union bevorrechtigten
+    Zugang zu den KI-Reallaboren, soweit die Zulassungsvoraussetzungen erfuellt sind.
+  scope: out
+  scope_grund: Die Regelung betrifft eine Handlungs- oder Aufsichtspflicht der Kommission, des Buero fuer
+    Kuenstliche Intelligenz, des KI-Gremiums oder der zustaendigen Behoerden und begruendet keine Pflicht
+    des Betreibers.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 62 Abs. 1 lit. b
   artikel: '62'
   artikel_titel: Maßnahmen für Anbieter und Betreiber, insbesondere KMU, einschließlich Start-up-Unternehmen
@@ -14901,17 +15539,22 @@ einheiten:
   saetze: 1
   beleg: d) sie fördern die Beteiligung von KMU und anderen einschlägigen Interessenträgern an der Entwicklung
     von Normen.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Die Mitgliedstaaten foerdern die Beteiligung von KMU und anderen einschlaegigen Interessentraegern
+    an der Normungsarbeit.
+  scope: out
+  scope_grund: Die Regelung betrifft eine Handlungs- oder Aufsichtspflicht der Kommission, des Buero fuer
+    Kuenstliche Intelligenz, des KI-Gremiums oder der zustaendigen Behoerden und begruendet keine Pflicht
+    des Betreibers.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 62 Abs. 2
   artikel: '62'
   artikel_titel: Maßnahmen für Anbieter und Betreiber, insbesondere KMU, einschließlich Start-up-Unternehmen
@@ -14924,17 +15567,22 @@ einheiten:
     die besonderen Interessen und Bedürfnisse von KMU, einschließlich Start-up-Unternehmen, berücksichtigt,
     indem diese Gebühren proportional zur Größe der Unternehmen, der Größe ihres Marktes und anderen einschlägigen
     Kennzahlen gesenkt werden.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Bei der Festsetzung von Konformitaetsbewertungsgebuehren sind die besonderen Beduerfnisse von
+    KMU einschliesslich Start-ups durch proportional gesenkte Gebuehren zu beruecksichtigen.
+  scope: out
+  scope_grund: Die Regelung betrifft eine Handlungs- oder Aufsichtspflicht der Kommission, des Buero fuer
+    Kuenstliche Intelligenz, des KI-Gremiums oder der zustaendigen Behoerden und begruendet keine Pflicht
+    des Betreibers.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 62 Abs. 3
   artikel: '62'
   artikel_titel: Maßnahmen für Anbieter und Betreiber, insbesondere KMU, einschließlich Start-up-Unternehmen
@@ -14944,17 +15592,21 @@ einheiten:
   laenge: 77
   saetze: 1
   beleg: '(3)   Das Büro für Künstliche Intelligenz ergreift die folgenden Maßnahmen:'
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Das Buero fuer Kuenstliche Intelligenz muss bestimmte, im Folgenden genannte Massnahmen ergreifen.
+  scope: out
+  scope_grund: Die Regelung betrifft eine Handlungs- oder Aufsichtspflicht der Kommission, des Buero fuer
+    Kuenstliche Intelligenz, des KI-Gremiums oder der zustaendigen Behoerden und begruendet keine Pflicht
+    des Betreibers.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 62 Abs. 3 lit. a
   artikel: '62'
   artikel_titel: Maßnahmen für Anbieter und Betreiber, insbesondere KMU, einschließlich Start-up-Unternehmen
@@ -14965,17 +15617,22 @@ einheiten:
   saetze: 1
   beleg: a) es stellt standardisierte Muster für die unter diese Verordnung fallenden Bereiche bereit,
     wie vom KI-Gremium in seinem Antrag festgelegt;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Das Buero fuer Kuenstliche Intelligenz stellt standardisierte Muster fuer von der Verordnung
+    erfasste Bereiche bereit.
+  scope: out
+  scope_grund: Die Regelung betrifft eine Handlungs- oder Aufsichtspflicht der Kommission, des Buero fuer
+    Kuenstliche Intelligenz, des KI-Gremiums oder der zustaendigen Behoerden und begruendet keine Pflicht
+    des Betreibers.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 62 Abs. 3 lit. b
   artikel: '62'
   artikel_titel: Maßnahmen für Anbieter und Betreiber, insbesondere KMU, einschließlich Start-up-Unternehmen
@@ -14986,17 +15643,22 @@ einheiten:
   saetze: 1
   beleg: b) es entwickelt und führt eine zentrale Informationsplattform, über die allen Akteuren in der
     Union leicht nutzbare Informationen zu dieser Verordnung bereitgestellt werden;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Das Buero fuer Kuenstliche Intelligenz entwickelt und betreibt eine zentrale Informationsplattform
+    mit leicht nutzbaren Informationen zur Verordnung.
+  scope: out
+  scope_grund: Die Regelung betrifft eine Handlungs- oder Aufsichtspflicht der Kommission, des Buero fuer
+    Kuenstliche Intelligenz, des KI-Gremiums oder der zustaendigen Behoerden und begruendet keine Pflicht
+    des Betreibers.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 62 Abs. 3 lit. c
   artikel: '62'
   artikel_titel: Maßnahmen für Anbieter und Betreiber, insbesondere KMU, einschließlich Start-up-Unternehmen
@@ -15007,17 +15669,22 @@ einheiten:
   saetze: 1
   beleg: c) es führt geeignete Informationskampagnen durch, um für die aus dieser Verordnung erwachsenden
     Pflichten zu sensibilisieren;
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Das Buero fuer Kuenstliche Intelligenz fuehrt Informationskampagnen zur Sensibilisierung fuer
+    die Pflichten der Verordnung durch.
+  scope: out
+  scope_grund: Die Regelung betrifft eine Handlungs- oder Aufsichtspflicht der Kommission, des Buero fuer
+    Kuenstliche Intelligenz, des KI-Gremiums oder der zustaendigen Behoerden und begruendet keine Pflicht
+    des Betreibers.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 62 Abs. 3 lit. d
   artikel: '62'
   artikel_titel: Maßnahmen für Anbieter und Betreiber, insbesondere KMU, einschließlich Start-up-Unternehmen
@@ -15028,17 +15695,22 @@ einheiten:
   saetze: 1
   beleg: d) es bewertet und fördert die Zusammenführung bewährter Verfahren im Bereich der mit KI-Systemen
     verbundenen Vergabeverfahren.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
+  adressat: behoerde
+  pflicht: Das Buero fuer Kuenstliche Intelligenz bewertet und foerdert die Zusammenfuehrung bewaehrter
+    Verfahren bei KI-bezogenen Vergabeverfahren.
+  scope: out
+  scope_grund: Die Regelung betrifft eine Handlungs- oder Aufsichtspflicht der Kommission, des Buero fuer
+    Kuenstliche Intelligenz, des KI-Gremiums oder der zustaendigen Behoerden und begruendet keine Pflicht
+    des Betreibers.
+  verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 63 Abs. 1
   artikel: '63'
   artikel_titel: Ausnahmen für bestimmte Akteure
@@ -15054,17 +15726,23 @@ einheiten:
     aus, die unter Berücksichtigung der Bedürfnisse von Kleinstunternehmen in vereinfachter Weise eingehalten
     werden können, ohne das Schutzniveau oder die Notwendigkeit zur Einhaltung der Anforderungen in Bezug
     auf Hochrisiko-KI-Systeme zu beeinträchtigen.
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
-  hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  adressat: anbieter
+  pflicht: Kleinstunternehmen ohne Partner- oder verbundene Unternehmen duerfen bestimmte Elemente des
+    Qualitaetsmanagementsystems nach Art. 17 vereinfacht einhalten; die Kommission erarbeitet dazu Leitlinien.
+  scope: out
+  scope_grund: Die Pflicht richtet sich an den Anbieter bzw. kuenftigen Anbieter des KI-Modells oder KI-Systems
+    und nicht an den Betreiber im Sinne der Verordnung.
+  verifikation: HYPOTHESE
+  hypothese_grund: Der Wortlaut spricht von 'Kleinstunternehmen', nicht ausdruecklich von 'Anbieter';
+    die Zuordnung zu 'anbieter' folgt aus dem Bezug auf das Qualitaetsmanagementsystem nach Art. 17, das
+    eine Anbieterpflicht ist.
+  omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 26 - Abs. 1 neu gefasst (Voraussetzung 'keine
+    Partnerunternehmen/verbundene Unternehmen' ergaenzt); geprueft am verfuegenden Teil.
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 63 Abs. 2
   artikel: '63'
   artikel_titel: Ausnahmen für bestimmte Akteure
@@ -15077,17 +15755,23 @@ einheiten:
     anderen in dieser Verordnung festgelegten Anforderungen oder Pflichten, einschließlich der nach den
     Artikeln 9, 10, 11, 12, 13, 14, 15, 72 und 73 geltenden, befreit sind. KAPITEL VII GOVERNANCE ABSCHNITT
     1 Governance auf Unionsebene
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
-  hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
+  adressat: anbieter
+  pflicht: Die Vereinfachung nach Absatz 1 befreit diese Akteure nicht von anderen Pflichten der Verordnung,
+    etwa nach Art. 9-15, 72 und 73.
+  scope: out
+  scope_grund: Die Pflicht richtet sich an den Anbieter bzw. kuenftigen Anbieter des KI-Modells oder KI-Systems
+    und nicht an den Betreiber im Sinne der Verordnung.
+  verifikation: HYPOTHESE
+  hypothese_grund: Der Wortlaut spricht von 'Kleinstunternehmen', nicht ausdruecklich von 'Anbieter';
+    die Zuordnung zu 'anbieter' folgt aus dem Bezug auf das Qualitaetsmanagementsystem nach Art. 17, das
+    eine Anbieterpflicht ist.
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: []
+  gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
 - id: Art. 64 Abs. 1
   artikel: '64'
   artikel_titel: Büro für Künstliche Intelligenz
@@ -15105,8 +15789,8 @@ einheiten:
   verifikation: null
   hypothese_grund: null
   omnibus: null
-  requirement: *id001
-  gate: *id002
+  requirement: &id001 []
+  gate: &id002 []
   befund: null
   befund_grund: null
 - id: Art. 64 Abs. 2
