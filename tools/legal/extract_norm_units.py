@@ -113,6 +113,40 @@ def index_articles(norm: str) -> list[dict]:
     return out
 
 
+def index_paragraphen(norm: str) -> list[dict]:
+    """Deutsche Gesetze zaehlen in Paragraphen, nicht in Artikeln.
+
+    EnWG, BSIG und KRITIS-Dachgesetz tragen dieselbe Pflichtenlage wie der
+    AI Act auf demselben Adressaten, aber eine andere Gliederung: '§ 30
+    Risikomanagementmassnahmen ...' statt 'Artikel 26'. Der Verbatim-Check
+    bleibt unveraendert — nur das Schneiden ist normabhaengig, und genau
+    deshalb steht es hier und nicht im Waechter.
+    """
+    hits = [(m.group(1), m.start() + 1)
+            for m in re.finditer(r"\n§ (\d+[a-z]?) [^\n]+\n", norm)]
+    # Dasselbe Problem wie bei den Artikeln, nur haeufiger: '§ 14 Absatz 2
+    # Satz 1,' am Zeilenanfang im Fliesstext ist eine VERWEISUNG, keine
+    # Ueberschrift. Ueberschriften laufen aufsteigend, Verweisungen nicht.
+    # Der Filter nimmt nur, was die Zaehlung vorantreibt.
+    eindeutig: list[tuple[str, int]] = []
+    letzte = 0
+    for num, start in hits:
+        zahl = int(re.match(r"\d+", num).group())
+        buchstabe = num[len(str(zahl)):]
+        if zahl > letzte or (zahl == letzte and buchstabe):
+            eindeutig.append((num, start))
+            letzte = zahl
+    out = []
+    for i, (num, start) in enumerate(eindeutig):
+        end = eindeutig[i + 1][1] - 1 if i + 1 < len(eindeutig) else len(norm)
+        body = norm[start:end]
+        erste = body.split("\n", 1)[0]
+        titel = erste.split(" ", 2)[2].strip() if erste.count(" ") >= 2 else ""
+        out.append({"artikel": f"§ {num}", "titel": titel,
+                    "start": start, "end": end, "ist_paragraph": True})
+    return out
+
+
 def index_anhaenge(norm: str) -> list[dict]:
     """Anhaenge als eigene Einheiten-Traeger.
 
@@ -166,7 +200,9 @@ def split_absaetze(norm: str, art: dict) -> list[dict]:
     """Absaetze eines Artikels. Ein Artikel ohne Nummerierung ergibt genau einen."""
     body_start = art["start"]
     body = norm[body_start:art["end"]]
-    marks = [(m.group(1), m.start()) for m in re.finditer(r"\n\((\d+)\)\s{2,}", body)]
+    # EU-Texte setzen '(1)   ' mit drei Leerzeichen, deutsche Gesetze '(1) ' mit
+    # einem. Ein Muster fuer beide, statt zwei Parser fuer denselben Gedanken.
+    marks = [(m.group(1), m.start()) for m in re.finditer(r"\n\((\d+)\)\s+", body)]
     if not marks:
         # Unnummerierter Artikel: alles nach der Ueberschriftszeile ist Absatz "-"
         lines = body.split("\n")
@@ -220,6 +256,13 @@ def split_saetze(norm: str, start: int, end: int) -> list[dict]:
 
 
 def units_for(norm: str, art: dict) -> list[dict]:
+    """Einheiten eines Artikels, Paragraphen oder Anhangs.
+
+    Leere Ausschnitte werden verworfen. Sie entstehen, wo eine Ueberschrift
+    ohne Text folgt — ein Artefakt der Gliederung, kein Normtext. Eine Einheit
+    ohne Beleg ist nicht pruefbar, und was nicht pruefbar ist, hat in einem
+    Pflichtenraum nichts verloren.
+    """
     out = []
     teile = split_nummern(norm, art) if art.get("ist_anhang") else split_absaetze(norm, art)
     for ab in teile:
@@ -233,13 +276,14 @@ def units_for(norm: str, art: dict) -> list[dict]:
                                  lt["start"], lt["end"]))
         else:
             out.append(_unit(norm, art, ab["absatz"], None, ab["start"], ab["end"]))
-    return out
+    return [u for u in out if u["text"].strip()]
 
 
 def _unit(norm, art, absatz, buchstabe, start, end) -> dict:
     text = norm[start:end]
     ist_anhang = art.get("ist_anhang", False)
-    kopf = art["artikel"] if ist_anhang else f"Art. {art['artikel']}"
+    eigenname = ist_anhang or art.get("ist_paragraph", False)
+    kopf = art["artikel"] if eigenname else f"Art. {art['artikel']}"
     stufe = "Nr." if ist_anhang else "Abs."
     kennung = (kopf
                + (f" {stufe} {absatz}" if absatz != "-" else "")
@@ -274,7 +318,7 @@ def main() -> int:
     a = ap.parse_args()
 
     raw, norm, digest = load(a.quelle)
-    arts = index_articles(norm) + index_anhaenge(norm)
+    arts = index_articles(norm) + index_paragraphen(norm) + index_anhaenge(norm)
     want = set(a.artikel or []) if not a.alle else {x["artikel"] for x in arts}
     if not want:
         want = {x["artikel"] for x in arts}

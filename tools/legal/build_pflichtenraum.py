@@ -32,7 +32,8 @@ from pathlib import Path
 import yaml
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from extract_norm_units import index_anhaenge, index_articles, load, units_for  # noqa: E402
+from extract_norm_units import (index_anhaenge, index_articles,
+                                 index_paragraphen, load, units_for)  # noqa: E402
 
 LEER = {
     "adressat": None,        # betreiber | anbieter | behoerde | sonstige
@@ -62,7 +63,7 @@ def main() -> int:
     a = ap.parse_args()
 
     raw, norm, digest = load(a.quelle)
-    arts = index_articles(norm) + index_anhaenge(norm)
+    arts = index_articles(norm) + index_paragraphen(norm) + index_anhaenge(norm)
     want = set(a.artikel) if a.artikel else {x["artikel"] for x in arts}
 
     neu = []
