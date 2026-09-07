@@ -29,11 +29,11 @@ eigentliche Aufwand dieses Tickets — sie ist erledigt, heute Nacht läuft rein
 
 | Quelle | SHA-256 (gekürzt) | Einheiten |
 |---|---|---|
-| `nis2_2022-2555_DE.txt` | `5c81ec4b88531363…` | 418 |
-| `dsgvo_2016-679_DE.txt` | `2d3a4bb6f8a5391d…` | 748 |
-| `bsig_2025_DE.txt` | `6bc0f2230431ac5a…` | 245 |
-| `kritisdachg_DE.txt` | `95ce2497799423ba…` | 110 |
-| `enwg_p11_DE.txt` | `d72f7fbfda1402cc…` | 4 |
+| `nis2_2022-2555_DE.txt` | siehe `quelle.sha256` | 418 |
+| `dsgvo_2016-679_DE.txt` | siehe `quelle.sha256` | 748 |
+| `bsig_2025_DE.txt` | siehe `quelle.sha256` | 295 |
+| `kritisdachg_DE.txt` | siehe `quelle.sha256` | 135 |
+| `enwg_DE.txt` (§§ 5c, 5d, 5e, 11) | siehe `quelle.sha256` | 15 |
 
 **Zum Geltungsstand, der in der ersten Fassung dieses Tickets offen war:** Das
 KRITIS-Dachgesetz wurde am 16.03.2026 verkündet und ist seit dem **17.03.2026 in Kraft**.
@@ -197,7 +197,7 @@ im Kopf des jeweiligen Pflichtenraums.
 LAUF 1 — NIS2 (RL 2022/2555) und BSIG (i.d.F. NIS2UmsuCG)
 
   docs/coverage/nis2_pflichtenraum.yaml   418 Einheiten
-  docs/coverage/bsig_pflichtenraum.yaml   245 Einheiten
+  docs/coverage/bsig_pflichtenraum.yaml   295 Einheiten
 
 Reihenfolge: erst BSIG, dann NIS2. Das BSIG ist das unmittelbar anwendbare
 Recht für den Adressaten; die Richtlinie erklärt, warum es so aussieht.
@@ -220,11 +220,19 @@ WEITESTEN plausiblen Lesart auf 'in', und schreibe in befund_grund, von
 welchem Status du ausgegangen bist. Nicht raten und stillschweigend
 einschränken — die weitere Lesart ist korrigierbar, die engere verdeckt.
 
-Die Einheit '§ 2 lit. e' des BSIG trägt mehrere Begriffsbestimmungen in einem
-Ausschnitt (die Nummerierung '1. 2. 3.' deutscher Definitionslisten wird vom
-Extraktor nicht getrennt). Das ist bekannt und kein Beleg-Fehler: der Beleg
-ist wortgleich, nur grob geschnitten. Behandle die enthaltenen Definitionen
-im Feld pflicht einzeln und vermerke es.
+DIE BEREICHSAUSNAHME IST DAS ERGEBNIS DIESES LAUFS. § 28 Absatz 5 Nummer 2
+nimmt die §§ 30, 31, 32, 35, 36, 38, 39, 61 und 62 heraus für Einrichtungen,
+die Energieversorgungsnetze betreiben und den §§ 5c bis 5e EnWG unterliegen.
+Diese Paragraphen gehen also überwiegend auf scope: out — aber MIT der
+Begründung und mit der Angabe, welche Norm stattdessen gilt. Der begründete
+Ausschluss ist hier die Erkenntnis, nicht das Weglassen. § 2 und § 28 selbst
+bleiben scope: in, denn sie tragen den Status und die Ausnahme.
+
+Deutsche Definitionslisten ('1. 2. 3.' innerhalb eines Absatzes) trennt der
+Extraktor nicht. Wo eine Einheit mehrere Begriffsbestimmungen in einem
+Ausschnitt trägt, ist das kein Beleg-Fehler — der Beleg ist wortgleich, nur
+grob geschnitten. Behandle die enthaltenen Definitionen im Feld pflicht
+einzeln und vermerke es.
 ```
 
 ## Lauf 2 — KRITIS-Dachgesetz und EnWG § 11
@@ -232,8 +240,8 @@ im Feld pflicht einzeln und vermerke es.
 ```
 LAUF 2 — KRITIS-Dachgesetz und EnWG § 11
 
-  docs/coverage/kritisdachg_pflichtenraum.yaml   110 Einheiten
-  docs/coverage/enwg_pflichtenraum.yaml            4 Einheiten
+  docs/coverage/kritisdachg_pflichtenraum.yaml   135 Einheiten
+  docs/coverage/enwg_pflichtenraum.yaml           15 Einheiten
 
 Das KRITIS-Dachgesetz setzt die CER-Richtlinie (EU) 2022/2557 um und regelt
 die PHYSISCHE Resilienz — NIS2 und BSIG regeln die informationstechnische.
@@ -247,10 +255,23 @@ Im KRITISDachG besonders:
   § 13  Meldepflichten — für die Überschneidungstabelle
   § 18  Registrierung
 
-EnWG § 11 hat nur 4 Einheiten, ist aber der Anker: Abs. 1a und 1b sind die
-Rechtsgrundlage des IT-Sicherheitskatalogs und damit des zertifizierten ISMS,
-an dem laut HANDBUCH 4.4 die ganze KI-Pflichtenlage hängt. Erfasse besonders
-genau, WORAUF Abs. 1a/1b verweisen und was sie dem Netzbetreiber auferlegen.
+DAS EnWG IST DER OPERATIVE KERN, NICHT DAS ANHÄNGSEL. Weil § 28 Absatz 5
+Nummer 2 BSIG die dortigen Kernpflichten verdrängt, stehen die materiellen
+IT-Sicherheitspflichten des Adressaten hier — in 15 Einheiten:
+
+  § 5c  IT-Sicherheit im Anlagen- und im Netzbetrieb, Festlegungskompetenz
+        (die Rechtsgrundlage, aus der der BNetzA-Katalog stammt)
+  § 5d  Dokumentations-, Melde-, Registrierungspflicht
+  § 5e  Umsetzungs-, Überwachungs- und Schulungspflicht für Geschäftsleitungen
+  § 11  Betrieb von Energieversorgungsnetzen, Abs. 1a/1b
+
+Diese 15 Einheiten sind pro Stück wertvoller als hundert im DSGVO-Raum.
+Arbeite sie mit derselben Sorgfalt durch wie Art. 26 des AI Act.
+
+Erfasse besonders genau, WORAUF § 5c verweist und was er dem Netzbetreiber
+auferlegt: die Festlegungskompetenz ist der Übergabepunkt zum IT-Sicherheits-
+katalog, für den noch kein Pflichtenraum existiert. Was dort steht, entscheidet,
+wie groß diese Lücke ist.
 ```
 
 ## Lauf 3 — DSGVO und die Überschneidungstabelle
