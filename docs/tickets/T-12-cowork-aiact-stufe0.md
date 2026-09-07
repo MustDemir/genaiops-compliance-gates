@@ -88,6 +88,13 @@ direkter Push. Keine `Co-Authored-By`-Zeile.
 
 Drei Läufe. **Block A steht in jedem Lauf**, dahinter der Block des jeweiligen Laufs.
 
+> **Nachtrag 07.09.2026 — gilt auch für die 180 offenen Einheiten dieses Tickets:**
+> Wie `scope` und `befund` zu entscheiden sind, steht seit dem 07.09. als Raster in
+> [`T-13`](T-13-cowork-sektorstapel.md), Abschnitt „Wie `scope` und `befund` entschieden
+> werden". Es gilt für **beide** Tickets. Die 180 Einheiten, die nach der Werkzeug­
+> korrektur dazugekommen sind — die Anhänge und die echten Art.-113-Absätze —, sind
+> danach zu bearbeiten.
+
 ## Block A — gilt für alle drei Läufe
 
 ```

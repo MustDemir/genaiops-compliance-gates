@@ -67,14 +67,83 @@ Auslegung ist HYPOTHESE mit Begründung (HANDBUCH 2.3).
 Wie T-12: `scope`, `befund` und jede HYPOTHESE liegen beim PO. Der Lauf **legt vor** und
 setzt auf jeder angefassten Zeile `po_bestaetigt: false`.
 
-Eine zusätzliche Festlegung, die dieses Ticket braucht und die noch aussteht:
+### Adressatenstatus — entschieden am 07.09.2026
 
-- [ ] **Adressatenzuschnitt je Norm.** Der AI Act kannte „Betreiber". NIS2 und BSIG
-      unterscheiden *besonders wichtige* und *wichtige Einrichtungen* sowie *Betreiber
-      kritischer Anlagen*; das KRITIS-Dachgesetz kennt *kritische Einrichtungen*. Welcher
-      Status trifft auf einen Verteilnetzbetreiber mittlerer bis großer Größe zu?
-      **Ohne diese Festlegung ist `scope: in` nicht entscheidbar** — und geraten wäre sie
-      eine Rechtsauslegung, die anschließend als Deckungsaussage im Katalog steht.
+- [x] **Arbeitsannahme: besonders wichtige Einrichtung nach § 28 Abs. 1 Nr. 1 BSIG**,
+      mit der Bereichsausnahme des § 28 Abs. 5 Nr. 2 ausdrücklich mitgeführt.
+
+**Was der Wortlaut sagt.** § 28 Abs. 1: *„Als besonders wichtige Einrichtung gelten
+1. Betreiber kritischer Anlagen, …"*. Die Definitionskette läuft über § 2 Nr. 22 BSIG
+(*„‚kritische Anlage' eine Anlage im Sinne des § 2 Nummer 3 des KRITIS-Dachgesetzes"*)
+weiter zu einer Rechtsverordnung mit Schwellenwerten. Der zweite Weg führt über § 28
+Abs. 1 Nr. 4: Einrichtungsart nach Anlage 1 **plus** ≥ 250 Mitarbeiter **oder** über
+50 Mio. € Umsatz **und** über 43 Mio. € Bilanzsumme.
+
+**Die Bereichsausnahme ist der eigentliche Befund.** § 28 Abs. 5 Nr. 2 nimmt die
+§§ 30, 31, 32, 35, 36, 38, 39, 61 und 62 heraus für Einrichtungen, die Energie­
+versorgungsnetze betreiben und den §§ 5c bis 5e EnWG unterliegen. Der Status greift
+also, die **Kernpflichten sind verdrängt** — sie stehen im EnWG, nicht im BSIG.
+
+**Warum die weiteste Lesart.** Eine zu weit gefasste Pflicht fällt bei der Durchsicht
+auf und wird gestrichen. Eine zu eng gefasste fällt nie auf, weil die Zeile gar nicht
+erst entsteht. Dieselbe Logik wie bei `scope: out` mit Begründungspflicht.
+
+**Der Status bleibt vorläufig.** Ob der Adressat tatsächlich eine kritische Anlage
+oberhalb des Schwellenwerts betreibt und wo er bei Mitarbeitern, Umsatz und
+Bilanzsumme liegt, ist eine Tatsachenfrage über den Zieladressaten, keine
+Normfrage. Solange sie offen ist, trägt jede darauf gestützte Zuordnung
+`verifikation: HYPOTHESE` mit Begründung.
+
+---
+
+## Wie `scope` und `befund` entschieden werden
+
+Zwei verschiedene Achsen, die nicht vermischt werden dürfen. `scope` fragt: **gehört
+diese Einheit in den Prüfraum?** `befund` fragt: **trifft der Katalog sie?** Die zweite
+Frage stellt sich nur, wenn die erste mit `in` beantwortet ist.
+
+### `scope` — die Aufnahmeregel, in vier Schritten
+
+Grundlage ist **HANDBUCH 4.1**: *„Eine Anforderung gehört in den Normenraum, wenn sie am
+Lebenszyklus eines KI-Systems prüfbar anfällt."* Daraus vier Prüfungen, in dieser
+Reihenfolge. **Die erste, die zutrifft, entscheidet:**
+
+| # | Frage | Wenn ja |
+|---|---|---|
+| 1 | Adressiert die Einheit **jemand anderen** als unsere Einrichtung? Kommission, Mitgliedstaaten, notifizierte Stellen, Behörden, Anbieter ohne Durchschlag auf den Betreiber | `out` — Grund: Adressat |
+| 2 | Greift eine **Bereichsausnahme**? Für BSIG §§ 30 ff.: § 28 Abs. 5 Nr. 2 | `out` — Grund: Ausnahme mit Fundstelle **und** Angabe, welche Norm stattdessen gilt |
+| 3 | Fällt die Pflicht **am Lebenszyklus eines KI-Systems** prüfbar an? Physische Objektsicherung, Verwaltungsverfahren, Sanktionsrahmen, Berichtspflichten der Behörden: nein | `out` — Grund: kein Lebenszyklusbezug (HANDBUCH 4.1) |
+| 4 | Sonst | `in` |
+
+**Im Zweifel `in`.** Eine Einheit, die zu Unrecht `in` steht, kostet eine Zeile
+Durchsicht. Eine, die zu Unrecht `out` steht, verschwindet aus der Analyse und taucht
+nie wieder auf.
+
+**Eine Ausnahme von Schritt 3:** Definitionen und Verweisungen, die eine `in`-Pflicht
+*steuern*, bleiben `in` — § 2 Nr. 22 BSIG entscheidet über den ganzen Status und ist
+deshalb selbst prüfrelevant, obwohl er für sich genommen keine Pflicht begründet.
+
+### `befund` — nur bei `scope: in`
+
+| Wert | Bedeutung | Verlangt |
+|---|---|---|
+| `gedeckt` | Ein Requirement **und** ein Gate treffen die Pflicht **vollständig** | die IDs in `requirement` und `gate` |
+| `teilabdeckung` | Getroffen, aber ein Teil der Pflicht bleibt ungeprüft | `befund_grund`: **welcher Teil** fehlt |
+| `luecke` | Kein Requirement und kein Gate trifft sie | `befund_grund`: ein Satz, warum das eine Lücke und keine Scope-Grenze ist |
+| `nicht_einschlaegig` | Adressiert uns und ist lebenszyklusrelevant, begründet aber **keine prüfbare Pflicht** — ein Recht, eine Erlaubnis, eine steuernde Definition | `befund_grund` |
+
+Der Unterschied zwischen `luecke` und `nicht_einschlaegig` ist der teuerste in dieser
+Tabelle: **eine Lücke verlangt ein Gate, ein `nicht_einschlaegig` verlangt keines.** Wer
+die beiden vermischt, erzeugt entweder Arbeit, die niemand braucht, oder eine Deckung,
+die es nicht gibt.
+
+### Was der Agent nie entscheidet
+
+`scope`, `befund` und jede HYPOTHESE sind Aussagen über Wirklichkeit und liegen beim PO
+(AGENTS.md 3). Der Lauf **legt vor** und setzt auf jeder angefassten Zeile
+`po_bestaetigt: false`. Die Regeln oben sind kein Ersatz für die Entscheidung — sie
+sorgen dafür, dass alle Zeilen nach demselben Maß vorgelegt werden und die Durchsicht
+gegen ein Raster läuft statt gegen Einzelfälle.
 
 ## SCOPE OUT
 
