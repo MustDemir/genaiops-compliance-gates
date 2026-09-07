@@ -1,22 +1,22 @@
 quelle:
   datei: docs/legal/wortlaut/kritisdachg_DE.txt
-  sha256: 95ce2497799423ba5eeb531bc895779c32ccceeff250d32897ae4d9f6e2663f5
-  url: https://www.gesetze-im-internet.de/kritisdachg/
-  fassung: KRITIS-Dachgesetz, verkuendet 16.03.2026, in Kraft seit 17.03.2026. ABGELEITETE ZUSAMMENSTELLUNG
-    aus 26 Einzelparagraphen-Seiten von gesetze-im-internet.de, abgerufen 07.09.2026 — kein amtliches
-    Einzeldokument.
+  sha256: 9a639fffbb8f6c680299039fa2ca83ca5a9c13539f57ffc4b2f4b59fbcb4b2fc
+  url: https://www.gesetze-im-internet.de/
+  fassung: ABGELEITETE ZUSAMMENSTELLUNG aus Einzelparagraphen-Seiten von gesetze-im-internet.de, abgerufen
+    07.09.2026 — kein amtliches Einzeldokument. Rechtsaussagen sind vor Veroeffentlichung gegen das Bundesgesetzblatt
+    zu pruefen.
   abgerufen: '2026-09-07'
   artikel_im_text: 24
 einheiten:
-- uid: § 2@433
+- uid: § 2@299
   id: § 2
   artikel: § 2
   artikel_titel: Begriffsbestimmungen
   absatz: '-'
   buchstabe: null
-  offset: 433
-  laenge: 3487
-  saetze: 2
+  offset: 299
+  laenge: 3383
+  saetze: 1
   beleg: ist „Betreiber kritischer Anlagen“ eine natürliche oder juristische Person oder eine rechtlich
     unselbständige Organisationseinheit einer Gebietskörperschaft, die unter Berücksichtigung der rechtlichen,
     wirtschaftlichen und tatsächlichen Umstände bestimmenden Einfluss auf eine oder mehrere kritische
@@ -49,8 +49,7 @@ einheiten:
     zur Führung der Geschäfte und zur Vertretung eines Betreibers kritischer Anlagen berufen ist; Leiterinnen
     und Leiter von Einrichtungen der Bundesverwaltung nach Nummer 10 sowie Leiterinnen und Leiter von
     Behörden gelten nicht als Geschäftsleitung; 12. sind „maritime Infrastrukturen“ Anlagen auf oder unter
-    See im Küstenmeer und der ausschließlichen Wirtschaftszone der Bundesrepublik Deutschland. zum Seitenanfang
-    Impressum Datenschutz Barrierefreiheitserklärung Feedback-Formular
+    See im Küstenmeer und der ausschließlichen Wirtschaftszone der Bundesrepublik Deutschland.
   adressat: null
   pflicht: null
   scope: null
@@ -62,13 +61,35 @@ einheiten:
   gate: &id002 []
   befund: null
   befund_grund: null
-- uid: § 3 Abs. 2@4226
+- uid: § 3 Abs. 1@3783
+  id: § 3 Abs. 1
+  artikel: § 3
+  artikel_titel: Zentrale Anlaufstelle; zuständige Behörde; behördliche Zusammenarbeit; Verordnungsermächtigung
+  absatz: '1'
+  buchstabe: null
+  offset: 3783
+  laenge: 190
+  saetze: 1
+  beleg: (1) Das Bundesamt für Bevölkerungsschutz und Katastrophenhilfe ist zentrale Anlaufstelle im Sinne
+    des Artikels 9 Absatz 2 der Richtlinie (EU) 2022/2557 in der Fassung vom 14. Dezember 2022.
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id001
+  gate: *id002
+  befund: null
+  befund_grund: null
+- uid: § 3 Abs. 2@3973
   id: § 3 Abs. 2
   artikel: § 3
   artikel_titel: Zentrale Anlaufstelle; zuständige Behörde; behördliche Zusammenarbeit; Verordnungsermächtigung
   absatz: '2'
   buchstabe: null
-  offset: 4226
+  offset: 3973
   laenge: 272
   saetze: 1
   beleg: (2) Zuständige Behörde im Sinne dieses Gesetzes ist 1. das Bundesministerium des Innern für die
@@ -85,13 +106,13 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 3 Abs. 2 lit. b@4498
+- uid: § 3 Abs. 2 lit. b@4245
   id: § 3 Abs. 2 lit. b
   artikel: § 3
   artikel_titel: Zentrale Anlaufstelle; zuständige Behörde; behördliche Zusammenarbeit; Verordnungsermächtigung
   absatz: '2'
   buchstabe: b
-  offset: 4498
+  offset: 4245
   laenge: 26
   saetze: 1
   beleg: b) der Erdgasversorgung,
@@ -106,13 +127,13 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 3 Abs. 2 lit. c@4524
+- uid: § 3 Abs. 2 lit. c@4271
   id: § 3 Abs. 2 lit. c
   artikel: § 3
   artikel_titel: Zentrale Anlaufstelle; zuständige Behörde; behördliche Zusammenarbeit; Verordnungsermächtigung
   absatz: '2'
   buchstabe: c
-  offset: 4524
+  offset: 4271
   laenge: 34
   saetze: 1
   beleg: c) der Wasserstoffversorgung und
@@ -127,13 +148,13 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 3 Abs. 2 lit. d@4558
+- uid: § 3 Abs. 2 lit. d@4305
   id: § 3 Abs. 2 lit. d
   artikel: § 3
   artikel_titel: Zentrale Anlaufstelle; zuständige Behörde; behördliche Zusammenarbeit; Verordnungsermächtigung
   absatz: '2'
   buchstabe: d
-  offset: 4558
+  offset: 4305
   laenge: 1215
   saetze: 1
   beleg: d) des Betriebes von öffentlichen Telekommunikationsnetzen oder der Erbringung von öffentlich
@@ -159,13 +180,13 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 3 Abs. 2 lit. b@5773
+- uid: § 3 Abs. 2 lit. b@5520
   id: § 3 Abs. 2 lit. b
   artikel: § 3
   artikel_titel: Zentrale Anlaufstelle; zuständige Behörde; behördliche Zusammenarbeit; Verordnungsermächtigung
   absatz: '2'
   buchstabe: b
-  offset: 5773
+  offset: 5520
   laenge: 1063
   saetze: 1
   beleg: b) der Datenspeicherung und -verarbeitung, 9. die Bundesanstalt für Finanzdienstleistungsaufsicht
@@ -190,13 +211,13 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 3 Abs. 3@6836
+- uid: § 3 Abs. 3@6583
   id: § 3 Abs. 3
   artikel: § 3
   artikel_titel: Zentrale Anlaufstelle; zuständige Behörde; behördliche Zusammenarbeit; Verordnungsermächtigung
   absatz: '3'
   buchstabe: null
-  offset: 6836
+  offset: 6583
   laenge: 760
   saetze: 4
   beleg: (3) Das Bundesministerium des Innern wird ermächtigt, durch Rechtsverordnung, die nicht der Zustimmung
@@ -218,13 +239,13 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 3 Abs. 4@7596
+- uid: § 3 Abs. 4@7343
   id: § 3 Abs. 4
   artikel: § 3
   artikel_titel: Zentrale Anlaufstelle; zuständige Behörde; behördliche Zusammenarbeit; Verordnungsermächtigung
   absatz: '4'
   buchstabe: null
-  offset: 7596
+  offset: 7343
   laenge: 387
   saetze: 1
   beleg: (4) Das Bundesamt für Seeschifffahrt und Hydrographie und die Bundesnetzagentur tauschen Informationen
@@ -242,13 +263,13 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 3 Abs. 5@7983
+- uid: § 3 Abs. 5@7730
   id: § 3 Abs. 5
   artikel: § 3
   artikel_titel: Zentrale Anlaufstelle; zuständige Behörde; behördliche Zusammenarbeit; Verordnungsermächtigung
   absatz: '5'
   buchstabe: null
-  offset: 7983
+  offset: 7730
   laenge: 276
   saetze: 1
   beleg: (5) Jedes Land benennt dem Bundesamt für Bevölkerungsschutz und Katastrophenhilfe spätestens
@@ -265,13 +286,13 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 3 Abs. 6@8259
+- uid: § 3 Abs. 6@8006
   id: § 3 Abs. 6
   artikel: § 3
   artikel_titel: Zentrale Anlaufstelle; zuständige Behörde; behördliche Zusammenarbeit; Verordnungsermächtigung
   absatz: '6'
   buchstabe: null
-  offset: 8259
+  offset: 8006
   laenge: 599
   saetze: 3
   beleg: (6) Jedes Land bestimmt für die nicht in Absatz 2 Satz 1 Nummer 1 bis 11 genannten kritischen
@@ -291,13 +312,13 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 3 Abs. 7@8858
+- uid: § 3 Abs. 7@8605
   id: § 3 Abs. 7
   artikel: § 3
   artikel_titel: Zentrale Anlaufstelle; zuständige Behörde; behördliche Zusammenarbeit; Verordnungsermächtigung
   absatz: '7'
   buchstabe: null
-  offset: 8858
+  offset: 8605
   laenge: 399
   saetze: 2
   beleg: (7) Das Bundesamt für Bevölkerungsschutz und Katastrophenhilfe und die zuständigen Behörden nach
@@ -315,13 +336,13 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 3 Abs. 7 lit. b@9257
+- uid: § 3 Abs. 7 lit. b@9004
   id: § 3 Abs. 7 lit. b
   artikel: § 3
   artikel_titel: Zentrale Anlaufstelle; zuständige Behörde; behördliche Zusammenarbeit; Verordnungsermächtigung
   absatz: '7'
   buchstabe: b
-  offset: 9257
+  offset: 9004
   laenge: 25
   saetze: 1
   beleg: b) nach dem BSI-Gesetz,
@@ -336,13 +357,13 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 3 Abs. 7 lit. c@9282
+- uid: § 3 Abs. 7 lit. c@9029
   id: § 3 Abs. 7 lit. c
   artikel: § 3
   artikel_titel: Zentrale Anlaufstelle; zuständige Behörde; behördliche Zusammenarbeit; Verordnungsermächtigung
   absatz: '7'
   buchstabe: c
-  offset: 9282
+  offset: 9029
   laenge: 39
   saetze: 1
   beleg: c) nach dem Energiewirtschaftsgesetz,
@@ -357,13 +378,13 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 3 Abs. 7 lit. d@9321
+- uid: § 3 Abs. 7 lit. d@9068
   id: § 3 Abs. 7 lit. d
   artikel: § 3
   artikel_titel: Zentrale Anlaufstelle; zuständige Behörde; behördliche Zusammenarbeit; Verordnungsermächtigung
   absatz: '7'
   buchstabe: d
-  offset: 9321
+  offset: 9068
   laenge: 42
   saetze: 1
   beleg: d) nach dem Telekommunikationsgesetz und
@@ -378,13 +399,13 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 3 Abs. 7 lit. e@9363
+- uid: § 3 Abs. 7 lit. e@9110
   id: § 3 Abs. 7 lit. e
   artikel: § 3
   artikel_titel: Zentrale Anlaufstelle; zuständige Behörde; behördliche Zusammenarbeit; Verordnungsermächtigung
   absatz: '7'
   buchstabe: e
-  offset: 9363
+  offset: 9110
   laenge: 275
   saetze: 2
   beleg: e) nach der Verordnung (EU) 2022/2554, soweit eine Maßnahme gegenüber einem Betreiber kritischer
@@ -401,15 +422,15 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 3 Abs. 8@9638
+- uid: § 3 Abs. 8@9385
   id: § 3 Abs. 8
   artikel: § 3
   artikel_titel: Zentrale Anlaufstelle; zuständige Behörde; behördliche Zusammenarbeit; Verordnungsermächtigung
   absatz: '8'
   buchstabe: null
-  offset: 9638
-  laenge: 1161
-  saetze: 2
+  offset: 9385
+  laenge: 1057
+  saetze: 1
   beleg: (8) Das Bundesamt für Bevölkerungsschutz und Katastrophenhilfe konsultiert in regelmäßigen Abständen,
     unter Einbindung der zuständigen Behörden, die zuständigen Behörden anderer Mitgliedstaaten der Europäischen
     Union, wenn 1. eine kritische Anlage physisch mit einer Einrichtung eines anderen Mitgliedstaates
@@ -420,8 +441,7 @@ einheiten:
     kritische Einrichtung im Sinne des Artikels 2 Nummer 1 der Richtlinie (EU) 2022/2557 eingestuft wurde
     und wesentliche Dienste im Sinne des Artikels 2 Nummer 5 der Richtlinie (EU) 2022/2557 und des Artikels
     2 der Delegierten Verordnung (EU) 2023/2450 für einen anderen oder in einem anderen Mitgliedstaat
-    der Europäischen Union erbringt. zum Seitenanfang Impressum Datenschutz Barrierefreiheitserklärung
-    Feedback-Formular
+    der Europäischen Union erbringt.
   adressat: null
   pflicht: null
   scope: null
@@ -433,13 +453,37 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 4 Abs. 2@11235
+- uid: § 4 Abs. 1@10499
+  id: § 4 Abs. 1
+  artikel: § 4
+  artikel_titel: Geltungsbereich; Sektoren; Verordnungsermächtigung
+  absatz: '1'
+  buchstabe: null
+  offset: 10499
+  laenge: 364
+  saetze: 1
+  beleg: '(1) Dieses Gesetz gilt für Betreiber kritischer Anlagen in den folgenden Sektoren: 1. Energie,
+    2. Transport und Verkehr, 3. Finanzwesen, 4. Leistungen der Sozialversicherung sowie Grundsicherung
+    für Arbeitsuchende, 5. Gesundheitswesen, 6. Wasser, 7. Ernährung, 8. Informationstechnik und Telekommunikation,
+    9. Weltraum und 10. Siedlungsabfallentsorgung.'
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id001
+  gate: *id002
+  befund: null
+  befund_grund: null
+- uid: § 4 Abs. 2@10863
   id: § 4 Abs. 2
   artikel: § 4
   artikel_titel: Geltungsbereich; Sektoren; Verordnungsermächtigung
   absatz: '2'
   buchstabe: null
-  offset: 11235
+  offset: 10863
   laenge: 698
   saetze: 1
   beleg: (2) § 3 Absatz 8, die §§ 9, 10, 12 bis 16, 18, 19 Absatz 2 sowie die §§ 20, 21 Absatz 6 gelten
@@ -460,13 +504,13 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 4 Abs. 3@11933
+- uid: § 4 Abs. 3@11561
   id: § 4 Abs. 3
   artikel: § 4
   artikel_titel: Geltungsbereich; Sektoren; Verordnungsermächtigung
   absatz: '3'
   buchstabe: null
-  offset: 11933
+  offset: 11561
   laenge: 202
   saetze: 1
   beleg: (3) Das Bundesministerium des Innern bestimmt durch Rechtsverordnung, die nicht der Zustimmung
@@ -483,13 +527,13 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 4 Abs. 4@12135
+- uid: § 4 Abs. 4@11763
   id: § 4 Abs. 4
   artikel: § 4
   artikel_titel: Geltungsbereich; Sektoren; Verordnungsermächtigung
   absatz: '4'
   buchstabe: null
-  offset: 12135
+  offset: 11763
   laenge: 695
   saetze: 1
   beleg: (4) Die Rechtsverordnung nach Absatz 3 ergeht im Einvernehmen mit 1. dem Bundesministerium für
@@ -510,18 +554,17 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 4 Abs. 5@12830
+- uid: § 4 Abs. 5@12458
   id: § 4 Abs. 5
   artikel: § 4
   artikel_titel: Geltungsbereich; Sektoren; Verordnungsermächtigung
   absatz: '5'
   buchstabe: null
-  offset: 12830
-  laenge: 292
-  saetze: 3
+  offset: 12458
+  laenge: 188
+  saetze: 2
   beleg: (5) Zugang zu den Akten, die die Erstellung oder Änderung der Verordnung nach Absatz 3 betreffen,
-    wird nicht gewährt. Die Akteneinsichtsrechte von Verfahrensbeteiligten bleiben unberührt. zum Seitenanfang
-    Impressum Datenschutz Barrierefreiheitserklärung Feedback-Formular
+    wird nicht gewährt. Die Akteneinsichtsrechte von Verfahrensbeteiligten bleiben unberührt.
   adressat: null
   pflicht: null
   scope: null
@@ -533,14 +576,43 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 5 Abs. 2@14005
+- uid: § 5 Abs. 1@12776
+  id: § 5 Abs. 1
+  artikel: § 5
+  artikel_titel: Erheblichkeit einer Anlage für die Erbringung kritischer Dienstleistungen; Feststellungsbefugnis;
+    Verordnungsermächtigungen
+  absatz: '1'
+  buchstabe: null
+  offset: 12776
+  laenge: 738
+  saetze: 2
+  beleg: (1) Das Bundesministerium des Innern bestimmt durch Rechtsverordnung, die nicht der Zustimmung
+    des Bundesrates bedarf, 1. Kategorien von Anlagen, 2. allgemeine, sektoren-, branchen-, dienstleistungs-
+    oder anlagenspezifische Schwellenwerte zum Versorgungsgrad, bei deren Erreichen eine Anlage einer
+    bestimmten Kategorie nach Nummer 1 nach einem bestimmten Stichtag als erheblich für die Erbringung
+    einer kritischen Dienstleistung gilt und bei deren Unterschreiten eine Anlage nach einem bestimmten
+    Stichtag nicht mehr als solches gilt, 3. Stichtage nach Nummer 2 sowie 4. Kategorien von Anlagen,
+    die unabhängig von Nummer 2 als erheblich für die Erbringung einer kritischen Dienstleistung gelten.
+    § 4 Absatz 4 und 5 gilt entsprechend.
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id001
+  gate: *id002
+  befund: null
+  befund_grund: null
+- uid: § 5 Abs. 2@13514
   id: § 5 Abs. 2
   artikel: § 5
   artikel_titel: Erheblichkeit einer Anlage für die Erbringung kritischer Dienstleistungen; Feststellungsbefugnis;
     Verordnungsermächtigungen
   absatz: '2'
   buchstabe: null
-  offset: 14005
+  offset: 13514
   laenge: 1536
   saetze: 2
   beleg: '(2) Bei der Bestimmung der Schwellenwerte zum Versorgungsgrad nach Absatz 1 Satz 1 Nummer 2
@@ -569,14 +641,14 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 5 Abs. 3@15541
+- uid: § 5 Abs. 3@15050
   id: § 5 Abs. 3
   artikel: § 5
   artikel_titel: Erheblichkeit einer Anlage für die Erbringung kritischer Dienstleistungen; Feststellungsbefugnis;
     Verordnungsermächtigungen
   absatz: '3'
   buchstabe: null
-  offset: 15541
+  offset: 15050
   laenge: 596
   saetze: 3
   beleg: (3) Ist eine Anlage für die Erbringung einer kritischen Dienstleistung erheblich, ohne die Voraussetzungen
@@ -596,14 +668,14 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 5 Abs. 4@16137
+- uid: § 5 Abs. 4@15646
   id: § 5 Abs. 4
   artikel: § 5
   artikel_titel: Erheblichkeit einer Anlage für die Erbringung kritischer Dienstleistungen; Feststellungsbefugnis;
     Verordnungsermächtigungen
   absatz: '4'
   buchstabe: null
-  offset: 16137
+  offset: 15646
   laenge: 857
   saetze: 4
   beleg: (4) Falls für die betroffene Dienstleistung eine Behörde des Bundes die zuständige Behörde ist,
@@ -626,14 +698,14 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 5 Abs. 5@16994
+- uid: § 5 Abs. 5@16503
   id: § 5 Abs. 5
   artikel: § 5
   artikel_titel: Erheblichkeit einer Anlage für die Erbringung kritischer Dienstleistungen; Feststellungsbefugnis;
     Verordnungsermächtigungen
   absatz: '5'
   buchstabe: null
-  offset: 16994
+  offset: 16503
   laenge: 385
   saetze: 2
   beleg: (5) Das Bundesamt für Bevölkerungsschutz und Katastrophenhilfe teilt dem Betreiber der kritischen
@@ -651,14 +723,14 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 5 Abs. 6@17379
+- uid: § 5 Abs. 6@16888
   id: § 5 Abs. 6
   artikel: § 5
   artikel_titel: Erheblichkeit einer Anlage für die Erbringung kritischer Dienstleistungen; Feststellungsbefugnis;
     Verordnungsermächtigungen
   absatz: '6'
   buchstabe: null
-  offset: 17379
+  offset: 16888
   laenge: 174
   saetze: 2
   beleg: (6) Entfallen die Voraussetzungen der Feststellung nach Absatz 3 Satz 1 und 2, so stellt das
@@ -674,23 +746,23 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 5 Abs. 7@17553
+- uid: § 5 Abs. 7@17062
   id: § 5 Abs. 7
   artikel: § 5
   artikel_titel: Erheblichkeit einer Anlage für die Erbringung kritischer Dienstleistungen; Feststellungsbefugnis;
     Verordnungsermächtigungen
   absatz: '7'
   buchstabe: null
-  offset: 17553
-  laenge: 729
-  saetze: 5
+  offset: 17062
+  laenge: 625
+  saetze: 4
   beleg: (7) Das Bundesministerium des Innern wird ermächtigt, in einer Rechtsverordnung, die der Zustimmung
     des Bundesrates bedarf, Kriterien und Verfahren festzulegen, mit denen die Länder feststellen können,
     ob eine Anlage für die Erbringung einer kritischen Dienstleistung erheblich ist, ohne die Voraussetzungen
     der Rechtsverordnung des Absatzes 1 Satz 1 zu erfüllen. Die Länder können dies für Anlagen feststellen,
     bei denen für die betroffene Dienstleistung eine Landesbehörde die zuständige Behörde ist. Bei der
     Festlegung der Kriterien werden die Kriterien nach Absatz 2 berücksichtigt. § 4 Absatz 4 und 5 gilt
-    entsprechend. zum Seitenanfang Impressum Datenschutz Barrierefreiheitserklärung Feedback-Formular
+    entsprechend.
   adressat: null
   pflicht: null
   scope: null
@@ -702,13 +774,36 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 6 Abs. 2@18650
+- uid: § 6 Abs. 1@17745
+  id: § 6 Abs. 1
+  artikel: § 6
+  artikel_titel: Sonstige Resilienzregelungen und Resilienzmaßnahmen
+  absatz: '1'
+  buchstabe: null
+  offset: 17745
+  laenge: 295
+  saetze: 2
+  beleg: (1) Für die Aufrechterhaltung des Betriebs kritischer Anlagen können auch Einrichtungen von erheblicher
+    Bedeutung sein, für die dieses Gesetz nicht gilt. Hierzu zählen notwendige Betreuungsangebote, die
+    für die Erhaltung der personellen Arbeitsfähigkeit in kritischen Anlagen erforderlich sind.
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id001
+  gate: *id002
+  befund: null
+  befund_grund: null
+- uid: § 6 Abs. 2@18040
   id: § 6 Abs. 2
   artikel: § 6
   artikel_titel: Sonstige Resilienzregelungen und Resilienzmaßnahmen
   absatz: '2'
   buchstabe: null
-  offset: 18650
+  offset: 18040
   laenge: 164
   saetze: 1
   beleg: (2) Unbeschadet der Regelungen dieses Gesetzes können Bund und Länder im Rahmen ihrer jeweiligen
@@ -724,17 +819,17 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 6 Abs. 3@18814
+- uid: § 6 Abs. 3@18204
   id: § 6 Abs. 3
   artikel: § 6
   artikel_titel: Sonstige Resilienzregelungen und Resilienzmaßnahmen
   absatz: '3'
   buchstabe: null
-  offset: 18814
-  laenge: 222
-  saetze: 2
+  offset: 18204
+  laenge: 118
+  saetze: 1
   beleg: (3) Die Sicherheitsbehörden des Bundes und der Länder erfüllen ihre Aufgaben im Rahmen der gesetzlichen
-    Vorschriften. zum Seitenanfang Impressum Datenschutz Barrierefreiheitserklärung Feedback-Formular
+    Vorschriften.
   adressat: null
   pflicht: null
   scope: null
@@ -746,14 +841,42 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 7 Abs. 2@19825
+- uid: § 7 Abs. 1@18452
+  id: § 7 Abs. 1
+  artikel: § 7
+  artikel_titel: Einrichtungen der Bundesverwaltung; Geltung der Vorschriften für Betreiber kritischer
+    Anlagen und allgemeine Feststellungen
+  absatz: '1'
+  buchstabe: null
+  offset: 18452
+  laenge: 644
+  saetze: 1
+  beleg: (1) Die Vorschriften für Betreiber kritischer Anlagen 1. des § 8 Absatz 1 Nummer 1, 2 und 6 sowie
+    § 8 Absatz 6 und 7 gelten für Einrichtungen der Bundesverwaltung entsprechend; 2. des § 12 Absatz
+    1, 2, § 13 Absatz 1, 2, 3 und 4 sowie der §§ 15 und 18 Absatz 1 bis 7 gelten für Einrichtungen der
+    Bundesverwaltung mit Ausnahme des Auswärtigen Amts und des Bundesministeriums der Verteidigung; das
+    Auswärtige Amt erlässt im Einvernehmen mit dem Bundesministerium des Innern eine allgemeine Verwaltungsvorschrift,
+    um die Ziele der Richtlinie (EU) 2022/2557 im Geschäftsbereich des Auswärtigen Amts durch ergebnisäquivalente
+    Maßnahmen umzusetzen.
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id001
+  gate: *id002
+  befund: null
+  befund_grund: null
+- uid: § 7 Abs. 2@19096
   id: § 7 Abs. 2
   artikel: § 7
   artikel_titel: Einrichtungen der Bundesverwaltung; Geltung der Vorschriften für Betreiber kritischer
     Anlagen und allgemeine Feststellungen
   absatz: '2'
   buchstabe: null
-  offset: 19825
+  offset: 19096
   laenge: 470
   saetze: 2
   beleg: '(2) Das Bundesministerium des Innern legt für die Einrichtungen der Bundesverwaltung mit deren
@@ -772,19 +895,18 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 7 Abs. 3@20295
+- uid: § 7 Abs. 3@19566
   id: § 7 Abs. 3
   artikel: § 7
   artikel_titel: Einrichtungen der Bundesverwaltung; Geltung der Vorschriften für Betreiber kritischer
     Anlagen und allgemeine Feststellungen
   absatz: '3'
   buchstabe: null
-  offset: 20295
-  laenge: 290
-  saetze: 2
+  offset: 19566
+  laenge: 186
+  saetze: 1
   beleg: (3) Das Bundesamt für Bevölkerungsschutz und Katastrophenhilfe berät die Einrichtungen der Bundesverwaltung
-    bei der Umsetzung und Einhaltung ihrer in Absatz 1 genannten Verpflichtungen. zum Seitenanfang Impressum
-    Datenschutz Barrierefreiheitserklärung Feedback-Formular
+    bei der Umsetzung und Einhaltung ihrer in Absatz 1 genannten Verpflichtungen.
   adressat: null
   pflicht: null
   scope: null
@@ -796,13 +918,52 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 8 Abs. 2@22590
+- uid: § 8 Abs. 1@19810
+  id: § 8 Abs. 1
+  artikel: § 8
+  artikel_titel: Registrierung kritischer Anlagen; Geltungszeitpunkt
+  absatz: '1'
+  buchstabe: null
+  offset: 19810
+  laenge: 1932
+  saetze: 1
+  beleg: '(1) Ein Betreiber kritischer Anlagen ist verpflichtet, spätestens drei Monate, nachdem eine
+    Anlage als kritische Anlage gilt, dem Bundesamt für Bevölkerungsschutz und Katastrophenhilfe über
+    eine gemeinsam vom Bundesamt für Sicherheit in der Informationstechnik und dem Bundesamt für Bevölkerungsschutz
+    und Katastrophenhilfe eingerichtete Registrierungsmöglichkeit folgende Angaben zu übermitteln: 1.
+    den Namen des Betreibers kritischer Anlagen, einschließlich der Rechtsform und, falls einschlägig,
+    die Handelsregisternummer, 2. die Anschrift und aktuelle Kontaktdaten des Betreibers kritischer Anlagen,
+    einschließlich der E-Mail-Adresse und der Telefonnummer, 3. den Namen oder eine referenzierbare Bezeichnung
+    der kritischen Anlage, 4. den Sektor und, falls einschlägig, die Branche, zu dem oder zu der die kritische
+    Anlage gehört, sowie die kritische Dienstleistung, für deren Erbringung die Anlage erheblich ist,
+    5. soweit einschlägig, die Kategorie der kritischen Anlage und deren Werte zum Versorgungsgrad gemäß
+    der Rechtsverordnung nach § 5 Absatz 1 Satz 1, den Standort der kritischen Anlagen und deren Versorgungsgebiet
+    sowie deren öffentlichen IP-Adressbereiche, 6. falls einschlägig, eine Auflistung der Mitgliedstaaten
+    der Europäischen Union, in denen oder für die der Betreiber kritischer Anlagen wesentliche Dienste
+    im Sinne des Artikels 2 Nummer 5 der Richtlinie (EU) 2022/2557 in der Fassung vom 14. Dezember 2022
+    und des Artikels 2 der Delegierten Verordnung (EU) 2023/2450 in der Fassung vom 25. Juli 2023 erbringt,
+    unter Angabe, welche wesentlichen Dienste er in welchen oder für welche Mitgliedstaaten erbringt,
+    7. eine Kontaktstelle, über die der Betreiber kritischer Anlagen erreichbar ist; in Bezug auf Maßnahmen
+    nach dem BSI-Gesetz ist die jederzeitige Erreichbarkeit zu gewährleisten, sowie 8. die bei ihm zum
+    Einsatz kommenden Typen von kritischen Komponenten gemäß § 2 Nummer 23 des BSI-Gesetzes.'
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id001
+  gate: *id002
+  befund: null
+  befund_grund: null
+- uid: § 8 Abs. 2@21742
   id: § 8 Abs. 2
   artikel: § 8
   artikel_titel: Registrierung kritischer Anlagen; Geltungszeitpunkt
   absatz: '2'
   buchstabe: null
-  offset: 22590
+  offset: 21742
   laenge: 701
   saetze: 2
   beleg: (2) Rechtfertigen Tatsachen die Annahme, dass ein Betreiber kritischer Anlagen seine Pflicht
@@ -823,13 +984,13 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 8 Abs. 3@23291
+- uid: § 8 Abs. 3@22443
   id: § 8 Abs. 3
   artikel: § 8
   artikel_titel: Registrierung kritischer Anlagen; Geltungszeitpunkt
   absatz: '3'
   buchstabe: null
-  offset: 23291
+  offset: 22443
   laenge: 494
   saetze: 2
   beleg: (3) Wenn der Betreiber kritischer Anlagen seine Pflicht zur Registrierung nicht erfüllt, kann
@@ -848,13 +1009,13 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 8 Abs. 4@23785
+- uid: § 8 Abs. 4@22937
   id: § 8 Abs. 4
   artikel: § 8
   artikel_titel: Registrierung kritischer Anlagen; Geltungszeitpunkt
   absatz: '4'
   buchstabe: null
-  offset: 23785
+  offset: 22937
   laenge: 401
   saetze: 1
   beleg: (4) Das Bundesamt für Sicherheit in der Informationstechnik und die zuständigen Behörden können
@@ -872,13 +1033,13 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 8 Abs. 5@24186
+- uid: § 8 Abs. 5@23338
   id: § 8 Abs. 5
   artikel: § 8
   artikel_titel: Registrierung kritischer Anlagen; Geltungszeitpunkt
   absatz: '5'
   buchstabe: null
-  offset: 24186
+  offset: 23338
   laenge: 668
   saetze: 4
   beleg: (5) Dem Betreiber kritischer Anlagen werden der Abschluss des Registrierungsprozesses und die
@@ -899,13 +1060,13 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 8 Abs. 6@24854
+- uid: § 8 Abs. 6@24006
   id: § 8 Abs. 6
   artikel: § 8
   artikel_titel: Registrierung kritischer Anlagen; Geltungszeitpunkt
   absatz: '6'
   buchstabe: null
-  offset: 24854
+  offset: 24006
   laenge: 578
   saetze: 2
   beleg: (6) Bei Änderungen der nach Absatz 1 zu übermittelnden Angaben sind über die in Absatz 1 genannte
@@ -925,13 +1086,13 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 8 Abs. 7@25432
+- uid: § 8 Abs. 7@24584
   id: § 8 Abs. 7
   artikel: § 8
   artikel_titel: Registrierung kritischer Anlagen; Geltungszeitpunkt
   absatz: '7'
   buchstabe: null
-  offset: 25432
+  offset: 24584
   laenge: 198
   saetze: 1
   beleg: (7) Die Verpflichtungen nach § 12 gelten für den Betreiber einer kritischen Anlage erstmals neun
@@ -947,21 +1108,20 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 8 Abs. 8@25630
+- uid: § 8 Abs. 8@24782
   id: § 8 Abs. 8
   artikel: § 8
   artikel_titel: Registrierung kritischer Anlagen; Geltungszeitpunkt
   absatz: '8'
   buchstabe: null
-  offset: 25630
-  laenge: 571
-  saetze: 3
+  offset: 24782
+  laenge: 467
+  saetze: 2
   beleg: (8) Das Bundesamt für Bevölkerungsschutz und Katastrophenhilfe legt die Einzelheiten zur Ausgestaltung
     des Registrierungsverfahrens im Einvernehmen mit dem Bundesamt für Sicherheit in der Informationstechnik
     innerhalb von vier Wochen nach Inkrafttreten der Rechtsverordnung nach § 4 Absatz 3 und § 5 Absatz
     1 fest. Die Festlegung nach Satz 1 erfolgt durch eine öffentliche Mitteilung auf der Internetseite
-    des Bundesamts für Bevölkerungsschutz und Katastrophenhilfe. zum Seitenanfang Impressum Datenschutz
-    Barrierefreiheitserklärung Feedback-Formular
+    des Bundesamts für Bevölkerungsschutz und Katastrophenhilfe.
   adressat: null
   pflicht: null
   scope: null
@@ -973,13 +1133,39 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 9 Abs. 2@26873
+- uid: § 9 Abs. 1@25315
+  id: § 9 Abs. 1
+  artikel: § 9
+  artikel_titel: Kritische Einrichtungen von besonderer Bedeutung für Europa
+  absatz: '1'
+  buchstabe: null
+  offset: 25315
+  laenge: 591
+  saetze: 1
+  beleg: (1) Ein Betreiber kritischer Anlagen gilt als Betreiber einer kritischen Einrichtung von besonderer
+    Bedeutung für Europa, wenn 1. er für oder in mindestens sechs Mitgliedstaaten der Europäischen Union
+    den gleichen oder einen ähnlichen wesentlichen Dienst im Sinne des Artikels 2 Nummer 5 der Richtlinie
+    (EU) 2022/2557 und des Artikels 2 der Delegierten Verordnung (EU) 2023/2450 erbringt und 2. ihm von
+    der Europäischen Kommission über das Bundesamt für Bevölkerungsschutz und Katastrophenhilfe mitgeteilt
+    wurde, dass er als kritische Einrichtung von besonderer Bedeutung für Europa gilt.
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id001
+  gate: *id002
+  befund: null
+  befund_grund: null
+- uid: § 9 Abs. 2@25906
   id: § 9 Abs. 2
   artikel: § 9
   artikel_titel: Kritische Einrichtungen von besonderer Bedeutung für Europa
   absatz: '2'
   buchstabe: null
-  offset: 26873
+  offset: 25906
   laenge: 264
   saetze: 2
   beleg: (2) Das Bundesamt für Bevölkerungsschutz und Katastrophenhilfe leitet die Mitteilung nach § 8
@@ -996,13 +1182,13 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 9 Abs. 3@27137
+- uid: § 9 Abs. 3@26170
   id: § 9 Abs. 3
   artikel: § 9
   artikel_titel: Kritische Einrichtungen von besonderer Bedeutung für Europa
   absatz: '3'
   buchstabe: null
-  offset: 27137
+  offset: 26170
   laenge: 550
   saetze: 2
   beleg: (3) Das Bundesamt für Bevölkerungsschutz und Katastrophenhilfe leitet die Mitteilung der Europäischen
@@ -1022,15 +1208,15 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 9 Abs. 4@27687
+- uid: § 9 Abs. 4@26720
   id: § 9 Abs. 4
   artikel: § 9
   artikel_titel: Kritische Einrichtungen von besonderer Bedeutung für Europa
   absatz: '4'
   buchstabe: null
-  offset: 27687
-  laenge: 1588
-  saetze: 4
+  offset: 26720
+  laenge: 1484
+  saetze: 3
   beleg: (4) Auf Antrag der Europäischen Kommission oder eines Mitgliedstaats der Europäischen Union,
     für den oder in dem im Falle des Absatzes 1 Nummer 1 ein wesentlicher Dienst erbracht wird, übermittelt
     das Bundesministerium des Innern im Benehmen mit dem Bundesministerium oder Landesministerium, zu
@@ -1045,8 +1231,7 @@ einheiten:
     Kommission im Benehmen mit dem Bundesministerium, dessen Fach- oder Rechtsaufsicht der betreffende
     Teil dieser Behörde untersteht. Informationen, deren Offenlegung wesentlichen nationalen Interessen
     im Bereich der nationalen Sicherheit, der öffentlichen Sicherheit oder der Verteidigung entgegenlaufen
-    würde, sind von der Übermittlung ausgeschlossen. zum Seitenanfang Impressum Datenschutz Barrierefreiheitserklärung
-    Feedback-Formular
+    würde, sind von der Übermittlung ausgeschlossen.
   adressat: null
   pflicht: null
   scope: null
@@ -1058,13 +1243,46 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 10 Abs. 2@30664
+- uid: § 10 Abs. 1@28282
+  id: § 10 Abs. 1
+  artikel: § 10
+  artikel_titel: Beratungsmission bei Einrichtungen von besonderer Bedeutung für Europa
+  absatz: '1'
+  buchstabe: null
+  offset: 28282
+  laenge: 1296
+  saetze: 5
+  beleg: (1) Das Bundesministerium des Innern kann einen Antrag bei der Europäischen Kommission auf Einrichtung
+    einer Beratungsmission zur Bewertung der Maßnahmen stellen, die eine kritische Einrichtung von besonderer
+    Bedeutung für Europa ergriffen hat, um ihre Verpflichtungen nach den §§ 12, 13 und 18 zu erfüllen.
+    Einer Beratungsmission im Sinne des Satzes 1, die die Europäische Kommission vorschlägt oder ein anderer
+    Mitgliedstaat der Europäischen Union beantragt, kann das Bundesministerium des Innern zustimmen. Falls
+    für die betroffene Dienstleistung eine Behörde des Bundes die zuständige Behörde ist, erfolgen der
+    Antrag nach Satz 1 und die Zustimmung nach Satz 2 im Einvernehmen mit dem Bundesministerium, zu dessen
+    Geschäftsbereich die Behörde gehört. Liegt die Fach- oder Rechtsaufsicht für den Teil einer Behörde,
+    der für die betroffene kritische Dienstleistung zuständig ist, nicht bei dem Bundesministerium, zu
+    dessen Geschäftsbereich sie gehört, erfolgen der Antrag nach Satz 1 und die Zustimmung nach Satz 2
+    im Einvernehmen mit dem Bundesministerium, dessen Fach- oder Rechtsaufsicht der betreffende Teil dieser
+    Behörde untersteht. Im Übrigen erfolgen sie im Benehmen mit dem Landesministerium, zu dessen Geschäftsbereich
+    die für die betroffene Dienstleistung zuständige Behörde gehört.
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id001
+  gate: *id002
+  befund: null
+  befund_grund: null
+- uid: § 10 Abs. 2@29578
   id: § 10 Abs. 2
   artikel: § 10
   artikel_titel: Beratungsmission bei Einrichtungen von besonderer Bedeutung für Europa
   absatz: '2'
   buchstabe: null
-  offset: 30664
+  offset: 29578
   laenge: 184
   saetze: 1
   beleg: (2) Die kritische Einrichtung mit besonderer Bedeutung für Europa unterstützt das Bundesministerium
@@ -1080,13 +1298,13 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 10 Abs. 3@30848
+- uid: § 10 Abs. 3@29762
   id: § 10 Abs. 3
   artikel: § 10
   artikel_titel: Beratungsmission bei Einrichtungen von besonderer Bedeutung für Europa
   absatz: '3'
   buchstabe: null
-  offset: 30848
+  offset: 29762
   laenge: 452
   saetze: 2
   beleg: (3) Die kritische Einrichtung von besonderer Bedeutung für Europa gewährt der Beratungsmission
@@ -1105,13 +1323,13 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 10 Abs. 4@31300
+- uid: § 10 Abs. 4@30214
   id: § 10 Abs. 4
   artikel: § 10
   artikel_titel: Beratungsmission bei Einrichtungen von besonderer Bedeutung für Europa
   absatz: '4'
   buchstabe: null
-  offset: 31300
+  offset: 30214
   laenge: 64
   saetze: 1
   beleg: (4) Für die Absätze 2 und 3 gilt § 8 Absatz 2 Satz 2 sinngemäß.
@@ -1126,13 +1344,13 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 10 Abs. 5@31364
+- uid: § 10 Abs. 5@30278
   id: § 10 Abs. 5
   artikel: § 10
   artikel_titel: Beratungsmission bei Einrichtungen von besonderer Bedeutung für Europa
   absatz: '5'
   buchstabe: null
-  offset: 31364
+  offset: 30278
   laenge: 254
   saetze: 1
   beleg: (5) Die kritische Einrichtung von besonderer Bedeutung für Europa berücksichtigt die Stellungnahme
@@ -1149,19 +1367,18 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 10 Abs. 6@31618
+- uid: § 10 Abs. 6@30532
   id: § 10 Abs. 6
   artikel: § 10
   artikel_titel: Beratungsmission bei Einrichtungen von besonderer Bedeutung für Europa
   absatz: '6'
   buchstabe: null
-  offset: 31618
-  laenge: 401
-  saetze: 2
+  offset: 30532
+  laenge: 297
+  saetze: 1
   beleg: (6) Konkretisiert die Europäische Kommission durch einen oder mehrere Durchführungsrechtsakte
     gemäß Artikel 18 Absatz 6 der Richtlinie (EU) 2022/2557 das Verfahren der Beratungsmission, so gehen
     diese Regelungen entgegenstehenden Vorschriften dieses Paragraphen, mit Ausnahme des Absatzes 4, vor.
-    zum Seitenanfang Impressum Datenschutz Barrierefreiheitserklärung Feedback-Formular
   adressat: null
   pflicht: null
   scope: null
@@ -1173,13 +1390,44 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 11 Abs. 2@33141
+- uid: § 11 Abs. 1@30908
+  id: § 11 Abs. 1
+  artikel: § 11
+  artikel_titel: Nationale Risikoanalysen und Risikobewertungen; Verordnungsermächtigung
+  absatz: '1'
+  buchstabe: null
+  offset: 30908
+  laenge: 1028
+  saetze: 4
+  beleg: (1) Als Grundlage für die Erstellung nationaler Risikoanalysen und Risikobewertungen führen die
+    Bundesministerien und Landesministerien jeweils für die kritischen Dienstleistungen, für die eine
+    Behörde ihres Geschäftsbereichs die zuständige Behörde ist und soweit sie die Fach- oder Rechtsaufsicht
+    für die zuständige Behörde ausüben, Risikoanalysen und Risikobewertungen durch. Für kritische Dienstleistungen
+    der Einrichtungen der Bundesverwaltung führt das Bundesministerium des Innern die Risikoanalyse und
+    Risikobewertung auf der Grundlage fachspezifischer Bewertungen durch die übrigen Einrichtungen der
+    Bundesverwaltung durch. Liegt die Fach- oder Rechtsaufsicht für die zuständige Behörde hinsichtlich
+    der betroffenen kritischen Dienstleistung bei einem anderen Bundesministerium, führt dieses Bundesministerium
+    die entsprechenden Risikoanalysen und Risikobewertungen durch. Die Sätze 1 und 2 gelten nicht für
+    kritische Dienstleistungen, die vom Auswärtigen Amt und vom Bundesministerium der Verteidigung erbracht
+    werden.
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id001
+  gate: *id002
+  befund: null
+  befund_grund: null
+- uid: § 11 Abs. 2@31936
   id: § 11 Abs. 2
   artikel: § 11
   artikel_titel: Nationale Risikoanalysen und Risikobewertungen; Verordnungsermächtigung
   absatz: '2'
   buchstabe: null
-  offset: 33141
+  offset: 31936
   laenge: 343
   saetze: 1
   beleg: '(2) Die Risikoanalysen und Risikobewertungen berücksichtigen mindestens Folgendes: 1. naturbedingte,
@@ -1197,13 +1445,13 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 11 Abs. 2 lit. b@33484
+- uid: § 11 Abs. 2 lit. b@32279
   id: § 11 Abs. 2 lit. b
   artikel: § 11
   artikel_titel: Nationale Risikoanalysen und Risikobewertungen; Verordnungsermächtigung
   absatz: '2'
   buchstabe: b
-  offset: 33484
+  offset: 32279
   laenge: 85
   saetze: 1
   beleg: b) Extremereignisse durch Unfälle, Naturgefahren und gesundheitliche Notlagen sowie
@@ -1218,13 +1466,13 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 11 Abs. 2 lit. c@33569
+- uid: § 11 Abs. 2 lit. c@32364
   id: § 11 Abs. 2 lit. c
   artikel: § 11
   artikel_titel: Nationale Risikoanalysen und Risikobewertungen; Verordnungsermächtigung
   absatz: '2'
   buchstabe: c
-  offset: 33569
+  offset: 32364
   laenge: 606
   saetze: 1
   beleg: c) hybride Bedrohungen, sicherheitsgefährdende oder andere feindliche Bedrohungen, einschließlich
@@ -1244,13 +1492,13 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 11 Abs. 2 lit. b@34175
+- uid: § 11 Abs. 2 lit. b@32970
   id: § 11 Abs. 2 lit. b
   artikel: § 11
   artikel_titel: Nationale Risikoanalysen und Risikobewertungen; Verordnungsermächtigung
   absatz: '2'
   buchstabe: b
-  offset: 34175
+  offset: 32970
   laenge: 651
   saetze: 1
   beleg: b) soweit bekannt, den Auswirkungen, die eine in einem Sektor auftretende erhebliche Störung
@@ -1271,13 +1519,13 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 11 Abs. 2 lit. b@34826
+- uid: § 11 Abs. 2 lit. b@33621
   id: § 11 Abs. 2 lit. b
   artikel: § 11
   artikel_titel: Nationale Risikoanalysen und Risikobewertungen; Verordnungsermächtigung
   absatz: '2'
   buchstabe: b
-  offset: 34826
+  offset: 33621
   laenge: 34
   saetze: 1
   beleg: b) der Verordnung (EU) 2019/941,
@@ -1292,13 +1540,13 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 11 Abs. 2 lit. c@34860
+- uid: § 11 Abs. 2 lit. c@33655
   id: § 11 Abs. 2 lit. c
   artikel: § 11
   artikel_titel: Nationale Risikoanalysen und Risikobewertungen; Verordnungsermächtigung
   absatz: '2'
   buchstabe: c
-  offset: 34860
+  offset: 33655
   laenge: 36
   saetze: 1
   beleg: c) der Richtlinie 2007/60/EG sowie
@@ -1313,13 +1561,13 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 11 Abs. 2 lit. d@34896
+- uid: § 11 Abs. 2 lit. d@33691
   id: § 11 Abs. 2 lit. d
   artikel: § 11
   artikel_titel: Nationale Risikoanalysen und Risikobewertungen; Verordnungsermächtigung
   absatz: '2'
   buchstabe: d
-  offset: 34896
+  offset: 33691
   laenge: 102
   saetze: 1
   beleg: d) der Richtlinie 2012/18/EU und 6. einschlägige, gemäß § 18 gemeldete Informationen über Vorfälle.
@@ -1334,13 +1582,13 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 11 Abs. 3@34998
+- uid: § 11 Abs. 3@33793
   id: § 11 Abs. 3
   artikel: § 11
   artikel_titel: Nationale Risikoanalysen und Risikobewertungen; Verordnungsermächtigung
   absatz: '3'
   buchstabe: null
-  offset: 34998
+  offset: 33793
   laenge: 117
   saetze: 1
   beleg: (3) Die Besonderheiten maritimer Infrastrukturen werden bei den Risikoanalysen und Risikobewertungen
@@ -1356,13 +1604,13 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 11 Abs. 4@35115
+- uid: § 11 Abs. 4@33910
   id: § 11 Abs. 4
   artikel: § 11
   artikel_titel: Nationale Risikoanalysen und Risikobewertungen; Verordnungsermächtigung
   absatz: '4'
   buchstabe: null
-  offset: 35115
+  offset: 33910
   laenge: 401
   saetze: 3
   beleg: (4) Das Bundesministerium des Innern koordiniert die Durchführung der Risikoanalysen und Risikobewertungen.
@@ -1380,13 +1628,13 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 11 Abs. 5@35516
+- uid: § 11 Abs. 5@34311
   id: § 11 Abs. 5
   artikel: § 11
   artikel_titel: Nationale Risikoanalysen und Risikobewertungen; Verordnungsermächtigung
   absatz: '5'
   buchstabe: null
-  offset: 35516
+  offset: 34311
   laenge: 342
   saetze: 1
   beleg: (5) Die nach Absatz 1 Satz 1 und 2 zuständigen Bundesministerien sowie das Bundesministerium
@@ -1404,13 +1652,13 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 11 Abs. 6@35858
+- uid: § 11 Abs. 6@34653
   id: § 11 Abs. 6
   artikel: § 11
   artikel_titel: Nationale Risikoanalysen und Risikobewertungen; Verordnungsermächtigung
   absatz: '6'
   buchstabe: null
-  offset: 35858
+  offset: 34653
   laenge: 386
   saetze: 1
   beleg: (6) Das Bundesamt für Bevölkerungsschutz und Katastrophenhilfe übermittelt den Betreibern kritischer
@@ -1428,13 +1676,13 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 11 Abs. 7@36244
+- uid: § 11 Abs. 7@35039
   id: § 11 Abs. 7
   artikel: § 11
   artikel_titel: Nationale Risikoanalysen und Risikobewertungen; Verordnungsermächtigung
   absatz: '7'
   buchstabe: null
-  offset: 36244
+  offset: 35039
   laenge: 188
   saetze: 2
   beleg: (7) Die Klimarisikoanalyse nach § 4 Absatz 1 Satz 1 des Bundes-Klimaanpassungsgesetzes vom 20.
@@ -1450,21 +1698,20 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 11 Abs. 8@36432
+- uid: § 11 Abs. 8@35227
   id: § 11 Abs. 8
   artikel: § 11
   artikel_titel: Nationale Risikoanalysen und Risikobewertungen; Verordnungsermächtigung
   absatz: '8'
   buchstabe: null
-  offset: 36432
-  laenge: 598
-  saetze: 4
+  offset: 35227
+  laenge: 494
+  saetze: 3
   beleg: '(8) Das Bundesministerium des Innern wird ermächtigt, durch Rechtsverordnung, die der Zustimmung
     des Bundesrates bedarf, methodische und inhaltliche Vorgaben für die Risikoanalysen und Risikobewertungen
     der nach Absatz 1 Satz 1 und 2 zuständigen Stellen zu bestimmen. § 4 Absatz 4 und 5 gilt entsprechend.
     Fußnote § 11 Abs. 2 Nr. 2 Buchst a Kursivdruck: Auf Grund offensichtlicher Unrichtigkeit wird die
-    Angabe "Richtlinie (EU) 2022/2057" durch die Angabe "Richtlinie (EU) 2022/2557" ersetzt. zum Seitenanfang
-    Impressum Datenschutz Barrierefreiheitserklärung Feedback-Formular'
+    Angabe "Richtlinie (EU) 2022/2057" durch die Angabe "Richtlinie (EU) 2022/2557" ersetzt.'
   adressat: null
   pflicht: null
   scope: null
@@ -1476,13 +1723,64 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 12 Abs. 2@38128
+- uid: § 12 Abs. 1@35821
+  id: § 12 Abs. 1
+  artikel: § 12
+  artikel_titel: Risikoanalyse und Risikobewertung des Betreibers kritischer Anlagen; Verordnungsermächtigung
+  absatz: '1'
+  buchstabe: null
+  offset: 35821
+  laenge: 762
+  saetze: 1
+  beleg: '(1) Der Betreiber kritischer Anlagen führt auf Grundlage der nationalen Risikoanalysen und Risikobewertungen
+    und anderer vertrauenswürdiger Informationsquellen im Bedarfsfall, mindestens jedoch alle vier Jahre,
+    eine Risikoanalyse und Risikobewertung durch, die Folgendes berücksichtigt: 1. die in § 11 Absatz
+    2 Nummer 1 genannten Risiken, 2. Risiken, die geeignet sein können, die Verfügbarkeit der kritischen
+    Dienstleistungen zu beeinträchtigen und die sich aus Folgendem ergeben: a) dem Ausmaß der Abhängigkeit
+    des Betreibers kritischer Anlagen von den kritischen Dienstleistungen, die von anderen Betreibern
+    kritischer Anlagen auch in anderen Sektoren und auch in benachbarten Mitgliedstaaten der Europäischen
+    Union und in Drittstaaten erbracht werden, und'
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id001
+  gate: *id002
+  befund: null
+  befund_grund: null
+- uid: § 12 Abs. 1 lit. b@36583
+  id: § 12 Abs. 1 lit. b
+  artikel: § 12
+  artikel_titel: Risikoanalyse und Risikobewertung des Betreibers kritischer Anlagen; Verordnungsermächtigung
+  absatz: '1'
+  buchstabe: b
+  offset: 36583
+  laenge: 221
+  saetze: 1
+  beleg: b) dem Ausmaß der Abhängigkeiten anderer Sektoren von der kritischen Dienstleistung, die von
+    einem Betreiber kritischer Anlagen auch in benachbarten Mitgliedstaaten der Europäischen Union und
+    Drittstaaten erbracht wird.
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id001
+  gate: *id002
+  befund: null
+  befund_grund: null
+- uid: § 12 Abs. 2@36804
   id: § 12 Abs. 2
   artikel: § 12
   artikel_titel: Risikoanalyse und Risikobewertung des Betreibers kritischer Anlagen; Verordnungsermächtigung
   absatz: '2'
   buchstabe: null
-  offset: 38128
+  offset: 36804
   laenge: 117
   saetze: 1
   beleg: (2) Die Besonderheiten maritimer Infrastrukturen werden bei den Risikoanalysen und Risikobewertungen
@@ -1498,21 +1796,20 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 12 Abs. 3@38245
+- uid: § 12 Abs. 3@36921
   id: § 12 Abs. 3
   artikel: § 12
   artikel_titel: Risikoanalyse und Risikobewertung des Betreibers kritischer Anlagen; Verordnungsermächtigung
   absatz: '3'
   buchstabe: null
-  offset: 38245
-  laenge: 592
-  saetze: 4
+  offset: 36921
+  laenge: 488
+  saetze: 3
   beleg: (3) Das Bundesministerium des Innern wird ermächtigt, durch Rechtsverordnung, die der Zustimmung
     des Bundesrates bedarf, inhaltliche und methodische Vorgaben einschließlich Vorlagen und Muster für
     die Risikoanalysen und Risikobewertungen der Betreiber kritischer Anlagen zu bestimmen. § 4 Absatz
     4 und 5 gilt entsprechend. Das Bundesministerium des Innern kann die Ermächtigung nach Satz 1 durch
-    Rechtsverordnung auf das Bundesamt für Bevölkerungsschutz und Katastrophenhilfe übertragen. zum Seitenanfang
-    Impressum Datenschutz Barrierefreiheitserklärung Feedback-Formular
+    Rechtsverordnung auf das Bundesamt für Bevölkerungsschutz und Katastrophenhilfe übertragen.
   adressat: null
   pflicht: null
   scope: null
@@ -1524,13 +1821,38 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 13 Abs. 2@39430
+- uid: § 13 Abs. 1@37483
+  id: § 13 Abs. 1
+  artikel: § 13
+  artikel_titel: Resilienzpflichten der Betreiber kritischer Anlagen; Resilienzplan
+  absatz: '1'
+  buchstabe: null
+  offset: 37483
+  laenge: 504
+  saetze: 1
+  beleg: (1) Der Betreiber kritischer Anlagen ist verpflichtet, nach Maßgabe der Absätze 2 und 3 Maßnahmen
+    zur Gewährleistung seiner Resilienz zu treffen, um 1. das Auftreten von Vorfällen zu verhindern, 2.
+    einen angemessenen physischen Schutz von Liegenschaften und kritischen Anlagen zu gewährleisten, 3.
+    auf Vorfälle zu reagieren, sie abzuwehren und die negativen Auswirkungen solcher Vorfälle zu begrenzen
+    und 4. nach Vorfällen die zügige Wiederherstellung der kritischen Dienstleistung zu gewährleisten.
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id001
+  gate: *id002
+  befund: null
+  befund_grund: null
+- uid: § 13 Abs. 2@37987
   id: § 13 Abs. 2
   artikel: § 13
   artikel_titel: Resilienzpflichten der Betreiber kritischer Anlagen; Resilienzplan
   absatz: '2'
   buchstabe: null
-  offset: 39430
+  offset: 37987
   laenge: 655
   saetze: 5
   beleg: (2) Für die Erreichung der Ziele sind auf Grundlage der nationalen Risikoanalysen und Risikobewertungen
@@ -1551,13 +1873,13 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 13 Abs. 3@40085
+- uid: § 13 Abs. 3@38642
   id: § 13 Abs. 3
   artikel: § 13
   artikel_titel: Resilienzpflichten der Betreiber kritischer Anlagen; Resilienzplan
   absatz: '3'
   buchstabe: null
-  offset: 40085
+  offset: 38642
   laenge: 516
   saetze: 1
   beleg: '(3) Zu den Maßnahmen zur Erreichung der Ziele nach Absatz 1 können die folgenden zählen, soweit
@@ -1577,13 +1899,13 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 13 Abs. 3 lit. b@40601
+- uid: § 13 Abs. 3 lit. b@39158
   id: § 13 Abs. 3 lit. b
   artikel: § 13
   artikel_titel: Resilienzpflichten der Betreiber kritischer Anlagen; Resilienzplan
   absatz: '3'
   buchstabe: b
-  offset: 40601
+  offset: 39158
   laenge: 64
   saetze: 1
   beleg: b) Instrumente und Verfahren für die Überwachung der Umgebung,
@@ -1598,13 +1920,13 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 13 Abs. 3 lit. c@40665
+- uid: § 13 Abs. 3 lit. c@39222
   id: § 13 Abs. 3 lit. c
   artikel: § 13
   artikel_titel: Resilienzpflichten der Betreiber kritischer Anlagen; Resilienzplan
   absatz: '3'
   buchstabe: c
-  offset: 40665
+  offset: 39222
   laenge: 42
   saetze: 1
   beleg: c) der Einsatz von Detektionsgeräten und
@@ -1619,13 +1941,13 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 13 Abs. 3 lit. d@40707
+- uid: § 13 Abs. 3 lit. d@39264
   id: § 13 Abs. 3 lit. d
   artikel: § 13
   artikel_titel: Resilienzpflichten der Betreiber kritischer Anlagen; Resilienzplan
   absatz: '3'
   buchstabe: d
-  offset: 40707
+  offset: 39264
   laenge: 148
   saetze: 1
   beleg: 'd) Zugangskontrollen, 3. zum Zweck der Zielerreichung nach Absatz 1 Nummer 3 zählen: a) Risiko-
@@ -1641,13 +1963,13 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 13 Abs. 3 lit. b@40855
+- uid: § 13 Abs. 3 lit. b@39412
   id: § 13 Abs. 3 lit. b
   artikel: § 13
   artikel_titel: Resilienzpflichten der Betreiber kritischer Anlagen; Resilienzplan
   absatz: '3'
   buchstabe: b
-  offset: 40855
+  offset: 39412
   laenge: 187
   saetze: 1
   beleg: 'b) vorgegebene Abläufe im Alarmfall, 4. zum Zweck der Zielerreichung nach Absatz 1 Nummer 4
@@ -1663,13 +1985,13 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 13 Abs. 3 lit. b@41042
+- uid: § 13 Abs. 3 lit. b@39599
   id: § 13 Abs. 3 lit. b
   artikel: § 13
   artikel_titel: Resilienzpflichten der Betreiber kritischer Anlagen; Resilienzplan
   absatz: '3'
   buchstabe: b
-  offset: 41042
+  offset: 39599
   laenge: 433
   saetze: 1
   beleg: b) die Ermittlung alternativer Lieferketten, um die Erbringung des wesentlichen Dienstes wiederaufzunehmen,
@@ -1688,13 +2010,13 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 13 Abs. 4@41475
+- uid: § 13 Abs. 4@40032
   id: § 13 Abs. 4
   artikel: § 13
   artikel_titel: Resilienzpflichten der Betreiber kritischer Anlagen; Resilienzplan
   absatz: '4'
   buchstabe: null
-  offset: 41475
+  offset: 40032
   laenge: 442
   saetze: 4
   beleg: (4) Der Betreiber kritischer Anlagen muss die Maßnahmen nach Absatz 1 in einem Resilienzplan
@@ -1713,19 +2035,18 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 13 Abs. 5@41917
+- uid: § 13 Abs. 5@40474
   id: § 13 Abs. 5
   artikel: § 13
   artikel_titel: Resilienzpflichten der Betreiber kritischer Anlagen; Resilienzplan
   absatz: '5'
   buchstabe: null
-  offset: 41917
-  laenge: 364
-  saetze: 2
+  offset: 40474
+  laenge: 260
+  saetze: 1
   beleg: (5) Das Bundesamt für Bevölkerungsschutz und Katastrophenhilfe stellt spätestens acht Monate
     nach Inkrafttreten der Rechtsverordnung nach § 4 Absatz 3 und § 5 Absatz 1 Vorlagen und Muster für
-    die Erstellung von Resilienzplänen auf seiner Internetseite bereit. zum Seitenanfang Impressum Datenschutz
-    Barrierefreiheitserklärung Feedback-Formular
+    die Erstellung von Resilienzplänen auf seiner Internetseite bereit.
   adressat: null
   pflicht: null
   scope: null
@@ -1737,14 +2058,40 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 14 Abs. 2@42875
+- uid: § 14 Abs. 1@40873
+  id: § 14 Abs. 1
+  artikel: § 14
+  artikel_titel: Sektorenübergreifende und sektorspezifische Mindestanforderungen; branchenspezifische
+    Resilienzstandards; Verordnungsermächtigungen
+  absatz: '1'
+  buchstabe: null
+  offset: 40873
+  laenge: 440
+  saetze: 3
+  beleg: (1) Das Bundesministerium des Innern wird ermächtigt, durch Rechtsverordnung, die der Zustimmung
+    des Bundesrates bedarf, zur Konkretisierung der Verpflichtungen nach § 13 Absatz 1 sektorenübergreifende
+    Mindestanforderungen zu bestimmen. Zudem gilt § 4 Absatz 4 entsprechend. Das Bundesministerium des
+    Innern kann die Ermächtigung nach Satz 1 durch Rechtsverordnung auf das Bundesamt für Bevölkerungsschutz
+    und Katastrophenhilfe übertragen.
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id001
+  gate: *id002
+  befund: null
+  befund_grund: null
+- uid: § 14 Abs. 2@41313
   id: § 14 Abs. 2
   artikel: § 14
   artikel_titel: Sektorenübergreifende und sektorspezifische Mindestanforderungen; branchenspezifische
     Resilienzstandards; Verordnungsermächtigungen
   absatz: '2'
   buchstabe: null
-  offset: 42875
+  offset: 41313
   laenge: 1352
   saetze: 5
   beleg: (2) Betreiber kritischer Anlagen oder ihre Branchenverbände können branchenspezifische Resilienzstandards
@@ -1772,14 +2119,14 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 14 Abs. 3@44227
+- uid: § 14 Abs. 3@42665
   id: § 14 Abs. 3
   artikel: § 14
   artikel_titel: Sektorenübergreifende und sektorspezifische Mindestanforderungen; branchenspezifische
     Resilienzstandards; Verordnungsermächtigungen
   absatz: '3'
   buchstabe: null
-  offset: 44227
+  offset: 42665
   laenge: 25
   saetze: 1
   beleg: (3) (zukünftig in Kraft)
@@ -1794,14 +2141,14 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 14 Abs. 4@44252
+- uid: § 14 Abs. 4@42690
   id: § 14 Abs. 4
   artikel: § 14
   artikel_titel: Sektorenübergreifende und sektorspezifische Mindestanforderungen; branchenspezifische
     Resilienzstandards; Verordnungsermächtigungen
   absatz: '4'
   buchstabe: null
-  offset: 44252
+  offset: 42690
   laenge: 25
   saetze: 1
   beleg: (4) (zukünftig in Kraft)
@@ -1816,19 +2163,18 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 14 Abs. 5@44277
+- uid: § 14 Abs. 5@42715
   id: § 14 Abs. 5
   artikel: § 14
   artikel_titel: Sektorenübergreifende und sektorspezifische Mindestanforderungen; branchenspezifische
     Resilienzstandards; Verordnungsermächtigungen
   absatz: '5'
   buchstabe: null
-  offset: 44277
-  laenge: 239
+  offset: 42715
+  laenge: 135
   saetze: 3
   beleg: '(5) (zukünftig in Kraft) Fußnote (+++ § 14 Abs. 3 bis 5: Treten gem. Art. 11 Abs. 2 G v. 11.3.2026
-    I Nr. 66 am 1.1.2030 in Kraft +++) zum Seitenanfang Impressum Datenschutz Barrierefreiheitserklärung
-    Feedback-Formular'
+    I Nr. 66 am 1.1.2030 in Kraft +++)'
   adressat: null
   pflicht: null
   scope: null
@@ -1840,16 +2186,20 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 15@45010
-  id: § 15
-  artikel: § 15
-  artikel_titel: Vorrang von Durchführungsrechtsakten der Europäischen Kommission zu Resilienzpflichten
-  absatz: '-'
+- uid: § 16 Abs. 1@43397
+  id: § 16 Abs. 1
+  artikel: § 16
+  artikel_titel: Nachweise und behördliche Anordnungen zu Resilienzpflichten
+  absatz: '1'
   buchstabe: null
-  offset: 45010
-  laenge: 105
+  offset: 43397
+  laenge: 421
   saetze: 1
-  beleg: zum Seitenanfang Impressum Datenschutz Barrierefreiheitserklärung Feedback-Formular
+  beleg: (1) Um die Einhaltung der Verpflichtungen nach § 13 Absatz 1 zu überprüfen, kann die zuständige
+    Behörde über das Bundesamt für Bevölkerungsschutz und Katastrophenhilfe das Bundesamt für Sicherheit
+    in der Informationstechnik um die Übersendung derjenigen Bestandteile der nach § 39 des BSI-Gesetzes
+    vorgelegten Nachweise ersuchen, die für die Überprüfung der Einhaltung der Maßnahmen nach § 13 Absatz
+    1 erforderlich sind.
   adressat: null
   pflicht: null
   scope: null
@@ -1861,13 +2211,13 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 16 Abs. 2@45618
+- uid: § 16 Abs. 2@43818
   id: § 16 Abs. 2
   artikel: § 16
   artikel_titel: Nachweise und behördliche Anordnungen zu Resilienzpflichten
   absatz: '2'
   buchstabe: null
-  offset: 45618
+  offset: 43818
   laenge: 898
   saetze: 5
   beleg: (2) Sofern die nach Absatz 1 übermittelten Informationen zur Feststellung der Einhaltung der
@@ -1890,13 +2240,13 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 16 Abs. 3@46516
+- uid: § 16 Abs. 3@44716
   id: § 16 Abs. 3
   artikel: § 16
   artikel_titel: Nachweise und behördliche Anordnungen zu Resilienzpflichten
   absatz: '3'
   buchstabe: null
-  offset: 46516
+  offset: 44716
   laenge: 409
   saetze: 3
   beleg: (3) Ein Nachweis zur Einhaltung der Verpflichtung nach § 13 Absatz 1 kann durch Audits erfolgen.
@@ -1914,13 +2264,13 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 16 Abs. 4@46925
+- uid: § 16 Abs. 4@45125
   id: § 16 Abs. 4
   artikel: § 16
   artikel_titel: Nachweise und behördliche Anordnungen zu Resilienzpflichten
   absatz: '4'
   buchstabe: null
-  offset: 46925
+  offset: 45125
   laenge: 819
   saetze: 3
   beleg: (4) Die zuständige Behörde kann die Einhaltung der Verpflichtungen nach § 13 Absatz 1 bei den
@@ -1942,13 +2292,13 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 16 Abs. 5@47744
+- uid: § 16 Abs. 5@45944
   id: § 16 Abs. 5
   artikel: § 16
   artikel_titel: Nachweise und behördliche Anordnungen zu Resilienzpflichten
   absatz: '5'
   buchstabe: null
-  offset: 47744
+  offset: 45944
   laenge: 293
   saetze: 3
   beleg: (5) Die zuständige Behörde kann bei Mängeln die Vorlage eines geeigneten Mängelbeseitigungsplans
@@ -1965,13 +2315,13 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 16 Abs. 6@48037
+- uid: § 16 Abs. 6@46237
   id: § 16 Abs. 6
   artikel: § 16
   artikel_titel: Nachweise und behördliche Anordnungen zu Resilienzpflichten
   absatz: '6'
   buchstabe: null
-  offset: 48037
+  offset: 46237
   laenge: 64
   saetze: 1
   beleg: (6) Für die Absätze 2 bis 5 gilt § 8 Absatz 2 Satz 2 sinngemäß.
@@ -1986,13 +2336,13 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 16 Abs. 7@48101
+- uid: § 16 Abs. 7@46301
   id: § 16 Abs. 7
   artikel: § 16
   artikel_titel: Nachweise und behördliche Anordnungen zu Resilienzpflichten
   absatz: '7'
   buchstabe: null
-  offset: 48101
+  offset: 46301
   laenge: 272
   saetze: 2
   beleg: (7) Die Absätze 1 bis 6 gelten nicht für die Betreiber kritischer Anlagen, die für die Erbringung
@@ -2009,23 +2359,22 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 16 Abs. 8@48373
+- uid: § 16 Abs. 8@46573
   id: § 16 Abs. 8
   artikel: § 16
   artikel_titel: Nachweise und behördliche Anordnungen zu Resilienzpflichten
   absatz: '8'
   buchstabe: null
-  offset: 48373
-  laenge: 789
-  saetze: 4
+  offset: 46573
+  laenge: 685
+  saetze: 3
   beleg: (8) Das Bundesamt für Bevölkerungsschutz und Katastrophenhilfe kann zur Ausgestaltung des Verfahrens
     der Erbringung des Nachweises und der Audits nach Absatz 3 Anforderungen an die Art und Weise der
     Durchführung, an die Geeignetheit der zu erbringenden Nachweise sowie fachliche und organisatorische
     Anforderungen an die Prüfer und die prüfende Stelle im Einvernehmen mit dem fachlich zuständigen Bundesministerium
     sowie dem Bundesamt für Sicherheit in der Informationstechnik festlegen. § 4 Absatz 4 gilt entsprechend.
     Die Festlegung nach Satz 1 wird durch eine öffentliche Mitteilung auf der Internetseite des Bundesamtes
-    für Bevölkerungsschutz und Katastrophenhilfe veröffentlicht. zum Seitenanfang Impressum Datenschutz
-    Barrierefreiheitserklärung Feedback-Formular
+    für Bevölkerungsschutz und Katastrophenhilfe veröffentlicht.
   adressat: null
   pflicht: null
   scope: null
@@ -2037,14 +2386,39 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 17 Abs. 2@49640
+- uid: § 17 Abs. 1@47375
+  id: § 17 Abs. 1
+  artikel: § 17
+  artikel_titel: Gleichwertigkeit von Nachweisen und sonstigen öffentlich-rechtlichen Verpflichtungen;
+    Verordnungsermächtigung
+  absatz: '1'
+  buchstabe: null
+  offset: 47375
+  laenge: 346
+  saetze: 1
+  beleg: (1) Risikoanalysen, Risikobewertungen sowie Dokumente und Maßnahmen und Zertifikate zur Stärkung
+    der Resilienz, die der Betreiber kritischer Anlagen auf Grund sonstiger rechtlicher Verpflichtungen
+    oder freiwillig erstellt, ergriffen oder erlangt hat, können zum Nachweis der Einhaltung der Verpflichtungen
+    nach diesem Gesetz herangezogen werden.
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id001
+  gate: *id002
+  befund: null
+  befund_grund: null
+- uid: § 17 Abs. 2@47721
   id: § 17 Abs. 2
   artikel: § 17
   artikel_titel: Gleichwertigkeit von Nachweisen und sonstigen öffentlich-rechtlichen Verpflichtungen;
     Verordnungsermächtigung
   absatz: '2'
   buchstabe: null
-  offset: 49640
+  offset: 47721
   laenge: 213
   saetze: 1
   beleg: (2) Die tatsächlichen Feststellungen anderer Behörden zu Risikoanalysen und Risikobewertungen
@@ -2061,14 +2435,14 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 17 Abs. 3@49853
+- uid: § 17 Abs. 3@47934
   id: § 17 Abs. 3
   artikel: § 17
   artikel_titel: Gleichwertigkeit von Nachweisen und sonstigen öffentlich-rechtlichen Verpflichtungen;
     Verordnungsermächtigung
   absatz: '3'
   buchstabe: null
-  offset: 49853
+  offset: 47934
   laenge: 422
   saetze: 2
   beleg: (3) Das Bundesministerium des Innern kann durch Rechtsverordnung, die der Zustimmung des Bundesrates
@@ -2086,20 +2460,19 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 17 Abs. 4@50275
+- uid: § 17 Abs. 4@48356
   id: § 17 Abs. 4
   artikel: § 17
   artikel_titel: Gleichwertigkeit von Nachweisen und sonstigen öffentlich-rechtlichen Verpflichtungen;
     Verordnungsermächtigung
   absatz: '4'
   buchstabe: null
-  offset: 50275
-  laenge: 403
-  saetze: 3
+  offset: 48356
+  laenge: 299
+  saetze: 2
   beleg: (4) Die Verpflichtungen nach diesem Gesetz gelten als eingehalten, soweit die in der Rechtsverordnung
     nach Absatz 3 Satz 1 als diesen gleichwertig festgestellten sonstigen Verpflichtungen eingehalten
     werden. Feststellungen anderer Behörden zur Einhaltung der sonstigen Verpflichtungen sind bindend.
-    zum Seitenanfang Impressum Datenschutz Barrierefreiheitserklärung Feedback-Formular
   adressat: null
   pflicht: null
   scope: null
@@ -2111,13 +2484,39 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 18 Abs. 2@51335
+- uid: § 18 Abs. 1@48711
+  id: § 18 Abs. 1
+  artikel: § 18
+  artikel_titel: Meldewesen für Vorfälle; Verordnungsermächtigung
+  absatz: '1'
+  buchstabe: null
+  offset: 48711
+  laenge: 586
+  saetze: 4
+  beleg: (1) Der Betreiber kritischer Anlagen ist verpflichtet, dem Bundesamt für Bevölkerungsschutz und
+    Katastrophenhilfe Vorfälle unverzüglich, spätestens 24 Stunden nach Kenntnis der vom Bundesamt für
+    Sicherheit in der Informationstechnik und dem Bundesamt für Bevölkerungsschutz und Katastrophenhilfe
+    eingerichteten gemeinsamen Meldestelle zu melden. Bei einem andauernden Vorfall ist die Erstmeldung
+    zu aktualisieren. Spätestens einen Monat nach Kenntnis des Vorfalls ist ein ausführlicher Bericht
+    zu übermitteln. Meldepflichten auf Grund sonstiger gesetzlicher Vorgaben bleiben unberührt.
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id001
+  gate: *id002
+  befund: null
+  befund_grund: null
+- uid: § 18 Abs. 2@49297
   id: § 18 Abs. 2
   artikel: § 18
   artikel_titel: Meldewesen für Vorfälle; Verordnungsermächtigung
   absatz: '2'
   buchstabe: null
-  offset: 51335
+  offset: 49297
   laenge: 551
   saetze: 2
   beleg: '(2) Die Meldungen müssen die zu ihrem Zeitpunkt verfügbaren Informationen enthalten, die erforderlich
@@ -2137,13 +2536,13 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 18 Abs. 3@51886
+- uid: § 18 Abs. 3@49848
   id: § 18 Abs. 3
   artikel: § 18
   artikel_titel: Meldewesen für Vorfälle; Verordnungsermächtigung
   absatz: '3'
   buchstabe: null
-  offset: 51886
+  offset: 49848
   laenge: 561
   saetze: 2
   beleg: (3) Das Bundesamt für Bevölkerungsschutz und Katastrophenhilfe legt die Einzelheiten zur Ausgestaltung
@@ -2163,13 +2562,13 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 18 Abs. 4@52447
+- uid: § 18 Abs. 4@50409
   id: § 18 Abs. 4
   artikel: § 18
   artikel_titel: Meldewesen für Vorfälle; Verordnungsermächtigung
   absatz: '4'
   buchstabe: null
-  offset: 52447
+  offset: 50409
   laenge: 572
   saetze: 1
   beleg: (4) Das Bundesamt für Bevölkerungsschutz und Katastrophenhilfe unterrichtet die zentralen Anlaufstellen
@@ -2189,13 +2588,13 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 18 Abs. 5@53019
+- uid: § 18 Abs. 5@50981
   id: § 18 Abs. 5
   artikel: § 18
   artikel_titel: Meldewesen für Vorfälle; Verordnungsermächtigung
   absatz: '5'
   buchstabe: null
-  offset: 53019
+  offset: 50981
   laenge: 447
   saetze: 1
   beleg: (5) Hat ein Vorfall erhebliche Auswirkungen auf die Kontinuität der Erbringung wesentlicher Dienste
@@ -2214,13 +2613,13 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 18 Abs. 6@53466
+- uid: § 18 Abs. 6@51428
   id: § 18 Abs. 6
   artikel: § 18
   artikel_titel: Meldewesen für Vorfälle; Verordnungsermächtigung
   absatz: '6'
   buchstabe: null
-  offset: 53466
+  offset: 51428
   laenge: 503
   saetze: 2
   beleg: (6) Das Bundesamt für Bevölkerungsschutz und Katastrophenhilfe übermittelt dem von dem Vorfall
@@ -2240,13 +2639,13 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 18 Abs. 7@53969
+- uid: § 18 Abs. 7@51931
   id: § 18 Abs. 7
   artikel: § 18
   artikel_titel: Meldewesen für Vorfälle; Verordnungsermächtigung
   absatz: '7'
   buchstabe: null
-  offset: 53969
+  offset: 51931
   laenge: 867
   saetze: 4
   beleg: (7) Das Bundesamt für Bevölkerungsschutz und Katastrophenhilfe übermittelt den zuständigen Behörden,
@@ -2269,13 +2668,13 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 18 Abs. 8@54836
+- uid: § 18 Abs. 8@52798
   id: § 18 Abs. 8
   artikel: § 18
   artikel_titel: Meldewesen für Vorfälle; Verordnungsermächtigung
   absatz: '8'
   buchstabe: null
-  offset: 54836
+  offset: 52798
   laenge: 441
   saetze: 1
   beleg: (8) Das Bundesamt für Bevölkerungsschutz und Katastrophenhilfe erstellt auf der Grundlage der
@@ -2294,13 +2693,13 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 18 Abs. 9@55277
+- uid: § 18 Abs. 9@53239
   id: § 18 Abs. 9
   artikel: § 18
   artikel_titel: Meldewesen für Vorfälle; Verordnungsermächtigung
   absatz: '9'
   buchstabe: null
-  offset: 55277
+  offset: 53239
   laenge: 405
   saetze: 1
   beleg: (9) Liegt die Offenlegung des Vorfalls im öffentlichen Interesse, so kann das Bundesamt für Bevölkerungsschutz
@@ -2318,19 +2717,18 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 18 Abs. 10@55682
+- uid: § 18 Abs. 10@53644
   id: § 18 Abs. 10
   artikel: § 18
   artikel_titel: Meldewesen für Vorfälle; Verordnungsermächtigung
   absatz: '10'
   buchstabe: null
-  offset: 55682
-  laenge: 373
-  saetze: 2
+  offset: 53644
+  laenge: 269
+  saetze: 1
   beleg: (10) Bei der Übermittlung von Meldungen über Vorfälle nach den Absätzen 4, 5 und 7 sowie bei
     der Erstellung von Lagebildern nach Absatz 8 sind die erforderliche Vertraulichkeit sowie die Betriebs-
-    und Geschäftsgeheimnisse des Betreibers kritischer Anlagen zu beachten. zum Seitenanfang Impressum
-    Datenschutz Barrierefreiheitserklärung Feedback-Formular
+    und Geschäftsgeheimnisse des Betreibers kritischer Anlagen zu beachten.
   adressat: null
   pflicht: null
   scope: null
@@ -2342,15 +2740,38 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 19 Abs. 2@56428
+- uid: § 19 Abs. 1@53997
+  id: § 19 Abs. 1
+  artikel: § 19
+  artikel_titel: Unterstützung der Betreiber kritischer Anlagen; freiwillige Beratungsmission
+  absatz: '1'
+  buchstabe: null
+  offset: 53997
+  laenge: 274
+  saetze: 2
+  beleg: (1) Das Bundesamt für Bevölkerungsschutz und Katastrophenhilfe stellt Betreibern kritischer Anlagen
+    Vorlagen, Muster und Leitlinien zur Umsetzung der Verpflichtungen nach diesem Gesetz zur Verfügung.
+    Es kann zu diesem Zweck auch Beratungen, Schulungen und Übungen anbieten.
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id001
+  gate: *id002
+  befund: null
+  befund_grund: null
+- uid: § 19 Abs. 2@54271
   id: § 19 Abs. 2
   artikel: § 19
   artikel_titel: Unterstützung der Betreiber kritischer Anlagen; freiwillige Beratungsmission
   absatz: '2'
   buchstabe: null
-  offset: 56428
-  laenge: 1170
-  saetze: 5
+  offset: 54271
+  laenge: 1066
+  saetze: 4
   beleg: (2) Das Bundesministerium des Innern kann bei der Europäischen Kommission mit Zustimmung des
     betroffenen Betreibers kritischer Anlagen einen Antrag auf Organisation einer Beratungsmission zur
     Bewertung der Maßnahmen stellen, die der Betreiber kritischer Anlagen ergriffen hat, um seine Verpflichtungen
@@ -2361,8 +2782,7 @@ einheiten:
     zu dessen Geschäftsbereich sie gehört, erfolgt die Antragstellung nach Satz 1 im Einvernehmen mit
     dem Bundesministerium, dessen Fach- oder Rechtsaufsicht der betreffende Teil dieser Behörde untersteht.
     Im Übrigen erfolgt sie im Benehmen mit dem Landesministerium, zu dessen Geschäftsbereich die für die
-    betroffene Dienstleistung zuständige Behörde gehört. zum Seitenanfang Impressum Datenschutz Barrierefreiheitserklärung
-    Feedback-Formular
+    betroffene Dienstleistung zuständige Behörde gehört.
   adressat: null
   pflicht: null
   scope: null
@@ -2374,20 +2794,42 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 20 Abs. 2@57937
+- uid: § 20 Abs. 1@55403
+  id: § 20 Abs. 1
+  artikel: § 20
+  artikel_titel: Umsetzungs- und Überwachungspflicht für Geschäftsleitungen
+  absatz: '1'
+  buchstabe: null
+  offset: 55403
+  laenge: 258
+  saetze: 1
+  beleg: (1) Geschäftsleitungen von Betreibern kritischer Anlagen sind verpflichtet, die von den Betreibern
+    kritischer Anlagen nach § 13 Absatz 1 zu ergreifenden Resilienzmaßnahmen umzusetzen und ihre Umsetzung
+    durch geeignete Organisationsmaßnahmen sicherzustellen.
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id001
+  gate: *id002
+  befund: null
+  befund_grund: null
+- uid: § 20 Abs. 2@55661
   id: § 20 Abs. 2
   artikel: § 20
   artikel_titel: Umsetzungs- und Überwachungspflicht für Geschäftsleitungen
   absatz: '2'
   buchstabe: null
-  offset: 57937
-  laenge: 486
-  saetze: 3
+  offset: 55661
+  laenge: 382
+  saetze: 2
   beleg: (2) Geschäftsleitungen, die ihre Pflicht nach Absatz 1 verletzen, haften ihrer Einrichtung für
     einen schuldhaft verursachten Schaden nach den auf die Rechtsform der Einrichtung anwendbaren Regeln
     des Gesellschaftsrechts. Nach diesem Gesetz haften sie nur, wenn die für die Einrichtung maßgeblichen
-    gesellschaftsrechtlichen Bestimmungen keine Haftungsregelung nach Satz 1 enthalten. zum Seitenanfang
-    Impressum Datenschutz Barrierefreiheitserklärung Feedback-Formular
+    gesellschaftsrechtlichen Bestimmungen keine Haftungsregelung nach Satz 1 enthalten.
   adressat: null
   pflicht: null
   scope: null
@@ -2399,13 +2841,106 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 21 Abs. 2@59635
+- uid: § 21 Abs. 1@56068
+  id: § 21 Abs. 1
+  artikel: § 21
+  artikel_titel: Berichtspflichten
+  absatz: '1'
+  buchstabe: null
+  offset: 56068
+  laenge: 373
+  saetze: 1
+  beleg: '(1) Das Bundesministerium des Innern übermittelt folgende Informationen an die Europäische Kommission:
+    1. innerhalb von drei Monaten nach Durchführung von nationalen Risikoanalysen und Risikobewertungen
+    jeweils aufgeschlüsselt nach den im Anhang der Richtlinie (EU) 2022/2557 genannten Sektoren und Teilsektoren
+    Informationen a) über die ermittelten Arten von Risiken und'
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id001
+  gate: *id002
+  befund: null
+  befund_grund: null
+- uid: § 21 Abs. 1 lit. b@56441
+  id: § 21 Abs. 1 lit. b
+  artikel: § 21
+  artikel_titel: Berichtspflichten
+  absatz: '1'
+  buchstabe: b
+  offset: 56441
+  laenge: 287
+  saetze: 1
+  beleg: b) über die Ergebnisse dieser Risikoanalysen und Risikobewertungen, 2. nach der Ermittlung der
+    Betreiber kritischer Anlagen unverzüglich und anschließend alle vier Jahre a) eine Liste der wesentlichen
+    Dienste im Sinne des Artikels 7 Absatz 2 Buchstabe a der Richtlinie (EU) 2022/2557,
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id001
+  gate: *id002
+  befund: null
+  befund_grund: null
+- uid: § 21 Abs. 1 lit. b@56728
+  id: § 21 Abs. 1 lit. b
+  artikel: § 21
+  artikel_titel: Berichtspflichten
+  absatz: '1'
+  buchstabe: b
+  offset: 56728
+  laenge: 292
+  saetze: 1
+  beleg: b) die Zahl der Betreiber kritischer Anlagen für jeden im Anhang der Richtlinie (EU) 2022/2557
+    genannten Sektor und Teilsektor und für jeden wesentlichen Dienst im Sinne des Artikels 2 Nummer 5
+    der Richtlinie (EU) 2022/2557 und des Artikels 2 der Delegierten Verordnung (EU) 2023/2450 sowie
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id001
+  gate: *id002
+  befund: null
+  befund_grund: null
+- uid: § 21 Abs. 1 lit. c@57020
+  id: § 21 Abs. 1 lit. c
+  artikel: § 21
+  artikel_titel: Berichtspflichten
+  absatz: '1'
+  buchstabe: c
+  offset: 57020
+  laenge: 220
+  saetze: 1
+  beleg: c) die Schwellenwerte, die in der Rechtsverordnung nach § 5 Absatz 1 Satz 1 Nummer 2 zur Spezifizierung
+    eines oder mehrerer der in Artikel 7 Absatz 1 der Richtlinie (EU) 2022/2557 genannten Kriterien festgelegt
+    werden.
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id001
+  gate: *id002
+  befund: null
+  befund_grund: null
+- uid: § 21 Abs. 2@57240
   id: § 21 Abs. 2
   artikel: § 21
   artikel_titel: Berichtspflichten
   absatz: '2'
   buchstabe: null
-  offset: 59635
+  offset: 57240
   laenge: 429
   saetze: 1
   beleg: (2) Das Bundesministerium des Innern übermittelt der Europäischen Kommission und der Gruppe für
@@ -2424,13 +2959,13 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 21 Abs. 3@60064
+- uid: § 21 Abs. 3@57669
   id: § 21 Abs. 3
   artikel: § 21
   artikel_titel: Berichtspflichten
   absatz: '3'
   buchstabe: null
-  offset: 60064
+  offset: 57669
   laenge: 268
   saetze: 1
   beleg: (3) Informationen, deren Offenlegung wesentlichen nationalen Interessen im Bereich der nationalen
@@ -2447,13 +2982,13 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 21 Abs. 4@60332
+- uid: § 21 Abs. 4@57937
   id: § 21 Abs. 4
   artikel: § 21
   artikel_titel: Berichtspflichten
   absatz: '4'
   buchstabe: null
-  offset: 60332
+  offset: 57937
   laenge: 246
   saetze: 1
   beleg: (4) Das Bundesministerium des Innern übermittelt die Informationen nach Absatz 1 und den zusammenfassenden
@@ -2470,13 +3005,13 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 21 Abs. 5@60578
+- uid: § 21 Abs. 5@58183
   id: § 21 Abs. 5
   artikel: § 21
   artikel_titel: Berichtspflichten
   absatz: '5'
   buchstabe: null
-  offset: 60578
+  offset: 58183
   laenge: 714
   saetze: 2
   beleg: (5) Für die Zwecke von Absatz 1 Nummer 1 Buchstabe a und b übermitteln die Bundesministerien
@@ -2497,13 +3032,13 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 21 Abs. 6@61292
+- uid: § 21 Abs. 6@58897
   id: § 21 Abs. 6
   artikel: § 21
   artikel_titel: Berichtspflichten
   absatz: '6'
   buchstabe: null
-  offset: 61292
+  offset: 58897
   laenge: 472
   saetze: 2
   beleg: (6) Die zuständigen Behörden übermitteln dem Bundesamt für Bevölkerungsschutz und Katastrophenhilfe
@@ -2522,19 +3057,18 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 21 Abs. 7@61764
+- uid: § 21 Abs. 7@59369
   id: § 21 Abs. 7
   artikel: § 21
   artikel_titel: Berichtspflichten
   absatz: '7'
   buchstabe: null
-  offset: 61764
-  laenge: 361
-  saetze: 2
+  offset: 59369
+  laenge: 257
+  saetze: 1
   beleg: (7) Die Berichte nach den Absätzen 1, 2, 4 und 5 dürfen keine Informationen enthalten, die zu
     einer Identifizierung einzelner Meldungen oder einzelner Betreiber kritischer Anlagen führen können
-    und dürfen keine Handels- oder Geschäftsgeheimnisse enthalten. zum Seitenanfang Impressum Datenschutz
-    Barrierefreiheitserklärung Feedback-Formular
+    und dürfen keine Handels- oder Geschäftsgeheimnisse enthalten.
   adressat: null
   pflicht: null
   scope: null
@@ -2546,13 +3080,39 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 22 Abs. 2@62693
+- uid: § 22 Abs. 1@59650
+  id: § 22 Abs. 1
+  artikel: § 22
+  artikel_titel: Ausnahmebescheid
+  absatz: '1'
+  buchstabe: null
+  offset: 59650
+  laenge: 529
+  saetze: 1
+  beleg: (1) Das Bundesministerium des Innern kann auf Vorschlag des Bundeskanzleramtes, des Bundesministeriums
+    der Justiz und für Verbraucherschutz, des Bundesministeriums der Verteidigung oder auf eigenes Betreiben
+    Betreiber kritischer Anlagen von Verpflichtungen nach diesem Gesetz nach Maßgabe des Absatzes 2 teilweise
+    befreien (einfacher Ausnahmebescheid) oder nach Maßgabe des Absatzes 3 insgesamt befreien (erweiterter
+    Ausnahmebescheid), wenn die Resilienz des Betreibers anderweitig gewährleistet und staatlich beaufsichtigt
+    ist.
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id001
+  gate: *id002
+  befund: null
+  befund_grund: null
+- uid: § 22 Abs. 2@60179
   id: § 22 Abs. 2
   artikel: § 22
   artikel_titel: Ausnahmebescheid
   absatz: '2'
   buchstabe: null
-  offset: 62693
+  offset: 60179
   laenge: 415
   saetze: 1
   beleg: (2) Betreiber kritischer Anlagen, die 1. in den Bereichen nationale Sicherheit, öffentliche Sicherheit,
@@ -2570,13 +3130,13 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 22 Abs. 3@63108
+- uid: § 22 Abs. 3@60594
   id: § 22 Abs. 3
   artikel: § 22
   artikel_titel: Ausnahmebescheid
   absatz: '3'
   buchstabe: null
-  offset: 63108
+  offset: 60594
   laenge: 181
   saetze: 1
   beleg: (3) Betreiber kritischer Anlagen, die ausschließlich im Sinne des Absatzes 2 Nummer 1 oder 2
@@ -2592,13 +3152,13 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 22 Abs. 4@63289
+- uid: § 22 Abs. 4@60775
   id: § 22 Abs. 4
   artikel: § 22
   artikel_titel: Ausnahmebescheid
   absatz: '4'
   buchstabe: null
-  offset: 63289
+  offset: 60775
   laenge: 544
   saetze: 3
   beleg: (4) Ein einfacher Ausnahmebescheid oder ein erweiterter Ausnahmebescheid ist vorbehaltlich der
@@ -2618,22 +3178,21 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 22 Abs. 5@63833
+- uid: § 22 Abs. 5@61319
   id: § 22 Abs. 5
   artikel: § 22
   artikel_titel: Ausnahmebescheid
   absatz: '5'
   buchstabe: null
-  offset: 63833
-  laenge: 698
-  saetze: 3
+  offset: 61319
+  laenge: 594
+  saetze: 2
   beleg: (5) Die Entscheidungen nach diesem Paragrafen erfolgen im Benehmen mit dem Bundesministerium
     oder Landesministerium, zu dessen Geschäftsbereich die für den betroffenen Betreiber kritischer Anlagen
     zuständige Behörde gehört. Liegt die Fach- oder Rechtsaufsicht für den Teil einer Behörde, der für
     die betroffene kritische Dienstleistung zuständig ist, nicht bei dem Bundesministerium, zu dessen
     Geschäftsbereich sie gehört, erfolgen die Entscheidungen nach diesem Paragrafen im Benehmen mit dem
     Bundesministerium, dessen Fach- oder Rechtsaufsicht der betreffende Teil dieser Behörde untersteht.
-    zum Seitenanfang Impressum Datenschutz Barrierefreiheitserklärung Feedback-Formular
   adressat: null
   pflicht: null
   scope: null
@@ -2645,13 +3204,38 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 23 Abs. 2@65057
+- uid: § 23 Abs. 1@61957
+  id: § 23 Abs. 1
+  artikel: § 23
+  artikel_titel: Verarbeitung personenbezogener Daten
+  absatz: '1'
+  buchstabe: null
+  offset: 61957
+  laenge: 467
+  saetze: 1
+  beleg: (1) Die Verarbeitung personenbezogener Daten durch das Bundesamt für Bevölkerungsschutz und Katastrophenhilfe,
+    das Bundesamt für Sicherheit in der Informationstechnik, die Bundesnetzagentur, die Bundesanstalt
+    für Finanzdienstleistungsaufsicht, die zuständigen Behörden und die nach Vorschriften dieses Gesetzes
+    zuständigen Bundesministerien und Landesministerien ist zulässig, soweit dies zur Erfüllung der in
+    ihrer Zuständigkeit liegenden Aufgaben erforderlich ist.
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id001
+  gate: *id002
+  befund: null
+  befund_grund: null
+- uid: § 23 Abs. 2@62424
   id: § 23 Abs. 2
   artikel: § 23
   artikel_titel: Verarbeitung personenbezogener Daten
   absatz: '2'
   buchstabe: null
-  offset: 65057
+  offset: 62424
   laenge: 946
   saetze: 2
   beleg: (2) Die Verarbeitung personenbezogener Daten durch die in Absatz 1 genannten Stellen zu anderen
@@ -2675,18 +3259,17 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 23 Abs. 3@66003
+- uid: § 23 Abs. 3@63370
   id: § 23 Abs. 3
   artikel: § 23
   artikel_titel: Verarbeitung personenbezogener Daten
   absatz: '3'
   buchstabe: null
-  offset: 66003
-  laenge: 297
-  saetze: 2
+  offset: 63370
+  laenge: 193
+  saetze: 1
   beleg: (3) Die in Absatz 1 genannten Stellen sehen angemessene und spezifische Maßnahmen zur Wahrung
     der Interessen der betroffenen Person nach § 22 Absatz 2 Satz 2 des Bundesdatenschutzgesetzes vor.
-    zum Seitenanfang Impressum Datenschutz Barrierefreiheitserklärung Feedback-Formular
   adressat: null
   pflicht: null
   scope: null
@@ -2698,13 +3281,84 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 24 Abs. 2@67400
+- uid: § 24 Abs. 1@63590
+  id: § 24 Abs. 1
+  artikel: § 24
+  artikel_titel: Bußgeldvorschriften
+  absatz: '1'
+  buchstabe: null
+  offset: 63590
+  laenge: 91
+  saetze: 1
+  beleg: (1) Ordnungswidrig handelt, wer 1. entgegen § 8 Absatz 1 a) Nummer 1 bis 3, 5 oder 6 oder
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id001
+  gate: *id002
+  befund: null
+  befund_grund: null
+- uid: § 24 Abs. 1 lit. b@63681
+  id: § 24 Abs. 1 lit. b
+  artikel: § 24
+  artikel_titel: Bußgeldvorschriften
+  absatz: '1'
+  buchstabe: b
+  offset: 63681
+  laenge: 286
+  saetze: 1
+  beleg: b) Nummer 4 in Verbindung mit einer Rechtsverordnung nach § 5 Absatz 1 Satz 1 eine dort genannte
+    Angabe nicht, nicht richtig, nicht vollständig, nicht in der vorgeschriebenen Weise oder nicht rechtzeitig
+    übermittelt, 2. einer vollziehbaren Anordnung nach a) § 8 Absatz 2 Satz 1 oder
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id001
+  gate: *id002
+  befund: null
+  befund_grund: null
+- uid: § 24 Abs. 1 lit. b@63967
+  id: § 24 Abs. 1 lit. b
+  artikel: § 24
+  artikel_titel: Bußgeldvorschriften
+  absatz: '1'
+  buchstabe: b
+  offset: 63967
+  laenge: 681
+  saetze: 1
+  beleg: b) § 16 Absatz 2 Satz 1 oder 2 oder Absatz 3 Satz 3, auch in Verbindung mit Absatz 5 Satz 3,
+    oder nach § 16 Absatz 5 Satz 1 oder 2 zuwiderhandelt, 3. entgegen § 16 Absatz 3 Satz 3, auch in Verbindung
+    mit Absatz 5 Satz 3, ein Ergebnis eines Audits nicht, nicht richtig, nicht vollständig oder nicht
+    rechtzeitig übermittelt oder 4. entgegen § 16 Absatz 4 Satz 3 das Betreten eines Geschäfts- oder Betriebsraums
+    oder einen dort genannten Zugang nicht gestattet, eine Aufzeichnung, ein Schriftstück oder eine Unterlage
+    nicht, nicht richtig, nicht vollständig oder nicht rechtzeitig vorlegt oder eine Auskunft nicht, nicht
+    richtig, nicht vollständig oder nicht rechtzeitig erteilt.
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id001
+  gate: *id002
+  befund: null
+  befund_grund: null
+- uid: § 24 Abs. 2@64648
   id: § 24 Abs. 2
   artikel: § 24
   artikel_titel: Bußgeldvorschriften
   absatz: '2'
   buchstabe: null
-  offset: 67400
+  offset: 64648
   laenge: 406
   saetze: 1
   beleg: (2) Die Ordnungswidrigkeit kann in den Fällen des Absatzes 1 Nummer 2 Buchstabe a mit einer Geldbuße
@@ -2722,40 +3376,18 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 24 Abs. 3@67806
+- uid: § 24 Abs. 3@65054
   id: § 24 Abs. 3
   artikel: § 24
   artikel_titel: Bußgeldvorschriften
   absatz: '3'
   buchstabe: null
-  offset: 67806
-  laenge: 404
-  saetze: 2
+  offset: 65054
+  laenge: 300
+  saetze: 1
   beleg: (3) Verwaltungsbehörde im Sinne des § 36 Absatz 1 Nummer 1 des Gesetzes über Ordnungswidrigkeiten
     ist in den Fällen des Absatzes 1 Nummer 1 und 2 Buchstabe a das Bundesamt für Bevölkerungsschutz und
     Katastrophenhilfe und in den übrigen Fällen die jeweils nach § 3 Absatz 2 Satz 1 zuständige Behörde.
-    zum Seitenanfang Impressum Datenschutz Barrierefreiheitserklärung Feedback-Formular
-  adressat: null
-  pflicht: null
-  scope: null
-  scope_grund: null
-  verifikation: null
-  hypothese_grund: null
-  omnibus: null
-  requirement: *id001
-  gate: *id002
-  befund: null
-  befund_grund: null
-- uid: § 25@68777
-  id: § 25
-  artikel: § 25
-  artikel_titel: Evaluierung
-  absatz: '-'
-  buchstabe: null
-  offset: 68777
-  laenge: 106
-  saetze: 1
-  beleg: zum Seitenanfang Impressum Datenschutz Barrierefreiheitserklärung Feedback-Formular
   adressat: null
   pflicht: null
   scope: null
