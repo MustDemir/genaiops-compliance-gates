@@ -1,0 +1,1292 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>Braucht KI neue Methoden?</title>
+<style>
+  @page {
+    size: A4;
+    margin: 20mm 20mm 18mm 20mm;
+    @bottom-right { content: counter(page); }
+  }
+
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+  body {
+    font-family: Arial, "Liberation Sans", Helvetica, sans-serif;
+    font-size: 11pt;
+    line-height: 1.35;
+    color: #000000;
+    margin: 0;
+    padding: 0;
+    hyphens: auto;
+  }
+
+  p { margin: 0 0 7pt 0; text-align: justify; }
+
+  /* ---------- Überschriften: schwarz, fett, gestaffelt eingerückt ---------- */
+  h1 {
+    font-size: 16pt; font-weight: bold; color: #000;
+    margin: 0 0 5pt 0; padding: 0 0 4pt 0;
+    border-bottom: 2pt solid #000; line-height: 1.2;
+  }
+  h2 {
+    font-size: 13pt; font-weight: bold; color: #000;
+    margin: 15pt 0 6pt 0; padding-left: 0; line-height: 1.25;
+  }
+  h3 {
+    font-size: 11.5pt; font-weight: bold; color: #000;
+    margin: 11pt 0 4pt 0; padding-left: 7mm; line-height: 1.3;
+  }
+  h4 {
+    font-size: 11pt; font-weight: bold; color: #000;
+    margin: 9pt 0 3pt 0; padding-left: 12mm;
+  }
+  /* Absätze bündig — nur die Überschriften sind gestaffelt eingerückt */
+
+  .accent { height: 2.5pt; background: #86BC25; width: 30mm; margin: 0 0 10pt 0; }
+
+  /* ---------- Titelseite ---------- */
+  .cover { height: 250mm; display: flex; flex-direction: column; justify-content: space-between; }
+  .cover-top { margin-top: 30mm; }
+  .cover h1.title {
+    font-size: 27pt; line-height: 1.16; border: none; margin: 0 0 8pt 0;
+    padding: 0; font-weight: bold; letter-spacing: -0.4pt;
+  }
+  .cover .subtitle { font-size: 14.5pt; font-weight: bold; margin: 0 0 13pt 0; line-height: 1.32; }
+  .cover .descr { font-size: 11pt; line-height: 1.42; max-width: 136mm; }
+  .cover-rule { height: 4pt; background: #86BC25; width: 46mm; margin: 18pt 0; }
+  .cover-meta { font-size: 10pt; line-height: 1.5; border-top: 1pt solid #000; padding-top: 8pt; }
+  .cover-meta strong { font-weight: bold; }
+
+  /* ---------- Tabellen ---------- */
+  table { width: 100%; border-collapse: collapse; margin: 7pt 0 10pt 0; font-size: 9.5pt; }
+  th {
+    text-align: left; font-weight: bold; border-bottom: 1.2pt solid #000;
+    border-top: 1.2pt solid #000; padding: 4pt 5pt 4pt 0; vertical-align: bottom;
+    background: #F2F2F2;
+  }
+  td { padding: 3.6pt 5pt 3.6pt 0; border-bottom: 0.5pt solid #BFBFBF; vertical-align: top; line-height: 1.28; }
+  tr.total td { border-top: 1.2pt solid #000; font-weight: bold; }
+  table.toc td { border: none; padding: 2.4pt 4pt 2.4pt 0; font-size: 10pt; }
+  table.toc td.num { width: 11mm; font-weight: bold; }
+  table.toc td.pg { width: 11mm; text-align: right; }
+  table.toc tr.main td { font-weight: bold; padding-top: 6pt; }
+  table.toc td.sub { padding-left: 11mm; }
+
+  /* ---------- Bausteine ---------- */
+  .lead { font-size: 11.5pt; line-height: 1.4; }
+  .callout {
+    border-left: 3pt solid #86BC25; background: #F7F7F7;
+    padding: 7pt 9pt 2pt 9pt; margin: 9pt 0 10pt 0;
+  }
+  .callout p { margin-bottom: 5pt; }
+  .quote {
+    border-left: 2pt solid #000; padding: 1pt 0 1pt 8pt; margin: 8pt 0 9pt 0;
+    font-style: italic;
+  }
+  figure { margin: 10pt 0 12pt 0; page-break-inside: avoid; }
+  figcaption { font-size: 9pt; line-height: 1.32; margin-top: 4pt; }
+  figcaption strong { font-weight: bold; }
+  .tabcap { font-size: 9pt; line-height: 1.32; margin: -6pt 0 10pt 0; }
+  .tabcap strong { font-weight: bold; }
+  .newpage { page-break-before: always; }
+  .avoid { page-break-inside: avoid; }
+  ul, ol { margin: 0 0 7pt 0; padding-left: 5mm; }
+  li { margin-bottom: 2.5pt; line-height: 1.35; }
+
+  /* ---------- Quellenverzeichnis ---------- */
+  .refs { font-size: 8.8pt; line-height: 1.26; }
+  .refs p {
+    margin: 0 0 4pt 0; padding-left: 6mm; text-indent: -6mm; text-align: left;
+  }
+  .tag {
+    font-size: 8pt; font-weight: bold; padding: 0.5pt 3pt; margin-left: 2pt;
+    border: 0.5pt solid #000; white-space: nowrap;
+  }
+  .tag-pr { background: #E8E8E8; }
+  .tag-pp { background: #FFFFFF; }
+  small { font-size: 9.5pt; }
+</style>
+</head>
+<body>
+
+<!-- ============================ SEITE 1: TITEL ============================ -->
+<div class="cover">
+  <div class="cover-top">
+    <h1 class="title">Braucht KI neue<br>Methoden?</h1>
+    <div class="cover-rule"></div>
+    <div class="subtitle">Der Engpass ist nicht Fähigkeit,<br>sondern Nachweisbarkeit</div>
+    <p class="descr">Eine evidenzbasierte Prüfung etablierter Vorgehensmodelle — Scrum und
+    TOGAF ADM — für den produktiven Einsatz generativer KI, am Beispiel des KI-gestützten
+    Cloud Solution Architect.</p>
+  </div>
+  <div class="cover-meta">
+    <strong>Mustafa Demir</strong><br>
+    AI &amp; Cloud Solution Architect · KI-Projekt- und Prozessmanagement<br><br>
+    Whitepaper · Stand: September 2026<br>
+    Grundlage: 140 gesichtete Publikationen, 67 zitierte Quellen<br>
+    Fallbeispiel: <em>GenAIOps Compliance Gates</em> (DOI 10.5281/zenodo.19920310)
+  </div>
+</div>
+
+<!-- ============================ SEITE 2: ÜBERSICHT ============================ -->
+<div class="newpage"></div>
+<h1>Inhalt</h1>
+
+<table class="toc">
+  <tr class="main"><td class="num"></td><td>Das Verfahren auf einen Blick — Abbildung 1</td><td class="pg">3</td></tr>
+  <tr class="main"><td class="num"></td><td>Executive Summary</td><td class="pg">4</td></tr>
+  <tr class="main"><td class="num">1</td><td>Einleitung</td><td class="pg">5</td></tr>
+  <tr><td></td><td class="sub">1.1 Ausgangslage · 1.2 Problemstellung · 1.3 Forschungsfrage · 1.4 Abgrenzung</td><td class="pg"></td></tr>
+  <tr class="main"><td class="num">2</td><td>Methodik</td><td class="pg">7</td></tr>
+  <tr><td></td><td class="sub">2.1 Datenbasis · 2.2 Einstufung der Quellen · 2.3 Limitationen</td><td class="pg"></td></tr>
+  <tr class="main"><td class="num">3</td><td>Die dokumentierte Hauptbarriere: die Verifikationslücke</td><td class="pg">8</td></tr>
+  <tr><td></td><td class="sub">3.1 Reifegrade · 3.2 Human-in-the-Loop als Notlösung · 3.3 Was Adoption wirklich treibt</td><td class="pg"></td></tr>
+  <tr class="main"><td class="num">4</td><td>Die Gegenthese auf dem Prüfstand</td><td class="pg">10</td></tr>
+  <tr><td></td><td class="sub">4.1 Die Position · 4.2 Behauptung oder Befund? · 4.3 Die fehlende Evidenzbasis · 4.4 Zwischenfazit</td><td class="pg"></td></tr>
+  <tr class="main"><td class="num">5</td><td>Der Negativbefund: wo KI heute nicht eingesetzt wird</td><td class="pg">12</td></tr>
+  <tr><td></td><td class="sub">5.1 Planung ja, Prüfung nein · 5.2 Warum die Kontrollpunkte unbesetzt bleiben</td><td class="pg"></td></tr>
+  <tr class="main"><td class="num">6</td><td>Das Mapping: vorhandene Kontrollen gegen KI-Fehlerklassen</td><td class="pg">14</td></tr>
+  <tr><td></td><td class="sub">6.1 Fehlerklassen · 6.2 Scrum-Kontrollpunkte · 6.3 TOGAF-ADM · 6.4 Die Zirkularitätsgrenze · 6.5 Der Sonderfall Solo</td><td class="pg"></td></tr>
+  <tr class="main"><td class="num">7</td><td>Business Case: Nutzen, Kosten, Compliance-Hebel</td><td class="pg">18</td></tr>
+  <tr><td></td><td class="sub">7.1 Produktivität · 7.2 Gegenrechnung · 7.3 Augmentation vs. Substitution · 7.4 Compliance</td><td class="pg"></td></tr>
+  <tr class="main"><td class="num">8</td><td>Die Rolle verschiebt sich</td><td class="pg">21</td></tr>
+  <tr><td></td><td class="sub">8.1 Vom Autor zum Auftraggeber und Prüfer · 8.2 Kompetenzprofil · 8.3 Tech-Stack · 8.4 Deskilling</td><td class="pg"></td></tr>
+  <tr class="main"><td class="num">9</td><td>Instanziierung am laufenden Artefakt</td><td class="pg">23</td></tr>
+  <tr><td></td><td class="sub">9.1 Der Fall · 9.2 Die vier Ehrlichkeitsfelder · 9.3 Beweisstufen E-0 bis E-3 · 9.4 Abgrenzung</td><td class="pg"></td></tr>
+  <tr class="main"><td class="num">10</td><td>Limitationen und offene Punkte</td><td class="pg">25</td></tr>
+  <tr class="main"><td class="num">11</td><td>Fazit und Handlungsempfehlungen</td><td class="pg">25</td></tr>
+  <tr class="main"><td class="num"></td><td>Quellenverzeichnis</td><td class="pg">27</td></tr>
+</table>
+
+<div class="newpage"></div>
+<h1>Das Verfahren auf einen Blick</h1>
+
+<figure class="avoid" style="margin-top:16pt">
+<svg width="100%" viewBox="0 0 820 332" xmlns="http://www.w3.org/2000/svg" font-family="Arial, Liberation Sans, sans-serif">
+  <!-- Pool -->
+  <rect x="2" y="8" width="816" height="272" fill="none" stroke="#000" stroke-width="1.4"/>
+  <rect x="2" y="8" width="26" height="272" fill="#F2F2F2" stroke="#000" stroke-width="1.4"/>
+  <text x="17" y="144" font-size="11" font-weight="bold" fill="#000" text-anchor="middle"
+        transform="rotate(-90 17 144)">Kontrollkreislauf</text>
+
+  <!-- Lane separators -->
+  <line x1="28" y1="98" x2="818" y2="98" stroke="#000" stroke-width="1"/>
+  <line x1="28" y1="188" x2="818" y2="188" stroke="#000" stroke-width="1"/>
+  <line x1="116" y1="8" x2="116" y2="280" stroke="#000" stroke-width="1"/>
+
+  <!-- Lane labels -->
+  <text x="72" y="49" font-size="10.5" font-weight="bold" fill="#000" text-anchor="middle">Mensch</text>
+  <text x="72" y="63" font-size="9.5" fill="#000" text-anchor="middle">Product Owner</text>
+  <text x="72" y="139" font-size="10.5" font-weight="bold" fill="#000" text-anchor="middle">KI</text>
+  <text x="72" y="153" font-size="9.5" fill="#000" text-anchor="middle">ausführend</text>
+  <text x="72" y="228" font-size="10.5" font-weight="bold" fill="#000" text-anchor="middle">Maschine</text>
+  <text x="72" y="242" font-size="9.5" fill="#000" text-anchor="middle">deterministisch</text>
+
+  <defs>
+    <marker id="ar" markerWidth="9" markerHeight="7" refX="8.5" refY="3.5" orient="auto">
+      <polygon points="0 0, 9 3.5, 0 7" fill="#000"/>
+    </marker>
+    <marker id="arR" markerWidth="9" markerHeight="7" refX="8.5" refY="3.5" orient="auto">
+      <polygon points="0 0, 9 3.5, 0 7" fill="#C00000"/>
+    </marker>
+  </defs>
+
+  <!-- Start event -->
+  <circle cx="140" cy="53" r="11" fill="#FFF" stroke="#000" stroke-width="2"/>
+
+  <!-- T1 Mensch -->
+  <rect x="166" y="30" width="122" height="46" rx="6" fill="#FFF" stroke="#000" stroke-width="1.6"/>
+  <text x="227" y="48" font-size="10" font-weight="bold" fill="#000" text-anchor="middle">1 Anforderung</text>
+  <text x="227" y="61" font-size="10" fill="#000" text-anchor="middle">Definition of Ready</text>
+
+  <!-- T2 KI -->
+  <rect x="312" y="120" width="122" height="46" rx="6" fill="#FFF" stroke="#000" stroke-width="1.6"/>
+  <text x="373" y="138" font-size="10" font-weight="bold" fill="#000" text-anchor="middle">2 Entwurf und</text>
+  <text x="373" y="151" font-size="10" fill="#000" text-anchor="middle">Umsetzung</text>
+
+  <!-- T3 Maschine -->
+  <rect x="458" y="210" width="128" height="46" rx="6" fill="#FFF" stroke="#000" stroke-width="1.6"/>
+  <text x="522" y="228" font-size="10" font-weight="bold" fill="#000" text-anchor="middle">3 Policy · Test</text>
+  <text x="522" y="241" font-size="10" fill="#000" text-anchor="middle">Negativprobe</text>
+
+  <!-- Gateway -->
+  <polygon points="632,213 654,233 632,253 610,233" fill="#FFF" stroke="#000" stroke-width="1.6"/>
+  <text x="632" y="238" font-size="13" font-weight="bold" fill="#000" text-anchor="middle">×</text>
+
+  <!-- T4 Mensch -->
+  <rect x="672" y="30" width="134" height="46" rx="6" fill="#FFF" stroke="#000" stroke-width="1.6"/>
+  <text x="739" y="48" font-size="10" font-weight="bold" fill="#000" text-anchor="middle">4 Ehrlichkeitsfelder</text>
+  <text x="739" y="61" font-size="10" fill="#000" text-anchor="middle">Definition of Done</text>
+
+  <!-- T5 Maschine -->
+  <rect x="672" y="210" width="134" height="46" rx="6" fill="#FFF" stroke="#86BC25" stroke-width="2.4"/>
+  <text x="739" y="228" font-size="10" font-weight="bold" fill="#000" text-anchor="middle">5 Nachweis</text>
+  <text x="739" y="241" font-size="10" fill="#000" text-anchor="middle">Beweisstufe E-0…E-3</text>
+
+  <!-- Flows -->
+  <line x1="151" y1="53" x2="162" y2="53" stroke="#000" stroke-width="1.4" marker-end="url(#ar)"/>
+  <!-- T1 -> T2 -->
+  <polyline points="288,53 300,53 300,143 308,143" fill="none" stroke="#000" stroke-width="1.4" marker-end="url(#ar)"/>
+  <!-- T2 -> T3 -->
+  <polyline points="434,143 446,143 446,233 454,233" fill="none" stroke="#000" stroke-width="1.4" marker-end="url(#ar)"/>
+  <!-- T3 -> GW -->
+  <line x1="586" y1="233" x2="606" y2="233" stroke="#000" stroke-width="1.4" marker-end="url(#ar)"/>
+  <!-- GW -> T4 (bestanden) -->
+  <polyline points="654,233 662,233 662,53 670,53" fill="none" stroke="#000" stroke-width="1.4" marker-end="url(#ar)"/>
+  <rect x="666" y="139" width="70" height="14" fill="#FFF"/>
+  <text x="670" y="150" font-size="9.5" font-weight="bold" fill="#000">bestanden</text>
+  <!-- GW -> T2 (blockiert) -->
+  <polyline points="632,213 632,110 373,110 373,116" fill="none" stroke="#C00000" stroke-width="1.4"
+            stroke-dasharray="5,3" marker-end="url(#arR)"/>
+  <rect x="452" y="90" width="150" height="13" fill="#FFF"/>
+  <text x="456" y="100" font-size="9.5" font-weight="bold" fill="#C00000">blockiert — Nacharbeit</text>
+  <!-- T4 -> T5 -->
+  <polyline points="762,76 762,206" fill="none" stroke="#000" stroke-width="1.4" marker-end="url(#ar)"/>
+  <!-- T5 -> return -->
+  <polyline points="739,256 739,302 227,302 227,80" fill="none" stroke="#000" stroke-width="1.4" marker-end="url(#ar)"/>
+  <text x="404" y="317" font-size="9.5" font-weight="bold" fill="#000">Retrospektive · Befundregister · nächster Zyklus</text>
+</svg>
+<figcaption><strong>Abbildung 1:</strong> Der Kontrollkreislauf Mensch–KI in BPMN-2.0-Notation.
+Die KI arbeitet ausschließlich zwischen zwei Kontrollpunkten: einer vorgelagerten Festlegung
+(Definition of Ready) und einer nachgelagerten, maschinell erzwungenen Prüfung einschließlich
+Negativprobe. Der Mensch entscheidet am Anfang und am Ende; die maschinelle Prüfung entscheidet
+dazwischen. Der Nachweis trägt eine Beweisstufe nach Fälschungskosten. Der Zyklus wiederholt sich
+je Arbeitseinheit — er endet nicht mit der Lieferung, sondern mit deren Aufzeichnung.</figcaption>
+</figure>
+
+<div class="newpage"></div>
+<h2>Executive Summary</h2>
+<div class="accent"></div>
+
+<p class="lead">Unternehmen scheitern beim produktiven Einsatz generativer KI nicht an fehlenden
+Fähigkeiten der Systeme, sondern daran, dass sie deren Ergebnisse nicht prüffest belegen können.
+Eine Interviewstudie über zwölf Unternehmen findet sieben auf der niedrigsten von sechs
+Reifestufen und nur ein einziges in produktiver Mehr-Agenten-Orchestrierung; als Ursache
+benennen die Autoren ausdrücklich eine <em>capability-deployment verification gap</em> — die
+Fähigkeiten sind vorhanden, aber es fehlen Mechanismen, um deren Ausgabe zu verifizieren
+(Apostolou et al., 2026a).</p>
+
+<p>Teile der aktuellen Literatur schließen daraus, etablierte Vorgehensmodelle seien überholt und
+müssten durch KI-native Methodiken ersetzt werden (Bandara et al., 2025). Dieser Bericht prüft
+diese Position und kommt zu einem anderen Ergebnis. Die Behauptung steht in der
+Motivationsposition konzeptueller Entwürfe, während das einschlägige systematische Review die
+dafür nötige empirische Basis ausdrücklich als offene Forschungslücke ausweist (Otoum et al.,
+2026). Gleichzeitig zeigt ein systematisches Review zu KI in Scrum einen bemerkenswerten
+Negativbefund: KI-Unterstützung konzentriert sich auf Planung und Schätzung, während für die
+Phasen <em>Implement</em> sowie <em>Review und Retrospektive</em> keine einzige Anwendung
+gefunden wurde (Peras et al., 2026). Die Praxis setzt KI also genau dort nicht ein, wo Scrum seine
+Kontrollmechanismen hat.</p>
+
+<p>Der Bericht schlägt deshalb die sparsamere Hypothese vor: KI ist ein fehlbarer Mitwirkender,
+und für fehlbare Mitwirkende existieren seit Jahrzehnten erprobte Kontrollmechanismen —
+Definition of Ready und Definition of Done, Akzeptanzkriterien, Review, Vier-Augen-Prinzip,
+Architektur-Governance. Bevor neue Methodiken erfunden werden, ist zu prüfen, ob die
+vorhandenen tragen. Empirisch spricht dafür, dass die Kompatibilität mit bestehenden Workflows
+der dominierende Treiber der KI-Adoption ist und klassische Technologieakzeptanzmodelle
+insoweit herausfordert (Russo, 2023), und dass die Emulation von Prozessmodellen die Qualität
+KI-erzeugten Codes messbar verbessert — mit Scrum als bestem der geprüften Modelle
+(Lin et al., 2024).</p>
+
+<p><strong>Der wirtschaftliche Befund ist zweiseitig.</strong> Randomisierte Feldexperimente mit
+4.867 Entwicklern zeigen 26,1 % mehr abgeschlossene Aufgaben (Cui et al., 2026); eine
+Metaanalyse über 23 Studien beziffert den Effekt jedoch nur als moderat und im
+Unternehmenskontext deutlich kleiner als im Labor (Maier et al., 2026). Dem stehen belegte
+Kosten gegenüber: 22,7 % der von KI eingebrachten Befunde überleben bis zur aktuellen
+Repository-Version (Liu et al., 2026), und Kernentwickler prüfen 6,5 % mehr fremden Code bei
+19 % geringerer eigener Produktivität (Xu et al., 2025). Am Kapitalmarkt trennt sich, was der
+Bericht methodisch trennt: Augmentation erzeugt Wert, Substitution nicht (Aghbabali et al., 2026).</p>
+
+<p>Für regulierte Branchen ist der Hebel am größten. KI-gestützte Compliance-Automatisierung
+reduzierte in einer zwölfmonatigen Erprobung bei einer Großbank den manuellen Auditaufwand um
+74 % und erkannte 98 % der Regelverstöße präventiv (Sardana et al., 2024); im Auditsektor sind
+5,0 % weniger Restatements und 0,9 % geringere Prüfungsgebühren je Standardabweichung
+KI-Investition nachgewiesen (Fedyk et al., 2022).</p>
+
+<div class="callout">
+<p><strong>Kernaussage.</strong> Der Engpass ist nicht die Fähigkeit der KI, sondern die
+Nachweisbarkeit ihrer Ergebnisse. Wer KI skalieren will, braucht keine neue Methodik, sondern
+maschinell prüfbare Kontrollpunkte an den Stellen, an denen die vorhandene Methodik sie
+ohnehin vorsieht — und eine Beweisführung, die nach Fälschungskosten geordnet ist statt nach
+Automatisierungsgrad.</p>
+</div>
+
+<!-- ============================ SEITE 3: EINLEITUNG ============================ -->
+<div class="newpage"></div>
+<h1>1 Einleitung</h1>
+
+<h3>1.1 Ausgangslage: Fähigkeit im Überfluss, Vertrauen im Mangel</h3>
+
+<p>Die Verbreitung generativer KI in der Softwareentwicklung ist keine Prognose mehr, sondern
+Bestand. In einer Erhebung unter Entwicklern geben 79 % an, GenAI täglich zu nutzen; über 70 %
+berichten, die Zeit für Standardcode und Dokumentation mindestens zu halbieren (Gurgul et al.,
+2026). Eine Analyse von über 30 Millionen GitHub-Commits schätzt, dass in den Vereinigten
+Staaten inzwischen rund 29 % der Python-Funktionen von KI geschrieben werden (Daniotti et al.,
+2025).</p>
+
+<p>Dem steht ein auffälliger Befund gegenüber: Der Sprung von der assistierenden Nutzung zur
+produktiv eingebundenen, teilautonomen Arbeit gelingt kaum. Eine qualitative Interviewstudie mit
+sechzehn Praktikern aus zwölf Unternehmen ordnet sieben Unternehmen der niedrigsten von sechs
+Reifestufen zu, vier der zweiten und nur ein einziges der dritten (Apostolou et al., 2026a). Vier
+Unternehmen verfügten über weitergehende Fähigkeiten, konnten sie aber nicht in
+Produktionsabläufe überführen — nicht aus technischen Gründen, sondern weil geeignete
+Mechanismen zur Überprüfung der Ausgabe fehlten.</p>
+
+<h3>1.2 Problemstellung</h3>
+
+<p>Aus dieser Diagnose werden in der Literatur zwei gegenläufige Konsequenzen gezogen. Die
+eine Position hält etablierte Vorgehensmodelle — Agile, Kanban, ShapeUp — für zunehmend
+unzureichend, weil sie für menschenzentrierte Teams entworfen wurden, und schlägt eine eigens
+für KI-Agenten konzipierte Methodik vor (Bandara et al., 2025). Die andere Position rückt die
+Prozesskontrolle selbst in den Mittelpunkt: Das zentrale Problem sei nicht mehr das Prompt
+Engineering, sondern die Steuerung des Engineering-Prozesses (Koch, 2026).</p>
+
+<p>Die Unterscheidung ist praktisch folgenreich. Wer der ersten Position folgt, investiert in den
+Aufbau neuer Methodik. Wer der zweiten folgt, investiert in die Instrumentierung vorhandener
+Kontrollpunkte. Für Unternehmen mit etablierten Managementsystemen — und erst recht für
+regulierte Branchen mit zertifizierten Informationssicherheits-Managementsystemen — ist das ein
+Unterschied in Größenordnungen.</p>
+
+<h3>1.3 Forschungsfrage und Teilfragen</h3>
+
+<p><strong>Hauptforschungsfrage:</strong> Müssen etablierte Vorgehensmodelle — Scrum und
+TOGAF ADM — für den produktiven Einsatz generativer KI ersetzt werden, oder liefern gerade sie
+die Kontrollmechanismen, die diesen Einsatz erst skalierbar machen?</p>
+
+<table>
+  <tr><th style="width:16mm">Nr.</th><th>Teilfrage</th></tr>
+  <tr><td>TF 1</td><td>Was ist die empirisch dokumentierte Hauptbarriere der KI-Adoption in Unternehmen?</td></tr>
+  <tr><td>TF 2</td><td>Ist die Gegenthese — etablierte Methoden seien unzureichend — belegt oder behauptet?</td></tr>
+  <tr><td>TF 3</td><td>Wo setzt die Praxis KI heute ein, und wo auffällig nicht?</td></tr>
+  <tr><td>TF 4</td><td>Welche Kontrollmechanismen halten Scrum und TOGAF vor, und auf welche KI-Fehlerklassen antworten sie?</td></tr>
+  <tr><td>TF 5</td><td>Welcher betriebswirtschaftliche Nutzen ist belegt, und welche Kosten stehen dagegen?</td></tr>
+  <tr><td>TF 6</td><td>Wie verändern sich Rolle und Kompetenzprofil des Cloud Solution Architect?</td></tr>
+  <tr><td>TF 7</td><td>Was zeigt die Instanziierung an einem laufenden Artefakt, und wo bleibt sie offen?</td></tr>
+</table>
+
+<h3>1.4 Abgrenzung: Was dieser Bericht nicht leistet</h3>
+
+<p>Der Bericht ist keine kontrollierte Studie. Er prüft eine in der Literatur vertretene Position
+gegen die verfügbare Evidenz und illustriert die Gegenposition an einem einzelnen, laufenden
+Artefakt. Ein Einzelfall belegt Machbarkeit, nicht Wirksamkeit; die Abschnitte 10.1 und 10.2
+führen diese Grenze aus. Der Bericht ist ferner keine Rechtsberatung: Aussagen zum EU AI Act
+dienen der Einordnung des Anwendungsfalls, nicht der Auslegung.</p>
+
+<!-- ============================ SEITE 4: METHODIK ============================ -->
+<div class="newpage"></div>
+<h1>2 Methodik</h1>
+
+<h3>2.1 Datenbasis und Suchstrategie</h3>
+
+<p>Grundlage sind zehn strukturierte Recherchen in der Metadatenbank Consensus, die
+Semantic Scholar, PubMed, Scopus und arXiv zusammenführt. Die Suchstränge folgten den sieben
+Teilfragen: Solo-Anwendung agiler Methoden; KI in Scrum-Prozessen; TOGAF und KI;
+Architekturentscheidungen und Nachvollziehbarkeit; Produktivitätswirkung; Codequalität und
+technische Schulden; Unternehmensadoption und Reifegrad; Compliance-Automatisierung;
+Kompetenzverschiebung; sowie eine abschließende Verifikationssuche zum Neuheitsanspruch der
+hier vertretenen Position.</p>
+
+<p>Aus rund 140 gesichteten Publikationen wurden 67 mit konkret belegbaren Aussagen
+übernommen — davon 43 begutachtet und 24 als Preprint. Aufnahmekriterium war, dass eine Arbeit eine im Text getragene Aussage stützt oder
+ihr widerspricht — Arbeiten, die lediglich das Themenfeld bestätigen, wurden nicht aufgenommen.
+Widersprechende Befunde wurden bewusst gesucht und sind in Kapitel 7 eigens ausgewiesen.</p>
+
+<h3>2.2 Einstufung der Quellen</h3>
+
+<p>Jede Quelle ist im Quellenverzeichnis als begutachtet (<span class="tag tag-pr">PR</span>) oder
+als Preprint ohne abgeschlossene Begutachtung (<span class="tag tag-pp">PP</span>) gekennzeichnet.
+Diese Trennung ist hier nicht formal, sondern inhaltlich geboten: Ein erheblicher Teil der
+aktuellsten und thematisch nächstliegenden Arbeiten — insbesondere aus dem Jahr 2026 — liegt
+ausschließlich als arXiv-Preprint mit geringer Zitationszahl vor. Wo eine tragende Aussage
+allein auf einem Preprint beruht, ist das im Fließtext kenntlich gemacht.</p>
+
+<p>Zusätzlich wurde zwischen zwei Prüftiefen unterschieden. Für die im Text genannten
+quantitativen Kennzahlen wurde die jeweilige Primärquelle über ihre Metadaten und
+Zusammenfassung verifiziert. Eine Volltextprüfung sämtlicher Arbeiten war im Rahmen dieser
+Recherche nicht möglich; die daraus folgende Einschränkung ist in Abschnitt 2.3 benannt.</p>
+
+<h3>2.3 Limitationen der Methodik</h3>
+
+<p>Erstens beruht die Auswertung überwiegend auf Zusammenfassungen und, wo verfügbar, auf
+Volltextauszügen; eine vollständige Volltextlektüre aller 52 Quellen fand nicht statt. Zahlen aus
+Zusammenfassungen sind in aller Regel korrekt wiedergegeben, ihr methodischer Kontext — Stichprobe,
+Messzeitraum, Einschränkungen der Autoren — ist es nicht notwendig.</p>
+
+<p>Zweitens ist die Recherche keine systematische Literaturübersicht nach PRISMA: Es gab kein
+präregistriertes Protokoll, keine doppelte unabhängige Sichtung und keine Bewertung des
+Verzerrungsrisikos. Der Bericht erhebt daher den Anspruch einer strukturierten, nachvollziehbar
+dokumentierten Recherche, nicht den eines systematischen Reviews.</p>
+
+<p>Drittens ist ein Publikationsbias zugunsten positiver Wirkungsbefunde anzunehmen. Dem wurde
+durch gezielte Suche nach Gegenbefunden begegnet, nicht durch statistische Korrektur.</p>
+
+<div class="callout">
+<p><strong>Warum diese Offenlegung Teil der Aussage ist.</strong> Der Bericht argumentiert, dass
+Nachweisbarkeit die knappe Ressource ist. Eine Arbeit, die das behauptet und zugleich die eigene
+Beweislage unscharf lässt, widerlegt sich selbst. Die Einstufung der Quellen ist deshalb kein
+Anhang, sondern Bestandteil der Argumentation.</p>
+</div>
+
+<!-- ============================ SEITE 5: TF1 ============================ -->
+<div class="newpage"></div>
+<h1>3 Die dokumentierte Hauptbarriere: die Verifikationslücke</h1>
+
+<h3>3.1 Reifegrade: Fähigkeit vorhanden, Einsatz blockiert</h3>
+
+<p>Die derzeit aussagekräftigste Bestandsaufnahme zum industriellen Einsatz agentischer KI
+beruht auf sechzehn Interviews in zwölf Unternehmen unterschiedlicher Größe und Branche,
+ausgewertet entlang eines sechsstufigen Reifemodells. Das Ergebnis ist deutlich: sieben
+Unternehmen auf Stufe 1 (KI-Assistenten), vier auf Stufe 2 (KI-Kompensatoren), eines auf Stufe 3
+(Mehr-Agenten-Orchestrierung). Die fortgeschrittensten Anwender sind große und
+sicherheitsregulierte Organisationen (Apostolou et al., 2026a).</p>
+
+<figure class="avoid">
+<svg width="100%" viewBox="0 0 640 210" xmlns="http://www.w3.org/2000/svg" font-family="Arial, Liberation Sans, sans-serif">
+  <line x1="150" y1="18" x2="150" y2="180" stroke="#000" stroke-width="1.2"/>
+  <!-- Stufe 1 -->
+  <rect x="150" y="26" width="392" height="28" fill="#1A1A1A"/>
+  <text x="144" y="45" font-size="12" text-anchor="end" fill="#000">Stufe 1 · Assistenten</text>
+  <text x="552" y="45" font-size="13" font-weight="bold" fill="#000">7 Unternehmen</text>
+  <!-- Stufe 2 -->
+  <rect x="150" y="70" width="224" height="28" fill="#5A5A5A"/>
+  <text x="144" y="89" font-size="12" text-anchor="end" fill="#000">Stufe 2 · Kompensatoren</text>
+  <text x="384" y="89" font-size="13" font-weight="bold" fill="#000">4</text>
+  <!-- Stufe 3 -->
+  <rect x="150" y="114" width="56" height="28" fill="#86BC25"/>
+  <text x="144" y="133" font-size="12" text-anchor="end" fill="#000">Stufe 3 · Orchestrierung</text>
+  <text x="216" y="133" font-size="13" font-weight="bold" fill="#000">1</text>
+  <!-- Stufen 4-6 -->
+  <rect x="150" y="158" width="3" height="22" fill="#FFFFFF" stroke="#9A9A9A" stroke-width="1" stroke-dasharray="3,2"/>
+  <text x="144" y="175" font-size="12" text-anchor="end" fill="#000">Stufen 4–6</text>
+  <text x="162" y="175" font-size="12" fill="#000">0 — in der Stichprobe nicht erreicht</text>
+  <line x1="150" y1="192" x2="542" y2="192" stroke="#000" stroke-width="1"/>
+  <text x="150" y="205" font-size="10" fill="#000">0</text>
+  <text x="542" y="205" font-size="10" text-anchor="end" fill="#000">n = 12 Unternehmen</text>
+</svg>
+<figcaption><strong>Abbildung 2:</strong> Reifegrade agentischer KI in zwölf Industrieunternehmen.
+Eigene Darstellung nach Apostolou et al. (2026a). Die oberen drei Stufen des Modells wurden in der
+Stichprobe von keinem Unternehmen erreicht.</figcaption>
+</figure>
+
+<p>Entscheidend ist die Begründung, die die Autoren für diese Verteilung geben. Vier Unternehmen
+verfügten über experimentell nachgewiesene Fähigkeiten höherer Stufen, konnten sie aber nicht in
+Produktionsabläufe integrieren, weil geeignete Verifikationsmechanismen für die Ausgabe fehlten.
+Die Autoren bezeichnen dies als <em>capability-deployment verification gap</em> und nennen vier
+wiederkehrende Barrieren: Grenzen des Kontextfensters, Schwächen bei proprietären Sprachen und
+Protokollen, die Unvereinbarkeit von Nichtdeterminismus mit Qualifizierungsstandards sowie
+Bedenken zur Datenvertraulichkeit (Apostolou et al., 2026a).</p>
+
+<h3>3.2 Human-in-the-Loop als Notlösung, nicht als Prozessdesign</h3>
+
+<p>Die gleiche Studie hält fest, dass der Mensch in der Schleife als <em>einziger</em>
+vertrauenswürdiger Verifikationsmechanismus verbleibt. Das ist keine Gestaltungsentscheidung,
+sondern ein Rückfall: Wo kein Prozess prüft, prüft eine Person — und wird damit zum Engpass.
+Ein systematisches Review über 92 Primärstudien bestätigt die Kehrseite: Die Überprüfbarkeit der
+Ausgabe ist der wichtigste Ermöglicher agentischer Adoption. Späte Phasen des Lebenszyklus,
+deren Ergebnisse durch ausführbares Feedback objektiv bewertbar sind, weisen die höchste Reife
+und industrielle Präsenz auf, während frühe Phasen fast ausschließlich akademische
+Machbarkeitsnachweise bleiben (Apostolou et al., 2026b).</p>
+
+<p>Dass die Verifikationslast real und nicht bloß gefühlt ist, zeigt eine Befragung von 415
+Praktikern entlang des SPACE-Rahmens: Schnellere Aufgabenerledigung und höheres Ausgabevolumen
+werden durch gestiegene Review-Last und anhaltende kognitive Belastung bei der Überprüfung
+aufgewogen; die Autoren sprechen von möglicherweise <em>scheinbaren</em> Produktivitätsgewinnen
+(Afroz et al., 2025).</p>
+
+<h3>3.3 Was Adoption tatsächlich treibt</h3>
+
+<p>Für die Leitfrage dieses Berichts ist ein weiterer Befund zentral. Eine Untersuchung mit 183
+Software-Ingenieuren, ausgewertet mittels Strukturgleichungsmodellierung, findet, dass in der
+gegenwärtigen Phase vor allem die <em>Kompatibilität der KI-Werkzeuge mit bestehenden
+Entwicklungsabläufen</em> deren Übernahme bestimmt — während wahrgenommene Nützlichkeit,
+soziale Faktoren und persönliche Innovationsneigung schwächer ausfallen als von klassischen
+Technologieakzeptanzmodellen erwartet (Russo, 2023).</p>
+
+<p>Übersetzt heißt das: KI setzt sich dort durch, wo sie in den vorhandenen Prozess passt — nicht
+dort, wo ein neuer Prozess um sie herum gebaut wird. Eine Mehrfachfallstudie in sieben
+europäischen Unternehmen stützt dies aus der Praxis; als zentrale Hürden nennen die Autoren unter
+anderem die Schwierigkeit, die positive Wirkung überhaupt zu messen, sowie fehlende etablierte
+Praktiken (Kemell et al., 2025). Für Deutschland kommt eine Studie mit 18 Interviews und 109
+Befragten zu einem anschlussfähigen Ergebnis: Die begrenzte Kenntnis des Projektkontexts ist die
+größte Einzelbarriere (Felder et al., 2026). Drei deutsche Organisationen zeigen zudem ein
+systematisches Auseinanderfallen von Richtlinie und Praxis, weil regulatorischer Druck in
+Vorgaben übersetzt wird, ohne die tatsächliche Nutzung zu berücksichtigen (Neumann et al., 2026).</p>
+
+<!-- ============================ SEITE 6: TF2 ============================ -->
+<div class="newpage"></div>
+<h1>4 Die Gegenthese auf dem Prüfstand</h1>
+
+<h3>4.1 Die Position</h3>
+
+<p>Die klarste Formulierung der Gegenposition findet sich bei Bandara et al. (2025). Traditionelle
+Methodiken wie Agile, Kanban und ShapeUp seien ursprünglich für menschenzentrierte Teams
+entworfen worden und in Umgebungen, in denen autonome KI-Agenten zu Planung, Codierung, Test und
+kontinuierlichem Lernen beitragen, <em>zunehmend unzureichend</em>. Zur Schließung dieser
+methodischen Lücke schlagen die Autoren mit <em>Agentsway</em> ein eigenes Rahmenwerk vor und
+beanspruchen, nach bestem Wissen die erste dezidiert für KI-Agenten-Teams entworfene Methodik
+vorzulegen.</p>
+
+<p>Die Position ist ernst zu nehmen und wird nicht isoliert vertreten. Auch Ganesh (2026) fragt
+ausdrücklich, ob konventionelle agile Strukturen noch angemessen sind, wenn sich der Engpass von
+der Code-Erstellung zu Aufsicht, Verifikation und Constraint-Design verschiebt, und schlägt eine
+<em>guardrail-zentrierte</em> Entwicklung vor.</p>
+
+<h3>4.2 Behauptung oder Befund?</h3>
+
+<p>Zu unterscheiden ist, ob eine solche Aussage ein Untersuchungsergebnis ist oder eine Prämisse,
+die den eigenen Beitrag motiviert. Vier strukturelle Merkmale sprechen für Letzteres.</p>
+
+<table>
+  <tr><th style="width:62mm">Merkmal</th><th>Einordnung</th></tr>
+  <tr><td>Die Aussage steht im zweiten Satz der Zusammenfassung</td><td>Motivationsposition — die übliche Stelle für eine ungeprüfte Prämisse</td></tr>
+  <tr><td>„…and <em>defining</em> measurable metrics for productivity and trust"</td><td>Metriken werden <em>definiert</em>, nicht <em>gemessen</em></td></tr>
+  <tr><td>„…represents a <em>foundational step toward</em>…"</td><td>Konzeptueller Entwurf, keine validierte Methodik</td></tr>
+  <tr><td>„To the best of our knowledge, this is the <em>first</em>…"</td><td>Positionierungsanspruch <em>ex silentio</em></td></tr>
+</table>
+<p class="tabcap"><strong>Tabelle 1:</strong> Strukturanalyse der Gegenthese nach Bandara et al. (2025).
+Es findet sich kein Hinweis darauf, dass die Kombination etablierter Methoden mit KI geprüft und
+als unzureichend befunden wurde.</p>
+
+<h3>4.3 Die fehlende Evidenzbasis</h3>
+
+<p>Den Ausschlag gibt eine unabhängige, begutachtete Quelle. Ein systematisches Review über 61
+Studien zur agentischen Softwareentwicklung benennt im Volltext ausdrücklich als Wissenslücken,
+dass es <em>keine empirische Evidenz</em> zur langfristigen Wartbarkeit agentengenerierten Codes
+und <em>keine übergreifenden Leitlinien</em> zur Mensch-Agent-Zusammenarbeit gibt; ebenso fehlten
+standardisierte Bewertungsschemata und Erkenntnisse zu Koordinationsmechanismen (Otoum et al.,
+2026).</p>
+
+<div class="quote">Die empirische Grundlage, auf der sich belegen ließe, dass etablierte Methoden
+mit KI nicht funktionieren, existiert in der Literatur nicht. Folglich kann keine der genannten
+Arbeiten sie in Anspruch nehmen.</div>
+
+<p>Dasselbe gilt spiegelbildlich für die Rahmenwerke, die an ihre Stelle treten sollen. Koch et
+al. (2026) legen mit <em>Agile V</em> das ausgearbeitetste Gegenstück vor — unabhängige
+Verifikation und Audit-Artefakte als Nebenprodukt jedes Aufgabenzyklus, verpflichtende
+menschliche Freigabe-Gates — und belegen es mit einer Machbarkeitsstudie an einem
+Hardware-in-the-Loop-System von rund 500 Codezeilen, 8 Anforderungen und 54 Tests, bei der die
+Autoren ausdrücklich zur unabhängigen Replikation einladen. Ein Einzelfall dieser Größe trägt eine
+Machbarkeitsaussage, keinen Methodenvergleich.</p>
+
+<h3>4.4 Zwischenfazit: die sparsamere Hypothese</h3>
+
+<p>Beide Lager arbeiten mit Entwürfen, nicht mit Vergleichsdaten. In dieser Lage ist die
+sparsamere Annahme vorzuziehen: Bevor neue Methodik erfunden wird, ist zu prüfen, ob die
+vorhandene trägt. Diese Wahl ist nicht bloß methodische Vorsicht — sie wird durch zwei Befunde
+gestützt. Erstens ist die Anpassung von Scrum an neue Kontexte keine Fehlanwendung, sondern
+dokumentierte Regelpraxis: Eine Grounded-Theory-Studie mit 45 Teilnehmern aus 30 Unternehmen
+schlägt vor, Abweichungen als <em>standardmäßig</em>, <em>notwendig</em>, <em>kontextbedingt</em>
+und <em>eindeutig abweichend</em> zu klassifizieren, statt sie pauschal als Missbrauch zu werten
+(Masood et al., 2021). Ein umfassendes Review systematisiert neun Anpassungsziele und sieben
+generische Anpassungsstrategien (Hron et al., 2021); ein systematisches Mapping über 50 Studien
+überführt die Varianten in ein Merkmalsmodell (Garcia et al., 2022). Zweitens verbessert die
+Emulation klassischer Prozessmodelle die Ergebnisse von Sprachmodellen messbar — und Scrum
+schneidet dabei am besten ab (Lin et al., 2024; ausgeführt in Abschnitt 6.2).</p>
+
+<!-- ============================ SEITE 7: TF3 ============================ -->
+<div class="newpage"></div>
+<h1>5 Der Negativbefund: wo KI heute nicht eingesetzt wird</h1>
+
+<h3>5.1 Planung ja, Prüfung nein</h3>
+
+<p>Der aufschlussreichste Befund dieser Recherche ist kein positiver, sondern eine Leerstelle. Ein
+systematisches Review zur KI-Unterstützung in Scrum sichtete 305 Datensätze und schloss 18
+Arbeiten ein. Es identifiziert sieben KI-Techniken, die auf sieben von neunzehn Scrum-Prozessen
+angewandt werden. Die Unterstützung konzentriert sich auf die Phase <em>Plan and Estimate</em>,
+insbesondere Aufwandsschätzung, Erstellung von User Stories und Releaseplanung. Für die Prozesse
+der Phasen <em>Implement</em> sowie <em>Review and Retrospect</em> wurden hingegen
+<em>keine</em> Anwendungen gefunden (Peras et al., 2026).</p>
+
+<figure class="avoid">
+<svg width="100%" viewBox="0 0 640 196" xmlns="http://www.w3.org/2000/svg" font-family="Arial, Liberation Sans, sans-serif">
+  <text x="0" y="14" font-size="11" font-weight="bold" fill="#000">KI-Anwendungen je Scrum-Phase (n = 18 eingeschlossene Studien)</text>
+  <line x1="196" y1="28" x2="196" y2="150" stroke="#000" stroke-width="1.2"/>
+  <rect x="196" y="34" width="330" height="24" fill="#1A1A1A"/>
+  <text x="190" y="51" font-size="11.5" text-anchor="end" fill="#000">Plan &amp; Estimate</text>
+  <text x="534" y="51" font-size="11.5" font-weight="bold" fill="#000">Schwerpunkt</text>
+
+  <rect x="196" y="66" width="96" height="24" fill="#6E6E6E"/>
+  <text x="190" y="83" font-size="11.5" text-anchor="end" fill="#000">Initiate</text>
+  <text x="300" y="83" font-size="11.5" fill="#000">vereinzelt</text>
+
+  <rect x="196" y="98" width="2.5" height="24" fill="#FFFFFF" stroke="#C00000" stroke-width="1.2"/>
+  <text x="190" y="115" font-size="11.5" text-anchor="end" font-weight="bold" fill="#000">Implement</text>
+  <text x="206" y="115" font-size="11.5" font-weight="bold" fill="#C00000">keine Anwendung gefunden</text>
+
+  <rect x="196" y="126" width="2.5" height="24" fill="#FFFFFF" stroke="#C00000" stroke-width="1.2"/>
+  <text x="190" y="143" font-size="11.5" text-anchor="end" font-weight="bold" fill="#000">Review &amp; Retrospect</text>
+  <text x="206" y="143" font-size="11.5" font-weight="bold" fill="#C00000">keine Anwendung gefunden</text>
+
+  <line x1="196" y1="160" x2="600" y2="160" stroke="#000" stroke-width="1"/>
+  <text x="196" y="176" font-size="10" fill="#000">Die beiden rot markierten Phasen enthalten die Kontrollmechanismen des Rahmenwerks.</text>
+</svg>
+<figcaption><strong>Abbildung 3:</strong> Verteilung der KI-Unterstützung entlang der
+Scrum-Prozesse. Eigene Darstellung nach Peras et al. (2026).</figcaption>
+</figure>
+
+<p>Der Befund wird von benachbarten Arbeiten gestützt. Eine Befragung von 344 erfahrenen
+Scrum-Praktikern nach der Kano-Methodik ordnet die achtzehn wichtigsten KI-Unterstützungsmerkmale
+vier Gruppen zu — Anforderungen, Entwicklung, Kommunikation, Prozess — und priorisiert sie nach
+Teamgröße und Rolle (Fujs et al., 2026). Ein systematisches Mapping zu KI und Teamarbeit in agilen
+Kontexten hält fest, dass Sprachmodelle dort bislang unterrepräsentiert sind und Rollen mit höherer
+Autonomie kaum untersucht werden (Kwok et al., 2025). Und eine Verbindung aus Literaturübersicht
+und Entwicklerbefragung findet den höchsten Nutzen in Entwurf, Implementierung, Test und
+Dokumentation, während frühe Phasen deutlich geringere Vorteile zeigen (Gurgul et al., 2026).</p>
+
+<h3>5.2 Warum die Kontrollpunkte unbesetzt bleiben</h3>
+
+<p>Die Leerstelle ist erklärbar. Wer KI einsetzt, um schneller zu produzieren, richtet sie auf die
+produzierenden Schritte. Die prüfenden Schritte erscheinen als Kosten, nicht als Hebel — und
+bleiben unangetastet. Genau dadurch entsteht das Missverhältnis, das die Produktivitätsforschung
+misst: Die Ausgabemenge steigt, die Prüfkapazität nicht.</p>
+
+<p>Eine großangelegte Theoriebildung aus 38.709 Praktiker-Dokumenten, von denen 3.100 codiert
+wurden, formuliert den Zusammenhang als zentrale Aussage eines kausalen Modells mit 26 Konstrukten
+und 67 Beziehungen: Der Review sei der Kontrollpunkt, an dem sich die Wirkung eines Coding-Agents
+auf die Software entscheidet — und die KI lege das Vorzeichen dieser Wirkung nicht fest; das Team
+tue es, durch die Expertise seiner Menschen und <em>durch die Art, wie es den Review-Prozess
+strukturiert</em> (Agarwal et al., 2026b). Dieselbe Arbeit beobachtet, dass von Agenten
+eingereichte Pull Requests seltener geprüft, mehrfach schneller zusammengeführt und weniger
+diskutiert werden als menschliche.</p>
+
+<div class="callout">
+<p><strong>Der Befund in einem Satz.</strong> Die Praxis rüstet die Produktion mit KI auf und
+lässt die Kontrolle unverändert — obwohl die Kontrolle der Ort ist, an dem sich entscheidet, ob
+die Produktion nützt oder schadet.</p>
+</div>
+
+<!-- ============================ SEITE 8: TF4 ============================ -->
+<div class="newpage"></div>
+<h1>6 Das Mapping: vorhandene Kontrollen gegen KI-Fehlerklassen</h1>
+
+<h3>6.1 Fehlerklassen KI-erzeugter Artefakte</h3>
+
+<p>Bevor Kontrollen zugeordnet werden können, ist zu klären, wogegen sie wirken sollen. Die
+Befundlage ist inzwischen belastbar und beruht auf großen Stichproben.</p>
+
+<table>
+  <tr><th style="width:44mm">Fehlerklasse</th><th>Belegte Ausprägung</th><th style="width:38mm">Quelle</th></tr>
+  <tr><td><strong>Persistente technische Schulden</strong></td><td>302.600 verifizierte KI-Commits aus 6.299 Repositorien; 484.366 Befunde, davon 89,3 % Code Smells; über 15 % der Commits jedes Assistenten führen mindestens einen Befund ein; <strong>22,7 % überleben bis zur aktuellen Version</strong></td><td>Liu et al. (2026)</td></tr>
+  <tr><td><strong>Architekturverfall</strong></td><td>Statische Analysewarnungen +18 %, kognitive Komplexität +39 % nach Einführung autonomer Agenten; Geschwindigkeitsgewinne verpuffen, Qualitätsrisiken bleiben</td><td>Agarwal et al. (2026a)</td></tr>
+  <tr><td><strong>Sicherheitslücken</strong></td><td>Über 500.000 Codebeispiele: KI-Code enthält mehr Schwachstellen hoher Kritikalität; Nutzer mit KI-Assistent schreiben signifikant unsichereren Code und halten ihn zugleich für sicherer</td><td>Cotroneo et al. (2025); Perry et al. (2022)</td></tr>
+  <tr><td><strong>Kontextverschmutzung</strong></td><td>Fehlerhafter auskommentierter Code im Kontext erhöht fehlerhafte Generierung auf bis zu 58,2 %; explizite Anweisung, ihn zu ignorieren, senkt dies um höchstens 21,8 %</td><td>Huang et al. (2025)</td></tr>
+  <tr><td><strong>Evidenzverfall</strong></td><td>KI erzeugt Entscheidungen schneller, als Teams sie validieren; kein verbreitetes Rahmenwerk trennt Vermutung von geprüftem Wissen; <strong>20–25 % der Architekturentscheidungen hatten binnen zwei Monaten veraltete Evidenz</strong></td><td>Gilda et al. (2026)</td></tr>
+  <tr><td><strong>Kognitive und Intent-Schulden</strong></td><td>Erosion des geteilten Verständnisses sowie fehlende Ziele, Randbedingungen und Begründungen; GenAI beschleunigt die Anhäufung und verdeckt zugleich ihre Wirkung</td><td>Storey (2026)</td></tr>
+  <tr><td><strong>Volumengetriebener Qualitätsverlust</strong></td><td>Umgekehrtes Volumen-Qualitäts-Gesetz; weder funktionale Korrektheit noch detailliertes Prompting mildern den strukturellen Verfall</td><td>Zhu et al. (2026)</td></tr>
+</table>
+<p class="tabcap"><strong>Tabelle 2:</strong> Empirisch belegte Fehlerklassen KI-erzeugter
+Artefakte. Die Auswahl ist auf Arbeiten mit quantifizierten Ergebnissen beschränkt.</p>
+
+<p>Bemerkenswert ist, dass diese Fehlerklassen den Fehlerklassen menschlicher Mitwirkender nicht
+fremd sind — sie sind lediglich schneller, plausibler formuliert und schwerer im Review zu
+erkennen. Ein kontrolliertes, präregistriertes Experiment mit 151 Teilnehmern, davon 95 %
+Berufstätige, fand in der zweiten Phase keine signifikanten Unterschiede in der Weiterentwickelbarkeit
+von Code, der zuvor mit oder ohne KI entstanden war (Borg et al., 2026). Die Fehlerklassen sind
+also real, aber nicht kategorisch neu — was der hier vertretenen Position entgegenkommt.</p>
+
+<h3 class="newpage">6.2 Scrum-Kontrollpunkte gegen KI-Fehlerklassen</h3>
+
+<p>Scrum hält für fehlbare Mitwirkende einen ausgearbeiteten Kontrollapparat vor. Ein
+systematisches Review sichtete 2.326 Arbeiten und extrahierte aus den einschlägigen 62
+Done-Kriterien auf bis zu vier Ebenen — Story, Sprint, Release, Projekt — die unter anderem
+Verifikation und Validierung, Code-Inspektion, Testprozessqualität, regulatorische Konformität und
+Architekturentwurf abdecken (Silva et al., 2017). Dieser Apparat ist nicht für KI entworfen, aber
+er ist auf sie anwendbar.</p>
+
+<table>
+  <tr><th style="width:40mm">Kontrollpunkt</th><th>Antwortet auf</th><th style="width:44mm">Erforderliche Anpassung für KI</th></tr>
+  <tr><td><strong>Definition of Ready</strong></td><td>Intent-Schulden; unvollständige Spezifikation als Ursache halluzinierter Annahmen</td><td>Datenquelle benennen; Negativfall vorab benennen; Schwellenwerte setzen oder als offen deklarieren</td></tr>
+  <tr><td><strong>Akzeptanzkriterien</strong></td><td>Semantische Abweichung zwischen Anforderung und Ergebnis</td><td>Maschinell prüfbar formulieren — testbare Anforderungsbeschreibungen als Brücke (Zhang et al., 2024)</td></tr>
+  <tr><td><strong>Definition of Done</strong></td><td>Persistente technische Schulden; <em>design-only</em>-Artefakte, die als fertig deklariert werden</td><td>Jedes Kriterium an eine ausführbare Prüfung binden; Deklaration und Wirklichkeit gegeneinander prüfen</td></tr>
+  <tr><td><strong>Review</strong></td><td>Sicherheitslücken; Architekturverfall</td><td>Nicht durch KI ersetzen (siehe 6.4); als deterministische Prüfkette vor den menschlichen Review setzen</td></tr>
+  <tr><td><strong>Retrospektive</strong></td><td>Evidenzverfall; wiederkehrende Fehlermuster</td><td>Befundregister führen; Korrektur und Wächter im selben Vorgang</td></tr>
+  <tr><td><strong>Increment</strong></td><td>Volumengetriebener Qualitätsverlust</td><td>Nicht Menge, sondern Wertdichte messen (Tomaz et al., 2026)</td></tr>
+</table>
+<p class="tabcap"><strong>Tabelle 3:</strong> Zuordnung etablierter Scrum-Kontrollpunkte zu den in
+Tabelle 2 belegten Fehlerklassen.</p>
+
+<p>Dass diese Zuordnung mehr ist als eine Analogie, zeigt eine experimentelle Arbeit: Ein
+Rahmenwerk, das Wasserfall, testgetriebene Entwicklung und Scrum durch Mehr-Agenten-Systeme
+emuliert, erreicht mit der Scrum-Variante die besten Ergebnisse — im Mittel rund 15 % über dem
+unstrukturierten Basismodell —, und die Autoren halten ausdrücklich fest, dass gerade die
+Aktivitäten <em>Entwurf</em> und <em>Code-Review</em> die Ausnahmebehandlung verbesserten und
+Code Smells reduzierten (Lin et al., 2024). Prozessstruktur wirkt also messbar auf die Qualität
+der Ausgabe.</p>
+
+<p>Sie ist allerdings nicht kostenlos. Eine Folgeuntersuchung zeigt, dass Prozessbeschränkungen
+das Fehlerprofil verschieben statt es nur zu verkleinern: Wasserfallartige Zusammenarbeit erzeugt
+saubereren, wartbareren Code, senkt aber bei zwei von drei geprüften Modellen die funktionale
+Korrektheit deutlich; strukturelle Mängel nehmen ab, semantische und Validierungsfehler nehmen zu
+(Shafin et al., 2025). Wer Prozess einzieht, muss ihn folglich messen — nicht bloß einführen.</p>
+
+<h3>6.3 TOGAF ADM: Entscheidungshoheit je Phase</h3>
+
+<p>Auf Architekturebene liegt die Evidenz dünner, weist aber in dieselbe Richtung. Für die
+Vorbereitungsphase des ADM ist die Wirkung am besten belegt: Eine empirische Bewertung
+GPT-4-generierter Artefakte durch drei zertifizierte Enterprise-Architekten anhand eines an
+ISO/IEC 25010 orientierten Instruments ergab eine wahrgenommene Qualität von 4,26 von 5,0
+(α = 0,86) und Effizienzgewinne von bis zu 97 % gegenüber manueller Erstellung — bei
+kontextuellem Verständnis als wesentlicher Schwäche. Die Autoren ziehen daraus ausdrücklich den
+Schluss, Sprachmodelle seien <em>Beschleuniger, nicht Ersatz</em> (Syahalam et al., 2025). Eine
+parallele Arbeit berichtet bis zu 80 % schnellere Erstellung und bestätigt die Notwendigkeit
+menschlicher Kontextaufsicht (Handoko et al., 2025).</p>
+
+<table>
+  <tr><th style="width:40mm">ADM-Phase</th><th style="width:34mm">Entscheidung</th><th>Rolle der KI — belegt</th></tr>
+  <tr><td>Preliminary</td><td>Mensch setzt Prinzipien</td><td>Artefaktentwurf; 80–97 % Zeitgewinn (Handoko et al., 2025; Syahalam et al., 2025)</td></tr>
+  <tr><td>A — Vision</td><td><strong>Mensch allein</strong></td><td>Formulierungshilfe; Zieldefinition bleibt menschlich</td></tr>
+  <tr><td>B/C — Business, Information Systems</td><td>Mensch entscheidet fachlich</td><td>Analyse und Dokumentation (Fitriani et al., 2023)</td></tr>
+  <tr><td>D — Technology</td><td>Geteilt</td><td>Exploration des Entwurfsraums; Mensch setzt Zielfunktion und Ausgangsentwurf, Saatqualität begrenzt das Ergebnis (Blasberg et al., 2026)</td></tr>
+  <tr><td>E — Opportunities &amp; Solutions</td><td><strong>Mensch entscheidet</strong></td><td>Optionen und Bewertung; Verantwortungsverteilung nach dem <em>Dreieck der Entwurfsverantwortung</em> (Gomez et al., 2025)</td></tr>
+  <tr><td>F — Migration Planning</td><td>Mensch priorisiert</td><td><strong>Belegte Forschungslücke</strong> — keine Arbeit zu KI-gestützter Roadmap-Führung im Einzelbetrieb</td></tr>
+  <tr><td>G — Implementation Governance</td><td>Prozess entscheidet</td><td>Regelwerke und Prozessmodelle als Architekturbestandteil statt externes Monitoring (Rombach et al., 2026)</td></tr>
+  <tr><td>H — Change Management</td><td>Mensch verantwortet</td><td>Entscheidungsregister mit Begründung und Rückverfolgbarkeit; 30 % kürzere Lösungszeit, Transparenz &gt; 4,6/5 (Gacitúa et al., 2026)</td></tr>
+</table>
+<p class="tabcap"><strong>Tabelle 4:</strong> Entscheidungshoheit und belegte KI-Beteiligung je
+ADM-Phase. Einschränkend ist anzumerken, dass eine Fallstudie den praktischen Wert TOGAF-spezifischer
+Empfehlungen grundsätzlich in Frage stellt (Kotusev, 2018) — das Rahmenwerk dient hier als
+Ordnungsraster, nicht als Geltungsanspruch.</p>
+
+<h3>6.4 Die Zirkularitätsgrenze: warum KI den Review nicht übernehmen darf</h3>
+
+<p>Die naheliegende Antwort auf steigende Prüflast — KI prüft KI — ist strukturell fehlerhaft.
+Ohne externe, ausführbare Referenz argumentieren erzeugendes und prüfendes Modell aus demselben
+Artefakt, teilen dieselbe Trainingsverteilung und zeigen korrelierte Fehler; der Review prüft den
+Code gegen sich selbst, nicht gegen die Absicht (Zietsman, 2026). Daraus folgt eine Architektur:
+zuerst die Spezifikation, dann die deterministische Verifikationskette, und KI-Review nur für den
+strukturellen Rest.</p>
+
+<p>Dieselbe Logik findet sich unabhängig auf anderen Ebenen wieder: als testgetriebene Entwicklung,
+deren Prinzipien nicht als Hilfsmittel, sondern als <em>erzwingbare Prozessbeschränkungen</em>
+formalisiert werden, mit strikter Trennung zwischen Modellvorschlag und deterministischer
+Entscheidungsinstanz (Hasanli et al., 2026); und als <em>compliance-by-construction</em>, bei der
+Regularien, typisierte Prozessmodelle und Konformitätsbedingungen zu Architekturbestandteilen
+werden, statt als nachgelagerte Überwachung zu wirken (Rombach et al., 2026).</p>
+
+<h3>6.5 Der Sonderfall Solo: wenn Autor und Prüfer dieselbe Person sind</h3>
+
+<p>Alle bislang genannten Rahmenwerke setzen Teams voraus. Ihre menschlichen Freigabe-Gates
+werden von <em>anderen</em> Menschen bedient. Damit bleibt eine Konstellation unbehandelt, die
+praktisch zunehmend häufig ist: eine Person plus KI.</p>
+
+<p>Die Solo-Forschung existiert, ist aber älter und ohne KI-Bezug. <em>Scrum Solo</em> formalisiert
+ein Vorgehen für Einzelentwickler und verweist darauf, dass rund 60 % der etablierten
+Softwareunternehmen einer nationalen Erhebung mit einem einzigen Entwickler begannen, ohne formalen
+Prozess (Pagotto et al., 2016). <em>SCRUM-For-One</em> überträgt Planung, Daily und Retrospektive
+auf die Einzelperson (Towhidnejad et al., 2025). Eine Arbeit zu einer leichtgewichtigen
+Solo-Methodik mit integrierten Sicherheitspraktiken hält ausdrücklich fest, dass Forschung zu
+Qualität und Sicherheit üblicherweise Teams adressiert — <em>auf Kosten einzelner Entwickler</em>
+(Moyo &amp; Mnkandla, 2020).</p>
+
+<div class="callout">
+<p><strong>Die offene Stelle.</strong> Im Einzelbetrieb kann das Vier-Augen-Prinzip nicht besetzt
+werden. Eine Person schreibt Anforderung, Umsetzung, Test und Prüfung. Daraus folgt die
+Kernanforderung dieses Berichts: Was im Team eine zweite Person leistet, muss im Solo-Betrieb eine
+<em>maschinell erzwungene, deterministische Prüfung</em> leisten — und diese Prüfung muss selbst
+überprüfbar sein. Genau das ist die Funktion einer Beweisstufen-Achse (Kapitel 9.3).</p>
+</div>
+
+<!-- ============================ SEITE 11: TF5 ============================ -->
+<div class="newpage"></div>
+<h1>7 Business Case: Nutzen, Kosten, Compliance-Hebel</h1>
+
+<h3>7.1 Produktivität: belegt, aber kontextabhängig</h3>
+
+<p>Die Wirkungsbefunde sind stark, aber nicht einheitlich. Drei randomisierte Feldexperimente bei
+Microsoft, Accenture und einem Fortune-100-Unternehmen mit zusammen 4.867 Entwicklern ergeben
+eine Steigerung abgeschlossener Aufgaben um 26,1 % (Standardfehler 10,3); weniger erfahrene
+Entwickler zeigten höhere Übernahmeraten und größere Zugewinne (Cui et al., 2026). Ein
+kontrolliertes Experiment zu einer abgegrenzten Programmieraufgabe misst 55,8 % kürzere
+Bearbeitungszeit (Peng et al., 2023). Außerhalb der Softwareentwicklung senkte ein
+präregistriertes Experiment mit 453 Fachkräften die Bearbeitungszeit um 40 % bei um 18 % höherer
+Ergebnisqualität (Noy &amp; Zhang, 2023).</p>
+
+<figure class="avoid">
+<svg width="100%" viewBox="0 0 640 214" xmlns="http://www.w3.org/2000/svg" font-family="Arial, Liberation Sans, sans-serif">
+  <text x="0" y="13" font-size="11" font-weight="bold" fill="#000">Gemessene Verbesserung in Prozent (unterschiedliche Zielgrößen — siehe Bildunterschrift)</text>
+  <line x1="214" y1="26" x2="214" y2="176" stroke="#000" stroke-width="1.2"/>
+  <!-- bars: scale 5.6 px per % -->
+  <rect x="214" y="32" width="312" height="21" fill="#1A1A1A"/>
+  <text x="208" y="47" font-size="11" text-anchor="end" fill="#000">Peng et al. (2023), Labor</text>
+  <text x="532" y="47" font-size="11" font-weight="bold" fill="#000">55,8 %</text>
+
+  <rect x="214" y="61" width="223" height="21" fill="#3D3D3D"/>
+  <text x="208" y="76" font-size="11" text-anchor="end" fill="#000">Kumar et al. (2025), Unternehmen</text>
+  <text x="443" y="76" font-size="11" font-weight="bold" fill="#000">31,8 %</text>
+
+  <rect x="214" y="90" width="172" height="21" fill="#5F5F5F"/>
+  <text x="208" y="105" font-size="11" text-anchor="end" fill="#000">Borg et al. (2026), Experiment</text>
+  <text x="392" y="105" font-size="11" font-weight="bold" fill="#000">30,7 %</text>
+
+  <rect x="214" y="119" width="146" height="21" fill="#86BC25"/>
+  <text x="208" y="134" font-size="11" text-anchor="end" font-weight="bold" fill="#000">Cui et al. (2026), RCT n = 4.867</text>
+  <text x="366" y="134" font-size="11" font-weight="bold" fill="#000">26,1 %</text>
+
+  <rect x="214" y="148" width="20" height="21" fill="#FFFFFF" stroke="#000" stroke-width="1"/>
+  <text x="208" y="163" font-size="11" text-anchor="end" fill="#000">Stray et al. (2025), Feld</text>
+  <text x="240" y="163" font-size="11" fill="#000">kein signifikanter Effekt</text>
+
+  <line x1="214" y1="180" x2="600" y2="180" stroke="#000" stroke-width="1"/>
+  <text x="0" y="196" font-size="10" fill="#000">Einordnung: Metaanalyse über 23 Studien ergibt g = 0,33 [0,09; 0,58] — moderat, im Unternehmen kleiner als im Labor (Maier et al., 2026).</text>
+</svg>
+<figcaption><strong>Abbildung 4:</strong> Produktivitätsbefunde im Vergleich. Die Zielgrößen sind
+nicht identisch — Peng misst Bearbeitungszeit, Cui abgeschlossene Aufgaben, Kumar die Durchlaufzeit
+von Pull-Request-Reviews, Borg die Bearbeitungszeit im Median. Die Darstellung zeigt
+Größenordnungen, keinen direkten Vergleich.</figcaption>
+</figure>
+
+<p>Die Einordnung liefert eine Metaanalyse über 23 Studien mit 27 Effektstärken: Der Effekt auf
+die Produktivität ist statistisch signifikant, aber nur moderat (g = 0,33; 95 %-KI [0,09; 0,58]),
+mit erheblicher Heterogenität — und er fällt in kontrollierten Laborsituationen deutlich größer
+aus als in Open-Source- und Unternehmenskontexten. Auf das Lernen wurde kein signifikanter Effekt
+gefunden (Maier et al., 2026). Eine zweijährige Beobachtung in einer großen öffentlichen
+Organisation mit 26.317 Commits fand nach Einführung des Werkzeugs keine statistisch signifikante
+Veränderung der Commit-Aktivität — bei gleichzeitig positiver subjektiver Wahrnehmung
+(Stray et al., 2025).</p>
+
+<p>Eine Längsschnittstudie über rund 13 Monate in drei agilen Teams löst diesen scheinbaren
+Widerspruch plausibel auf: Leistung und wahrgenommene Effizienz steigen deutlich, während die
+Aktivität flach bleibt. Die Autoren schließen daraus, GenAI erhöhe die <em>Wertdichte</em> der
+Arbeit, nicht deren Volumen (Tomaz et al., 2026).</p>
+
+<h3 class="newpage">7.2 Die Gegenrechnung</h3>
+
+<p>Den Gewinnen stehen belegte Kosten gegenüber, die in Wirtschaftlichkeitsrechnungen regelmäßig
+fehlen.</p>
+
+<figure class="avoid">
+<svg width="100%" viewBox="0 0 640 178" xmlns="http://www.w3.org/2000/svg" font-family="Arial, Liberation Sans, sans-serif">
+  <text x="0" y="13" font-size="11" font-weight="bold" fill="#000">Belegte Gegenposten</text>
+  <line x1="250" y1="26" x2="250" y2="146" stroke="#000" stroke-width="1.2"/>
+  <rect x="250" y="32" width="234" height="20" fill="#C00000"/>
+  <text x="244" y="46" font-size="11" text-anchor="end" fill="#000">Kognitive Komplexität</text>
+  <text x="490" y="46" font-size="11" font-weight="bold" fill="#000">+39 %</text>
+
+  <rect x="250" y="59" width="136" height="20" fill="#C00000"/>
+  <text x="244" y="73" font-size="11" text-anchor="end" fill="#000">Persistente Befunde</text>
+  <text x="392" y="73" font-size="11" font-weight="bold" fill="#000">22,7 %</text>
+
+  <rect x="250" y="86" width="114" height="20" fill="#C00000"/>
+  <text x="244" y="100" font-size="11" text-anchor="end" fill="#000">Statische Warnungen</text>
+  <text x="370" y="100" font-size="11" font-weight="bold" fill="#000">+18 %</text>
+
+  <rect x="250" y="113" width="114" height="20" fill="#7F1010"/>
+  <text x="244" y="127" font-size="11" text-anchor="end" fill="#000">Eigenproduktivität Kernentwickler</text>
+  <text x="370" y="127" font-size="11" font-weight="bold" fill="#000">−19 %</text>
+
+  <line x1="250" y1="150" x2="600" y2="150" stroke="#000" stroke-width="1"/>
+  <text x="250" y="166" font-size="10" fill="#000">Quellen: Agarwal et al. (2026a); Liu et al. (2026); Xu et al. (2025)</text>
+</svg>
+<figcaption><strong>Abbildung 5:</strong> Kostenseite der KI-gestützten Entwicklung. Die Werte
+stammen aus unterschiedlichen Stichproben und sind nicht additiv zu lesen.</figcaption>
+</figure>
+
+<p>Besonders aufschlussreich ist die Verteilung der Last. Nach Einführung eines Assistenten prüfen
+Kernentwickler 6,5 % mehr fremden Code, während ihre eigene Produktivität um 19 % fällt; die
+Produktivitätsgewinne entstehen überwiegend bei weniger erfahrenen Beitragenden (Xu et al., 2025).
+Ein Befund aus <em>Science</em> weist in eine ähnliche Richtung: Erfahrene Entwickler profitieren
+und dehnen ihre Tätigkeit auf neue Bereiche aus, während Berufseinsteiger keinen signifikanten
+Vorteil zeigen (Daniotti et al., 2025). Die beiden Befunde widersprechen sich in der Frage, wer
+profitiert — was für sich genommen ein Ergebnis ist: Die Wirkung ist kontextabhängig, nicht
+universell.</p>
+
+<h3>7.3 Augmentation schlägt Substitution</h3>
+
+<p>Am deutlichsten wird der Unterschied am Kapitalmarkt. Eine Untersuchung, die 18.796
+Tätigkeitsbeschreibungen nach Augmentations- und Substitutionspotenzial bewertet und die
+Veröffentlichung von ChatGPT als Informationsschock in einem Differenz-von-Differenzen-Ansatz
+nutzt, findet eine scharfe Asymmetrie: Augmentationsexposition geht mit signifikant besserer
+operativer Profitabilität, höherer Arbeitsproduktivität und positiven risikoadjustierten Renditen
+einher — ein Long-Short-Portfolio erzielt ein Fünf-Faktoren-Alpha von 97 Basispunkten pro Monat.
+Substitutionsexposition zeigt dagegen keine Renditewirkung und negative Effekte auf die
+Profitabilität (Aghbabali et al., 2026). Erwartungsseitig veranschlagen Führungskräfte in einer
+breit angelegten Befragung eine Rendite von rund 10 % auf GenAI-Investitionen und erwarten den
+größten Wertbeitrag aus Innovation statt aus fragmentierten Einzelanwendungen
+(Marshall et al., 2024).</p>
+
+<div class="callout">
+<p><strong>Managementrelevanz.</strong> Der Kapitalmarkt honoriert nicht den Ersatz von Menschen
+durch KI, sondern deren Verstärkung. Das deckt sich mit dem Prozessargument dieses Berichts: Die
+KI tritt als zusätzlicher, fehlbarer Mitwirkender in einen bestehenden Kontrollrahmen ein — sie
+ersetzt weder den Mitwirkenden noch den Rahmen.</p>
+</div>
+
+<h3>7.4 Der Compliance-Hebel</h3>
+
+<p>Für regulierte Branchen ist der wirtschaftliche Fall am klarsten. Eine Untersuchung der 36
+größten Prüfungsgesellschaften auf Basis von über 310.000 Lebensläufen zeigt, dass eine
+Standardabweichung mehr KI-Investition mit 5,0 % geringerer Wahrscheinlichkeit einer
+Abschlusskorrektur, 0,9 % niedrigeren Prüfungsgebühren und einem um 3,6 % (nach drei Jahren)
+beziehungsweise 7,1 % (nach vier Jahren) reduzierten Personalbestand einhergeht
+(Fedyk et al., 2022).</p>
+
+<figure class="avoid">
+<svg width="100%" viewBox="0 0 640 168" xmlns="http://www.w3.org/2000/svg" font-family="Arial, Liberation Sans, sans-serif">
+  <text x="0" y="13" font-size="11" font-weight="bold" fill="#000">Compliance-Automatisierung: Zwölfmonatserprobung bei einer multinationalen Bank</text>
+  <line x1="256" y1="26" x2="256" y2="136" stroke="#000" stroke-width="1.2"/>
+  <rect x="256" y="32" width="300" height="21" fill="#86BC25"/>
+  <text x="250" y="47" font-size="11" text-anchor="end" fill="#000">Präventiv erkannte Verstöße</text>
+  <text x="562" y="47" font-size="11" font-weight="bold" fill="#000">98 %</text>
+
+  <rect x="256" y="60" width="227" height="21" fill="#1A1A1A"/>
+  <text x="250" y="75" font-size="11" text-anchor="end" fill="#000">Manueller Auditaufwand</text>
+  <text x="489" y="75" font-size="11" font-weight="bold" fill="#000">−74 %</text>
+
+  <rect x="256" y="88" width="193" height="21" fill="#3D3D3D"/>
+  <text x="250" y="103" font-size="11" text-anchor="end" fill="#000">Compliance-bedingte Ausfallzeit</text>
+  <text x="455" y="103" font-size="11" font-weight="bold" fill="#000">−63 %</text>
+
+  <rect x="256" y="116" width="168" height="21" fill="#5F5F5F"/>
+  <text x="250" y="131" font-size="11" text-anchor="end" fill="#000">Reaktionszeit auf neue Regularien</text>
+  <text x="430" y="131" font-size="11" font-weight="bold" fill="#000">−55 %</text>
+
+  <line x1="256" y1="144" x2="600" y2="144" stroke="#000" stroke-width="1"/>
+  <text x="0" y="160" font-size="10" fill="#000">Quelle: Sardana et al. (2024) · Fallstudien in Gesundheitswesen und Fintech, u. a. mit Bezug auf den EU AI Act</text>
+</svg>
+<figcaption><strong>Abbildung 6:</strong> Wirkung agentischer Compliance-Automatisierung. Die
+Studie ist in einem Fachjournal ohne breite Rezeption erschienen; die Größenordnung ist als
+Einzelfallbefund zu lesen, nicht als gesicherter Branchenwert.</figcaption>
+</figure>
+
+<!-- ============================ SEITE 13: TF6 ============================ -->
+<div class="newpage"></div>
+<h1>8 Die Rolle verschiebt sich</h1>
+
+<h3>8.1 Vom Autor zum Auftraggeber und Prüfer</h3>
+
+<p>Wenn Code reichlich verfügbar wird, verschiebt sich der Wertbeitrag der Fachkraft. Eine
+strukturierte Synthese aus 48 begutachteten Publikationen formuliert es so, dass der dauerhafte
+Wert des Software-Ingenieurs zunehmend in der <em>Spezifikation von Absicht</em>, im
+<em>kritischen Urteil</em> und in der <em>verantwortbaren Aufsicht</em> liegt — nicht im Volumen
+des erzeugten Codes (Alenezi, 2026b). Zwei Expertenrunden in New York und Singapur kommen zu
+demselben Kernbefund: Verifikation und Validierung gewinnen in dem Maße an Bedeutung, in dem
+Agenten die Implementierung übernehmen (Kang et al., 2026).</p>
+
+<h3>8.2 Kompetenzprofil: was mehr, was weniger zählt</h3>
+
+<table>
+  <tr><th style="width:56mm">Kompetenz</th><th style="width:22mm">Tendenz</th><th>Begründung und Beleg</th></tr>
+  <tr><td>Spezifikation von Absicht und Randbedingungen</td><td><strong>steigt stark</strong></td><td>Ausführbare Spezifikation ist die externe Referenz, ohne die Prüfung zirkulär wird (Zietsman, 2026; Alenezi, 2026a)</td></tr>
+  <tr><td>Verifikation und Validierung</td><td><strong>steigt stark</strong></td><td>Überprüfbarkeit ist der entscheidende Adoptionsermöglicher (Apostolou et al., 2026b; Kang et al., 2026)</td></tr>
+  <tr><td>Kritisches Urteil, Entscheidungskompetenz</td><td><strong>steigt</strong></td><td>Delphi-Studie mit 34 Fachleuten: kritisches Denken und Entscheidungsfähigkeit gewinnen an Bedeutung (Schöttl et al., 2026)</td></tr>
+  <tr><td>Orchestrierung mehrerer Agenten</td><td><strong>neu</strong></td><td>Kompetenzmodell mit neun Dimensionen, u. a. Agenten-Orchestrierung und Metakognition (Alenezi, 2026a)</td></tr>
+  <tr><td>Governance, Rechenschaft, Regulatorik</td><td><strong>steigt</strong></td><td>Eigene Kompetenzkategorie neben technischen und kognitiven Fähigkeiten (Alenezi, 2026b)</td></tr>
+  <tr><td>Domänen- und Kontextwissen</td><td><strong>steigt</strong></td><td>Fehlende Projektkontextkenntnis ist die größte Einzelbarriere der Praxis (Felder et al., 2026)</td></tr>
+  <tr><td>Syntaxsicherheit, Standardcode von Hand</td><td>sinkt</td><td>Über 70 % der Befragten halbieren die Zeit für Standardcode und Dokumentation (Gurgul et al., 2026)</td></tr>
+  <tr><td>Auswendige Kenntnis von Bibliotheks-APIs</td><td>sinkt</td><td>Verschiebung von Codeerstellung zu Spezifikationsqualität und Architekturdenken (Gurgul et al., 2026)</td></tr>
+</table>
+<p class="tabcap"><strong>Tabelle 5:</strong> Verschiebung des Kompetenzprofils. „Sinkt" bedeutet
+geringere Bedeutung im Tagesgeschäft, nicht Entbehrlichkeit — ohne Lesefähigkeit ist keine Prüfung
+möglich.</p>
+
+<h3>8.3 Tech-Stack des KI-gestützten Solo-Architekten</h3>
+
+<p>Aus der Kontrolllogik folgt der Werkzeugkasten. Er ist nicht auf Modellnutzung ausgerichtet,
+sondern auf deterministische Prüfbarkeit: Versionskontrolle mit erzwungenen Prüfschritten vor der
+Übernahme; eine Policy-Engine, die Regeln als Code ausführt; eine Continuous-Integration-Strecke,
+die den Negativfall nachweist und nicht nur den Erfolgsfall; ein manipulationsresistenter
+Nachweisspeicher; sowie Signatur- und Herkunftsnachweise, die eine Erzeugeridentität binden. Die
+Sprachmodell-Werkzeuge stehen in diesem Stapel nicht an erster, sondern an vorletzter Stelle — vor
+ihnen liegt die Prüfkette, nach ihnen die Aufzeichnung.</p>
+
+<h3>8.4 Das Risiko: Deskilling und Verantwortungsdiffusion</h3>
+
+<p>Die Verschiebung ist nicht kostenfrei. Eine Übersicht zu Kompetenzentwicklung an KI-Systemen
+hält Dekompetenzierung für ein häufiges Ergebnis, zeigt aber zugleich, dass dieselben Systeme neue
+Fähigkeiten erfordern können — abhängig davon, ob Beschäftigte Fähigkeiten im Formulieren, Bewerten
+und Überarbeiten der Ausgabe ausbilden und zeigen (Crowston et al., 2025). Eine Untersuchung mit 21
+besonders fortgeschrittenen Entwicklern ordnet die nötigen Fähigkeiten vier Domänen zu und betont,
+dass beides gezielt entwickelt werden muss: die technische Tiefe und die überfachlichen Fähigkeiten
+(Kam et al., 2025). Für den Solo-Betrieb verschärft sich das Risiko, weil keine zweite Person die
+Erosion bemerkt — ein weiterer Grund, die Prüfung zu externalisieren, statt sie auf Urteilskraft zu
+gründen.</p>
+
+<!-- ============================ SEITE 14: TF7 ============================ -->
+<div class="newpage"></div>
+<h1>9 Instanziierung am laufenden Artefakt</h1>
+
+<h3>9.1 Der Fall: GenAIOps Compliance Gates</h3>
+
+<p>Die vorgetragene Position wird an einem laufenden Artefakt erprobt: einer cloud-nativen
+Referenzarchitektur, die Pflichten aus der Verordnung (EU) 2024/1689 in automatisierte
+Qualitätsgatter der Auslieferungsstrecke überführt und jede Gate-Entscheidung als überprüfbaren
+Nachweis aufzeichnet. Der Stand umfasst 17 Gates, 14 abgeleitete Anforderungen und 55 Prüfungen,
+19 Policies in Rego mit 196 Regeln, 215 Unit-Tests, 36 Integrationstests sowie 37
+Integritätsprüfungen; die Nachweiskette wird je Lauf verifiziert und in der
+Continuous-Integration-Strecke schlüssellos signiert.</p>
+
+<p>Das Artefakt ist zugleich die Probe aufs Exempel für die Solo-Frage aus Abschnitt 6.5: Es
+entstand im Einzelbetrieb, mit KI als ausführendem Mitwirkenden, und es trägt einen schriftlich
+fixierten Arbeitsvertrag zwischen Mensch und KI.</p>
+
+<h3>9.2 Die vier Ehrlichkeitsfelder: was die KI nie entscheidet</h3>
+
+<p>Die Arbeitsteilung ist explizit: Der Product Owner entscheidet <em>was</em> und
+<em>warum</em>, die KI entscheidet <em>wie</em>. Vier Felder sind davon ausgenommen und werden
+nie delegiert:</p>
+
+<ol>
+<li>welcher Rechtsartikel welche Pflicht begründet;</li>
+<li>ob eine Prüfung verpflichtend oder empfehlend ist;</li>
+<li>die Einstufung der Beweisstufe;</li>
+<li>ob etwas als <em>umgesetzt</em> oder als <em>nur entworfen</em> gilt.</li>
+</ol>
+
+<p>Die Begründung ist keine Vorsichtsmaßnahme, sondern folgt aus der Fehlerstruktur: Eine KI
+schreibt plausibel. Ein als verpflichtend gesetztes Prüfkriterium sieht in jeder Änderungsansicht
+richtig aus, ein <em>umgesetzt</em> schließt eine Tabelle sauber ab, und eine höhere Beweisstufe
+liest sich stärker als eine niedrigere. Nichts davon fällt im Review auf, und nichts davon bringt
+einen Test zum Scheitern — es ist eine Zeichenkette. Genau hier trifft Deklaration auf
+Wirklichkeit, und genau hier ist maschinelle Plausibilität am gefährlichsten. Der Befund deckt
+sich mit der Forderung, epistemischen Status und zeitliche Gültigkeit von Architekturentscheidungen
+explizit zu führen und Vermutung von geprüftem Wissen zu trennen (Gilda et al., 2026).</p>
+
+<h3>9.3 Beweisstufen E-0 bis E-3: Nachweisgüte nach Fälschungskosten</h3>
+
+<p>Der zweite Baustein beantwortet die Frage, die der Automatisierungsgrad offenlässt. Ob eine
+Prüfung ohne Menschen läuft, sagt nichts darüber, wie schwer ihr Ergebnis zu fälschen ist. Jede
+Prüfung führt deshalb zusätzlich eine Beweisstufe.</p>
+
+<table>
+  <tr><th style="width:18mm">Stufe</th><th>Was geprüft wird</th><th style="width:52mm">Kosten der Fälschung</th></tr>
+  <tr><td><strong>E-0</strong></td><td>Ein Dokument, das jemand geschrieben hat — Manifest, Annotation</td><td>Textänderung</td></tr>
+  <tr><td><strong>E-1</strong></td><td>Ein erzeugtes und signiertes Artefakt; Signatur und Erzeugeridentität geprüft</td><td>Kompromittierung der CI-Identität</td></tr>
+  <tr><td><strong>E-2</strong></td><td>Der tatsächliche Zustand des laufenden Systems über dessen Schnittstelle</td><td>Manipulation des laufenden Systems</td></tr>
+  <tr><td><strong>E-3</strong></td><td>Eine Eigenschaft über Zeit — gemessen statt konfiguriert</td><td>Manipulation der Telemetriekette</td></tr>
+</table>
+<p class="tabcap"><strong>Tabelle 6:</strong> Beweisstufen nach Fälschungskosten. Automatisierbarkeit
+und Beweiskraft sind orthogonale Achsen: Eine Prüfung mit menschlichem Anteil kann E-3 tragen, eine
+vollautomatische auf E-0 stehen.</p>
+
+<p>Die Achse beantwortet die Solo-Frage aus 6.5 unmittelbar. Wo im Team eine zweite Person die
+Aussage eines Autors bestätigt, tritt im Einzelbetrieb die Frage an ihre Stelle, wie teuer es wäre,
+diese Aussage zu fälschen. Eine Pod-Annotation behauptet einen Zustand; sie beweist ihn nicht. Eine
+über die Laufzeit gemessene Eigenschaft lässt sich nicht durch eine Textänderung erzeugen. Damit
+wird die Prüfung vom Urteil einer Person auf eine Eigenschaft des Nachweises verlagert — und genau
+das ist im Einzelbetrieb der einzige gangbare Weg.</p>
+
+<h3>9.4 Abgrenzung und Innovationsgrad</h3>
+
+<p>Der Neuheitsanspruch ist nach der Verifikationssuche einzuschränken und zugleich zu präzisieren.
+Die Grundidee — Prozesskontrolle statt Prompt-Optimierung — wird 2026 mehrfach und unabhängig
+formuliert (Koch, 2026; Koch et al., 2026; Ganesh, 2026; Rombach et al., 2026; Hasanli et al.,
+2026). Der eigene Beitrag liegt nicht in dieser Idee, sondern in vier Punkten, die von keiner der
+genannten Arbeiten abgedeckt werden.</p>
+
+<table>
+  <tr><th style="width:52mm">Beitrag</th><th>Abgrenzung</th></tr>
+  <tr><td><strong>Ordnung nach Fälschungskosten</strong></td><td>Die nächstliegende publizierte Achse unterscheidet Prüfungstyp und Prüfgegenstand und erklärt die Typdimension ausdrücklich für <em>nicht hierarchisch</em> (Buscemi et al., 2025). Koch et al. (2026) führen Evidenzbündel, ordnen sie aber nicht nach Fälschungsaufwand.</td></tr>
+  <tr><td><strong>Der Einzelbetrieb</strong></td><td>Sämtliche verglichenen Rahmenwerke setzen menschliche Freigabe durch <em>andere</em> Personen voraus. Die Solo-Literatur wiederum ist älter und ohne KI-Bezug (Pagotto et al., 2016; Moyo &amp; Mnkandla, 2020; Towhidnejad et al., 2025).</td></tr>
+  <tr><td><strong>Architekturebene statt Codeebene</strong></td><td>Die verwandten Arbeiten verbleiben im Software-Lebenszyklus; die Übertragung auf TOGAF-ADM-Phasen ist nicht belegt — für Phase F ausdrücklich als Lücke ausgewiesen (Abschnitt 6.3).</td></tr>
+  <tr><td><strong>Grad der Instanziierung</strong></td><td>Die nächstliegenden Gegenstücke sind Entwürfe mit Machbarkeitsnachweis an rund 500 Codezeilen (Koch et al., 2026) oder ohne Validierung (Bandara et al., 2025; Ganesh, 2026). Hier liegen ausführbare Regeln, Tests und eine je Lauf verifizierte Nachweiskette vor.</td></tr>
+</table>
+<p class="tabcap"><strong>Tabelle 7:</strong> Abgrenzung gegenüber verwandten Arbeiten. Die
+stärkste Karte ist nicht der Neuheitsanspruch, sondern der Instanziierungsgrad.</p>
+
+<!-- ============================ SEITE 16: LIMITATIONEN + FAZIT ============================ -->
+<div class="newpage"></div>
+<h1>10 Limitationen und offene Punkte</h1>
+
+<h3>10.1 Grenzen der Evidenzbasis</h3>
+
+<p>Von 67 Quellen sind 24 Preprints ohne abgeschlossene Begutachtung — rund ein Drittel —, darunter mehrere der
+thematisch nächstliegenden Arbeiten aus 2026 mit geringer Zitationszahl. Die Aussagen zur
+Gegenposition und zum Innovationsgrad beruhen teilweise auf Strukturanalysen von
+Zusammenfassungen, nicht auf Volltextlektüre. Die Einstufung der Gegenthese als unbelegt ist
+insoweit begründet, aber vorläufig: Sie stützt sich auf die Struktur der Publikation sowie auf
+die von Otoum et al. (2026) ausgewiesene Lücke, nicht auf eine vollständige Prüfung des
+Originaltexts.</p>
+
+<h3>10.2 Was der Einzelfall nicht belegt</h3>
+
+<p>Das in Kapitel 9 beschriebene Artefakt zeigt, dass der Ansatz umsetzbar ist. Es zeigt nicht,
+dass er wirksamer ist als Alternativen — dafür fehlt ein Vergleich. Es zeigt ebenso wenig, dass
+das gewählte Kontrollset das richtige ist: Die Gates prüfen, ob die Spezifikation erfüllt ist;
+ob der Gate-<em>Satz</em> das regulatorische Risiko tatsächlich senkt, prüft nichts. Dies ist der
+gewichtigste offene Punkt des Artefakts und wird dort als solcher geführt.</p>
+
+<h3>10.3 Bestätigte Forschungslücke</h3>
+
+<p>Die Recherche bestätigt eine Lücke, die über den Einzelfall hinausweist: Zur
+KI-gestützten Führung einer mehrmonatigen Architektur-Roadmap im Einzelbetrieb — ADM-Phase F —
+liegt keine Arbeit vor. Die umfangreiche Literatur zur Priorisierung technischer Schulden
+adressiert Teams und lässt den KI-Bezug offen (Lenarduzzi et al., 2021; Stochel et al., 2023).
+Hier besteht ein eigenständiger Forschungsbedarf.</p>
+
+<h1 style="margin-top:22pt">11 Fazit und Handlungsempfehlungen</h1>
+
+<p>Die Leitfrage lässt sich beantworten. Es gibt keine belastbare Evidenz dafür, dass etablierte
+Vorgehensmodelle für den KI-Einsatz ersetzt werden müssten. Die Behauptung wird erhoben, nicht
+geprüft, und das einschlägige systematische Review weist die dafür nötige Evidenzbasis
+ausdrücklich als fehlend aus. Umgekehrt spricht die Befundlage dafür, dass Prozessstruktur die
+Qualität KI-erzeugter Ergebnisse messbar verbessert, dass Kompatibilität mit bestehenden Abläufen
+der dominierende Adoptionstreiber ist und dass die entscheidende Engstelle — die Verifikation —
+genau dort liegt, wo die vorhandenen Modelle ihre Kontrollpunkte haben und die Praxis sie bislang
+unbesetzt lässt.</p>
+
+<table>
+  <tr><th style="width:12mm">Nr.</th><th>Empfehlung</th></tr>
+  <tr><td>1</td><td><strong>Kontrollpunkte instrumentieren, nicht Methodik ersetzen.</strong> Definition of Ready, Akzeptanzkriterien und Definition of Done an ausführbare Prüfungen binden, bevor in neue Rahmenwerke investiert wird.</td></tr>
+  <tr><td>2</td><td><strong>Den Negativfall prüfen.</strong> Ein grüner Durchlauf beweist nur, dass nichts blockiert hat. Erst der Nachweis, dass eine Kontrolle rot wird, wenn der Zustand nicht stimmt, macht sie zur Kontrolle.</td></tr>
+  <tr><td>3</td><td><strong>Beweisgüte getrennt vom Automatisierungsgrad führen.</strong> Für jede Prüfung ausweisen, wie teuer es wäre, ihr Ergebnis zu fälschen.</td></tr>
+  <tr><td>4</td><td><strong>Kein KI-Review von KI-Ausgabe ohne externe Referenz.</strong> Zuerst Spezifikation, dann deterministische Prüfkette, KI-Review nur für den verbleibenden strukturellen Rest.</td></tr>
+  <tr><td>5</td><td><strong>Entscheidungen mit epistemischem Status führen.</strong> Vermutung, geprüfte Annahme und gemessene Eigenschaft unterscheidbar halten und mit Gültigkeitsdauer versehen.</td></tr>
+  <tr><td>6</td><td><strong>Wertdichte messen, nicht Ausgabemenge.</strong> Mehrdimensionale Rahmen verwenden; Volumenkennzahlen allein verdecken die Verlagerung der Last in den Review.</td></tr>
+  <tr><td>7</td><td><strong>Auf Augmentation setzen.</strong> Der finanzielle Befund trennt scharf: Verstärkung schafft Wert, Ersetzung nicht.</td></tr>
+</table>
+
+<div class="callout">
+<p><strong>Schlusssatz.</strong> Die Frage ist nicht, ob KI neue Methoden braucht. Die Frage ist,
+ob wir bereit sind, die vorhandenen so ernst zu nehmen, dass sie auch einen Mitwirkenden
+kontrollieren, der schneller schreibt als wir lesen können.</p>
+</div>
+
+<!-- ============================ QUELLEN ============================ -->
+<div class="newpage"></div>
+<h1>Quellenverzeichnis</h1>
+
+<p style="font-size:10pt; margin-bottom:12pt"><span class="tag tag-pr">PR</span> begutachtet
+(Journal oder Konferenz) · <span class="tag tag-pp">PP</span> Preprint ohne abgeschlossene
+Begutachtung. Die Kennzeichnung bezieht sich auf den Stand der Recherche im September 2026.</p>
+
+<div class="refs">
+
+<p>Afroz, S. et al. (2025). The Fast and Spurious: Developer Productivity with GenAI. <em>Proceedings of the 34th ACM International Conference on the Foundations of Software Engineering.</em> DOI: 10.1145/3803437.3806710 <span class="tag tag-pr">PR</span></p>
+
+<p>Agarwal, S. et al. (2026a). AI IDEs or Autonomous Agents? Measuring the Impact of Coding Agents on Software Development. <em>Proceedings of the 23rd International Conference on Mining Software Repositories.</em> DOI: 10.1145/3793302.3793589 <span class="tag tag-pr">PR</span></p>
+
+<p>Agarwal, S. et al. (2026b). 3100 Opinions on Code Review in an AI World: Building Causal Theory from Practitioner Discourse. <em>arXiv.</em> DOI: 10.48550/arxiv.2607.07980 <span class="tag tag-pp">PP</span></p>
+
+<p>Aghbabali, T. et al. (2026). Augmentation Versus Substitution: Asymmetric Effects of Generative AI on Firm Performance and Share Prices. <em>SSRN Electronic Journal.</em> DOI: 10.2139/ssrn.6300040 <span class="tag tag-pp">PP</span></p>
+
+<p>Alenezi, M. (2026a). The Rise of AI-Native Software Engineering: Implications for Practice, Education, and the Future Workforce. <em>arXiv.</em> DOI: 10.48550/arxiv.2606.12986 <span class="tag tag-pp">PP</span></p>
+
+<p>Alenezi, M. (2026b). Human-AI Collaboration and the Transformation of Software Engineering Work. <em>arXiv.</em> DOI: 10.48550/arxiv.2606.03394 <span class="tag tag-pp">PP</span></p>
+
+<p>Apostolou, S. A. et al. (2026a). Agentic AI in Industry: Adoption Level and Deployment Barriers. <em>arXiv.</em> DOI: 10.48550/arxiv.2605.14675 <span class="tag tag-pp">PP</span></p>
+
+<p>Apostolou, S. A. et al. (2026b). Assistance to Autonomy: A Systematic Literature Review of Agentic AI across the Software Development Life Cycle. <em>arXiv.</em> DOI: 10.48550/arxiv.2605.15245 <span class="tag tag-pp">PP</span></p>
+
+<p>Bandara, E. et al. (2025). Agentsway — Software Development Methodology for AI Agents-based Teams. <em>arXiv.</em> DOI: 10.48550/arxiv.2510.23664 <span class="tag tag-pp">PP</span></p>
+
+<p>Blasberg, A. et al. (2026). Agentic Architect: An Agentic AI Framework for Architecture Design Exploration and Optimization. <em>arXiv.</em> DOI: 10.48550/arxiv.2604.25083 <span class="tag tag-pp">PP</span></p>
+
+<p>Borg, M. et al. (2026). Echoes of AI: Investigating the downstream effects of AI assistants on software maintainability. <em>Empirical Software Engineering.</em> DOI: 10.1007/s10664-026-10889-1 <span class="tag tag-pr">PR</span></p>
+
+<p>Buscemi, A. et al. (2025). Assessing High-Risk AI Systems under the EU AI Act: From Legal Requirements to Technical Verification. <em>arXiv</em> 2512.13907 <span class="tag tag-pp">PP</span></p>
+
+<p>Cotroneo, D. et al. (2025). Human-Written vs. AI-Generated Code: A Large-Scale Study of Defects, Vulnerabilities, and Complexity. <em>IEEE 36th International Symposium on Software Reliability Engineering (ISSRE).</em> DOI: 10.1109/issre66568.2025.00035 <span class="tag tag-pr">PR</span></p>
+
+<p>Crowston, K. et al. (2025). Deskilling and upskilling with AI systems. <em>Information Research.</em> DOI: 10.47989/ir30iconf47143 <span class="tag tag-pr">PR</span></p>
+
+<p>Cui, K. et al. (2026). The Effects of Generative AI on High-Skilled Work: Evidence from Three Field Experiments with Software Developers. <em>Management Science.</em> DOI: 10.1287/mnsc.2025.00535 <span class="tag tag-pr">PR</span></p>
+
+<p>Daniotti, S. et al. (2025). Who is using AI to code? Global diffusion and impact of generative AI. <em>Science.</em> DOI: 10.48550/arxiv.2506.08945 <span class="tag tag-pr">PR</span></p>
+
+<p>Fedyk, A. et al. (2022). Is artificial intelligence improving the audit process? <em>Review of Accounting Studies.</em> DOI: 10.1007/s11142-022-09697-x <span class="tag tag-pr">PR</span></p>
+
+<p>Felder, L. et al. (2026). Adoption of Generative Artificial Intelligence in the German Software Engineering Industry: An Empirical Study. <em>Proceedings of the 34th ACM International Conference on the Foundations of Software Engineering.</em> DOI: 10.1145/3803437.3805207 <span class="tag tag-pr">PR</span></p>
+
+<p>Fitriani, L. et al. (2023). TOGAF-based Enterprise Architecture Framework for Utilizing Artificial Intelligence. <em>International Conference on Computer, Control, Informatics and its Applications.</em> DOI: 10.1109/ic3ina60834.2023.10285801 <span class="tag tag-pr">PR</span></p>
+
+<p>Fujs, D. et al. (2026). Key AI features to support scrum software engineering: practitioners' perspective. <em>Empirical Software Engineering.</em> DOI: 10.1007/s10664-026-10876-6 <span class="tag tag-pr">PR</span></p>
+
+<p>Gacitúa, R. et al. (2026). Explainability in Software Architectural Decisions: The ADR-E Framework and Empirical Evaluation. <em>IEEE Access.</em> DOI: 10.1109/access.2025.3648573 <span class="tag tag-pr">PR</span></p>
+
+<p>Ganesh, A. (2026). From Sprint Planning to Guardrail Engineering: Rethinking Software Development in the Age of AI Agents. <em>International Journal of Emerging Trends in Computer Science and Information Technology.</em> DOI: 10.63282/3050-9246.ijetcsit-v7i2p119 <span class="tag tag-pr">PR</span></p>
+
+<p>Garcia, L. A. et al. (2022). Tailoring the Scrum framework for software development: Literature mapping and feature-based support. <em>Information and Software Technology.</em> DOI: 10.1016/j.infsof.2021.106814 <span class="tag tag-pr">PR</span></p>
+
+<p>Gilda, S. et al. (2026). AI-Assisted Engineering Should Track the Epistemic Status and Temporal Validity of Architectural Decisions. <em>arXiv.</em> DOI: 10.48550/arxiv.2601.21116 <span class="tag tag-pp">PP</span></p>
+
+<p>Gomez, A. et al. (2025). A team of three: the role of generative AI in the development of design automation systems for complex products. <em>Proceedings of the Design Society.</em> DOI: 10.1017/pds.2025.10045 <span class="tag tag-pr">PR</span></p>
+
+<p>Gurgul, V. et al. (2026). The State of Generative AI in Software Development: Insights from Literature and a Developer Survey. <em>arXiv.</em> DOI: 10.48550/arxiv.2603.16975 <span class="tag tag-pp">PP</span></p>
+
+<p>Handoko et al. (2025). LLM-Assisted TOGAF Preliminary Phase for Student Digital Twins. <em>13th International Conference on Orange Technology (ICOT).</em> DOI: 10.1109/icot68409.2025.11425374 <span class="tag tag-pr">PR</span></p>
+
+<p>Hasanli, T. et al. (2026). TDD Governance for Multi-Agent Code Generation via Prompt Engineering. <em>arXiv.</em> DOI: 10.48550/arxiv.2604.26615 <span class="tag tag-pp">PP</span></p>
+
+<p>Hron, M. et al. (2021). Why and how is Scrum being adapted in practice: A systematic review. <em>Journal of Systems and Software.</em> DOI: 10.1016/j.jss.2021.111110 <span class="tag tag-pr">PR</span></p>
+
+<p>Huang, Y. et al. (2025). Comment Traps: How Defective Commented-Out Code Augment Defects in AI-Assisted Code Generation. <em>Proceedings of the ACM on Software Engineering.</em> DOI: 10.1145/3797102 <span class="tag tag-pr">PR</span></p>
+
+<p>Kam, M. et al. (2025). What do professional software developers need to know to succeed in an age of Artificial Intelligence? <em>Proceedings of the 33rd ACM International Conference on the Foundations of Software Engineering.</em> DOI: 10.1145/3696630.3727251 <span class="tag tag-pr">PR</span></p>
+
+<p>Kang, S. et al. (2026). Skills for the future software profession: beyond agentic AI! <em>arXiv.</em> DOI: 10.48550/arxiv.2606.21894 <span class="tag tag-pp">PP</span></p>
+
+<p>Kemell, K.-K. et al. (2025). Still just personal assistants? — A multiple case study of generative AI adoption in software organizations. <em>Information and Software Technology.</em> DOI: 10.1016/j.infsof.2025.107805 <span class="tag tag-pr">PR</span></p>
+
+<p>Koch, C. (2026). Agentic Agile-V: From Vibe Coding to Verified Engineering in Software and Hardware Development. <em>arXiv.</em> DOI: 10.48550/arxiv.2605.20456 <span class="tag tag-pp">PP</span></p>
+
+<p>Koch, C. et al. (2026). Agile V: A Compliance-Ready Framework for AI-Augmented Engineering — From Concept to Audit-Ready Delivery. <em>arXiv.</em> DOI: 10.48550/arxiv.2602.20684 <span class="tag tag-pp">PP</span></p>
+
+<p>Kotusev, S. (2018). TOGAF-based Enterprise Architecture Practice: An Exploratory Case Study. <em>Communications of the Association for Information Systems.</em> DOI: 10.17705/1cais.04320 <span class="tag tag-pr">PR</span></p>
+
+<p>Kwok, Y. et al. (2025). AI and Teamwork in Agile Software Development: A Systematic Mapping Study. DOI: 10.1007/978-3-032-05799-0_4 <span class="tag tag-pr">PR</span></p>
+
+<p>Lenarduzzi, V. et al. (2021). A systematic literature review on Technical Debt prioritization: Strategies, processes, factors, and tools. <em>Journal of Systems and Software.</em> DOI: 10.1016/j.jss.2020.110827 <span class="tag tag-pr">PR</span></p>
+
+<p>Lin, F. et al. (2024). SOEN-101: Code Generation by Emulating Software Process Models Using Large Language Model Agents. <em>IEEE/ACM 47th International Conference on Software Engineering (ICSE).</em> DOI: 10.1109/icse55347.2025.00140 <span class="tag tag-pr">PR</span></p>
+
+<p>Liu, Y. et al. (2026). Debt Behind the AI Boom: A Large-Scale Empirical Study of AI-Generated Code in the Wild. <em>arXiv.</em> DOI: 10.48550/arxiv.2603.28592 <span class="tag tag-pp">PP</span></p>
+
+<p>Maier, S. et al. (2026). A meta-analysis of the effect of generative AI on productivity and learning in programming. <em>arXiv.</em> DOI: 10.48550/arxiv.2605.04779 <span class="tag tag-pp">PP</span></p>
+
+<p>Marshall, A. et al. (2024). How generative AI will drive enterprise innovation. <em>Strategy &amp; Leadership.</em> DOI: 10.1108/sl-12-2023-0126 <span class="tag tag-pr">PR</span></p>
+
+<p>Masood, Z. et al. (2021). Real World Scrum — A Grounded Theory of Variations in Practice. <em>IEEE Transactions on Software Engineering.</em> DOI: 10.1109/tse.2020.3025317 <span class="tag tag-pr">PR</span></p>
+
+<p>Moyo, S. &amp; Mnkandla, E. (2020). A Novel Lightweight Solo Software Development Methodology With Optimum Security Practices. <em>IEEE Access.</em> DOI: 10.1109/access.2020.2971000 <span class="tag tag-pr">PR</span></p>
+
+<p>Neumann, M. et al. (2026). Between Policy and Practice: GenAI Adoption in Agile Software Development Teams. <em>arXiv.</em> DOI: 10.48550/arxiv.2601.07051 <span class="tag tag-pp">PP</span></p>
+
+<p>Noy, S. &amp; Zhang, W. (2023). Experimental evidence on the productivity effects of generative artificial intelligence. <em>Science.</em> DOI: 10.1126/science.adh2586 <span class="tag tag-pr">PR</span></p>
+
+<p>Otoum, N. A. et al. (2026). Methods and Techniques of Agentic Software Engineering: A Systematic Literature Review. <em>IEEE Access.</em> DOI: 10.1109/access.2026.3652325 <span class="tag tag-pr">PR</span></p>
+
+<p>Pagotto, T. et al. (2016). Scrum solo: Software process for individual development. <em>11th Iberian Conference on Information Systems and Technologies (CISTI).</em> DOI: 10.1109/cisti.2016.7521555 <span class="tag tag-pr">PR</span></p>
+
+<p>Peng, S. et al. (2023). The Impact of AI on Developer Productivity: Evidence from GitHub Copilot. <em>arXiv.</em> DOI: 10.48550/arxiv.2302.06590 <span class="tag tag-pp">PP</span></p>
+
+<p>Peras, D. et al. (2026). AI-Enhanced Scrum: A Literature Review on the Impact of Artificial Intelligence on Scrum Processes. <em>Informatica.</em> DOI: 10.31449/inf.v50i12.10498 <span class="tag tag-pr">PR</span></p>
+
+<p>Perry, N. et al. (2022). Do Users Write More Insecure Code with AI Assistants? <em>Proceedings of the 2023 ACM SIGSAC Conference on Computer and Communications Security.</em> DOI: 10.1145/3576915.3623157 <span class="tag tag-pr">PR</span></p>
+
+<p>Rombach, A. et al. (2026). Neuro-Symbolic Agents for Regulated Process Automation: Challenges and Research Agenda. <em>arXiv.</em> DOI: 10.48550/arxiv.2606.13405 <span class="tag tag-pp">PP</span></p>
+
+<p>Russo, D. (2023). Navigating the Complexity of Generative AI Adoption in Software Engineering. <em>ACM Transactions on Software Engineering and Methodology.</em> DOI: 10.1145/3652154 <span class="tag tag-pr">PR</span></p>
+
+<p>Sardana, A. et al. (2024). Compliance-as-Code 2.0: Orchestrating Regulatory Operations with Agentic AI. <em>Journal of Artificial Intelligence General Science.</em> DOI: 10.60087/jaigs.v5i1.366 <span class="tag tag-pr">PR</span></p>
+
+<p>Schöttl, F. et al. (2026). Basics for the Future — Basic Competency Shifts in the AI Era. <em>Business &amp; Information Systems Engineering.</em> DOI: 10.1007/s12599-026-01001-4 <span class="tag tag-pr">PR</span></p>
+
+<p>Shafin, W. I. et al. (2025). Evaluating Software Process Models for Multi-Agent Class-Level Code Generation. <em>arXiv.</em> DOI: 10.48550/arxiv.2511.09794 <span class="tag tag-pp">PP</span></p>
+
+<p>Silva, A. et al. (2017). A systematic review on the use of Definition of Done on agile software development projects. <em>Proceedings of the 21st International Conference on Evaluation and Assessment in Software Engineering.</em> DOI: 10.1145/3084226.3084262 <span class="tag tag-pr">PR</span></p>
+
+<p>Stochel, M. et al. (2023). Business-driven technical debt management using Continuous Debt Valuation Approach (CoDVA). <em>Information and Software Technology.</em> DOI: 10.1016/j.infsof.2023.107333 <span class="tag tag-pr">PR</span></p>
+
+<p>Storey, M. (2026). From Technical Debt to Cognitive and Intent Debt. <em>ACM Queue.</em> DOI: 10.1145/3807966 <span class="tag tag-pr">PR</span></p>
+
+<p>Stray, V. et al. (2025). Developer Productivity With and Without GitHub Copilot: A Longitudinal Mixed-Methods Case Study. <em>Hawaii International Conference on System Sciences.</em> DOI: 10.24251/hicss.2026.880 <span class="tag tag-pr">PR</span></p>
+
+<p>Syahalam, I. A. et al. (2025). Accelerating the TOGAF Preliminary Phase: An Empirical Evaluation of LLM-Generated Artifacts in Banking. <em>13th International Conference on Orange Technology (ICOT).</em> DOI: 10.1109/icot68409.2025.11425186 <span class="tag tag-pr">PR</span></p>
+
+<p>Tomaz, R. et al. (2026). Impacts of Generative AI on Agile Teams' Productivity: A Multi-Case Longitudinal Study. <em>IEEE/ACM Third International Conference on AI Foundation Models and Software Engineering.</em> DOI: 10.1145/3793655.3793728 <span class="tag tag-pr">PR</span></p>
+
+<p>Towhidnejad, M. et al. (2025). WIP: Improving Individual Productivity Utilizing SCRUM-For-One. <em>IEEE Frontiers in Education Conference (FIE).</em> DOI: 10.1109/fie63693.2025.11328300 <span class="tag tag-pr">PR</span></p>
+
+<p>Xu, F. et al. (2025). AI-Assisted Programming Decreases the Productivity of Experienced Developers by Increasing the Technical Debt and Maintenance Burden. <em>arXiv.</em> DOI: 10.48550/arxiv.2510.10165 <span class="tag tag-pp">PP</span></p>
+
+<p>Zhang, S. et al. (2024). Empowering Agile-Based Generative Software Development through Human-AI Teamwork. <em>ACM Transactions on Software Engineering and Methodology.</em> DOI: 10.1145/3702987 <span class="tag tag-pr">PR</span></p>
+
+<p>Zhu, Y. et al. (2026). AI-Generated Smells: An Analysis of Code and Architecture in LLM and Agent-Driven Development. <em>arXiv.</em> DOI: 10.48550/arxiv.2605.02741 <span class="tag tag-pp">PP</span></p>
+
+<p>Zietsman, C. (2026). The Specification as Quality Gate: Three Hypotheses on AI-Assisted Code Review. <em>arXiv.</em> DOI: 10.48550/arxiv.2603.25773 <span class="tag tag-pp">PP</span></p>
+
+</div>
+
+</body>
+</html>
