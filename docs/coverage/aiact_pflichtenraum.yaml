@@ -266,6 +266,8 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  fassung_2026_1744:
+  - Art. 1 Abs. 2 lit. g n.F.@80284
 - id: Art. 2 Abs. 1
   artikel: '2'
   artikel_titel: Anwendungsbereich
@@ -525,6 +527,8 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  fassung_2026_1744:
+  - Art. 2 Abs. 2 n.F.@80541
 - id: Art. 2 Abs. 3
   artikel: '2'
   artikel_titel: Anwendungsbereich
@@ -688,6 +692,8 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  fassung_2026_1744:
+  - Art. 2 Abs. 7 n.F.@81085
 - id: Art. 2 Abs. 8
   artikel: '2'
   artikel_titel: Anwendungsbereich
@@ -1360,6 +1366,8 @@ einheiten:
   po_bestaetigt: false
   migriert_von: Art. 3@269531
   migration: geerbt
+  fassung_2026_1744:
+  - Art. 3 Nr. 14 n.F.@82670
 - uid: Art. 3 Nr. 15@273277
   id: Art. 3 Nr. 15
   artikel: '3'
@@ -3592,6 +3600,11 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  fassung_2026_1744:
+  - Art. 4 n.F.@83572
+  - Art. 4 Abs. 1 n.F.@83595
+  - Art. 4 Abs. 2 n.F.@84235
+  - Art. 4 Abs. 3 n.F.@84646
 - id: Art. 5 Abs. 1
   artikel: '5'
   artikel_titel: Verbotene Praktiken im KI-Bereich
@@ -6227,6 +6240,8 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  fassung_2026_1744:
+  - Art. 10 Abs. 1 n.F.@91949
 - id: Art. 10 Abs. 2
   artikel: '10'
   artikel_titel: Daten und Daten-Governance
@@ -6640,6 +6655,8 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  fassung_2026_1744:
+  - Omnibus Art. 1 Nr. 9 lit. b@92301
 - id: Art. 10 Abs. 5 lit. a
   artikel: '10'
   artikel_titel: Daten und Daten-Governance
@@ -6675,6 +6692,8 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  fassung_2026_1744:
+  - Omnibus Art. 1 Nr. 9 lit. b@92301
 - id: Art. 10 Abs. 5 lit. b
   artikel: '10'
   artikel_titel: Daten und Daten-Governance
@@ -6711,6 +6730,8 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  fassung_2026_1744:
+  - Omnibus Art. 1 Nr. 9 lit. b@92301
 - id: Art. 10 Abs. 5 lit. c
   artikel: '10'
   artikel_titel: Daten und Daten-Governance
@@ -6749,6 +6770,8 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  fassung_2026_1744:
+  - Omnibus Art. 1 Nr. 9 lit. b@92301
 - id: Art. 10 Abs. 5 lit. d
   artikel: '10'
   artikel_titel: Daten und Daten-Governance
@@ -6784,6 +6807,8 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  fassung_2026_1744:
+  - Omnibus Art. 1 Nr. 9 lit. b@92301
 - id: Art. 10 Abs. 5 lit. e
   artikel: '10'
   artikel_titel: Daten und Daten-Governance
@@ -6820,6 +6845,8 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  fassung_2026_1744:
+  - Omnibus Art. 1 Nr. 9 lit. b@92301
 - id: Art. 10 Abs. 5 lit. f
   artikel: '10'
   artikel_titel: Daten und Daten-Governance
@@ -6856,6 +6883,8 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  fassung_2026_1744:
+  - Omnibus Art. 1 Nr. 9 lit. b@92301
 - id: Art. 10 Abs. 6
   artikel: '10'
   artikel_titel: Daten und Daten-Governance
@@ -6898,6 +6927,8 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  fassung_2026_1744:
+  - Art. 10 Abs. 6 n.F.@92368
 - id: Art. 11 Abs. 1
   artikel: '11'
   artikel_titel: Technische Dokumentation
@@ -6952,6 +6983,8 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  fassung_2026_1744:
+  - Art. 11 Abs. 1 UAbs. 2 n.F.@92663
 - id: Art. 11 Abs. 2
   artikel: '11'
   artikel_titel: Technische Dokumentation
@@ -9369,6 +9402,8 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  fassung_2026_1744:
+  - Art. 17 Abs. 2 n.F.@93909
 - id: Art. 17 Abs. 3
   artikel: '17'
   artikel_titel: Qualitätsmanagementsystem
@@ -10856,6 +10891,11 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  fassung_2026_1744:
+  - Art. 25 Abs. 2 n.F.@94460
+  - Art. 25 Abs. 2 lit. a n.F.@95227
+  - Art. 25 Abs. 2 lit. b n.F.@95361
+  - Art. 25 Abs. 2 lit. c n.F.@95448
 - id: Art. 25 Abs. 3
   artikel: '25'
   artikel_titel: Verantwortlichkeiten entlang der KI-Wertschöpfungskette
@@ -10996,6 +11036,8 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  fassung_2026_1744:
+  - Art. 25 Abs. 4 UAbs. 1 n.F.@95904
 - id: Art. 25 Abs. 5
   artikel: '25'
   artikel_titel: Verantwortlichkeiten entlang der KI-Wertschöpfungskette
@@ -11879,6 +11921,8 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  fassung_2026_1744:
+  - Art. 27 Abs. 4 n.F.@96790
 - id: Art. 27 Abs. 5
   artikel: '27'
   artikel_titel: Grundrechte-Folgenabschätzung für Hochrisiko-KI-Systeme
@@ -11911,6 +11955,8 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  fassung_2026_1744:
+  - Art. 27 Abs. 5 n.F.@97338
 - id: Art. 28 Abs. 1
   artikel: '28'
   artikel_titel: Notifizierende Behörden
@@ -12253,6 +12299,8 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  fassung_2026_1744:
+  - Art. 29 Abs. 4 n.F.@100710
 - id: Art. 30 Abs. 1
   artikel: '30'
   artikel_titel: Notifizierungsverfahren
@@ -12312,6 +12360,8 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  fassung_2026_1744:
+  - Art. 30 Abs. 2 n.F.@101751
 - id: Art. 30 Abs. 3
   artikel: '30'
   artikel_titel: Notifizierungsverfahren
@@ -14785,6 +14835,8 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  fassung_2026_1744:
+  - Art. 43 Abs. 3 n.F.@104336
 - id: Art. 43 Abs. 4
   artikel: '43'
   artikel_titel: Konformitätsbewertung
@@ -16404,6 +16456,8 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  fassung_2026_1744:
+  - Art. 50 Abs. 7 n.F.@107743
 - id: Art. 51 Abs. 1
   artikel: '51'
   artikel_titel: Einstufung von KI-Modellen mit allgemeinem Verwendungszweck als KI-Modelle mit allgemeinem
@@ -18096,6 +18150,8 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  fassung_2026_1744:
+  - Art. 56 Abs. 6 n.F.@108619
 - id: Art. 56 Abs. 7
   artikel: '56'
   artikel_titel: Praxisleitfäden
@@ -18237,6 +18293,8 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  fassung_2026_1744:
+  - Art. 57 Abs. 1 UAbs. 1 n.F.@109270
 - id: Art. 57 Abs. 2
   artikel: '57'
   artikel_titel: KI-Reallabore
@@ -18300,6 +18358,8 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  fassung_2026_1744:
+  - Art. 57 Abs. 3 n.F.@109745
 - id: Art. 57 Abs. 4
   artikel: '57'
   artikel_titel: KI-Reallabore
@@ -18372,6 +18432,8 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  fassung_2026_1744:
+  - Art. 57 Abs. 5 n.F.@111027
 - id: Art. 57 Abs. 6
   artikel: '57'
   artikel_titel: KI-Reallabore
@@ -18666,6 +18728,8 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  fassung_2026_1744:
+  - Art. 57 Abs. 9 lit. e n.F.@111824
 - id: Art. 57 Abs. 10
   artikel: '57'
   artikel_titel: KI-Reallabore
@@ -18701,6 +18765,8 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  fassung_2026_1744:
+  - Art. 57 Abs. 10 n.F.@112068
 - id: Art. 57 Abs. 11
   artikel: '57'
   artikel_titel: KI-Reallabore
@@ -18839,6 +18905,8 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  fassung_2026_1744:
+  - Art. 57 Abs. 14 n.F.@112652
 - id: Art. 57 Abs. 15
   artikel: '57'
   artikel_titel: KI-Reallabore
@@ -18982,6 +19050,8 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  fassung_2026_1744:
+  - Art. 58 Abs. 1 UAbs. 1 Einleitung n.F.@113229
 - id: Art. 58 Abs. 1 lit. a
   artikel: '58'
   artikel_titel: Detaillierte Regelungen für KI-Reallabore und deren Funktionsweise
@@ -20109,6 +20179,8 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  fassung_2026_1744:
+  - Art. 60 Abs. 1 UAbs. 1 n.F.@114068
 - id: Art. 60 Abs. 2
   artikel: '60'
   artikel_titel: Tests von Hochrisiko-KI-Systemen unter Realbedingungen außerhalb von KI-Reallaboren
@@ -20142,6 +20214,8 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  fassung_2026_1744:
+  - Art. 60 Abs. 2 n.F.@114577
 - id: Art. 60 Abs. 3
   artikel: '60'
   artikel_titel: Tests von Hochrisiko-KI-Systemen unter Realbedingungen außerhalb von KI-Reallaboren
@@ -21335,6 +21409,8 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  fassung_2026_1744:
+  - Art. 63 Abs. 1 n.F.@118435
 - id: Art. 63 Abs. 2
   artikel: '63'
   artikel_titel: Ausnahmen für bestimmte Akteure
@@ -23390,6 +23466,8 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  fassung_2026_1744:
+  - Art. 69 Abs. 2 n.F.@119388
 - id: Art. 69 Abs. 3
   artikel: '69'
   artikel_titel: Zugang zum Pool von Sachverständigen durch die Mitgliedstaaten
@@ -23689,6 +23767,8 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  fassung_2026_1744:
+  - Art. 70 Abs. 8 n.F.@119705
 - id: Art. 70 Abs. 9
   artikel: '70'
   artikel_titel: Benennung von zuständigen nationalen Behörden und zentrale Anlaufstelle
@@ -24038,6 +24118,8 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  fassung_2026_1744:
+  - Art. 72 Abs. 3 n.F.@120337
 - id: Art. 72 Abs. 4
   artikel: '72'
   artikel_titel: Beobachtung nach dem Inverkehrbringen durch die Anbieter und Plan für die Beobachtung
@@ -25115,6 +25197,14 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  fassung_2026_1744:
+  - Art. 75 Abs. 1 n.F.@120996
+  - Art. 75 Abs. 1 lit. a n.F.@121181
+  - Art. 75 Abs. 1 lit. a Ziff. i n.F.@121436
+  - Art. 75 Abs. 1 lit. a Ziff. ii n.F.@121573
+  - Art. 75 Abs. 1 lit. a Ziff. iii n.F.@121617
+  - Art. 75 Abs. 1 lit. a Ziff. iv n.F.@121801
+  - Art. 75 Abs. 1 lit. b n.F.@121875
 - id: Art. 75 Abs. 2
   artikel: '75'
   artikel_titel: Amtshilfe, Marktüberwachung und Kontrolle von KI-Systemen mit allgemeinem Verwendungszweck
@@ -25447,6 +25537,8 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  fassung_2026_1744:
+  - Art. 77 Abs. 1 n.F.@146588
 - id: Art. 77 Abs. 2
   artikel: '77'
   artikel_titel: Befugnisse der für den Schutz der Grundrechte zuständigen Behörden
@@ -28726,6 +28818,8 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  fassung_2026_1744:
+  - Art. 95 Abs. 4 n.F.@148560
 - id: Art. 96 Abs. 1
   artikel: '96'
   artikel_titel: Leitlinien der Kommission zur Durchführung dieser Verordnung
@@ -28756,6 +28850,8 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  fassung_2026_1744:
+  - Art. 96 Abs. 1 UAbs. 2 n.F.@149675
 - id: Art. 96 Abs. 1 lit. a
   artikel: '96'
   artikel_titel: Leitlinien der Kommission zur Durchführung dieser Verordnung
@@ -28786,6 +28882,9 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  fassung_2026_1744:
+  - Art. 96 Abs. 1 UAbs. 1 lit. a n.F.@148931
+  - Art. 96 Abs. 1 UAbs. 2 n.F.@149675
 - id: Art. 96 Abs. 1 lit. b
   artikel: '96'
   artikel_titel: Leitlinien der Kommission zur Durchführung dieser Verordnung
@@ -28815,6 +28914,8 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  fassung_2026_1744:
+  - Art. 96 Abs. 1 UAbs. 2 n.F.@149675
 - id: Art. 96 Abs. 1 lit. c
   artikel: '96'
   artikel_titel: Leitlinien der Kommission zur Durchführung dieser Verordnung
@@ -28844,6 +28945,8 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  fassung_2026_1744:
+  - Art. 96 Abs. 1 UAbs. 2 n.F.@149675
 - id: Art. 96 Abs. 1 lit. d
   artikel: '96'
   artikel_titel: Leitlinien der Kommission zur Durchführung dieser Verordnung
@@ -28873,6 +28976,8 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  fassung_2026_1744:
+  - Art. 96 Abs. 1 UAbs. 2 n.F.@149675
 - id: Art. 96 Abs. 1 lit. e
   artikel: '96'
   artikel_titel: Leitlinien der Kommission zur Durchführung dieser Verordnung
@@ -28905,6 +29010,8 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  fassung_2026_1744:
+  - Art. 96 Abs. 1 UAbs. 2 n.F.@149675
 - id: Art. 96 Abs. 1 lit. f
   artikel: '96'
   artikel_titel: Leitlinien der Kommission zur Durchführung dieser Verordnung
@@ -28942,6 +29049,8 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  fassung_2026_1744:
+  - Art. 96 Abs. 1 UAbs. 2 n.F.@149675
 - id: Art. 96 Abs. 2
   artikel: '96'
   artikel_titel: Leitlinien der Kommission zur Durchführung dieser Verordnung
@@ -29039,6 +29148,8 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  fassung_2026_1744:
+  - Art. 97 Abs. 2 n.F.@150078
 - id: Art. 97 Abs. 3
   artikel: '97'
   artikel_titel: Ausübung der Befugnisübertragung
@@ -29076,6 +29187,8 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  fassung_2026_1744:
+  - Art. 97 Abs. 3 n.F.@150981
 - id: Art. 97 Abs. 4
   artikel: '97'
   artikel_titel: Ausübung der Befugnisübertragung
@@ -29172,6 +29285,8 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  fassung_2026_1744:
+  - Art. 97 Abs. 6 n.F.@151736
 - id: Art. 98 Abs. 1
   artikel: '98'
   artikel_titel: Ausschussverfahren
@@ -29265,6 +29380,8 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  fassung_2026_1744:
+  - Art. 99 Abs. 1 n.F.@152573
 - id: Art. 99 Abs. 2
   artikel: '99'
   artikel_titel: Sanktionen
@@ -31365,6 +31482,8 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  fassung_2026_1744:
+  - Art. 111 Abs. 2 n.F.@153784
 - id: Art. 111 Abs. 3
   artikel: '111'
   artikel_titel: Bereits in Verkehr gebrachte oder in Betrieb genommene KI-Systeme und bereits in Verkehr
@@ -32127,6 +32246,8 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  fassung_2026_1744:
+  - Art. 113 Abs. 3 lit. a n.F.@154925
 - uid: Art. 113 lit. b@587157
   id: Art. 113 lit. b
   artikel: '113'
@@ -32179,6 +32300,10 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  fassung_2026_1744:
+  - Art. 113 Abs. 3 lit. c n.F.@155162
+  - Art. 113 Abs. 3 lit. c Ziff. i n.F.@155252
+  - Art. 113 Abs. 3 lit. c Ziff. ii n.F.@155378
 - uid: Anhang I Abschn. A@602960
   id: Anhang I Abschn. A
   artikel: Anhang I
@@ -32231,6 +32356,8 @@ einheiten:
   gate: *id038
   befund: null
   befund_grund: null
+  fassung_2026_1744:
+  - Omnibus Art. 1 Nr. 41 lit. a@155633
 - uid: Anhang I Abschn. A Nr. 2@603252
   id: Anhang I Abschn. A Nr. 2
   artikel: Anhang I
@@ -35911,6 +36038,8 @@ einheiten:
   gate: *id038
   befund: null
   befund_grund: null
+  fassung_2026_1744:
+  - Omnibus Art. 1 Nr. 42@156047
 - uid: Anhang VIII Abschn. B Nr. 8@639519
   id: Anhang VIII Abschn. B Nr. 8
   artikel: Anhang VIII
@@ -35962,6 +36091,8 @@ einheiten:
   gate: *id038
   befund: null
   befund_grund: null
+  fassung_2026_1744:
+  - Omnibus Art. 1 Nr. 42@156047
 - uid: Anhang VIII Abschn. C@639760
   id: Anhang VIII Abschn. C
   artikel: Anhang VIII

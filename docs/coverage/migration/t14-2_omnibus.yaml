@@ -1,0 +1,835 @@
+anlass: T-14.2 — Omnibus VO (EU) 2026/1744 als zweite Quelle
+anweisungen_art_1: 43
+anweisungen_art_1_lueckenlos_1_bis_43: true
+einheiten_omnibus: 268
+grundfassung_mit_neuer_fassung: 58
+neu_gefasst_oder_gestrichen_ohne_grundfassungsziel:
+- Omnibus Art. 1 Nr. 31 lit. a
+- Omnibus Art. 1 Nr. 34 lit. a
+anweisungen:
+  Omnibus Art. 1 Nr. 1:
+    aenderung:
+    - neu_gefasst
+    einheiten:
+    - Omnibus Art. 1 Nr. 1
+    - Art. 1 Abs. 2 lit. g n.F.
+    ziele_grundfassung:
+    - Art. 1 Abs. 2 lit. g
+  Omnibus Art. 1 Nr. 2:
+    aenderung:
+    - geaendert
+    einheiten:
+    - Omnibus Art. 1 Nr. 2
+    ziele_grundfassung: []
+  Omnibus Art. 1 Nr. 2 lit. a:
+    aenderung:
+    - neu_gefasst
+    einheiten:
+    - Omnibus Art. 1 Nr. 2 lit. a
+    - Art. 2 Abs. 2 n.F.
+    ziele_grundfassung:
+    - Art. 2 Abs. 2
+  Omnibus Art. 1 Nr. 2 lit. b:
+    aenderung:
+    - neu_gefasst
+    einheiten:
+    - Omnibus Art. 1 Nr. 2 lit. b
+    - Art. 2 Abs. 7 n.F.
+    ziele_grundfassung:
+    - Art. 2 Abs. 7
+  Omnibus Art. 1 Nr. 3:
+    aenderung:
+    - angefuegt
+    einheiten:
+    - Omnibus Art. 1 Nr. 3
+    - Art. 2 Abs. 13 n.F.
+    - Art. 2 Abs. 13 lit. a n.F.
+    - Art. 2 Abs. 13 lit. b n.F.
+    ziele_grundfassung: []
+  Omnibus Art. 1 Nr. 4:
+    aenderung:
+    - geaendert
+    einheiten:
+    - Omnibus Art. 1 Nr. 4
+    ziele_grundfassung: []
+  Omnibus Art. 1 Nr. 4 lit. a:
+    aenderung:
+    - geaendert
+    einheiten:
+    - Omnibus Art. 1 Nr. 4 lit. a
+    - Art. 3 Nr. 14 n.F.
+    ziele_grundfassung:
+    - Art. 3 Nr. 14
+  Omnibus Art. 1 Nr. 4 lit. b:
+    aenderung:
+    - eingefuegt
+    einheiten:
+    - Omnibus Art. 1 Nr. 4 lit. b
+    - Art. 3 Nr. 14a n.F.
+    - Art. 3 Nr. 14b n.F.
+    ziele_grundfassung: []
+  Omnibus Art. 1 Nr. 5:
+    aenderung:
+    - neu_gefasst
+    einheiten:
+    - Omnibus Art. 1 Nr. 5
+    - Art. 4 n.F.
+    - Art. 4 Abs. 1 n.F.
+    - Art. 4 Abs. 2 n.F.
+    - Art. 4 Abs. 3 n.F.
+    ziele_grundfassung:
+    - Art. 4
+  Omnibus Art. 1 Nr. 6:
+    aenderung:
+    - eingefuegt
+    einheiten:
+    - Omnibus Art. 1 Nr. 6
+    - Art. 4a n.F.
+    - Art. 4a Abs. 1 n.F.
+    - Art. 4a Abs. 1 lit. a n.F.
+    - Art. 4a Abs. 1 lit. b n.F.
+    - Art. 4a Abs. 1 lit. c n.F.
+    - Art. 4a Abs. 1 lit. d n.F.
+    - Art. 4a Abs. 1 lit. e n.F.
+    - Art. 4a Abs. 1 lit. f n.F.
+    - Art. 4a Abs. 2 n.F.
+    - Art. 4a Abs. 2 lit. a n.F.
+    - Art. 4a Abs. 2 lit. b n.F.
+    ziele_grundfassung: []
+  Omnibus Art. 1 Nr. 7:
+    aenderung:
+    - geaendert
+    einheiten:
+    - Omnibus Art. 1 Nr. 7
+    ziele_grundfassung: []
+  Omnibus Art. 1 Nr. 7 lit. a:
+    aenderung:
+    - eingefuegt
+    einheiten:
+    - Omnibus Art. 1 Nr. 7 lit. a
+    - Art. 5 Abs. 1 UAbs. 1 lit. ba n.F.
+    - Art. 5 Abs. 1 UAbs. 1 lit. bb n.F.
+    ziele_grundfassung: []
+  Omnibus Art. 1 Nr. 7 lit. b:
+    aenderung:
+    - eingefuegt
+    einheiten:
+    - Omnibus Art. 1 Nr. 7 lit. b
+    - Art. 5 Abs. 1a n.F.
+    - Art. 5 Abs. 1a lit. a n.F.
+    - Art. 5 Abs. 1a lit. a Ziff. i n.F.
+    - Art. 5 Abs. 1a lit. a Ziff. ii n.F.
+    - Art. 5 Abs. 1a lit. b n.F.
+    ziele_grundfassung: []
+  Omnibus Art. 1 Nr. 8:
+    aenderung:
+    - eingefuegt
+    einheiten:
+    - Omnibus Art. 1 Nr. 8
+    - Art. 6 Abs. 1a n.F.
+    - Art. 6 Abs. 1b n.F.
+    - Art. 6 Abs. 1c n.F.
+    ziele_grundfassung: []
+  Omnibus Art. 1 Nr. 9:
+    aenderung:
+    - geaendert
+    einheiten:
+    - Omnibus Art. 1 Nr. 9
+    ziele_grundfassung: []
+  Omnibus Art. 1 Nr. 9 lit. a:
+    aenderung:
+    - neu_gefasst
+    einheiten:
+    - Omnibus Art. 1 Nr. 9 lit. a
+    - Art. 10 Abs. 1 n.F.
+    ziele_grundfassung:
+    - Art. 10 Abs. 1
+  Omnibus Art. 1 Nr. 9 lit. b:
+    aenderung:
+    - gestrichen
+    einheiten:
+    - Omnibus Art. 1 Nr. 9 lit. b
+    ziele_grundfassung:
+    - Art. 10 Abs. 5
+    - Art. 10 Abs. 5 lit. a
+    - Art. 10 Abs. 5 lit. b
+    - Art. 10 Abs. 5 lit. c
+    - Art. 10 Abs. 5 lit. d
+    - Art. 10 Abs. 5 lit. e
+    - Art. 10 Abs. 5 lit. f
+  Omnibus Art. 1 Nr. 9 lit. c:
+    aenderung:
+    - neu_gefasst
+    einheiten:
+    - Omnibus Art. 1 Nr. 9 lit. c
+    - Art. 10 Abs. 6 n.F.
+    ziele_grundfassung:
+    - Art. 10 Abs. 6
+  Omnibus Art. 1 Nr. 10:
+    aenderung:
+    - neu_gefasst
+    einheiten:
+    - Omnibus Art. 1 Nr. 10
+    - Art. 11 Abs. 1 UAbs. 2 n.F.
+    ziele_grundfassung:
+    - Art. 11 Abs. 1
+  Omnibus Art. 1 Nr. 11:
+    aenderung:
+    - neu_gefasst
+    einheiten:
+    - Omnibus Art. 1 Nr. 11
+    - Art. 17 Abs. 2 n.F.
+    ziele_grundfassung:
+    - Art. 17 Abs. 2
+  Omnibus Art. 1 Nr. 12:
+    aenderung:
+    - geaendert
+    einheiten:
+    - Omnibus Art. 1 Nr. 12
+    ziele_grundfassung: []
+  Omnibus Art. 1 Nr. 12 lit. a:
+    aenderung:
+    - neu_gefasst
+    einheiten:
+    - Omnibus Art. 1 Nr. 12 lit. a
+    - Art. 25 Abs. 2 n.F.
+    - Art. 25 Abs. 2 lit. a n.F.
+    - Art. 25 Abs. 2 lit. b n.F.
+    - Art. 25 Abs. 2 lit. c n.F.
+    ziele_grundfassung:
+    - Art. 25 Abs. 2
+  Omnibus Art. 1 Nr. 12 lit. b:
+    aenderung:
+    - neu_gefasst
+    einheiten:
+    - Omnibus Art. 1 Nr. 12 lit. b
+    - Art. 25 Abs. 4 UAbs. 1 n.F.
+    ziele_grundfassung:
+    - Art. 25 Abs. 4
+  Omnibus Art. 1 Nr. 13:
+    aenderung:
+    - geaendert
+    einheiten:
+    - Omnibus Art. 1 Nr. 13
+    ziele_grundfassung: []
+  Omnibus Art. 1 Nr. 13 lit. a:
+    aenderung:
+    - neu_gefasst
+    einheiten:
+    - Omnibus Art. 1 Nr. 13 lit. a
+    - Art. 27 Abs. 4 n.F.
+    ziele_grundfassung:
+    - Art. 27 Abs. 4
+  Omnibus Art. 1 Nr. 13 lit. b:
+    aenderung:
+    - neu_gefasst
+    einheiten:
+    - Omnibus Art. 1 Nr. 13 lit. b
+    - Art. 27 Abs. 5 n.F.
+    ziele_grundfassung:
+    - Art. 27 Abs. 5
+  Omnibus Art. 1 Nr. 14:
+    aenderung:
+    - angefuegt
+    einheiten:
+    - Omnibus Art. 1 Nr. 14
+    - Art. 28 Abs. 8 n.F.
+    - Art. 28 Abs. 9 n.F.
+    ziele_grundfassung: []
+  Omnibus Art. 1 Nr. 15:
+    aenderung:
+    - neu_gefasst
+    einheiten:
+    - Omnibus Art. 1 Nr. 15
+    - Art. 29 Abs. 4 n.F.
+    ziele_grundfassung:
+    - Art. 29 Abs. 4
+  Omnibus Art. 1 Nr. 16:
+    aenderung:
+    - neu_gefasst
+    einheiten:
+    - Omnibus Art. 1 Nr. 16
+    - Art. 30 Abs. 2 n.F.
+    ziele_grundfassung:
+    - Art. 30 Abs. 2
+  Omnibus Art. 1 Nr. 17:
+    aenderung:
+    - angefuegt
+    einheiten:
+    - Omnibus Art. 1 Nr. 17
+    - Art. 40 Abs. 2 (angefügt) n.F.
+    ziele_grundfassung: []
+  Omnibus Art. 1 Nr. 18:
+    aenderung:
+    - angefuegt
+    einheiten:
+    - Omnibus Art. 1 Nr. 18
+    - Art. 42 Abs. 3 n.F.
+    ziele_grundfassung: []
+  Omnibus Art. 1 Nr. 19:
+    aenderung:
+    - neu_gefasst
+    einheiten:
+    - Omnibus Art. 1 Nr. 19
+    - Art. 43 Abs. 3 n.F.
+    ziele_grundfassung:
+    - Art. 43 Abs. 3
+  Omnibus Art. 1 Nr. 20:
+    aenderung:
+    - neu_gefasst
+    einheiten:
+    - Omnibus Art. 1 Nr. 20
+    - Art. 50 Abs. 7 n.F.
+    ziele_grundfassung:
+    - Art. 50 Abs. 7
+  Omnibus Art. 1 Nr. 21:
+    aenderung:
+    - neu_gefasst
+    einheiten:
+    - Omnibus Art. 1 Nr. 21
+    - Art. 56 Abs. 6 n.F.
+    ziele_grundfassung:
+    - Art. 56 Abs. 6
+  Omnibus Art. 1 Nr. 22:
+    aenderung:
+    - geaendert
+    einheiten:
+    - Omnibus Art. 1 Nr. 22
+    ziele_grundfassung: []
+  Omnibus Art. 1 Nr. 22 lit. a:
+    aenderung:
+    - neu_gefasst
+    einheiten:
+    - Omnibus Art. 1 Nr. 22 lit. a
+    - Art. 57 Abs. 1 UAbs. 1 n.F.
+    ziele_grundfassung:
+    - Art. 57 Abs. 1
+  Omnibus Art. 1 Nr. 22 lit. b:
+    aenderung:
+    - neu_gefasst
+    einheiten:
+    - Omnibus Art. 1 Nr. 22 lit. b
+    - Art. 57 Abs. 3 n.F.
+    ziele_grundfassung:
+    - Art. 57 Abs. 3
+  Omnibus Art. 1 Nr. 22 lit. c:
+    aenderung:
+    - eingefuegt
+    einheiten:
+    - Omnibus Art. 1 Nr. 22 lit. c
+    - Art. 57 Abs. 3a n.F.
+    ziele_grundfassung: []
+  Omnibus Art. 1 Nr. 22 lit. d:
+    aenderung:
+    - neu_gefasst
+    einheiten:
+    - Omnibus Art. 1 Nr. 22 lit. d
+    - Art. 57 Abs. 5 n.F.
+    ziele_grundfassung:
+    - Art. 57 Abs. 5
+  Omnibus Art. 1 Nr. 22 lit. e:
+    aenderung:
+    - neu_gefasst
+    einheiten:
+    - Omnibus Art. 1 Nr. 22 lit. e
+    - Art. 57 Abs. 9 lit. e n.F.
+    ziele_grundfassung:
+    - Art. 57 Abs. 9 lit. e
+  Omnibus Art. 1 Nr. 22 lit. f:
+    aenderung:
+    - neu_gefasst
+    einheiten:
+    - Omnibus Art. 1 Nr. 22 lit. f
+    - Art. 57 Abs. 10 n.F.
+    ziele_grundfassung:
+    - Art. 57 Abs. 10
+  Omnibus Art. 1 Nr. 22 lit. g:
+    aenderung:
+    - neu_gefasst
+    einheiten:
+    - Omnibus Art. 1 Nr. 22 lit. g
+    - Art. 57 Abs. 14 n.F.
+    ziele_grundfassung:
+    - Art. 57 Abs. 14
+  Omnibus Art. 1 Nr. 23:
+    aenderung:
+    - geaendert
+    einheiten:
+    - Omnibus Art. 1 Nr. 23
+    ziele_grundfassung: []
+  Omnibus Art. 1 Nr. 23 lit. a:
+    aenderung:
+    - neu_gefasst
+    einheiten:
+    - Omnibus Art. 1 Nr. 23 lit. a
+    - Art. 58 Abs. 1 UAbs. 1 Einleitung n.F.
+    ziele_grundfassung:
+    - Art. 58 Abs. 1
+  Omnibus Art. 1 Nr. 23 lit. b:
+    aenderung:
+    - angefuegt
+    einheiten:
+    - Omnibus Art. 1 Nr. 23 lit. b
+    - Art. 58 Abs. 1 UAbs. 1 lit. d n.F.
+    ziele_grundfassung: []
+  Omnibus Art. 1 Nr. 24:
+    aenderung:
+    - geaendert
+    einheiten:
+    - Omnibus Art. 1 Nr. 24
+    ziele_grundfassung: []
+  Omnibus Art. 1 Nr. 24 lit. a:
+    aenderung:
+    - neu_gefasst
+    einheiten:
+    - Omnibus Art. 1 Nr. 24 lit. a
+    - Art. 60 Abs. 1 UAbs. 1 n.F.
+    ziele_grundfassung:
+    - Art. 60 Abs. 1
+  Omnibus Art. 1 Nr. 24 lit. b:
+    aenderung:
+    - neu_gefasst
+    einheiten:
+    - Omnibus Art. 1 Nr. 24 lit. b
+    - Art. 60 Abs. 2 n.F.
+    ziele_grundfassung:
+    - Art. 60 Abs. 2
+  Omnibus Art. 1 Nr. 25:
+    aenderung:
+    - eingefuegt
+    einheiten:
+    - Omnibus Art. 1 Nr. 25
+    - Art. 60a n.F.
+    - Art. 60a Abs. 1 n.F.
+    - Art. 60a Abs. 2 n.F.
+    - Art. 60a Abs. 3 n.F.
+    - Art. 60a Abs. 4 n.F.
+    - Art. 60a Abs. 5 n.F.
+    - Art. 60a Abs. 5 lit. a n.F.
+    - Art. 60a Abs. 5 lit. b n.F.
+    - Art. 60a Abs. 5 lit. c n.F.
+    - Art. 60a Abs. 5 lit. d n.F.
+    - Art. 60a Abs. 6 n.F.
+    ziele_grundfassung: []
+  Omnibus Art. 1 Nr. 26:
+    aenderung:
+    - neu_gefasst
+    einheiten:
+    - Omnibus Art. 1 Nr. 26
+    - Art. 63 Abs. 1 n.F.
+    ziele_grundfassung:
+    - Art. 63 Abs. 1
+  Omnibus Art. 1 Nr. 27:
+    aenderung:
+    - angefuegt
+    einheiten:
+    - Omnibus Art. 1 Nr. 27
+    - Art. 64 Abs. 3 n.F.
+    ziele_grundfassung: []
+  Omnibus Art. 1 Nr. 28:
+    aenderung:
+    - neu_gefasst
+    einheiten:
+    - Omnibus Art. 1 Nr. 28
+    - Art. 69 Abs. 2 n.F.
+    ziele_grundfassung:
+    - Art. 69 Abs. 2
+  Omnibus Art. 1 Nr. 29:
+    aenderung:
+    - neu_gefasst
+    einheiten:
+    - Omnibus Art. 1 Nr. 29
+    - Art. 70 Abs. 8 n.F.
+    ziele_grundfassung:
+    - Art. 70 Abs. 8
+  Omnibus Art. 1 Nr. 30:
+    aenderung:
+    - neu_gefasst
+    einheiten:
+    - Omnibus Art. 1 Nr. 30
+    - Art. 72 Abs. 3 n.F.
+    ziele_grundfassung:
+    - Art. 72 Abs. 3
+  Omnibus Art. 1 Nr. 31:
+    aenderung:
+    - geaendert
+    einheiten:
+    - Omnibus Art. 1 Nr. 31
+    ziele_grundfassung: []
+  Omnibus Art. 1 Nr. 31 lit. a:
+    aenderung:
+    - neu_gefasst
+    einheiten:
+    - Omnibus Art. 1 Nr. 31 lit. a
+    - Art. 75 Überschrift n.F.
+    ziele_grundfassung: []
+  Omnibus Art. 1 Nr. 31 lit. b:
+    aenderung:
+    - neu_gefasst
+    einheiten:
+    - Omnibus Art. 1 Nr. 31 lit. b
+    - Art. 75 Abs. 1 n.F.
+    - Art. 75 Abs. 1 lit. a n.F.
+    - Art. 75 Abs. 1 lit. a Ziff. i n.F.
+    - Art. 75 Abs. 1 lit. a Ziff. ii n.F.
+    - Art. 75 Abs. 1 lit. a Ziff. iii n.F.
+    - Art. 75 Abs. 1 lit. a Ziff. iv n.F.
+    - Art. 75 Abs. 1 lit. b n.F.
+    ziele_grundfassung:
+    - Art. 75 Abs. 1
+  Omnibus Art. 1 Nr. 31 lit. c:
+    aenderung:
+    - eingefuegt
+    einheiten:
+    - Omnibus Art. 1 Nr. 31 lit. c
+    - Art. 75 Abs. 1a n.F.
+    - Art. 75 Abs. 1b n.F.
+    - Art. 75 Abs. 1c n.F.
+    - Art. 75 Abs. 1d n.F.
+    - Art. 75 Abs. 1e n.F.
+    ziele_grundfassung: []
+  Omnibus Art. 1 Nr. 31 lit. d:
+    aenderung:
+    - eingefuegt
+    einheiten:
+    - Omnibus Art. 1 Nr. 31 lit. d
+    - Art. 75 Abs. 2a n.F.
+    - Art. 75 Abs. 2a lit. a n.F.
+    - Art. 75 Abs. 2a lit. b n.F.
+    - Art. 75 Abs. 2a lit. c n.F.
+    ziele_grundfassung: []
+  Omnibus Art. 1 Nr. 32:
+    aenderung:
+    - eingefuegt
+    einheiten:
+    - Omnibus Art. 1 Nr. 32
+    - Art. 75a n.F.
+    - Art. 75a Abs. 1 n.F.
+    - Art. 75a Abs. 2 n.F.
+    - Art. 75a Abs. 3 n.F.
+    - Art. 75a Abs. 4 n.F.
+    - Art. 75a Abs. 4 lit. a n.F.
+    - Art. 75a Abs. 4 lit. b n.F.
+    - Art. 75a Abs. 4 lit. c n.F.
+    - Art. 75a Abs. 4 lit. d n.F.
+    - Art. 75a Abs. 4 lit. e n.F.
+    - Art. 75a Abs. 5 n.F.
+    - Art. 75a Abs. 6 n.F.
+    - Art. 75a Abs. 6 lit. a n.F.
+    - Art. 75a Abs. 6 lit. b n.F.
+    - Art. 75a Abs. 7 n.F.
+    - Art. 75a Abs. 8 n.F.
+    - Art. 75b n.F.
+    - Art. 75c n.F.
+    - Art. 75c Abs. 1 n.F.
+    - Art. 75c Abs. 2 n.F.
+    - Art. 75c Abs. 3 n.F.
+    - Art. 75c Abs. 4 n.F.
+    - Art. 75c Abs. 4 lit. a n.F.
+    - Art. 75c Abs. 4 lit. b n.F.
+    - Art. 75c Abs. 4 lit. c n.F.
+    - Art. 75c Abs. 5 n.F.
+    - Art. 75c Abs. 5 lit. a n.F.
+    - Art. 75c Abs. 5 lit. b n.F.
+    - Art. 75c Abs. 5 lit. c n.F.
+    - Art. 75c Abs. 5 lit. d n.F.
+    - Art. 75c Abs. 5 lit. e n.F.
+    - Art. 75c Abs. 5 lit. f n.F.
+    - Art. 75c Abs. 5 lit. g n.F.
+    - Art. 75c Abs. 6 n.F.
+    - Art. 75c Abs. 7 n.F.
+    - Art. 75c Abs. 8 n.F.
+    - Art. 75c Abs. 9 n.F.
+    - Art. 75d n.F.
+    - Art. 75d Abs. 1 n.F.
+    - Art. 75d Abs. 2 n.F.
+    - Art. 75d Abs. 3 n.F.
+    - Art. 75d Abs. 4 n.F.
+    ziele_grundfassung: []
+  Omnibus Art. 1 Nr. 33:
+    aenderung:
+    - angefuegt
+    einheiten:
+    - Omnibus Art. 1 Nr. 33
+    - Art. 76 Abs. 1 (angefügt) n.F.
+    ziele_grundfassung: []
+  Omnibus Art. 1 Nr. 34:
+    aenderung:
+    - geaendert
+    einheiten:
+    - Omnibus Art. 1 Nr. 34
+    ziele_grundfassung: []
+  Omnibus Art. 1 Nr. 34 lit. a:
+    aenderung:
+    - neu_gefasst
+    einheiten:
+    - Omnibus Art. 1 Nr. 34 lit. a
+    - Art. 77 Überschrift n.F.
+    ziele_grundfassung: []
+  Omnibus Art. 1 Nr. 34 lit. b:
+    aenderung:
+    - neu_gefasst
+    einheiten:
+    - Omnibus Art. 1 Nr. 34 lit. b
+    - Art. 77 Abs. 1 n.F.
+    ziele_grundfassung:
+    - Art. 77 Abs. 1
+  Omnibus Art. 1 Nr. 34 lit. c:
+    aenderung:
+    - eingefuegt
+    einheiten:
+    - Omnibus Art. 1 Nr. 34 lit. c
+    - Art. 77 Abs. 1a n.F.
+    - Art. 77 Abs. 1b n.F.
+    ziele_grundfassung: []
+  Omnibus Art. 1 Nr. 35:
+    aenderung:
+    - neu_gefasst
+    einheiten:
+    - Omnibus Art. 1 Nr. 35
+    - Art. 95 Abs. 4 n.F.
+    ziele_grundfassung:
+    - Art. 95 Abs. 4
+  Omnibus Art. 1 Nr. 36:
+    aenderung:
+    - geaendert
+    einheiten:
+    - Omnibus Art. 1 Nr. 36
+    ziele_grundfassung: []
+  Omnibus Art. 1 Nr. 36 lit. a:
+    aenderung:
+    - neu_gefasst
+    einheiten:
+    - Omnibus Art. 1 Nr. 36 lit. a
+    - Art. 96 Abs. 1 UAbs. 1 lit. a n.F.
+    ziele_grundfassung:
+    - Art. 96 Abs. 1 lit. a
+  Omnibus Art. 1 Nr. 36 lit. b:
+    aenderung:
+    - angefuegt
+    einheiten:
+    - Omnibus Art. 1 Nr. 36 lit. b
+    - Art. 96 Abs. 1 UAbs. 1 lit. g n.F.
+    ziele_grundfassung: []
+  Omnibus Art. 1 Nr. 36 lit. c:
+    aenderung:
+    - neu_gefasst
+    einheiten:
+    - Omnibus Art. 1 Nr. 36 lit. c
+    - Art. 96 Abs. 1 UAbs. 2 n.F.
+    ziele_grundfassung:
+    - Art. 96 Abs. 1
+    - Art. 96 Abs. 1 lit. a
+    - Art. 96 Abs. 1 lit. b
+    - Art. 96 Abs. 1 lit. c
+    - Art. 96 Abs. 1 lit. d
+    - Art. 96 Abs. 1 lit. e
+    - Art. 96 Abs. 1 lit. f
+  Omnibus Art. 1 Nr. 37:
+    aenderung:
+    - geaendert
+    einheiten:
+    - Omnibus Art. 1 Nr. 37
+    ziele_grundfassung: []
+  Omnibus Art. 1 Nr. 37 lit. a:
+    aenderung:
+    - neu_gefasst
+    einheiten:
+    - Omnibus Art. 1 Nr. 37 lit. a
+    - Art. 97 Abs. 2 n.F.
+    - Art. 97 Abs. 3 n.F.
+    ziele_grundfassung:
+    - Art. 97 Abs. 2
+    - Art. 97 Abs. 3
+  Omnibus Art. 1 Nr. 37 lit. b:
+    aenderung:
+    - neu_gefasst
+    einheiten:
+    - Omnibus Art. 1 Nr. 37 lit. b
+    - Art. 97 Abs. 6 n.F.
+    ziele_grundfassung:
+    - Art. 97 Abs. 6
+  Omnibus Art. 1 Nr. 38:
+    aenderung:
+    - geaendert
+    einheiten:
+    - Omnibus Art. 1 Nr. 38
+    ziele_grundfassung: []
+  Omnibus Art. 1 Nr. 38 lit. a:
+    aenderung:
+    - neu_gefasst
+    einheiten:
+    - Omnibus Art. 1 Nr. 38 lit. a
+    - Art. 99 Abs. 1 n.F.
+    ziele_grundfassung:
+    - Art. 99 Abs. 1
+  Omnibus Art. 1 Nr. 38 lit. b:
+    aenderung:
+    - eingefuegt
+    einheiten:
+    - Omnibus Art. 1 Nr. 38 lit. b
+    - Art. 99 Abs. 4 lit. da n.F.
+    ziele_grundfassung: []
+  Omnibus Art. 1 Nr. 38 lit. c:
+    aenderung:
+    - eingefuegt
+    einheiten:
+    - Omnibus Art. 1 Nr. 38 lit. c
+    - Art. 99 Abs. 6a n.F.
+    ziele_grundfassung: []
+  Omnibus Art. 1 Nr. 39:
+    aenderung:
+    - geaendert
+    einheiten:
+    - Omnibus Art. 1 Nr. 39
+    ziele_grundfassung: []
+  Omnibus Art. 1 Nr. 39 lit. a:
+    aenderung:
+    - neu_gefasst
+    einheiten:
+    - Omnibus Art. 1 Nr. 39 lit. a
+    - Art. 111 Abs. 2 n.F.
+    ziele_grundfassung:
+    - Art. 111 Abs. 2
+  Omnibus Art. 1 Nr. 39 lit. b:
+    aenderung:
+    - angefuegt
+    einheiten:
+    - Omnibus Art. 1 Nr. 39 lit. b
+    - Art. 111 Abs. 4 n.F.
+    ziele_grundfassung: []
+  Omnibus Art. 1 Nr. 40:
+    aenderung:
+    - geaendert
+    einheiten:
+    - Omnibus Art. 1 Nr. 40
+    ziele_grundfassung: []
+  Omnibus Art. 1 Nr. 40 lit. a:
+    aenderung:
+    - neu_gefasst
+    einheiten:
+    - Omnibus Art. 1 Nr. 40 lit. a
+    - Art. 113 Abs. 3 lit. a n.F.
+    ziele_grundfassung:
+    - Art. 113 lit. a
+  Omnibus Art. 1 Nr. 40 lit. b:
+    aenderung:
+    - neu_gefasst
+    einheiten:
+    - Omnibus Art. 1 Nr. 40 lit. b
+    - Art. 113 Abs. 3 lit. c n.F.
+    - Art. 113 Abs. 3 lit. c Ziff. i n.F.
+    - Art. 113 Abs. 3 lit. c Ziff. ii n.F.
+    ziele_grundfassung:
+    - Art. 113 lit. c
+  Omnibus Art. 1 Nr. 40 lit. c:
+    aenderung:
+    - angefuegt
+    einheiten:
+    - Omnibus Art. 1 Nr. 40 lit. c
+    - Art. 113 Abs. 3 lit. d n.F.
+    ziele_grundfassung: []
+  Omnibus Art. 1 Nr. 41:
+    aenderung:
+    - geaendert
+    einheiten:
+    - Omnibus Art. 1 Nr. 41
+    ziele_grundfassung: []
+  Omnibus Art. 1 Nr. 41 lit. a:
+    aenderung:
+    - gestrichen
+    einheiten:
+    - Omnibus Art. 1 Nr. 41 lit. a
+    ziele_grundfassung:
+    - Anhang I Abschn. A Nr. 1
+  Omnibus Art. 1 Nr. 41 lit. b:
+    aenderung:
+    - angefuegt
+    einheiten:
+    - Omnibus Art. 1 Nr. 41 lit. b
+    - Anhang I Abschn. B Nr. 21 n.F.
+    ziele_grundfassung: []
+  Omnibus Art. 1 Nr. 42:
+    aenderung:
+    - gestrichen
+    einheiten:
+    - Omnibus Art. 1 Nr. 42
+    ziele_grundfassung:
+    - Anhang VIII Abschn. B Nr. 7
+    - Anhang VIII Abschn. B Nr. 9
+  Omnibus Art. 1 Nr. 43:
+    aenderung:
+    - angefuegt
+    einheiten:
+    - Omnibus Art. 1 Nr. 43
+    - Anhang XIV n.F.
+    - Anhang XIV Nr. 1 n.F.
+    - Anhang XIV Nr. 2 n.F.
+    - Anhang XIV Nr. 3 n.F.
+    - Anhang XIV Nr. 4 n.F.
+    ziele_grundfassung: []
+  Omnibus Art. 2 Nr. 1:
+    aenderung:
+    - angefuegt
+    einheiten:
+    - Omnibus Art. 2 Nr. 1
+    ziele_grundfassung: []
+  Omnibus Art. 2 Nr. 2:
+    aenderung:
+    - angefuegt
+    einheiten:
+    - Omnibus Art. 2 Nr. 2
+    ziele_grundfassung: []
+  Omnibus Art. 2 Nr. 3:
+    aenderung:
+    - angefuegt
+    einheiten:
+    - Omnibus Art. 2 Nr. 3
+    ziele_grundfassung: []
+  Omnibus Art. 2 Nr. 4:
+    aenderung:
+    - angefuegt
+    einheiten:
+    - Omnibus Art. 2 Nr. 4
+    ziele_grundfassung: []
+  Omnibus Art. 2 Nr. 5:
+    aenderung:
+    - angefuegt
+    einheiten:
+    - Omnibus Art. 2 Nr. 5
+    ziele_grundfassung: []
+  Omnibus Art. 2 Nr. 6:
+    aenderung:
+    - angefuegt
+    einheiten:
+    - Omnibus Art. 2 Nr. 6
+    ziele_grundfassung: []
+  Omnibus Art. 2 Nr. 7:
+    aenderung:
+    - angefuegt
+    einheiten:
+    - Omnibus Art. 2 Nr. 7
+    ziele_grundfassung: []
+  Omnibus Art. 3 Nr. 1:
+    aenderung:
+    - angefuegt
+    einheiten:
+    - Omnibus Art. 3 Nr. 1
+    ziele_grundfassung: []
+  Omnibus Art. 3 Nr. 2:
+    aenderung:
+    - angefuegt
+    einheiten:
+    - Omnibus Art. 3 Nr. 2
+    ziele_grundfassung: []
+  Omnibus Art. 3 Nr. 3:
+    aenderung:
+    - neu_gefasst
+    einheiten:
+    - Omnibus Art. 3 Nr. 3
+    ziele_grundfassung: []
+  Omnibus Art. 4:
+    aenderung: []
+    einheiten:
+    - Omnibus Art. 4
+    ziele_grundfassung: []
