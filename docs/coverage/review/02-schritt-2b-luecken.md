@@ -13,6 +13,7 @@ version: 2 (v1 → v2: Gegenprüfung eingearbeitet, Omnibus-Feld geprüft, Verif
 | 23.09.2026 | 2a | 17 Zeilen → out (Gruppen A–C) · Art. 5 lit. e/f/g → luecke · Art. 60 Abs. 4 h/j → out mit Bedingung · Raster ergänzt um „Systemtyp" und „bedingte Pflicht" |
 | 23.09.2026 | 2b | **E1–E8 angenommen** (Teil 7): 7 Zeilen umklassifiziert · 24 Lücken in P0–P8 · R015/R016 grundsätzlich ja · Durchschlagsregel · steuernde Normen `in` · Omnibus-Korrekturen · Bauverbot Meldekaskade für Planung aufgehoben (Bau erst Schritt 5) · T-14 vor 2c |
 | 23.09.2026 | T-14 | **P-1 = a** (Omnibus als zweite gehashte Quelle) · **P-2 = b** (Satzebene nur für Mehrpflichten-Absätze) |
+| 23.09.2026 | T-14.1 | `NORM_UNIT_IDS_UNIQUE` Severity **HIGH** bestätigt · sechs geerbte in-Zeilen: Art. 5 Abs. 1 lit. c Ziff. ii = luecke (P1) · Art. 13 Abs. 3 lit. b Ziff. ii = teilabdeckung (G-DEP-03, G-DEP-02) · Ziff. iii = teilabdeckung (nur G-DEP-03) · **Ziff. iv = luecke (P3)** · Ziff. vi = teilabdeckung (G-DEP-01, Bezug P4) · **Ziff. vii = luecke (P3, Bezug P2)** → echte Lücken **26** |
 
 > **Umsetzung im Pflichtenraum:** Die Entscheide werden mit T-14 in `aiact_pflichtenraum.yaml` übernommen (`po_bestaetigt: true` für die entschiedenen Zeilen). Bis dahin gilt dieses Dokument als Entscheidungsnachweis.
 
@@ -48,14 +49,14 @@ version: 2 (v1 → v2: Gegenprüfung eingearbeitet, Omnibus-Feld geprüft, Verif
 | **P0 Anwendbarkeit** (steuernd) | Art. 111 Abs. 2 n.F. · Art. 113 Abs. 3 lit. c n.F. | Check „vor 02.12.2027 in Betrieb + keine wesentliche Veränderung → Kap. III gilt nicht" | G-PRE-01 (Typ-3-Regel) + G-OPS-06/C-25b | E-0 → E-1 | **1** |
 | **P1 Verbote** (10) | Art. 5 Abs. 1 lit. a, b, c, c-i/ii, d, e, f, g · **neu** lit. ba, bb (ab 02.12.2026, Zeilen fehlen) | R015 + **ein** Check „Art.-5-Screening" | G-PRE-01 | E-0 | **1** |
 | **P2 KI-Kompetenz** (4) | Art. 4 n.F. · Art. 9 Abs. 5 lit. c · Art. 14 Abs. 4 lit. b, c | R016 + Check „Maßnahmen zur **Unterstützung** der Kompetenzentwicklung je Aufsichtsrolle" (nicht: Niveau garantiert) | G-PRE-05 | E-0 → E-1 | 2 |
-| **P3 Betriebsanleitung** (2) | Art. 13 Abs. 3 lit. c, e | Check „Pflichtinhalte Art. 13 Abs. 3" = Checkliste B1 | G-DEP-04 | E-0 → E-1 | 2 |
+| **P3 Betriebsanleitung** (4) | Art. 13 Abs. 3 lit. c, e · lit. b Ziff. iv, vii (T-14.1) | Check „Pflichtinhalte Art. 13 Abs. 3" = Checkliste B1 | G-DEP-04 | E-0 → E-1 | 2 |
 | **P4 Eingabedaten** (1) | Art. 26 Abs. 4 | R006 → Laufzeit-Check Eingaben gegen Anbieter-Spezifikation | neuer Check nach Muster G-OPS-03 | E-3 | 2 |
 | **P8 Aussetzen bei Risiko** (1) | Art. 26 Abs. 5 Satz 2 (nach Teilung) | neue Gate-Wirkung `suspend_use` + Kopplung Risikosignal → kill_switch | G-OPS-02 / G-OPS-03 (Frage 5) | E-3 | 2 |
 | **P5 Aufsicht wirksam** (2) | Art. 14 Abs. 2, Abs. 3 lit. a | R008 → G-OPS-01 auf Laufzeit (Override-Rate, Zeit bis Entscheidung) | G-OPS-01 (+ G-DEP-04 für 3a) | E-3 / E-2 | 3 |
 | **P6 Vorfall & Behörden** (3) | Art. 20 Abs. 2 · Art. 26 Abs. 12 · Art. 79 Abs. 2 | Kooperationsprozess + Behördenkontakt | Ausbau G-OPS-02 | E-0 | 3 |
 | **P7 Datenschutz** (1) | Art. 26 Abs. 9 | „DSFA-Referenz ODER begründet: keine personenbezogenen Daten" | G-PRE-03 | E-0 | 3 |
 
-**Summe:** 10 + 4 + 2 + 1 + 1 + 2 + 3 + 1 = **24**
+**Summe:** 10 + 4 + 4 + 1 + 1 + 2 + 3 + 1 = **26** (nach T-14.1: +2 in P3)
 
 ```
 Prio 1:  P0 Anwendbarkeit ─► P1 Verbote            (billig, gilt schon / entscheidet alles)

@@ -69,6 +69,7 @@ Festgelegt (aus 2a/2b):
 
 ## ABNAHME DURCH DEN PO
 
+- Severity `NORM_UNIT_IDS_UNIQUE` = HIGH, vom PO bestätigt 23.09.2026 (T-14.1)
 - **Roter Lauf 1:** eine ID doppelt einfügen → `NORM_UNIT_IDS_UNIQUE` rot, zurücknehmen → grün
 - **Roter Lauf 2:** eine `legal_ref` auf eine nicht existierende Einheit setzen → `NORM_REFS_RESOLVE` meldet sie namentlich
 - **Roter Lauf 3:** ein Zeichen im Omnibus-Beleg ändern → `verify_norm_quotes.py` rot

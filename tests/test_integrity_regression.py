@@ -2908,7 +2908,7 @@ def check_norm_unit_ids_unique() -> dict:
     und andere Dateien benutzen. Beide muessen eindeutig sein.
 
     HIGH wie LEGAL_QUOTES_VERBATIM: der Fehler traegt eine Rechtszuordnung und
-    ist ohne Maschine nicht zu sehen. Einstufung vom PO zu bestaetigen (T-14).
+    ist ohne Maschine nicht zu sehen. Einstufung vom PO bestaetigt (23.09.2026).
     """
     from collections import Counter
 
