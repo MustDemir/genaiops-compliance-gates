@@ -52,7 +52,8 @@ LEER = {
 
 # Felder, die aus der Quelle kommen. Alles andere an einer Zeile ist Analyse.
 STRUKTUR = ("uid", "id", "artikel", "artikel_titel", "abschnitt", "absatz", "nummer",
-            "unterabsatz", "buchstabe", "ziffer", "offset", "laenge", "saetze", "beleg")
+            "unterabsatz", "buchstabe", "ziffer", "offset", "laenge", "saetze", "beleg",
+            "anweisung", "ziel", "aenderung", "fassung_2026_1744")
 
 
 def _analyse(e: dict) -> dict:
@@ -137,18 +138,31 @@ def main() -> int:
                     help="Analyse verwaister Zeilen auf die neuen Einheiten derselben "
                          "Textstelle uebertragen (T-14) und den Zuordnungsbericht "
                          "alte uid -> neue uid(s) nach BERICHT schreiben.")
+    ap.add_argument("--omnibus", action="store_true",
+                    help="Die Quelle ist ein Aenderungsrechtsakt (T-14.2): Einheiten je "
+                         "Anweisung und je neu gefasstem oder eingefuegtem Normtext.")
+    ap.add_argument("--pdf", type=Path, help="Amtliches PDF, aus dem die Quelle abgeleitet ist")
+    ap.add_argument("--ableitung", default="", help="Wie die Quelle aus dem PDF entstand")
     ap.add_argument("--url", default="")
     ap.add_argument("--fassung", default="")
     a = ap.parse_args()
 
     raw, norm, digest = load(a.quelle)
-    arts = index_articles(norm) + index_paragraphen(norm) + index_anhaenge(norm)
-    want = set(a.artikel) if a.artikel else {x["artikel"] for x in arts}
+    if a.omnibus:
+        from extract_omnibus_units import omnibus_units
+        einheiten, anweisungen = omnibus_units(norm)
+        arts = anweisungen
+        quellen_einheiten = einheiten
+    else:
+        arts = index_articles(norm) + index_paragraphen(norm) + index_anhaenge(norm)
+        want = set(a.artikel) if a.artikel else {x["artikel"] for x in arts}
+        quellen_einheiten = [u for art in arts if art["artikel"] in want
+                             for u in units_for(norm, art)]
 
     neu = []
-    for art in arts:
-        if art["artikel"] in want:
-            for u in units_for(norm, art):
+    for u in quellen_einheiten:
+        if True:
+            if True:
                 neu.append({
                     "uid": u["uid"],
                     "id": u["id"],
@@ -164,6 +178,7 @@ def main() -> int:
                     "laenge": u["laenge"],
                     "saetze": len(u["saetze"]),
                     "beleg": u["text"],
+                    **{k: u[k] for k in ("anweisung", "ziel", "aenderung") if k in u},
                     **LEER,
                 })
 
@@ -188,7 +203,8 @@ def main() -> int:
         if e["uid"] in alt:
             vorhanden = alt[e["uid"]]
             # Quelle gewinnt bei Beleg und Offsets, Analyse bleibt erhalten
-            vorhanden.update({k: e[k] for k in STRUKTUR if k not in ("uid", "id", "artikel")})
+            vorhanden.update({k: e[k] for k in STRUKTUR
+                              if k in e and k not in ("uid", "id", "artikel")})
             zusammen.append(vorhanden)
             unveraendert += 1
         else:
@@ -211,6 +227,14 @@ def main() -> int:
         "abgerufen": (doc.get("quelle") or {}).get("abgerufen", date.today().isoformat()),
         "artikel_im_text": len(arts),
     }
+    if a.omnibus:
+        doc["quelle"]["anweisungen_im_text"] = doc["quelle"].pop("artikel_im_text")
+    if a.pdf:
+        import hashlib
+        doc["quelle"]["pdf"] = str(a.pdf)
+        doc["quelle"]["pdf_sha256"] = hashlib.sha256(a.pdf.read_bytes()).hexdigest()
+    if a.ableitung:
+        doc["quelle"]["ableitung"] = a.ableitung
     doc["einheiten"] = zusammen
 
     a.ziel.parent.mkdir(parents=True, exist_ok=True)
