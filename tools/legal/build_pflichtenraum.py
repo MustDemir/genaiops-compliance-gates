@@ -50,6 +50,81 @@ LEER = {
 }
 
 
+# Felder, die aus der Quelle kommen. Alles andere an einer Zeile ist Analyse.
+STRUKTUR = ("uid", "id", "artikel", "artikel_titel", "abschnitt", "absatz", "nummer",
+            "unterabsatz", "buchstabe", "ziffer", "offset", "laenge", "saetze", "beleg")
+
+
+def _analyse(e: dict) -> dict:
+    return {k: v for k, v in e.items() if k not in STRUKTUR and k not in ("migriert_von", "migration")}
+
+
+def _hat_analyse(e: dict) -> bool:
+    return any(v not in (None, [], "") for v in _analyse(e).values())
+
+
+def _migrieren(zusammen: list, alt: dict, verwaist: list, bericht: Path) -> tuple[list, list]:
+    """Traegt die Analyse verwaister Zeilen auf die neuen Einheiten derselben Stelle.
+
+    Anlass T-14: der Extraktor schneidet feiner (Nummern, Ziffern, Abschnitte).
+    Eine Zeile, die gestern 'Art. 5 Abs. 1 lit. i' hiess, heisst heute 'Art. 5
+    Abs. 1 lit. c Ziff. i' — dieselbe Stelle, derselbe Offset. Und wo eine alte
+    Zeile heute in mehrere zerfaellt, erbt jede neue die Analyse der alten.
+
+      kennung_geaendert  gleicher Offset: die Analyse gehoert unveraendert dazu
+      geerbt             die neue Einheit liegt INNERHALB der alten: die Analyse
+                         ist eine Vorlage, keine Entscheidung — po_bestaetigt
+                         wird false, wo es gesetzt war
+
+    Eine verwaiste Zeile wird nur entfernt, wenn ihre Analyse mindestens eine
+    neue Einheit erreicht hat oder sie keine traegt. Sonst bleibt sie und wird
+    gemeldet — Analyse wird nicht stillschweigend weggeworfen.
+    """
+    alte = [alt[k] for k in verwaist]
+    nach_offset = {e["offset"]: e for e in alte}
+    zuordnung: dict[str, list] = {k: [] for k in verwaist}
+    for e in zusammen:
+        if e["uid"] in alt:
+            continue  # unveraendert fortgeschrieben
+        quelle, art = None, None
+        if e["offset"] in nach_offset:
+            quelle, art = nach_offset[e["offset"]], "kennung_geaendert"
+        else:
+            enthalten = [o for o in alte + list(alt.values())
+                         if o["offset"] <= e["offset"] < o["offset"] + o["laenge"]
+                         and o["uid"] != e["uid"]]
+            if enthalten:
+                quelle = min(enthalten, key=lambda o: o["laenge"])
+                art = "geerbt"
+        if quelle is None or not _hat_analyse(quelle):
+            continue
+        uebernahme = _analyse(quelle)
+        if art == "geerbt" and "po_bestaetigt" in uebernahme:
+            uebernahme["po_bestaetigt"] = False
+        e.update(uebernahme)
+        e["migriert_von"] = quelle["uid"]
+        e["migration"] = art
+        if quelle["uid"] in zuordnung:
+            zuordnung[quelle["uid"]].append(e["uid"])
+
+    bleibt, entfernt = [], []
+    for k in verwaist:
+        if zuordnung[k] or not _hat_analyse(alt[k]):
+            entfernt.append(k)
+        else:
+            bleibt.append(k)
+    bericht.parent.mkdir(parents=True, exist_ok=True)
+    bericht.write_text(yaml.dump({
+        "anlass": "T-14 — Extraktor schneidet Nummern, Ziffern, Unterabsaetze, Abschnitte",
+        "verwaist": len(verwaist),
+        "entfernt": len(entfernt),
+        "bleibt_mit_analyse": bleibt,
+        "zuordnung": {k: zuordnung[k] for k in verwaist},
+        "geerbt": sorted(e["uid"] for e in zusammen if e.get("migration") == "geerbt"),
+    }, allow_unicode=True, sort_keys=False, width=100), encoding="utf-8")
+    return zusammen, bleibt
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--quelle", type=Path, required=True)
@@ -58,6 +133,10 @@ def main() -> int:
     ap.add_argument("--verwaiste-entfernen", action="store_true",
                     help="Eintraege loeschen, die in der Quelle keine Entsprechung mehr "
                          "haben. Nur bewusst benutzen: sie koennen Analyse tragen.")
+    ap.add_argument("--migrieren", type=Path, metavar="BERICHT",
+                    help="Analyse verwaister Zeilen auf die neuen Einheiten derselben "
+                         "Textstelle uebertragen (T-14) und den Zuordnungsbericht "
+                         "alte uid -> neue uid(s) nach BERICHT schreiben.")
     ap.add_argument("--url", default="")
     ap.add_argument("--fassung", default="")
     a = ap.parse_args()
@@ -75,8 +154,12 @@ def main() -> int:
                     "id": u["id"],
                     "artikel": u["artikel"],
                     "artikel_titel": u["artikel_titel"],
+                    "abschnitt": u["abschnitt"],
                     "absatz": u["absatz"],
+                    "nummer": u["nummer"],
+                    "unterabsatz": u["unterabsatz"],
                     "buchstabe": u["buchstabe"],
+                    "ziffer": u["ziffer"],
                     "offset": u["offset"],
                     "laenge": u["laenge"],
                     "saetze": len(u["saetze"]),
@@ -96,15 +179,16 @@ def main() -> int:
             alt[key] = e
     else:
         doc, alt = {}, {}
+    # Stand VOR dem Fortschreiben: die Migration braucht die alten Spannen,
+    # und das Fortschreiben setzt Offset und Laenge auf den neuen Zuschnitt.
+    alt_vorher = {k: dict(v) for k, v in alt.items()}
 
     zusammen, unveraendert, ergaenzt = [], 0, 0
     for e in neu:
         if e["uid"] in alt:
             vorhanden = alt[e["uid"]]
             # Quelle gewinnt bei Beleg und Offsets, Analyse bleibt erhalten
-            vorhanden.update({k: e[k] for k in
-                              ("offset", "laenge", "saetze", "beleg",
-                               "artikel_titel", "absatz", "buchstabe")})
+            vorhanden.update({k: e[k] for k in STRUKTUR if k not in ("uid", "id", "artikel")})
             zusammen.append(vorhanden)
             unveraendert += 1
         else:
@@ -112,6 +196,8 @@ def main() -> int:
             ergaenzt += 1
 
     verwaist = sorted(set(alt) - {e["uid"] for e in neu})
+    if a.migrieren:
+        zusammen, verwaist = _migrieren(zusammen, alt_vorher, verwaist, a.migrieren)
     if verwaist and not a.verwaiste_entfernen:
         # Nicht stillschweigend wegwerfen: eine verwaiste Zeile kann Analyse
         # tragen, die jemand geschrieben hat. Sie bleibt, bis es jemand sagt.

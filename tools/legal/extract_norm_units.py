@@ -8,7 +8,8 @@ der Datei schneidet, ist ein Auszug. Nur das zweite ist ohne Vertrauen nachpruef
 
 Deshalb erzeugt dieses Skript die Einheiten, und nichts anderes darf sie erzeugen:
 
-  Artikel -> Absatz -> (Buchstabe) -> Satz
+  Artikel | Paragraph | Anhang -> (Abschnitt) -> (Absatz) -> (Nummer) -> (Unterabsatz)
+      -> (Buchstabe) -> (Ziffer) -> Satz            (Gliederung seit T-14)
 
 Jede Einheit traegt ihren Zeichen-Offset in der Quelldatei. `verify_norm_quotes.py`
 liest die Quelle erneut und prueft, dass an genau diesem Offset genau dieser Text
@@ -113,6 +114,13 @@ def index_articles(norm: str) -> list[dict]:
     return out
 
 
+# Woerter, mit denen eine Verweisung beginnt, aber keine Ueberschrift:
+# '§ 32 Absatz 2 bis 5 und § 36 des BSI-Gesetzes sind entsprechend anzuwenden.'
+_VERWEIS_START = re.compile(
+    r"(Absatz|Abs\.|Satz|Nummer|Nr\.|Buchstabe|und|bis|des|der|oder|in|nach|"
+    r"gilt|gelten|ist|sind|findet|finden)\b")
+
+
 def index_paragraphen(norm: str) -> list[dict]:
     """Deutsche Gesetze zaehlen in Paragraphen, nicht in Artikeln.
 
@@ -121,13 +129,25 @@ def index_paragraphen(norm: str) -> list[dict]:
     Risikomanagementmassnahmen ...' statt 'Artikel 26'. Der Verbatim-Check
     bleibt unveraendert — nur das Schneiden ist normabhaengig, und genau
     deshalb steht es hier und nicht im Waechter.
+
+    T-14 (23.09.2026): Zwei Fehler, die beim EnWG zusammentrafen. Die
+    Ueberschrift in der ERSTEN Zeile der Datei wurde nie gefunden (das Muster
+    verlangte einen Zeilenumbruch davor) — § 5c fehlte. Und eine Verweisung am
+    Zeilenanfang ('§ 32 Absatz 2 bis 5 ... sind entsprechend anzuwenden.')
+    trieb die Zaehlung auf 32, sodass § 5e und § 11 als 'nicht aufsteigend'
+    verworfen wurden und als Scheinabsaetze eines § 32 endeten. Eine
+    Ueberschrift beginnt nicht mit einem Verweiswort und endet nicht mit Punkt.
     """
-    hits = [(m.group(1), m.start() + 1)
-            for m in re.finditer(r"\n§ (\d+[a-z]?) [^\n]+\n", norm)]
-    # Dasselbe Problem wie bei den Artikeln, nur haeufiger: '§ 14 Absatz 2
-    # Satz 1,' am Zeilenanfang im Fliesstext ist eine VERWEISUNG, keine
-    # Ueberschrift. Ueberschriften laufen aufsteigend, Verweisungen nicht.
-    # Der Filter nimmt nur, was die Zaehlung vorantreibt.
+    text = "\n" + norm  # die erste Zeile mitnehmen; Index in text == Index in norm des '§'
+    hits = []
+    for m in re.finditer(r"\n§ (\d+[a-z]?) ([^\n]+)\n", text):
+        rest = m.group(2).strip()
+        if _VERWEIS_START.match(rest) or rest.endswith("."):
+            continue
+        hits.append((m.group(1), m.start()))
+    # Dasselbe Problem wie bei den Artikeln, nur haeufiger: Ueberschriften
+    # laufen aufsteigend, Verweisungen nicht. Der Filter nimmt nur, was die
+    # Zaehlung vorantreibt.
     eindeutig: list[tuple[str, int]] = []
     letzte = 0
     for num, start in hits:
@@ -179,20 +199,129 @@ def index_anhaenge(norm: str) -> list[dict]:
     return out
 
 
-def split_nummern(norm: str, art: dict) -> list[dict]:
-    """Nummerierte Punkte eines Anhangs: '1.', '2.', ... je auf eigener Zeile."""
-    body_start = art["start"]
-    body = norm[body_start:art["end"]]
-    marks = [(m.group(1), m.start()) for m in re.finditer(r"\n(\d+)\.\n", body)]
+# ── Gliederung unterhalb von Artikel, Paragraph und Anhang ──────────────────
+#
+# T-14 (23.09.2026). Bis hierhin kannte der Extraktor genau zwei Ebenen unter
+# dem Artikel: Absatz und Buchstabe. Das Recht kennt mehr, und jede fehlende
+# Ebene erzeugte doppelte oder falsche Kennungen:
+#   * Nummern: Art. 3 (68 Begriffsbestimmungen) war EINE Einheit mit 10.818
+#     Zeichen, die Buchstaben darin hiessen 'Art. 3 lit. a' — dreimal.
+#   * roemische Ziffern: 'i)' wurde als Buchstabe i gelesen ('Art. 13 Abs. 3
+#     lit. i'), 'ii)' gar nicht.
+#   * mehrere Buchstabenlisten in einem Absatz (Art. 43 Abs. 1): zweimal 'lit. a'.
+#   * Abschnitte in Anhaengen (Anhang VIII A/B/C): dreimal 'Nr. 1'.
+#   * deutsche Gesetze setzen '1.' und 'a)' ans ZEILENENDE ('gelten 1.\n').
+# Jede Stufe traegt jetzt ihre Kennung; eine Kennung ist eindeutig, weil der
+# Pfad eindeutig ist — und NORM_UNIT_IDS_UNIQUE haelt das fest.
+
+_ROEMISCH = ["i", "ii", "iii", "iv", "v", "vi", "vii", "viii", "ix", "x",
+             "xi", "xii", "xiii", "xiv", "xv", "xvi", "xvii", "xviii", "xix", "xx"]
+
+
+def _marken(seg: str, *, deutsch: bool, anhang: bool) -> list[tuple[int, str, str]]:
+    """Alle Gliederungsmarken eines Ausschnitts: (Position, Art, Kennung).
+
+    EU-Texte setzen Marken auf eine eigene Zeile ('\\n1.\\n', '\\nc)\\n').
+    Deutsche Gesetze setzen sie ans Zeilenende ('gelten 1.\\n', 'die a)\\n').
+    In Anhaengen stehen Nummern auch mit Titel ('1.   Schengener ...') und
+    mehrstufig ('3.1.').
+    """
+    vor = r"(?:(?<=\n)|(?<=[ :]))" if deutsch else r"(?<=\n)"
+    if anhang:
+        nr = re.compile(vor + r"(\d+(?:\.\d+)*)\.(?:\n|[ \t]{2,}|\t)")
+    else:
+        nr = re.compile(vor + r"(\d+)\.\n")
+    alpha = re.compile(vor + r"([a-z]{1,5})\)\n")
+    out = [(m.start(1), "nr", m.group(1)) for m in nr.finditer(seg)]
+    out += [(m.start(1), "alpha", m.group(1)) for m in alpha.finditer(seg)
+            if len(m.group(1)) == 1 or m.group(1) in _ROEMISCH]
+    return sorted(out)
+
+
+def _gliedern(marken: list[tuple[int, str, str]]) -> list[dict]:
+    """Ordnet Marken zu einem Baum: Nummer > Buchstabe > Ziffer.
+
+    Eine Marke zaehlt nur, wenn sie die Folge fortsetzt (1, 2, 3 / a, b, c /
+    i, ii, iii) oder eine neue Folge beginnt (1 / a / i). Mehrdeutig sind 'i)'
+    und 'v)': Buchstabe, wenn die Buchstabenfolge genau dort steht und nicht
+    'ii)' folgt; sonst roemische Ziffer unter dem laufenden Buchstaben.
+    """
+    items: list[dict] = []
+    nr_next = "1"
+    cur_nr = None
+    letter_next = None
+    letter_lists: dict = {}
+    cur_letter = None
+    roman_next = None
+    for i, (pos, art, lab) in enumerate(marken):
+        nach = marken[i + 1][2] if i + 1 < len(marken) else None
+        if art == "nr":
+            if "." in lab or lab == nr_next or (lab == "1" and cur_nr is None):
+                cur_nr = {"pos": pos, "ebene": "nr", "kennung": lab, "eltern": None}
+                items.append(cur_nr)
+                if "." not in lab:
+                    nr_next = str(int(lab) + 1)
+                letter_next, cur_letter, roman_next = None, None, None
+            continue
+        # alpha
+        if roman_next and lab == roman_next and cur_letter is not None:
+            roman = True
+        elif letter_next and lab == letter_next and not (lab == "i" and nach == "ii"):
+            roman = False
+        elif lab == "i" and cur_letter is not None:
+            roman = True
+        elif lab == "a":
+            roman = False
+        elif len(lab) == 1 and letter_next is None and lab not in ("i", "v", "x"):
+            roman = False  # Liste beginnt nicht mit a — als Buchstabe fuehren, Pruefung meldet es
+        else:
+            continue  # passt in keine Folge: keine Marke, sondern Text
+        if roman:
+            it = {"pos": pos, "ebene": "ziffer", "kennung": lab, "eltern": cur_letter}
+            items.append(it)
+            idx = _ROEMISCH.index(lab)
+            roman_next = _ROEMISCH[idx + 1] if idx + 1 < len(_ROEMISCH) else None
+        else:
+            eltern_key = id(cur_nr) if cur_nr is not None else None
+            if lab == "a" or letter_next is None:
+                letter_lists[eltern_key] = letter_lists.get(eltern_key, 0) + 1
+            cur_letter = {"pos": pos, "ebene": "lit", "kennung": lab, "eltern": cur_nr,
+                          "liste": letter_lists.get(eltern_key, 1), "eltern_key": eltern_key}
+            items.append(cur_letter)
+            letter_next = chr(ord(lab) + 1) if len(lab) == 1 else None
+            roman_next = None
+    return items
+
+
+def _einzelfolgen(items: list[dict]) -> set[int]:
+    """Positionen von Marken, deren Folge nur aus einem Glied besteht.
+
+    Eine Liste mit nur '1.' oder nur 'a)' ist fast immer eine Verweisung am
+    Zeilenende ('nach Absatz 1.\\n'), keine Gliederung.
+    """
+    from collections import defaultdict
+    gruppen = defaultdict(list)
+    for it in items:
+        if it["ebene"] == "nr" and "." not in it["kennung"]:
+            gruppen[("nr",)].append(it)
+        elif it["ebene"] == "lit":
+            gruppen[("lit", it["eltern_key"], it["liste"])].append(it)
+        elif it["ebene"] == "ziffer":
+            gruppen[("ziffer", id(it["eltern"]))].append(it)
+    return {g[0]["pos"] for g in gruppen.values() if len(g) == 1}
+
+
+def _abschnitte(norm: str, art: dict) -> list[dict]:
+    """Abschnitte eines Anhangs ('Abschnitt A — ...', 'Abschnitt 1')."""
+    body = norm[art["start"]:art["end"]]
+    marks = [(m.group(1), m.start() + 1)
+             for m in re.finditer(r"\n(?:Abschnitt|ABSCHNITT) ([A-Z0-9]+)\b[^\n]*\n", body)]
     if not marks:
-        lines = body.split("\n")
-        skip = len("\n".join(lines[:3])) if len(lines) > 2 else 0
-        return [{"absatz": "-", "start": body_start + skip, "end": art["end"]}]
-    out = []
-    for i, (num, rel) in enumerate(marks):
-        s = body_start + rel + 1
-        e = body_start + marks[i + 1][1] + 1 if i + 1 < len(marks) else art["end"]
-        out.append({"absatz": num, "start": s, "end": e})
+        return [{"abschnitt": None, "start": art["start"], "end": art["end"]}]
+    out = [{"abschnitt": None, "start": art["start"], "end": art["start"] + marks[0][1]}]
+    for i, (lab, rel) in enumerate(marks):
+        e = art["start"] + marks[i + 1][1] if i + 1 < len(marks) else art["end"]
+        out.append({"abschnitt": lab, "start": art["start"] + rel, "end": e})
     return out
 
 
@@ -213,20 +342,6 @@ def split_absaetze(norm: str, art: dict) -> list[dict]:
         s = body_start + rel + 1
         e = body_start + marks[i + 1][1] + 1 if i + 1 < len(marks) else art["end"]
         out.append({"absatz": num, "start": s, "end": e})
-    return out
-
-
-def split_buchstaben(norm: str, ab: dict) -> list[dict]:
-    """Buchstaben-Aufzaehlungen innerhalb eines Absatzes."""
-    seg = norm[ab["start"]:ab["end"]]
-    marks = [(m.group(1), m.start()) for m in re.finditer(r"\n([a-z])\)\n", seg)]
-    if not marks:
-        return []
-    out = []
-    for i, (ltr, rel) in enumerate(marks):
-        s = ab["start"] + rel + 1
-        e = ab["start"] + marks[i + 1][1] + 1 if i + 1 < len(marks) else ab["end"]
-        out.append({"buchstabe": ltr, "start": s, "end": e})
     return out
 
 
@@ -262,45 +377,106 @@ def units_for(norm: str, art: dict) -> list[dict]:
     ohne Text folgt — ein Artefakt der Gliederung, kein Normtext. Eine Einheit
     ohne Beleg ist nicht pruefbar, und was nicht pruefbar ist, hat in einem
     Pflichtenraum nichts verloren.
+
+    Jede Einheit reicht von ihrer Marke bis zur naechsten Marke gleich welcher
+    Ebene. Hat ein Glied Unterglieder, ist seine Einheit der Kopf davor — wie
+    bisher der Absatzkopf vor den Buchstaben.
     """
+    anhang = art.get("ist_anhang", False)
+    deutsch = art.get("ist_paragraph", False)
+    if anhang:
+        behaelter = [{"absatz": None, **b} for b in _abschnitte(norm, art)]
+        # der Anhangkopf (Ueberschrift, Titel) ist kein Normtext einer Nummer
+        kopf = behaelter[0]
+        lines = norm[kopf["start"]:kopf["end"]].split("\n")
+        skip = len("\n".join(lines[:3])) if len(lines) > 2 else 0
+        kopf["start"] = min(kopf["start"] + skip, kopf["end"])
+    else:
+        behaelter = [{"abschnitt": None, **b} for b in split_absaetze(norm, art)]
+
     out = []
-    teile = split_nummern(norm, art) if art.get("ist_anhang") else split_absaetze(norm, art)
-    for ab in teile:
-        letters = split_buchstaben(norm, ab)
-        if letters:
-            head_end = letters[0]["start"]
-            if norm[ab["start"]:head_end].strip():
-                out.append(_unit(norm, art, ab["absatz"], None, ab["start"], head_end))
-            for lt in letters:
-                out.append(_unit(norm, art, ab["absatz"], lt["buchstabe"],
-                                 lt["start"], lt["end"]))
-        else:
-            out.append(_unit(norm, art, ab["absatz"], None, ab["start"], ab["end"]))
+    for b in behaelter:
+        seg = norm[b["start"]:b["end"]]
+        marken = _marken(seg, deutsch=deutsch, anhang=anhang)
+        items = _gliedern(marken)
+        weg = _einzelfolgen(items)
+        if weg:
+            marken = [m for m in marken if m[0] not in weg]
+            items = _gliedern(marken)
+        # Wie viele Buchstabenlisten hat jedes Elternglied? Nur bei mehr als
+        # einer bekommt die Kennung ein 'UAbs.'.
+        listen: dict = {}
+        for it in items:
+            if it["ebene"] == "lit":
+                listen[it["eltern_key"]] = max(listen.get(it["eltern_key"], 0), it["liste"])
+        grenzen = [it["pos"] for it in items] + [len(seg)]
+        start_kopf = 0
+        ende_kopf = grenzen[0]
+        if seg[start_kopf:ende_kopf].strip():
+            out.append(_unit(norm, art, b, {}, b["start"] + start_kopf, b["start"] + ende_kopf))
+        for k, it in enumerate(items):
+            pfad = _pfad(it, listen)
+            s = b["start"] + it["pos"]
+            e = b["start"] + grenzen[k + 1]
+            out.append(_unit(norm, art, b, pfad, s, e))
     return [u for u in out if u["text"].strip()]
 
 
-def _unit(norm, art, absatz, buchstabe, start, end) -> dict:
+def _pfad(it: dict, listen: dict) -> dict:
+    """Nummer, Unterabsatz, Buchstabe, Ziffer eines Glieds."""
+    pfad = {"nummer": None, "unterabsatz": None, "buchstabe": None, "ziffer": None}
+    kette = []
+    x = it
+    while x is not None:
+        kette.append(x)
+        x = x.get("eltern")
+    for g in kette:
+        if g["ebene"] == "nr":
+            pfad["nummer"] = g["kennung"]
+        elif g["ebene"] == "lit":
+            pfad["buchstabe"] = g["kennung"]
+            if listen.get(g["eltern_key"], 1) > 1:
+                pfad["unterabsatz"] = str(g["liste"])
+        elif g["ebene"] == "ziffer":
+            pfad["ziffer"] = g["kennung"]
+    return pfad
+
+
+def _unit(norm, art, behaelter, pfad, start, end) -> dict:
     text = norm[start:end]
     ist_anhang = art.get("ist_anhang", False)
     eigenname = ist_anhang or art.get("ist_paragraph", False)
     kopf = art["artikel"] if eigenname else f"Art. {art['artikel']}"
-    stufe = "Nr." if ist_anhang else "Abs."
-    kennung = (kopf
-               + (f" {stufe} {absatz}" if absatz != "-" else "")
-               + (f" lit. {buchstabe}" if buchstabe else ""))
+    absatz = behaelter.get("absatz")
+    abschnitt = behaelter.get("abschnitt")
+    kennung = kopf
+    if abschnitt:
+        kennung += f" Abschn. {abschnitt}"
+    if absatz and absatz != "-":
+        kennung += f" Abs. {absatz}"
+    if pfad.get("nummer"):
+        kennung += f" Nr. {pfad['nummer']}"
+    if pfad.get("unterabsatz"):
+        kennung += f" UAbs. {pfad['unterabsatz']}"
+    if pfad.get("buchstabe"):
+        kennung += f" lit. {pfad['buchstabe']}"
+    if pfad.get("ziffer"):
+        kennung += f" Ziff. {pfad['ziffer']}"
     return {
-        # Die lesbare Kennung ist NICHT eindeutig: ein Artikel ohne nummerierte
-        # Absaetze kann dieselbe Buchstabenaufzaehlung mehrfach fuehren — Art. 3
-        # (Begriffsbestimmungen) traegt 'lit. a' dreimal. Wer darauf zusammenfuehrt,
-        # ueberschreibt fremde Analyse, ohne dass es auffaellt; genau das ist am
-        # 07.09. passiert und wurde zurueckgenommen. Der Offset macht sie eindeutig,
-        # und er ist innerhalb einer gehashten Quelle stabil.
+        # Die lesbare Kennung ist seit T-14 eindeutig (NORM_UNIT_IDS_UNIQUE).
+        # Zusammengefuehrt wird trotzdem auf uid = Kennung@Offset: der Offset ist
+        # innerhalb einer gehashten Quelle stabil, die Kennung haengt am
+        # Extraktor — und der hat sich schon zweimal geaendert.
         "uid": f"{kennung}@{start}",
         "id": kennung,
         "artikel": art["artikel"],
         "artikel_titel": art["titel"],
+        "abschnitt": abschnitt,
         "absatz": absatz,
-        "buchstabe": buchstabe,
+        "nummer": pfad.get("nummer"),
+        "unterabsatz": pfad.get("unterabsatz"),
+        "buchstabe": pfad.get("buchstabe"),
+        "ziffer": pfad.get("ziffer"),
         "offset": start,
         "laenge": end - start,
         "text": re.sub(r"[\t ]*\n[\t \n]*", " ", text).strip(),
