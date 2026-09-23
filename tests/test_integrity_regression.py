@@ -2889,6 +2889,71 @@ def check_legal_quotes_verbatim() -> dict:
     )
 
 
+
+def check_norm_unit_ids_unique() -> dict:
+    """Jede Einheit eines Pflichtenraums hat eine Kennung, die es nur einmal gibt.
+
+    T-14 (23.09.2026). Die Kennung ist der Anker, an dem alles andere haengt:
+    ein Requirement zeigt auf 'Art. 26 Abs. 5', ein PO-Entscheid auf 'Art. 5
+    Abs. 1 lit. c Ziff. i', ein Gate auf 'Art. 3 Nr. 49'. Bis T-14 trug der
+    Pflichtenraum des AI Act 24 Kennungen doppelt (59 Zeilen) — 'Art. 3 lit. a'
+    dreimal, 'Anhang VIII Nr. 1' dreimal —, weil der Extraktor Nummern,
+    roemische Ziffern, zweite Buchstabenlisten und Anhangabschnitte nicht
+    kannte. Eine Zuordnung auf eine solche Kennung zeigt auf mehrere Stellen
+    zugleich und ist damit keine Zuordnung. Der Fehler faellt in keinem Review
+    auf, weil jede einzelne Zeile richtig aussieht.
+
+    Geprueft werden id UND uid. Die uid (Kennung@Offset) ist der technische
+    Schluessel des Zusammenfuehrens; die id ist der Schluessel, den Menschen
+    und andere Dateien benutzen. Beide muessen eindeutig sein.
+
+    HIGH wie LEGAL_QUOTES_VERBATIM: der Fehler traegt eine Rechtszuordnung und
+    ist ohne Maschine nicht zu sehen. Einstufung vom PO zu bestaetigen (T-14).
+    """
+    from collections import Counter
+
+    import yaml
+
+    raum = sorted((REPO_ROOT / "docs" / "coverage").glob("*_pflichtenraum.yaml"))
+    if not raum:
+        return make_result(
+            "NORM_UNIT_IDS_UNIQUE",
+            "jede Einheit eines Pflichtenraums traegt eine eindeutige Kennung (T-14)",
+            "high", True,
+            "Kein Pflichtenraum unter docs/coverage/ — nichts zu pruefen.",
+        )
+
+    findings = []
+    gesamt = 0
+    for datei in raum:
+        doc = yaml.safe_load(datei.read_text(encoding="utf-8")) or {}
+        einheiten = doc.get("einheiten") or []
+        gesamt += len(einheiten)
+        for feld in ("id", "uid"):
+            zaehlung = Counter(e.get(feld) for e in einheiten)
+            doppelt = sorted(k for k, n in zaehlung.items() if n > 1)
+            fehlend = zaehlung.get(None, 0)
+            if fehlend:
+                findings.append(f"{datei.relative_to(REPO_ROOT)}: {fehlend} Einheit(en) ohne {feld}")
+            if doppelt:
+                findings.append(
+                    f"{datei.relative_to(REPO_ROOT)}: {len(doppelt)} {feld}(s) mehrfach — "
+                    + ", ".join(str(k) for k in doppelt[:8])
+                    + (" …" if len(doppelt) > 8 else "")
+                )
+
+    return make_result(
+        "NORM_UNIT_IDS_UNIQUE",
+        "jede Einheit eines Pflichtenraums traegt eine eindeutige Kennung (T-14)",
+        "high",
+        not findings,
+        "Eine Kennung steht fuer mehrere Stellen — jede Zuordnung darauf ist "
+        "mehrdeutig." if findings
+        else f"{gesamt} Einheiten aus {len(raum)} Pflichtenraum-Datei(en), jede id "
+             f"und jede uid genau einmal.",
+        findings,
+    )
+
 def collect_results() -> list[dict]:
     checks = [
         check_orchestrator_fallbacks,
@@ -2930,6 +2995,7 @@ def collect_results() -> list[dict]:
         check_gate_declares_effect,
         check_handbook_roadmap_is_current,
         check_legal_quotes_verbatim,
+        check_norm_unit_ids_unique,
     ]
     results = []
     for check in checks:
