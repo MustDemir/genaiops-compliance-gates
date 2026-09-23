@@ -1,0 +1,13 @@
+anlass: T-14 — Extraktor schneidet Nummern, Ziffern, Unterabsaetze, Abschnitte
+verwaist: 7
+entfernt: 7
+bleibt_mit_analyse: []
+zuordnung:
+  Art. 4 lit. a@189911: []
+  Art. 4 lit. a@192428: []
+  Art. 4 lit. a@192844: []
+  Art. 4 lit. b@190415: []
+  Art. 4 lit. b@192565: []
+  Art. 4 lit. b@193161: []
+  Art. 4 lit. c@192719: []
+geerbt: []

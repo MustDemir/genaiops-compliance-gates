@@ -1,0 +1,18 @@
+anlass: T-14 — Extraktor schneidet Nummern, Ziffern, Unterabsaetze, Abschnitte
+verwaist: 12
+entfernt: 12
+bleibt_mit_analyse: []
+zuordnung:
+  § 32 Abs. 1@16243: []
+  § 32 Abs. 1@17392: []
+  § 32 Abs. 2@16433: []
+  § 32 Abs. 2@18689: []
+  § 32 Abs. 3@16877: []
+  § 32 Abs. 3@21460: []
+  § 32 Abs. 4@11443: []
+  § 32 Abs. 4@22679: []
+  § 32 Abs. 5@13407: []
+  § 5d Abs. 3 lit. b@10765: []
+  § 5d Abs. 3 lit. c@10933: []
+  § 5d Abs. 3 lit. d@11064: []
+geerbt: []

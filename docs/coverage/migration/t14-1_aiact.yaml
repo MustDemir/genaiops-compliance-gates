@@ -1,0 +1,295 @@
+anlass: T-14 — Extraktor schneidet Nummern, Ziffern, Unterabsaetze, Abschnitte
+verwaist: 112
+entfernt: 112
+bleibt_mit_analyse: []
+zuordnung:
+  Anhang I Nr. 10@605067: []
+  Anhang I Nr. 11@605290: []
+  Anhang I Nr. 12@605618: []
+  Anhang I Nr. 13@605935: []
+  Anhang I Nr. 14@606187: []
+  Anhang I Nr. 15@606417: []
+  Anhang I Nr. 16@606637: []
+  Anhang I Nr. 17@606838: []
+  Anhang I Nr. 18@607039: []
+  Anhang I Nr. 19@607465: []
+  Anhang I Nr. 1@603074: []
+  Anhang I Nr. 20@608444: []
+  Anhang I Nr. 2@603252: []
+  Anhang I Nr. 3@603409: []
+  Anhang I Nr. 4@603617: []
+  Anhang I Nr. 5@603852: []
+  Anhang I Nr. 6@604139: []
+  Anhang I Nr. 7@604428: []
+  Anhang I Nr. 8@604669: []
+  Anhang I Nr. 9@604852: []
+  Anhang VI@627233: []
+  Anhang VII lit. a@628697: []
+  Anhang VII lit. a@630959: []
+  Anhang VII lit. b@628839: []
+  Anhang VII lit. b@631010: []
+  Anhang VII lit. c@628924: []
+  Anhang VII lit. c@631127: []
+  Anhang VII lit. d@629032: []
+  Anhang VII lit. e@629140: []
+  Anhang VII lit. f@629290: []
+  Anhang VII@628089: []
+  Anhang VIII Nr. 10@637949: []
+  Anhang VIII Nr. 11@638084: []
+  Anhang VIII Nr. 12@638158: []
+  Anhang VIII Nr. 13@638354: []
+  Anhang VIII Nr. 1@636834: []
+  Anhang VIII Nr. 1@638696: []
+  Anhang VIII Nr. 1@640044: []
+  Anhang VIII Nr. 2@636902: []
+  Anhang VIII Nr. 2@638764: []
+  Anhang VIII Nr. 2@640113: []
+  Anhang VIII Nr. 3@637049: []
+  Anhang VIII Nr. 3@638899: []
+  Anhang VIII Nr. 3@640233: []
+  Anhang VIII Nr. 4@637139: []
+  Anhang VIII Nr. 4@638989: []
+  Anhang VIII Nr. 4@640320: []
+  Anhang VIII Nr. 5@637297: []
+  Anhang VIII Nr. 5@639147: []
+  Anhang VIII Nr. 5@640431: []
+  Anhang VIII Nr. 6@637431: []
+  Anhang VIII Nr. 6@639209: []
+  Anhang VIII Nr. 7@637566: []
+  Anhang VIII Nr. 7@639349: []
+  Anhang VIII Nr. 8@637674: []
+  Anhang VIII Nr. 8@639519: []
+  Anhang VIII Nr. 9@637864: []
+  Anhang VIII Nr. 9@639626: []
+  Anhang X lit. a@641744: []
+  Anhang X lit. a@642943: []
+  Anhang X lit. a@645333: []
+  Anhang X lit. a@646499: []
+  Anhang X lit. b@641987: []
+  Anhang X lit. b@643323: []
+  Anhang X lit. b@645679: []
+  Anhang X lit. b@647005: []
+  Anhang X lit. c@642388: []
+  Anhang X@641706: []
+  Anhang XI Nr. 1 lit. a@647934: []
+  Anhang XI Nr. 1 lit. b@648065: []
+  Anhang XI Nr. 1 lit. c@648125: []
+  Anhang XI Nr. 1 lit. d@648183: []
+  Anhang XI Nr. 1 lit. e@648237: []
+  Anhang XI Nr. 1 lit. f@648323: []
+  Anhang XI Nr. 1@647867: []
+  Anhang XI Nr. 1@650136: []
+  Anhang XI Nr. 2 lit. a@648516: []
+  Anhang XI Nr. 2 lit. b@648716: []
+  Anhang XI Nr. 2 lit. c@649034: []
+  Anhang XI Nr. 2 lit. d@649540: []
+  Anhang XI Nr. 2 lit. e@649749: []
+  Anhang XI Nr. 2@648343: []
+  Anhang XI Nr. 2@650443: []
+  Anhang XI Nr. 3@650684: []
+  Art. 13 Abs. 3 lit. i@326480:
+  - Art. 13 Abs. 3 lit. b Ziff. i@326480
+  - Art. 13 Abs. 3 lit. b Ziff. ii@326512
+  - Art. 13 Abs. 3 lit. b Ziff. iii@326874
+  - Art. 13 Abs. 3 lit. b Ziff. iv@327199
+  Art. 13 Abs. 3 lit. v@327376:
+  - Art. 13 Abs. 3 lit. b Ziff. v@327376
+  - Art. 13 Abs. 3 lit. b Ziff. vi@327528
+  - Art. 13 Abs. 3 lit. b Ziff. vii@327770
+  Art. 3 lit. a@280349:
+  - Art. 3 Nr. 45 lit. a@280349
+  Art. 3 lit. a@282190:
+  - Art. 3 Nr. 49 lit. a@282190
+  Art. 3 lit. a@285694:
+  - Art. 3 Nr. 61 lit. a@285694
+  Art. 3 lit. b@280589:
+  - Art. 3 Nr. 45 lit. b@280589
+  - Art. 3 Nr. 46@280930
+  - Art. 3 Nr. 47@281210
+  - Art. 3 Nr. 48@281604
+  - Art. 3 Nr. 49@282021
+  Art. 3 lit. b@282264:
+  - Art. 3 Nr. 49 lit. b@282264
+  Art. 3 lit. b@286145:
+  - Art. 3 Nr. 61 lit. b@286145
+  - Art. 3 Nr. 62@286466
+  - Art. 3 Nr. 63@286592
+  - Art. 3 Nr. 64@287250
+  - Art. 3 Nr. 65@287461
+  - Art. 3 Nr. 66@287987
+  - Art. 3 Nr. 67@288263
+  - Art. 3 Nr. 68@288586
+  Art. 3 lit. c@282371:
+  - Art. 3 Nr. 49 lit. c@282371
+  Art. 3 lit. d@282469:
+  - Art. 3 Nr. 49 lit. d@282469
+  - Art. 3 Nr. 50@282511
+  - Art. 3 Nr. 51@282630
+  - Art. 3 Nr. 52@282778
+  - Art. 3 Nr. 53@282875
+  - Art. 3 Nr. 54@283144
+  - Art. 3 Nr. 55@283423
+  - Art. 3 Nr. 56@283823
+  - Art. 3 Nr. 57@284191
+  - Art. 3 Nr. 58@284743
+  - Art. 3 Nr. 59@284891
+  - Art. 3 Nr. 60@285274
+  - Art. 3 Nr. 61@285534
+  Art. 3 lit. i@285854:
+  - Art. 3 Nr. 61 lit. a Ziff. i@285854
+  - Art. 3 Nr. 61 lit. a Ziff. ii@285934
+  - Art. 3 Nr. 61 lit. a Ziff. iii@286053
+  Art. 41 Abs. 1 lit. i@398374:
+  - Art. 41 Abs. 1 lit. a Ziff. i@398374
+  - Art. 41 Abs. 1 lit. a Ziff. ii@398467
+  - Art. 41 Abs. 1 lit. a Ziff. iii@398662
+  - Art. 41 Abs. 1 lit. a Ziff. iv@398791
+  Art. 43 Abs. 1 lit. a@403260:
+  - Art. 43 Abs. 1 UAbs. 1 lit. a@403260
+  Art. 43 Abs. 1 lit. a@403657:
+  - Art. 43 Abs. 1 UAbs. 2 lit. a@403657
+  Art. 43 Abs. 1 lit. b@403312:
+  - Art. 43 Abs. 1 UAbs. 1 lit. b@403312
+  Art. 43 Abs. 1 lit. b@403783:
+  - Art. 43 Abs. 1 UAbs. 2 lit. b@403783
+  Art. 43 Abs. 1 lit. c@403867:
+  - Art. 43 Abs. 1 UAbs. 2 lit. c@403867
+  Art. 43 Abs. 1 lit. d@403996:
+  - Art. 43 Abs. 1 UAbs. 2 lit. d@403996
+  Art. 5 Abs. 1 lit. i@291402:
+  - Art. 5 Abs. 1 lit. c Ziff. i@291402
+  - Art. 5 Abs. 1 lit. c Ziff. ii@291652
+  Art. 5 Abs. 1 lit. i@294219:
+  - Art. 5 Abs. 1 lit. h Ziff. i@294219
+  - Art. 5 Abs. 1 lit. h Ziff. ii@294364
+  - Art. 5 Abs. 1 lit. h Ziff. iii@294616
+  Art. 53 Abs. 1 lit. i@432432:
+  - Art. 53 Abs. 1 lit. b Ziff. i@432432
+  - Art. 53 Abs. 1 lit. b Ziff. ii@432647
+  Art. 59 Abs. 1 lit. i@461738:
+  - Art. 59 Abs. 1 lit. a Ziff. i@461738
+  - Art. 59 Abs. 1 lit. a Ziff. ii@461941
+  - Art. 59 Abs. 1 lit. a Ziff. iii@462164
+  - Art. 59 Abs. 1 lit. a Ziff. iv@462195
+  Art. 59 Abs. 1 lit. v@462315:
+  - Art. 59 Abs. 1 lit. a Ziff. v@462315
+  Art. 66 lit. i@484193:
+  - Art. 66 lit. e Ziff. i@484193
+  - Art. 66 lit. e Ziff. ii@484334
+  - Art. 66 lit. e Ziff. iii@484750
+  - Art. 66 lit. e Ziff. iv@484885
+  Art. 66 lit. v@485004:
+  - Art. 66 lit. e Ziff. v@485004
+  - Art. 66 lit. e Ziff. vi@485194
+  - Art. 66 lit. e Ziff. vii@485398
+  Art. 68 Abs. 3 lit. i@491784:
+  - Art. 68 Abs. 3 lit. a Ziff. i@491784
+  - Art. 68 Abs. 3 lit. a Ziff. ii@491962
+  - Art. 68 Abs. 3 lit. a Ziff. iii@492161
+  - Art. 68 Abs. 3 lit. a Ziff. iv@492283
+  Art. 68 Abs. 3 lit. v@492402:
+  - Art. 68 Abs. 3 lit. a Ziff. v@492402
+  Art. 7 Abs. 2 lit. i@309944:
+  - Art. 7 Abs. 2 lit. k Ziff. i@309944
+  - Art. 7 Abs. 2 lit. k Ziff. ii@310080
+geerbt:
+- Art. 108 Nr. 1@575131
+- Art. 108 Nr. 2@576062
+- Art. 108 Nr. 3@576433
+- Art. 108 Nr. 4@576798
+- Art. 108 Nr. 5@577169
+- Art. 108 Nr. 6@577522
+- Art. 13 Abs. 3 lit. b Ziff. ii@326512
+- Art. 13 Abs. 3 lit. b Ziff. iii@326874
+- Art. 13 Abs. 3 lit. b Ziff. iv@327199
+- Art. 13 Abs. 3 lit. b Ziff. vi@327528
+- Art. 13 Abs. 3 lit. b Ziff. vii@327770
+- Art. 3 Nr. 10@271892
+- Art. 3 Nr. 11@272137
+- Art. 3 Nr. 12@272313
+- Art. 3 Nr. 13@272677
+- Art. 3 Nr. 14@273025
+- Art. 3 Nr. 15@273277
+- Art. 3 Nr. 16@273480
+- Art. 3 Nr. 17@273692
+- Art. 3 Nr. 18@273859
+- Art. 3 Nr. 19@273963
+- Art. 3 Nr. 1@269591
+- Art. 3 Nr. 20@274212
+- Art. 3 Nr. 21@274385
+- Art. 3 Nr. 22@274578
+- Art. 3 Nr. 23@274765
+- Art. 3 Nr. 24@275200
+- Art. 3 Nr. 25@275486
+- Art. 3 Nr. 26@275839
+- Art. 3 Nr. 27@276011
+- Art. 3 Nr. 28@276156
+- Art. 3 Nr. 29@276395
+- Art. 3 Nr. 2@270015
+- Art. 3 Nr. 30@276532
+- Art. 3 Nr. 31@276774
+- Art. 3 Nr. 32@276912
+- Art. 3 Nr. 33@277112
+- Art. 3 Nr. 34@277269
+- Art. 3 Nr. 35@277518
+- Art. 3 Nr. 36@277879
+- Art. 3 Nr. 37@278127
+- Art. 3 Nr. 38@278381
+- Art. 3 Nr. 39@278607
+- Art. 3 Nr. 3@270138
+- Art. 3 Nr. 40@278807
+- Art. 3 Nr. 41@279142
+- Art. 3 Nr. 42@279451
+- Art. 3 Nr. 43@279851
+- Art. 3 Nr. 44@280032
+- Art. 3 Nr. 45@280314
+- Art. 3 Nr. 46@280930
+- Art. 3 Nr. 47@281210
+- Art. 3 Nr. 48@281604
+- Art. 3 Nr. 49@282021
+- Art. 3 Nr. 4@270545
+- Art. 3 Nr. 50@282511
+- Art. 3 Nr. 51@282630
+- Art. 3 Nr. 52@282778
+- Art. 3 Nr. 53@282875
+- Art. 3 Nr. 54@283144
+- Art. 3 Nr. 55@283423
+- Art. 3 Nr. 56@283823
+- Art. 3 Nr. 57@284191
+- Art. 3 Nr. 58@284743
+- Art. 3 Nr. 59@284891
+- Art. 3 Nr. 5@270807
+- Art. 3 Nr. 60@285274
+- Art. 3 Nr. 61 lit. a Ziff. ii@285934
+- Art. 3 Nr. 61 lit. a Ziff. iii@286053
+- Art. 3 Nr. 61@285534
+- Art. 3 Nr. 62@286466
+- Art. 3 Nr. 63@286592
+- Art. 3 Nr. 64@287250
+- Art. 3 Nr. 65@287461
+- Art. 3 Nr. 66@287987
+- Art. 3 Nr. 67@288263
+- Art. 3 Nr. 68@288586
+- Art. 3 Nr. 6@271194
+- Art. 3 Nr. 7@271459
+- Art. 3 Nr. 8@271637
+- Art. 3 Nr. 9@271742
+- Art. 41 Abs. 1 lit. a Ziff. ii@398467
+- Art. 41 Abs. 1 lit. a Ziff. iii@398662
+- Art. 41 Abs. 1 lit. a Ziff. iv@398791
+- Art. 5 Abs. 1 lit. c Ziff. ii@291652
+- Art. 5 Abs. 1 lit. h Ziff. ii@294364
+- Art. 5 Abs. 1 lit. h Ziff. iii@294616
+- Art. 53 Abs. 1 lit. b Ziff. ii@432647
+- Art. 59 Abs. 1 lit. a Ziff. ii@461941
+- Art. 59 Abs. 1 lit. a Ziff. iii@462164
+- Art. 59 Abs. 1 lit. a Ziff. iv@462195
+- Art. 66 lit. e Ziff. ii@484334
+- Art. 66 lit. e Ziff. iii@484750
+- Art. 66 lit. e Ziff. iv@484885
+- Art. 66 lit. e Ziff. vi@485194
+- Art. 66 lit. e Ziff. vii@485398
+- Art. 68 Abs. 3 lit. a Ziff. ii@491962
+- Art. 68 Abs. 3 lit. a Ziff. iii@492161
+- Art. 68 Abs. 3 lit. a Ziff. iv@492283
+- Art. 7 Abs. 2 lit. k Ziff. ii@310080

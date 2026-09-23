@@ -6,7 +6,7 @@ quelle:
     07.09.2026 — kein amtliches Einzeldokument. Rechtsaussagen sind vor Veroeffentlichung gegen das Bundesgesetzblatt
     zu pruefen.
   abgerufen: '2026-09-07'
-  artikel_im_text: 24
+  artikel_im_text: 25
 einheiten:
 - uid: § 2@299
   id: § 2
@@ -61,6 +61,10 @@ einheiten:
   gate: &id002 []
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: § 3 Abs. 1@3783
   id: § 3 Abs. 1
   artikel: § 3
@@ -83,6 +87,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: § 3 Abs. 2@3973
   id: § 3 Abs. 2
   artikel: § 3
@@ -90,11 +98,9 @@ einheiten:
   absatz: '2'
   buchstabe: null
   offset: 3973
-  laenge: 272
+  laenge: 52
   saetze: 1
-  beleg: (2) Zuständige Behörde im Sinne dieses Gesetzes ist 1. das Bundesministerium des Innern für die
-    kritischen Dienstleistungen, die von Einrichtungen der Bundesverwaltung erbracht werden, 2. die Bundesnetzagentur
-    für die kritischen Dienstleistungen a) der Stromversorgung,
+  beleg: (2) Zuständige Behörde im Sinne dieses Gesetzes ist
   adressat: null
   pflicht: null
   scope: null
@@ -106,12 +112,96 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 3 Abs. 2 lit. b@4245
-  id: § 3 Abs. 2 lit. b
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
+- uid: § 3 Abs. 2 Nr. 1@4025
+  id: § 3 Abs. 2 Nr. 1
   artikel: § 3
   artikel_titel: Zentrale Anlaufstelle; zuständige Behörde; behördliche Zusammenarbeit; Verordnungsermächtigung
+  abschnitt: null
   absatz: '2'
+  nummer: '1'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 4025
+  laenge: 134
+  saetze: 1
+  beleg: 1. das Bundesministerium des Innern für die kritischen Dienstleistungen, die von Einrichtungen
+    der Bundesverwaltung erbracht werden,
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: &id003 []
+  gate: &id004 []
+  befund: null
+  befund_grund: null
+- uid: § 3 Abs. 2 Nr. 2@4159
+  id: § 3 Abs. 2 Nr. 2
+  artikel: § 3
+  artikel_titel: Zentrale Anlaufstelle; zuständige Behörde; behördliche Zusammenarbeit; Verordnungsermächtigung
+  abschnitt: null
+  absatz: '2'
+  nummer: '2'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 4159
+  laenge: 61
+  saetze: 1
+  beleg: 2. die Bundesnetzagentur für die kritischen Dienstleistungen
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 3 Abs. 2 Nr. 2 lit. a@4220
+  id: § 3 Abs. 2 Nr. 2 lit. a
+  artikel: § 3
+  artikel_titel: Zentrale Anlaufstelle; zuständige Behörde; behördliche Zusammenarbeit; Verordnungsermächtigung
+  abschnitt: null
+  absatz: '2'
+  nummer: '2'
+  unterabsatz: null
+  buchstabe: a
+  ziffer: null
+  offset: 4220
+  laenge: 25
+  saetze: 1
+  beleg: a) der Stromversorgung,
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 3 Abs. 2 Nr. 2 lit. b@4245
+  id: § 3 Abs. 2 Nr. 2 lit. b
+  artikel: § 3
+  artikel_titel: Zentrale Anlaufstelle; zuständige Behörde; behördliche Zusammenarbeit; Verordnungsermächtigung
+  abschnitt: null
+  absatz: '2'
+  nummer: '2'
+  unterabsatz: null
   buchstabe: b
+  ziffer: null
   offset: 4245
   laenge: 26
   saetze: 1
@@ -123,16 +213,20 @@ einheiten:
   verifikation: null
   hypothese_grund: null
   omnibus: null
-  requirement: *id001
-  gate: *id002
+  requirement: *id003
+  gate: *id004
   befund: null
   befund_grund: null
-- uid: § 3 Abs. 2 lit. c@4271
-  id: § 3 Abs. 2 lit. c
+- uid: § 3 Abs. 2 Nr. 2 lit. c@4271
+  id: § 3 Abs. 2 Nr. 2 lit. c
   artikel: § 3
   artikel_titel: Zentrale Anlaufstelle; zuständige Behörde; behördliche Zusammenarbeit; Verordnungsermächtigung
+  abschnitt: null
   absatz: '2'
+  nummer: '2'
+  unterabsatz: null
   buchstabe: c
+  ziffer: null
   offset: 4271
   laenge: 34
   saetze: 1
@@ -144,31 +238,25 @@ einheiten:
   verifikation: null
   hypothese_grund: null
   omnibus: null
-  requirement: *id001
-  gate: *id002
+  requirement: *id003
+  gate: *id004
   befund: null
   befund_grund: null
-- uid: § 3 Abs. 2 lit. d@4305
-  id: § 3 Abs. 2 lit. d
+- uid: § 3 Abs. 2 Nr. 2 lit. d@4305
+  id: § 3 Abs. 2 Nr. 2 lit. d
   artikel: § 3
   artikel_titel: Zentrale Anlaufstelle; zuständige Behörde; behördliche Zusammenarbeit; Verordnungsermächtigung
+  abschnitt: null
   absatz: '2'
+  nummer: '2'
+  unterabsatz: null
   buchstabe: d
+  ziffer: null
   offset: 4305
-  laenge: 1215
+  laenge: 136
   saetze: 1
   beleg: d) des Betriebes von öffentlichen Telekommunikationsnetzen oder der Erbringung von öffentlich
-    zugänglichen Telekommunikationsdiensten, 3. das Bundesministerium für Wirtschaft und Energie für die
-    kritische Dienstleistung der Mineralölversorgung, 4. die Generaldirektion Wasserstraßen und Schifffahrt
-    für die kritische Dienstleitung der See- und Binnenschifffahrt in Bezug auf den Betrieb der bundeseigenen
-    Wasserstraßeninfrastruktur, 5. das Bundesamt für Seeschifffahrt und Hydrographie für die kritischen
-    Dienstleistungen der Wasserstands- und Gezeitenvorhersage des Bundes, 6. das Fernstraßen-Bundesamt
-    für die kritische Dienstleistung des Straßenverkehrs in Bezug auf Verkehrssteuerungs- und Leitsysteme
-    sowie intelligente Verkehrssysteme auf Bundesautobahnen und -straßen in Bundesverwaltung, 7. der Deutsche
-    Wetterdienst für die kritische Dienstleistung der Wettervorhersage, soweit sie in seine Zuständigkeit
-    fällt, 8. das Bundesamt für Sicherheit in der Informationstechnik für die kritischen Dienstleistungen,
-    soweit sie nicht dem Betrieb von öffentlichen Telekommunikationsnetzen oder der Erbringung von öffentlich
-    zugänglichen Telekommunikationsdiensten dienen, a) der Sprach- und Datenübertragung,
+    zugänglichen Telekommunikationsdiensten,
   adressat: null
   pflicht: null
   scope: null
@@ -176,30 +264,24 @@ einheiten:
   verifikation: null
   hypothese_grund: null
   omnibus: null
-  requirement: *id001
-  gate: *id002
+  requirement: *id003
+  gate: *id004
   befund: null
   befund_grund: null
-- uid: § 3 Abs. 2 lit. b@5520
-  id: § 3 Abs. 2 lit. b
+- uid: § 3 Abs. 2 Nr. 3@4441
+  id: § 3 Abs. 2 Nr. 3
   artikel: § 3
   artikel_titel: Zentrale Anlaufstelle; zuständige Behörde; behördliche Zusammenarbeit; Verordnungsermächtigung
+  abschnitt: null
   absatz: '2'
-  buchstabe: b
-  offset: 5520
-  laenge: 1063
+  nummer: '3'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 4441
+  laenge: 111
   saetze: 1
-  beleg: b) der Datenspeicherung und -verarbeitung, 9. die Bundesanstalt für Finanzdienstleistungsaufsicht
-    für die kritischen Dienstleistungen, die durch Unternehmen erbracht werden, für welche sie die zuständige
-    Behörde im Sinne des Artikels 46 der Verordnung (EU) 2022/2554 ist, 10. die für den jeweiligen Leistungsträger
-    nach dem Sozialgesetzbuch zuständige Aufsichtsbehörde für die kritische Dienstleistung der Erbringung
-    von Leistungen der Sozialversicherung; sofern die kritische Dienstleistung der Leistungen des Rechts
-    der Arbeitsförderung sowie der Grundsicherung für Arbeitsuchende, soweit sie der Aufsicht des Bundes
-    unterliegt, betroffen ist, die Bundesagentur für Arbeit, 11. das Bundesamt für Bevölkerungsschutz
-    und Katastrophenhilfe für die Aufgaben nach den §§ 8, 14 Absatz 2 sowie § 18, 12. in den in den Nummern
-    1 bis 11 nicht genannten Fällen die jeweils zuständigen Bundesbehörden nach Absatz 3 Satz 1 und die
-    jeweils zuständigen Landesbehörden nach Absatz 6 Satz 1. Die in diesem Gesetz gesondert ausgewiesenen
-    Zuständigkeiten bleiben unberührt.
+  beleg: 3. das Bundesministerium für Wirtschaft und Energie für die kritische Dienstleistung der Mineralölversorgung,
   adressat: null
   pflicht: null
   scope: null
@@ -207,8 +289,299 @@ einheiten:
   verifikation: null
   hypothese_grund: null
   omnibus: null
-  requirement: *id001
-  gate: *id002
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 3 Abs. 2 Nr. 4@4552
+  id: § 3 Abs. 2 Nr. 4
+  artikel: § 3
+  artikel_titel: Zentrale Anlaufstelle; zuständige Behörde; behördliche Zusammenarbeit; Verordnungsermächtigung
+  abschnitt: null
+  absatz: '2'
+  nummer: '4'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 4552
+  laenge: 189
+  saetze: 1
+  beleg: 4. die Generaldirektion Wasserstraßen und Schifffahrt für die kritische Dienstleitung der See-
+    und Binnenschifffahrt in Bezug auf den Betrieb der bundeseigenen Wasserstraßeninfrastruktur,
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 3 Abs. 2 Nr. 5@4741
+  id: § 3 Abs. 2 Nr. 5
+  artikel: § 3
+  artikel_titel: Zentrale Anlaufstelle; zuständige Behörde; behördliche Zusammenarbeit; Verordnungsermächtigung
+  abschnitt: null
+  absatz: '2'
+  nummer: '5'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 4741
+  laenge: 143
+  saetze: 1
+  beleg: 5. das Bundesamt für Seeschifffahrt und Hydrographie für die kritischen Dienstleistungen der
+    Wasserstands- und Gezeitenvorhersage des Bundes,
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 3 Abs. 2 Nr. 6@4884
+  id: § 3 Abs. 2 Nr. 6
+  artikel: § 3
+  artikel_titel: Zentrale Anlaufstelle; zuständige Behörde; behördliche Zusammenarbeit; Verordnungsermächtigung
+  abschnitt: null
+  absatz: '2'
+  nummer: '6'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 4884
+  laenge: 222
+  saetze: 1
+  beleg: 6. das Fernstraßen-Bundesamt für die kritische Dienstleistung des Straßenverkehrs in Bezug auf
+    Verkehrssteuerungs- und Leitsysteme sowie intelligente Verkehrssysteme auf Bundesautobahnen und -straßen
+    in Bundesverwaltung,
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 3 Abs. 2 Nr. 7@5106
+  id: § 3 Abs. 2 Nr. 7
+  artikel: § 3
+  artikel_titel: Zentrale Anlaufstelle; zuständige Behörde; behördliche Zusammenarbeit; Verordnungsermächtigung
+  abschnitt: null
+  absatz: '2'
+  nummer: '7'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 5106
+  laenge: 126
+  saetze: 1
+  beleg: 7. der Deutsche Wetterdienst für die kritische Dienstleistung der Wettervorhersage, soweit sie
+    in seine Zuständigkeit fällt,
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 3 Abs. 2 Nr. 8@5232
+  id: § 3 Abs. 2 Nr. 8
+  artikel: § 3
+  artikel_titel: Zentrale Anlaufstelle; zuständige Behörde; behördliche Zusammenarbeit; Verordnungsermächtigung
+  abschnitt: null
+  absatz: '2'
+  nummer: '8'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 5232
+  laenge: 250
+  saetze: 1
+  beleg: 8. das Bundesamt für Sicherheit in der Informationstechnik für die kritischen Dienstleistungen,
+    soweit sie nicht dem Betrieb von öffentlichen Telekommunikationsnetzen oder der Erbringung von öffentlich
+    zugänglichen Telekommunikationsdiensten dienen,
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 3 Abs. 2 Nr. 8 lit. a@5482
+  id: § 3 Abs. 2 Nr. 8 lit. a
+  artikel: § 3
+  artikel_titel: Zentrale Anlaufstelle; zuständige Behörde; behördliche Zusammenarbeit; Verordnungsermächtigung
+  abschnitt: null
+  absatz: '2'
+  nummer: '8'
+  unterabsatz: null
+  buchstabe: a
+  ziffer: null
+  offset: 5482
+  laenge: 38
+  saetze: 1
+  beleg: a) der Sprach- und Datenübertragung,
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 3 Abs. 2 Nr. 8 lit. b@5520
+  id: § 3 Abs. 2 Nr. 8 lit. b
+  artikel: § 3
+  artikel_titel: Zentrale Anlaufstelle; zuständige Behörde; behördliche Zusammenarbeit; Verordnungsermächtigung
+  abschnitt: null
+  absatz: '2'
+  nummer: '8'
+  unterabsatz: null
+  buchstabe: b
+  ziffer: null
+  offset: 5520
+  laenge: 44
+  saetze: 1
+  beleg: b) der Datenspeicherung und -verarbeitung,
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 3 Abs. 2 Nr. 9@5564
+  id: § 3 Abs. 2 Nr. 9
+  artikel: § 3
+  artikel_titel: Zentrale Anlaufstelle; zuständige Behörde; behördliche Zusammenarbeit; Verordnungsermächtigung
+  abschnitt: null
+  absatz: '2'
+  nummer: '9'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 5564
+  laenge: 230
+  saetze: 1
+  beleg: 9. die Bundesanstalt für Finanzdienstleistungsaufsicht für die kritischen Dienstleistungen, die
+    durch Unternehmen erbracht werden, für welche sie die zuständige Behörde im Sinne des Artikels 46
+    der Verordnung (EU) 2022/2554 ist,
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 3 Abs. 2 Nr. 10@5794
+  id: § 3 Abs. 2 Nr. 10
+  artikel: § 3
+  artikel_titel: Zentrale Anlaufstelle; zuständige Behörde; behördliche Zusammenarbeit; Verordnungsermächtigung
+  abschnitt: null
+  absatz: '2'
+  nummer: '10'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 5794
+  laenge: 405
+  saetze: 1
+  beleg: 10. die für den jeweiligen Leistungsträger nach dem Sozialgesetzbuch zuständige Aufsichtsbehörde
+    für die kritische Dienstleistung der Erbringung von Leistungen der Sozialversicherung; sofern die
+    kritische Dienstleistung der Leistungen des Rechts der Arbeitsförderung sowie der Grundsicherung für
+    Arbeitsuchende, soweit sie der Aufsicht des Bundes unterliegt, betroffen ist, die Bundesagentur für
+    Arbeit,
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 3 Abs. 2 Nr. 11@6199
+  id: § 3 Abs. 2 Nr. 11
+  artikel: § 3
+  artikel_titel: Zentrale Anlaufstelle; zuständige Behörde; behördliche Zusammenarbeit; Verordnungsermächtigung
+  abschnitt: null
+  absatz: '2'
+  nummer: '11'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 6199
+  laenge: 120
+  saetze: 1
+  beleg: 11. das Bundesamt für Bevölkerungsschutz und Katastrophenhilfe für die Aufgaben nach den §§ 8,
+    14 Absatz 2 sowie § 18,
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 3 Abs. 2 Nr. 12@6319
+  id: § 3 Abs. 2 Nr. 12
+  artikel: § 3
+  artikel_titel: Zentrale Anlaufstelle; zuständige Behörde; behördliche Zusammenarbeit; Verordnungsermächtigung
+  abschnitt: null
+  absatz: '2'
+  nummer: '12'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 6319
+  laenge: 264
+  saetze: 1
+  beleg: 12. in den in den Nummern 1 bis 11 nicht genannten Fällen die jeweils zuständigen Bundesbehörden
+    nach Absatz 3 Satz 1 und die jeweils zuständigen Landesbehörden nach Absatz 6 Satz 1. Die in diesem
+    Gesetz gesondert ausgewiesenen Zuständigkeiten bleiben unberührt.
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
   befund: null
   befund_grund: null
 - uid: § 3 Abs. 3@6583
@@ -239,6 +612,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: § 3 Abs. 4@7343
   id: § 3 Abs. 4
   artikel: § 3
@@ -263,6 +640,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: § 3 Abs. 5@7730
   id: § 3 Abs. 5
   artikel: § 3
@@ -286,6 +667,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: § 3 Abs. 6@8006
   id: § 3 Abs. 6
   artikel: § 3
@@ -312,6 +697,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: § 3 Abs. 7@8605
   id: § 3 Abs. 7
   artikel: § 3
@@ -319,12 +708,11 @@ einheiten:
   absatz: '7'
   buchstabe: null
   offset: 8605
-  laenge: 399
+  laenge: 296
   saetze: 2
   beleg: (7) Das Bundesamt für Bevölkerungsschutz und Katastrophenhilfe und die zuständigen Behörden nach
     Absatz 2 Satz 1 und Absatz 6 Satz 1 übermitteln sich wechselseitig die Informationen, die für die
     Aufgabenerfüllung der jeweils anderen Seite erforderlich sind. Erforderlich sein können insbesondere
-    1. Informationen zu Risiken und Vorfällen sowie 2. Informationen zu Maßnahmen a) nach diesem Gesetz,
   adressat: null
   pflicht: null
   scope: null
@@ -336,12 +724,95 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 3 Abs. 7 lit. b@9004
-  id: § 3 Abs. 7 lit. b
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
+- uid: § 3 Abs. 7 Nr. 1@8901
+  id: § 3 Abs. 7 Nr. 1
   artikel: § 3
   artikel_titel: Zentrale Anlaufstelle; zuständige Behörde; behördliche Zusammenarbeit; Verordnungsermächtigung
+  abschnitt: null
   absatz: '7'
+  nummer: '1'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 8901
+  laenge: 49
+  saetze: 1
+  beleg: 1. Informationen zu Risiken und Vorfällen sowie
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 3 Abs. 7 Nr. 2@8950
+  id: § 3 Abs. 7 Nr. 2
+  artikel: § 3
+  artikel_titel: Zentrale Anlaufstelle; zuständige Behörde; behördliche Zusammenarbeit; Verordnungsermächtigung
+  abschnitt: null
+  absatz: '7'
+  nummer: '2'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 8950
+  laenge: 30
+  saetze: 1
+  beleg: 2. Informationen zu Maßnahmen
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 3 Abs. 7 Nr. 2 lit. a@8980
+  id: § 3 Abs. 7 Nr. 2 lit. a
+  artikel: § 3
+  artikel_titel: Zentrale Anlaufstelle; zuständige Behörde; behördliche Zusammenarbeit; Verordnungsermächtigung
+  abschnitt: null
+  absatz: '7'
+  nummer: '2'
+  unterabsatz: null
+  buchstabe: a
+  ziffer: null
+  offset: 8980
+  laenge: 24
+  saetze: 1
+  beleg: a) nach diesem Gesetz,
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 3 Abs. 7 Nr. 2 lit. b@9004
+  id: § 3 Abs. 7 Nr. 2 lit. b
+  artikel: § 3
+  artikel_titel: Zentrale Anlaufstelle; zuständige Behörde; behördliche Zusammenarbeit; Verordnungsermächtigung
+  abschnitt: null
+  absatz: '7'
+  nummer: '2'
+  unterabsatz: null
   buchstabe: b
+  ziffer: null
   offset: 9004
   laenge: 25
   saetze: 1
@@ -353,16 +824,20 @@ einheiten:
   verifikation: null
   hypothese_grund: null
   omnibus: null
-  requirement: *id001
-  gate: *id002
+  requirement: *id003
+  gate: *id004
   befund: null
   befund_grund: null
-- uid: § 3 Abs. 7 lit. c@9029
-  id: § 3 Abs. 7 lit. c
+- uid: § 3 Abs. 7 Nr. 2 lit. c@9029
+  id: § 3 Abs. 7 Nr. 2 lit. c
   artikel: § 3
   artikel_titel: Zentrale Anlaufstelle; zuständige Behörde; behördliche Zusammenarbeit; Verordnungsermächtigung
+  abschnitt: null
   absatz: '7'
+  nummer: '2'
+  unterabsatz: null
   buchstabe: c
+  ziffer: null
   offset: 9029
   laenge: 39
   saetze: 1
@@ -374,16 +849,20 @@ einheiten:
   verifikation: null
   hypothese_grund: null
   omnibus: null
-  requirement: *id001
-  gate: *id002
+  requirement: *id003
+  gate: *id004
   befund: null
   befund_grund: null
-- uid: § 3 Abs. 7 lit. d@9068
-  id: § 3 Abs. 7 lit. d
+- uid: § 3 Abs. 7 Nr. 2 lit. d@9068
+  id: § 3 Abs. 7 Nr. 2 lit. d
   artikel: § 3
   artikel_titel: Zentrale Anlaufstelle; zuständige Behörde; behördliche Zusammenarbeit; Verordnungsermächtigung
+  abschnitt: null
   absatz: '7'
+  nummer: '2'
+  unterabsatz: null
   buchstabe: d
+  ziffer: null
   offset: 9068
   laenge: 42
   saetze: 1
@@ -395,16 +874,20 @@ einheiten:
   verifikation: null
   hypothese_grund: null
   omnibus: null
-  requirement: *id001
-  gate: *id002
+  requirement: *id003
+  gate: *id004
   befund: null
   befund_grund: null
-- uid: § 3 Abs. 7 lit. e@9110
-  id: § 3 Abs. 7 lit. e
+- uid: § 3 Abs. 7 Nr. 2 lit. e@9110
+  id: § 3 Abs. 7 Nr. 2 lit. e
   artikel: § 3
   artikel_titel: Zentrale Anlaufstelle; zuständige Behörde; behördliche Zusammenarbeit; Verordnungsermächtigung
+  abschnitt: null
   absatz: '7'
+  nummer: '2'
+  unterabsatz: null
   buchstabe: e
+  ziffer: null
   offset: 9110
   laenge: 275
   saetze: 2
@@ -418,8 +901,8 @@ einheiten:
   verifikation: null
   hypothese_grund: null
   omnibus: null
-  requirement: *id001
-  gate: *id002
+  requirement: *id003
+  gate: *id004
   befund: null
   befund_grund: null
 - uid: § 3 Abs. 8@9385
@@ -429,15 +912,93 @@ einheiten:
   absatz: '8'
   buchstabe: null
   offset: 9385
-  laenge: 1057
+  laenge: 223
   saetze: 1
   beleg: (8) Das Bundesamt für Bevölkerungsschutz und Katastrophenhilfe konsultiert in regelmäßigen Abständen,
     unter Einbindung der zuständigen Behörden, die zuständigen Behörden anderer Mitgliedstaaten der Europäischen
-    Union, wenn 1. eine kritische Anlage physisch mit einer Einrichtung eines anderen Mitgliedstaates
-    der Europäischen Union verbunden ist, 2. ein Betreiber kritischer Anlagen Teil von Unternehmensstrukturen
-    ist, die mit einer kritischen Einrichtung im Sinne des Artikels 2 Nummer 1 der Richtlinie (EU) 2022/2557
-    in einem anderen Mitgliedstaat der Europäischen Union verbunden sind oder zu ihnen in Bezug stehen
-    oder 3. ein Betreiber kritischer Anlagen in einem anderen Mitgliedstaat der Europäischen Union als
+    Union, wenn
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id001
+  gate: *id002
+  befund: null
+  befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
+- uid: § 3 Abs. 8 Nr. 1@9608
+  id: § 3 Abs. 8 Nr. 1
+  artikel: § 3
+  artikel_titel: Zentrale Anlaufstelle; zuständige Behörde; behördliche Zusammenarbeit; Verordnungsermächtigung
+  abschnitt: null
+  absatz: '8'
+  nummer: '1'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 9608
+  laenge: 125
+  saetze: 1
+  beleg: 1. eine kritische Anlage physisch mit einer Einrichtung eines anderen Mitgliedstaates der Europäischen
+    Union verbunden ist,
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 3 Abs. 8 Nr. 2@9733
+  id: § 3 Abs. 8 Nr. 2
+  artikel: § 3
+  artikel_titel: Zentrale Anlaufstelle; zuständige Behörde; behördliche Zusammenarbeit; Verordnungsermächtigung
+  abschnitt: null
+  absatz: '8'
+  nummer: '2'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 9733
+  laenge: 278
+  saetze: 1
+  beleg: 2. ein Betreiber kritischer Anlagen Teil von Unternehmensstrukturen ist, die mit einer kritischen
+    Einrichtung im Sinne des Artikels 2 Nummer 1 der Richtlinie (EU) 2022/2557 in einem anderen Mitgliedstaat
+    der Europäischen Union verbunden sind oder zu ihnen in Bezug stehen oder
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 3 Abs. 8 Nr. 3@10011
+  id: § 3 Abs. 8 Nr. 3
+  artikel: § 3
+  artikel_titel: Zentrale Anlaufstelle; zuständige Behörde; behördliche Zusammenarbeit; Verordnungsermächtigung
+  abschnitt: null
+  absatz: '8'
+  nummer: '3'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 10011
+  laenge: 431
+  saetze: 1
+  beleg: 3. ein Betreiber kritischer Anlagen in einem anderen Mitgliedstaat der Europäischen Union als
     kritische Einrichtung im Sinne des Artikels 2 Nummer 1 der Richtlinie (EU) 2022/2557 eingestuft wurde
     und wesentliche Dienste im Sinne des Artikels 2 Nummer 5 der Richtlinie (EU) 2022/2557 und des Artikels
     2 der Delegierten Verordnung (EU) 2023/2450 für einen anderen oder in einem anderen Mitgliedstaat
@@ -449,8 +1010,8 @@ einheiten:
   verifikation: null
   hypothese_grund: null
   omnibus: null
-  requirement: *id001
-  gate: *id002
+  requirement: *id003
+  gate: *id004
   befund: null
   befund_grund: null
 - uid: § 4 Abs. 1@10499
@@ -460,12 +1021,9 @@ einheiten:
   absatz: '1'
   buchstabe: null
   offset: 10499
-  laenge: 364
+  laenge: 83
   saetze: 1
-  beleg: '(1) Dieses Gesetz gilt für Betreiber kritischer Anlagen in den folgenden Sektoren: 1. Energie,
-    2. Transport und Verkehr, 3. Finanzwesen, 4. Leistungen der Sozialversicherung sowie Grundsicherung
-    für Arbeitsuchende, 5. Gesundheitswesen, 6. Wasser, 7. Ernährung, 8. Informationstechnik und Telekommunikation,
-    9. Weltraum und 10. Siedlungsabfallentsorgung.'
+  beleg: '(1) Dieses Gesetz gilt für Betreiber kritischer Anlagen in den folgenden Sektoren:'
   adressat: null
   pflicht: null
   scope: null
@@ -477,6 +1035,260 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
+- uid: § 4 Abs. 1 Nr. 1@10582
+  id: § 4 Abs. 1 Nr. 1
+  artikel: § 4
+  artikel_titel: Geltungsbereich; Sektoren; Verordnungsermächtigung
+  abschnitt: null
+  absatz: '1'
+  nummer: '1'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 10582
+  laenge: 13
+  saetze: 1
+  beleg: 1. Energie,
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 4 Abs. 1 Nr. 2@10595
+  id: § 4 Abs. 1 Nr. 2
+  artikel: § 4
+  artikel_titel: Geltungsbereich; Sektoren; Verordnungsermächtigung
+  abschnitt: null
+  absatz: '1'
+  nummer: '2'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 10595
+  laenge: 27
+  saetze: 1
+  beleg: 2. Transport und Verkehr,
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 4 Abs. 1 Nr. 3@10622
+  id: § 4 Abs. 1 Nr. 3
+  artikel: § 4
+  artikel_titel: Geltungsbereich; Sektoren; Verordnungsermächtigung
+  abschnitt: null
+  absatz: '1'
+  nummer: '3'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 10622
+  laenge: 17
+  saetze: 1
+  beleg: 3. Finanzwesen,
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 4 Abs. 1 Nr. 4@10639
+  id: § 4 Abs. 1 Nr. 4
+  artikel: § 4
+  artikel_titel: Geltungsbereich; Sektoren; Verordnungsermächtigung
+  abschnitt: null
+  absatz: '1'
+  nummer: '4'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 10639
+  laenge: 79
+  saetze: 1
+  beleg: 4. Leistungen der Sozialversicherung sowie Grundsicherung für Arbeitsuchende,
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 4 Abs. 1 Nr. 5@10718
+  id: § 4 Abs. 1 Nr. 5
+  artikel: § 4
+  artikel_titel: Geltungsbereich; Sektoren; Verordnungsermächtigung
+  abschnitt: null
+  absatz: '1'
+  nummer: '5'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 10718
+  laenge: 22
+  saetze: 1
+  beleg: 5. Gesundheitswesen,
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 4 Abs. 1 Nr. 6@10740
+  id: § 4 Abs. 1 Nr. 6
+  artikel: § 4
+  artikel_titel: Geltungsbereich; Sektoren; Verordnungsermächtigung
+  abschnitt: null
+  absatz: '1'
+  nummer: '6'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 10740
+  laenge: 12
+  saetze: 1
+  beleg: 6. Wasser,
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 4 Abs. 1 Nr. 7@10752
+  id: § 4 Abs. 1 Nr. 7
+  artikel: § 4
+  artikel_titel: Geltungsbereich; Sektoren; Verordnungsermächtigung
+  abschnitt: null
+  absatz: '1'
+  nummer: '7'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 10752
+  laenge: 15
+  saetze: 1
+  beleg: 7. Ernährung,
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 4 Abs. 1 Nr. 8@10767
+  id: § 4 Abs. 1 Nr. 8
+  artikel: § 4
+  artikel_titel: Geltungsbereich; Sektoren; Verordnungsermächtigung
+  abschnitt: null
+  absatz: '1'
+  nummer: '8'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 10767
+  laenge: 47
+  saetze: 1
+  beleg: 8. Informationstechnik und Telekommunikation,
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 4 Abs. 1 Nr. 9@10814
+  id: § 4 Abs. 1 Nr. 9
+  artikel: § 4
+  artikel_titel: Geltungsbereich; Sektoren; Verordnungsermächtigung
+  abschnitt: null
+  absatz: '1'
+  nummer: '9'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 10814
+  laenge: 17
+  saetze: 1
+  beleg: 9. Weltraum und
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 4 Abs. 1 Nr. 10@10831
+  id: § 4 Abs. 1 Nr. 10
+  artikel: § 4
+  artikel_titel: Geltungsbereich; Sektoren; Verordnungsermächtigung
+  abschnitt: null
+  absatz: '1'
+  nummer: '10'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 10831
+  laenge: 32
+  saetze: 1
+  beleg: 10. Siedlungsabfallentsorgung.
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
 - uid: § 4 Abs. 2@10863
   id: § 4 Abs. 2
   artikel: § 4
@@ -484,15 +1296,10 @@ einheiten:
   absatz: '2'
   buchstabe: null
   offset: 10863
-  laenge: 698
+  laenge: 105
   saetze: 1
   beleg: (2) § 3 Absatz 8, die §§ 9, 10, 12 bis 16, 18, 19 Absatz 2 sowie die §§ 20, 21 Absatz 6 gelten
-    nicht für 1. Finanzunternehmen nach Artikel 2 Absatz 2 der Verordnung (EU) 2022/2554 und Unternehmen,
-    für die die Anforderungen der Verordnung (EU) 2022/2554 auf Grund von § 1a Absatz 2a des Kreditwesengesetzes
-    oder § 293 Absatz 5 des Versicherungsaufsichtsgesetzes gelten, 2. Betreiber kritischer Anlagen im
-    Sektor Informationstechnik und Telekommunikation, 3. Betreiber kritischer Anlagen im Sektor Siedlungsabfallentsorgung,
-    mit Ausnahme des § 12, und 4. für Betreiber kritischer Anlagen im Sektor Leistungen der Sozialversicherung
-    sowie Grundsicherung für Arbeitsuchende, mit Ausnahme des § 12.
+    nicht für
   adressat: null
   pflicht: null
   scope: null
@@ -502,6 +1309,113 @@ einheiten:
   omnibus: null
   requirement: *id001
   gate: *id002
+  befund: null
+  befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
+- uid: § 4 Abs. 2 Nr. 1@10968
+  id: § 4 Abs. 2 Nr. 1
+  artikel: § 4
+  artikel_titel: Geltungsbereich; Sektoren; Verordnungsermächtigung
+  abschnitt: null
+  absatz: '2'
+  nummer: '1'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 10968
+  laenge: 265
+  saetze: 1
+  beleg: 1. Finanzunternehmen nach Artikel 2 Absatz 2 der Verordnung (EU) 2022/2554 und Unternehmen, für
+    die die Anforderungen der Verordnung (EU) 2022/2554 auf Grund von § 1a Absatz 2a des Kreditwesengesetzes
+    oder § 293 Absatz 5 des Versicherungsaufsichtsgesetzes gelten,
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 4 Abs. 2 Nr. 2@11233
+  id: § 4 Abs. 2 Nr. 2
+  artikel: § 4
+  artikel_titel: Geltungsbereich; Sektoren; Verordnungsermächtigung
+  abschnitt: null
+  absatz: '2'
+  nummer: '2'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 11233
+  laenge: 86
+  saetze: 1
+  beleg: 2. Betreiber kritischer Anlagen im Sektor Informationstechnik und Telekommunikation,
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 4 Abs. 2 Nr. 3@11319
+  id: § 4 Abs. 2 Nr. 3
+  artikel: § 4
+  artikel_titel: Geltungsbereich; Sektoren; Verordnungsermächtigung
+  abschnitt: null
+  absatz: '2'
+  nummer: '3'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 11319
+  laenge: 97
+  saetze: 1
+  beleg: 3. Betreiber kritischer Anlagen im Sektor Siedlungsabfallentsorgung, mit Ausnahme des § 12, und
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 4 Abs. 2 Nr. 4@11416
+  id: § 4 Abs. 2 Nr. 4
+  artikel: § 4
+  artikel_titel: Geltungsbereich; Sektoren; Verordnungsermächtigung
+  abschnitt: null
+  absatz: '2'
+  nummer: '4'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 11416
+  laenge: 145
+  saetze: 1
+  beleg: 4. für Betreiber kritischer Anlagen im Sektor Leistungen der Sozialversicherung sowie Grundsicherung
+    für Arbeitsuchende, mit Ausnahme des § 12.
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
   befund: null
   befund_grund: null
 - uid: § 4 Abs. 3@11561
@@ -527,6 +1441,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: § 4 Abs. 4@11763
   id: § 4 Abs. 4
   artikel: § 4
@@ -534,15 +1452,9 @@ einheiten:
   absatz: '4'
   buchstabe: null
   offset: 11763
-  laenge: 695
+  laenge: 66
   saetze: 1
-  beleg: (4) Die Rechtsverordnung nach Absatz 3 ergeht im Einvernehmen mit 1. dem Bundesministerium für
-    Wirtschaft und Energie, 2. dem Bundesministerium der Finanzen, 3. dem Bundesministerium der Justiz
-    und für Verbraucherschutz, 4. dem Bundesministerium für Arbeit und Soziales, 5. dem Bundesministerium
-    der Verteidigung, 6. dem Bundesministerium für Landwirtschaft, Ernährung und Heimat, 7. dem Bundesministerium
-    für Gesundheit, 8. dem Bundesministerium für Verkehr, 9. dem Bundesministerium für Forschung, Technologie
-    und Raumfahrt, 10. dem Bundesministerium für Umwelt, Klimaschutz, Naturschutz und nukleare Sicherheit
-    und 11. dem Bundesministerium für Digitales und Staatsmodernisierung.
+  beleg: (4) Die Rechtsverordnung nach Absatz 3 ergeht im Einvernehmen mit
   adressat: null
   pflicht: null
   scope: null
@@ -552,6 +1464,285 @@ einheiten:
   omnibus: null
   requirement: *id001
   gate: *id002
+  befund: null
+  befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
+- uid: § 4 Abs. 4 Nr. 1@11829
+  id: § 4 Abs. 4 Nr. 1
+  artikel: § 4
+  artikel_titel: Geltungsbereich; Sektoren; Verordnungsermächtigung
+  abschnitt: null
+  absatz: '4'
+  nummer: '1'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 11829
+  laenge: 54
+  saetze: 1
+  beleg: 1. dem Bundesministerium für Wirtschaft und Energie,
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 4 Abs. 4 Nr. 2@11883
+  id: § 4 Abs. 4 Nr. 2
+  artikel: § 4
+  artikel_titel: Geltungsbereich; Sektoren; Verordnungsermächtigung
+  abschnitt: null
+  absatz: '4'
+  nummer: '2'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 11883
+  laenge: 40
+  saetze: 1
+  beleg: 2. dem Bundesministerium der Finanzen,
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 4 Abs. 4 Nr. 3@11923
+  id: § 4 Abs. 4 Nr. 3
+  artikel: § 4
+  artikel_titel: Geltungsbereich; Sektoren; Verordnungsermächtigung
+  abschnitt: null
+  absatz: '4'
+  nummer: '3'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 11923
+  laenge: 64
+  saetze: 1
+  beleg: 3. dem Bundesministerium der Justiz und für Verbraucherschutz,
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 4 Abs. 4 Nr. 4@11987
+  id: § 4 Abs. 4 Nr. 4
+  artikel: § 4
+  artikel_titel: Geltungsbereich; Sektoren; Verordnungsermächtigung
+  abschnitt: null
+  absatz: '4'
+  nummer: '4'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 11987
+  laenge: 51
+  saetze: 1
+  beleg: 4. dem Bundesministerium für Arbeit und Soziales,
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 4 Abs. 4 Nr. 5@12038
+  id: § 4 Abs. 4 Nr. 5
+  artikel: § 4
+  artikel_titel: Geltungsbereich; Sektoren; Verordnungsermächtigung
+  abschnitt: null
+  absatz: '4'
+  nummer: '5'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 12038
+  laenge: 44
+  saetze: 1
+  beleg: 5. dem Bundesministerium der Verteidigung,
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 4 Abs. 4 Nr. 6@12082
+  id: § 4 Abs. 4 Nr. 6
+  artikel: § 4
+  artikel_titel: Geltungsbereich; Sektoren; Verordnungsermächtigung
+  abschnitt: null
+  absatz: '4'
+  nummer: '6'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 12082
+  laenge: 68
+  saetze: 1
+  beleg: 6. dem Bundesministerium für Landwirtschaft, Ernährung und Heimat,
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 4 Abs. 4 Nr. 7@12150
+  id: § 4 Abs. 4 Nr. 7
+  artikel: § 4
+  artikel_titel: Geltungsbereich; Sektoren; Verordnungsermächtigung
+  abschnitt: null
+  absatz: '4'
+  nummer: '7'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 12150
+  laenge: 42
+  saetze: 1
+  beleg: 7. dem Bundesministerium für Gesundheit,
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 4 Abs. 4 Nr. 8@12192
+  id: § 4 Abs. 4 Nr. 8
+  artikel: § 4
+  artikel_titel: Geltungsbereich; Sektoren; Verordnungsermächtigung
+  abschnitt: null
+  absatz: '4'
+  nummer: '8'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 12192
+  laenge: 39
+  saetze: 1
+  beleg: 8. dem Bundesministerium für Verkehr,
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 4 Abs. 4 Nr. 9@12231
+  id: § 4 Abs. 4 Nr. 9
+  artikel: § 4
+  artikel_titel: Geltungsbereich; Sektoren; Verordnungsermächtigung
+  abschnitt: null
+  absatz: '4'
+  nummer: '9'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 12231
+  laenge: 68
+  saetze: 1
+  beleg: 9. dem Bundesministerium für Forschung, Technologie und Raumfahrt,
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 4 Abs. 4 Nr. 10@12299
+  id: § 4 Abs. 4 Nr. 10
+  artikel: § 4
+  artikel_titel: Geltungsbereich; Sektoren; Verordnungsermächtigung
+  abschnitt: null
+  absatz: '4'
+  nummer: '10'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 12299
+  laenge: 92
+  saetze: 1
+  beleg: 10. dem Bundesministerium für Umwelt, Klimaschutz, Naturschutz und nukleare Sicherheit und
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 4 Abs. 4 Nr. 11@12391
+  id: § 4 Abs. 4 Nr. 11
+  artikel: § 4
+  artikel_titel: Geltungsbereich; Sektoren; Verordnungsermächtigung
+  abschnitt: null
+  absatz: '4'
+  nummer: '11'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 12391
+  laenge: 67
+  saetze: 1
+  beleg: 11. dem Bundesministerium für Digitales und Staatsmodernisierung.
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
   befund: null
   befund_grund: null
 - uid: § 4 Abs. 5@12458
@@ -576,6 +1767,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: § 5 Abs. 1@12776
   id: § 5 Abs. 1
   artikel: § 5
@@ -584,16 +1779,10 @@ einheiten:
   absatz: '1'
   buchstabe: null
   offset: 12776
-  laenge: 738
-  saetze: 2
+  laenge: 119
+  saetze: 1
   beleg: (1) Das Bundesministerium des Innern bestimmt durch Rechtsverordnung, die nicht der Zustimmung
-    des Bundesrates bedarf, 1. Kategorien von Anlagen, 2. allgemeine, sektoren-, branchen-, dienstleistungs-
-    oder anlagenspezifische Schwellenwerte zum Versorgungsgrad, bei deren Erreichen eine Anlage einer
-    bestimmten Kategorie nach Nummer 1 nach einem bestimmten Stichtag als erheblich für die Erbringung
-    einer kritischen Dienstleistung gilt und bei deren Unterschreiten eine Anlage nach einem bestimmten
-    Stichtag nicht mehr als solches gilt, 3. Stichtage nach Nummer 2 sowie 4. Kategorien von Anlagen,
-    die unabhängig von Nummer 2 als erheblich für die Erbringung einer kritischen Dienstleistung gelten.
-    § 4 Absatz 4 und 5 gilt entsprechend.
+    des Bundesrates bedarf,
   adressat: null
   pflicht: null
   scope: null
@@ -605,6 +1794,118 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
+- uid: § 5 Abs. 1 Nr. 1@12895
+  id: § 5 Abs. 1 Nr. 1
+  artikel: § 5
+  artikel_titel: Erheblichkeit einer Anlage für die Erbringung kritischer Dienstleistungen; Feststellungsbefugnis;
+    Verordnungsermächtigungen
+  abschnitt: null
+  absatz: '1'
+  nummer: '1'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 12895
+  laenge: 28
+  saetze: 1
+  beleg: 1. Kategorien von Anlagen,
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 5 Abs. 1 Nr. 2@12923
+  id: § 5 Abs. 1 Nr. 2
+  artikel: § 5
+  artikel_titel: Erheblichkeit einer Anlage für die Erbringung kritischer Dienstleistungen; Feststellungsbefugnis;
+    Verordnungsermächtigungen
+  abschnitt: null
+  absatz: '1'
+  nummer: '2'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 12923
+  laenge: 390
+  saetze: 1
+  beleg: 2. allgemeine, sektoren-, branchen-, dienstleistungs- oder anlagenspezifische Schwellenwerte
+    zum Versorgungsgrad, bei deren Erreichen eine Anlage einer bestimmten Kategorie nach Nummer 1 nach
+    einem bestimmten Stichtag als erheblich für die Erbringung einer kritischen Dienstleistung gilt und
+    bei deren Unterschreiten eine Anlage nach einem bestimmten Stichtag nicht mehr als solches gilt,
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 5 Abs. 1 Nr. 3@13313
+  id: § 5 Abs. 1 Nr. 3
+  artikel: § 5
+  artikel_titel: Erheblichkeit einer Anlage für die Erbringung kritischer Dienstleistungen; Feststellungsbefugnis;
+    Verordnungsermächtigungen
+  abschnitt: null
+  absatz: '1'
+  nummer: '3'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 13313
+  laenge: 34
+  saetze: 1
+  beleg: 3. Stichtage nach Nummer 2 sowie
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 5 Abs. 1 Nr. 4@13347
+  id: § 5 Abs. 1 Nr. 4
+  artikel: § 5
+  artikel_titel: Erheblichkeit einer Anlage für die Erbringung kritischer Dienstleistungen; Feststellungsbefugnis;
+    Verordnungsermächtigungen
+  abschnitt: null
+  absatz: '1'
+  nummer: '4'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 13347
+  laenge: 167
+  saetze: 2
+  beleg: 4. Kategorien von Anlagen, die unabhängig von Nummer 2 als erheblich für die Erbringung einer
+    kritischen Dienstleistung gelten. § 4 Absatz 4 und 5 gilt entsprechend.
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
 - uid: § 5 Abs. 2@13514
   id: § 5 Abs. 2
   artikel: § 5
@@ -613,23 +1914,10 @@ einheiten:
   absatz: '2'
   buchstabe: null
   offset: 13514
-  laenge: 1536
-  saetze: 2
+  laenge: 197
+  saetze: 1
   beleg: '(2) Bei der Bestimmung der Schwellenwerte zum Versorgungsgrad nach Absatz 1 Satz 1 Nummer 2
-    werden die nationalen Risikoanalysen und Risikobewertungen sowie die folgenden Kriterien berücksichtigt:
-    1. die Zahl der Einwohner, die die von der Anlage erbrachte kritische Dienstleistung in Anspruch nehmen,
-    2. das Ausmaß der Abhängigkeit anderer Sektoren oder Branchen von der betreffenden kritischen Dienstleistung,
-    3. die Dauer und das Ausmaß möglicher Auswirkungen von Ausfällen und Beeinträchtigungen der Anlage
-    auf wichtige wirtschaftliche Tätigkeiten, die für die Aufrechterhaltung wichtiger gesellschaftlicher
-    Funktionen, die öffentliche Sicherheit oder Ordnung, die Gesundheit der Bevölkerung oder die Erhaltung
-    der natürlichen Lebensgrundlagen von entscheidender Bedeutung sind, 4. den Marktanteil des Betreibers
-    der Anlage auf dem Markt für kritische Dienstleistungen, 5. das geografische Gebiet, das von einem
-    Vorfall betroffen sein könnte, einschließlich etwaiger grenzüberschreitender Auswirkungen, unter Berücksichtigung
-    der Schwachstellen, die mit dem Grad der Isolierung bestimmter Arten geografischer Gebiete verbunden
-    sind, und 6. die Bedeutung des Betreibers der Anlage für die Aufrechterhaltung der kritischen Dienstleistung
-    in ausreichendem Umfang, unter Berücksichtigung der Verfügbarkeit von alternativen Mitteln für die
-    Erbringung der betreffenden kritischen Dienstleistung. Der Regelwert für Schwellenwerte nach Absatz
-    1 Satz 1 Nummer 2 beträgt grundsätzlich 500 000 von einer Anlage zu versorgende Einwohner.'
+    werden die nationalen Risikoanalysen und Risikobewertungen sowie die folgenden Kriterien berücksichtigt:'
   adressat: null
   pflicht: null
   scope: null
@@ -639,6 +1927,176 @@ einheiten:
   omnibus: null
   requirement: *id001
   gate: *id002
+  befund: null
+  befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
+- uid: § 5 Abs. 2 Nr. 1@13711
+  id: § 5 Abs. 2 Nr. 1
+  artikel: § 5
+  artikel_titel: Erheblichkeit einer Anlage für die Erbringung kritischer Dienstleistungen; Feststellungsbefugnis;
+    Verordnungsermächtigungen
+  abschnitt: null
+  absatz: '2'
+  nummer: '1'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 13711
+  laenge: 106
+  saetze: 1
+  beleg: 1. die Zahl der Einwohner, die die von der Anlage erbrachte kritische Dienstleistung in Anspruch
+    nehmen,
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 5 Abs. 2 Nr. 2@13817
+  id: § 5 Abs. 2 Nr. 2
+  artikel: § 5
+  artikel_titel: Erheblichkeit einer Anlage für die Erbringung kritischer Dienstleistungen; Feststellungsbefugnis;
+    Verordnungsermächtigungen
+  abschnitt: null
+  absatz: '2'
+  nummer: '2'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 13817
+  laenge: 111
+  saetze: 1
+  beleg: 2. das Ausmaß der Abhängigkeit anderer Sektoren oder Branchen von der betreffenden kritischen
+    Dienstleistung,
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 5 Abs. 2 Nr. 3@13928
+  id: § 5 Abs. 2 Nr. 3
+  artikel: § 5
+  artikel_titel: Erheblichkeit einer Anlage für die Erbringung kritischer Dienstleistungen; Feststellungsbefugnis;
+    Verordnungsermächtigungen
+  abschnitt: null
+  absatz: '2'
+  nummer: '3'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 13928
+  laenge: 372
+  saetze: 1
+  beleg: 3. die Dauer und das Ausmaß möglicher Auswirkungen von Ausfällen und Beeinträchtigungen der Anlage
+    auf wichtige wirtschaftliche Tätigkeiten, die für die Aufrechterhaltung wichtiger gesellschaftlicher
+    Funktionen, die öffentliche Sicherheit oder Ordnung, die Gesundheit der Bevölkerung oder die Erhaltung
+    der natürlichen Lebensgrundlagen von entscheidender Bedeutung sind,
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 5 Abs. 2 Nr. 4@14300
+  id: § 5 Abs. 2 Nr. 4
+  artikel: § 5
+  artikel_titel: Erheblichkeit einer Anlage für die Erbringung kritischer Dienstleistungen; Feststellungsbefugnis;
+    Verordnungsermächtigungen
+  abschnitt: null
+  absatz: '2'
+  nummer: '4'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 14300
+  laenge: 92
+  saetze: 1
+  beleg: 4. den Marktanteil des Betreibers der Anlage auf dem Markt für kritische Dienstleistungen,
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 5 Abs. 2 Nr. 5@14392
+  id: § 5 Abs. 2 Nr. 5
+  artikel: § 5
+  artikel_titel: Erheblichkeit einer Anlage für die Erbringung kritischer Dienstleistungen; Feststellungsbefugnis;
+    Verordnungsermächtigungen
+  abschnitt: null
+  absatz: '2'
+  nummer: '5'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 14392
+  laenge: 268
+  saetze: 1
+  beleg: 5. das geografische Gebiet, das von einem Vorfall betroffen sein könnte, einschließlich etwaiger
+    grenzüberschreitender Auswirkungen, unter Berücksichtigung der Schwachstellen, die mit dem Grad der
+    Isolierung bestimmter Arten geografischer Gebiete verbunden sind, und
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 5 Abs. 2 Nr. 6@14660
+  id: § 5 Abs. 2 Nr. 6
+  artikel: § 5
+  artikel_titel: Erheblichkeit einer Anlage für die Erbringung kritischer Dienstleistungen; Feststellungsbefugnis;
+    Verordnungsermächtigungen
+  abschnitt: null
+  absatz: '2'
+  nummer: '6'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 14660
+  laenge: 390
+  saetze: 2
+  beleg: 6. die Bedeutung des Betreibers der Anlage für die Aufrechterhaltung der kritischen Dienstleistung
+    in ausreichendem Umfang, unter Berücksichtigung der Verfügbarkeit von alternativen Mitteln für die
+    Erbringung der betreffenden kritischen Dienstleistung. Der Regelwert für Schwellenwerte nach Absatz
+    1 Satz 1 Nummer 2 beträgt grundsätzlich 500 000 von einer Anlage zu versorgende Einwohner.
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
   befund: null
   befund_grund: null
 - uid: § 5 Abs. 3@15050
@@ -668,6 +2126,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: § 5 Abs. 4@15646
   id: § 5 Abs. 4
   artikel: § 5
@@ -698,6 +2160,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: § 5 Abs. 5@16503
   id: § 5 Abs. 5
   artikel: § 5
@@ -723,6 +2189,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: § 5 Abs. 6@16888
   id: § 5 Abs. 6
   artikel: § 5
@@ -746,6 +2216,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: § 5 Abs. 7@17062
   id: § 5 Abs. 7
   artikel: § 5
@@ -774,6 +2248,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: § 6 Abs. 1@17745
   id: § 6 Abs. 1
   artikel: § 6
@@ -797,6 +2275,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: § 6 Abs. 2@18040
   id: § 6 Abs. 2
   artikel: § 6
@@ -819,6 +2301,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: § 6 Abs. 3@18204
   id: § 6 Abs. 3
   artikel: § 6
@@ -841,6 +2327,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: § 7 Abs. 1@18452
   id: § 7 Abs. 1
   artikel: § 7
@@ -849,15 +2339,9 @@ einheiten:
   absatz: '1'
   buchstabe: null
   offset: 18452
-  laenge: 644
+  laenge: 54
   saetze: 1
-  beleg: (1) Die Vorschriften für Betreiber kritischer Anlagen 1. des § 8 Absatz 1 Nummer 1, 2 und 6 sowie
-    § 8 Absatz 6 und 7 gelten für Einrichtungen der Bundesverwaltung entsprechend; 2. des § 12 Absatz
-    1, 2, § 13 Absatz 1, 2, 3 und 4 sowie der §§ 15 und 18 Absatz 1 bis 7 gelten für Einrichtungen der
-    Bundesverwaltung mit Ausnahme des Auswärtigen Amts und des Bundesministeriums der Verteidigung; das
-    Auswärtige Amt erlässt im Einvernehmen mit dem Bundesministerium des Innern eine allgemeine Verwaltungsvorschrift,
-    um die Ziele der Richtlinie (EU) 2022/2557 im Geschäftsbereich des Auswärtigen Amts durch ergebnisäquivalente
-    Maßnahmen umzusetzen.
+  beleg: (1) Die Vorschriften für Betreiber kritischer Anlagen
   adressat: null
   pflicht: null
   scope: null
@@ -869,6 +2353,67 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
+- uid: § 7 Abs. 1 Nr. 1@18506
+  id: § 7 Abs. 1 Nr. 1
+  artikel: § 7
+  artikel_titel: Einrichtungen der Bundesverwaltung; Geltung der Vorschriften für Betreiber kritischer
+    Anlagen und allgemeine Feststellungen
+  abschnitt: null
+  absatz: '1'
+  nummer: '1'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 18506
+  laenge: 124
+  saetze: 1
+  beleg: 1. des § 8 Absatz 1 Nummer 1, 2 und 6 sowie § 8 Absatz 6 und 7 gelten für Einrichtungen der Bundesverwaltung
+    entsprechend;
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 7 Abs. 1 Nr. 2@18630
+  id: § 7 Abs. 1 Nr. 2
+  artikel: § 7
+  artikel_titel: Einrichtungen der Bundesverwaltung; Geltung der Vorschriften für Betreiber kritischer
+    Anlagen und allgemeine Feststellungen
+  abschnitt: null
+  absatz: '1'
+  nummer: '2'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 18630
+  laenge: 466
+  saetze: 1
+  beleg: 2. des § 12 Absatz 1, 2, § 13 Absatz 1, 2, 3 und 4 sowie der §§ 15 und 18 Absatz 1 bis 7 gelten
+    für Einrichtungen der Bundesverwaltung mit Ausnahme des Auswärtigen Amts und des Bundesministeriums
+    der Verteidigung; das Auswärtige Amt erlässt im Einvernehmen mit dem Bundesministerium des Innern
+    eine allgemeine Verwaltungsvorschrift, um die Ziele der Richtlinie (EU) 2022/2557 im Geschäftsbereich
+    des Auswärtigen Amts durch ergebnisäquivalente Maßnahmen umzusetzen.
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
 - uid: § 7 Abs. 2@19096
   id: § 7 Abs. 2
   artikel: § 7
@@ -877,13 +2422,10 @@ einheiten:
   absatz: '2'
   buchstabe: null
   offset: 19096
-  laenge: 470
-  saetze: 2
+  laenge: 137
+  saetze: 1
   beleg: '(2) Das Bundesministerium des Innern legt für die Einrichtungen der Bundesverwaltung mit deren
-    Einvernehmen das Folgende allgemein fest: 1. die kritischen Dienstleistungen, die von Einrichtungen
-    der Bundesverwaltung erbracht werden, 2. Mindestanforderungen zur Konkretisierung der Verpflichtungen
-    nach Absatz 1 Nummer 2. Satz 1 gilt nicht für das Auswärtige Amt und das Bundesministerium der Verteidigung.
-    § 15 gilt für Regelungen nach Absatz 2 Nummer 2 entsprechend.'
+    Einvernehmen das Folgende allgemein fest:'
   adressat: null
   pflicht: null
   scope: null
@@ -893,6 +2435,64 @@ einheiten:
   omnibus: null
   requirement: *id001
   gate: *id002
+  befund: null
+  befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
+- uid: § 7 Abs. 2 Nr. 1@19233
+  id: § 7 Abs. 2 Nr. 1
+  artikel: § 7
+  artikel_titel: Einrichtungen der Bundesverwaltung; Geltung der Vorschriften für Betreiber kritischer
+    Anlagen und allgemeine Feststellungen
+  abschnitt: null
+  absatz: '2'
+  nummer: '1'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 19233
+  laenge: 97
+  saetze: 1
+  beleg: 1. die kritischen Dienstleistungen, die von Einrichtungen der Bundesverwaltung erbracht werden,
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 7 Abs. 2 Nr. 2@19330
+  id: § 7 Abs. 2 Nr. 2
+  artikel: § 7
+  artikel_titel: Einrichtungen der Bundesverwaltung; Geltung der Vorschriften für Betreiber kritischer
+    Anlagen und allgemeine Feststellungen
+  abschnitt: null
+  absatz: '2'
+  nummer: '2'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 19330
+  laenge: 236
+  saetze: 2
+  beleg: 2. Mindestanforderungen zur Konkretisierung der Verpflichtungen nach Absatz 1 Nummer 2. Satz
+    1 gilt nicht für das Auswärtige Amt und das Bundesministerium der Verteidigung. § 15 gilt für Regelungen
+    nach Absatz 2 Nummer 2 entsprechend.
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
   befund: null
   befund_grund: null
 - uid: § 7 Abs. 3@19566
@@ -918,6 +2518,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: § 8 Abs. 1@19810
   id: § 8 Abs. 1
   artikel: § 8
@@ -925,27 +2529,12 @@ einheiten:
   absatz: '1'
   buchstabe: null
   offset: 19810
-  laenge: 1932
+  laenge: 397
   saetze: 1
   beleg: '(1) Ein Betreiber kritischer Anlagen ist verpflichtet, spätestens drei Monate, nachdem eine
     Anlage als kritische Anlage gilt, dem Bundesamt für Bevölkerungsschutz und Katastrophenhilfe über
     eine gemeinsam vom Bundesamt für Sicherheit in der Informationstechnik und dem Bundesamt für Bevölkerungsschutz
-    und Katastrophenhilfe eingerichtete Registrierungsmöglichkeit folgende Angaben zu übermitteln: 1.
-    den Namen des Betreibers kritischer Anlagen, einschließlich der Rechtsform und, falls einschlägig,
-    die Handelsregisternummer, 2. die Anschrift und aktuelle Kontaktdaten des Betreibers kritischer Anlagen,
-    einschließlich der E-Mail-Adresse und der Telefonnummer, 3. den Namen oder eine referenzierbare Bezeichnung
-    der kritischen Anlage, 4. den Sektor und, falls einschlägig, die Branche, zu dem oder zu der die kritische
-    Anlage gehört, sowie die kritische Dienstleistung, für deren Erbringung die Anlage erheblich ist,
-    5. soweit einschlägig, die Kategorie der kritischen Anlage und deren Werte zum Versorgungsgrad gemäß
-    der Rechtsverordnung nach § 5 Absatz 1 Satz 1, den Standort der kritischen Anlagen und deren Versorgungsgebiet
-    sowie deren öffentlichen IP-Adressbereiche, 6. falls einschlägig, eine Auflistung der Mitgliedstaaten
-    der Europäischen Union, in denen oder für die der Betreiber kritischer Anlagen wesentliche Dienste
-    im Sinne des Artikels 2 Nummer 5 der Richtlinie (EU) 2022/2557 in der Fassung vom 14. Dezember 2022
-    und des Artikels 2 der Delegierten Verordnung (EU) 2023/2450 in der Fassung vom 25. Juli 2023 erbringt,
-    unter Angabe, welche wesentlichen Dienste er in welchen oder für welche Mitgliedstaaten erbringt,
-    7. eine Kontaktstelle, über die der Betreiber kritischer Anlagen erreichbar ist; in Bezug auf Maßnahmen
-    nach dem BSI-Gesetz ist die jederzeitige Erreichbarkeit zu gewährleisten, sowie 8. die bei ihm zum
-    Einsatz kommenden Typen von kritischen Komponenten gemäß § 2 Nummer 23 des BSI-Gesetzes.'
+    und Katastrophenhilfe eingerichtete Registrierungsmöglichkeit folgende Angaben zu übermitteln:'
   adressat: null
   pflicht: null
   scope: null
@@ -955,6 +2544,221 @@ einheiten:
   omnibus: null
   requirement: *id001
   gate: *id002
+  befund: null
+  befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
+- uid: § 8 Abs. 1 Nr. 1@20207
+  id: § 8 Abs. 1 Nr. 1
+  artikel: § 8
+  artikel_titel: Registrierung kritischer Anlagen; Geltungszeitpunkt
+  abschnitt: null
+  absatz: '1'
+  nummer: '1'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 20207
+  laenge: 130
+  saetze: 1
+  beleg: 1. den Namen des Betreibers kritischer Anlagen, einschließlich der Rechtsform und, falls einschlägig,
+    die Handelsregisternummer,
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 8 Abs. 1 Nr. 2@20337
+  id: § 8 Abs. 1 Nr. 2
+  artikel: § 8
+  artikel_titel: Registrierung kritischer Anlagen; Geltungszeitpunkt
+  abschnitt: null
+  absatz: '1'
+  nummer: '2'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 20337
+  laenge: 136
+  saetze: 1
+  beleg: 2. die Anschrift und aktuelle Kontaktdaten des Betreibers kritischer Anlagen, einschließlich
+    der E-Mail-Adresse und der Telefonnummer,
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 8 Abs. 1 Nr. 3@20473
+  id: § 8 Abs. 1 Nr. 3
+  artikel: § 8
+  artikel_titel: Registrierung kritischer Anlagen; Geltungszeitpunkt
+  abschnitt: null
+  absatz: '1'
+  nummer: '3'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 20473
+  laenge: 75
+  saetze: 1
+  beleg: 3. den Namen oder eine referenzierbare Bezeichnung der kritischen Anlage,
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 8 Abs. 1 Nr. 4@20548
+  id: § 8 Abs. 1 Nr. 4
+  artikel: § 8
+  artikel_titel: Registrierung kritischer Anlagen; Geltungszeitpunkt
+  abschnitt: null
+  absatz: '1'
+  nummer: '4'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 20548
+  laenge: 183
+  saetze: 1
+  beleg: 4. den Sektor und, falls einschlägig, die Branche, zu dem oder zu der die kritische Anlage gehört,
+    sowie die kritische Dienstleistung, für deren Erbringung die Anlage erheblich ist,
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 8 Abs. 1 Nr. 5@20731
+  id: § 8 Abs. 1 Nr. 5
+  artikel: § 8
+  artikel_titel: Registrierung kritischer Anlagen; Geltungszeitpunkt
+  abschnitt: null
+  absatz: '1'
+  nummer: '5'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 20731
+  laenge: 257
+  saetze: 1
+  beleg: 5. soweit einschlägig, die Kategorie der kritischen Anlage und deren Werte zum Versorgungsgrad
+    gemäß der Rechtsverordnung nach § 5 Absatz 1 Satz 1, den Standort der kritischen Anlagen und deren
+    Versorgungsgebiet sowie deren öffentlichen IP-Adressbereiche,
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 8 Abs. 1 Nr. 6@20988
+  id: § 8 Abs. 1 Nr. 6
+  artikel: § 8
+  artikel_titel: Registrierung kritischer Anlagen; Geltungszeitpunkt
+  abschnitt: null
+  absatz: '1'
+  nummer: '6'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 20988
+  laenge: 460
+  saetze: 1
+  beleg: 6. falls einschlägig, eine Auflistung der Mitgliedstaaten der Europäischen Union, in denen oder
+    für die der Betreiber kritischer Anlagen wesentliche Dienste im Sinne des Artikels 2 Nummer 5 der
+    Richtlinie (EU) 2022/2557 in der Fassung vom 14. Dezember 2022 und des Artikels 2 der Delegierten
+    Verordnung (EU) 2023/2450 in der Fassung vom 25. Juli 2023 erbringt, unter Angabe, welche wesentlichen
+    Dienste er in welchen oder für welche Mitgliedstaaten erbringt,
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 8 Abs. 1 Nr. 7@21448
+  id: § 8 Abs. 1 Nr. 7
+  artikel: § 8
+  artikel_titel: Registrierung kritischer Anlagen; Geltungszeitpunkt
+  abschnitt: null
+  absatz: '1'
+  nummer: '7'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 21448
+  laenge: 185
+  saetze: 1
+  beleg: 7. eine Kontaktstelle, über die der Betreiber kritischer Anlagen erreichbar ist; in Bezug auf
+    Maßnahmen nach dem BSI-Gesetz ist die jederzeitige Erreichbarkeit zu gewährleisten, sowie
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 8 Abs. 1 Nr. 8@21633
+  id: § 8 Abs. 1 Nr. 8
+  artikel: § 8
+  artikel_titel: Registrierung kritischer Anlagen; Geltungszeitpunkt
+  abschnitt: null
+  absatz: '1'
+  nummer: '8'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 21633
+  laenge: 109
+  saetze: 1
+  beleg: 8. die bei ihm zum Einsatz kommenden Typen von kritischen Komponenten gemäß § 2 Nummer 23 des
+    BSI-Gesetzes.
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
   befund: null
   befund_grund: null
 - uid: § 8 Abs. 2@21742
@@ -984,6 +2788,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: § 8 Abs. 3@22443
   id: § 8 Abs. 3
   artikel: § 8
@@ -1009,6 +2817,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: § 8 Abs. 4@22937
   id: § 8 Abs. 4
   artikel: § 8
@@ -1033,6 +2845,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: § 8 Abs. 5@23338
   id: § 8 Abs. 5
   artikel: § 8
@@ -1060,6 +2876,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: § 8 Abs. 6@24006
   id: § 8 Abs. 6
   artikel: § 8
@@ -1086,6 +2906,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: § 8 Abs. 7@24584
   id: § 8 Abs. 7
   artikel: § 8
@@ -1108,6 +2932,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: § 8 Abs. 8@24782
   id: § 8 Abs. 8
   artikel: § 8
@@ -1133,6 +2961,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: § 9 Abs. 1@25315
   id: § 9 Abs. 1
   artikel: § 9
@@ -1140,14 +2972,10 @@ einheiten:
   absatz: '1'
   buchstabe: null
   offset: 25315
-  laenge: 591
+  laenge: 127
   saetze: 1
   beleg: (1) Ein Betreiber kritischer Anlagen gilt als Betreiber einer kritischen Einrichtung von besonderer
-    Bedeutung für Europa, wenn 1. er für oder in mindestens sechs Mitgliedstaaten der Europäischen Union
-    den gleichen oder einen ähnlichen wesentlichen Dienst im Sinne des Artikels 2 Nummer 5 der Richtlinie
-    (EU) 2022/2557 und des Artikels 2 der Delegierten Verordnung (EU) 2023/2450 erbringt und 2. ihm von
-    der Europäischen Kommission über das Bundesamt für Bevölkerungsschutz und Katastrophenhilfe mitgeteilt
-    wurde, dass er als kritische Einrichtung von besonderer Bedeutung für Europa gilt.
+    Bedeutung für Europa, wenn
   adressat: null
   pflicht: null
   scope: null
@@ -1157,6 +2985,63 @@ einheiten:
   omnibus: null
   requirement: *id001
   gate: *id002
+  befund: null
+  befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
+- uid: § 9 Abs. 1 Nr. 1@25442
+  id: § 9 Abs. 1 Nr. 1
+  artikel: § 9
+  artikel_titel: Kritische Einrichtungen von besonderer Bedeutung für Europa
+  abschnitt: null
+  absatz: '1'
+  nummer: '1'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 25442
+  laenge: 266
+  saetze: 1
+  beleg: 1. er für oder in mindestens sechs Mitgliedstaaten der Europäischen Union den gleichen oder einen
+    ähnlichen wesentlichen Dienst im Sinne des Artikels 2 Nummer 5 der Richtlinie (EU) 2022/2557 und des
+    Artikels 2 der Delegierten Verordnung (EU) 2023/2450 erbringt und
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 9 Abs. 1 Nr. 2@25708
+  id: § 9 Abs. 1 Nr. 2
+  artikel: § 9
+  artikel_titel: Kritische Einrichtungen von besonderer Bedeutung für Europa
+  abschnitt: null
+  absatz: '1'
+  nummer: '2'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 25708
+  laenge: 198
+  saetze: 1
+  beleg: 2. ihm von der Europäischen Kommission über das Bundesamt für Bevölkerungsschutz und Katastrophenhilfe
+    mitgeteilt wurde, dass er als kritische Einrichtung von besonderer Bedeutung für Europa gilt.
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
   befund: null
   befund_grund: null
 - uid: § 9 Abs. 2@25906
@@ -1182,6 +3067,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: § 9 Abs. 3@26170
   id: § 9 Abs. 3
   artikel: § 9
@@ -1208,6 +3097,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: § 9 Abs. 4@26720
   id: § 9 Abs. 4
   artikel: § 9
@@ -1215,23 +3108,13 @@ einheiten:
   absatz: '4'
   buchstabe: null
   offset: 26720
-  laenge: 1484
-  saetze: 3
+  laenge: 412
+  saetze: 1
   beleg: (4) Auf Antrag der Europäischen Kommission oder eines Mitgliedstaats der Europäischen Union,
     für den oder in dem im Falle des Absatzes 1 Nummer 1 ein wesentlicher Dienst erbracht wird, übermittelt
     das Bundesministerium des Innern im Benehmen mit dem Bundesministerium oder Landesministerium, zu
     dessen Geschäftsbereich die für die betroffene Dienstleistung zuständige Behörde gehört, der Europäischen
-    Kommission 1. Teile der Risikoanalysen und Risikobewertungen der kritischen Einrichtung mit besonderer
-    Bedeutung für Europa nach § 12, 2. eine Auflistung der Maßnahmen der kritischen Einrichtung mit besonderer
-    Bedeutung für Europa nach § 13 und 3. eine Auflistung der Aufsichts- und Durchsetzungsmaßnahmen, die
-    die zuständige Behörde gegenüber der kritischen Einrichtung mit besonderer Bedeutung für Europa ergriffen
-    hat. Liegt die Fach- oder Rechtsaufsicht für den Teil einer Behörde, der für die betroffene kritische
-    Dienstleistung zuständig ist, nicht bei dem Bundesministerium, zu dessen Geschäftsbereich sie gehört,
-    so übermittelt das Bundesministerium des Innern die Informationen nach den Nummern 1 bis 3 der Europäischen
-    Kommission im Benehmen mit dem Bundesministerium, dessen Fach- oder Rechtsaufsicht der betreffende
-    Teil dieser Behörde untersteht. Informationen, deren Offenlegung wesentlichen nationalen Interessen
-    im Bereich der nationalen Sicherheit, der öffentlichen Sicherheit oder der Verteidigung entgegenlaufen
-    würde, sind von der Übermittlung ausgeschlossen.
+    Kommission
   adressat: null
   pflicht: null
   scope: null
@@ -1241,6 +3124,95 @@ einheiten:
   omnibus: null
   requirement: *id001
   gate: *id002
+  befund: null
+  befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
+- uid: § 9 Abs. 4 Nr. 1@27132
+  id: § 9 Abs. 4 Nr. 1
+  artikel: § 9
+  artikel_titel: Kritische Einrichtungen von besonderer Bedeutung für Europa
+  abschnitt: null
+  absatz: '4'
+  nummer: '1'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 27132
+  laenge: 125
+  saetze: 1
+  beleg: 1. Teile der Risikoanalysen und Risikobewertungen der kritischen Einrichtung mit besonderer Bedeutung
+    für Europa nach § 12,
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 9 Abs. 4 Nr. 2@27257
+  id: § 9 Abs. 4 Nr. 2
+  artikel: § 9
+  artikel_titel: Kritische Einrichtungen von besonderer Bedeutung für Europa
+  abschnitt: null
+  absatz: '4'
+  nummer: '2'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 27257
+  laenge: 111
+  saetze: 1
+  beleg: 2. eine Auflistung der Maßnahmen der kritischen Einrichtung mit besonderer Bedeutung für Europa
+    nach § 13 und
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 9 Abs. 4 Nr. 3@27368
+  id: § 9 Abs. 4 Nr. 3
+  artikel: § 9
+  artikel_titel: Kritische Einrichtungen von besonderer Bedeutung für Europa
+  abschnitt: null
+  absatz: '4'
+  nummer: '3'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 27368
+  laenge: 836
+  saetze: 3
+  beleg: 3. eine Auflistung der Aufsichts- und Durchsetzungsmaßnahmen, die die zuständige Behörde gegenüber
+    der kritischen Einrichtung mit besonderer Bedeutung für Europa ergriffen hat. Liegt die Fach- oder
+    Rechtsaufsicht für den Teil einer Behörde, der für die betroffene kritische Dienstleistung zuständig
+    ist, nicht bei dem Bundesministerium, zu dessen Geschäftsbereich sie gehört, so übermittelt das Bundesministerium
+    des Innern die Informationen nach den Nummern 1 bis 3 der Europäischen Kommission im Benehmen mit
+    dem Bundesministerium, dessen Fach- oder Rechtsaufsicht der betreffende Teil dieser Behörde untersteht.
+    Informationen, deren Offenlegung wesentlichen nationalen Interessen im Bereich der nationalen Sicherheit,
+    der öffentlichen Sicherheit oder der Verteidigung entgegenlaufen würde, sind von der Übermittlung
+    ausgeschlossen.
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
   befund: null
   befund_grund: null
 - uid: § 10 Abs. 1@28282
@@ -1276,6 +3248,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: § 10 Abs. 2@29578
   id: § 10 Abs. 2
   artikel: § 10
@@ -1298,6 +3274,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: § 10 Abs. 3@29762
   id: § 10 Abs. 3
   artikel: § 10
@@ -1323,6 +3303,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: § 10 Abs. 4@30214
   id: § 10 Abs. 4
   artikel: § 10
@@ -1344,6 +3328,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: § 10 Abs. 5@30278
   id: § 10 Abs. 5
   artikel: § 10
@@ -1367,6 +3355,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: § 10 Abs. 6@30532
   id: § 10 Abs. 6
   artikel: § 10
@@ -1390,6 +3382,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: § 11 Abs. 1@30908
   id: § 11 Abs. 1
   artikel: § 11
@@ -1421,6 +3417,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: § 11 Abs. 2@31936
   id: § 11 Abs. 2
   artikel: § 11
@@ -1428,12 +3428,9 @@ einheiten:
   absatz: '2'
   buchstabe: null
   offset: 31936
-  laenge: 343
+  laenge: 83
   saetze: 1
-  beleg: '(2) Die Risikoanalysen und Risikobewertungen berücksichtigen mindestens Folgendes: 1. naturbedingte,
-    technische oder menschlich verursachte Risiken, die geeignet sein können, die Verfügbarkeit der kritischen
-    Dienstleistungen entscheidend zu beeinträchtigen, darunter a) soweit bekannt, sektorenübergreifende
-    und grenzüberschreitende Risiken,'
+  beleg: '(2) Die Risikoanalysen und Risikobewertungen berücksichtigen mindestens Folgendes:'
   adressat: null
   pflicht: null
   scope: null
@@ -1445,12 +3442,71 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 11 Abs. 2 lit. b@32279
-  id: § 11 Abs. 2 lit. b
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
+- uid: § 11 Abs. 2 Nr. 1@32019
+  id: § 11 Abs. 2 Nr. 1
   artikel: § 11
   artikel_titel: Nationale Risikoanalysen und Risikobewertungen; Verordnungsermächtigung
+  abschnitt: null
   absatz: '2'
+  nummer: '1'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 32019
+  laenge: 184
+  saetze: 1
+  beleg: 1. naturbedingte, technische oder menschlich verursachte Risiken, die geeignet sein können, die
+    Verfügbarkeit der kritischen Dienstleistungen entscheidend zu beeinträchtigen, darunter
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 11 Abs. 2 Nr. 1 lit. a@32203
+  id: § 11 Abs. 2 Nr. 1 lit. a
+  artikel: § 11
+  artikel_titel: Nationale Risikoanalysen und Risikobewertungen; Verordnungsermächtigung
+  abschnitt: null
+  absatz: '2'
+  nummer: '1'
+  unterabsatz: null
+  buchstabe: a
+  ziffer: null
+  offset: 32203
+  laenge: 76
+  saetze: 1
+  beleg: a) soweit bekannt, sektorenübergreifende und grenzüberschreitende Risiken,
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 11 Abs. 2 Nr. 1 lit. b@32279
+  id: § 11 Abs. 2 Nr. 1 lit. b
+  artikel: § 11
+  artikel_titel: Nationale Risikoanalysen und Risikobewertungen; Verordnungsermächtigung
+  abschnitt: null
+  absatz: '2'
+  nummer: '1'
+  unterabsatz: null
   buchstabe: b
+  ziffer: null
   offset: 32279
   laenge: 85
   saetze: 1
@@ -1462,25 +3518,25 @@ einheiten:
   verifikation: null
   hypothese_grund: null
   omnibus: null
-  requirement: *id001
-  gate: *id002
+  requirement: *id003
+  gate: *id004
   befund: null
   befund_grund: null
-- uid: § 11 Abs. 2 lit. c@32364
-  id: § 11 Abs. 2 lit. c
+- uid: § 11 Abs. 2 Nr. 1 lit. c@32364
+  id: § 11 Abs. 2 Nr. 1 lit. c
   artikel: § 11
   artikel_titel: Nationale Risikoanalysen und Risikobewertungen; Verordnungsermächtigung
+  abschnitt: null
   absatz: '2'
+  nummer: '1'
+  unterabsatz: null
   buchstabe: c
+  ziffer: null
   offset: 32364
-  laenge: 606
+  laenge: 162
   saetze: 1
   beleg: c) hybride Bedrohungen, sicherheitsgefährdende oder andere feindliche Bedrohungen, einschließlich
-    terroristischer Straftaten gemäß der Richtlinie (EU) 2017/541, 2. alle wesentlichen Risiken für wirtschaftliche
-    Tätigkeiten im Binnenmarkt und die Bevölkerung, die sich aus dem Ausmaß der Abhängigkeit zwischen
-    den Sektoren ergeben und die Handlungsfähigkeit der Wirtschaft bedrohen, einschließlich a) dem Ausmaß
-    der Abhängigkeit von in anderen Mitgliedstaaten der Europäischen Union und Drittstaaten ansässigen
-    kritischen Einrichtungen im Sinne des Artikels 2 Nummer 1 der Richtlinie (EU) 2022/2557 sowie,
+    terroristischer Straftaten gemäß der Richtlinie (EU) 2017/541,
   adressat: null
   pflicht: null
   scope: null
@@ -1488,26 +3544,79 @@ einheiten:
   verifikation: null
   hypothese_grund: null
   omnibus: null
-  requirement: *id001
-  gate: *id002
+  requirement: *id003
+  gate: *id004
   befund: null
   befund_grund: null
-- uid: § 11 Abs. 2 lit. b@32970
-  id: § 11 Abs. 2 lit. b
+- uid: § 11 Abs. 2 Nr. 2@32526
+  id: § 11 Abs. 2 Nr. 2
   artikel: § 11
   artikel_titel: Nationale Risikoanalysen und Risikobewertungen; Verordnungsermächtigung
+  abschnitt: null
   absatz: '2'
+  nummer: '2'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 32526
+  laenge: 235
+  saetze: 1
+  beleg: 2. alle wesentlichen Risiken für wirtschaftliche Tätigkeiten im Binnenmarkt und die Bevölkerung,
+    die sich aus dem Ausmaß der Abhängigkeit zwischen den Sektoren ergeben und die Handlungsfähigkeit
+    der Wirtschaft bedrohen, einschließlich
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 11 Abs. 2 Nr. 2 lit. a@32761
+  id: § 11 Abs. 2 Nr. 2 lit. a
+  artikel: § 11
+  artikel_titel: Nationale Risikoanalysen und Risikobewertungen; Verordnungsermächtigung
+  abschnitt: null
+  absatz: '2'
+  nummer: '2'
+  unterabsatz: null
+  buchstabe: a
+  ziffer: null
+  offset: 32761
+  laenge: 209
+  saetze: 1
+  beleg: a) dem Ausmaß der Abhängigkeit von in anderen Mitgliedstaaten der Europäischen Union und Drittstaaten
+    ansässigen kritischen Einrichtungen im Sinne des Artikels 2 Nummer 1 der Richtlinie (EU) 2022/2557
+    sowie,
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 11 Abs. 2 Nr. 2 lit. b@32970
+  id: § 11 Abs. 2 Nr. 2 lit. b
+  artikel: § 11
+  artikel_titel: Nationale Risikoanalysen und Risikobewertungen; Verordnungsermächtigung
+  abschnitt: null
+  absatz: '2'
+  nummer: '2'
+  unterabsatz: null
   buchstabe: b
+  ziffer: null
   offset: 32970
-  laenge: 651
+  laenge: 126
   saetze: 1
   beleg: b) soweit bekannt, den Auswirkungen, die eine in einem Sektor auftretende erhebliche Störung
-    auf andere Sektoren haben kann, 3. alle für die personelle Arbeitsfähigkeit wesentlichen Risiken in
-    den Sektoren, die für die wirtschaftlichen Tätigkeiten im Binnenmarkt und die Bevölkerung von erheblichem
-    Einfluss sind, 4. die allgemeine Risikobewertung nach Artikel 6 Absatz 1 des Beschlusses Nr. 1313/2013/EU,
-    5. die sonstigen, nicht in den Nummern 1 bis 4 genannten Risikobewertungen, die im Einklang mit den
-    Anforderungen der entsprechenden sektorspezifischen Rechtsakte der Europäischen Union sind, einschließlich
-    a) der Verordnung (EU) 2017/1938,
+    auf andere Sektoren haben kann,
   adressat: null
   pflicht: null
   scope: null
@@ -1515,16 +3624,122 @@ einheiten:
   verifikation: null
   hypothese_grund: null
   omnibus: null
-  requirement: *id001
-  gate: *id002
+  requirement: *id003
+  gate: *id004
   befund: null
   befund_grund: null
-- uid: § 11 Abs. 2 lit. b@33621
-  id: § 11 Abs. 2 lit. b
+- uid: § 11 Abs. 2 Nr. 3@33096
+  id: § 11 Abs. 2 Nr. 3
   artikel: § 11
   artikel_titel: Nationale Risikoanalysen und Risikobewertungen; Verordnungsermächtigung
+  abschnitt: null
   absatz: '2'
+  nummer: '3'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 33096
+  laenge: 190
+  saetze: 1
+  beleg: 3. alle für die personelle Arbeitsfähigkeit wesentlichen Risiken in den Sektoren, die für die
+    wirtschaftlichen Tätigkeiten im Binnenmarkt und die Bevölkerung von erheblichem Einfluss sind,
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 11 Abs. 2 Nr. 4@33286
+  id: § 11 Abs. 2 Nr. 4
+  artikel: § 11
+  artikel_titel: Nationale Risikoanalysen und Risikobewertungen; Verordnungsermächtigung
+  abschnitt: null
+  absatz: '2'
+  nummer: '4'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 33286
+  laenge: 93
+  saetze: 1
+  beleg: 4. die allgemeine Risikobewertung nach Artikel 6 Absatz 1 des Beschlusses Nr. 1313/2013/EU,
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 11 Abs. 2 Nr. 5@33379
+  id: § 11 Abs. 2 Nr. 5
+  artikel: § 11
+  artikel_titel: Nationale Risikoanalysen und Risikobewertungen; Verordnungsermächtigung
+  abschnitt: null
+  absatz: '2'
+  nummer: '5'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 33379
+  laenge: 207
+  saetze: 1
+  beleg: 5. die sonstigen, nicht in den Nummern 1 bis 4 genannten Risikobewertungen, die im Einklang mit
+    den Anforderungen der entsprechenden sektorspezifischen Rechtsakte der Europäischen Union sind, einschließlich
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 11 Abs. 2 Nr. 5 lit. a@33586
+  id: § 11 Abs. 2 Nr. 5 lit. a
+  artikel: § 11
+  artikel_titel: Nationale Risikoanalysen und Risikobewertungen; Verordnungsermächtigung
+  abschnitt: null
+  absatz: '2'
+  nummer: '5'
+  unterabsatz: null
+  buchstabe: a
+  ziffer: null
+  offset: 33586
+  laenge: 35
+  saetze: 1
+  beleg: a) der Verordnung (EU) 2017/1938,
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 11 Abs. 2 Nr. 5 lit. b@33621
+  id: § 11 Abs. 2 Nr. 5 lit. b
+  artikel: § 11
+  artikel_titel: Nationale Risikoanalysen und Risikobewertungen; Verordnungsermächtigung
+  abschnitt: null
+  absatz: '2'
+  nummer: '5'
+  unterabsatz: null
   buchstabe: b
+  ziffer: null
   offset: 33621
   laenge: 34
   saetze: 1
@@ -1536,16 +3751,20 @@ einheiten:
   verifikation: null
   hypothese_grund: null
   omnibus: null
-  requirement: *id001
-  gate: *id002
+  requirement: *id003
+  gate: *id004
   befund: null
   befund_grund: null
-- uid: § 11 Abs. 2 lit. c@33655
-  id: § 11 Abs. 2 lit. c
+- uid: § 11 Abs. 2 Nr. 5 lit. c@33655
+  id: § 11 Abs. 2 Nr. 5 lit. c
   artikel: § 11
   artikel_titel: Nationale Risikoanalysen und Risikobewertungen; Verordnungsermächtigung
+  abschnitt: null
   absatz: '2'
+  nummer: '5'
+  unterabsatz: null
   buchstabe: c
+  ziffer: null
   offset: 33655
   laenge: 36
   saetze: 1
@@ -1557,20 +3776,24 @@ einheiten:
   verifikation: null
   hypothese_grund: null
   omnibus: null
-  requirement: *id001
-  gate: *id002
+  requirement: *id003
+  gate: *id004
   befund: null
   befund_grund: null
-- uid: § 11 Abs. 2 lit. d@33691
-  id: § 11 Abs. 2 lit. d
+- uid: § 11 Abs. 2 Nr. 5 lit. d@33691
+  id: § 11 Abs. 2 Nr. 5 lit. d
   artikel: § 11
   artikel_titel: Nationale Risikoanalysen und Risikobewertungen; Verordnungsermächtigung
+  abschnitt: null
   absatz: '2'
+  nummer: '5'
+  unterabsatz: null
   buchstabe: d
+  ziffer: null
   offset: 33691
-  laenge: 102
+  laenge: 34
   saetze: 1
-  beleg: d) der Richtlinie 2012/18/EU und 6. einschlägige, gemäß § 18 gemeldete Informationen über Vorfälle.
+  beleg: d) der Richtlinie 2012/18/EU und
   adressat: null
   pflicht: null
   scope: null
@@ -1578,8 +3801,33 @@ einheiten:
   verifikation: null
   hypothese_grund: null
   omnibus: null
-  requirement: *id001
-  gate: *id002
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 11 Abs. 2 Nr. 6@33725
+  id: § 11 Abs. 2 Nr. 6
+  artikel: § 11
+  artikel_titel: Nationale Risikoanalysen und Risikobewertungen; Verordnungsermächtigung
+  abschnitt: null
+  absatz: '2'
+  nummer: '6'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 33725
+  laenge: 68
+  saetze: 1
+  beleg: 6. einschlägige, gemäß § 18 gemeldete Informationen über Vorfälle.
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
   befund: null
   befund_grund: null
 - uid: § 11 Abs. 3@33793
@@ -1604,6 +3852,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: § 11 Abs. 4@33910
   id: § 11 Abs. 4
   artikel: § 11
@@ -1628,6 +3880,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: § 11 Abs. 5@34311
   id: § 11 Abs. 5
   artikel: § 11
@@ -1652,6 +3908,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: § 11 Abs. 6@34653
   id: § 11 Abs. 6
   artikel: § 11
@@ -1676,6 +3936,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: § 11 Abs. 7@35039
   id: § 11 Abs. 7
   artikel: § 11
@@ -1698,6 +3962,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: § 11 Abs. 8@35227
   id: § 11 Abs. 8
   artikel: § 11
@@ -1723,6 +3991,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: § 12 Abs. 1@35821
   id: § 12 Abs. 1
   artikel: § 12
@@ -1730,16 +4002,11 @@ einheiten:
   absatz: '1'
   buchstabe: null
   offset: 35821
-  laenge: 762
+  laenge: 287
   saetze: 1
   beleg: '(1) Der Betreiber kritischer Anlagen führt auf Grundlage der nationalen Risikoanalysen und Risikobewertungen
     und anderer vertrauenswürdiger Informationsquellen im Bedarfsfall, mindestens jedoch alle vier Jahre,
-    eine Risikoanalyse und Risikobewertung durch, die Folgendes berücksichtigt: 1. die in § 11 Absatz
-    2 Nummer 1 genannten Risiken, 2. Risiken, die geeignet sein können, die Verfügbarkeit der kritischen
-    Dienstleistungen zu beeinträchtigen und die sich aus Folgendem ergeben: a) dem Ausmaß der Abhängigkeit
-    des Betreibers kritischer Anlagen von den kritischen Dienstleistungen, die von anderen Betreibern
-    kritischer Anlagen auch in anderen Sektoren und auch in benachbarten Mitgliedstaaten der Europäischen
-    Union und in Drittstaaten erbracht werden, und'
+    eine Risikoanalyse und Risikobewertung durch, die Folgendes berücksichtigt:'
   adressat: null
   pflicht: null
   scope: null
@@ -1751,12 +4018,98 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 12 Abs. 1 lit. b@36583
-  id: § 12 Abs. 1 lit. b
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
+- uid: § 12 Abs. 1 Nr. 1@36108
+  id: § 12 Abs. 1 Nr. 1
   artikel: § 12
   artikel_titel: Risikoanalyse und Risikobewertung des Betreibers kritischer Anlagen; Verordnungsermächtigung
+  abschnitt: null
   absatz: '1'
+  nummer: '1'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 36108
+  laenge: 53
+  saetze: 1
+  beleg: 1. die in § 11 Absatz 2 Nummer 1 genannten Risiken,
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 12 Abs. 1 Nr. 2@36161
+  id: § 12 Abs. 1 Nr. 2
+  artikel: § 12
+  artikel_titel: Risikoanalyse und Risikobewertung des Betreibers kritischer Anlagen; Verordnungsermächtigung
+  abschnitt: null
+  absatz: '1'
+  nummer: '2'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 36161
+  laenge: 143
+  saetze: 1
+  beleg: '2. Risiken, die geeignet sein können, die Verfügbarkeit der kritischen Dienstleistungen zu beeinträchtigen
+    und die sich aus Folgendem ergeben:'
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 12 Abs. 1 Nr. 2 lit. a@36304
+  id: § 12 Abs. 1 Nr. 2 lit. a
+  artikel: § 12
+  artikel_titel: Risikoanalyse und Risikobewertung des Betreibers kritischer Anlagen; Verordnungsermächtigung
+  abschnitt: null
+  absatz: '1'
+  nummer: '2'
+  unterabsatz: null
+  buchstabe: a
+  ziffer: null
+  offset: 36304
+  laenge: 279
+  saetze: 1
+  beleg: a) dem Ausmaß der Abhängigkeit des Betreibers kritischer Anlagen von den kritischen Dienstleistungen,
+    die von anderen Betreibern kritischer Anlagen auch in anderen Sektoren und auch in benachbarten Mitgliedstaaten
+    der Europäischen Union und in Drittstaaten erbracht werden, und
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 12 Abs. 1 Nr. 2 lit. b@36583
+  id: § 12 Abs. 1 Nr. 2 lit. b
+  artikel: § 12
+  artikel_titel: Risikoanalyse und Risikobewertung des Betreibers kritischer Anlagen; Verordnungsermächtigung
+  abschnitt: null
+  absatz: '1'
+  nummer: '2'
+  unterabsatz: null
   buchstabe: b
+  ziffer: null
   offset: 36583
   laenge: 221
   saetze: 1
@@ -1770,8 +4123,8 @@ einheiten:
   verifikation: null
   hypothese_grund: null
   omnibus: null
-  requirement: *id001
-  gate: *id002
+  requirement: *id003
+  gate: *id004
   befund: null
   befund_grund: null
 - uid: § 12 Abs. 2@36804
@@ -1796,6 +4149,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: § 12 Abs. 3@36921
   id: § 12 Abs. 3
   artikel: § 12
@@ -1821,6 +4178,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: § 13 Abs. 1@37483
   id: § 13 Abs. 1
   artikel: § 13
@@ -1828,13 +4189,10 @@ einheiten:
   absatz: '1'
   buchstabe: null
   offset: 37483
-  laenge: 504
+  laenge: 149
   saetze: 1
   beleg: (1) Der Betreiber kritischer Anlagen ist verpflichtet, nach Maßgabe der Absätze 2 und 3 Maßnahmen
-    zur Gewährleistung seiner Resilienz zu treffen, um 1. das Auftreten von Vorfällen zu verhindern, 2.
-    einen angemessenen physischen Schutz von Liegenschaften und kritischen Anlagen zu gewährleisten, 3.
-    auf Vorfälle zu reagieren, sie abzuwehren und die negativen Auswirkungen solcher Vorfälle zu begrenzen
-    und 4. nach Vorfällen die zügige Wiederherstellung der kritischen Dienstleistung zu gewährleisten.
+    zur Gewährleistung seiner Resilienz zu treffen, um
   adressat: null
   pflicht: null
   scope: null
@@ -1844,6 +4202,111 @@ einheiten:
   omnibus: null
   requirement: *id001
   gate: *id002
+  befund: null
+  befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
+- uid: § 13 Abs. 1 Nr. 1@37632
+  id: § 13 Abs. 1 Nr. 1
+  artikel: § 13
+  artikel_titel: Resilienzpflichten der Betreiber kritischer Anlagen; Resilienzplan
+  abschnitt: null
+  absatz: '1'
+  nummer: '1'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 37632
+  laenge: 47
+  saetze: 1
+  beleg: 1. das Auftreten von Vorfällen zu verhindern,
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 13 Abs. 1 Nr. 2@37679
+  id: § 13 Abs. 1 Nr. 2
+  artikel: § 13
+  artikel_titel: Resilienzpflichten der Betreiber kritischer Anlagen; Resilienzplan
+  abschnitt: null
+  absatz: '1'
+  nummer: '2'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 37679
+  laenge: 101
+  saetze: 1
+  beleg: 2. einen angemessenen physischen Schutz von Liegenschaften und kritischen Anlagen zu gewährleisten,
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 13 Abs. 1 Nr. 3@37780
+  id: § 13 Abs. 1 Nr. 3
+  artikel: § 13
+  artikel_titel: Resilienzpflichten der Betreiber kritischer Anlagen; Resilienzplan
+  abschnitt: null
+  absatz: '1'
+  nummer: '3'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 37780
+  laenge: 111
+  saetze: 1
+  beleg: 3. auf Vorfälle zu reagieren, sie abzuwehren und die negativen Auswirkungen solcher Vorfälle
+    zu begrenzen und
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 13 Abs. 1 Nr. 4@37891
+  id: § 13 Abs. 1 Nr. 4
+  artikel: § 13
+  artikel_titel: Resilienzpflichten der Betreiber kritischer Anlagen; Resilienzplan
+  abschnitt: null
+  absatz: '1'
+  nummer: '4'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 37891
+  laenge: 96
+  saetze: 1
+  beleg: 4. nach Vorfällen die zügige Wiederherstellung der kritischen Dienstleistung zu gewährleisten.
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
   befund: null
   befund_grund: null
 - uid: § 13 Abs. 2@37987
@@ -1873,6 +4336,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: § 13 Abs. 3@38642
   id: § 13 Abs. 3
   artikel: § 13
@@ -1880,14 +4347,10 @@ einheiten:
   absatz: '3'
   buchstabe: null
   offset: 38642
-  laenge: 516
+  laenge: 194
   saetze: 1
   beleg: '(3) Zu den Maßnahmen zur Erreichung der Ziele nach Absatz 1 können die folgenden zählen, soweit
-    ihnen nicht bereits bestehende spezialgesetzliche Regelungen in den jeweiligen Branchen vorgehen:
-    1. zum Zweck der Zielerreichung nach Absatz 1 Nummer 1 zählen Maßnahmen der Notfallvorsorge, 2. zum
-    Zweck der Zielerreichung nach Absatz 1 Nummer 2 zählen: a) Maßnahmen der baulichen und technischen
-    Sicherung und des organisatorischen Schutzes (Objektschutz) wie Liegenschaftsabgrenzungen und hemmende
-    Fassadenelemente,'
+    ihnen nicht bereits bestehende spezialgesetzliche Regelungen in den jeweiligen Branchen vorgehen:'
   adressat: null
   pflicht: null
   scope: null
@@ -1899,12 +4362,96 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 13 Abs. 3 lit. b@39158
-  id: § 13 Abs. 3 lit. b
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
+- uid: § 13 Abs. 3 Nr. 1@38836
+  id: § 13 Abs. 3 Nr. 1
   artikel: § 13
   artikel_titel: Resilienzpflichten der Betreiber kritischer Anlagen; Resilienzplan
+  abschnitt: null
   absatz: '3'
+  nummer: '1'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 38836
+  laenge: 94
+  saetze: 1
+  beleg: 1. zum Zweck der Zielerreichung nach Absatz 1 Nummer 1 zählen Maßnahmen der Notfallvorsorge,
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 13 Abs. 3 Nr. 2@38930
+  id: § 13 Abs. 3 Nr. 2
+  artikel: § 13
+  artikel_titel: Resilienzpflichten der Betreiber kritischer Anlagen; Resilienzplan
+  abschnitt: null
+  absatz: '3'
+  nummer: '2'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 38930
+  laenge: 63
+  saetze: 1
+  beleg: '2. zum Zweck der Zielerreichung nach Absatz 1 Nummer 2 zählen:'
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 13 Abs. 3 Nr. 2 lit. a@38993
+  id: § 13 Abs. 3 Nr. 2 lit. a
+  artikel: § 13
+  artikel_titel: Resilienzpflichten der Betreiber kritischer Anlagen; Resilienzplan
+  abschnitt: null
+  absatz: '3'
+  nummer: '2'
+  unterabsatz: null
+  buchstabe: a
+  ziffer: null
+  offset: 38993
+  laenge: 165
+  saetze: 1
+  beleg: a) Maßnahmen der baulichen und technischen Sicherung und des organisatorischen Schutzes (Objektschutz)
+    wie Liegenschaftsabgrenzungen und hemmende Fassadenelemente,
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 13 Abs. 3 Nr. 2 lit. b@39158
+  id: § 13 Abs. 3 Nr. 2 lit. b
+  artikel: § 13
+  artikel_titel: Resilienzpflichten der Betreiber kritischer Anlagen; Resilienzplan
+  abschnitt: null
+  absatz: '3'
+  nummer: '2'
+  unterabsatz: null
   buchstabe: b
+  ziffer: null
   offset: 39158
   laenge: 64
   saetze: 1
@@ -1916,16 +4463,20 @@ einheiten:
   verifikation: null
   hypothese_grund: null
   omnibus: null
-  requirement: *id001
-  gate: *id002
+  requirement: *id003
+  gate: *id004
   befund: null
   befund_grund: null
-- uid: § 13 Abs. 3 lit. c@39222
-  id: § 13 Abs. 3 lit. c
+- uid: § 13 Abs. 3 Nr. 2 lit. c@39222
+  id: § 13 Abs. 3 Nr. 2 lit. c
   artikel: § 13
   artikel_titel: Resilienzpflichten der Betreiber kritischer Anlagen; Resilienzplan
+  abschnitt: null
   absatz: '3'
+  nummer: '2'
+  unterabsatz: null
   buchstabe: c
+  ziffer: null
   offset: 39222
   laenge: 42
   saetze: 1
@@ -1937,21 +4488,24 @@ einheiten:
   verifikation: null
   hypothese_grund: null
   omnibus: null
-  requirement: *id001
-  gate: *id002
+  requirement: *id003
+  gate: *id004
   befund: null
   befund_grund: null
-- uid: § 13 Abs. 3 lit. d@39264
-  id: § 13 Abs. 3 lit. d
+- uid: § 13 Abs. 3 Nr. 2 lit. d@39264
+  id: § 13 Abs. 3 Nr. 2 lit. d
   artikel: § 13
   artikel_titel: Resilienzpflichten der Betreiber kritischer Anlagen; Resilienzplan
+  abschnitt: null
   absatz: '3'
+  nummer: '2'
+  unterabsatz: null
   buchstabe: d
+  ziffer: null
   offset: 39264
-  laenge: 148
+  laenge: 23
   saetze: 1
-  beleg: 'd) Zugangskontrollen, 3. zum Zweck der Zielerreichung nach Absatz 1 Nummer 3 zählen: a) Risiko-
-    und Krisenmanagementverfahren und -protokolle und'
+  beleg: d) Zugangskontrollen,
   adressat: null
   pflicht: null
   scope: null
@@ -1959,21 +4513,74 @@ einheiten:
   verifikation: null
   hypothese_grund: null
   omnibus: null
-  requirement: *id001
-  gate: *id002
+  requirement: *id003
+  gate: *id004
   befund: null
   befund_grund: null
-- uid: § 13 Abs. 3 lit. b@39412
-  id: § 13 Abs. 3 lit. b
+- uid: § 13 Abs. 3 Nr. 3@39287
+  id: § 13 Abs. 3 Nr. 3
   artikel: § 13
   artikel_titel: Resilienzpflichten der Betreiber kritischer Anlagen; Resilienzplan
+  abschnitt: null
   absatz: '3'
+  nummer: '3'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 39287
+  laenge: 63
+  saetze: 1
+  beleg: '3. zum Zweck der Zielerreichung nach Absatz 1 Nummer 3 zählen:'
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 13 Abs. 3 Nr. 3 lit. a@39350
+  id: § 13 Abs. 3 Nr. 3 lit. a
+  artikel: § 13
+  artikel_titel: Resilienzpflichten der Betreiber kritischer Anlagen; Resilienzplan
+  abschnitt: null
+  absatz: '3'
+  nummer: '3'
+  unterabsatz: null
+  buchstabe: a
+  ziffer: null
+  offset: 39350
+  laenge: 62
+  saetze: 1
+  beleg: a) Risiko- und Krisenmanagementverfahren und -protokolle und
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 13 Abs. 3 Nr. 3 lit. b@39412
+  id: § 13 Abs. 3 Nr. 3 lit. b
+  artikel: § 13
+  artikel_titel: Resilienzpflichten der Betreiber kritischer Anlagen; Resilienzplan
+  abschnitt: null
+  absatz: '3'
+  nummer: '3'
+  unterabsatz: null
   buchstabe: b
+  ziffer: null
   offset: 39412
-  laenge: 187
+  laenge: 38
   saetze: 1
-  beleg: 'b) vorgegebene Abläufe im Alarmfall, 4. zum Zweck der Zielerreichung nach Absatz 1 Nummer 4
-    zählen: a) Maßnahmen zur Aufrechterhaltung des Betriebs, darunter die Notstromversorgung und'
+  beleg: b) vorgegebene Abläufe im Alarmfall,
   adressat: null
   pflicht: null
   scope: null
@@ -1981,24 +4588,74 @@ einheiten:
   verifikation: null
   hypothese_grund: null
   omnibus: null
-  requirement: *id001
-  gate: *id002
+  requirement: *id003
+  gate: *id004
   befund: null
   befund_grund: null
-- uid: § 13 Abs. 3 lit. b@39599
-  id: § 13 Abs. 3 lit. b
+- uid: § 13 Abs. 3 Nr. 4@39450
+  id: § 13 Abs. 3 Nr. 4
   artikel: § 13
   artikel_titel: Resilienzpflichten der Betreiber kritischer Anlagen; Resilienzplan
+  abschnitt: null
   absatz: '3'
+  nummer: '4'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 39450
+  laenge: 63
+  saetze: 1
+  beleg: '4. zum Zweck der Zielerreichung nach Absatz 1 Nummer 4 zählen:'
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 13 Abs. 3 Nr. 4 lit. a@39513
+  id: § 13 Abs. 3 Nr. 4 lit. a
+  artikel: § 13
+  artikel_titel: Resilienzpflichten der Betreiber kritischer Anlagen; Resilienzplan
+  abschnitt: null
+  absatz: '3'
+  nummer: '4'
+  unterabsatz: null
+  buchstabe: a
+  ziffer: null
+  offset: 39513
+  laenge: 86
+  saetze: 1
+  beleg: a) Maßnahmen zur Aufrechterhaltung des Betriebs, darunter die Notstromversorgung und
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 13 Abs. 3 Nr. 4 lit. b@39599
+  id: § 13 Abs. 3 Nr. 4 lit. b
+  artikel: § 13
+  artikel_titel: Resilienzpflichten der Betreiber kritischer Anlagen; Resilienzplan
+  abschnitt: null
+  absatz: '3'
+  nummer: '4'
+  unterabsatz: null
   buchstabe: b
+  ziffer: null
   offset: 39599
-  laenge: 433
+  laenge: 109
   saetze: 1
   beleg: b) die Ermittlung alternativer Lieferketten, um die Erbringung des wesentlichen Dienstes wiederaufzunehmen,
-    5. ein angemessenes Sicherheitsmanagement hinsichtlich der Mitarbeitenden zu gewährleisten, einschließlich
-    des Personals externer Dienstleister, und 6. das Personal für die unter den in Absatz 1 Nummer 1 bis
-    4 sowie in Nummer 5 genannten Maßnahmen durch Informationsmaterialien, Schulungen und Übungen vertraut
-    zu machen.
   adressat: null
   pflicht: null
   scope: null
@@ -2006,8 +4663,60 @@ einheiten:
   verifikation: null
   hypothese_grund: null
   omnibus: null
-  requirement: *id001
-  gate: *id002
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 13 Abs. 3 Nr. 5@39708
+  id: § 13 Abs. 3 Nr. 5
+  artikel: § 13
+  artikel_titel: Resilienzpflichten der Betreiber kritischer Anlagen; Resilienzplan
+  abschnitt: null
+  absatz: '3'
+  nummer: '5'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 39708
+  laenge: 150
+  saetze: 1
+  beleg: 5. ein angemessenes Sicherheitsmanagement hinsichtlich der Mitarbeitenden zu gewährleisten, einschließlich
+    des Personals externer Dienstleister, und
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 13 Abs. 3 Nr. 6@39858
+  id: § 13 Abs. 3 Nr. 6
+  artikel: § 13
+  artikel_titel: Resilienzpflichten der Betreiber kritischer Anlagen; Resilienzplan
+  abschnitt: null
+  absatz: '3'
+  nummer: '6'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 39858
+  laenge: 174
+  saetze: 1
+  beleg: 6. das Personal für die unter den in Absatz 1 Nummer 1 bis 4 sowie in Nummer 5 genannten Maßnahmen
+    durch Informationsmaterialien, Schulungen und Übungen vertraut zu machen.
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
   befund: null
   befund_grund: null
 - uid: § 13 Abs. 4@40032
@@ -2035,6 +4744,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: § 13 Abs. 5@40474
   id: § 13 Abs. 5
   artikel: § 13
@@ -2058,6 +4771,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: § 14 Abs. 1@40873
   id: § 14 Abs. 1
   artikel: § 14
@@ -2084,6 +4801,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: § 14 Abs. 2@41313
   id: § 14 Abs. 2
   artikel: § 14
@@ -2092,22 +4813,15 @@ einheiten:
   absatz: '2'
   buchstabe: null
   offset: 41313
-  laenge: 1352
-  saetze: 5
+  laenge: 673
+  saetze: 4
   beleg: (2) Betreiber kritischer Anlagen oder ihre Branchenverbände können branchenspezifische Resilienzstandards
     zur Konkretisierung der Verpflichtungen nach § 13 Absatz 1 vorschlagen. Soweit das Bundesamt für Sicherheit
     in der Informationstechnik branchenspezifische Standards nach § 30 Absatz 8 des BSI-Gesetzes hat,
     sollen diese die Grundlage für branchenspezifische Resilienzstandards nach Satz 1 sein. Das Bundesamt
     für Bevölkerungsschutz und Katastrophenhilfe stellt auf Antrag die Geeignetheit dieser branchenspezifischen
     Resilienzstandards zur Gewährleistung der Anforderungen nach Absatz 1 fest und veröffentlicht diese
-    auf seiner Internetseite. Die Feststellung erfolgt 1. im Einvernehmen mit dem Bundesamt für Sicherheit
-    in der Informationstechnik, 2. falls für die betroffene Dienstleistung eine Behörde des Bundes die
-    zuständige Behörde ist, in deren Einvernehmen, 3. falls für die betroffene Dienstleistung Behörden
-    der Länder die zuständigen Behörden sind, in deren Benehmen und 4. im Sektor Energie im Benehmen mit
-    dem Bundesamt für Seeschifffahrt und Hydrographie, soweit maritime Infrastrukturen in der ausschließlichen
-    Wirtschaftszone betroffen sind. Aus Gründen des öffentlichen Interesses werden für die Feststellung
-    keine Gebühren oder Auslagen für die Tätigkeit des Bundesamtes für Bevölkerungsschutz und Katastrophenhilfe
-    erhoben.
+    auf seiner Internetseite. Die Feststellung erfolgt
   adressat: null
   pflicht: null
   scope: null
@@ -2117,6 +4831,119 @@ einheiten:
   omnibus: null
   requirement: *id001
   gate: *id002
+  befund: null
+  befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
+- uid: § 14 Abs. 2 Nr. 1@41986
+  id: § 14 Abs. 2 Nr. 1
+  artikel: § 14
+  artikel_titel: Sektorenübergreifende und sektorspezifische Mindestanforderungen; branchenspezifische
+    Resilienzstandards; Verordnungsermächtigungen
+  abschnitt: null
+  absatz: '2'
+  nummer: '1'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 41986
+  laenge: 81
+  saetze: 1
+  beleg: 1. im Einvernehmen mit dem Bundesamt für Sicherheit in der Informationstechnik,
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 14 Abs. 2 Nr. 2@42067
+  id: § 14 Abs. 2 Nr. 2
+  artikel: § 14
+  artikel_titel: Sektorenübergreifende und sektorspezifische Mindestanforderungen; branchenspezifische
+    Resilienzstandards; Verordnungsermächtigungen
+  abschnitt: null
+  absatz: '2'
+  nummer: '2'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 42067
+  laenge: 119
+  saetze: 1
+  beleg: 2. falls für die betroffene Dienstleistung eine Behörde des Bundes die zuständige Behörde ist,
+    in deren Einvernehmen,
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 14 Abs. 2 Nr. 3@42186
+  id: § 14 Abs. 2 Nr. 3
+  artikel: § 14
+  artikel_titel: Sektorenübergreifende und sektorspezifische Mindestanforderungen; branchenspezifische
+    Resilienzstandards; Verordnungsermächtigungen
+  abschnitt: null
+  absatz: '2'
+  nummer: '3'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 42186
+  laenge: 117
+  saetze: 1
+  beleg: 3. falls für die betroffene Dienstleistung Behörden der Länder die zuständigen Behörden sind,
+    in deren Benehmen und
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 14 Abs. 2 Nr. 4@42303
+  id: § 14 Abs. 2 Nr. 4
+  artikel: § 14
+  artikel_titel: Sektorenübergreifende und sektorspezifische Mindestanforderungen; branchenspezifische
+    Resilienzstandards; Verordnungsermächtigungen
+  abschnitt: null
+  absatz: '2'
+  nummer: '4'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 42303
+  laenge: 362
+  saetze: 2
+  beleg: 4. im Sektor Energie im Benehmen mit dem Bundesamt für Seeschifffahrt und Hydrographie, soweit
+    maritime Infrastrukturen in der ausschließlichen Wirtschaftszone betroffen sind. Aus Gründen des öffentlichen
+    Interesses werden für die Feststellung keine Gebühren oder Auslagen für die Tätigkeit des Bundesamtes
+    für Bevölkerungsschutz und Katastrophenhilfe erhoben.
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
   befund: null
   befund_grund: null
 - uid: § 14 Abs. 3@42665
@@ -2141,6 +4968,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: § 14 Abs. 4@42690
   id: § 14 Abs. 4
   artikel: § 14
@@ -2163,6 +4994,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: § 14 Abs. 5@42715
   id: § 14 Abs. 5
   artikel: § 14
@@ -2186,6 +5021,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: § 16 Abs. 1@43397
   id: § 16 Abs. 1
   artikel: § 16
@@ -2211,6 +5050,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: § 16 Abs. 2@43818
   id: § 16 Abs. 2
   artikel: § 16
@@ -2240,6 +5083,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: § 16 Abs. 3@44716
   id: § 16 Abs. 3
   artikel: § 16
@@ -2264,6 +5111,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: § 16 Abs. 4@45125
   id: § 16 Abs. 4
   artikel: § 16
@@ -2292,6 +5143,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: § 16 Abs. 5@45944
   id: § 16 Abs. 5
   artikel: § 16
@@ -2315,6 +5170,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: § 16 Abs. 6@46237
   id: § 16 Abs. 6
   artikel: § 16
@@ -2336,6 +5195,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: § 16 Abs. 7@46301
   id: § 16 Abs. 7
   artikel: § 16
@@ -2359,6 +5222,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: § 16 Abs. 8@46573
   id: § 16 Abs. 8
   artikel: § 16
@@ -2386,6 +5253,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: § 17 Abs. 1@47375
   id: § 17 Abs. 1
   artikel: § 17
@@ -2411,6 +5282,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: § 17 Abs. 2@47721
   id: § 17 Abs. 2
   artikel: § 17
@@ -2435,6 +5310,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: § 17 Abs. 3@47934
   id: § 17 Abs. 3
   artikel: § 17
@@ -2460,6 +5339,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: § 17 Abs. 4@48356
   id: § 17 Abs. 4
   artikel: § 17
@@ -2484,6 +5367,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: § 18 Abs. 1@48711
   id: § 18 Abs. 1
   artikel: § 18
@@ -2510,6 +5397,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: § 18 Abs. 2@49297
   id: § 18 Abs. 2
   artikel: § 18
@@ -2517,14 +5408,11 @@ einheiten:
   absatz: '2'
   buchstabe: null
   offset: 49297
-  laenge: 551
+  laenge: 294
   saetze: 2
   beleg: '(2) Die Meldungen müssen die zu ihrem Zeitpunkt verfügbaren Informationen enthalten, die erforderlich
     sind, damit Art, Ursache und mögliche, auch grenzüberschreitende, Auswirkungen und Folgen des Vorfalls
-    ermittelt und nachvollzogen werden können. Insbesondere sind folgende Angaben zu machen: 1. die Anzahl
-    und der Anteil der von dem Vorfall Betroffenen, 2. die bisherige und voraussichtliche Dauer des Vorfalls
-    sowie 3. das betroffene geografische Gebiet des Vorfalls, unter Berücksichtigung des Umstands, ob
-    das Gebiet geografisch isoliert ist.'
+    ermittelt und nachvollzogen werden können. Insbesondere sind folgende Angaben zu machen:'
   adressat: null
   pflicht: null
   scope: null
@@ -2534,6 +5422,86 @@ einheiten:
   omnibus: null
   requirement: *id001
   gate: *id002
+  befund: null
+  befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
+- uid: § 18 Abs. 2 Nr. 1@49591
+  id: § 18 Abs. 2 Nr. 1
+  artikel: § 18
+  artikel_titel: Meldewesen für Vorfälle; Verordnungsermächtigung
+  abschnitt: null
+  absatz: '2'
+  nummer: '1'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 49591
+  laenge: 63
+  saetze: 1
+  beleg: 1. die Anzahl und der Anteil der von dem Vorfall Betroffenen,
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 18 Abs. 2 Nr. 2@49654
+  id: § 18 Abs. 2 Nr. 2
+  artikel: § 18
+  artikel_titel: Meldewesen für Vorfälle; Verordnungsermächtigung
+  abschnitt: null
+  absatz: '2'
+  nummer: '2'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 49654
+  laenge: 64
+  saetze: 1
+  beleg: 2. die bisherige und voraussichtliche Dauer des Vorfalls sowie
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 18 Abs. 2 Nr. 3@49718
+  id: § 18 Abs. 2 Nr. 3
+  artikel: § 18
+  artikel_titel: Meldewesen für Vorfälle; Verordnungsermächtigung
+  abschnitt: null
+  absatz: '2'
+  nummer: '3'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 49718
+  laenge: 130
+  saetze: 1
+  beleg: 3. das betroffene geografische Gebiet des Vorfalls, unter Berücksichtigung des Umstands, ob das
+    Gebiet geografisch isoliert ist.
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
   befund: null
   befund_grund: null
 - uid: § 18 Abs. 3@49848
@@ -2562,6 +5530,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: § 18 Abs. 4@50409
   id: § 18 Abs. 4
   artikel: § 18
@@ -2588,6 +5560,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: § 18 Abs. 5@50981
   id: § 18 Abs. 5
   artikel: § 18
@@ -2613,6 +5589,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: § 18 Abs. 6@51428
   id: § 18 Abs. 6
   artikel: § 18
@@ -2639,6 +5619,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: § 18 Abs. 7@51931
   id: § 18 Abs. 7
   artikel: § 18
@@ -2668,6 +5652,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: § 18 Abs. 8@52798
   id: § 18 Abs. 8
   artikel: § 18
@@ -2693,6 +5681,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: § 18 Abs. 9@53239
   id: § 18 Abs. 9
   artikel: § 18
@@ -2717,6 +5709,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: § 18 Abs. 10@53644
   id: § 18 Abs. 10
   artikel: § 18
@@ -2740,6 +5736,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: § 19 Abs. 1@53997
   id: § 19 Abs. 1
   artikel: § 19
@@ -2763,6 +5763,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: § 19 Abs. 2@54271
   id: § 19 Abs. 2
   artikel: § 19
@@ -2794,6 +5798,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: § 20 Abs. 1@55403
   id: § 20 Abs. 1
   artikel: § 20
@@ -2817,6 +5825,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: § 20 Abs. 2@55661
   id: § 20 Abs. 2
   artikel: § 20
@@ -2841,6 +5853,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: § 21 Abs. 1@56068
   id: § 21 Abs. 1
   artikel: § 21
@@ -2848,12 +5864,40 @@ einheiten:
   absatz: '1'
   buchstabe: null
   offset: 56068
-  laenge: 373
+  laenge: 103
   saetze: 1
-  beleg: '(1) Das Bundesministerium des Innern übermittelt folgende Informationen an die Europäische Kommission:
-    1. innerhalb von drei Monaten nach Durchführung von nationalen Risikoanalysen und Risikobewertungen
+  beleg: '(1) Das Bundesministerium des Innern übermittelt folgende Informationen an die Europäische Kommission:'
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id001
+  gate: *id002
+  befund: null
+  befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
+- uid: § 21 Abs. 1 Nr. 1@56171
+  id: § 21 Abs. 1 Nr. 1
+  artikel: § 21
+  artikel_titel: Berichtspflichten
+  abschnitt: null
+  absatz: '1'
+  nummer: '1'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 56171
+  laenge: 223
+  saetze: 1
+  beleg: 1. innerhalb von drei Monaten nach Durchführung von nationalen Risikoanalysen und Risikobewertungen
     jeweils aufgeschlüsselt nach den im Anhang der Richtlinie (EU) 2022/2557 genannten Sektoren und Teilsektoren
-    Informationen a) über die ermittelten Arten von Risiken und'
+    Informationen
   adressat: null
   pflicht: null
   scope: null
@@ -2861,22 +5905,24 @@ einheiten:
   verifikation: null
   hypothese_grund: null
   omnibus: null
-  requirement: *id001
-  gate: *id002
+  requirement: *id003
+  gate: *id004
   befund: null
   befund_grund: null
-- uid: § 21 Abs. 1 lit. b@56441
-  id: § 21 Abs. 1 lit. b
+- uid: § 21 Abs. 1 Nr. 1 lit. a@56394
+  id: § 21 Abs. 1 Nr. 1 lit. a
   artikel: § 21
   artikel_titel: Berichtspflichten
+  abschnitt: null
   absatz: '1'
-  buchstabe: b
-  offset: 56441
-  laenge: 287
+  nummer: '1'
+  unterabsatz: null
+  buchstabe: a
+  ziffer: null
+  offset: 56394
+  laenge: 47
   saetze: 1
-  beleg: b) über die Ergebnisse dieser Risikoanalysen und Risikobewertungen, 2. nach der Ermittlung der
-    Betreiber kritischer Anlagen unverzüglich und anschließend alle vier Jahre a) eine Liste der wesentlichen
-    Dienste im Sinne des Artikels 7 Absatz 2 Buchstabe a der Richtlinie (EU) 2022/2557,
+  beleg: a) über die ermittelten Arten von Risiken und
   adressat: null
   pflicht: null
   scope: null
@@ -2884,16 +5930,97 @@ einheiten:
   verifikation: null
   hypothese_grund: null
   omnibus: null
-  requirement: *id001
-  gate: *id002
+  requirement: *id003
+  gate: *id004
   befund: null
   befund_grund: null
-- uid: § 21 Abs. 1 lit. b@56728
-  id: § 21 Abs. 1 lit. b
+- uid: § 21 Abs. 1 Nr. 1 lit. b@56441
+  id: § 21 Abs. 1 Nr. 1 lit. b
   artikel: § 21
   artikel_titel: Berichtspflichten
+  abschnitt: null
   absatz: '1'
+  nummer: '1'
+  unterabsatz: null
   buchstabe: b
+  ziffer: null
+  offset: 56441
+  laenge: 69
+  saetze: 1
+  beleg: b) über die Ergebnisse dieser Risikoanalysen und Risikobewertungen,
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 21 Abs. 1 Nr. 2@56510
+  id: § 21 Abs. 1 Nr. 2
+  artikel: § 21
+  artikel_titel: Berichtspflichten
+  abschnitt: null
+  absatz: '1'
+  nummer: '2'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 56510
+  laenge: 102
+  saetze: 1
+  beleg: 2. nach der Ermittlung der Betreiber kritischer Anlagen unverzüglich und anschließend alle vier
+    Jahre
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 21 Abs. 1 Nr. 2 lit. a@56612
+  id: § 21 Abs. 1 Nr. 2 lit. a
+  artikel: § 21
+  artikel_titel: Berichtspflichten
+  abschnitt: null
+  absatz: '1'
+  nummer: '2'
+  unterabsatz: null
+  buchstabe: a
+  ziffer: null
+  offset: 56612
+  laenge: 116
+  saetze: 1
+  beleg: a) eine Liste der wesentlichen Dienste im Sinne des Artikels 7 Absatz 2 Buchstabe a der Richtlinie
+    (EU) 2022/2557,
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 21 Abs. 1 Nr. 2 lit. b@56728
+  id: § 21 Abs. 1 Nr. 2 lit. b
+  artikel: § 21
+  artikel_titel: Berichtspflichten
+  abschnitt: null
+  absatz: '1'
+  nummer: '2'
+  unterabsatz: null
+  buchstabe: b
+  ziffer: null
   offset: 56728
   laenge: 292
   saetze: 1
@@ -2907,16 +6034,20 @@ einheiten:
   verifikation: null
   hypothese_grund: null
   omnibus: null
-  requirement: *id001
-  gate: *id002
+  requirement: *id003
+  gate: *id004
   befund: null
   befund_grund: null
-- uid: § 21 Abs. 1 lit. c@57020
-  id: § 21 Abs. 1 lit. c
+- uid: § 21 Abs. 1 Nr. 2 lit. c@57020
+  id: § 21 Abs. 1 Nr. 2 lit. c
   artikel: § 21
   artikel_titel: Berichtspflichten
+  abschnitt: null
   absatz: '1'
+  nummer: '2'
+  unterabsatz: null
   buchstabe: c
+  ziffer: null
   offset: 57020
   laenge: 220
   saetze: 1
@@ -2930,8 +6061,8 @@ einheiten:
   verifikation: null
   hypothese_grund: null
   omnibus: null
-  requirement: *id001
-  gate: *id002
+  requirement: *id003
+  gate: *id004
   befund: null
   befund_grund: null
 - uid: § 21 Abs. 2@57240
@@ -2941,13 +6072,12 @@ einheiten:
   absatz: '2'
   buchstabe: null
   offset: 57240
-  laenge: 429
+  laenge: 320
   saetze: 1
   beleg: (2) Das Bundesministerium des Innern übermittelt der Europäischen Kommission und der Gruppe für
     die Resilienz kritischer Einrichtungen zur Unterrichtung anderer Mitgliedstaaten der Europäischen
     Union bis einschließlich 17. Juli 2028 und danach alle zwei Jahre einen zusammenfassenden Bericht
-    über die Anzahl und die Art 1. der eingegangenen Meldungen nach § 18 und 2. der auf Grundlage von
-    § 18 Absatz 4 ergriffenen Maßnahmen.
+    über die Anzahl und die Art
   adressat: null
   pflicht: null
   scope: null
@@ -2957,6 +6087,60 @@ einheiten:
   omnibus: null
   requirement: *id001
   gate: *id002
+  befund: null
+  befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
+- uid: § 21 Abs. 2 Nr. 1@57560
+  id: § 21 Abs. 2 Nr. 1
+  artikel: § 21
+  artikel_titel: Berichtspflichten
+  abschnitt: null
+  absatz: '2'
+  nummer: '1'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 57560
+  laenge: 46
+  saetze: 1
+  beleg: 1. der eingegangenen Meldungen nach § 18 und
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 21 Abs. 2 Nr. 2@57606
+  id: § 21 Abs. 2 Nr. 2
+  artikel: § 21
+  artikel_titel: Berichtspflichten
+  abschnitt: null
+  absatz: '2'
+  nummer: '2'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 57606
+  laenge: 63
+  saetze: 1
+  beleg: 2. der auf Grundlage von § 18 Absatz 4 ergriffenen Maßnahmen.
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
   befund: null
   befund_grund: null
 - uid: § 21 Abs. 3@57669
@@ -2982,6 +6166,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: § 21 Abs. 4@57937
   id: § 21 Abs. 4
   artikel: § 21
@@ -3005,6 +6193,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: § 21 Abs. 5@58183
   id: § 21 Abs. 5
   artikel: § 21
@@ -3032,6 +6224,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: § 21 Abs. 6@58897
   id: § 21 Abs. 6
   artikel: § 21
@@ -3057,6 +6253,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: § 21 Abs. 7@59369
   id: § 21 Abs. 7
   artikel: § 21
@@ -3080,6 +6280,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: § 22 Abs. 1@59650
   id: § 22 Abs. 1
   artikel: § 22
@@ -3106,6 +6310,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: § 22 Abs. 2@60179
   id: § 22 Abs. 2
   artikel: § 22
@@ -3113,12 +6321,9 @@ einheiten:
   absatz: '2'
   buchstabe: null
   offset: 60179
-  laenge: 415
+  laenge: 38
   saetze: 1
-  beleg: (2) Betreiber kritischer Anlagen, die 1. in den Bereichen nationale Sicherheit, öffentliche Sicherheit,
-    Verteidigung oder Strafverfolgung, einschließlich der Ermittlung, Aufdeckung und Verfolgung von Straftaten
-    tätig sind oder 2. für Behörden, die Aufgaben in den in Nummer 1 genannten Bereichen erfüllen, tätig
-    sind, können für diese Tätigkeiten von den Verpflichtungen nach den §§ 12, 13 und 18 befreit werden.
+  beleg: (2) Betreiber kritischer Anlagen, die
   adressat: null
   pflicht: null
   scope: null
@@ -3128,6 +6333,62 @@ einheiten:
   omnibus: null
   requirement: *id001
   gate: *id002
+  befund: null
+  befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
+- uid: § 22 Abs. 2 Nr. 1@60217
+  id: § 22 Abs. 2 Nr. 1
+  artikel: § 22
+  artikel_titel: Ausnahmebescheid
+  abschnitt: null
+  absatz: '2'
+  nummer: '1'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 60217
+  laenge: 190
+  saetze: 1
+  beleg: 1. in den Bereichen nationale Sicherheit, öffentliche Sicherheit, Verteidigung oder Strafverfolgung,
+    einschließlich der Ermittlung, Aufdeckung und Verfolgung von Straftaten tätig sind oder
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 22 Abs. 2 Nr. 2@60407
+  id: § 22 Abs. 2 Nr. 2
+  artikel: § 22
+  artikel_titel: Ausnahmebescheid
+  abschnitt: null
+  absatz: '2'
+  nummer: '2'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 60407
+  laenge: 187
+  saetze: 1
+  beleg: 2. für Behörden, die Aufgaben in den in Nummer 1 genannten Bereichen erfüllen, tätig sind, können
+    für diese Tätigkeiten von den Verpflichtungen nach den §§ 12, 13 und 18 befreit werden.
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
   befund: null
   befund_grund: null
 - uid: § 22 Abs. 3@60594
@@ -3152,6 +6413,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: § 22 Abs. 4@60775
   id: § 22 Abs. 4
   artikel: § 22
@@ -3178,6 +6443,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: § 22 Abs. 5@61319
   id: § 22 Abs. 5
   artikel: § 22
@@ -3204,6 +6473,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: § 23 Abs. 1@61957
   id: § 23 Abs. 1
   artikel: § 23
@@ -3229,6 +6502,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: § 23 Abs. 2@62424
   id: § 23 Abs. 2
   artikel: § 23
@@ -3236,18 +6513,11 @@ einheiten:
   absatz: '2'
   buchstabe: null
   offset: 62424
-  laenge: 946
-  saetze: 2
+  laenge: 290
+  saetze: 1
   beleg: (2) Die Verarbeitung personenbezogener Daten durch die in Absatz 1 genannten Stellen zu anderen
     Zwecken als demjenigen, zu dem die Daten ursprünglich erhoben wurden, ist unbeschadet von § 23 des
-    Bundesdatenschutzgesetzes und Artikel 6 Absatz 4 der Verordnung (EU) 2016/679 zulässig, soweit 1.
-    die Verarbeitung erforderlich ist zur Sammlung, Auswertung oder Untersuchung von Informationen über
-    nach § 18 gemeldete Vorfälle oder 2. dies der Unterstützung oder Beratung von Betreibern kritischer
-    Anlagen bei der Gewährleistung ihrer Resilienz dient und kein Grund zu der Annahme besteht, dass das
-    schutzwürdige Interesse der betroffenen Person an dem Ausschluss der Verarbeitung überwiegt. (2a)
-    Die Erforderlichkeit der Verarbeitung personenbezogener Daten im Sinne der Absätze 1 und 2 ist insbesondere
-    dann nicht gegeben, wenn durch eine Verarbeitung anonymisierter oder künstlich erzeugter Daten der
-    Zweck in gleicher Weise erfüllt werden kann.
+    Bundesdatenschutzgesetzes und Artikel 6 Absatz 4 der Verordnung (EU) 2016/679 zulässig, soweit
   adressat: null
   pflicht: null
   scope: null
@@ -3257,6 +6527,66 @@ einheiten:
   omnibus: null
   requirement: *id001
   gate: *id002
+  befund: null
+  befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
+- uid: § 23 Abs. 2 Nr. 1@62714
+  id: § 23 Abs. 2 Nr. 1
+  artikel: § 23
+  artikel_titel: Verarbeitung personenbezogener Daten
+  abschnitt: null
+  absatz: '2'
+  nummer: '1'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 62714
+  laenge: 138
+  saetze: 1
+  beleg: 1. die Verarbeitung erforderlich ist zur Sammlung, Auswertung oder Untersuchung von Informationen
+    über nach § 18 gemeldete Vorfälle oder
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 23 Abs. 2 Nr. 2@62852
+  id: § 23 Abs. 2 Nr. 2
+  artikel: § 23
+  artikel_titel: Verarbeitung personenbezogener Daten
+  abschnitt: null
+  absatz: '2'
+  nummer: '2'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 62852
+  laenge: 518
+  saetze: 2
+  beleg: 2. dies der Unterstützung oder Beratung von Betreibern kritischer Anlagen bei der Gewährleistung
+    ihrer Resilienz dient und kein Grund zu der Annahme besteht, dass das schutzwürdige Interesse der
+    betroffenen Person an dem Ausschluss der Verarbeitung überwiegt. (2a) Die Erforderlichkeit der Verarbeitung
+    personenbezogener Daten im Sinne der Absätze 1 und 2 ist insbesondere dann nicht gegeben, wenn durch
+    eine Verarbeitung anonymisierter oder künstlich erzeugter Daten der Zweck in gleicher Weise erfüllt
+    werden kann.
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
   befund: null
   befund_grund: null
 - uid: § 23 Abs. 3@63370
@@ -3281,6 +6611,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: § 24 Abs. 1@63590
   id: § 24 Abs. 1
   artikel: § 24
@@ -3288,9 +6622,9 @@ einheiten:
   absatz: '1'
   buchstabe: null
   offset: 63590
-  laenge: 91
+  laenge: 32
   saetze: 1
-  beleg: (1) Ordnungswidrig handelt, wer 1. entgegen § 8 Absatz 1 a) Nummer 1 bis 3, 5 oder 6 oder
+  beleg: (1) Ordnungswidrig handelt, wer
   adressat: null
   pflicht: null
   scope: null
@@ -3302,18 +6636,76 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 24 Abs. 1 lit. b@63681
-  id: § 24 Abs. 1 lit. b
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
+- uid: § 24 Abs. 1 Nr. 1@63622
+  id: § 24 Abs. 1 Nr. 1
   artikel: § 24
   artikel_titel: Bußgeldvorschriften
+  abschnitt: null
   absatz: '1'
+  nummer: '1'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 63622
+  laenge: 25
+  saetze: 1
+  beleg: 1. entgegen § 8 Absatz 1
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 24 Abs. 1 Nr. 1 lit. a@63647
+  id: § 24 Abs. 1 Nr. 1 lit. a
+  artikel: § 24
+  artikel_titel: Bußgeldvorschriften
+  abschnitt: null
+  absatz: '1'
+  nummer: '1'
+  unterabsatz: null
+  buchstabe: a
+  ziffer: null
+  offset: 63647
+  laenge: 34
+  saetze: 1
+  beleg: a) Nummer 1 bis 3, 5 oder 6 oder
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 24 Abs. 1 Nr. 1 lit. b@63681
+  id: § 24 Abs. 1 Nr. 1 lit. b
+  artikel: § 24
+  artikel_titel: Bußgeldvorschriften
+  abschnitt: null
+  absatz: '1'
+  nummer: '1'
+  unterabsatz: null
   buchstabe: b
+  ziffer: null
   offset: 63681
-  laenge: 286
+  laenge: 219
   saetze: 1
   beleg: b) Nummer 4 in Verbindung mit einer Rechtsverordnung nach § 5 Absatz 1 Satz 1 eine dort genannte
     Angabe nicht, nicht richtig, nicht vollständig, nicht in der vorgeschriebenen Weise oder nicht rechtzeitig
-    übermittelt, 2. einer vollziehbaren Anordnung nach a) § 8 Absatz 2 Satz 1 oder
+    übermittelt,
   adressat: null
   pflicht: null
   scope: null
@@ -3321,26 +6713,24 @@ einheiten:
   verifikation: null
   hypothese_grund: null
   omnibus: null
-  requirement: *id001
-  gate: *id002
+  requirement: *id003
+  gate: *id004
   befund: null
   befund_grund: null
-- uid: § 24 Abs. 1 lit. b@63967
-  id: § 24 Abs. 1 lit. b
+- uid: § 24 Abs. 1 Nr. 2@63900
+  id: § 24 Abs. 1 Nr. 2
   artikel: § 24
   artikel_titel: Bußgeldvorschriften
+  abschnitt: null
   absatz: '1'
-  buchstabe: b
-  offset: 63967
-  laenge: 681
+  nummer: '2'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 63900
+  laenge: 38
   saetze: 1
-  beleg: b) § 16 Absatz 2 Satz 1 oder 2 oder Absatz 3 Satz 3, auch in Verbindung mit Absatz 5 Satz 3,
-    oder nach § 16 Absatz 5 Satz 1 oder 2 zuwiderhandelt, 3. entgegen § 16 Absatz 3 Satz 3, auch in Verbindung
-    mit Absatz 5 Satz 3, ein Ergebnis eines Audits nicht, nicht richtig, nicht vollständig oder nicht
-    rechtzeitig übermittelt oder 4. entgegen § 16 Absatz 4 Satz 3 das Betreten eines Geschäfts- oder Betriebsraums
-    oder einen dort genannten Zugang nicht gestattet, eine Aufzeichnung, ein Schriftstück oder eine Unterlage
-    nicht, nicht richtig, nicht vollständig oder nicht rechtzeitig vorlegt oder eine Auskunft nicht, nicht
-    richtig, nicht vollständig oder nicht rechtzeitig erteilt.
+  beleg: 2. einer vollziehbaren Anordnung nach
   adressat: null
   pflicht: null
   scope: null
@@ -3348,8 +6738,113 @@ einheiten:
   verifikation: null
   hypothese_grund: null
   omnibus: null
-  requirement: *id001
-  gate: *id002
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 24 Abs. 1 Nr. 2 lit. a@63938
+  id: § 24 Abs. 1 Nr. 2 lit. a
+  artikel: § 24
+  artikel_titel: Bußgeldvorschriften
+  abschnitt: null
+  absatz: '1'
+  nummer: '2'
+  unterabsatz: null
+  buchstabe: a
+  ziffer: null
+  offset: 63938
+  laenge: 29
+  saetze: 1
+  beleg: a) § 8 Absatz 2 Satz 1 oder
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 24 Abs. 1 Nr. 2 lit. b@63967
+  id: § 24 Abs. 1 Nr. 2 lit. b
+  artikel: § 24
+  artikel_titel: Bußgeldvorschriften
+  abschnitt: null
+  absatz: '1'
+  nummer: '2'
+  unterabsatz: null
+  buchstabe: b
+  ziffer: null
+  offset: 63967
+  laenge: 149
+  saetze: 1
+  beleg: b) § 16 Absatz 2 Satz 1 oder 2 oder Absatz 3 Satz 3, auch in Verbindung mit Absatz 5 Satz 3,
+    oder nach § 16 Absatz 5 Satz 1 oder 2 zuwiderhandelt,
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 24 Abs. 1 Nr. 3@64116
+  id: § 24 Abs. 1 Nr. 3
+  artikel: § 24
+  artikel_titel: Bußgeldvorschriften
+  abschnitt: null
+  absatz: '1'
+  nummer: '3'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 64116
+  laenge: 181
+  saetze: 1
+  beleg: 3. entgegen § 16 Absatz 3 Satz 3, auch in Verbindung mit Absatz 5 Satz 3, ein Ergebnis eines
+    Audits nicht, nicht richtig, nicht vollständig oder nicht rechtzeitig übermittelt oder
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: § 24 Abs. 1 Nr. 4@64297
+  id: § 24 Abs. 1 Nr. 4
+  artikel: § 24
+  artikel_titel: Bußgeldvorschriften
+  abschnitt: null
+  absatz: '1'
+  nummer: '4'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 64297
+  laenge: 351
+  saetze: 1
+  beleg: 4. entgegen § 16 Absatz 4 Satz 3 das Betreten eines Geschäfts- oder Betriebsraums oder einen
+    dort genannten Zugang nicht gestattet, eine Aufzeichnung, ein Schriftstück oder eine Unterlage nicht,
+    nicht richtig, nicht vollständig oder nicht rechtzeitig vorlegt oder eine Auskunft nicht, nicht richtig,
+    nicht vollständig oder nicht rechtzeitig erteilt.
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
   befund: null
   befund_grund: null
 - uid: § 24 Abs. 2@64648
@@ -3376,6 +6871,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: § 24 Abs. 3@65054
   id: § 24 Abs. 3
   artikel: § 24
@@ -3399,3 +6898,7 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null

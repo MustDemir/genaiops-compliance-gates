@@ -6,8 +6,812 @@ quelle:
     07.09.2026 — kein amtliches Einzeldokument. Rechtsaussagen sind vor Veroeffentlichung gegen das Bundesgesetzblatt
     zu pruefen.
   abgerufen: '2026-09-07'
-  artikel_im_text: 2
+  artikel_im_text: 4
 einheiten:
+- uid: § 5c Abs. 1@73
+  id: § 5c Abs. 1
+  artikel: § 5c
+  artikel_titel: IT-Sicherheit im Anlagen- und im Netzbetrieb, Festlegungskompetenz
+  abschnitt: null
+  absatz: '1'
+  nummer: null
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 73
+  laenge: 122
+  saetze: 1
+  beleg: '(1) Die folgenden Betreiber haben für die genannten Systeme einen angemessenen Schutz gegen
+    Bedrohungen zu gewährleisten:'
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: &id001 []
+  gate: &id002 []
+  befund: null
+  befund_grund: null
+- uid: § 5c Abs. 1 Nr. 1@195
+  id: § 5c Abs. 1 Nr. 1
+  artikel: § 5c
+  artikel_titel: IT-Sicherheit im Anlagen- und im Netzbetrieb, Festlegungskompetenz
+  abschnitt: null
+  absatz: '1'
+  nummer: '1'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 195
+  laenge: 202
+  saetze: 1
+  beleg: 1. der Betreiber eines Energieversorgungsnetzes für Telekommunikationssysteme und für elektronische
+    Datenverarbeitungssysteme, die für den sicheren Betrieb des Energieversorgungsnetzes notwendig sind,
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id001
+  gate: *id002
+  befund: null
+  befund_grund: null
+- uid: § 5c Abs. 1 Nr. 2@397
+  id: § 5c Abs. 1 Nr. 2
+  artikel: § 5c
+  artikel_titel: IT-Sicherheit im Anlagen- und im Netzbetrieb, Festlegungskompetenz
+  abschnitt: null
+  absatz: '1'
+  nummer: '2'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 397
+  laenge: 406
+  saetze: 1
+  beleg: 2. der Betreiber einer Energieanlage, der eine besonders wichtige Einrichtung nach § 28 Absatz
+    1 des BSI-Gesetzes oder eine wichtige Einrichtung nach § 28 Absatz 2 des BSI-Gesetzes ist und dessen
+    Energieanlage an ein Energieversorgungsnetz angeschlossen ist, für Telekommunikationssysteme sowie
+    für elektronische Datenverarbeitungssysteme, die für einen sicheren Betrieb der Energieanlage notwendig
+    sind,
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id001
+  gate: *id002
+  befund: null
+  befund_grund: null
+- uid: § 5c Abs. 1 Nr. 3@803
+  id: § 5c Abs. 1 Nr. 3
+  artikel: § 5c
+  artikel_titel: IT-Sicherheit im Anlagen- und im Netzbetrieb, Festlegungskompetenz
+  abschnitt: null
+  absatz: '1'
+  nummer: '3'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 803
+  laenge: 580
+  saetze: 2
+  beleg: 3. der Betreiber eines digitalen Energiedienstes, der eine besonders wichtige Einrichtung nach
+    § 28 Absatz 1 des BSI-Gesetzes oder eine wichtige Einrichtung nach § 28 Absatz 2 des BSI-Gesetzes
+    ist und der den digitalen Energiedienst an einer Energieanlage ausübt, die an ein Energieversorgungsnetz
+    angeschlossen ist, für Telekommunikationssysteme sowie für elektronische Datenverarbeitungssysteme,
+    die für einen sicheren Betrieb der Anlage notwendig sind. Der angemessene Schutz nach Satz 1 ist bereits
+    bei der Beschaffung von Anlagengütern und Dienstleistungen sicherzustellen.
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id001
+  gate: *id002
+  befund: null
+  befund_grund: null
+- uid: § 5c Abs. 2@1383
+  id: § 5c Abs. 2
+  artikel: § 5c
+  artikel_titel: IT-Sicherheit im Anlagen- und im Netzbetrieb, Festlegungskompetenz
+  abschnitt: null
+  absatz: '2'
+  nummer: null
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 1383
+  laenge: 1345
+  saetze: 7
+  beleg: (2) Die Anforderungen an den angemessenen Schutz werden von der Bundesnetzagentur im Einvernehmen
+    mit dem Bundesamt für Sicherheit in der Informationstechnik in einem Katalog von Sicherheitsanforderungen
+    (IT-Sicherheitskatalog) durch Festlegung nach § 29 Absatz 1 bestimmt. Die Bundesnetzagentur kann die
+    Anforderungen an einen angemessenen Schutz eines Energieversorgungsnetzes, einer Energieanlage oder
+    eines Energiedienstes auch jeweils in einem gesonderten IT-Sicherheitskatalog durch Festlegung nach
+    § 29 Absatz 1 bestimmen. Die Bundesnetzagentur beteiligt jeweils die Betreiber nach Absatz 1 Satz
+    1 Nummer 1 bis 3 und deren Branchenverbände entsprechend ihrer Betroffenheit. Für Telekommunikationssysteme
+    sowie für elektronische Datenverarbeitungssysteme von Anlagen nach § 7 Absatz 1 des Atomgesetzes sind
+    ergänzend für die Erarbeitung des IT-Sicherheitskatalogs die für die nukleare Sicherheit zuständigen
+    Genehmigungs- und Aufsichtsbehörden des Bundes und der Länder zu beteiligen. Vorgaben auf Grund des
+    Atomgesetzes haben Vorrang vor den Anforderungen des IT-Sicherheitskatalogs. Die Bundesnetzagentur
+    überprüft den IT-Sicherheitskatalog alle zwei Jahre und aktualisiert ihn bei Bedarf. Mit der Einhaltung
+    des IT-Sicherheitskatalogs durch den Betreiber nach Absatz 1 Satz 1 Nummer 1 bis 3 gilt der angemessene
+    Schutz als eingehalten.
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id001
+  gate: *id002
+  befund: null
+  befund_grund: null
+- uid: § 5c Abs. 3@2728
+  id: § 5c Abs. 3
+  artikel: § 5c
+  artikel_titel: IT-Sicherheit im Anlagen- und im Netzbetrieb, Festlegungskompetenz
+  abschnitt: null
+  absatz: '3'
+  nummer: null
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 2728
+  laenge: 530
+  saetze: 3
+  beleg: '(3) Der IT-Sicherheitskatalog soll ein Sicherheitsniveau der informationstechnischen Systeme,
+    Komponenten und Prozesse gewährleisten, das dem bestehenden Risiko angemessen ist. Der IT-Sicherheitskatalog
+    soll unter Berücksichtigung der einschlägigen europäischen Normen oder internationalen Normen, der
+    Einhaltung des Standes der Technik sowie der Umsetzungskosten erstellt werden. Zur Wahrung der Angemessenheit
+    der Anforderungen des jeweiligen IT-Sicherheitskatalogs sind bei der Erstellung folgende Faktoren
+    zu berücksichtigen:'
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id001
+  gate: *id002
+  befund: null
+  befund_grund: null
+- uid: § 5c Abs. 3 Nr. 1@3258
+  id: § 5c Abs. 3 Nr. 1
+  artikel: § 5c
+  artikel_titel: IT-Sicherheit im Anlagen- und im Netzbetrieb, Festlegungskompetenz
+  abschnitt: null
+  absatz: '3'
+  nummer: '1'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 3258
+  laenge: 37
+  saetze: 1
+  beleg: 1. das Ausmaß der Risikoexposition,
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id001
+  gate: *id002
+  befund: null
+  befund_grund: null
+- uid: § 5c Abs. 3 Nr. 2@3295
+  id: § 5c Abs. 3 Nr. 2
+  artikel: § 5c
+  artikel_titel: IT-Sicherheit im Anlagen- und im Netzbetrieb, Festlegungskompetenz
+  abschnitt: null
+  absatz: '3'
+  nummer: '2'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 3295
+  laenge: 30
+  saetze: 1
+  beleg: 2. die Größe des Betreibers,
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id001
+  gate: *id002
+  befund: null
+  befund_grund: null
+- uid: § 5c Abs. 3 Nr. 3@3325
+  id: § 5c Abs. 3 Nr. 3
+  artikel: § 5c
+  artikel_titel: IT-Sicherheit im Anlagen- und im Netzbetrieb, Festlegungskompetenz
+  abschnitt: null
+  absatz: '3'
+  nummer: '3'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 3325
+  laenge: 79
+  saetze: 1
+  beleg: 3. die Eintrittswahrscheinlichkeit und Schwere von Sicherheitsvorfällen sowie
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id001
+  gate: *id002
+  befund: null
+  befund_grund: null
+- uid: § 5c Abs. 3 Nr. 4@3404
+  id: § 5c Abs. 3 Nr. 4
+  artikel: § 5c
+  artikel_titel: IT-Sicherheit im Anlagen- und im Netzbetrieb, Festlegungskompetenz
+  abschnitt: null
+  absatz: '3'
+  nummer: '4'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 3404
+  laenge: 62
+  saetze: 1
+  beleg: 4. die gesellschaftlichen und wirtschaftlichen Auswirkungen.
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id001
+  gate: *id002
+  befund: null
+  befund_grund: null
+- uid: § 5c Abs. 4@3466
+  id: § 5c Abs. 4
+  artikel: § 5c
+  artikel_titel: IT-Sicherheit im Anlagen- und im Netzbetrieb, Festlegungskompetenz
+  abschnitt: null
+  absatz: '4'
+  nummer: null
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 3466
+  laenge: 72
+  saetze: 1
+  beleg: '(4) Der IT-Sicherheitskatalog hat mindestens Vorgaben zu enthalten für:'
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id001
+  gate: *id002
+  befund: null
+  befund_grund: null
+- uid: § 5c Abs. 4 Nr. 1@3538
+  id: § 5c Abs. 4 Nr. 1
+  artikel: § 5c
+  artikel_titel: IT-Sicherheit im Anlagen- und im Netzbetrieb, Festlegungskompetenz
+  abschnitt: null
+  absatz: '4'
+  nummer: '1'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 3538
+  laenge: 84
+  saetze: 1
+  beleg: 1. Konzepte in Bezug auf die Risikoanalyse und Sicherheit für Informationstechnik,
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id001
+  gate: *id002
+  befund: null
+  befund_grund: null
+- uid: § 5c Abs. 4 Nr. 2@3622
+  id: § 5c Abs. 4 Nr. 2
+  artikel: § 5c
+  artikel_titel: IT-Sicherheit im Anlagen- und im Netzbetrieb, Festlegungskompetenz
+  abschnitt: null
+  absatz: '4'
+  nummer: '2'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 3622
+  laenge: 46
+  saetze: 1
+  beleg: 2. die Bewältigung von Sicherheitsvorfällen,
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id001
+  gate: *id002
+  befund: null
+  befund_grund: null
+- uid: § 5c Abs. 4 Nr. 3@3668
+  id: § 5c Abs. 4 Nr. 3
+  artikel: § 5c
+  artikel_titel: IT-Sicherheit im Anlagen- und im Netzbetrieb, Festlegungskompetenz
+  abschnitt: null
+  absatz: '4'
+  nummer: '3'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 3668
+  laenge: 130
+  saetze: 1
+  beleg: 3. die Aufrechterhaltung des Betriebs, wie Backup-Management und Wiederherstellung nach einem
+    Notfall, und das Krisenmanagement,
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id001
+  gate: *id002
+  befund: null
+  befund_grund: null
+- uid: § 5c Abs. 4 Nr. 4@3798
+  id: § 5c Abs. 4 Nr. 4
+  artikel: § 5c
+  artikel_titel: IT-Sicherheit im Anlagen- und im Netzbetrieb, Festlegungskompetenz
+  abschnitt: null
+  absatz: '4'
+  nummer: '4'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 3798
+  laenge: 189
+  saetze: 1
+  beleg: 4. die Sicherheit der Lieferkette einschließlich sicherheitsbezogener Aspekte der Beziehungen
+    zwischen den einzelnen Einrichtungen und ihren unmittelbaren Anbietern oder Diensteanbietern,
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id001
+  gate: *id002
+  befund: null
+  befund_grund: null
+- uid: § 5c Abs. 4 Nr. 5@3987
+  id: § 5c Abs. 4 Nr. 5
+  artikel: § 5c
+  artikel_titel: IT-Sicherheit im Anlagen- und im Netzbetrieb, Festlegungskompetenz
+  abschnitt: null
+  absatz: '4'
+  nummer: '5'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 3987
+  laenge: 159
+  saetze: 1
+  beleg: 5. Sicherheitsmaßnahmen bei Erwerb, Entwicklung und Wartung von Netz- und Informationssystemen,
+    einschließlich Management und Offenlegung von Schwachstellen,
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id001
+  gate: *id002
+  befund: null
+  befund_grund: null
+- uid: § 5c Abs. 4 Nr. 6@4146
+  id: § 5c Abs. 4 Nr. 6
+  artikel: § 5c
+  artikel_titel: IT-Sicherheit im Anlagen- und im Netzbetrieb, Festlegungskompetenz
+  abschnitt: null
+  absatz: '4'
+  nummer: '6'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 4146
+  laenge: 138
+  saetze: 1
+  beleg: 6. Konzepte und Verfahren zur Bewertung der Wirksamkeit von Risikomanagementmaßnahmen im Bereich
+    der Sicherheit der Informationstechnik,
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id001
+  gate: *id002
+  befund: null
+  befund_grund: null
+- uid: § 5c Abs. 4 Nr. 7@4284
+  id: § 5c Abs. 4 Nr. 7
+  artikel: § 5c
+  artikel_titel: IT-Sicherheit im Anlagen- und im Netzbetrieb, Festlegungskompetenz
+  abschnitt: null
+  absatz: '4'
+  nummer: '7'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 4284
+  laenge: 125
+  saetze: 1
+  beleg: 7. grundlegende Verfahren im Bereich der Cyberhygiene und für Schulungen im Bereich der Sicherheit
+    der Informationstechnik,
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id001
+  gate: *id002
+  befund: null
+  befund_grund: null
+- uid: § 5c Abs. 4 Nr. 8@4409
+  id: § 5c Abs. 4 Nr. 8
+  artikel: § 5c
+  artikel_titel: IT-Sicherheit im Anlagen- und im Netzbetrieb, Festlegungskompetenz
+  abschnitt: null
+  absatz: '4'
+  nummer: '8'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 4409
+  laenge: 81
+  saetze: 1
+  beleg: 8. Konzepte und Verfahren für den Einsatz von Kryptografie und Verschlüsselung,
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id001
+  gate: *id002
+  befund: null
+  befund_grund: null
+- uid: § 5c Abs. 4 Nr. 9@4490
+  id: § 5c Abs. 4 Nr. 9
+  artikel: § 5c
+  artikel_titel: IT-Sicherheit im Anlagen- und im Netzbetrieb, Festlegungskompetenz
+  abschnitt: null
+  absatz: '4'
+  nummer: '9'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 4490
+  laenge: 101
+  saetze: 1
+  beleg: 9. die Sicherheit des Personals, Konzepte für die Zugriffskontrolle und das Management von Anlagen,
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id001
+  gate: *id002
+  befund: null
+  befund_grund: null
+- uid: § 5c Abs. 4 Nr. 10@4591
+  id: § 5c Abs. 4 Nr. 10
+  artikel: § 5c
+  artikel_titel: IT-Sicherheit im Anlagen- und im Netzbetrieb, Festlegungskompetenz
+  abschnitt: null
+  absatz: '4'
+  nummer: '10'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 4591
+  laenge: 246
+  saetze: 1
+  beleg: 10. die Verwendung von Lösungen zur Multi-Faktor-Authentifizierung oder kontinuierlichen Authentifizierung,
+    gesicherte Sprach-, Video- und Textkommunikation sowie gegebenenfalls gesicherte Notfallkommunikationssysteme
+    innerhalb der Einrichtung,
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id001
+  gate: *id002
+  befund: null
+  befund_grund: null
+- uid: § 5c Abs. 4 Nr. 11@4837
+  id: § 5c Abs. 4 Nr. 11
+  artikel: § 5c
+  artikel_titel: IT-Sicherheit im Anlagen- und im Netzbetrieb, Festlegungskompetenz
+  abschnitt: null
+  absatz: '4'
+  nummer: '11'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 4837
+  laenge: 89
+  saetze: 1
+  beleg: 11. den Einsatz von Systemen zur Angriffserkennung nach § 2 Nummer 41 des BSI-Gesetzes,
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id001
+  gate: *id002
+  befund: null
+  befund_grund: null
+- uid: § 5c Abs. 4 Nr. 12@4926
+  id: § 5c Abs. 4 Nr. 12
+  artikel: § 5c
+  artikel_titel: IT-Sicherheit im Anlagen- und im Netzbetrieb, Festlegungskompetenz
+  abschnitt: null
+  absatz: '4'
+  nummer: '12'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 4926
+  laenge: 566
+  saetze: 1
+  beleg: 12. den Einsatz eines Elements oder einer Gruppe von Elementen eines Netz- oder Informationssystems
+    (IKT-Produkt), eines Dienstes, der vollständig oder überwiegend aus der Übertragung, Speicherung,
+    Abfrage oder Verarbeitung von Informationen mittels Netz- und Informationssystemen besteht (IKT-Dienst),
+    und jeglicher Tätigkeiten, mit denen ein IKT-Produkt oder ein IKT-Dienst konzipiert, entwickelt, bereitgestellt
+    oder gepflegt werden soll (IKT-Prozess), mit Cybersicherheitszertifizierung gemäß europäischer Schemata
+    nach Artikel 49 der Verordnung (EU) 2019/881.
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id001
+  gate: *id002
+  befund: null
+  befund_grund: null
+- uid: § 5c Abs. 5@5492
+  id: § 5c Abs. 5
+  artikel: § 5c
+  artikel_titel: IT-Sicherheit im Anlagen- und im Netzbetrieb, Festlegungskompetenz
+  abschnitt: null
+  absatz: '5'
+  nummer: null
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 5492
+  laenge: 60
+  saetze: 1
+  beleg: (5) Die Bundesnetzagentur kann in dem IT-Sicherheitskatalog
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id001
+  gate: *id002
+  befund: null
+  befund_grund: null
+- uid: § 5c Abs. 5 Nr. 1@5552
+  id: § 5c Abs. 5 Nr. 1
+  artikel: § 5c
+  artikel_titel: IT-Sicherheit im Anlagen- und im Netzbetrieb, Festlegungskompetenz
+  abschnitt: null
+  absatz: '5'
+  nummer: '1'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 5552
+  laenge: 190
+  saetze: 1
+  beleg: 1. nähere Bestimmungen treffen zu Format, Inhalt und Gestaltung der nach § 5d Absatz 1 Satz 1
+    erforderlichen Dokumentation über die Einhaltung der Anforderungen des IT-Sicherheitskatalogs,
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id001
+  gate: *id002
+  befund: null
+  befund_grund: null
+- uid: § 5c Abs. 5 Nr. 2@5742
+  id: § 5c Abs. 5 Nr. 2
+  artikel: § 5c
+  artikel_titel: IT-Sicherheit im Anlagen- und im Netzbetrieb, Festlegungskompetenz
+  abschnitt: null
+  absatz: '5'
+  nummer: '2'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 5742
+  laenge: 66
+  saetze: 1
+  beleg: 2. nähere Bestimmungen zur Behebung von Sicherheitsmängeln sowie
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id001
+  gate: *id002
+  befund: null
+  befund_grund: null
+- uid: § 5c Abs. 5 Nr. 3@5808
+  id: § 5c Abs. 5 Nr. 3
+  artikel: § 5c
+  artikel_titel: IT-Sicherheit im Anlagen- und im Netzbetrieb, Festlegungskompetenz
+  abschnitt: null
+  absatz: '5'
+  nummer: '3'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 5808
+  laenge: 98
+  saetze: 1
+  beleg: 3. Regelungen festlegen zur regelmäßigen Überprüfung der Erfüllung der Sicherheitsanforderungen.
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id001
+  gate: *id002
+  befund: null
+  befund_grund: null
+- uid: § 5c Abs. 6@5906
+  id: § 5c Abs. 6
+  artikel: § 5c
+  artikel_titel: IT-Sicherheit im Anlagen- und im Netzbetrieb, Festlegungskompetenz
+  abschnitt: null
+  absatz: '6'
+  nummer: null
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 5906
+  laenge: 264
+  saetze: 1
+  beleg: (6) Die Bundesnetzagentur legt bis zum Ablauf des 6. Januar 2026 im Einvernehmen mit dem Bundesamt
+    für Sicherheit in der Informationstechnik durch Festlegung nach § 29 Absatz 1 in einem Katalog für
+    den Betrieb von Energieversorgungsnetzen und Energieanlagen fest,
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id001
+  gate: *id002
+  befund: null
+  befund_grund: null
+- uid: § 5c Abs. 6 Nr. 1@6170
+  id: § 5c Abs. 6 Nr. 1
+  artikel: § 5c
+  artikel_titel: IT-Sicherheit im Anlagen- und im Netzbetrieb, Festlegungskompetenz
+  abschnitt: null
+  absatz: '6'
+  nummer: '1'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 6170
+  laenge: 122
+  saetze: 1
+  beleg: 1. welche Komponenten kritische Komponenten nach § 2 Nummer 23 Buchstabe c Doppelbuchstabe aa
+    des BSI-Gesetzes sind oder
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id001
+  gate: *id002
+  befund: null
+  befund_grund: null
+- uid: § 5c Abs. 6 Nr. 2@6292
+  id: § 5c Abs. 6 Nr. 2
+  artikel: § 5c
+  artikel_titel: IT-Sicherheit im Anlagen- und im Netzbetrieb, Festlegungskompetenz
+  abschnitt: null
+  absatz: '6'
+  nummer: '2'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 6292
+  laenge: 1005
+  saetze: 4
+  beleg: 2. welche Funktionen kritisch bestimmte Funktionen nach § 2 Nummer 23 Buchstabe c Doppelbuchstabe
+    bb des BSI-Gesetzes sind. Der Betreiber nach Absatz 1 Satz 1 Nummer 1 und 2, der zugleich eine kritische
+    Anlage nach § 2 Nummer 22 des BSI-Gesetzes betreibt, hat die Vorgaben des Katalogs spätestens sechs
+    Monate nach dessen in der Festlegung nach § 29 Absatz 1 bestimmten Inkrafttretens zu erfüllen, es
+    sei denn, in dem Katalog ist eine davon abweichende Umsetzungsfrist festgelegt worden. Die Befugnis
+    der Bundesnetzagentur nach Satz 1 besteht bis zum Erlass einer Rechtsverordnung nach § 56 Absatz 7
+    des BSI-Gesetzes für den Sektor Energie fort. Eine von der Bundesnetzagentur auf der Grundlage von
+    Satz 1 oder auf der Grundlage von § 11 Absatz 1a Satz 2 des Energiewirtschaftsgesetzes in der am 5.
+    Dezember 2025 geltenden Fassung erlassene Allgemeinverfügung ist mit dem Inkrafttreten einer Rechtsverordnung
+    nach § 56 Absatz 7 des BSI-Gesetzes für Energieversorgungsnetze und Energieanlagen aufzuheben.
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id001
+  gate: *id002
+  befund: null
+  befund_grund: null
 - uid: § 5d Abs. 1@7351
   id: § 5d Abs. 1
   artikel: § 5d
@@ -39,10 +843,14 @@ einheiten:
   verifikation: null
   hypothese_grund: null
   omnibus: null
-  requirement: &id001 []
-  gate: &id002 []
+  requirement: &id003 []
+  gate: &id004 []
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: § 5d Abs. 2@8826
   id: § 5d Abs. 2
   artikel: § 5d
@@ -63,10 +871,14 @@ einheiten:
   verifikation: null
   hypothese_grund: null
   omnibus: null
-  requirement: *id001
-  gate: *id002
+  requirement: *id003
+  gate: *id004
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: § 5d Abs. 3@9210
   id: § 5d Abs. 3
   artikel: § 5d
@@ -74,24 +886,43 @@ einheiten:
   absatz: '3'
   buchstabe: null
   offset: 9210
-  laenge: 1555
+  laenge: 154
   saetze: 1
   beleg: '(3) Der Betreiber nach § 5c Absatz 1 Satz 1 Nummer 1 bis 3 ist verpflichtet, der Meldestelle
-    nach § 32 des BSI-Gesetzes folgende Informationen zu melden: 1. unverzüglich, spätestens jedoch innerhalb
-    von 24 Stunden nach Kenntniserlangung von einem erheblichen Sicherheitsvorfall nach § 2 Nummer 11
-    des BSI-Gesetzes: eine frühe Erstmeldung, in der angegeben wird, ob der Verdacht besteht, dass der
-    erhebliche Sicherheitsvorfall auf eine rechtswidrige oder eine böswillige Handlung zurückzuführen
-    ist oder dass er grenzüberschreitende Auswirkungen haben könnte, 2. unverzüglich, spätestens jedoch
-    innerhalb von 72 Stunden nach Kenntniserlangung von einem erheblichen Sicherheitsvorfall nach § 2
-    Nummer 11 des BSI-Gesetzes: eine Meldung über den erheblichen Sicherheitsvorfall, in der die in Nummer
-    1 genannten Informationen bestätigt oder aktualisiert werden und in der eine erste Bewertung des erheblichen
-    Sicherheitsvorfalls vorgenommen wird, einschließlich der Bewertung seines Schweregrads und seiner
-    Auswirkungen und einschließlich der Angabe der Kompromittierungsfaktoren, 3. auf Ersuchen des Bundesamtes
-    für Sicherheit in der Informationstechnik eine Zwischenmeldung über relevante Statusaktualisierungen,
-    4. spätestens einen Monat nach Übermittlung der Meldung des erheblichen Sicherheitsvorfalls nach §
-    2 Nummer 11 des BSI-Gesetzes eine Abschlussmeldung, die Folgendes enthält: a) eine ausführliche Beschreibung
-    des erheblichen Sicherheitsvorfalls nach § 2 Nummer 11 des BSI-Gesetzes, einschließlich seines Schweregrads
-    und seiner Auswirkungen,'
+    nach § 32 des BSI-Gesetzes folgende Informationen zu melden:'
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
+- uid: § 5d Abs. 3 Nr. 1@9364
+  id: § 5d Abs. 3 Nr. 1
+  artikel: § 5d
+  artikel_titel: Dokumentations-, Melde-, Registrierungspflicht
+  abschnitt: null
+  absatz: '3'
+  nummer: '1'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 9364
+  laenge: 406
+  saetze: 1
+  beleg: '1. unverzüglich, spätestens jedoch innerhalb von 24 Stunden nach Kenntniserlangung von einem
+    erheblichen Sicherheitsvorfall nach § 2 Nummer 11 des BSI-Gesetzes: eine frühe Erstmeldung, in der
+    angegeben wird, ob der Verdacht besteht, dass der erhebliche Sicherheitsvorfall auf eine rechtswidrige
+    oder eine böswillige Handlung zurückzuführen ist oder dass er grenzüberschreitende Auswirkungen haben
+    könnte,'
   adressat: null
   pflicht: null
   scope: null
@@ -103,12 +934,123 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 5d Abs. 3 lit. b@10765
-  id: § 5d Abs. 3 lit. b
+- uid: § 5d Abs. 3 Nr. 2@9770
+  id: § 5d Abs. 3 Nr. 2
   artikel: § 5d
   artikel_titel: Dokumentations-, Melde-, Registrierungspflicht
+  abschnitt: null
   absatz: '3'
+  nummer: '2'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 9770
+  laenge: 518
+  saetze: 1
+  beleg: '2. unverzüglich, spätestens jedoch innerhalb von 72 Stunden nach Kenntniserlangung von einem
+    erheblichen Sicherheitsvorfall nach § 2 Nummer 11 des BSI-Gesetzes: eine Meldung über den erheblichen
+    Sicherheitsvorfall, in der die in Nummer 1 genannten Informationen bestätigt oder aktualisiert werden
+    und in der eine erste Bewertung des erheblichen Sicherheitsvorfalls vorgenommen wird, einschließlich
+    der Bewertung seines Schweregrads und seiner Auswirkungen und einschließlich der Angabe der Kompromittierungsfaktoren,'
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id001
+  gate: *id002
+  befund: null
+  befund_grund: null
+- uid: § 5d Abs. 3 Nr. 3@10288
+  id: § 5d Abs. 3 Nr. 3
+  artikel: § 5d
+  artikel_titel: Dokumentations-, Melde-, Registrierungspflicht
+  abschnitt: null
+  absatz: '3'
+  nummer: '3'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 10288
+  laenge: 135
+  saetze: 1
+  beleg: 3. auf Ersuchen des Bundesamtes für Sicherheit in der Informationstechnik eine Zwischenmeldung
+    über relevante Statusaktualisierungen,
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id001
+  gate: *id002
+  befund: null
+  befund_grund: null
+- uid: § 5d Abs. 3 Nr. 4@10423
+  id: § 5d Abs. 3 Nr. 4
+  artikel: § 5d
+  artikel_titel: Dokumentations-, Melde-, Registrierungspflicht
+  abschnitt: null
+  absatz: '3'
+  nummer: '4'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 10423
+  laenge: 174
+  saetze: 1
+  beleg: '4. spätestens einen Monat nach Übermittlung der Meldung des erheblichen Sicherheitsvorfalls
+    nach § 2 Nummer 11 des BSI-Gesetzes eine Abschlussmeldung, die Folgendes enthält:'
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id001
+  gate: *id002
+  befund: null
+  befund_grund: null
+- uid: § 5d Abs. 3 Nr. 4 lit. a@10597
+  id: § 5d Abs. 3 Nr. 4 lit. a
+  artikel: § 5d
+  artikel_titel: Dokumentations-, Melde-, Registrierungspflicht
+  abschnitt: null
+  absatz: '3'
+  nummer: '4'
+  unterabsatz: null
+  buchstabe: a
+  ziffer: null
+  offset: 10597
+  laenge: 168
+  saetze: 1
+  beleg: a) eine ausführliche Beschreibung des erheblichen Sicherheitsvorfalls nach § 2 Nummer 11 des
+    BSI-Gesetzes, einschließlich seines Schweregrads und seiner Auswirkungen,
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id001
+  gate: *id002
+  befund: null
+  befund_grund: null
+- uid: § 5d Abs. 3 Nr. 4 lit. b@10765
+  id: § 5d Abs. 3 Nr. 4 lit. b
+  artikel: § 5d
+  artikel_titel: Dokumentations-, Melde-, Registrierungspflicht
+  abschnitt: null
+  absatz: '3'
+  nummer: '4'
+  unterabsatz: null
   buchstabe: b
+  ziffer: null
   offset: 10765
   laenge: 168
   saetze: 1
@@ -125,12 +1067,16 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 5d Abs. 3 lit. c@10933
-  id: § 5d Abs. 3 lit. c
+- uid: § 5d Abs. 3 Nr. 4 lit. c@10933
+  id: § 5d Abs. 3 Nr. 4 lit. c
   artikel: § 5d
   artikel_titel: Dokumentations-, Melde-, Registrierungspflicht
+  abschnitt: null
   absatz: '3'
+  nummer: '4'
+  unterabsatz: null
   buchstabe: c
+  ziffer: null
   offset: 10933
   laenge: 131
   saetze: 1
@@ -147,17 +1093,23 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 5d Abs. 3 lit. d@11064
-  id: § 5d Abs. 3 lit. d
+- uid: § 5d Abs. 3 Nr. 4 lit. d@11064
+  id: § 5d Abs. 3 Nr. 4 lit. d
   artikel: § 5d
   artikel_titel: Dokumentations-, Melde-, Registrierungspflicht
+  abschnitt: null
   absatz: '3'
+  nummer: '4'
+  unterabsatz: null
   buchstabe: d
+  ziffer: null
   offset: 11064
-  laenge: 130
-  saetze: 1
+  laenge: 379
+  saetze: 3
   beleg: d) gegebenenfalls die grenzüberschreitenden Auswirkungen des erheblichen Sicherheitsvorfalls
-    nach § 2 Nummer 11 des BSI-Gesetzes.
+    nach § 2 Nummer 11 des BSI-Gesetzes. § 32 Absatz 2 bis 5 und § 36 des BSI-Gesetzes sind entsprechend
+    anzuwenden. Bei Meldungen nach diesem Absatz trifft das Bundesamt für Sicherheit in der Informationstechnik
+    Maßnahmen nach § 36 des BSI-Gesetzes im Benehmen mit der Bundesnetzagentur.
   adressat: null
   pflicht: null
   scope: null
@@ -169,14 +1121,16 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 32 Abs. 4@11443
-  id: § 32 Abs. 4
-  artikel: § 32
-  artikel_titel: Absatz 2 bis 5 und § 36 des BSI-Gesetzes sind entsprechend anzuwenden. Bei Meldungen
-    nach diesem Absatz trifft das Bundesamt für Sicherheit in der Informationstechnik Maßnahmen nach §
-    36 des BSI-Gesetzes im Benehmen mit der Bundesnetzagentur.
+- uid: § 5d Abs. 4@11443
+  id: § 5d Abs. 4
+  artikel: § 5d
+  artikel_titel: Dokumentations-, Melde-, Registrierungspflicht
+  abschnitt: null
   absatz: '4'
+  nummer: null
+  unterabsatz: null
   buchstabe: null
+  ziffer: null
   offset: 11443
   laenge: 1964
   saetze: 7
@@ -211,17 +1165,19 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 32 Abs. 5@13407
-  id: § 32 Abs. 5
-  artikel: § 32
-  artikel_titel: Absatz 2 bis 5 und § 36 des BSI-Gesetzes sind entsprechend anzuwenden. Bei Meldungen
-    nach diesem Absatz trifft das Bundesamt für Sicherheit in der Informationstechnik Maßnahmen nach §
-    36 des BSI-Gesetzes im Benehmen mit der Bundesnetzagentur.
+- uid: § 5d Abs. 5@13407
+  id: § 5d Abs. 5
+  artikel: § 5d
+  artikel_titel: Dokumentations-, Melde-, Registrierungspflicht
+  abschnitt: null
   absatz: '5'
+  nummer: null
+  unterabsatz: null
   buchstabe: null
+  ziffer: null
   offset: 13407
-  laenge: 2836
-  saetze: 13
+  laenge: 2758
+  saetze: 12
   beleg: (5) Das Bundesamt für Sicherheit in der Informationstechnik hat die Hinweise oder Informationen
     nach Absatz 2 und solche Meldungen über Sicherheitsvorfälle nach § 32 des BSI-Gesetzes, bei denen
     das Bundesamt für Sicherheit in der Informationstechnik Kenntnis von einer Relevanz für die Energieversorgungssicherheit
@@ -248,8 +1204,7 @@ einheiten:
     nach Satz 1 zur Kenntnis gelangten Hinweise und Meldungen ausgeschlossen wird. Zugang zu den Akten
     des Bundesamtes für Sicherheit in der Informationstechnik sowie zu den Akten der Bundesnetzagentur
     in Angelegenheiten nach § 5c Absatz 1 bis 5 und den Absätzen 1 bis 4 sowie dieses Absatzes wird nicht
-    gewährt. § 29 des Verwaltungsverfahrensgesetzes bleibt unberührt. § 5e Umsetzungs-, Überwachungs-
-    und Schulungspflicht für Geschäftsleitungen
+    gewährt. § 29 des Verwaltungsverfahrensgesetzes bleibt unberührt.
   adressat: null
   pflicht: null
   scope: null
@@ -261,14 +1216,16 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 32 Abs. 1@16243
-  id: § 32 Abs. 1
-  artikel: § 32
-  artikel_titel: Absatz 2 bis 5 und § 36 des BSI-Gesetzes sind entsprechend anzuwenden. Bei Meldungen
-    nach diesem Absatz trifft das Bundesamt für Sicherheit in der Informationstechnik Maßnahmen nach §
-    36 des BSI-Gesetzes im Benehmen mit der Bundesnetzagentur.
+- uid: § 5e Abs. 1@16243
+  id: § 5e Abs. 1
+  artikel: § 5e
+  artikel_titel: Umsetzungs-, Überwachungs- und Schulungspflicht für Geschäftsleitungen
+  abschnitt: null
   absatz: '1'
+  nummer: null
+  unterabsatz: null
   buchstabe: null
+  ziffer: null
   offset: 16243
   laenge: 190
   saetze: 1
@@ -285,14 +1242,16 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 32 Abs. 2@16433
-  id: § 32 Abs. 2
-  artikel: § 32
-  artikel_titel: Absatz 2 bis 5 und § 36 des BSI-Gesetzes sind entsprechend anzuwenden. Bei Meldungen
-    nach diesem Absatz trifft das Bundesamt für Sicherheit in der Informationstechnik Maßnahmen nach §
-    36 des BSI-Gesetzes im Benehmen mit der Bundesnetzagentur.
+- uid: § 5e Abs. 2@16433
+  id: § 5e Abs. 2
+  artikel: § 5e
+  artikel_titel: Umsetzungs-, Überwachungs- und Schulungspflicht für Geschäftsleitungen
+  abschnitt: null
   absatz: '2'
+  nummer: null
+  unterabsatz: null
   buchstabe: null
+  ziffer: null
   offset: 16433
   laenge: 444
   saetze: 2
@@ -312,22 +1271,24 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 32 Abs. 3@16877
-  id: § 32 Abs. 3
-  artikel: § 32
-  artikel_titel: Absatz 2 bis 5 und § 36 des BSI-Gesetzes sind entsprechend anzuwenden. Bei Meldungen
-    nach diesem Absatz trifft das Bundesamt für Sicherheit in der Informationstechnik Maßnahmen nach §
-    36 des BSI-Gesetzes im Benehmen mit der Bundesnetzagentur.
+- uid: § 5e Abs. 3@16877
+  id: § 5e Abs. 3
+  artikel: § 5e
+  artikel_titel: Umsetzungs-, Überwachungs- und Schulungspflicht für Geschäftsleitungen
+  abschnitt: null
   absatz: '3'
+  nummer: null
+  unterabsatz: null
   buchstabe: null
+  ziffer: null
   offset: 16877
-  laenge: 515
-  saetze: 2
+  laenge: 446
+  saetze: 1
   beleg: (3) Die Geschäftsleitung eines Betreibers nach § 5c Absatz 1 Satz 1 Nummer 1 bis 3 muss regelmäßig
     an Schulungen teilnehmen, um ausreichende Kenntnisse und Fähigkeiten zur Erkennung und Bewertung von
     Risiken und von Risikomanagementpraktiken im Bereich der Sicherheit in der Informationstechnik zu
     erlangen sowie um die Auswirkungen von Risiken sowie Risikomanagementpraktiken auf die von der Einrichtung
-    erbrachten Dienste beurteilen zu können. § 11 Betrieb von Energieversorgungsnetzen; Verordnungsermächtigung
+    erbrachten Dienste beurteilen zu können.
   adressat: null
   pflicht: null
   scope: null
@@ -339,14 +1300,16 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 32 Abs. 1@17392
-  id: § 32 Abs. 1
-  artikel: § 32
-  artikel_titel: Absatz 2 bis 5 und § 36 des BSI-Gesetzes sind entsprechend anzuwenden. Bei Meldungen
-    nach diesem Absatz trifft das Bundesamt für Sicherheit in der Informationstechnik Maßnahmen nach §
-    36 des BSI-Gesetzes im Benehmen mit der Bundesnetzagentur.
+- uid: § 11 Abs. 1@17392
+  id: § 11 Abs. 1
+  artikel: § 11
+  artikel_titel: Betrieb von Energieversorgungsnetzen; Verordnungsermächtigung
+  abschnitt: null
   absatz: '1'
+  nummer: null
+  unterabsatz: null
   buchstabe: null
+  ziffer: null
   offset: 17392
   laenge: 1297
   saetze: 5
@@ -374,44 +1337,26 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 32 Abs. 2@18689
-  id: § 32 Abs. 2
-  artikel: § 32
-  artikel_titel: Absatz 2 bis 5 und § 36 des BSI-Gesetzes sind entsprechend anzuwenden. Bei Meldungen
-    nach diesem Absatz trifft das Bundesamt für Sicherheit in der Informationstechnik Maßnahmen nach §
-    36 des BSI-Gesetzes im Benehmen mit der Bundesnetzagentur.
+- uid: § 11 Abs. 2@18689
+  id: § 11 Abs. 2
+  artikel: § 11
+  artikel_titel: Betrieb von Energieversorgungsnetzen; Verordnungsermächtigung
+  abschnitt: null
   absatz: '2'
+  nummer: null
+  unterabsatz: null
   buchstabe: null
+  ziffer: null
   offset: 18689
-  laenge: 2771
-  saetze: 9
+  laenge: 618
+  saetze: 2
   beleg: (2) Für einen bedarfsgerechten, wirtschaftlich zumutbaren Ausbau der Elektrizitätsversorgungsnetze
     nach Absatz 1 Satz 1 können Betreiber von Elektrizitätsversorgungsnetzen den Berechnungen für ihre
     Netzplanung die Annahme zugrunde legen, dass die prognostizierte jährliche Stromerzeugung je unmittelbar
     an ihr Netz angeschlossener Anlage zur Erzeugung von elektrischer Energie aus Windenergie an Land
     oder solarer Strahlungsenergie um bis zu 3 Prozent reduziert werden darf (Spitzenkappung). Betreiber
     von Elektrizitätsversorgungsnetzen, die für ihre Netzplanung eine Spitzenkappung zugrunde gelegt haben,
-    müssen dies 1. auf ihrer Internetseite veröffentlichen, 2. dem Betreiber des vorgelagerten Elektrizitätsversorgungsnetzes,
-    dem Betreiber des Übertragungsnetzes, der Bundesnetzagentur sowie der zuständigen Landesregulierungsbehörde
-    unverzüglich mitteilen und 3. im Rahmen der Netzplanung für einen sachkundigen Dritten nachvollziehbar
-    dokumentieren. Die Dokumentation nach Satz 2 Nummer 3 muss der Bundesnetzagentur, der zuständigen
-    Landesregulierungsbehörde, dem Betreiber des vorgelagerten Elektrizitätsversorgungsnetzes, dem Betreiber
-    des Übertragungsnetzes, einem Einspeisewilligen sowie einem an das Netz angeschlossenen Anlagenbetreiber
-    auf Verlangen unverzüglich vorgelegt werden. Die §§ 13 und 14 und § 11 des Erneuerbare-Energien-Gesetzes
-    bleiben unberührt. Ein Betreiber des Elektrizitätsversorgungsnetzes, der Kosten für die Reduzierung
-    der Einspeisung von mehr als 3 Prozent der jährlichen Stromerzeugung einer Anlage zur Erzeugung von
-    Strom aus erneuerbaren Energien, Grubengas oder Kraft-Wärme-Kopplung bei der Ermittlung seiner Netzentgelte
-    in Ansatz bringt, muss der Bundesnetzagentur sowie der zuständigen Landesregulierungsbehörde den Umfang
-    der und die Ursachen für die Reduzierung der Einspeisung mitteilen und im Fall einer Spitzenkappung
-    die Dokumentation nach Satz 2 Nummer 3 vorlegen. (2a) Die Betreiber von Übertragungsnetzen sind verpflichtet,
-    Handelstransaktionen innerhalb des Gebiets der Bundesrepublik Deutschland ohne Kapazitätsvergabe in
-    der Weise zu ermöglichen, dass das Gebiet der Bundesrepublik Deutschland eine einheitliche Stromgebotszone
-    bildet. Sie dürfen insbesondere nicht einseitig eine Kapazitätsvergabe einführen, die zu einer einseitigen
-    Aufteilung der einheitlichen deutschen Stromgebotszone führen würde. Sobald für einen Betreiber eines
-    Übertragungsnetzes erkennbar wird, dass die Erfüllung der Pflicht nach Satz 1 und die Einhaltung des
-    Verbots nach Satz 2 unmöglich zu werden drohen, hat er dies der Bundesnetzagentur unverzüglich in
-    Textform anzuzeigen. § 20 Absatz 2 sowie die Artikel 14 bis 17 der Verordnung (EU) 2019/943 in der
-    Fassung vom 13. Juni 2024 und die Verordnung (EU) 2015/1222 bleiben unberührt.
+    müssen dies
   adressat: null
   pflicht: null
   scope: null
@@ -423,14 +1368,110 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 32 Abs. 3@21460
-  id: § 32 Abs. 3
-  artikel: § 32
-  artikel_titel: Absatz 2 bis 5 und § 36 des BSI-Gesetzes sind entsprechend anzuwenden. Bei Meldungen
-    nach diesem Absatz trifft das Bundesamt für Sicherheit in der Informationstechnik Maßnahmen nach §
-    36 des BSI-Gesetzes im Benehmen mit der Bundesnetzagentur.
-  absatz: '3'
+- uid: § 11 Abs. 2 Nr. 1@19307
+  id: § 11 Abs. 2 Nr. 1
+  artikel: § 11
+  artikel_titel: Betrieb von Energieversorgungsnetzen; Verordnungsermächtigung
+  abschnitt: null
+  absatz: '2'
+  nummer: '1'
+  unterabsatz: null
   buchstabe: null
+  ziffer: null
+  offset: 19307
+  laenge: 45
+  saetze: 1
+  beleg: 1. auf ihrer Internetseite veröffentlichen,
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id001
+  gate: *id002
+  befund: null
+  befund_grund: null
+- uid: § 11 Abs. 2 Nr. 2@19352
+  id: § 11 Abs. 2 Nr. 2
+  artikel: § 11
+  artikel_titel: Betrieb von Energieversorgungsnetzen; Verordnungsermächtigung
+  abschnitt: null
+  absatz: '2'
+  nummer: '2'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 19352
+  laenge: 203
+  saetze: 1
+  beleg: 2. dem Betreiber des vorgelagerten Elektrizitätsversorgungsnetzes, dem Betreiber des Übertragungsnetzes,
+    der Bundesnetzagentur sowie der zuständigen Landesregulierungsbehörde unverzüglich mitteilen und
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id001
+  gate: *id002
+  befund: null
+  befund_grund: null
+- uid: § 11 Abs. 2 Nr. 3@19555
+  id: § 11 Abs. 2 Nr. 3
+  artikel: § 11
+  artikel_titel: Betrieb von Energieversorgungsnetzen; Verordnungsermächtigung
+  abschnitt: null
+  absatz: '2'
+  nummer: '3'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 19555
+  laenge: 1905
+  saetze: 8
+  beleg: 3. im Rahmen der Netzplanung für einen sachkundigen Dritten nachvollziehbar dokumentieren. Die
+    Dokumentation nach Satz 2 Nummer 3 muss der Bundesnetzagentur, der zuständigen Landesregulierungsbehörde,
+    dem Betreiber des vorgelagerten Elektrizitätsversorgungsnetzes, dem Betreiber des Übertragungsnetzes,
+    einem Einspeisewilligen sowie einem an das Netz angeschlossenen Anlagenbetreiber auf Verlangen unverzüglich
+    vorgelegt werden. Die §§ 13 und 14 und § 11 des Erneuerbare-Energien-Gesetzes bleiben unberührt. Ein
+    Betreiber des Elektrizitätsversorgungsnetzes, der Kosten für die Reduzierung der Einspeisung von mehr
+    als 3 Prozent der jährlichen Stromerzeugung einer Anlage zur Erzeugung von Strom aus erneuerbaren
+    Energien, Grubengas oder Kraft-Wärme-Kopplung bei der Ermittlung seiner Netzentgelte in Ansatz bringt,
+    muss der Bundesnetzagentur sowie der zuständigen Landesregulierungsbehörde den Umfang der und die
+    Ursachen für die Reduzierung der Einspeisung mitteilen und im Fall einer Spitzenkappung die Dokumentation
+    nach Satz 2 Nummer 3 vorlegen. (2a) Die Betreiber von Übertragungsnetzen sind verpflichtet, Handelstransaktionen
+    innerhalb des Gebiets der Bundesrepublik Deutschland ohne Kapazitätsvergabe in der Weise zu ermöglichen,
+    dass das Gebiet der Bundesrepublik Deutschland eine einheitliche Stromgebotszone bildet. Sie dürfen
+    insbesondere nicht einseitig eine Kapazitätsvergabe einführen, die zu einer einseitigen Aufteilung
+    der einheitlichen deutschen Stromgebotszone führen würde. Sobald für einen Betreiber eines Übertragungsnetzes
+    erkennbar wird, dass die Erfüllung der Pflicht nach Satz 1 und die Einhaltung des Verbots nach Satz
+    2 unmöglich zu werden drohen, hat er dies der Bundesnetzagentur unverzüglich in Textform anzuzeigen.
+    § 20 Absatz 2 sowie die Artikel 14 bis 17 der Verordnung (EU) 2019/943 in der Fassung vom 13. Juni
+    2024 und die Verordnung (EU) 2015/1222 bleiben unberührt.
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id001
+  gate: *id002
+  befund: null
+  befund_grund: null
+- uid: § 11 Abs. 3@21460
+  id: § 11 Abs. 3
+  artikel: § 11
+  artikel_titel: Betrieb von Energieversorgungsnetzen; Verordnungsermächtigung
+  abschnitt: null
+  absatz: '3'
+  nummer: null
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
   offset: 21460
   laenge: 1219
   saetze: 4
@@ -457,14 +1498,16 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: § 32 Abs. 4@22679
-  id: § 32 Abs. 4
-  artikel: § 32
-  artikel_titel: Absatz 2 bis 5 und § 36 des BSI-Gesetzes sind entsprechend anzuwenden. Bei Meldungen
-    nach diesem Absatz trifft das Bundesamt für Sicherheit in der Informationstechnik Maßnahmen nach §
-    36 des BSI-Gesetzes im Benehmen mit der Bundesnetzagentur.
+- uid: § 11 Abs. 4@22679
+  id: § 11 Abs. 4
+  artikel: § 11
+  artikel_titel: Betrieb von Energieversorgungsnetzen; Verordnungsermächtigung
+  abschnitt: null
   absatz: '4'
+  nummer: null
+  unterabsatz: null
   buchstabe: null
+  ziffer: null
   offset: 22679
   laenge: 274
   saetze: 1

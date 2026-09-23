@@ -29,6 +29,10 @@ einheiten:
   gate: &id002 []
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 1 Abs. 2@148249
   id: Art. 1 Abs. 2
   artikel: '1'
@@ -50,6 +54,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 1 Abs. 2 lit. a@148320
   id: Art. 1 Abs. 2 lit. a
   artikel: '1'
@@ -73,6 +81,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 1 Abs. 2 lit. b@148630
   id: Art. 1 Abs. 2 lit. b
   artikel: '1'
@@ -96,6 +108,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 1 Abs. 2 lit. c@148894
   id: Art. 1 Abs. 2 lit. c
   artikel: '1'
@@ -117,6 +133,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 1 Abs. 2 lit. d@148978
   id: Art. 1 Abs. 2 lit. d
   artikel: '1'
@@ -138,6 +158,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 2 Abs. 1@149079
   id: Art. 2 Abs. 1
   artikel: '2'
@@ -163,6 +187,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 2 Abs. 2@149547
   id: Art. 2 Abs. 2
   artikel: '2'
@@ -185,6 +213,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 2 Abs. 2 lit. a@149690
   id: Art. 2 Abs. 2 lit. a
   artikel: '2'
@@ -206,18 +238,25 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: Art. 2 Abs. 2 lit. i@149731
-  id: Art. 2 Abs. 2 lit. i
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
+- uid: Art. 2 Abs. 2 lit. a Ziff. i@149731
+  id: Art. 2 Abs. 2 lit. a Ziff. i
   artikel: '2'
   artikel_titel: Anwendungsbereich
+  abschnitt: null
   absatz: '2'
-  buchstabe: i
+  nummer: null
+  unterabsatz: null
+  buchstabe: a
+  ziffer: i
   offset: 149731
-  laenge: 272
+  laenge: 143
   saetze: 1
   beleg: i) Anbietern von öffentlichen elektronischen Kommunikationsnetzen oder von öffentlich zugänglichen
-    elektronischen Kommunikationsdiensten; ii) Vertrauensdiensteanbietern; iii) Namenregistern der Domäne
-    oberster Stufe und Domänennamensystem-Diensteanbietern;
+    elektronischen Kommunikationsdiensten;
   adressat: null
   pflicht: null
   scope: null
@@ -225,8 +264,58 @@ einheiten:
   verifikation: null
   hypothese_grund: null
   omnibus: null
-  requirement: *id001
-  gate: *id002
+  requirement: &id003 []
+  gate: &id004 []
+  befund: null
+  befund_grund: null
+- uid: Art. 2 Abs. 2 lit. a Ziff. ii@149874
+  id: Art. 2 Abs. 2 lit. a Ziff. ii
+  artikel: '2'
+  artikel_titel: Anwendungsbereich
+  abschnitt: null
+  absatz: '2'
+  nummer: null
+  unterabsatz: null
+  buchstabe: a
+  ziffer: ii
+  offset: 149874
+  laenge: 37
+  saetze: 1
+  beleg: ii) Vertrauensdiensteanbietern;
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: Art. 2 Abs. 2 lit. a Ziff. iii@149911
+  id: Art. 2 Abs. 2 lit. a Ziff. iii
+  artikel: '2'
+  artikel_titel: Anwendungsbereich
+  abschnitt: null
+  absatz: '2'
+  nummer: null
+  unterabsatz: null
+  buchstabe: a
+  ziffer: iii
+  offset: 149911
+  laenge: 92
+  saetze: 1
+  beleg: iii) Namenregistern der Domäne oberster Stufe und Domänennamensystem-Diensteanbietern;
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
   befund: null
   befund_grund: null
 - uid: Art. 2 Abs. 2 lit. b@150003
@@ -252,6 +341,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 2 Abs. 2 lit. c@150223
   id: Art. 2 Abs. 2 lit. c
   artikel: '2'
@@ -274,6 +367,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 2 Abs. 2 lit. d@150410
   id: Art. 2 Abs. 2 lit. d
   artikel: '2'
@@ -297,6 +394,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 2 Abs. 2 lit. e@150626
   id: Art. 2 Abs. 2 lit. e
   artikel: '2'
@@ -320,6 +421,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 2 Abs. 2 lit. f@150883
   id: Art. 2 Abs. 2 lit. f
   artikel: '2'
@@ -341,20 +446,25 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: Art. 2 Abs. 2 lit. i@150953
-  id: Art. 2 Abs. 2 lit. i
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
+- uid: Art. 2 Abs. 2 lit. f Ziff. i@150953
+  id: Art. 2 Abs. 2 lit. f Ziff. i
   artikel: '2'
   artikel_titel: Anwendungsbereich
+  abschnitt: null
   absatz: '2'
-  buchstabe: i
+  nummer: null
+  unterabsatz: null
+  buchstabe: f
+  ziffer: i
   offset: 150953
-  laenge: 445
+  laenge: 136
   saetze: 1
   beleg: i) von einem Mitgliedstaat gemäß nationalem Recht definierte Einrichtung der öffentlichen Verwaltung
-    der Zentralregierung ist oder ii) von einem Mitgliedstaat gemäß nationalem Recht definierte Einrichtung
-    der öffentlichen Verwaltung auf regionaler Ebene ist, die nach einer risikobasierten Bewertung Dienste
-    erbringt, deren Störung erhebliche Auswirkungen auf kritische gesellschaftliche oder wirtschaftliche
-    Tätigkeiten haben könnte.
+    der Zentralregierung ist oder
   adressat: null
   pflicht: null
   scope: null
@@ -362,8 +472,35 @@ einheiten:
   verifikation: null
   hypothese_grund: null
   omnibus: null
-  requirement: *id001
-  gate: *id002
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: Art. 2 Abs. 2 lit. f Ziff. ii@151089
+  id: Art. 2 Abs. 2 lit. f Ziff. ii
+  artikel: '2'
+  artikel_titel: Anwendungsbereich
+  abschnitt: null
+  absatz: '2'
+  nummer: null
+  unterabsatz: null
+  buchstabe: f
+  ziffer: ii
+  offset: 151089
+  laenge: 309
+  saetze: 1
+  beleg: ii) von einem Mitgliedstaat gemäß nationalem Recht definierte Einrichtung der öffentlichen Verwaltung
+    auf regionaler Ebene ist, die nach einer risikobasierten Bewertung Dienste erbringt, deren Störung
+    erhebliche Auswirkungen auf kritische gesellschaftliche oder wirtschaftliche Tätigkeiten haben könnte.
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
   befund: null
   befund_grund: null
 - uid: Art. 2 Abs. 3@151398
@@ -388,6 +525,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 2 Abs. 4@151576
   id: Art. 2 Abs. 4
   artikel: '2'
@@ -410,6 +551,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 2 Abs. 5@151721
   id: Art. 2 Abs. 5
   artikel: '2'
@@ -431,6 +576,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 2 Abs. 5 lit. a@151809
   id: Art. 2 Abs. 5 lit. a
   artikel: '2'
@@ -452,6 +601,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 2 Abs. 5 lit. b@151878
   id: Art. 2 Abs. 5 lit. b
   artikel: '2'
@@ -473,6 +626,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 2 Abs. 6@151976
   id: Art. 2 Abs. 6
   artikel: '2'
@@ -497,6 +654,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 2 Abs. 7@152313
   id: Art. 2 Abs. 7
   artikel: '2'
@@ -520,6 +681,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 2 Abs. 8@152606
   id: Art. 2 Abs. 8
   artikel: '2'
@@ -550,6 +715,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 2 Abs. 9@153541
   id: Art. 2 Abs. 9
   artikel: '2'
@@ -572,6 +741,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 2 Abs. 10@153654
   id: Art. 2 Abs. 10
   artikel: '2'
@@ -595,6 +768,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 2 Abs. 11@153854
   id: Art. 2 Abs. 11
   artikel: '2'
@@ -618,6 +795,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 2 Abs. 12@154140
   id: Art. 2 Abs. 12
   artikel: '2'
@@ -641,6 +822,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 2 Abs. 13@154370
   id: Art. 2 Abs. 13
   artikel: '2'
@@ -668,6 +853,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 2 Abs. 14@155072
   id: Art. 2 Abs. 14
   artikel: '2'
@@ -695,6 +884,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 3 Abs. 1@155781
   id: Art. 3 Abs. 1
   artikel: '3'
@@ -716,6 +909,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 3 Abs. 1 lit. a@155859
   id: Art. 3 Abs. 1 lit. a
   artikel: '3'
@@ -738,6 +935,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 3 Abs. 1 lit. b@156049
   id: Art. 3 Abs. 1 lit. b
   artikel: '3'
@@ -760,6 +961,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 3 Abs. 1 lit. c@156203
   id: Art. 3 Abs. 1 lit. c
   artikel: '3'
@@ -783,6 +988,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 3 Abs. 1 lit. d@156436
   id: Art. 3 Abs. 1 lit. d
   artikel: '3'
@@ -804,6 +1013,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 3 Abs. 1 lit. e@156532
   id: Art. 3 Abs. 1 lit. e
   artikel: '3'
@@ -826,6 +1039,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 3 Abs. 1 lit. f@156726
   id: Art. 3 Abs. 1 lit. f
   artikel: '3'
@@ -848,6 +1065,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 3 Abs. 1 lit. g@156909
   id: Art. 3 Abs. 1 lit. g
   artikel: '3'
@@ -871,6 +1092,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 3 Abs. 2@157141
   id: Art. 3 Abs. 2
   artikel: '3'
@@ -895,6 +1120,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 3 Abs. 3@157519
   id: Art. 3 Abs. 3
   artikel: '3'
@@ -919,6 +1148,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 3 Abs. 4@157843
   id: Art. 3 Abs. 4
   artikel: '3'
@@ -942,6 +1175,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 3 Abs. 4 lit. a@158070
   id: Art. 3 Abs. 4 lit. a
   artikel: '3'
@@ -963,6 +1200,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 3 Abs. 4 lit. b@158105
   id: Art. 3 Abs. 4 lit. b
   artikel: '3'
@@ -985,6 +1226,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 3 Abs. 4 lit. c@158229
   id: Art. 3 Abs. 4 lit. c
   artikel: '3'
@@ -1006,6 +1251,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 3 Abs. 4 lit. d@158318
   id: Art. 3 Abs. 4 lit. d
   artikel: '3'
@@ -1033,6 +1282,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 3 Abs. 5@158997
   id: Art. 3 Abs. 5
   artikel: '3'
@@ -1055,6 +1308,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 3 Abs. 5 lit. a@159101
   id: Art. 3 Abs. 5 lit. a
   artikel: '3'
@@ -1078,6 +1335,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 3 Abs. 5 lit. b@159320
   id: Art. 3 Abs. 5 lit. b
   artikel: '3'
@@ -1103,6 +1364,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 3 Abs. 6@159768
   id: Art. 3 Abs. 6
   artikel: '3'
@@ -1125,6 +1390,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 4 Abs. 1@160012
   id: Art. 4 Abs. 1
   artikel: '4'
@@ -1154,6 +1423,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 4 Abs. 2@160880
   id: Art. 4 Abs. 2
   artikel: '4'
@@ -1176,6 +1449,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 4 Abs. 2 lit. a@161044
   id: Art. 4 Abs. 2 lit. a
   artikel: '4'
@@ -1198,6 +1475,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 4 Abs. 2 lit. b@161212
   id: Art. 4 Abs. 2 lit. b
   artikel: '4'
@@ -1223,6 +1504,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 4 Abs. 3@161654
   id: Art. 4 Abs. 3
   artikel: '4'
@@ -1246,6 +1531,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 5@161990
   id: Art. 5
   artikel: '5'
@@ -1269,6 +1558,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 6@162286
   id: Art. 6
   artikel: '6'
@@ -1276,9 +1569,9 @@ einheiten:
   absatz: '-'
   buchstabe: null
   offset: 162286
-  laenge: 99
+  laenge: 60
   saetze: 1
-  beleg: Für die Zwecke dieser Richtlinie bezeichnet der Ausdruck 1. „Netz- und Informationssystem“
+  beleg: Für die Zwecke dieser Richtlinie bezeichnet der Ausdruck
   adressat: null
   pflicht: null
   scope: null
@@ -1290,12 +1583,45 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: Art. 6 lit. a@162385
-  id: Art. 6 lit. a
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
+- uid: Art. 6 Nr. 1@162346
+  id: Art. 6 Nr. 1
   artikel: '6'
   artikel_titel: Begriffsbestimmungen
+  abschnitt: null
   absatz: '-'
+  nummer: '1'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 162346
+  laenge: 39
+  saetze: 1
+  beleg: 1. „Netz- und Informationssystem“
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: Art. 6 Nr. 1 lit. a@162385
+  id: Art. 6 Nr. 1 lit. a
+  artikel: '6'
+  artikel_titel: Begriffsbestimmungen
+  abschnitt: null
+  absatz: '-'
+  nummer: '1'
+  unterabsatz: null
   buchstabe: a
+  ziffer: null
   offset: 162385
   laenge: 110
   saetze: 1
@@ -1308,16 +1634,20 @@ einheiten:
   verifikation: null
   hypothese_grund: null
   omnibus: null
-  requirement: *id001
-  gate: *id002
+  requirement: *id003
+  gate: *id004
   befund: null
   befund_grund: null
-- uid: Art. 6 lit. b@162495
-  id: Art. 6 lit. b
+- uid: Art. 6 Nr. 1 lit. b@162495
+  id: Art. 6 Nr. 1 lit. b
   artikel: '6'
   artikel_titel: Begriffsbestimmungen
+  abschnitt: null
   absatz: '-'
+  nummer: '1'
+  unterabsatz: null
   buchstabe: b
+  ziffer: null
   offset: 162495
   laenge: 217
   saetze: 1
@@ -1331,62 +1661,26 @@ einheiten:
   verifikation: null
   hypothese_grund: null
   omnibus: null
-  requirement: *id001
-  gate: *id002
+  requirement: *id003
+  gate: *id004
   befund: null
   befund_grund: null
-- uid: Art. 6 lit. c@162712
-  id: Art. 6 lit. c
+- uid: Art. 6 Nr. 1 lit. c@162712
+  id: Art. 6 Nr. 1 lit. c
   artikel: '6'
   artikel_titel: Begriffsbestimmungen
+  abschnitt: null
   absatz: '-'
+  nummer: '1'
+  unterabsatz: null
   buchstabe: c
+  ziffer: null
   offset: 162712
-  laenge: 4432
+  laenge: 220
   saetze: 1
   beleg: c) digitale Daten, die von den — in den Buchstaben a und b genannten — Elementen zum Zwecke ihres
     Betriebs, ihrer Nutzung, ihres Schutzes und ihrer Pflege gespeichert, verarbeitet, abgerufen oder
-    übertragen werden; 2. „Sicherheit von Netz- und Informationssystemen“ die Fähigkeit von Netz- und
-    Informationssystemen, auf einem bestimmten Vertrauensniveau alle Ereignisse abzuwehren, die die Verfügbarkeit,
-    Authentizität, Integrität oder Vertraulichkeit gespeicherter oder übermittelter oder verarbeiteter
-    Daten oder der Dienste, die über diese Netz- und Informationssysteme angeboten werden bzw. zugänglich
-    sind, beeinträchtigen können; 3. „Cybersicherheit“ die Cybersicherheit im Sinne des Artikels 2 Nummer
-    1 der Verordnung (EU) 2019/881; 4. „nationale Cybersicherheitsstrategie“ einen kohärenten Rahmen eines
-    Mitgliedstaats mit strategischen Zielen und Prioritäten im Bereich der Cybersicherheit und der zu
-    ihrer Verwirklichung erforderlichen Governance in diesem Mitgliedstaat; 5. „Beinahe-Vorfall“ ein Ereignis,
-    das die Verfügbarkeit, Authentizität, Integrität oder Vertraulichkeit gespeicherter, übermittelter
-    oder verarbeiteter Daten oder der Dienste, die über Netz- und Informationssysteme angeboten werden
-    bzw. zugänglich sind, beeinträchtigt haben könnte, dessen Eintritt jedoch erfolgreich verhindert wurde
-    bzw. das nicht eingetreten ist; 6. „Sicherheitsvorfall“ ein Ereignis, das die Verfügbarkeit, Authentizität,
-    Integrität oder Vertraulichkeit gespeicherter, übermittelter oder verarbeiteter Daten oder der Dienste,
-    die über Netz- und Informationssysteme angeboten werden bzw. zugänglich sind, beeinträchtigt; 7. „Cybersicherheitsvorfall
-    großen Ausmaßes“ einen Sicherheitsvorfall, der eine Störung verursacht, deren Ausmaß die Reaktionsfähigkeit
-    eines Mitgliedstaats übersteigt, oder der beträchtliche Auswirkungen auf mindestens zwei Mitgliedstaaten
-    hat; 8. „Bewältigung von Sicherheitsvorfällen“ alle Maßnahmen und Verfahren zur Verhütung, Erkennung,
-    Analyse und Eindämmung von Sicherheitsvorfällen oder die Reaktion darauf und die Erholung davon; 9.
-    „Risiko“ das Potenzial für Verluste oder Störungen, die durch einen Sicherheitsvorfall verursacht
-    werden, das als eine Kombination des Ausmaßes eines solchen Verlusts oder einer solchen Störung und
-    der Wahrscheinlichkeit des Eintretens des Sicherheitsvorfalls zum Ausdruck gebracht wird; 10. „Cyberbedrohung“
-    eine Cyberbedrohung im Sinne des Artikel 2 Nummer 8 der Verordnung (EU) 2019/881; 11. „erhebliche
-    Cyberbedrohung“ eine Cyberbedrohung, die das Potenzial besitzt, die Netz- und Informationssysteme
-    einer Einrichtung oder der Nutzer solcher Systeme aufgrund ihrer technischen Merkmale erheblich zu
-    beeinträchtigen, indem sie erheblichen materiellen oder immateriellen Schaden verursacht; 12. „IKT-Produkt“
-    ein IKT-Produkt im Sinne des Artikels 2 Nummer 12 der Verordnung (EU) 2019/881; 13. „IKT-Dienst“ bezeichnet
-    einen IKT-Dienst im Sinne des Artikels 2 Nummer 13 der Verordnung (EU) 2019/881; 14. „IKT-Prozess“
-    einen IKT-Prozess im Sinne des Artikels 2 Nummer 14 der Verordnung (EU) 2019/881; 15. „Schwachstelle“
-    eine Schwäche, Anfälligkeit oder Fehlfunktion von IKT-Produkten oder IKT-Diensten, die bei einer Cyberbedrohung
-    ausgenutzt werden kann; 16. „Norm“ eine Norm im Sinne des Artikels 2 Nummer 1 der Verordnung (EU)
-    Nr. 1025/2012 des Europäischen Parlaments und des Rates (29); 17. „technische Spezifikation“ eine
-    technische Spezifikation im Sinne des Artikels 2 Nummer 4 der Verordnung (EU) Nr. 1025/2012; 18. „Internet-Knoten“
-    eine Netzeinrichtung, die die Zusammenschaltung von mehr als zwei unabhängigen Netzen (autonomen Systemen)
-    ermöglicht, in erster Linie zur Erleichterung des Austauschs von Internet-Datenverkehr, der nur der
-    Zusammenschaltung autonomer Systeme dient und weder voraussetzt, dass der Internet-Datenverkehr zwischen
-    zwei beliebigen teilnehmenden autonomen Systemen über ein drittes autonomes System läuft; noch den
-    betreffenden Datenverkehr verändert oder anderweitig beeinträchtigt; 19. „Domänennamensystem“ oder
-    „DNS“ ein verteiltes hierarchisches Verzeichnissystem, das die Identifizierung von Diensten und Ressourcen
-    im Internet ermöglicht und es Endnutzergeräten erlaubt, Internet-Routing- und Konnektivitätsdienste
-    zu nutzen, um diese Dienste und Ressourcen zu erreichen; 20. „DNS-Diensteanbieter“ eine Einrichtung,
-    die
+    übertragen werden;
   adressat: null
   pflicht: null
   scope: null
@@ -1394,16 +1688,525 @@ einheiten:
   verifikation: null
   hypothese_grund: null
   omnibus: null
-  requirement: *id001
-  gate: *id002
+  requirement: *id003
+  gate: *id004
   befund: null
   befund_grund: null
-- uid: Art. 6 lit. a@167144
-  id: Art. 6 lit. a
+- uid: Art. 6 Nr. 2@162932
+  id: Art. 6 Nr. 2
   artikel: '6'
   artikel_titel: Begriffsbestimmungen
+  abschnitt: null
   absatz: '-'
+  nummer: '2'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 162932
+  laenge: 426
+  saetze: 1
+  beleg: 2. „Sicherheit von Netz- und Informationssystemen“ die Fähigkeit von Netz- und Informationssystemen,
+    auf einem bestimmten Vertrauensniveau alle Ereignisse abzuwehren, die die Verfügbarkeit, Authentizität,
+    Integrität oder Vertraulichkeit gespeicherter oder übermittelter oder verarbeiteter Daten oder der
+    Dienste, die über diese Netz- und Informationssysteme angeboten werden bzw. zugänglich sind, beeinträchtigen
+    können;
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: Art. 6 Nr. 3@163358
+  id: Art. 6 Nr. 3
+  artikel: '6'
+  artikel_titel: Begriffsbestimmungen
+  abschnitt: null
+  absatz: '-'
+  nummer: '3'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 163358
+  laenge: 109
+  saetze: 1
+  beleg: 3. „Cybersicherheit“ die Cybersicherheit im Sinne des Artikels 2 Nummer 1 der Verordnung (EU)
+    2019/881;
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: Art. 6 Nr. 4@163467
+  id: Art. 6 Nr. 4
+  artikel: '6'
+  artikel_titel: Begriffsbestimmungen
+  abschnitt: null
+  absatz: '-'
+  nummer: '4'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 163467
+  laenge: 246
+  saetze: 1
+  beleg: 4. „nationale Cybersicherheitsstrategie“ einen kohärenten Rahmen eines Mitgliedstaats mit strategischen
+    Zielen und Prioritäten im Bereich der Cybersicherheit und der zu ihrer Verwirklichung erforderlichen
+    Governance in diesem Mitgliedstaat;
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: Art. 6 Nr. 5@163713
+  id: Art. 6 Nr. 5
+  artikel: '6'
+  artikel_titel: Begriffsbestimmungen
+  abschnitt: null
+  absatz: '-'
+  nummer: '5'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 163713
+  laenge: 373
+  saetze: 1
+  beleg: 5. „Beinahe-Vorfall“ ein Ereignis, das die Verfügbarkeit, Authentizität, Integrität oder Vertraulichkeit
+    gespeicherter, übermittelter oder verarbeiteter Daten oder der Dienste, die über Netz- und Informationssysteme
+    angeboten werden bzw. zugänglich sind, beeinträchtigt haben könnte, dessen Eintritt jedoch erfolgreich
+    verhindert wurde bzw. das nicht eingetreten ist;
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: Art. 6 Nr. 6@164086
+  id: Art. 6 Nr. 6
+  artikel: '6'
+  artikel_titel: Begriffsbestimmungen
+  abschnitt: null
+  absatz: '-'
+  nummer: '6'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 164086
+  laenge: 279
+  saetze: 1
+  beleg: 6. „Sicherheitsvorfall“ ein Ereignis, das die Verfügbarkeit, Authentizität, Integrität oder Vertraulichkeit
+    gespeicherter, übermittelter oder verarbeiteter Daten oder der Dienste, die über Netz- und Informationssysteme
+    angeboten werden bzw. zugänglich sind, beeinträchtigt;
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: Art. 6 Nr. 7@164365
+  id: Art. 6 Nr. 7
+  artikel: '6'
+  artikel_titel: Begriffsbestimmungen
+  abschnitt: null
+  absatz: '-'
+  nummer: '7'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 164365
+  laenge: 251
+  saetze: 1
+  beleg: 7. „Cybersicherheitsvorfall großen Ausmaßes“ einen Sicherheitsvorfall, der eine Störung verursacht,
+    deren Ausmaß die Reaktionsfähigkeit eines Mitgliedstaats übersteigt, oder der beträchtliche Auswirkungen
+    auf mindestens zwei Mitgliedstaaten hat;
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: Art. 6 Nr. 8@164616
+  id: Art. 6 Nr. 8
+  artikel: '6'
+  artikel_titel: Begriffsbestimmungen
+  abschnitt: null
+  absatz: '-'
+  nummer: '8'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 164616
+  laenge: 199
+  saetze: 1
+  beleg: 8. „Bewältigung von Sicherheitsvorfällen“ alle Maßnahmen und Verfahren zur Verhütung, Erkennung,
+    Analyse und Eindämmung von Sicherheitsvorfällen oder die Reaktion darauf und die Erholung davon;
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: Art. 6 Nr. 9@164815
+  id: Art. 6 Nr. 9
+  artikel: '6'
+  artikel_titel: Begriffsbestimmungen
+  abschnitt: null
+  absatz: '-'
+  nummer: '9'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 164815
+  laenge: 296
+  saetze: 1
+  beleg: 9. „Risiko“ das Potenzial für Verluste oder Störungen, die durch einen Sicherheitsvorfall verursacht
+    werden, das als eine Kombination des Ausmaßes eines solchen Verlusts oder einer solchen Störung und
+    der Wahrscheinlichkeit des Eintretens des Sicherheitsvorfalls zum Ausdruck gebracht wird;
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: Art. 6 Nr. 10@165111
+  id: Art. 6 Nr. 10
+  artikel: '6'
+  artikel_titel: Begriffsbestimmungen
+  abschnitt: null
+  absatz: '-'
+  nummer: '10'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 165111
+  laenge: 108
+  saetze: 1
+  beleg: 10. „Cyberbedrohung“ eine Cyberbedrohung im Sinne des Artikel 2 Nummer 8 der Verordnung (EU)
+    2019/881;
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: Art. 6 Nr. 11@165219
+  id: Art. 6 Nr. 11
+  artikel: '6'
+  artikel_titel: Begriffsbestimmungen
+  abschnitt: null
+  absatz: '-'
+  nummer: '11'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 165219
+  laenge: 308
+  saetze: 1
+  beleg: 11. „erhebliche Cyberbedrohung“ eine Cyberbedrohung, die das Potenzial besitzt, die Netz- und
+    Informationssysteme einer Einrichtung oder der Nutzer solcher Systeme aufgrund ihrer technischen Merkmale
+    erheblich zu beeinträchtigen, indem sie erheblichen materiellen oder immateriellen Schaden verursacht;
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: Art. 6 Nr. 12@165527
+  id: Art. 6 Nr. 12
+  artikel: '6'
+  artikel_titel: Begriffsbestimmungen
+  abschnitt: null
+  absatz: '-'
+  nummer: '12'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 165527
+  laenge: 103
+  saetze: 1
+  beleg: 12. „IKT-Produkt“ ein IKT-Produkt im Sinne des Artikels 2 Nummer 12 der Verordnung (EU) 2019/881;
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: Art. 6 Nr. 13@165630
+  id: Art. 6 Nr. 13
+  artikel: '6'
+  artikel_titel: Begriffsbestimmungen
+  abschnitt: null
+  absatz: '-'
+  nummer: '13'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 165630
+  laenge: 114
+  saetze: 1
+  beleg: 13. „IKT-Dienst“ bezeichnet einen IKT-Dienst im Sinne des Artikels 2 Nummer 13 der Verordnung
+    (EU) 2019/881;
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: Art. 6 Nr. 14@165744
+  id: Art. 6 Nr. 14
+  artikel: '6'
+  artikel_titel: Begriffsbestimmungen
+  abschnitt: null
+  absatz: '-'
+  nummer: '14'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 165744
+  laenge: 105
+  saetze: 1
+  beleg: 14. „IKT-Prozess“ einen IKT-Prozess im Sinne des Artikels 2 Nummer 14 der Verordnung (EU) 2019/881;
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: Art. 6 Nr. 15@165849
+  id: Art. 6 Nr. 15
+  artikel: '6'
+  artikel_titel: Begriffsbestimmungen
+  abschnitt: null
+  absatz: '-'
+  nummer: '15'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 165849
+  laenge: 161
+  saetze: 1
+  beleg: 15. „Schwachstelle“ eine Schwäche, Anfälligkeit oder Fehlfunktion von IKT-Produkten oder IKT-Diensten,
+    die bei einer Cyberbedrohung ausgenutzt werden kann;
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: Art. 6 Nr. 16@166010
+  id: Art. 6 Nr. 16
+  artikel: '6'
+  artikel_titel: Begriffsbestimmungen
+  abschnitt: null
+  absatz: '-'
+  nummer: '16'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 166010
+  laenge: 141
+  saetze: 1
+  beleg: 16. „Norm“ eine Norm im Sinne des Artikels 2 Nummer 1 der Verordnung (EU) Nr. 1025/2012 des Europäischen
+    Parlaments und des Rates (29);
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: Art. 6 Nr. 17@166151
+  id: Art. 6 Nr. 17
+  artikel: '6'
+  artikel_titel: Begriffsbestimmungen
+  abschnitt: null
+  absatz: '-'
+  nummer: '17'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 166151
+  laenge: 134
+  saetze: 1
+  beleg: 17. „technische Spezifikation“ eine technische Spezifikation im Sinne des Artikels 2 Nummer 4
+    der Verordnung (EU) Nr. 1025/2012;
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: Art. 6 Nr. 18@166285
+  id: Art. 6 Nr. 18
+  artikel: '6'
+  artikel_titel: Begriffsbestimmungen
+  abschnitt: null
+  absatz: '-'
+  nummer: '18'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 166285
+  laenge: 507
+  saetze: 1
+  beleg: 18. „Internet-Knoten“ eine Netzeinrichtung, die die Zusammenschaltung von mehr als zwei unabhängigen
+    Netzen (autonomen Systemen) ermöglicht, in erster Linie zur Erleichterung des Austauschs von Internet-Datenverkehr,
+    der nur der Zusammenschaltung autonomer Systeme dient und weder voraussetzt, dass der Internet-Datenverkehr
+    zwischen zwei beliebigen teilnehmenden autonomen Systemen über ein drittes autonomes System läuft;
+    noch den betreffenden Datenverkehr verändert oder anderweitig beeinträchtigt;
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: Art. 6 Nr. 19@166792
+  id: Art. 6 Nr. 19
+  artikel: '6'
+  artikel_titel: Begriffsbestimmungen
+  abschnitt: null
+  absatz: '-'
+  nummer: '19'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 166792
+  laenge: 299
+  saetze: 1
+  beleg: 19. „Domänennamensystem“ oder „DNS“ ein verteiltes hierarchisches Verzeichnissystem, das die
+    Identifizierung von Diensten und Ressourcen im Internet ermöglicht und es Endnutzergeräten erlaubt,
+    Internet-Routing- und Konnektivitätsdienste zu nutzen, um diese Dienste und Ressourcen zu erreichen;
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: Art. 6 Nr. 20@167091
+  id: Art. 6 Nr. 20
+  artikel: '6'
+  artikel_titel: Begriffsbestimmungen
+  abschnitt: null
+  absatz: '-'
+  nummer: '20'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 167091
+  laenge: 53
+  saetze: 1
+  beleg: 20. „DNS-Diensteanbieter“ eine Einrichtung, die
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: Art. 6 Nr. 20 lit. a@167144
+  id: Art. 6 Nr. 20 lit. a
+  artikel: '6'
+  artikel_titel: Begriffsbestimmungen
+  abschnitt: null
+  absatz: '-'
+  nummer: '20'
+  unterabsatz: null
   buchstabe: a
+  ziffer: null
   offset: 167144
   laenge: 116
   saetze: 1
@@ -1416,61 +2219,25 @@ einheiten:
   verifikation: null
   hypothese_grund: null
   omnibus: null
-  requirement: *id001
-  gate: *id002
+  requirement: *id003
+  gate: *id004
   befund: null
   befund_grund: null
-- uid: Art. 6 lit. b@167260
-  id: Art. 6 lit. b
+- uid: Art. 6 Nr. 20 lit. b@167260
+  id: Art. 6 Nr. 20 lit. b
   artikel: '6'
   artikel_titel: Begriffsbestimmungen
+  abschnitt: null
   absatz: '-'
+  nummer: '20'
+  unterabsatz: null
   buchstabe: b
+  ziffer: null
   offset: 167260
-  laenge: 4389
+  laenge: 132
   saetze: 1
-  beleg: 'b) autoritative Dienste zur Auflösung von Domänennamen zur Nutzung durch Dritte, mit Ausnahme
-    von Root-Namenservern, anbietet; 21. „Namenregister der Domäne oberster Stufe“ oder „TLD-Namenregister“
-    eine Einrichtung, der eine bestimmte Domäne oberster Stufe (Top Level Domain — TLD) übertragen wurde
-    und die für die Verwaltung der TLD, einschließlich der Registrierung von Domänennamen unterhalb der
-    TLD, sowie für den technischen Betrieb der TLD, einschließlich des Betriebs ihrer Namenserver, der
-    Pflege ihrer Datenbanken und der Verteilung von TLD-Zonendateien über die Namenserver, zuständig ist,
-    unabhängig davon, ob der Betrieb durch die Einrichtung selbst erfolgt oder ausgelagert wird, jedoch
-    mit Ausnahme von Situationen, in denen TLD-Namen von einem Register nur für seine eigenen Zwecke verwendet
-    werden; 22. „Einrichtung, die Domänennamen-Registrierungsdienste erbringt“ ein Registrar oder eine
-    Stelle, die im Namen von Registraren tätig ist, wie etwa ein Anbieter oder Wiederverkäufer von Datenschutz-
-    oder Proxy-Registrierungsdiensten; 23. „digitaler Dienst“ einen Dienst im Sinne des Artikels 1 Absatz
-    1 Buchstabe b der Richtlinie (EU) 2015/1535 des Europäischen Parlaments und des Rates (30); 24. „Vertrauensdienst“
-    einen Vertrauensdienst im Sinne des Artikels 3 Nummer 16 der Verordnung (EU) Nr. 910/2014; 25. „Vertrauensdiensteanbieter“
-    einen Vertrauensdiensteanbieter im Sinne des Artikels 3 Nummer 19 der Verordnung (EU) Nr. 910/2014;
-    26. „qualifizierter Vertrauensdienst“ einen qualifizierten Vertrauensdienst im Sinne des Artikels
-    3 Nummer 17 der Verordnung (EU) Nr. 910/2014; 27. „qualifizierter Vertrauensdiensteanbieter“ einen
-    qualifizierten Vertrauensdiensteanbieter im Sinne des Artikels 3 Nummer 20 der Verordnung (EU) Nr.
-    910/2014; 28. „Online-Marktplatz“ einen digitalen Dienst im Sinne des Artikels 2 Buchstabe n der Richtlinie
-    2005/29/EG des Europäischen Parlaments und des Rates (31); 29. „Online-Suchmaschine“ eine Online-Suchmaschine
-    im Sinne des Artikels 2 Nummer 5 der Verordnung (EU) 2019/1150 des Europäischen Parlaments und des
-    Rates (32); 30. „Cloud-Computing-Dienst“ einen digitalen Dienst, der auf Abruf die Verwaltung und
-    den umfassenden Fernzugang zu einem skalierbaren und elastischen Pool gemeinsam nutzbarer Rechenressourcen
-    ermöglicht, auch wenn diese Ressourcen auf mehrere Standorte verteilt sind; 31. „Rechenzentrumsdienst“
-    einen Dienst, mit dem spezielle Strukturen oder Gruppen von Strukturen für die zentrale Unterbringung,
-    die Verbindung und den Betrieb von IT- und Netzausrüstungen zur Erbringung von Datenspeicher-, Datenverarbeitungs-
-    und Datentransportdiensten sowie alle Anlagen und Infrastrukturen für die Leistungsverteilung und
-    die Umgebungskontrolle bereitgestellt werden; 32. „Inhaltszustellnetz“ bezeichnet ein Netz dezentraler
-    Server zur Gewährleistung einer hohen Verfügbarkeit, Zugänglichkeit oder schnellen Zustellung digitaler
-    Inhalte und Dienste für Internetnutzer im Auftrag von Inhalte- und Diensteanbietern; 33. „Plattform
-    für Dienste sozialer Netzwerke“ eine Plattform, auf der Endnutzer mit unterschiedlichen Geräten insbesondere
-    durch Chats, Posts, Videos und Empfehlungen miteinander in Kontakt treten und kommunizieren sowie
-    Inhalte teilen und entdecken können; 34. „Vertreter“ eine in der Union niedergelassene natürliche
-    oder juristische Person, die ausdrücklich benannt wurde, um im Auftrag eines DNS-Diensteanbieters,
-    einer Einrichtung, die Domänennamen-Registrierungsdienste erbringt, eines TLD-Namenregisters, eines
-    Anbieters von Cloud-Computing-Diensten, eines Anbieters von Rechenzentrumsdiensten, eines Betreibers
-    von Inhaltszustellnetzen, eines Anbieters verwalteter Dienste, eines Anbieters verwalteter Sicherheitsdienste
-    oder eines Anbieters von einem Online-Marktplatz, von einer Online-Suchmaschine oder von einer Plattform
-    für Dienste sozialer Netzwerke, der bzw. die nicht in der Union niedergelassen ist, zu handeln, und
-    an die sich eine nationale zuständige Behörde oder ein CSIRT — statt an die Einrichtung — hinsichtlich
-    der Pflichten dieser Einrichtung gemäß dieser Richtlinie wenden kann; 35. „Einrichtung der öffentlichen
-    Verwaltung“ eine als solche in einem Mitgliedstaat nach nationalem Recht anerkannte Einrichtung, ausgenommen
-    Justiz, Parlamente und Zentralbanken, die die folgenden Kriterien erfüllt:'
+  beleg: b) autoritative Dienste zur Auflösung von Domänennamen zur Nutzung durch Dritte, mit Ausnahme
+    von Root-Namenservern, anbietet;
   adressat: null
   pflicht: null
   scope: null
@@ -1478,16 +2245,429 @@ einheiten:
   verifikation: null
   hypothese_grund: null
   omnibus: null
-  requirement: *id001
-  gate: *id002
+  requirement: *id003
+  gate: *id004
   befund: null
   befund_grund: null
-- uid: Art. 6 lit. a@171649
-  id: Art. 6 lit. a
+- uid: Art. 6 Nr. 21@167392
+  id: Art. 6 Nr. 21
   artikel: '6'
   artikel_titel: Begriffsbestimmungen
+  abschnitt: null
   absatz: '-'
+  nummer: '21'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 167392
+  laenge: 693
+  saetze: 1
+  beleg: 21. „Namenregister der Domäne oberster Stufe“ oder „TLD-Namenregister“ eine Einrichtung, der
+    eine bestimmte Domäne oberster Stufe (Top Level Domain — TLD) übertragen wurde und die für die Verwaltung
+    der TLD, einschließlich der Registrierung von Domänennamen unterhalb der TLD, sowie für den technischen
+    Betrieb der TLD, einschließlich des Betriebs ihrer Namenserver, der Pflege ihrer Datenbanken und der
+    Verteilung von TLD-Zonendateien über die Namenserver, zuständig ist, unabhängig davon, ob der Betrieb
+    durch die Einrichtung selbst erfolgt oder ausgelagert wird, jedoch mit Ausnahme von Situationen, in
+    denen TLD-Namen von einem Register nur für seine eigenen Zwecke verwendet werden;
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: Art. 6 Nr. 22@168085
+  id: Art. 6 Nr. 22
+  artikel: '6'
+  artikel_titel: Begriffsbestimmungen
+  abschnitt: null
+  absatz: '-'
+  nummer: '22'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 168085
+  laenge: 239
+  saetze: 1
+  beleg: 22. „Einrichtung, die Domänennamen-Registrierungsdienste erbringt“ ein Registrar oder eine Stelle,
+    die im Namen von Registraren tätig ist, wie etwa ein Anbieter oder Wiederverkäufer von Datenschutz-
+    oder Proxy-Registrierungsdiensten;
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: Art. 6 Nr. 23@168324
+  id: Art. 6 Nr. 23
+  artikel: '6'
+  artikel_titel: Begriffsbestimmungen
+  abschnitt: null
+  absatz: '-'
+  nummer: '23'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 168324
+  laenge: 164
+  saetze: 1
+  beleg: 23. „digitaler Dienst“ einen Dienst im Sinne des Artikels 1 Absatz 1 Buchstabe b der Richtlinie
+    (EU) 2015/1535 des Europäischen Parlaments und des Rates (30);
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: Art. 6 Nr. 24@168488
+  id: Art. 6 Nr. 24
+  artikel: '6'
+  artikel_titel: Begriffsbestimmungen
+  abschnitt: null
+  absatz: '-'
+  nummer: '24'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 168488
+  laenge: 119
+  saetze: 1
+  beleg: 24. „Vertrauensdienst“ einen Vertrauensdienst im Sinne des Artikels 3 Nummer 16 der Verordnung
+    (EU) Nr. 910/2014;
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: Art. 6 Nr. 25@168607
+  id: Art. 6 Nr. 25
+  artikel: '6'
+  artikel_titel: Begriffsbestimmungen
+  abschnitt: null
+  absatz: '-'
+  nummer: '25'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 168607
+  laenge: 137
+  saetze: 1
+  beleg: 25. „Vertrauensdiensteanbieter“ einen Vertrauensdiensteanbieter im Sinne des Artikels 3 Nummer
+    19 der Verordnung (EU) Nr. 910/2014;
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: Art. 6 Nr. 26@168744
+  id: Art. 6 Nr. 26
+  artikel: '6'
+  artikel_titel: Begriffsbestimmungen
+  abschnitt: null
+  absatz: '-'
+  nummer: '26'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 168744
+  laenge: 149
+  saetze: 1
+  beleg: 26. „qualifizierter Vertrauensdienst“ einen qualifizierten Vertrauensdienst im Sinne des Artikels
+    3 Nummer 17 der Verordnung (EU) Nr. 910/2014;
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: Art. 6 Nr. 27@168893
+  id: Art. 6 Nr. 27
+  artikel: '6'
+  artikel_titel: Begriffsbestimmungen
+  abschnitt: null
+  absatz: '-'
+  nummer: '27'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 168893
+  laenge: 167
+  saetze: 1
+  beleg: 27. „qualifizierter Vertrauensdiensteanbieter“ einen qualifizierten Vertrauensdiensteanbieter
+    im Sinne des Artikels 3 Nummer 20 der Verordnung (EU) Nr. 910/2014;
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: Art. 6 Nr. 28@169060
+  id: Art. 6 Nr. 28
+  artikel: '6'
+  artikel_titel: Begriffsbestimmungen
+  abschnitt: null
+  absatz: '-'
+  nummer: '28'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 169060
+  laenge: 162
+  saetze: 1
+  beleg: 28. „Online-Marktplatz“ einen digitalen Dienst im Sinne des Artikels 2 Buchstabe n der Richtlinie
+    2005/29/EG des Europäischen Parlaments und des Rates (31);
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: Art. 6 Nr. 29@169222
+  id: Art. 6 Nr. 29
+  artikel: '6'
+  artikel_titel: Begriffsbestimmungen
+  abschnitt: null
+  absatz: '-'
+  nummer: '29'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 169222
+  laenge: 167
+  saetze: 1
+  beleg: 29. „Online-Suchmaschine“ eine Online-Suchmaschine im Sinne des Artikels 2 Nummer 5 der Verordnung
+    (EU) 2019/1150 des Europäischen Parlaments und des Rates (32);
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: Art. 6 Nr. 30@169389
+  id: Art. 6 Nr. 30
+  artikel: '6'
+  artikel_titel: Begriffsbestimmungen
+  abschnitt: null
+  absatz: '-'
+  nummer: '30'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 169389
+  laenge: 274
+  saetze: 1
+  beleg: 30. „Cloud-Computing-Dienst“ einen digitalen Dienst, der auf Abruf die Verwaltung und den umfassenden
+    Fernzugang zu einem skalierbaren und elastischen Pool gemeinsam nutzbarer Rechenressourcen ermöglicht,
+    auch wenn diese Ressourcen auf mehrere Standorte verteilt sind;
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: Art. 6 Nr. 31@169663
+  id: Art. 6 Nr. 31
+  artikel: '6'
+  artikel_titel: Begriffsbestimmungen
+  abschnitt: null
+  absatz: '-'
+  nummer: '31'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 169663
+  laenge: 394
+  saetze: 1
+  beleg: 31. „Rechenzentrumsdienst“ einen Dienst, mit dem spezielle Strukturen oder Gruppen von Strukturen
+    für die zentrale Unterbringung, die Verbindung und den Betrieb von IT- und Netzausrüstungen zur Erbringung
+    von Datenspeicher-, Datenverarbeitungs- und Datentransportdiensten sowie alle Anlagen und Infrastrukturen
+    für die Leistungsverteilung und die Umgebungskontrolle bereitgestellt werden;
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: Art. 6 Nr. 32@170057
+  id: Art. 6 Nr. 32
+  artikel: '6'
+  artikel_titel: Begriffsbestimmungen
+  abschnitt: null
+  absatz: '-'
+  nummer: '32'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 170057
+  laenge: 251
+  saetze: 1
+  beleg: 32. „Inhaltszustellnetz“ bezeichnet ein Netz dezentraler Server zur Gewährleistung einer hohen
+    Verfügbarkeit, Zugänglichkeit oder schnellen Zustellung digitaler Inhalte und Dienste für Internetnutzer
+    im Auftrag von Inhalte- und Diensteanbietern;
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: Art. 6 Nr. 33@170308
+  id: Art. 6 Nr. 33
+  artikel: '6'
+  artikel_titel: Begriffsbestimmungen
+  abschnitt: null
+  absatz: '-'
+  nummer: '33'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 170308
+  laenge: 264
+  saetze: 1
+  beleg: 33. „Plattform für Dienste sozialer Netzwerke“ eine Plattform, auf der Endnutzer mit unterschiedlichen
+    Geräten insbesondere durch Chats, Posts, Videos und Empfehlungen miteinander in Kontakt treten und
+    kommunizieren sowie Inhalte teilen und entdecken können;
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: Art. 6 Nr. 34@170572
+  id: Art. 6 Nr. 34
+  artikel: '6'
+  artikel_titel: Begriffsbestimmungen
+  abschnitt: null
+  absatz: '-'
+  nummer: '34'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 170572
+  laenge: 854
+  saetze: 1
+  beleg: 34. „Vertreter“ eine in der Union niedergelassene natürliche oder juristische Person, die ausdrücklich
+    benannt wurde, um im Auftrag eines DNS-Diensteanbieters, einer Einrichtung, die Domänennamen-Registrierungsdienste
+    erbringt, eines TLD-Namenregisters, eines Anbieters von Cloud-Computing-Diensten, eines Anbieters
+    von Rechenzentrumsdiensten, eines Betreibers von Inhaltszustellnetzen, eines Anbieters verwalteter
+    Dienste, eines Anbieters verwalteter Sicherheitsdienste oder eines Anbieters von einem Online-Marktplatz,
+    von einer Online-Suchmaschine oder von einer Plattform für Dienste sozialer Netzwerke, der bzw. die
+    nicht in der Union niedergelassen ist, zu handeln, und an die sich eine nationale zuständige Behörde
+    oder ein CSIRT — statt an die Einrichtung — hinsichtlich der Pflichten dieser Einrichtung gemäß dieser
+    Richtlinie wenden kann;
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: Art. 6 Nr. 35@171426
+  id: Art. 6 Nr. 35
+  artikel: '6'
+  artikel_titel: Begriffsbestimmungen
+  abschnitt: null
+  absatz: '-'
+  nummer: '35'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 171426
+  laenge: 223
+  saetze: 1
+  beleg: '35. „Einrichtung der öffentlichen Verwaltung“ eine als solche in einem Mitgliedstaat nach nationalem
+    Recht anerkannte Einrichtung, ausgenommen Justiz, Parlamente und Zentralbanken, die die folgenden
+    Kriterien erfüllt:'
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: Art. 6 Nr. 35 lit. a@171649
+  id: Art. 6 Nr. 35 lit. a
+  artikel: '6'
+  artikel_titel: Begriffsbestimmungen
+  abschnitt: null
+  absatz: '-'
+  nummer: '35'
+  unterabsatz: null
   buchstabe: a
+  ziffer: null
   offset: 171649
   laenge: 156
   saetze: 1
@@ -1500,16 +2680,20 @@ einheiten:
   verifikation: null
   hypothese_grund: null
   omnibus: null
-  requirement: *id001
-  gate: *id002
+  requirement: *id003
+  gate: *id004
   befund: null
   befund_grund: null
-- uid: Art. 6 lit. b@171805
-  id: Art. 6 lit. b
+- uid: Art. 6 Nr. 35 lit. b@171805
+  id: Art. 6 Nr. 35 lit. b
   artikel: '6'
   artikel_titel: Begriffsbestimmungen
+  abschnitt: null
   absatz: '-'
+  nummer: '35'
+  unterabsatz: null
   buchstabe: b
+  ziffer: null
   offset: 171805
   laenge: 154
   saetze: 1
@@ -1522,16 +2706,20 @@ einheiten:
   verifikation: null
   hypothese_grund: null
   omnibus: null
-  requirement: *id001
-  gate: *id002
+  requirement: *id003
+  gate: *id004
   befund: null
   befund_grund: null
-- uid: Art. 6 lit. c@171959
-  id: Art. 6 lit. c
+- uid: Art. 6 Nr. 35 lit. c@171959
+  id: Art. 6 Nr. 35 lit. c
   artikel: '6'
   artikel_titel: Begriffsbestimmungen
+  abschnitt: null
   absatz: '-'
+  nummer: '35'
+  unterabsatz: null
   buchstabe: c
+  ziffer: null
   offset: 171959
   laenge: 433
   saetze: 1
@@ -1547,35 +2735,26 @@ einheiten:
   verifikation: null
   hypothese_grund: null
   omnibus: null
-  requirement: *id001
-  gate: *id002
+  requirement: *id003
+  gate: *id004
   befund: null
   befund_grund: null
-- uid: Art. 6 lit. d@172392
-  id: Art. 6 lit. d
+- uid: Art. 6 Nr. 35 lit. d@172392
+  id: Art. 6 Nr. 35 lit. d
   artikel: '6'
   artikel_titel: Begriffsbestimmungen
+  abschnitt: null
   absatz: '-'
+  nummer: '35'
+  unterabsatz: null
   buchstabe: d
+  ziffer: null
   offset: 172392
-  laenge: 1716
-  saetze: 2
+  laenge: 229
+  saetze: 1
   beleg: d) sie ist befugt, an natürliche oder juristische Personen Verwaltungs- oder Regulierungsentscheidungen
     zu richten, die deren Rechte im grenzüberschreitenden Personen-, Waren-, Dienstleistungs- oder Kapitalverkehr
-    berühren; 36. „öffentliches elektronisches Kommunikationsnetz“ ein öffentliches elektronisches Kommunikationsnetz
-    im Sinne von Artikel 2 Nummer 8 der Richtlinie (EU) 2018/1972; 37. „elektronischer Kommunikationsdienst“
-    einen elektronischen Kommunikationsdienst im Sinne des Artikels 2 Nummer 4 der Richtlinie (EU) 2018/1972;
-    38. „Einrichtung“ eine natürliche Person oder nach dem an ihrem Sitz geltenden nationalen Recht geschaffene
-    und anerkannte juristische Person, die in eigenem Namen Rechte ausüben und Pflichten unterliegen kann;
-    39. „Anbieter verwalteter Dienste“ eine Einrichtung, die Dienste im Zusammenhang mit der Installation,
-    der Verwaltung, dem Betrieb oder der Wartung von IKT-Produkten, Netzen, Infrastruktur, Anwendungen
-    oder jeglicher anderer Netz- und Informationssysteme durch Unterstützung oder aktive Verwaltung erbringt,
-    die entweder in den Räumlichkeiten der Kunden oder aus der Ferne erbringt; 40. „Anbieter verwalteter
-    Sicherheitsdienste“ einen Anbieter verwalteter Dienste, der Unterstützung für Tätigkeiten im Zusammenhang
-    mit dem Risikomanagement im Bereich der Cybersicherheit durchführt oder erbringt; 41. „Forschungseinrichtung“
-    eine Einrichtung, deren primäres Ziel es ist, angewandte Forschung oder experimentelle Entwicklung
-    im Hinblick auf die Nutzung der Ergebnisse dieser Forschung für kommerzielle Zwecke durchzuführen,
-    die jedoch Bildungseinrichtungen nicht einschließt. KAPITEL II KOORDINIERTE RAHMEN FÜR DIE CYBERSICHERHEIT
+    berühren;
   adressat: null
   pflicht: null
   scope: null
@@ -1583,8 +2762,170 @@ einheiten:
   verifikation: null
   hypothese_grund: null
   omnibus: null
-  requirement: *id001
-  gate: *id002
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: Art. 6 Nr. 36@172621
+  id: Art. 6 Nr. 36
+  artikel: '6'
+  artikel_titel: Begriffsbestimmungen
+  abschnitt: null
+  absatz: '-'
+  nummer: '36'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 172621
+  laenge: 172
+  saetze: 1
+  beleg: 36. „öffentliches elektronisches Kommunikationsnetz“ ein öffentliches elektronisches Kommunikationsnetz
+    im Sinne von Artikel 2 Nummer 8 der Richtlinie (EU) 2018/1972;
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: Art. 6 Nr. 37@172793
+  id: Art. 6 Nr. 37
+  artikel: '6'
+  artikel_titel: Begriffsbestimmungen
+  abschnitt: null
+  absatz: '-'
+  nummer: '37'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 172793
+  laenge: 153
+  saetze: 1
+  beleg: 37. „elektronischer Kommunikationsdienst“ einen elektronischen Kommunikationsdienst im Sinne
+    des Artikels 2 Nummer 4 der Richtlinie (EU) 2018/1972;
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: Art. 6 Nr. 38@172946
+  id: Art. 6 Nr. 38
+  artikel: '6'
+  artikel_titel: Begriffsbestimmungen
+  abschnitt: null
+  absatz: '-'
+  nummer: '38'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 172946
+  laenge: 216
+  saetze: 1
+  beleg: 38. „Einrichtung“ eine natürliche Person oder nach dem an ihrem Sitz geltenden nationalen Recht
+    geschaffene und anerkannte juristische Person, die in eigenem Namen Rechte ausüben und Pflichten unterliegen
+    kann;
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: Art. 6 Nr. 39@173162
+  id: Art. 6 Nr. 39
+  artikel: '6'
+  artikel_titel: Begriffsbestimmungen
+  abschnitt: null
+  absatz: '-'
+  nummer: '39'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 173162
+  laenge: 388
+  saetze: 1
+  beleg: 39. „Anbieter verwalteter Dienste“ eine Einrichtung, die Dienste im Zusammenhang mit der Installation,
+    der Verwaltung, dem Betrieb oder der Wartung von IKT-Produkten, Netzen, Infrastruktur, Anwendungen
+    oder jeglicher anderer Netz- und Informationssysteme durch Unterstützung oder aktive Verwaltung erbringt,
+    die entweder in den Räumlichkeiten der Kunden oder aus der Ferne erbringt;
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: Art. 6 Nr. 40@173550
+  id: Art. 6 Nr. 40
+  artikel: '6'
+  artikel_titel: Begriffsbestimmungen
+  abschnitt: null
+  absatz: '-'
+  nummer: '40'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 173550
+  laenge: 219
+  saetze: 1
+  beleg: 40. „Anbieter verwalteter Sicherheitsdienste“ einen Anbieter verwalteter Dienste, der Unterstützung
+    für Tätigkeiten im Zusammenhang mit dem Risikomanagement im Bereich der Cybersicherheit durchführt
+    oder erbringt;
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: Art. 6 Nr. 41@173769
+  id: Art. 6 Nr. 41
+  artikel: '6'
+  artikel_titel: Begriffsbestimmungen
+  abschnitt: null
+  absatz: '-'
+  nummer: '41'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 173769
+  laenge: 339
+  saetze: 2
+  beleg: 41. „Forschungseinrichtung“ eine Einrichtung, deren primäres Ziel es ist, angewandte Forschung
+    oder experimentelle Entwicklung im Hinblick auf die Nutzung der Ergebnisse dieser Forschung für kommerzielle
+    Zwecke durchzuführen, die jedoch Bildungseinrichtungen nicht einschließt. KAPITEL II KOORDINIERTE
+    RAHMEN FÜR DIE CYBERSICHERHEIT
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
   befund: null
   befund_grund: null
 - uid: Art. 7 Abs. 1@174157
@@ -1611,6 +2952,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 7 Abs. 1 lit. a@174526
   id: Art. 7 Abs. 1 lit. a
   artikel: '7'
@@ -1633,6 +2978,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 7 Abs. 1 lit. b@174684
   id: Art. 7 Abs. 1 lit. b
   artikel: '7'
@@ -1655,6 +3004,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 7 Abs. 1 lit. c@174853
   id: Art. 7 Abs. 1 lit. c
   artikel: '7'
@@ -1680,6 +3033,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 7 Abs. 1 lit. d@175301
   id: Art. 7 Abs. 1 lit. d
   artikel: '7'
@@ -1702,6 +3059,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 7 Abs. 1 lit. e@175437
   id: Art. 7 Abs. 1 lit. e
   artikel: '7'
@@ -1725,6 +3086,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 7 Abs. 1 lit. f@175659
   id: Art. 7 Abs. 1 lit. f
   artikel: '7'
@@ -1747,6 +3112,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 7 Abs. 1 lit. g@175805
   id: Art. 7 Abs. 1 lit. g
   artikel: '7'
@@ -1772,6 +3141,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 7 Abs. 1 lit. h@176222
   id: Art. 7 Abs. 1 lit. h
   artikel: '7'
@@ -1794,6 +3167,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 7 Abs. 2@176394
   id: Art. 7 Abs. 2
   artikel: '7'
@@ -1816,6 +3193,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 7 Abs. 2 lit. a@176504
   id: Art. 7 Abs. 2 lit. a
   artikel: '7'
@@ -1838,6 +3219,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 7 Abs. 2 lit. b@176660
   id: Art. 7 Abs. 2 lit. b
   artikel: '7'
@@ -1861,6 +3246,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 7 Abs. 2 lit. c@176957
   id: Art. 7 Abs. 2 lit. c
   artikel: '7'
@@ -1883,6 +3272,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 7 Abs. 2 lit. d@177121
   id: Art. 7 Abs. 2 lit. d
   artikel: '7'
@@ -1906,6 +3299,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 7 Abs. 2 lit. e@177368
   id: Art. 7 Abs. 2 lit. e
   artikel: '7'
@@ -1929,6 +3326,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 7 Abs. 2 lit. f@177578
   id: Art. 7 Abs. 2 lit. f
   artikel: '7'
@@ -1953,6 +3354,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 7 Abs. 2 lit. g@177959
   id: Art. 7 Abs. 2 lit. g
   artikel: '7'
@@ -1975,6 +3380,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 7 Abs. 2 lit. h@178145
   id: Art. 7 Abs. 2 lit. h
   artikel: '7'
@@ -1998,6 +3407,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 7 Abs. 2 lit. i@178377
   id: Art. 7 Abs. 2 lit. i
   artikel: '7'
@@ -2021,6 +3434,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 7 Abs. 2 lit. j@178672
   id: Art. 7 Abs. 2 lit. j
   artikel: '7'
@@ -2042,6 +3459,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 7 Abs. 3@178723
   id: Art. 7 Abs. 3
   artikel: '7'
@@ -2065,6 +3486,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 7 Abs. 4@178985
   id: Art. 7 Abs. 4
   artikel: '7'
@@ -2091,6 +3516,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 8 Abs. 1@179587
   id: Art. 8 Abs. 1
   artikel: '8'
@@ -2113,6 +3542,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 8 Abs. 2@179779
   id: Art. 8 Abs. 2
   artikel: '8'
@@ -2135,6 +3568,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 8 Abs. 3@179891
   id: Art. 8 Abs. 3
   artikel: '8'
@@ -2158,6 +3595,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 8 Abs. 4@180185
   id: Art. 8 Abs. 4
   artikel: '8'
@@ -2182,6 +3623,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 8 Abs. 5@180561
   id: Art. 8 Abs. 5
   artikel: '8'
@@ -2205,6 +3650,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 8 Abs. 6@180846
   id: Art. 8 Abs. 6
   artikel: '8'
@@ -2230,6 +3679,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 9 Abs. 1@181314
   id: Art. 9 Abs. 1
   artikel: '9'
@@ -2255,6 +3708,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 9 Abs. 2@181801
   id: Art. 9 Abs. 2
   artikel: '9'
@@ -2279,6 +3736,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 9 Abs. 3@182128
   id: Art. 9 Abs. 3
   artikel: '9'
@@ -2301,6 +3762,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 9 Abs. 4@182287
   id: Art. 9 Abs. 4
   artikel: '9'
@@ -2324,6 +3789,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 9 Abs. 4 lit. a@182605
   id: Art. 9 Abs. 4 lit. a
   artikel: '9'
@@ -2345,6 +3814,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 9 Abs. 4 lit. b@182675
   id: Art. 9 Abs. 4 lit. b
   artikel: '9'
@@ -2366,6 +3839,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 9 Abs. 4 lit. c@182760
   id: Art. 9 Abs. 4 lit. c
   artikel: '9'
@@ -2388,6 +3865,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 9 Abs. 4 lit. d@182954
   id: Art. 9 Abs. 4 lit. d
   artikel: '9'
@@ -2409,6 +3890,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 9 Abs. 4 lit. e@183045
   id: Art. 9 Abs. 4 lit. e
   artikel: '9'
@@ -2430,6 +3915,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 9 Abs. 4 lit. f@183148
   id: Art. 9 Abs. 4 lit. f
   artikel: '9'
@@ -2454,6 +3943,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 9 Abs. 5@183473
   id: Art. 9 Abs. 5
   artikel: '9'
@@ -2482,6 +3975,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 10 Abs. 1@184246
   id: Art. 10 Abs. 1
   artikel: '10'
@@ -2507,6 +4004,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 10 Abs. 2@184703
   id: Art. 10 Abs. 2
   artikel: '10'
@@ -2529,6 +4030,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 10 Abs. 3@184891
   id: Art. 10 Abs. 3
   artikel: '10'
@@ -2554,6 +4059,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 10 Abs. 4@185322
   id: Art. 10 Abs. 4
   artikel: '10'
@@ -2577,6 +4086,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 10 Abs. 5@185550
   id: Art. 10 Abs. 5
   artikel: '10'
@@ -2598,6 +4111,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 10 Abs. 6@185628
   id: Art. 10 Abs. 6
   artikel: '10'
@@ -2620,6 +4137,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 10 Abs. 7@185759
   id: Art. 10 Abs. 7
   artikel: '10'
@@ -2647,6 +4168,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 10 Abs. 8@186389
   id: Art. 10 Abs. 8
   artikel: '10'
@@ -2670,6 +4195,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 10 Abs. 9@186599
   id: Art. 10 Abs. 9
   artikel: '10'
@@ -2693,6 +4222,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 10 Abs. 10@186897
   id: Art. 10 Abs. 10
   artikel: '10'
@@ -2715,6 +4248,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 11 Abs. 1@187095
   id: Art. 11 Abs. 1
   artikel: '11'
@@ -2736,6 +4273,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 11 Abs. 1 lit. a@187157
   id: Art. 11 Abs. 1 lit. a
   artikel: '11'
@@ -2760,6 +4301,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 11 Abs. 1 lit. b@187527
   id: Art. 11 Abs. 1 lit. b
   artikel: '11'
@@ -2782,6 +4327,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 11 Abs. 1 lit. c@187653
   id: Art. 11 Abs. 1 lit. c
   artikel: '11'
@@ -2804,6 +4353,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 11 Abs. 1 lit. d@187828
   id: Art. 11 Abs. 1 lit. d
   artikel: '11'
@@ -2825,6 +4378,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 11 Abs. 1 lit. e@187926
   id: Art. 11 Abs. 1 lit. e
   artikel: '11'
@@ -2848,6 +4405,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 11 Abs. 1 lit. f@188131
   id: Art. 11 Abs. 1 lit. f
   artikel: '11'
@@ -2870,6 +4431,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 11 Abs. 2@188338
   id: Art. 11 Abs. 2
   artikel: '11'
@@ -2894,6 +4459,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 11 Abs. 3@188746
   id: Art. 11 Abs. 3
   artikel: '11'
@@ -2915,6 +4484,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 11 Abs. 3 lit. a@188789
   id: Art. 11 Abs. 3 lit. a
   artikel: '11'
@@ -2939,6 +4512,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 11 Abs. 3 lit. b@189110
   id: Art. 11 Abs. 3 lit. b
   artikel: '11'
@@ -2962,6 +4539,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 11 Abs. 3 lit. c@189426
   id: Art. 11 Abs. 3 lit. c
   artikel: '11'
@@ -2984,6 +4565,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 11 Abs. 3 lit. d@189559
   id: Art. 11 Abs. 3 lit. d
   artikel: '11'
@@ -3006,6 +4591,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 11 Abs. 3 lit. e@189728
   id: Art. 11 Abs. 3 lit. e
   artikel: '11'
@@ -3029,6 +4618,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 11 Abs. 3 lit. f@189968
   id: Art. 11 Abs. 3 lit. f
   artikel: '11'
@@ -3051,6 +4644,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 11 Abs. 3 lit. g@190163
   id: Art. 11 Abs. 3 lit. g
   artikel: '11'
@@ -3073,6 +4670,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 11 Abs. 3 lit. h@190325
   id: Art. 11 Abs. 3 lit. h
   artikel: '11'
@@ -3101,6 +4702,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 11 Abs. 4@191063
   id: Art. 11 Abs. 4
   artikel: '11'
@@ -3123,6 +4728,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 11 Abs. 5@191222
   id: Art. 11 Abs. 5
   artikel: '11'
@@ -3145,6 +4754,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 11 Abs. 5 lit. a@191419
   id: Art. 11 Abs. 5 lit. a
   artikel: '11'
@@ -3166,6 +4779,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 11 Abs. 5 lit. b@191479
   id: Art. 11 Abs. 5 lit. b
   artikel: '11'
@@ -3187,6 +4804,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 11 Abs. 5 lit. c@191512
   id: Art. 11 Abs. 5 lit. c
   artikel: '11'
@@ -3208,6 +4829,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 12 Abs. 1@191696
   id: Art. 12 Abs. 1
   artikel: '12'
@@ -3234,6 +4859,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 12 Abs. 1 lit. a@192243
   id: Art. 12 Abs. 1 lit. a
   artikel: '12'
@@ -3255,6 +4884,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 12 Abs. 1 lit. b@192311
   id: Art. 12 Abs. 1 lit. b
   artikel: '12'
@@ -3277,6 +4910,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 12 Abs. 1 lit. c@192415
   id: Art. 12 Abs. 1 lit. c
   artikel: '12'
@@ -3306,6 +4943,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 12 Abs. 2@193271
   id: Art. 12 Abs. 2
   artikel: '12'
@@ -3335,6 +4976,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 12 Abs. 2 lit. a@194144
   id: Art. 12 Abs. 2 lit. a
   artikel: '12'
@@ -3356,6 +5001,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 12 Abs. 2 lit. b@194202
   id: Art. 12 Abs. 2 lit. b
   artikel: '12'
@@ -3378,6 +5027,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 12 Abs. 2 lit. c@194359
   id: Art. 12 Abs. 2 lit. c
   artikel: '12'
@@ -3401,6 +5054,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 13 Abs. 1@194720
   id: Art. 13 Abs. 1
   artikel: '13'
@@ -3424,6 +5081,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 13 Abs. 2@194956
   id: Art. 13 Abs. 2
   artikel: '13'
@@ -3447,6 +5108,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 13 Abs. 3@195230
   id: Art. 13 Abs. 3
   artikel: '13'
@@ -3470,6 +5135,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 13 Abs. 4@195491
   id: Art. 13 Abs. 4
   artikel: '13'
@@ -3498,6 +5167,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 13 Abs. 5@196250
   id: Art. 13 Abs. 5
   artikel: '13'
@@ -3528,6 +5201,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 13 Abs. 6@197252
   id: Art. 13 Abs. 6
   artikel: '13'
@@ -3551,6 +5228,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 14 Abs. 1@197498
   id: Art. 14 Abs. 1
   artikel: '14'
@@ -3573,6 +5254,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 14 Abs. 2@197707
   id: Art. 14 Abs. 2
   artikel: '14'
@@ -3595,6 +5280,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 14 Abs. 3@197833
   id: Art. 14 Abs. 3
   artikel: '14'
@@ -3622,6 +5311,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 14 Abs. 4@198489
   id: Art. 14 Abs. 4
   artikel: '14'
@@ -3643,6 +5336,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 14 Abs. 4 lit. a@198542
   id: Art. 14 Abs. 4 lit. a
   artikel: '14'
@@ -3665,6 +5362,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 14 Abs. 4 lit. b@198681
   id: Art. 14 Abs. 4 lit. b
   artikel: '14'
@@ -3688,6 +5389,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 14 Abs. 4 lit. c@198905
   id: Art. 14 Abs. 4 lit. c
   artikel: '14'
@@ -3713,6 +5418,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 14 Abs. 4 lit. d@199342
   id: Art. 14 Abs. 4 lit. d
   artikel: '14'
@@ -3736,6 +5445,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 14 Abs. 4 lit. e@199570
   id: Art. 14 Abs. 4 lit. e
   artikel: '14'
@@ -3758,6 +5471,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 14 Abs. 4 lit. f@199755
   id: Art. 14 Abs. 4 lit. f
   artikel: '14'
@@ -3780,6 +5497,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 14 Abs. 4 lit. g@199897
   id: Art. 14 Abs. 4 lit. g
   artikel: '14'
@@ -3802,6 +5523,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 14 Abs. 4 lit. h@200035
   id: Art. 14 Abs. 4 lit. h
   artikel: '14'
@@ -3824,6 +5549,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 14 Abs. 4 lit. i@200196
   id: Art. 14 Abs. 4 lit. i
   artikel: '14'
@@ -3846,6 +5575,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 14 Abs. 4 lit. j@200300
   id: Art. 14 Abs. 4 lit. j
   artikel: '14'
@@ -3868,6 +5601,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 14 Abs. 4 lit. k@200468
   id: Art. 14 Abs. 4 lit. k
   artikel: '14'
@@ -3890,6 +5627,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 14 Abs. 4 lit. l@200598
   id: Art. 14 Abs. 4 lit. l
   artikel: '14'
@@ -3912,6 +5653,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 14 Abs. 4 lit. m@200739
   id: Art. 14 Abs. 4 lit. m
   artikel: '14'
@@ -3934,6 +5679,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 14 Abs. 4 lit. n@200954
   id: Art. 14 Abs. 4 lit. n
   artikel: '14'
@@ -3957,6 +5706,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 14 Abs. 4 lit. o@201211
   id: Art. 14 Abs. 4 lit. o
   artikel: '14'
@@ -3980,6 +5733,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 14 Abs. 4 lit. p@201454
   id: Art. 14 Abs. 4 lit. p
   artikel: '14'
@@ -4002,6 +5759,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 14 Abs. 4 lit. q@201568
   id: Art. 14 Abs. 4 lit. q
   artikel: '14'
@@ -4027,6 +5788,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 14 Abs. 4 lit. r@202023
   id: Art. 14 Abs. 4 lit. r
   artikel: '14'
@@ -4049,6 +5814,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 14 Abs. 4 lit. s@202183
   id: Art. 14 Abs. 4 lit. s
   artikel: '14'
@@ -4072,6 +5841,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 14 Abs. 5@202465
   id: Art. 14 Abs. 5
   artikel: '14'
@@ -4094,6 +5867,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 14 Abs. 6@202603
   id: Art. 14 Abs. 6
   artikel: '14'
@@ -4116,6 +5893,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 14 Abs. 7@202720
   id: Art. 14 Abs. 7
   artikel: '14'
@@ -4139,6 +5920,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 14 Abs. 8@202924
   id: Art. 14 Abs. 8
   artikel: '14'
@@ -4164,6 +5949,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 14 Abs. 9@203411
   id: Art. 14 Abs. 9
   artikel: '14'
@@ -4187,6 +5976,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 15 Abs. 1@203745
   id: Art. 15 Abs. 1
   artikel: '15'
@@ -4209,6 +6002,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 15 Abs. 2@203949
   id: Art. 15 Abs. 2
   artikel: '15'
@@ -4234,6 +6031,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 15 Abs. 3@204368
   id: Art. 15 Abs. 3
   artikel: '15'
@@ -4255,6 +6056,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 15 Abs. 3 lit. a@204418
   id: Art. 15 Abs. 3 lit. a
   artikel: '15'
@@ -4276,6 +6081,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 15 Abs. 3 lit. b@204479
   id: Art. 15 Abs. 3 lit. b
   artikel: '15'
@@ -4299,6 +6108,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 15 Abs. 3 lit. c@204702
   id: Art. 15 Abs. 3 lit. c
   artikel: '15'
@@ -4321,6 +6134,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 15 Abs. 3 lit. d@204835
   id: Art. 15 Abs. 3 lit. d
   artikel: '15'
@@ -4342,6 +6159,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 15 Abs. 3 lit. e@204940
   id: Art. 15 Abs. 3 lit. e
   artikel: '15'
@@ -4363,6 +6184,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 15 Abs. 3 lit. f@205060
   id: Art. 15 Abs. 3 lit. f
   artikel: '15'
@@ -4386,6 +6211,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 15 Abs. 3 lit. g@205314
   id: Art. 15 Abs. 3 lit. g
   artikel: '15'
@@ -4409,6 +6238,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 15 Abs. 3 lit. h@205527
   id: Art. 15 Abs. 3 lit. h
   artikel: '15'
@@ -4431,6 +6264,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 15 Abs. 3 lit. i@205654
   id: Art. 15 Abs. 3 lit. i
   artikel: '15'
@@ -4455,6 +6292,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 15 Abs. 3 lit. j@205971
   id: Art. 15 Abs. 3 lit. j
   artikel: '15'
@@ -4477,18 +6318,24 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: Art. 15 Abs. 3 lit. i@206086
-  id: Art. 15 Abs. 3 lit. i
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
+- uid: Art. 15 Abs. 3 lit. j Ziff. i@206086
+  id: Art. 15 Abs. 3 lit. j Ziff. i
   artikel: '15'
   artikel_titel: CSIRTs-Netzwerk
+  abschnitt: null
   absatz: '3'
-  buchstabe: i
+  nummer: null
+  unterabsatz: null
+  buchstabe: j
+  ziffer: i
   offset: 206086
-  laenge: 259
+  laenge: 66
   saetze: 1
-  beleg: i) Kategorien von Cyberbedrohungen und Sicherheitsvorfällen, ii) Frühwarnungen, iii) gegenseitiger
-    Unterstützung, iv) Grundsätzen und Modalitäten der Koordinierung bei der Reaktion auf grenzüberschreitende
-    Risiken und Sicherheitsvorfälle,
+  beleg: i) Kategorien von Cyberbedrohungen und Sicherheitsvorfällen,
   adressat: null
   pflicht: null
   scope: null
@@ -4496,16 +6343,96 @@ einheiten:
   verifikation: null
   hypothese_grund: null
   omnibus: null
-  requirement: *id001
-  gate: *id002
+  requirement: *id003
+  gate: *id004
   befund: null
   befund_grund: null
-- uid: Art. 15 Abs. 3 lit. v@206345
-  id: Art. 15 Abs. 3 lit. v
+- uid: Art. 15 Abs. 3 lit. j Ziff. ii@206152
+  id: Art. 15 Abs. 3 lit. j Ziff. ii
   artikel: '15'
   artikel_titel: CSIRTs-Netzwerk
+  abschnitt: null
   absatz: '3'
-  buchstabe: v
+  nummer: null
+  unterabsatz: null
+  buchstabe: j
+  ziffer: ii
+  offset: 206152
+  laenge: 24
+  saetze: 1
+  beleg: ii) Frühwarnungen,
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: Art. 15 Abs. 3 lit. j Ziff. iii@206176
+  id: Art. 15 Abs. 3 lit. j Ziff. iii
+  artikel: '15'
+  artikel_titel: CSIRTs-Netzwerk
+  abschnitt: null
+  absatz: '3'
+  nummer: null
+  unterabsatz: null
+  buchstabe: j
+  ziffer: iii
+  offset: 206176
+  laenge: 39
+  saetze: 1
+  beleg: iii) gegenseitiger Unterstützung,
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: Art. 15 Abs. 3 lit. j Ziff. iv@206215
+  id: Art. 15 Abs. 3 lit. j Ziff. iv
+  artikel: '15'
+  artikel_titel: CSIRTs-Netzwerk
+  abschnitt: null
+  absatz: '3'
+  nummer: null
+  unterabsatz: null
+  buchstabe: j
+  ziffer: iv
+  offset: 206215
+  laenge: 130
+  saetze: 1
+  beleg: iv) Grundsätzen und Modalitäten der Koordinierung bei der Reaktion auf grenzüberschreitende Risiken
+    und Sicherheitsvorfälle,
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: Art. 15 Abs. 3 lit. j Ziff. v@206345
+  id: Art. 15 Abs. 3 lit. j Ziff. v
+  artikel: '15'
+  artikel_titel: CSIRTs-Netzwerk
+  abschnitt: null
+  absatz: '3'
+  nummer: null
+  unterabsatz: null
+  buchstabe: j
+  ziffer: v
   offset: 206345
   laenge: 185
   saetze: 1
@@ -4518,8 +6445,8 @@ einheiten:
   verifikation: null
   hypothese_grund: null
   omnibus: null
-  requirement: *id001
-  gate: *id002
+  requirement: *id003
+  gate: *id004
   befund: null
   befund_grund: null
 - uid: Art. 15 Abs. 3 lit. k@206530
@@ -4545,6 +6472,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 15 Abs. 3 lit. l@206744
   id: Art. 15 Abs. 3 lit. l
   artikel: '15'
@@ -4567,6 +6498,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 15 Abs. 3 lit. m@206872
   id: Art. 15 Abs. 3 lit. m
   artikel: '15'
@@ -4588,6 +6523,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 15 Abs. 3 lit. n@206971
   id: Art. 15 Abs. 3 lit. n
   artikel: '15'
@@ -4611,6 +6550,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 15 Abs. 3 lit. o@207225
   id: Art. 15 Abs. 3 lit. o
   artikel: '15'
@@ -4632,6 +6575,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 15 Abs. 3 lit. p@207310
   id: Art. 15 Abs. 3 lit. p
   artikel: '15'
@@ -4654,6 +6601,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 15 Abs. 4@207516
   id: Art. 15 Abs. 4
   artikel: '15'
@@ -4679,6 +6630,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 15 Abs. 5@207975
   id: Art. 15 Abs. 5
   artikel: '15'
@@ -4700,6 +6655,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 15 Abs. 6@208035
   id: Art. 15 Abs. 6
   artikel: '15'
@@ -4722,6 +6681,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 16 Abs. 1@208255
   id: Art. 16 Abs. 1
   artikel: '16'
@@ -4747,6 +6710,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 16 Abs. 2@208713
   id: Art. 16 Abs. 2
   artikel: '16'
@@ -4776,6 +6743,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 16 Abs. 3@209613
   id: Art. 16 Abs. 3
   artikel: '16'
@@ -4797,6 +6768,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 16 Abs. 3 lit. a@209658
   id: Art. 16 Abs. 3 lit. a
   artikel: '16'
@@ -4819,6 +6794,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 16 Abs. 3 lit. b@209781
   id: Art. 16 Abs. 3 lit. b
   artikel: '16'
@@ -4841,6 +6820,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 16 Abs. 3 lit. c@209890
   id: Art. 16 Abs. 3 lit. c
   artikel: '16'
@@ -4863,6 +6846,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 16 Abs. 3 lit. d@210045
   id: Art. 16 Abs. 3 lit. d
   artikel: '16'
@@ -4886,6 +6873,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 16 Abs. 3 lit. e@210259
   id: Art. 16 Abs. 3 lit. e
   artikel: '16'
@@ -4908,6 +6899,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 16 Abs. 4@210445
   id: Art. 16 Abs. 4
   artikel: '16'
@@ -4929,6 +6924,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 16 Abs. 5@210500
   id: Art. 16 Abs. 5
   artikel: '16'
@@ -4952,6 +6951,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 16 Abs. 6@210773
   id: Art. 16 Abs. 6
   artikel: '16'
@@ -4974,6 +6977,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 16 Abs. 7@210917
   id: Art. 16 Abs. 7
   artikel: '16'
@@ -4996,6 +7003,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 17@211128
   id: Art. 17
   artikel: '17'
@@ -5020,6 +7031,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 18 Abs. 1@211585
   id: Art. 18 Abs. 1
   artikel: '18'
@@ -5044,6 +7059,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 18 Abs. 1 lit. a@211922
   id: Art. 18 Abs. 1 lit. a
   artikel: '18'
@@ -5065,6 +7084,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 18 Abs. 1 lit. b@212043
   id: Art. 18 Abs. 1 lit. b
   artikel: '18'
@@ -5087,6 +7110,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 18 Abs. 1 lit. c@212176
   id: Art. 18 Abs. 1 lit. c
   artikel: '18'
@@ -5109,6 +7136,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 18 Abs. 1 lit. d@212380
   id: Art. 18 Abs. 1 lit. d
   artikel: '18'
@@ -5130,6 +7161,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 18 Abs. 1 lit. e@212465
   id: Art. 18 Abs. 1 lit. e
   artikel: '18'
@@ -5153,6 +7188,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 18 Abs. 2@212757
   id: Art. 18 Abs. 2
   artikel: '18'
@@ -5177,6 +7216,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 18 Abs. 3@213161
   id: Art. 18 Abs. 3
   artikel: '18'
@@ -5200,6 +7243,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 19 Abs. 1@213469
   id: Art. 19 Abs. 1
   artikel: '19'
@@ -5229,6 +7276,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 19 Abs. 1 lit. a@214317
   id: Art. 19 Abs. 1 lit. a
   artikel: '19'
@@ -5251,6 +7302,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 19 Abs. 1 lit. b@214462
   id: Art. 19 Abs. 1 lit. b
   artikel: '19'
@@ -5273,6 +7328,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 19 Abs. 1 lit. c@214663
   id: Art. 19 Abs. 1 lit. c
   artikel: '19'
@@ -5294,6 +7353,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 19 Abs. 1 lit. d@214710
   id: Art. 19 Abs. 1 lit. d
   artikel: '19'
@@ -5315,6 +7378,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 19 Abs. 1 lit. e@214774
   id: Art. 19 Abs. 1 lit. e
   artikel: '19'
@@ -5337,6 +7404,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 19 Abs. 1 lit. f@214911
   id: Art. 19 Abs. 1 lit. f
   artikel: '19'
@@ -5358,6 +7429,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 19 Abs. 2@214988
   id: Art. 19 Abs. 2
   artikel: '19'
@@ -5382,6 +7457,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 19 Abs. 3@215318
   id: Art. 19 Abs. 3
   artikel: '19'
@@ -5404,6 +7483,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 19 Abs. 4@215439
   id: Art. 19 Abs. 4
   artikel: '19'
@@ -5426,6 +7509,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 19 Abs. 5@215619
   id: Art. 19 Abs. 5
   artikel: '19'
@@ -5450,6 +7537,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 19 Abs. 6@215959
   id: Art. 19 Abs. 6
   artikel: '19'
@@ -5481,6 +7572,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 19 Abs. 7@217065
   id: Art. 19 Abs. 7
   artikel: '19'
@@ -5505,6 +7600,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 19 Abs. 8@217457
   id: Art. 19 Abs. 8
   artikel: '19'
@@ -5530,6 +7629,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 19 Abs. 9@217960
   id: Art. 19 Abs. 9
   artikel: '19'
@@ -5558,6 +7661,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 20 Abs. 1@218753
   id: Art. 20 Abs. 1
   artikel: '20'
@@ -5585,6 +7692,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 20 Abs. 2@219390
   id: Art. 20 Abs. 2
   artikel: '20'
@@ -5610,6 +7721,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 21 Abs. 1@219962
   id: Art. 21 Abs. 1
   artikel: '21'
@@ -5642,6 +7757,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 21 Abs. 2@221111
   id: Art. 21 Abs. 2
   artikel: '21'
@@ -5665,6 +7784,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 21 Abs. 2 lit. a@221376
   id: Art. 21 Abs. 2 lit. a
   artikel: '21'
@@ -5686,6 +7809,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 21 Abs. 2 lit. b@221464
   id: Art. 21 Abs. 2 lit. b
   artikel: '21'
@@ -5707,6 +7834,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 21 Abs. 2 lit. c@221510
   id: Art. 21 Abs. 2 lit. c
   artikel: '21'
@@ -5729,6 +7860,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 21 Abs. 2 lit. d@221636
   id: Art. 21 Abs. 2 lit. d
   artikel: '21'
@@ -5751,6 +7886,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 21 Abs. 2 lit. e@221825
   id: Art. 21 Abs. 2 lit. e
   artikel: '21'
@@ -5773,6 +7912,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 21 Abs. 2 lit. f@221988
   id: Art. 21 Abs. 2 lit. f
   artikel: '21'
@@ -5795,6 +7938,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 21 Abs. 2 lit. g@222111
   id: Art. 21 Abs. 2 lit. g
   artikel: '21'
@@ -5816,6 +7963,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 21 Abs. 2 lit. h@222217
   id: Art. 21 Abs. 2 lit. h
   artikel: '21'
@@ -5837,6 +7988,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 21 Abs. 2 lit. i@222317
   id: Art. 21 Abs. 2 lit. i
   artikel: '21'
@@ -5858,6 +8013,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 21 Abs. 2 lit. j@222414
   id: Art. 21 Abs. 2 lit. j
   artikel: '21'
@@ -5881,6 +8040,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 21 Abs. 3@222659
   id: Art. 21 Abs. 3
   artikel: '21'
@@ -5909,6 +8072,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 21 Abs. 4@223378
   id: Art. 21 Abs. 4
   artikel: '21'
@@ -5932,6 +8099,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 21 Abs. 5@223620
   id: Art. 21 Abs. 5
   artikel: '21'
@@ -5967,6 +8138,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 22 Abs. 1@225184
   id: Art. 22 Abs. 1
   artikel: '22'
@@ -5992,6 +8167,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 22 Abs. 2@225509
   id: Art. 22 Abs. 2
   artikel: '22'
@@ -6016,6 +8195,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 23 Abs. 1@225849
   id: Art. 23 Abs. 1
   artikel: '23'
@@ -6050,6 +8233,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 23 Abs. 2@227210
   id: Art. 23 Abs. 2
   artikel: '23'
@@ -6075,6 +8262,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 23 Abs. 3@227642
   id: Art. 23 Abs. 3
   artikel: '23'
@@ -6096,6 +8287,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 23 Abs. 3 lit. a@227697
   id: Art. 23 Abs. 3 lit. a
   artikel: '23'
@@ -6118,6 +8313,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 23 Abs. 3 lit. b@227849
   id: Art. 23 Abs. 3 lit. b
   artikel: '23'
@@ -6140,6 +8339,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 23 Abs. 4@228004
   id: Art. 23 Abs. 4
   artikel: '23'
@@ -6162,6 +8365,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 23 Abs. 4 lit. a@228201
   id: Art. 23 Abs. 4 lit. a
   artikel: '23'
@@ -6186,6 +8393,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 23 Abs. 4 lit. b@228560
   id: Art. 23 Abs. 4 lit. b
   artikel: '23'
@@ -6211,6 +8422,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 23 Abs. 4 lit. c@229006
   id: Art. 23 Abs. 4 lit. c
   artikel: '23'
@@ -6233,6 +8448,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 23 Abs. 4 lit. d@229144
   id: Art. 23 Abs. 4 lit. d
   artikel: '23'
@@ -6255,19 +8474,25 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: Art. 23 Abs. 4 lit. i@229294
-  id: Art. 23 Abs. 4 lit. i
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
+- uid: Art. 23 Abs. 4 lit. d Ziff. i@229294
+  id: Art. 23 Abs. 4 lit. d Ziff. i
   artikel: '23'
   artikel_titel: Berichtspflichten
+  abschnitt: null
   absatz: '4'
-  buchstabe: i
+  nummer: null
+  unterabsatz: null
+  buchstabe: d
+  ziffer: i
   offset: 229294
-  laenge: 410
+  laenge: 124
   saetze: 1
   beleg: i) eine ausführliche Beschreibung des Sicherheitsvorfalls, einschließlich seines Schweregrads
-    und seiner Auswirkungen; ii) Angaben zur Art der Bedrohung bzw. zugrunde liegenden Ursache, die wahrscheinlich
-    den Sicherheitsvorfall ausgelöst hat; iii) Angaben zu den getroffenen und laufenden Abhilfemaßnahmen;
-    iv) gegebenenfalls die grenzüberschreitenden Auswirkungen des Sicherheitsvorfalls;
+    und seiner Auswirkungen;
   adressat: null
   pflicht: null
   scope: null
@@ -6275,8 +8500,84 @@ einheiten:
   verifikation: null
   hypothese_grund: null
   omnibus: null
-  requirement: *id001
-  gate: *id002
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: Art. 23 Abs. 4 lit. d Ziff. ii@229418
+  id: Art. 23 Abs. 4 lit. d Ziff. ii
+  artikel: '23'
+  artikel_titel: Berichtspflichten
+  abschnitt: null
+  absatz: '4'
+  nummer: null
+  unterabsatz: null
+  buchstabe: d
+  ziffer: ii
+  offset: 229418
+  laenge: 129
+  saetze: 1
+  beleg: ii) Angaben zur Art der Bedrohung bzw. zugrunde liegenden Ursache, die wahrscheinlich den Sicherheitsvorfall
+    ausgelöst hat;
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: Art. 23 Abs. 4 lit. d Ziff. iii@229547
+  id: Art. 23 Abs. 4 lit. d Ziff. iii
+  artikel: '23'
+  artikel_titel: Berichtspflichten
+  abschnitt: null
+  absatz: '4'
+  nummer: null
+  unterabsatz: null
+  buchstabe: d
+  ziffer: iii
+  offset: 229547
+  laenge: 69
+  saetze: 1
+  beleg: iii) Angaben zu den getroffenen und laufenden Abhilfemaßnahmen;
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: Art. 23 Abs. 4 lit. d Ziff. iv@229616
+  id: Art. 23 Abs. 4 lit. d Ziff. iv
+  artikel: '23'
+  artikel_titel: Berichtspflichten
+  abschnitt: null
+  absatz: '4'
+  nummer: null
+  unterabsatz: null
+  buchstabe: d
+  ziffer: iv
+  offset: 229616
+  laenge: 88
+  saetze: 1
+  beleg: iv) gegebenenfalls die grenzüberschreitenden Auswirkungen des Sicherheitsvorfalls;
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
   befund: null
   befund_grund: null
 - uid: Art. 23 Abs. 4 lit. e@229704
@@ -6306,6 +8607,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 23 Abs. 5@230404
   id: Art. 23 Abs. 5
   artikel: '23'
@@ -6335,6 +8640,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 23 Abs. 6@231336
   id: Art. 23 Abs. 6
   artikel: '23'
@@ -6362,6 +8671,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 23 Abs. 7@231994
   id: Art. 23 Abs. 7
   artikel: '23'
@@ -6389,6 +8702,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 23 Abs. 8@232629
   id: Art. 23 Abs. 8
   artikel: '23'
@@ -6412,6 +8729,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 23 Abs. 9@232842
   id: Art. 23 Abs. 9
   artikel: '23'
@@ -6439,6 +8760,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 23 Abs. 10@233495
   id: Art. 23 Abs. 10
   artikel: '23'
@@ -6464,6 +8789,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 23 Abs. 11@233917
   id: Art. 23 Abs. 11
   artikel: '23'
@@ -6497,6 +8826,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 24 Abs. 1@235272
   id: Art. 24 Abs. 1
   artikel: '24'
@@ -6523,6 +8856,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 24 Abs. 2@235898
   id: Art. 24 Abs. 2
   artikel: '24'
@@ -6551,6 +8888,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 24 Abs. 3@236687
   id: Art. 24 Abs. 3
   artikel: '24'
@@ -6575,6 +8916,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 25 Abs. 1@237094
   id: Art. 25 Abs. 1
   artikel: '25'
@@ -6599,6 +8944,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 25 Abs. 2@237444
   id: Art. 25 Abs. 2
   artikel: '25'
@@ -6624,6 +8973,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 26 Abs. 1@237918
   id: Art. 26 Abs. 1
   artikel: '26'
@@ -6646,6 +8999,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 26 Abs. 1 lit. a@238116
   id: Art. 26 Abs. 1 lit. a
   artikel: '26'
@@ -6669,6 +9026,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 26 Abs. 1 lit. b@238369
   id: Art. 26 Abs. 1 lit. b
   artikel: '26'
@@ -6695,6 +9056,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 26 Abs. 1 lit. c@238931
   id: Art. 26 Abs. 1 lit. c
   artikel: '26'
@@ -6717,6 +9082,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 26 Abs. 2@239082
   id: Art. 26 Abs. 2
   artikel: '26'
@@ -6745,6 +9114,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 26 Abs. 3@239871
   id: Art. 26 Abs. 3
   artikel: '26'
@@ -6772,6 +9145,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 26 Abs. 4@240543
   id: Art. 26 Abs. 4
   artikel: '26'
@@ -6794,6 +9171,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 26 Abs. 5@240736
   id: Art. 26 Abs. 5
   artikel: '26'
@@ -6818,6 +9199,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 27 Abs. 1@241137
   id: Art. 27 Abs. 1
   artikel: '27'
@@ -6846,6 +9231,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 27 Abs. 2@241889
   id: Art. 27 Abs. 2
   artikel: '27'
@@ -6868,6 +9257,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 27 Abs. 2 lit. a@242059
   id: Art. 27 Abs. 2 lit. a
   artikel: '27'
@@ -6889,6 +9282,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 27 Abs. 2 lit. b@242089
   id: Art. 27 Abs. 2 lit. b
   artikel: '27'
@@ -6911,6 +9308,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 27 Abs. 2 lit. c@242194
   id: Art. 27 Abs. 2 lit. c
   artikel: '27'
@@ -6934,6 +9335,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 27 Abs. 2 lit. d@242418
   id: Art. 27 Abs. 2 lit. d
   artikel: '27'
@@ -6956,6 +9361,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 27 Abs. 2 lit. e@242588
   id: Art. 27 Abs. 2 lit. e
   artikel: '27'
@@ -6977,6 +9386,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 27 Abs. 2 lit. f@242664
   id: Art. 27 Abs. 2 lit. f
   artikel: '27'
@@ -6998,6 +9411,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 27 Abs. 3@242711
   id: Art. 27 Abs. 3
   artikel: '27'
@@ -7021,6 +9438,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 27 Abs. 4@243006
   id: Art. 27 Abs. 4
   artikel: '27'
@@ -7044,6 +9465,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 27 Abs. 5@243231
   id: Art. 27 Abs. 5
   artikel: '27'
@@ -7066,6 +9491,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 28 Abs. 1@243483
   id: Art. 28 Abs. 1
   artikel: '28'
@@ -7091,6 +9520,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 28 Abs. 2@243933
   id: Art. 28 Abs. 2
   artikel: '28'
@@ -7115,6 +9548,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 28 Abs. 2 lit. a@244305
   id: Art. 28 Abs. 2 lit. a
   artikel: '28'
@@ -7136,6 +9573,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 28 Abs. 2 lit. b@244331
   id: Art. 28 Abs. 2 lit. b
   artikel: '28'
@@ -7157,6 +9598,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 28 Abs. 2 lit. c@244368
   id: Art. 28 Abs. 2 lit. c
   artikel: '28'
@@ -7178,6 +9623,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 28 Abs. 2 lit. d@244447
   id: Art. 28 Abs. 2 lit. d
   artikel: '28'
@@ -7200,6 +9649,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 28 Abs. 3@244616
   id: Art. 28 Abs. 3
   artikel: '28'
@@ -7225,6 +9678,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 28 Abs. 4@245059
   id: Art. 28 Abs. 4
   artikel: '28'
@@ -7248,6 +9705,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 28 Abs. 5@245344
   id: Art. 28 Abs. 5
   artikel: '28'
@@ -7275,6 +9736,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 28 Abs. 6@246095
   id: Art. 28 Abs. 6
   artikel: '28'
@@ -7299,6 +9764,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 29 Abs. 1@246559
   id: Art. 29 Abs. 1
   artikel: '29'
@@ -7326,6 +9795,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 29 Abs. 1 lit. a@247212
   id: Art. 29 Abs. 1 lit. a
   artikel: '29'
@@ -7348,6 +9821,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 29 Abs. 1 lit. b@247394
   id: Art. 29 Abs. 1 lit. b
   artikel: '29'
@@ -7374,6 +9851,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 29 Abs. 2@248004
   id: Art. 29 Abs. 2
   artikel: '29'
@@ -7398,6 +9879,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 29 Abs. 3@248419
   id: Art. 29 Abs. 3
   artikel: '29'
@@ -7426,6 +9911,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 29 Abs. 4@249210
   id: Art. 29 Abs. 4
   artikel: '29'
@@ -7450,6 +9939,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 29 Abs. 5@249550
   id: Art. 29 Abs. 5
   artikel: '29'
@@ -7473,6 +9966,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 30 Abs. 1@249840
   id: Art. 30 Abs. 1
   artikel: '30'
@@ -7496,6 +9993,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 30 Abs. 1 lit. a@250070
   id: Art. 30 Abs. 1 lit. a
   artikel: '30'
@@ -7518,6 +10019,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 30 Abs. 1 lit. b@250190
   id: Art. 30 Abs. 1 lit. b
   artikel: '30'
@@ -7540,6 +10045,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 30 Abs. 2@250413
   id: Art. 30 Abs. 2
   artikel: '30'
@@ -7569,6 +10078,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 31 Abs. 1@251370
   id: Art. 31 Abs. 1
   artikel: '31'
@@ -7591,6 +10104,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 31 Abs. 2@251565
   id: Art. 31 Abs. 2
   artikel: '31'
@@ -7616,6 +10133,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 31 Abs. 3@251994
   id: Art. 31 Abs. 3
   artikel: '31'
@@ -7640,6 +10161,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 31 Abs. 4@252310
   id: Art. 31 Abs. 4
   artikel: '31'
@@ -7668,6 +10193,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 32 Abs. 1@253149
   id: Art. 32 Abs. 1
   artikel: '32'
@@ -7692,6 +10221,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 32 Abs. 2@253457
   id: Art. 32 Abs. 2
   artikel: '32'
@@ -7715,6 +10248,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 32 Abs. 2 lit. a@253702
   id: Art. 32 Abs. 2 lit. a
   artikel: '32'
@@ -7737,6 +10274,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 32 Abs. 2 lit. b@253840
   id: Art. 32 Abs. 2 lit. b
   artikel: '32'
@@ -7759,6 +10300,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 32 Abs. 2 lit. c@253981
   id: Art. 32 Abs. 2 lit. c
   artikel: '32'
@@ -7781,6 +10326,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 32 Abs. 2 lit. d@254170
   id: Art. 32 Abs. 2 lit. d
   artikel: '32'
@@ -7803,6 +10352,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 32 Abs. 2 lit. e@254373
   id: Art. 32 Abs. 2 lit. e
   artikel: '32'
@@ -7827,6 +10380,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 32 Abs. 2 lit. f@254736
   id: Art. 32 Abs. 2 lit. f
   artikel: '32'
@@ -7849,6 +10406,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 32 Abs. 2 lit. g@254877
   id: Art. 32 Abs. 2 lit. g
   artikel: '32'
@@ -7878,6 +10439,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 32 Abs. 3@255742
   id: Art. 32 Abs. 3
   artikel: '32'
@@ -7900,6 +10465,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 32 Abs. 4@255909
   id: Art. 32 Abs. 4
   artikel: '32'
@@ -7922,6 +10491,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 32 Abs. 4 lit. a@256096
   id: Art. 32 Abs. 4 lit. a
   artikel: '32'
@@ -7943,6 +10516,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 32 Abs. 4 lit. b@256203
   id: Art. 32 Abs. 4 lit. b
   artikel: '32'
@@ -7968,6 +10545,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 32 Abs. 4 lit. c@256617
   id: Art. 32 Abs. 4 lit. c
   artikel: '32'
@@ -7990,6 +10571,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 32 Abs. 4 lit. d@256764
   id: Art. 32 Abs. 4 lit. d
   artikel: '32'
@@ -8013,6 +10598,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 32 Abs. 4 lit. e@257071
   id: Art. 32 Abs. 4 lit. e
   artikel: '32'
@@ -8038,6 +10627,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 32 Abs. 4 lit. f@257492
   id: Art. 32 Abs. 4 lit. f
   artikel: '32'
@@ -8060,6 +10653,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 32 Abs. 4 lit. g@257655
   id: Art. 32 Abs. 4 lit. g
   artikel: '32'
@@ -8082,6 +10679,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 32 Abs. 4 lit. h@257868
   id: Art. 32 Abs. 4 lit. h
   artikel: '32'
@@ -8104,6 +10705,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 32 Abs. 4 lit. i@258026
   id: Art. 32 Abs. 4 lit. i
   artikel: '32'
@@ -8127,6 +10732,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 32 Abs. 5@258298
   id: Art. 32 Abs. 5
   artikel: '32'
@@ -8153,6 +10762,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 32 Abs. 5 lit. a@258866
   id: Art. 32 Abs. 5 lit. a
   artikel: '32'
@@ -8177,6 +10790,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 32 Abs. 5 lit. b@259226
   id: Art. 32 Abs. 5 lit. b
   artikel: '32'
@@ -8209,6 +10826,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 32 Abs. 6@260422
   id: Art. 32 Abs. 6
   artikel: '32'
@@ -8238,6 +10859,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 32 Abs. 7@261235
   id: Art. 32 Abs. 7
   artikel: '32'
@@ -8261,6 +10886,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 32 Abs. 7 lit. a@261483
   id: Art. 32 Abs. 7 lit. a
   artikel: '32'
@@ -8283,19 +10912,24 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: Art. 32 Abs. 7 lit. i@261646
-  id: Art. 32 Abs. 7 lit. i
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
+- uid: Art. 32 Abs. 7 lit. a Ziff. i@261646
+  id: Art. 32 Abs. 7 lit. a Ziff. i
   artikel: '32'
   artikel_titel: Aufsichts- und Durchsetzungsmaßnahmen in Bezug auf wesentliche Einrichtungen
+  abschnitt: null
   absatz: '7'
-  buchstabe: i
+  nummer: null
+  unterabsatz: null
+  buchstabe: a
+  ziffer: i
   offset: 261646
-  laenge: 377
+  laenge: 30
   saetze: 1
-  beleg: i) wiederholte Verstöße, ii) eine unterlassene Meldung oder Behebung von erheblichen Sicherheitsvorfällen,
-    iii) eine Nichtbehebung von Mängeln nach verbindlicher Anweisung der zuständigen Behörden, iv) die
-    Behinderung von Prüfungen oder Überwachungstätigkeiten, die nach der Feststellung eines Verstoßes
-    von der zuständigen Behörde angeordnet wurden, sowie
+  beleg: i) wiederholte Verstöße,
   adressat: null
   pflicht: null
   scope: null
@@ -8303,16 +10937,96 @@ einheiten:
   verifikation: null
   hypothese_grund: null
   omnibus: null
-  requirement: *id001
-  gate: *id002
+  requirement: *id003
+  gate: *id004
   befund: null
   befund_grund: null
-- uid: Art. 32 Abs. 7 lit. v@262023
-  id: Art. 32 Abs. 7 lit. v
+- uid: Art. 32 Abs. 7 lit. a Ziff. ii@261676
+  id: Art. 32 Abs. 7 lit. a Ziff. ii
   artikel: '32'
   artikel_titel: Aufsichts- und Durchsetzungsmaßnahmen in Bezug auf wesentliche Einrichtungen
+  abschnitt: null
   absatz: '7'
-  buchstabe: v
+  nummer: null
+  unterabsatz: null
+  buchstabe: a
+  ziffer: ii
+  offset: 261676
+  laenge: 87
+  saetze: 1
+  beleg: ii) eine unterlassene Meldung oder Behebung von erheblichen Sicherheitsvorfällen,
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: Art. 32 Abs. 7 lit. a Ziff. iii@261763
+  id: Art. 32 Abs. 7 lit. a Ziff. iii
+  artikel: '32'
+  artikel_titel: Aufsichts- und Durchsetzungsmaßnahmen in Bezug auf wesentliche Einrichtungen
+  abschnitt: null
+  absatz: '7'
+  nummer: null
+  unterabsatz: null
+  buchstabe: a
+  ziffer: iii
+  offset: 261763
+  laenge: 96
+  saetze: 1
+  beleg: iii) eine Nichtbehebung von Mängeln nach verbindlicher Anweisung der zuständigen Behörden,
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: Art. 32 Abs. 7 lit. a Ziff. iv@261859
+  id: Art. 32 Abs. 7 lit. a Ziff. iv
+  artikel: '32'
+  artikel_titel: Aufsichts- und Durchsetzungsmaßnahmen in Bezug auf wesentliche Einrichtungen
+  abschnitt: null
+  absatz: '7'
+  nummer: null
+  unterabsatz: null
+  buchstabe: a
+  ziffer: iv
+  offset: 261859
+  laenge: 164
+  saetze: 1
+  beleg: iv) die Behinderung von Prüfungen oder Überwachungstätigkeiten, die nach der Feststellung eines
+    Verstoßes von der zuständigen Behörde angeordnet wurden, sowie
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+- uid: Art. 32 Abs. 7 lit. a Ziff. v@262023
+  id: Art. 32 Abs. 7 lit. a Ziff. v
+  artikel: '32'
+  artikel_titel: Aufsichts- und Durchsetzungsmaßnahmen in Bezug auf wesentliche Einrichtungen
+  abschnitt: null
+  absatz: '7'
+  nummer: null
+  unterabsatz: null
+  buchstabe: a
+  ziffer: v
   offset: 262023
   laenge: 192
   saetze: 1
@@ -8325,8 +11039,8 @@ einheiten:
   verifikation: null
   hypothese_grund: null
   omnibus: null
-  requirement: *id001
-  gate: *id002
+  requirement: *id003
+  gate: *id004
   befund: null
   befund_grund: null
 - uid: Art. 32 Abs. 7 lit. b@262215
@@ -8350,6 +11064,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 32 Abs. 7 lit. c@262248
   id: Art. 32 Abs. 7 lit. c
   artikel: '32'
@@ -8371,6 +11089,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 32 Abs. 7 lit. d@262316
   id: Art. 32 Abs. 7 lit. d
   artikel: '32'
@@ -8393,6 +11115,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 32 Abs. 7 lit. e@262500
   id: Art. 32 Abs. 7 lit. e
   artikel: '32'
@@ -8414,6 +11140,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 32 Abs. 7 lit. f@262581
   id: Art. 32 Abs. 7 lit. f
   artikel: '32'
@@ -8436,6 +11166,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 32 Abs. 7 lit. g@262707
   id: Art. 32 Abs. 7 lit. g
   artikel: '32'
@@ -8457,6 +11191,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 32 Abs. 7 lit. h@262798
   id: Art. 32 Abs. 7 lit. h
   artikel: '32'
@@ -8479,6 +11217,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 32 Abs. 8@262922
   id: Art. 32 Abs. 8
   artikel: '32'
@@ -8504,6 +11246,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 32 Abs. 9@263419
   id: Art. 32 Abs. 9
   artikel: '32'
@@ -8532,6 +11278,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 32 Abs. 10@264195
   id: Art. 32 Abs. 10
   artikel: '32'
@@ -8559,6 +11309,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 33 Abs. 1@264975
   id: Art. 33 Abs. 1
   artikel: '33'
@@ -8585,6 +11339,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 33 Abs. 2@265480
   id: Art. 33 Abs. 2
   artikel: '33'
@@ -8608,6 +11366,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 33 Abs. 2 lit. a@265722
   id: Art. 33 Abs. 2 lit. a
   artikel: '33'
@@ -8630,6 +11392,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 33 Abs. 2 lit. b@265847
   id: Art. 33 Abs. 2 lit. b
   artikel: '33'
@@ -8652,6 +11418,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 33 Abs. 2 lit. c@265972
   id: Art. 33 Abs. 2 lit. c
   artikel: '33'
@@ -8674,6 +11444,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 33 Abs. 2 lit. d@266180
   id: Art. 33 Abs. 2 lit. d
   artikel: '33'
@@ -8698,6 +11472,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 33 Abs. 2 lit. e@266557
   id: Art. 33 Abs. 2 lit. e
   artikel: '33'
@@ -8720,6 +11498,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 33 Abs. 2 lit. f@266700
   id: Art. 33 Abs. 2 lit. f
   artikel: '33'
@@ -8748,6 +11530,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 33 Abs. 3@267550
   id: Art. 33 Abs. 3
   artikel: '33'
@@ -8770,6 +11556,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 33 Abs. 4@267716
   id: Art. 33 Abs. 4
   artikel: '33'
@@ -8792,6 +11582,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 33 Abs. 4 lit. a@267907
   id: Art. 33 Abs. 4 lit. a
   artikel: '33'
@@ -8813,6 +11607,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 33 Abs. 4 lit. b@268014
   id: Art. 33 Abs. 4 lit. b
   artikel: '33'
@@ -8835,6 +11633,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 33 Abs. 4 lit. c@268203
   id: Art. 33 Abs. 4 lit. c
   artikel: '33'
@@ -8857,6 +11659,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 33 Abs. 4 lit. d@268350
   id: Art. 33 Abs. 4 lit. d
   artikel: '33'
@@ -8880,6 +11686,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 33 Abs. 4 lit. e@268657
   id: Art. 33 Abs. 4 lit. e
   artikel: '33'
@@ -8905,6 +11715,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 33 Abs. 4 lit. f@269078
   id: Art. 33 Abs. 4 lit. f
   artikel: '33'
@@ -8927,6 +11741,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 33 Abs. 4 lit. g@269241
   id: Art. 33 Abs. 4 lit. g
   artikel: '33'
@@ -8949,6 +11767,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 33 Abs. 4 lit. h@269399
   id: Art. 33 Abs. 4 lit. h
   artikel: '33'
@@ -8972,6 +11794,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 33 Abs. 5@269671
   id: Art. 33 Abs. 5
   artikel: '33'
@@ -8994,6 +11820,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 33 Abs. 6@269841
   id: Art. 33 Abs. 6
   artikel: '33'
@@ -9021,6 +11851,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 34 Abs. 1@270644
   id: Art. 34 Abs. 1
   artikel: '34'
@@ -9046,6 +11880,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 34 Abs. 2@270949
   id: Art. 34 Abs. 2
   artikel: '34'
@@ -9069,6 +11907,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 34 Abs. 3@271129
   id: Art. 34 Abs. 3
   artikel: '34'
@@ -9092,6 +11934,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 34 Abs. 4@271318
   id: Art. 34 Abs. 4
   artikel: '34'
@@ -9118,6 +11964,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 34 Abs. 5@271804
   id: Art. 34 Abs. 5
   artikel: '34'
@@ -9144,6 +11994,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 34 Abs. 6@272285
   id: Art. 34 Abs. 6
   artikel: '34'
@@ -9168,6 +12022,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 34 Abs. 7@272538
   id: Art. 34 Abs. 7
   artikel: '34'
@@ -9192,6 +12050,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 34 Abs. 8@272788
   id: Art. 34 Abs. 8
   artikel: '34'
@@ -9221,6 +12083,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 35 Abs. 1@273627
   id: Art. 35 Abs. 1
   artikel: '35'
@@ -9247,6 +12113,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 35 Abs. 2@274175
   id: Art. 35 Abs. 2
   artikel: '35'
@@ -9275,6 +12145,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 35 Abs. 3@274901
   id: Art. 35 Abs. 3
   artikel: '35'
@@ -9299,6 +12173,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 36@275262
   id: Art. 36
   artikel: '36'
@@ -9324,6 +12202,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 37 Abs. 1@275773
   id: Art. 37 Abs. 1
   artikel: '37'
@@ -9349,6 +12231,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 37 Abs. 1 lit. a@276189
   id: Art. 37 Abs. 1 lit. a
   artikel: '37'
@@ -9372,6 +12258,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 37 Abs. 1 lit. b@276494
   id: Art. 37 Abs. 1 lit. b
   artikel: '37'
@@ -9394,6 +12284,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 37 Abs. 1 lit. c@276625
   id: Art. 37 Abs. 1 lit. c
   artikel: '37'
@@ -9428,6 +12322,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 37 Abs. 2@277964
   id: Art. 37 Abs. 2
   artikel: '37'
@@ -9450,6 +12348,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 38 Abs. 1@278238
   id: Art. 38 Abs. 1
   artikel: '38'
@@ -9472,6 +12374,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 38 Abs. 2@278377
   id: Art. 38 Abs. 2
   artikel: '38'
@@ -9494,6 +12400,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 38 Abs. 3@278547
   id: Art. 38 Abs. 3
   artikel: '38'
@@ -9520,6 +12430,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 38 Abs. 4@279072
   id: Art. 38 Abs. 4
   artikel: '38'
@@ -9543,6 +12457,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 38 Abs. 5@279348
   id: Art. 38 Abs. 5
   artikel: '38'
@@ -9565,6 +12483,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 38 Abs. 6@279487
   id: Art. 38 Abs. 6
   artikel: '38'
@@ -9591,6 +12513,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 39 Abs. 1@280061
   id: Art. 39 Abs. 1
   artikel: '39'
@@ -9613,6 +12539,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 39 Abs. 2@280199
   id: Art. 39 Abs. 2
   artikel: '39'
@@ -9634,6 +12564,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 39 Abs. 3@280297
   id: Art. 39 Abs. 3
   artikel: '39'
@@ -9657,6 +12591,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 40@280628
   id: Art. 40
   artikel: '40'
@@ -9685,6 +12623,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 41 Abs. 1@281448
   id: Art. 41 Abs. 1
   artikel: '41'
@@ -9708,6 +12650,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 41 Abs. 2@281714
   id: Art. 41 Abs. 2
   artikel: '41'
@@ -9731,6 +12677,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 42@282029
   id: Art. 42
   artikel: '42'
@@ -9752,6 +12702,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 43@282179
   id: Art. 43
   artikel: '43'
@@ -9774,6 +12728,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 44@282310
   id: Art. 44
   artikel: '44'
@@ -9797,6 +12755,10 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Art. 45@282620
   id: Art. 45
   artikel: '45'
@@ -9819,11 +12781,15 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Anhang III@309929
   id: Anhang III
   artikel: Anhang III
   artikel_titel: ENTSPRECHUNGSTABELLE
-  absatz: '-'
+  absatz: null
   buchstabe: null
   offset: 309929
   laenge: 3767
@@ -9871,11 +12837,15 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
 - uid: Anhang I@313721
   id: Anhang I
   artikel: Anhang I
   artikel_titel: Anhang III Nummern 1 und 2
-  absatz: '-'
+  absatz: null
   buchstabe: null
   offset: 313721
   laenge: 98
@@ -9892,3 +12862,7 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
