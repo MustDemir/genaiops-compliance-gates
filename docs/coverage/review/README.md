@@ -12,13 +12,14 @@ Arbeitsdokumente zur Abnahme von SPEC-06 / T-12: Die Vorschläge der Nachtläufe
 | 01 | [`01-schritt-2a-nicht-einschlaegig.md`](01-schritt-2a-nicht-einschlaegig.md) | 22 × `nicht_einschlaegig` neu eingeordnet, Raster-Ergänzungen | vom PO bestätigt 23.09.2026 |
 | 02 | [`02-schritt-2b-luecken.md`](02-schritt-2b-luecken.md) | **v2 konsolidiert:** 26 Lücken in P0–P8 (24 + 2 aus T-14.1; im Pflichtenraum 27 Zeilen, weil Art. 5 Abs. 1 lit. c Ziff. i und ii getrennt stehen), Verifikationsstufen, steuernde Normen, Omnibus-Vollprüfung, Entscheidungsvorlage E1–E8 | **entschieden 23.09.2026** (E1–E8 angenommen) |
 | 03 | [`03-gegenpruefung-omnibus-art26-out.md`](03-gegenpruefung-omnibus-art26-out.md) | Omnibus selbst gelesen, Art. 26 Volltext, ~280 `out`-Zeilen geprüft; Werkzeugbefunde T1–T4 | in 02 v2 eingearbeitet |
+| 04 | [`04-schritt-2c-teilabdeckungen.md`](04-schritt-2c-teilabdeckungen.md) | 44 Teilabdeckungen in 6 Clustern, Maßnahmen je Zeile, Q9 (Requirements ohne Betreiber-Anker), Befunde zu Art. 73 | Vorschlag – Entscheidungsvorlage F1–F6 |
 
 Ticket-Entwurf zu den Werkzeugbefunden: [`../../tickets/T-14-pflichtenraum-werkzeug.md`](../../tickets/T-14-pflichtenraum-werkzeug.md)
 
 ## Plan
 
 ```
-1 Verstehen ✅ → 2a ✅ → 2b ✅ → Gegenprüfung ✅ → T-14 ✅ → 2c Teilabdeckungen → 3 PO-Entscheid → 4 Bedarf Requirements/Rego/Gates → 5 Tickets
+1 Verstehen ✅ → 2a ✅ → 2b ✅ → Gegenprüfung ✅ → T-14 ✅ → 2c Teilabdeckungen (Vorlage) → 3 PO-Entscheid → 4 Bedarf Requirements/Rego/Gates → 5 Tickets
 ```
 
 ## Nächste Schritte
