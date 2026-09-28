@@ -55,7 +55,11 @@ BLUE = "\033[94m"
 BOLD = "\033[1m"
 RESET = "\033[0m"
 
-SEVERITY_RANK = {"low": 1, "medium": 2, "high": 3}
+# "info" (T-14.4): a check that reports FAIL in the output but never fails the
+# build at any --fail-on threshold. For a new control whose severity the PO
+# rates only after seeing its first list (T-14 DoD 6) — visible from day one,
+# binding once rated. Not a place to park a check that should block.
+SEVERITY_RANK = {"info": 0, "low": 1, "medium": 2, "high": 3}
 
 
 def read_text(path: Path) -> str:
@@ -3023,6 +3027,54 @@ def check_norm_sentence_units_current() -> dict:
     )
 
 
+def check_norm_refs_resolve() -> dict:
+    """Jede Normverweisung eines Gates oder Requirements zeigt auf eine Einheit des Pflichtenraums.
+
+    T-14.4 (28.09.2026), Befund T4. LEGAL_QUOTES_VERBATIM prueft die Richtung
+    Pflichtenraum -> Quelle. Die Richtung Gate -> Pflichtenraum prueft niemand:
+    G-OPS-02 beruft sich auf 'Art. 3 Abs. 49', eine Stelle, die es nicht gibt —
+    Art. 3 zaehlt in Nummern, gemeint ist Nr. 49. Der String sieht plausibel
+    aus, und genau deshalb faellt er in keinem Review auf.
+
+    Aufgeloest wird genau, als Neufassung (Omnibus, 'n.F.') oder als
+    Oberbegriff vorhandener Einheiten ('Art. 15', 'Art. 26 Abs. 5' seit
+    T-14.3); die Logik steht in tools/legal/resolve_norm_refs.py, das auch die
+    volle Liste fuer den PO druckt. Ob eine aufgeloeste Stelle eine
+    Betreiberpflicht ist, prueft dieser Check NICHT — das ist Auslegung und
+    Sache des PO (2b, Teil 4); gemeldet wird nur die Verteilung nach scope.
+
+    INFO: laut T-14 DoD 6 zunaechst Warnung. Die Einstufung entscheidet der PO
+    nach Sichtung der Liste; bis dahin steht der Befund in jeder Ausgabe, ohne
+    den Build anzuhalten.
+    """
+    import importlib.util
+    from collections import Counter
+
+    titel = "jede Normverweisung der Gates und Requirements loest auf eine Einheit auf (T-14.4)"
+    pfad = REPO_ROOT / "tools" / "legal" / "resolve_norm_refs.py"
+    spec = importlib.util.spec_from_file_location("resolve_norm_refs", pfad)
+    modul = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(modul)
+    erg = modul.aufloesen(REPO_ROOT)
+
+    offen = [e for e in erg if e["aufloesung"] == "offen"]
+    findings = [
+        f"{e['datei']}: {e['traeger']}{'/' + e['check'] if e['check'] else ''} "
+        f"{e['schluessel']} '{e['ref']}' — keine Einheit im Pflichtenraum"
+        for e in offen
+    ]
+    verschieden = {e["ref"]: e for e in erg}
+    scope = Counter(str(e["scope"]) for e in verschieden.values() if e["scope"])
+    return make_result(
+        "NORM_REFS_RESOLVE", titel, "info", not findings,
+        (f"{len(offen)} von {len(erg)} Verweisungen zeigen ins Leere." if findings
+         else f"{len(erg)} Verweisungen ({len(verschieden)} verschiedene) loesen auf.")
+        + " Aufgeloeste nach scope: "
+        + " · ".join(f"{k} {n}" for k, n in sorted(scope.items())) + ".",
+        findings,
+    )
+
+
 def collect_results() -> list[dict]:
     checks = [
         check_orchestrator_fallbacks,
@@ -3066,6 +3118,7 @@ def collect_results() -> list[dict]:
         check_legal_quotes_verbatim,
         check_norm_unit_ids_unique,
         check_norm_sentence_units_current,
+        check_norm_refs_resolve,
     ]
     results = []
     for check in checks:
