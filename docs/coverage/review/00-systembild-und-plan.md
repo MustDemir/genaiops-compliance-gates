@@ -101,6 +101,11 @@ Norm (Wortlaut, gehasht)
 ## Schritt 3 – PO-Entscheid
 - PO geht Tabelle Zeile für Zeile durch → Entscheid = `po_bestaetigt: true` für diese 81 Zeilen
 - Ergebnis: Entscheidungsliste mit Begründung (neue D-xx-Einträge in HISTORIE)
+- **Vertagt auf Schritt 3 (PO 28.09.2026, P2b/P3c):**
+  - Art. 111 Abs. 2 Satz 2 – Betreiber als Behörde (z. B. kommunaler Eigenbetrieb) → ggf. dritte Bedingung im P0-Check
+  - Unterglieder entschiedener Normen: Art. 3 Nr. 49 lit. a–d · Art. 4a Abs. 2 lit. a/b n.F. · Art. 113 Abs. 3 lit. c Ziff. ii n.F.
+  - Verifikationsstufe der 22 Zeilen ohne Stufe (12 steuernde Normen AI Act, 10 Omnibus inkl. Art. 5 lit. ba/bb)
+  - Hypothesen-Prüfung (43 + neue) gegen Sekundärquellen
 
 ## Schritt 4 – Bedarfsanalyse (Requirements · Rego · Gates)
 - **4a** Neue/zu ändernde Requirements (R015 ff., eu_ai_act_refs, acceptance_criteria)
