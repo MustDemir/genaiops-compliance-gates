@@ -2,8 +2,14 @@
 titel: Schritt 2c – die 44 Teilabdeckungen
 stand: 2026-09-28
 basis: Branch review-2c (ab t14-pflichtenraum-werkzeug 0d81d18) · Pflichtenraum nach T-14.5 · Leitfrage Q9 (02, Teil 3 und 6)
-status: VORSCHLAG – Entscheidungsvorlage F1–F6 in Teil 5
+status: ENTSCHIEDEN 28.09.2026 – F1a–F6a angenommen
 ---
+
+# PO-Entscheid 28.09.2026
+- **F1a–F6a angenommen.**
+- Im Pflichtenraum umgesetzt (F1, F2): `docs/coverage/entscheide/2026-09-28_schritt-2c.yaml` – 33 Zeilen neu bestätigt, 5 umklassifiziert. AI-Act-Raum danach: 85 `in` · 28 Lücken · 39 Teilabdeckungen · 15 nicht einschlägig · 3 gedeckt · 86 Zeilen bestätigt.
+- In Schritt 4 umzusetzen: F3 (Anker R006, R007, R010, R013), F4 (Anker-Suche für R001, R002, R003, R005, R011 im Sektorstapel; bis dahin als offen kennzeichnen), F5 (G-OPS-02 umbauen), F6 (R017 Rollenwechsel).
+- Offen: Art. 15 (7 Zeilen) bis zum Anker aus F4 · Art. 26 Abs. 11 in Schritt 3.
 
 # Kurzfazit
 - **44 Zeilen** stehen auf `teilabdeckung`. **39 zu Recht.** Keine ist in Wahrheit gedeckt.
