@@ -102,16 +102,20 @@ Zwei verschiedene Achsen, die nicht vermischt werden dürfen. `scope` fragt: **g
 diese Einheit in den Prüfraum?** `befund` fragt: **trifft der Katalog sie?** Die zweite
 Frage stellt sich nur, wenn die erste mit `in` beantwortet ist.
 
-### `scope` — die Aufnahmeregel, in vier Schritten
+### `scope` — die Aufnahmeregel, in vier Schritten plus 2b und 2c
 
 Grundlage ist **HANDBUCH 4.1**: *„Eine Anforderung gehört in den Normenraum, wenn sie am
 Lebenszyklus eines KI-Systems prüfbar anfällt."* Daraus vier Prüfungen, in dieser
-Reihenfolge. **Die erste, die zutrifft, entscheidet:**
+Reihenfolge. **Die erste, die zutrifft, entscheidet.** Schritte 2b und 2c kamen mit der
+PO-Durchsicht des AI-Act-Laufs hinzu (Schritt 2a, 23.09.2026): beide Fälle passten in
+keinen der vier Schritte und wurden deshalb als `nicht_einschlaegig` geführt.
 
 | # | Frage | Wenn ja |
 |---|---|---|
 | 1 | Adressiert die Einheit **jemand anderen** als unsere Einrichtung? Kommission, Mitgliedstaaten, notifizierte Stellen, Behörden, Anbieter ohne Durchschlag auf den Betreiber | `out` — Grund: Adressat |
 | 2 | Greift eine **Bereichsausnahme**? Für BSIG §§ 30 ff.: § 28 Abs. 5 Nr. 2 | `out` — Grund: Ausnahme mit Fundstelle **und** Angabe, welche Norm stattdessen gilt |
+| 2b | Gilt die Norm nur für einen **anderen Systemtyp**? AI Act Art. 14 Abs. 5 (nur Anhang III Nr. 1 lit. a), Art. 73 Abs. 10 (nur Medizinprodukte) | `out` — Grund: Systemtyp mit Fundstelle |
+| 2c | Entsteht die Pflicht nur, wenn wir **freiwillig** etwas tun? AI Act Art. 60 Abs. 4 (Teilnahme an einem Test unter Realbedingungen) | `out` — Grund: bedingte Pflicht, mit der Bedingung; Wiedervorlage, sobald sie eintritt |
 | 3 | Fällt die Pflicht **am Lebenszyklus eines KI-Systems** prüfbar an? Physische Objektsicherung, Verwaltungsverfahren, Sanktionsrahmen, Berichtspflichten der Behörden: nein | `out` — Grund: kein Lebenszyklusbezug (HANDBUCH 4.1) |
 | 4 | Sonst | `in` |
 

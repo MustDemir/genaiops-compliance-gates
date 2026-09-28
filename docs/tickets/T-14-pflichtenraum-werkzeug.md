@@ -1,6 +1,6 @@
 # T-14 — Pflichtenraum: eindeutige IDs, Art. 3 nach Nummern, Omnibus als eigene Einheiten
 
-**Status:** IN ARBEIT · gestellt 23.09.2026 · P-1/P-2 entschieden 23.09.2026, P-3/P-4 entschieden 28.09.2026 · geliefert: T-14.1, T-14.2, T-14.3
+**Status:** GELIEFERT, wartet auf Abnahme · gestellt 23.09.2026 · P-1/P-2 entschieden 23.09.2026, P-3/P-4 entschieden 28.09.2026 · geliefert: T-14.1, T-14.2, T-14.3 (Satzebene), T-14.4 (`NORM_REFS_RESOLVE`), T-14.5 (PO-Entscheide im Pflichtenraum)
 **Bezug:** [`SPEC-06`](../../specs/SPEC-06-deckungsanalyse-norm-requirement.md) · [`T-12`](T-12-cowork-aiact-stufe0.md) · [`T-13`](T-13-cowork-sektorstapel.md) · Gegenprüfung `docs/coverage/review/03-gegenpruefung-omnibus-art26-out.md` · 2b v2 `docs/coverage/review/02-schritt-2b-luecken.md`
 
 ---

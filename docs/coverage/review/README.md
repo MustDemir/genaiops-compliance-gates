@@ -4,7 +4,7 @@ Arbeitsdokumente zur Abnahme von SPEC-06 / T-12: Die Vorschläge der Nachtläufe
 
 **Basis:** Branch `spec06-aiact-stufe0` (Pflichtenraum mit 1062 Einheiten, Raster aus T-13)
 **Sprache:** Deutsch, wie HANDBUCH und HISTORIE
-**Status:** Vorschläge und PO-Entscheide – im Pflichtenraum selbst ist noch nichts geändert
+**Status:** PO-Entscheide vom 23.09.2026 stehen seit T-14.5 auch im Pflichtenraum – maschinenlesbar in `docs/coverage/entscheide/`, gehalten von `PO_DECISIONS_APPLIED`
 
 | Nr. | Datei | Inhalt | Status |
 |---|---|---|---|
@@ -18,10 +18,10 @@ Ticket-Entwurf zu den Werkzeugbefunden: [`../../tickets/T-14-pflichtenraum-werkz
 ## Plan
 
 ```
-1 Verstehen ✅ → 2a ✅ → 2b ✅ → Gegenprüfung ✅ → T-14 (in Arbeit) → 2c Teilabdeckungen → 3 PO-Entscheid → 4 Bedarf Requirements/Rego/Gates → 5 Tickets
+1 Verstehen ✅ → 2a ✅ → 2b ✅ → Gegenprüfung ✅ → T-14 (Abnahme) → 2c Teilabdeckungen → 3 PO-Entscheid → 4 Bedarf Requirements/Rego/Gates → 5 Tickets
 ```
 
 ## Nächste Schritte
 
-- T-14 abschließen – vor 2c und vor dem Anhänge-Lauf. Committet: T-14.1 (eindeutige IDs, Art. 3 nach Nummern, Migration, `NORM_UNIT_IDS_UNIQUE`) und T-14.2 (Omnibus 2026/1744 als eigene Quelle und Einheiten). Offen: Satzebene für Mehrpflichten-Absätze (Art. 26 Abs. 5 ist noch eine Einheit), `NORM_REFS_RESOLVE`, Abnahme durch den PO
+- T-14 abnehmen – vor 2c und vor dem Anhänge-Lauf. Geliefert: T-14.1 (eindeutige IDs, Art. 3 nach Nummern), T-14.2 (Omnibus als eigene Quelle), T-14.3 (Satzebene für vier Absätze), T-14.4 (`NORM_REFS_RESOLVE`), T-14.5 (PO-Entscheide im Pflichtenraum). Offen beim PO: Einstufung von drei neuen Integrity-Checks, Entscheide, die eine Teilung offengelassen hat
 - 2c: 33 Teilabdeckungen, Leitfrage Q9 (Betreiber-Requirements auf Anbieterartikeln)
