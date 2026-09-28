@@ -10,7 +10,7 @@ import data.genaiops.operations.incident_thresholds as thr
 _valid := {
 	"deployer_context": {
 		"sector": "Elektrizitaet",
-		"ai_act_scope_reduced_to": "Art. 3 Abs. 49 lit. c — Grundrechte",
+		"ai_act_scope_reduced_to": "Art. 3 Nr. 49 lit. c — Grundrechte",
 	},
 	"deadlines": [
 		{"id": "F-CRIT", "hours": 48, "basis": "Art. 73 Abs. 3 AI Act"},

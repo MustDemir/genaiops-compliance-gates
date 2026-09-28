@@ -13,7 +13,7 @@ schema_version: 1
 # Der Befund, der die Ausrichtung bestimmt (Rn. 57 und 60):
 #   Fuer Annex-III-Nr.-2-Systeme (u.a. Elektrizitaet), die bereits
 #   CER und NIS2 unterliegen, reduziert Art. 73 Abs. 9 die
-#   AI-Act-Meldepflicht auf Art. 3 Abs. 49 lit. c — Grundrechte.
+#   AI-Act-Meldepflicht auf Art. 3 Nr. 49 lit. c — Grundrechte.
 #   Betriebsstoerungen laufen weiter ueber CER und NIS2.
 #
 # Folge: Vorfallerkennung heisst hier nicht "ab welcher Fehlerrate",
@@ -25,7 +25,7 @@ deployer_context:
   sector: "Elektrizitaet — Verteilnetzbetrieb"
   ai_act_annex: "Annex III Nr. 2 (kritische Infrastruktur)"
   parallel_regimes: ["CER (EU) 2022/2557", "NIS2 (EU) 2022/2555", "EnWG § 11"]
-  ai_act_scope_reduced_to: "Art. 3 Abs. 49 lit. c — Grundrechte"
+  ai_act_scope_reduced_to: "Art. 3 Nr. 49 lit. c — Grundrechte"
   reduction_basis: "Art. 73 Abs. 9 AI Act; Entwurfsleitlinien Rn. 57, 60"
 
 # ── Meldefristen: RECHT, keine Festlegung ───────────────────────

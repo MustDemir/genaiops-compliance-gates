@@ -2975,7 +2975,7 @@ def check_norm_sentence_units_current() -> dict:
         feiner, als der PO entschieden hat, und die Befunde zerfallen ungefragt.
 
     MEDIUM: der Fehler verschiebt, wo ein Befund steht, verfaelscht aber kein
-    Zitat. Einstufung durch den PO zu bestaetigen.
+    Zitat. Einstufung vom PO bestaetigt (28.09.2026).
     """
     import yaml
 
@@ -3047,7 +3047,7 @@ def check_po_decisions_applied() -> dict:
     Entscheid, der seine Zeile verloren hat.
 
     HIGH wie NORM_UNIT_IDS_UNIQUE: der Fehler traegt eine Rechtszuordnung und
-    ist ohne Maschine nicht zu sehen. Einstufung durch den PO zu bestaetigen.
+    ist ohne Maschine nicht zu sehen. Einstufung vom PO bestaetigt (28.09.2026).
     """
     import importlib.util
 
@@ -3072,10 +3072,10 @@ def check_norm_refs_resolve() -> dict:
     """Jede Normverweisung eines Gates oder Requirements zeigt auf eine Einheit des Pflichtenraums.
 
     T-14.4 (28.09.2026), Befund T4. LEGAL_QUOTES_VERBATIM prueft die Richtung
-    Pflichtenraum -> Quelle. Die Richtung Gate -> Pflichtenraum prueft niemand:
-    G-OPS-02 beruft sich auf 'Art. 3 Abs. 49', eine Stelle, die es nicht gibt —
-    Art. 3 zaehlt in Nummern, gemeint ist Nr. 49. Der String sieht plausibel
-    aus, und genau deshalb faellt er in keinem Review auf.
+    Pflichtenraum -> Quelle. Die Richtung Gate -> Pflichtenraum pruefte niemand:
+    G-OPS-02 berief sich bis zum 28.09.2026 auf 'Art. 3 Abs. 49', eine Stelle,
+    die es nicht gibt — Art. 3 zaehlt in Nummern, gemeint war Nr. 49. Der String
+    sah plausibel aus, und genau deshalb fiel er in keinem Review auf.
 
     Aufgeloest wird genau, als Neufassung (Omnibus, 'n.F.') oder als
     Oberbegriff vorhandener Einheiten ('Art. 15', 'Art. 26 Abs. 5' seit
@@ -3084,9 +3084,9 @@ def check_norm_refs_resolve() -> dict:
     Betreiberpflicht ist, prueft dieser Check NICHT — das ist Auslegung und
     Sache des PO (2b, Teil 4); gemeldet wird nur die Verteilung nach scope.
 
-    INFO: laut T-14 DoD 6 zunaechst Warnung. Die Einstufung entscheidet der PO
-    nach Sichtung der Liste; bis dahin steht der Befund in jeder Ausgabe, ohne
-    den Build anzuhalten.
+    INFO: laut T-14 DoD 6 zunaechst Warnung; nach Sichtung der Liste vom PO so
+    bestaetigt (28.09.2026). Der Befund steht in jeder Ausgabe, ohne den Build
+    anzuhalten.
     """
     import importlib.util
     from collections import Counter

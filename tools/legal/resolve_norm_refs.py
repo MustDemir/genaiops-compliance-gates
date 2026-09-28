@@ -3,9 +3,9 @@
 
 T-14.4 (28.09.2026), Befund T4. Bisher wurde nur eine Richtung geprueft: jede
 Zeile des Pflichtenraums traegt ein wortgleiches Zitat (LEGAL_QUOTES_VERBATIM).
-Die Gegenrichtung fehlte. Ein Gate, das sich auf 'Art. 3 Abs. 49' beruft, zeigt
-auf eine Stelle, die es nicht gibt — Art. 3 zaehlt in Nummern —, und keine
-Pruefung sah es, weil der String plausibel aussieht. Dieselbe Deklaration ohne
+Die Gegenrichtung fehlte. G-OPS-02 berief sich auf 'Art. 3 Abs. 49', eine Stelle,
+die es nicht gibt — Art. 3 zaehlt in Nummern —, und keine Pruefung sah es, weil
+der String plausibel aussah (berichtigt am 28.09.2026). Dieselbe Deklaration ohne
 Gegenstand, gegen die dieses Repo gebaut ist (B-20).
 
 Aufgeloest wird gegen den Pflichtenraum der Grundfassung und den des Omnibus:
