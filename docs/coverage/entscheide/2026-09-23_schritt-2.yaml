@@ -1,0 +1,566 @@
+# PO-Entscheide vom 23.09.2026 — Schritt 2a, 2b (E1–E8) und T-14.1
+#
+# Nachweis der Entscheide: docs/coverage/review/01-schritt-2a-nicht-einschlaegig.md,
+# 02-schritt-2b-luecken.md (Teil 7 und Tabelle "PO-Entscheide bisher") und
+# 03-gegenpruefung-omnibus-art26-out.md. Diese Datei schreibt nichts Neues fest — sie
+# ist die maschinenlesbare Form dessen, was dort entschieden ist.
+#
+# Eingetragen mit tools/legal/po_entscheide.py (T-14.5, PO-Festlegung P-4 vom
+# 28.09.2026). PO_DECISIONS_APPLIED haelt den Pflichtenraum dagegen: jedes Feld hier
+# steht so im Pflichtenraum, und jede Zeile mit po_bestaetigt: true hat hier einen
+# Eintrag mit bestaetigt: true.
+#
+# Regeln des Eintrags:
+#   * Ein Entscheid gilt fuer die Kennungen, die er nennt. Ist eine Einheit nach dem
+#     Entscheid feiner geschnitten worden (T-14.1, T-14.3), gilt er fuer den Teil,
+#     den er benennt ('Art. 26 Abs. 5 Satz 2 (nach Teilung)'), nicht fuer die
+#     Geschwister. Ausnahme: E4 ist eine Regel je Artikel und gilt fuer alle
+#     heutigen Einheiten der genannten Artikel.
+#   * bestaetigt: true nur, wo scope, befund und verifikation einer Zeile entschieden
+#     sind. Wo nur ein Feld entschieden ist (etwa verifikation nach E4 bei einer
+#     Teilabdeckung, die erst 2c klaert), bleibt po_bestaetigt false.
+#   * Wird eine Zeile 'out', entfallen befund und befund_grund: der Befund fragt nur
+#     bei scope 'in' (T-13, Raster).
+
+entschieden: '2026-09-23'
+eingetragen: '2026-09-28'
+eintraege:
+
+# ── Schritt 2a: die 22 nicht_einschlaegig neu eingeordnet ────────────────────
+
+  - beleg: 2a Gruppe A (Bereichsausnahme Anhang III Nr. 2)
+    raum: aiact
+    ids: [Art. 27 Abs. 1, Art. 27 Abs. 1 lit. a, Art. 27 Abs. 1 lit. b, Art. 27 Abs. 1 lit. c,
+          Art. 27 Abs. 1 lit. d, Art. 27 Abs. 1 lit. e, Art. 27 Abs. 1 lit. f, Art. 27 Abs. 2,
+          Art. 27 Abs. 3, Art. 27 Abs. 4]
+    setze:
+      scope: out
+      scope_grund: >-
+        Bereichsausnahme: Art. 27 Abs. 1 nimmt Hochrisiko-KI-Systeme aus, die in dem in
+        Anhang III Nummer 2 aufgefuehrten Bereich verwendet werden sollen; lit. a-f und
+        Abs. 2-4 setzen die Pflicht aus Abs. 1 voraus. Die DSFA bleibt ueber Art. 26 Abs. 9.
+      befund: null
+      befund_grund: null
+    bestaetigt: true
+
+  - beleg: 2a Gruppe A (Bereichsausnahme Anhang III Nr. 2)
+    raum: aiact
+    ids: [Art. 49 Abs. 3]
+    setze:
+      scope: out
+      scope_grund: >-
+        Bereichsausnahme ('mit Ausnahme der in Anhang III Nummer 2 aufgefuehrten
+        Hochrisiko-KI-Systeme') und Adressat Behoerden.
+      befund: null
+      befund_grund: null
+    bestaetigt: true
+
+  - beleg: 2a Gruppe A (Adressat Behoerde)
+    raum: aiact
+    ids: [Art. 71 Abs. 3]
+    setze:
+      scope: out
+      scope_grund: Adressat - Dateneingabe durch Betreiber, die Behoerden sind.
+      befund: null
+      befund_grund: null
+    bestaetigt: true
+
+  - beleg: 2a Gruppe A (Bereichsausnahme Anhang III Nr. 2)
+    raum: aiact
+    ids: [Art. 86 Abs. 1]
+    setze:
+      scope: out
+      scope_grund: >-
+        Bereichsausnahme Art. 86 Abs. 1 ('mit Ausnahme der in Nummer 2 des genannten
+        Anhangs aufgefuehrten Systeme').
+      befund: null
+      befund_grund: null
+    bestaetigt: true
+
+  - beleg: 2a Gruppe B (anderer Betreibertyp)
+    raum: aiact
+    ids: [Art. 26 Abs. 8]
+    setze:
+      scope: out
+      scope_grund: Adressat - Betreiber, die Organe, Einrichtungen oder sonstige Stellen der Union sind.
+      befund: null
+      befund_grund: null
+    bestaetigt: true
+
+  - beleg: 2a Gruppe B (anderer Betreibertyp)
+    raum: aiact
+    ids: [Art. 26 Abs. 10]
+    setze:
+      scope: out
+      scope_grund: >-
+        Adressat - Betreiber eines Systems zur nachtraeglichen biometrischen
+        Fernidentifizierung zu Strafverfolgungszwecken.
+      befund: null
+      befund_grund: null
+    bestaetigt: true
+
+  - beleg: 2a Gruppe C (anderer Systemtyp)
+    raum: aiact
+    ids: [Art. 14 Abs. 5]
+    setze:
+      scope: out
+      scope_grund: Systemtyp - gilt nur fuer Hochrisiko-KI-Systeme nach Anhang III Nr. 1 lit. a (biometrische Fernidentifizierung).
+      befund: null
+      befund_grund: null
+    bestaetigt: true
+
+  - beleg: 2a Gruppe C (anderer Systemtyp)
+    raum: aiact
+    ids: [Art. 73 Abs. 10]
+    setze:
+      scope: out
+      scope_grund: Systemtyp - gilt nur fuer Medizinprodukte nach VO (EU) 2017/745 und 2017/746.
+      befund: null
+      befund_grund: null
+    bestaetigt: true
+
+  - beleg: 2a Gruppe D (Verbote Art. 5 als Luecke, P1)
+    raum: aiact
+    ids: [Art. 5 Abs. 1 lit. e, Art. 5 Abs. 1 lit. f, Art. 5 Abs. 1 lit. g]
+    setze:
+      befund: luecke
+      befund_grund: >-
+        Das Verbot trifft jede Verwendung, auch durch den Betreiber - kein Adressat- oder
+        Ausnahme-out. Ob das eigene System es tut, ist eine Tatsachenfrage ueber das
+        System, keine Normfrage; genau dafuer sind Gates da. Massnahme: ein
+        Art.-5-Screening in G-PRE-01 fuer alle Verbote (P1).
+    bestaetigt: true
+
+  - beleg: 2a Gruppe E (bedingte Pflicht)
+    raum: aiact
+    ids: [Art. 60 Abs. 4 lit. h, Art. 60 Abs. 4 lit. j]
+    setze:
+      scope: out
+      scope_grund: >-
+        Bedingte Pflicht: entsteht nur bei freiwilliger Teilnahme an einem Test unter
+        Realbedingungen nach Art. 60, die der Regelfall (Zukauf) nicht vorsieht -
+        Wiedervorlage, sobald eine Teilnahme geplant ist.
+      befund: null
+      befund_grund: null
+    bestaetigt: true
+
+# ── Schritt 2b, E1: sieben Zeilen umklassifiziert ────────────────────────────
+
+  - beleg: 2b E1 (steuernd, Massnahme P0)
+    raum: aiact
+    ids: [Art. 111 Abs. 2 Satz 1]
+    setze:
+      befund: nicht_einschlaegig
+      befund_grund: >-
+        Steuernd: Anwendbarkeitsregel. Fuer Hochrisiko-KI-Systeme, die vor dem Beginn der
+        Anwendung von Kapitel III (Anhang III: 2. Dezember 2027, Art. 113 Abs. 3 lit. c
+        Ziff. i n.F.) in Betrieb genommen wurden, gilt die Verordnung nur nach erheblicher
+        Veraenderung der Konzeption. Keine eigene pruefbare Pflicht; ob das eigene System
+        darunter faellt, prueft die Massnahme P0 (G-PRE-01, Kopplung an G-OPS-06/C-25b).
+    bestaetigt: true
+
+  - beleg: 2b E1 (Erlaubnis)
+    raum: aiact
+    ids: [Art. 73 Abs. 5]
+    setze:
+      befund: nicht_einschlaegig
+      befund_grund: >-
+        Erlaubnis ('kann ... einen unvollstaendigen Erstbericht vorlegen'), keine Pflicht.
+        Designvorgabe fuer G-OPS-02: ein Erstbericht muss moeglich sein.
+    bestaetigt: true
+
+  - beleg: 2b E1 (anderer Systemtyp)
+    raum: aiact
+    ids: [Art. 50 Abs. 3, Art. 50 Abs. 4, Art. 50 Abs. 5]
+    setze:
+      scope: out
+      scope_grund: >-
+        Systemtyp - Abs. 3 und 4 gelten nur fuer Emotionserkennung, biometrische
+        Kategorisierung und Deepfakes; Abs. 5 regelt die Form der Informationen nach
+        Abs. 1-4.
+      befund: null
+      befund_grund: null
+    bestaetigt: true
+
+  - beleg: 2b E1 (Adressat Anbieter)
+    raum: aiact
+    ids: [Art. 49 Abs. 5]
+    setze:
+      scope: out
+      scope_grund: >-
+        Adressat Anbieter - die Registrierung nimmt der Anbieter vor (Art. 49 Abs. 1);
+        fuer den Betreiber erst relevant, wenn er selbst Anbieter wird (K2/K3).
+      befund: null
+      befund_grund: null
+      verifikation: HYPOTHESE
+      hypothese_grund: >-
+        Dass die nationale Registrierung nach Abs. 5 beim Anbieter liegt, ist aus
+        Art. 49 Abs. 1 abgeleitet; Abs. 5 selbst nennt keinen Adressaten.
+    bestaetigt: true
+
+  - beleg: 2b E1 (in, P6)
+    raum: aiact
+    ids: [Art. 79 Abs. 2]
+    setze:
+      adressat: betreiber
+      scope: in
+      scope_grund: >-
+        'Die betreffenden Akteure arbeiten ... mit der Marktueberwachungsbehoerde
+        zusammen' - Akteur umfasst den Betreiber (Art. 3 Nr. 8).
+      befund: luecke
+      befund_grund: >-
+        Kooperationspflicht der Akteure bei der Bewertung eines Risikos durch die
+        Marktueberwachungsbehoerde; kein Requirement und kein Gate bildet sie ab (P6).
+      verifikation: HYPOTHESE
+      hypothese_grund: >-
+        Art. 79 Abs. 2 nennt 'Akteure', nicht den Betreiber; dass er gemeint ist, folgt
+        aus der Begriffsbestimmung in Art. 3 Nr. 8, nicht aus Art. 79 selbst.
+    bestaetigt: true
+
+# ── Schritt 2b, E2: die Luecken in den Paketen P0–P8 ─────────────────────────
+
+  - beleg: 2b E2 (P1 Verbote)
+    raum: aiact
+    ids: [Art. 5 Abs. 1 lit. a, Art. 5 Abs. 1 lit. b, Art. 5 Abs. 1 lit. c,
+          Art. 5 Abs. 1 lit. c Ziff. i, Art. 5 Abs. 1 lit. d]
+    setze: {befund: luecke}
+    bestaetigt: true
+
+  - beleg: 2b E2 (P1 Verbote, neu ab 02.12.2026)
+    raum: omnibus
+    ids: [Art. 5 Abs. 1 UAbs. 1 lit. ba n.F., Art. 5 Abs. 1 UAbs. 1 lit. bb n.F.]
+    setze:
+      scope: in
+      scope_grund: Verbot der Verwendung - trifft auch den Betreiber; gilt ab 2. Dezember 2026 (Art. 113 Abs. 3 lit. a n.F.).
+      befund: luecke
+      befund_grund: Kein Gate prueft die neuen Verbote; Teil des Art.-5-Screenings (P1).
+    bestaetigt: false
+
+  - beleg: 2b E2 (P2 KI-Kompetenz)
+    raum: aiact
+    ids: [Art. 4]
+    setze:
+      befund: luecke
+      befund_grund: >-
+        Kein Requirement und kein Gate prueft Massnahmen zur KI-Kompetenz des Personals.
+        Geprueft wird nach der Neufassung, ob Massnahmen zur Unterstuetzung der
+        Kompetenzentwicklung je Aufsichtsrolle bestehen - nicht, ob ein Niveau erreicht
+        ist (P2, R016).
+    bestaetigt: true
+
+  - beleg: 2b E2 (P2 KI-Kompetenz)
+    raum: aiact
+    ids: [Art. 9 Abs. 5 lit. c, Art. 14 Abs. 4 lit. b, Art. 14 Abs. 4 lit. c]
+    setze: {befund: luecke}
+    bestaetigt: true
+
+  - beleg: 2b E2 (P3 Betriebsanleitung)
+    raum: aiact
+    ids: [Art. 13 Abs. 3 lit. c, Art. 13 Abs. 3 lit. e]
+    setze: {befund: luecke}
+    bestaetigt: true
+
+  - beleg: 2b E2 (P4 Eingabedaten)
+    raum: aiact
+    ids: [Art. 26 Abs. 4]
+    setze: {befund: luecke}
+    bestaetigt: true
+
+  - beleg: 2b E2 (P8 Aussetzen bei Risiko, Art. 26 Abs. 5 Satz 2 nach Teilung)
+    raum: aiact
+    ids: [Art. 26 Abs. 5 UAbs. 1 Satz 2]
+    setze:
+      befund: luecke
+      befund_grund: >-
+        Hat der Betreiber Grund zur Annahme eines Risikos nach Art. 79 Abs. 1, setzt er
+        die Verwendung aus. Kein Gate hat diese Wirkung: halt_pipeline stoppt das
+        Deployment, nicht den laufenden Betrieb, und G-PRE-05 prueft nur, dass ein
+        kill_switch dokumentiert ist (P8).
+    bestaetigt: true
+
+  - beleg: 2b E2 (P5 Aufsicht wirksam)
+    raum: aiact
+    ids: [Art. 14 Abs. 2, Art. 14 Abs. 3 lit. a]
+    setze: {befund: luecke}
+    bestaetigt: true
+
+  - beleg: 2b E2 (P6 Vorfall und Behoerden)
+    raum: aiact
+    ids: [Art. 26 Abs. 12]
+    setze: {befund: luecke}
+    bestaetigt: true
+
+  - beleg: 2b E2 (P6 Vorfall und Behoerden)
+    raum: aiact
+    ids: [Art. 20 Abs. 2]
+    setze:
+      befund: luecke
+      befund_grund: >-
+        'gemeinsam mit dem meldenden Betreiber' - Mitwirkungspflicht des Betreibers an
+        der Ursachenuntersuchung des Anbieters nach einer Risikomeldung (Anschluss an
+        Art. 26 Abs. 5). Kein Requirement und kein Gate bildet sie ab (P6).
+    bestaetigt: true
+
+  - beleg: 2b E2 (P7 Datenschutz)
+    raum: aiact
+    ids: [Art. 26 Abs. 9]
+    setze: {befund: luecke}
+    bestaetigt: true
+
+# ── Schritt 2b, E4: Verifikationsstufe (Regel je Artikel) ────────────────────
+
+  - beleg: 2b E4 (VERIFIZIERT - Betreiber in der Einheit oder ihrem Einleitungssatz genannt)
+    raum: aiact
+    ids: [Art. 4, Art. 5 Abs. 1 lit. a, Art. 5 Abs. 1 lit. b, Art. 5 Abs. 1 lit. c,
+          Art. 5 Abs. 1 lit. c Ziff. i, Art. 5 Abs. 1 lit. c Ziff. ii, Art. 5 Abs. 1 lit. d,
+          Art. 5 Abs. 1 lit. e, Art. 5 Abs. 1 lit. f, Art. 5 Abs. 1 lit. g, Art. 20 Abs. 2,
+          Art. 25 Abs. 1, Art. 25 Abs. 1 lit. a, Art. 25 Abs. 1 lit. b, Art. 25 Abs. 1 lit. c,
+          Art. 26 Abs. 1, Art. 26 Abs. 2, Art. 26 Abs. 4,
+          Art. 26 Abs. 5 UAbs. 1 Satz 1, Art. 26 Abs. 5 UAbs. 1 Satz 2, Art. 26 Abs. 5 UAbs. 1 Satz 3,
+          Art. 26 Abs. 5 UAbs. 1 Satz 4, Art. 26 Abs. 5 UAbs. 1 Satz 5, Art. 26 Abs. 5 UAbs. 2 Satz 1,
+          Art. 26 Abs. 6, Art. 26 Abs. 7, Art. 26 Abs. 9, Art. 26 Abs. 11, Art. 26 Abs. 12,
+          Art. 73 Abs. 5, Art. 111 Abs. 2 Satz 1, Art. 111 Abs. 2 Satz 2]
+    setze:
+      verifikation: VERIFIZIERT
+      hypothese_grund: null
+    bestaetigt: false
+
+  - beleg: 2b E4 (HYPOTHESE - Durchschlagsregel, Anker (a) Wortlaut nennt den Betreiber)
+    raum: aiact
+    ids: [Art. 9 Abs. 5 lit. c]
+    setze:
+      verifikation: HYPOTHESE
+      hypothese_grund: >-
+        Anbieterpflicht, fuer den Betreiber in nach der Durchschlagsregel (2b E4): der
+        Wortlaut nennt den Betreiber als Empfaenger ('schult gegebenenfalls die Betreiber').
+    bestaetigt: false
+
+  - beleg: 2b E4 (HYPOTHESE - Durchschlagsregel, Anker (a) und (b))
+    raum: aiact
+    ids: [Art. 13 Abs. 1, Art. 13 Abs. 2, Art. 13 Abs. 3, Art. 13 Abs. 3 lit. a, Art. 13 Abs. 3 lit. b,
+          Art. 13 Abs. 3 lit. b Ziff. i, Art. 13 Abs. 3 lit. b Ziff. ii, Art. 13 Abs. 3 lit. b Ziff. iii,
+          Art. 13 Abs. 3 lit. b Ziff. iv, Art. 13 Abs. 3 lit. b Ziff. v, Art. 13 Abs. 3 lit. b Ziff. vi,
+          Art. 13 Abs. 3 lit. b Ziff. vii, Art. 13 Abs. 3 lit. c, Art. 13 Abs. 3 lit. d,
+          Art. 13 Abs. 3 lit. e, Art. 13 Abs. 3 lit. f]
+    setze:
+      verifikation: HYPOTHESE
+      hypothese_grund: >-
+        Anbieterpflicht, fuer den Betreiber in nach der Durchschlagsregel (2b E4): (a) der
+        Wortlaut nennt den Betreiber als Zweck ('damit die Betreiber ...', Abs. 1) und
+        (b) Art. 26 Abs. 1 und 9 verweisen auf Art. 13.
+    bestaetigt: false
+
+  - beleg: 2b E4 (HYPOTHESE - Durchschlagsregel, Anker (a) und (b))
+    raum: aiact
+    ids: [Art. 14 Abs. 1, Art. 14 Abs. 2, Art. 14 Abs. 3, Art. 14 Abs. 3 lit. a, Art. 14 Abs. 3 lit. b,
+          Art. 14 Abs. 4, Art. 14 Abs. 4 lit. a, Art. 14 Abs. 4 lit. b, Art. 14 Abs. 4 lit. c,
+          Art. 14 Abs. 4 lit. d, Art. 14 Abs. 4 lit. e]
+    setze:
+      verifikation: HYPOTHESE
+      hypothese_grund: >-
+        Anbieterpflicht, fuer den Betreiber in nach der Durchschlagsregel (2b E4): (a) der
+        Wortlaut nennt die Personen, denen die Aufsicht uebertragen wurde (Abs. 4), und
+        (b) Art. 26 Abs. 2 verweist auf Art. 14.
+    bestaetigt: false
+
+  - beleg: 2b E4 (HYPOTHESE - Durchschlagsregel, kein Anker benannt)
+    raum: aiact
+    ids: [Art. 15 Abs. 1, Art. 15 Abs. 3, Art. 15 Abs. 4 UAbs. 1 Satz 1, Art. 15 Abs. 4 UAbs. 1 Satz 2,
+          Art. 15 Abs. 4 UAbs. 2 Satz 1, Art. 15 Abs. 4 UAbs. 3 Satz 1, Art. 15 Abs. 5, Art. 25 Abs. 2]
+    setze:
+      verifikation: HYPOTHESE
+      hypothese_grund: >-
+        Anbieterpflicht mit Durchschlag auf den Betreiber (2b E4); die Regel nennt fuer
+        diesen Artikel weder Anker (a) noch (b). Ob einer traegt, prueft 2c (Leitfrage Q9).
+    bestaetigt: false
+
+  - beleg: 2b E4 (HYPOTHESE - Durchschlagsregel, Anker (b))
+    raum: aiact
+    ids: [Art. 73 Abs. 1, Art. 73 Abs. 2 UAbs. 1 Satz 1, Art. 73 Abs. 2 UAbs. 2 Satz 1, Art. 73 Abs. 3,
+          Art. 73 Abs. 4, Art. 73 Abs. 9]
+    setze:
+      verifikation: HYPOTHESE
+      hypothese_grund: >-
+        Anbieterpflicht, fuer den Betreiber in nach der Durchschlagsregel (2b E4): (b)
+        Art. 26 Abs. 5 verweist auf Art. 73.
+    bestaetigt: false
+
+# ── Schritt 2b, E5: steuernde Normen (scope in, befund nicht_einschlaegig) ───
+# verifikation bleibt offen: E5 entscheidet scope und befund, nicht die Stufe.
+
+  - beleg: 2b E5 (steuernde Norm)
+    raum: aiact
+    ids: [Art. 2 Abs. 1 lit. b]
+    setze:
+      scope: in
+      scope_grund: Steuernde Norm (T-13 Raster, Ausnahme von Schritt 3) - entscheidet, dass Betreiber ueberhaupt erfasst sind.
+      befund: nicht_einschlaegig
+      befund_grund: Steuernd, begruendet keine eigene pruefbare Pflicht.
+      verifikation: null
+    bestaetigt: false
+
+  - beleg: 2b E5 (steuernde Norm)
+    raum: aiact
+    ids: [Art. 3 Nr. 4, Art. 3 Nr. 8, Art. 3 Nr. 23, Art. 3 Nr. 49]
+    setze:
+      scope: in
+      scope_grund: >-
+        Steuernde Begriffsbestimmung (T-13 Raster, Ausnahme von Schritt 3) - Betreiber,
+        Akteur, wesentliche Veraenderung, schwerwiegender Vorfall; genutzt von G-PRE-01,
+        G-OPS-02 und G-OPS-06.
+      befund: nicht_einschlaegig
+      befund_grund: Begriffsbestimmung, begruendet keine eigene pruefbare Pflicht.
+      verifikation: null
+    bestaetigt: false
+
+  - beleg: 2b E5 (steuernde Norm)
+    raum: aiact
+    ids: [Art. 6 Abs. 2, Art. 6 Abs. 3, Art. 6 Abs. 3 lit. a, Art. 6 Abs. 3 lit. b, Art. 6 Abs. 3 lit. c,
+          Art. 6 Abs. 3 lit. d]
+    setze:
+      scope: in
+      scope_grund: Steuernde Norm (T-13 Raster, Ausnahme von Schritt 3) - Hochrisiko-Einstufung, die G-PRE-01 prueft.
+      befund: nicht_einschlaegig
+      befund_grund: Einstufungsregel, begruendet keine eigene pruefbare Pflicht.
+      verifikation: null
+    bestaetigt: false
+
+  - beleg: 2b E5 (steuernde Norm)
+    raum: aiact
+    ids: [Anhang III Nr. 2]
+    setze:
+      scope: in
+      scope_grund: Steuernde Norm (T-13 Raster, Ausnahme von Schritt 3) - Einstufung kritische Infrastruktur, auf der das Vorhaben ruht (G-PRE-01).
+      befund: nicht_einschlaegig
+      befund_grund: Einstufung, begruendet keine eigene pruefbare Pflicht.
+    bestaetigt: false
+
+  - beleg: 2b E5 (steuernde Norm)
+    raum: omnibus
+    ids: [Art. 3 Nr. 14 n.F., Art. 6 Abs. 1a n.F., Art. 6 Abs. 1b n.F., Art. 6 Abs. 1c n.F.]
+    setze:
+      scope: in
+      scope_grund: Steuernde Norm (T-13 Raster, Ausnahme von Schritt 3) - Sicherheitsbauteil und seine Klarstellung, geprueft von G-PRE-01/C-A3 bis C-A6.
+      befund: nicht_einschlaegig
+      befund_grund: Begriffsbestimmung bzw. Klarstellung, begruendet keine eigene pruefbare Pflicht.
+    bestaetigt: false
+
+  - beleg: 2b E5 (steuernde Norm, Stichtage P0)
+    raum: omnibus
+    ids: [Art. 113 Abs. 3 lit. a n.F., Art. 113 Abs. 3 lit. c n.F., Art. 113 Abs. 3 lit. c Ziff. i n.F.]
+    setze:
+      scope: in
+      scope_grund: Steuernde Norm (T-13 Raster, Ausnahme von Schritt 3) - Geltungsbeginn; lit. c Ziff. i setzt den 2. Dezember 2027 fuer Anhang III (P0).
+      befund: nicht_einschlaegig
+      befund_grund: Stichtag, begruendet keine eigene pruefbare Pflicht.
+    bestaetigt: false
+
+  - beleg: 2b E5 (Erlaubnis)
+    raum: omnibus
+    ids: [Art. 4a Abs. 2 n.F.]
+    setze:
+      scope: in
+      scope_grund: Richtet sich an Betreiber von Hochrisiko-KI-Systemen; R013 stuetzt sich darauf.
+      befund: nicht_einschlaegig
+      befund_grund: Erlaubnis - Betreiber duerfen ausnahmsweise besondere Kategorien personenbezogener Daten verarbeiten; keine Pflicht.
+    bestaetigt: false
+
+# ── Schritt 2b, E6: Omnibus-Feld berichtigt ──────────────────────────────────
+
+  - beleg: 2b E6 (Omnibus-Feld, Art. 4 auf den neuen Wortlaut)
+    raum: aiact
+    ids: [Art. 4]
+    setze:
+      pflicht: >-
+        Anbieter und Betreiber ergreifen Massnahmen, um die Entwicklung der KI-Kompetenz
+        ihres Personals und anderer in ihrem Auftrag mit Betrieb und Nutzung befasster
+        Personen zu unterstuetzen (Art. 4 Abs. 1 n.F.); ein bestimmtes Kompetenzniveau
+        muessen sie nicht garantieren.
+      omnibus: >-
+        geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 5 - Art. 4 neu gefasst. Abs. 1
+        schwaecht die Pflicht ab: statt 'sicherzustellen, dass ... ueber ein ausreichendes
+        Mass an KI-Kompetenz verfuegen' nun 'ergreifen Massnahmen, um die Entwicklung der
+        KI-Kompetenz ... zu unterstuetzen', ausdruecklich ohne Pflicht zu einem bestimmten
+        Niveau. Abs. 2 und 3 neu. Neufassung: Art. 4 n.F. im Omnibus-Pflichtenraum.
+    bestaetigt: true
+
+  - beleg: 2b E6 (Omnibus-Feld)
+    raum: aiact
+    ids: [Art. 56 Abs. 6]
+    setze: {omnibus: 'geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 21 - Abs. 6 neu gefasst (Art. 56 Abs. 6 n.F.).'}
+    bestaetigt: false
+
+  - beleg: 2b E6 (Omnibus-Feld)
+    raum: aiact
+    ids: [Art. 95 Abs. 4]
+    setze: {omnibus: 'geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 35 - Abs. 4 neu gefasst (Art. 95 Abs. 4 n.F.).'}
+    bestaetigt: false
+
+  - beleg: 2b E6 (Omnibus-Feld)
+    raum: aiact
+    ids: [Art. 60 Abs. 2]
+    setze:
+      omnibus: >-
+        geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 24 lit. b - Abs. 2 neu gefasst
+        (Art. 60 Abs. 2 n.F.): neu auch Systeme, die unter Anhang I Abschnitt A fallen.
+    bestaetigt: false
+
+  - beleg: 2b E6 (Omnibus-Feld)
+    raum: aiact
+    ids: [Art. 58 Abs. 2 lit. b]
+    setze: {omnibus: 'unveraendert - Art. 1 Nr. 23 der VO (EU) 2026/1744 aendert Art. 58 Abs. 1 UAbs. 1, nicht Abs. 2.'}
+    bestaetigt: false
+
+  - beleg: 2b E6 (Omnibus-Feld)
+    raum: aiact
+    ids: [Art. 75 Abs. 2]
+    setze:
+      omnibus: >-
+        unveraendert - Art. 1 Nr. 31 der VO (EU) 2026/1744 fasst Ueberschrift und Abs. 1
+        neu und fuegt Abs. 1a-1e und 2a ein; Abs. 2 selbst bleibt.
+    bestaetigt: false
+
+# ── T-14.1: sechs geerbte Zeilen (PO 23.09.2026, Commit 4d09a4d) ─────────────
+
+  - beleg: T-14.1 (geerbte Zeile, P1)
+    raum: aiact
+    ids: [Art. 5 Abs. 1 lit. c Ziff. ii]
+    setze: {befund: luecke}
+    bestaetigt: true
+
+  - beleg: T-14.1 (geerbte Zeile)
+    raum: aiact
+    ids: [Art. 13 Abs. 3 lit. b Ziff. ii]
+    setze: {befund: teilabdeckung, gate: [G-DEP-03, G-DEP-02]}
+    bestaetigt: true
+
+  - beleg: T-14.1 (geerbte Zeile)
+    raum: aiact
+    ids: [Art. 13 Abs. 3 lit. b Ziff. iii]
+    setze: {befund: teilabdeckung, gate: [G-DEP-03]}
+    bestaetigt: true
+
+  - beleg: T-14.1 (geerbte Zeile, P3)
+    raum: aiact
+    ids: [Art. 13 Abs. 3 lit. b Ziff. iv]
+    setze:
+      befund: luecke
+      befund_grund: >-
+        Kein implementierter Check: der einzige passende, G-DEP-03/C-02, ist design_only (P3).
+    bestaetigt: true
+
+  - beleg: T-14.1 (geerbte Zeile, Bezug P4)
+    raum: aiact
+    ids: [Art. 13 Abs. 3 lit. b Ziff. vi]
+    setze: {befund: teilabdeckung, gate: [G-DEP-01]}
+    bestaetigt: true
+
+  - beleg: T-14.1 (geerbte Zeile, P3, Bezug P2)
+    raum: aiact
+    ids: [Art. 13 Abs. 3 lit. b Ziff. vii]
+    setze:
+      befund: luecke
+      befund_grund: >-
+        Kein Gate prueft, ob die Informationen zur Interpretation der Ausgaben in der
+        Betriebsanleitung stehen (P3); Bezug zur Kompetenz der Aufsichtsperson (P2).
+    bestaetigt: true
