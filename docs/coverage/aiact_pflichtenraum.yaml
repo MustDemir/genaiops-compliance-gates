@@ -337,22 +337,24 @@ einheiten:
   beleg: b) Betreiber von KI-Systemen, die ihren Sitz in der Union haben oder in der Union befinden;
   adressat: betreiber
   pflicht: Erfasst Betreiber von KI-Systemen mit Sitz oder Standort in der Union.
-  scope: out
-  scope_grund: 'Anwendungsbereichsnorm: stellt fest, dass Betreiber der Verordnung unterliegen; begruendet
-    selbst keine eigene Handlungspflicht (dazu Art. 26 und die weiteren Einzelpflichten).'
-  verifikation: VERIFIZIERT
+  scope: in
+  scope_grund: Steuernde Norm (T-13 Raster, Ausnahme von Schritt 3) - entscheidet, dass Betreiber ueberhaupt
+    erfasst sind.
+  verifikation: null
   hypothese_grund: null
   omnibus: unveraendert (geprueft am verfuegenden Teil).
   requirement: []
   gate: []
-  befund: null
-  befund_grund: null
+  befund: nicht_einschlaegig
+  befund_grund: Steuernd, begruendet keine eigene pruefbare Pflicht.
   po_bestaetigt: false
   uid: Art. 2 Abs. 1 lit. b@264472
   abschnitt: null
   nummer: null
   unterabsatz: null
   ziffer: null
+  po_entscheid:
+  - 2026-09-23 · 2b E5 (steuernde Norm)
 - id: Art. 2 Abs. 1 lit. c
   artikel: '2'
   artikel_titel: Anwendungsbereich
@@ -1003,21 +1005,23 @@ einheiten:
   pflicht: Definiert Kernbegriffe Nr. 1-44 der Verordnung (u.a. KI-System, Risiko, Anbieter, Betreiber,
     Bevollmaechtigter, Einfuehrer, Haendler, Akteur, Inverkehrbringen, Zweckbestimmung, Sicherheitsbauteil,
     Betriebsanleitungen).
-  scope: out
-  scope_grund: Begriffsbestimmung (Art. 3) - definiert Rechtsbegriffe der Verordnung, begruendet selbst
-    keine Handlungspflicht fuer einen Akteur.
-  verifikation: VERIFIZIERT
+  scope: in
+  scope_grund: Steuernde Begriffsbestimmung (T-13 Raster, Ausnahme von Schritt 3) - Betreiber, Akteur,
+    wesentliche Veraenderung, schwerwiegender Vorfall; genutzt von G-PRE-01, G-OPS-02 und G-OPS-06.
+  verifikation: null
   hypothese_grund: null
   omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 4 - Nr. 14 (Sicherheitsbauteil) neu gefasst, Nr.
     14a (KMU) und 14b (kleines Midcap-Unternehmen) neu eingefuegt; die uebrigen in dieser Einheit zusammengefassten
     Definitionen unveraendert (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
   requirement: *id001
   gate: *id002
-  befund: null
-  befund_grund: null
+  befund: nicht_einschlaegig
+  befund_grund: Begriffsbestimmung, begruendet keine eigene pruefbare Pflicht.
   po_bestaetigt: false
   migriert_von: Art. 3@269531
   migration: geerbt
+  po_entscheid:
+  - 2026-09-23 · 2b E5 (steuernde Norm)
 - uid: Art. 3 Nr. 5@270807
   id: Art. 3 Nr. 5
   artikel: '3'
@@ -1141,21 +1145,23 @@ einheiten:
   pflicht: Definiert Kernbegriffe Nr. 1-44 der Verordnung (u.a. KI-System, Risiko, Anbieter, Betreiber,
     Bevollmaechtigter, Einfuehrer, Haendler, Akteur, Inverkehrbringen, Zweckbestimmung, Sicherheitsbauteil,
     Betriebsanleitungen).
-  scope: out
-  scope_grund: Begriffsbestimmung (Art. 3) - definiert Rechtsbegriffe der Verordnung, begruendet selbst
-    keine Handlungspflicht fuer einen Akteur.
-  verifikation: VERIFIZIERT
+  scope: in
+  scope_grund: Steuernde Begriffsbestimmung (T-13 Raster, Ausnahme von Schritt 3) - Betreiber, Akteur,
+    wesentliche Veraenderung, schwerwiegender Vorfall; genutzt von G-PRE-01, G-OPS-02 und G-OPS-06.
+  verifikation: null
   hypothese_grund: null
   omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 4 - Nr. 14 (Sicherheitsbauteil) neu gefasst, Nr.
     14a (KMU) und 14b (kleines Midcap-Unternehmen) neu eingefuegt; die uebrigen in dieser Einheit zusammengefassten
     Definitionen unveraendert (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
   requirement: *id001
   gate: *id002
-  befund: null
-  befund_grund: null
+  befund: nicht_einschlaegig
+  befund_grund: Begriffsbestimmung, begruendet keine eigene pruefbare Pflicht.
   po_bestaetigt: false
   migriert_von: Art. 3@269531
   migration: geerbt
+  po_entscheid:
+  - 2026-09-23 · 2b E5 (steuernde Norm)
 - uid: Art. 3 Nr. 9@271742
   id: Art. 3 Nr. 9
   artikel: '3'
@@ -1663,21 +1669,23 @@ einheiten:
   pflicht: Definiert Kernbegriffe Nr. 1-44 der Verordnung (u.a. KI-System, Risiko, Anbieter, Betreiber,
     Bevollmaechtigter, Einfuehrer, Haendler, Akteur, Inverkehrbringen, Zweckbestimmung, Sicherheitsbauteil,
     Betriebsanleitungen).
-  scope: out
-  scope_grund: Begriffsbestimmung (Art. 3) - definiert Rechtsbegriffe der Verordnung, begruendet selbst
-    keine Handlungspflicht fuer einen Akteur.
-  verifikation: VERIFIZIERT
+  scope: in
+  scope_grund: Steuernde Begriffsbestimmung (T-13 Raster, Ausnahme von Schritt 3) - Betreiber, Akteur,
+    wesentliche Veraenderung, schwerwiegender Vorfall; genutzt von G-PRE-01, G-OPS-02 und G-OPS-06.
+  verifikation: null
   hypothese_grund: null
   omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 4 - Nr. 14 (Sicherheitsbauteil) neu gefasst, Nr.
     14a (KMU) und 14b (kleines Midcap-Unternehmen) neu eingefuegt; die uebrigen in dieser Einheit zusammengefassten
     Definitionen unveraendert (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
   requirement: *id001
   gate: *id002
-  befund: null
-  befund_grund: null
+  befund: nicht_einschlaegig
+  befund_grund: Begriffsbestimmung, begruendet keine eigene pruefbare Pflicht.
   po_bestaetigt: false
   migriert_von: Art. 3@269531
   migration: geerbt
+  po_entscheid:
+  - 2026-09-23 · 2b E5 (steuernde Norm)
 - uid: Art. 3 Nr. 24@275200
   id: Art. 3 Nr. 24
   artikel: '3'
@@ -2629,19 +2637,21 @@ einheiten:
   pflicht: Teil der Definition 'Strafverfolgungsbehoerde', Variante b) (sonstige mit hoheitlichen Befugnissen
     betraute Stelle), sowie Definitionen Nr. 46-48 (Strafverfolgung, Buero fuer Kuenstliche Intelligenz,
     zustaendige nationale Behoerde).
-  scope: out
-  scope_grund: Begriffsbestimmung (Art. 3) - definiert Rechtsbegriffe der Verordnung, begruendet selbst
-    keine Handlungspflicht fuer einen Akteur.
-  verifikation: VERIFIZIERT
+  scope: in
+  scope_grund: Steuernde Begriffsbestimmung (T-13 Raster, Ausnahme von Schritt 3) - Betreiber, Akteur,
+    wesentliche Veraenderung, schwerwiegender Vorfall; genutzt von G-PRE-01, G-OPS-02 und G-OPS-06.
+  verifikation: null
   hypothese_grund: null
   omnibus: unveraendert (geprueft am verfuegenden Teil).
   requirement: *id003
   gate: *id004
-  befund: null
-  befund_grund: null
+  befund: nicht_einschlaegig
+  befund_grund: Begriffsbestimmung, begruendet keine eigene pruefbare Pflicht.
   po_bestaetigt: false
   migriert_von: Art. 3 lit. b@280589
   migration: geerbt
+  po_entscheid:
+  - 2026-09-23 · 2b E5 (steuernde Norm)
 - uid: Art. 3 Nr. 49 lit. a@282190
   id: Art. 3 Nr. 49 lit. a
   artikel: '3'
@@ -3571,30 +3581,24 @@ einheiten:
     sollen, sowie die Personen oder Personengruppen, bei denen die KI-Systeme eingesetzt werden sollen,
     zu berücksichtigen sind. KAPITEL II VERBOTENE PRAKTIKEN IM KI-BEREICH
   adressat: betreiber
-  pflicht: Anbieter UND Betreiber von KI-Systemen ergreifen nach besten Kraeften Massnahmen, um sicherzustellen,
-    dass ihr mit Betrieb/Nutzung des KI-Systems befasstes Personal ueber ausreichende KI-Kompetenz verfuegt
-    (unter Beruecksichtigung von Kenntnissen, Erfahrung, Ausbildung, Einsatzkontext und betroffenen Personengruppen).
+  pflicht: Anbieter und Betreiber ergreifen Massnahmen, um die Entwicklung der KI-Kompetenz ihres Personals
+    und anderer in ihrem Auftrag mit Betrieb und Nutzung befasster Personen zu unterstuetzen (Art. 4 Abs.
+    1 n.F.); ein bestimmtes Kompetenzniveau muessen sie nicht garantieren.
   scope: in
   scope_grund: null
   verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: 'geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 5 - Art. 4 komplett neu gefasst (neu in Abs.
-    1-3 gegliedert): Abs. 1 inhaltsgleich zur Altfassung, ergaenzt um die Klarstellung ''kein Pflicht
-    zur Garantie eines bestimmten Kompetenzniveaus''; Abs. 2 (Unterstuetzung durch Kommission/Mitgliedstaaten,
-    insb. KMU) und Abs. 3 (KI-Gremium-Empfehlungen) sind neu (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).'
+  omnibus: 'geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 5 - Art. 4 neu gefasst. Abs. 1 schwaecht die
+    Pflicht ab: statt ''sicherzustellen, dass ... ueber ein ausreichendes Mass an KI-Kompetenz verfuegen''
+    nun ''ergreifen Massnahmen, um die Entwicklung der KI-Kompetenz ... zu unterstuetzen'', ausdruecklich
+    ohne Pflicht zu einem bestimmten Niveau. Abs. 2 und 3 neu. Neufassung: Art. 4 n.F. im Omnibus-Pflichtenraum.'
   requirement: []
   gate: []
   befund: luecke
-  befund_grund: 'PO-FRAGE: Art. 4 steht nicht auf der in SPEC-06 Abschnitt 3 namentlich genannten Artikelliste
-    (Art. 26, 8-15, 27, 50, 72, 73), ist aber ausweislich des Wortlauts eine unmittelbare, gleichrangig
-    mit dem Anbieter geteilte Betreiberpflicht (KI-Kompetenz des mit Betrieb/Nutzung befassten Personals)
-    - trifft damit unter der PO-Festlegung ''Betreiberpflichten vollstaendig'' (SPEC-06 Abschnitt 3 Nr.
-    1) grundsaetzlich zu, auch wenn nicht einzeln aufgefuehrt. Kein Requirement/Gate im Katalog (R001-R014,
-    alle gate-definitions/) prueft KI-Kompetenz/Schulungsnachweise des Betreiber-Personals (grep ''Art.
-    4'', ''KI-Kompetenz'' ohne Treffer) - echte Luecke. PO-Entscheidung noetig: (a) faellt Art. 4 in den
-    Scope dieser Deckungsanalyse trotz Nichtnennung in SPEC-06 Abschnitt 3? (b) falls ja: eigenes Requirement
-    fuer Nachweis der KI-Kompetenz-Massnahmen (z. B. Schulungsnachweis, Rollenprofil) erwaegen.'
-  po_bestaetigt: false
+  befund_grund: Kein Requirement und kein Gate prueft Massnahmen zur KI-Kompetenz des Personals. Geprueft
+    wird nach der Neufassung, ob Massnahmen zur Unterstuetzung der Kompetenzentwicklung je Aufsichtsrolle
+    bestehen - nicht, ob ein Niveau erreicht ist (P2, R016).
+  po_bestaetigt: true
   uid: Art. 4@288967
   abschnitt: null
   nummer: null
@@ -3605,6 +3609,10 @@ einheiten:
   - Art. 4 Abs. 1 n.F.@83595
   - Art. 4 Abs. 2 n.F.@84235
   - Art. 4 Abs. 3 n.F.@84646
+  po_entscheid:
+  - 2026-09-23 · 2b E2 (P2 KI-Kompetenz)
+  - 2026-09-23 · 2b E4 (VERIFIZIERT - Betreiber in der Einheit oder ihrem Einleitungssatz genannt)
+  - 2026-09-23 · 2b E6 (Omnibus-Feld, Art. 4 auf den neuen Wortlaut)
 - id: Art. 5 Abs. 1
   artikel: '5'
   artikel_titel: Verbotene Praktiken im KI-Bereich
@@ -3675,12 +3683,15 @@ einheiten:
     im Katalog prueft, ob ein Betreiber-eingesetztes KI-System unter eine der Art.-5-Verbotstatbestaende
     faellt (grep 'Art. 5' in requirements/, gate-definitions/ ohne Treffer) - echte Luecke, kein Compliance-by-Design-Check
     gegen verbotene Praktiken.
-  po_bestaetigt: false
+  po_bestaetigt: true
   uid: Art. 5 Abs. 1 lit. a@289659
   abschnitt: null
   nummer: null
   unterabsatz: null
   ziffer: null
+  po_entscheid:
+  - 2026-09-23 · 2b E2 (P1 Verbote)
+  - 2026-09-23 · 2b E4 (VERIFIZIERT - Betreiber in der Einheit oder ihrem Einleitungssatz genannt)
 - id: Art. 5 Abs. 1 lit. b
   artikel: '5'
   artikel_titel: Verbotene Praktiken im KI-Bereich
@@ -3713,12 +3724,15 @@ einheiten:
   befund: luecke
   befund_grund: 'Wie Art. 5 Abs. 1 lit. a: kein Gate prueft Art.-5-Verbotstatbestaende gegen ein vom Betreiber
     eingesetztes System.'
-  po_bestaetigt: false
+  po_bestaetigt: true
   uid: Art. 5 Abs. 1 lit. b@290387
   abschnitt: null
   nummer: null
   unterabsatz: null
   ziffer: null
+  po_entscheid:
+  - 2026-09-23 · 2b E2 (P1 Verbote)
+  - 2026-09-23 · 2b E4 (VERIFIZIERT - Betreiber in der Einheit oder ihrem Einleitungssatz genannt)
 - id: Art. 5 Abs. 1 lit. c
   artikel: '5'
   artikel_titel: Verbotene Praktiken im KI-Bereich
@@ -3751,12 +3765,15 @@ einheiten:
   befund: luecke
   befund_grund: 'Wie Art. 5 Abs. 1 lit. a: kein Gate prueft Art.-5-Verbotstatbestaende gegen ein vom Betreiber
     eingesetztes System.'
-  po_bestaetigt: false
+  po_bestaetigt: true
   uid: Art. 5 Abs. 1 lit. c@290974
   abschnitt: null
   nummer: null
   unterabsatz: null
   ziffer: null
+  po_entscheid:
+  - 2026-09-23 · 2b E2 (P1 Verbote)
+  - 2026-09-23 · 2b E4 (VERIFIZIERT - Betreiber in der Einheit oder ihrem Einleitungssatz genannt)
 - uid: Art. 5 Abs. 1 lit. c Ziff. i@291402
   id: Art. 5 Abs. 1 lit. c Ziff. i
   artikel: '5'
@@ -3791,9 +3808,12 @@ einheiten:
   befund: luecke
   befund_grund: 'Teil desselben Social-Scoring-Verbots wie lit. c - dieselbe Luecke: kein Gate prueft
     dagegen.'
-  po_bestaetigt: false
+  po_bestaetigt: true
   migriert_von: Art. 5 Abs. 1 lit. i@291402
   migration: kennung_geaendert
+  po_entscheid:
+  - 2026-09-23 · 2b E2 (P1 Verbote)
+  - 2026-09-23 · 2b E4 (VERIFIZIERT - Betreiber in der Einheit oder ihrem Einleitungssatz genannt)
 - uid: Art. 5 Abs. 1 lit. c Ziff. ii@291652
   id: Art. 5 Abs. 1 lit. c Ziff. ii
   artikel: '5'
@@ -3828,9 +3848,12 @@ einheiten:
   befund: luecke
   befund_grund: 'Teil desselben Social-Scoring-Verbots wie lit. c - dieselbe Luecke: kein Gate prueft
     dagegen.'
-  po_bestaetigt: false
+  po_bestaetigt: true
   migriert_von: Art. 5 Abs. 1 lit. i@291402
   migration: geerbt
+  po_entscheid:
+  - 2026-09-23 · 2b E4 (VERIFIZIERT - Betreiber in der Einheit oder ihrem Einleitungssatz genannt)
+  - 2026-09-23 · T-14.1 (geerbte Zeile, P1)
 - id: Art. 5 Abs. 1 lit. d
   artikel: '5'
   artikel_titel: Verbotene Praktiken im KI-Bereich
@@ -3866,12 +3889,15 @@ einheiten:
   befund: luecke
   befund_grund: 'Wie lit. a-c: kein Gate prueft Art.-5-Verbotstatbestaende; fuer den Redispatch-Anwendungsfall
     zudem thematisch fernliegend, aber nicht kategorial ausgeschlossen wie lit. e-g.'
-  po_bestaetigt: false
+  po_bestaetigt: true
   uid: Art. 5 Abs. 1 lit. d@291885
   abschnitt: null
   nummer: null
   unterabsatz: null
   ziffer: null
+  po_entscheid:
+  - 2026-09-23 · 2b E2 (P1 Verbote)
+  - 2026-09-23 · 2b E4 (VERIFIZIERT - Betreiber in der Einheit oder ihrem Einleitungssatz genannt)
 - id: Art. 5 Abs. 1 lit. e
   artikel: '5'
   artikel_titel: Verbotene Praktiken im KI-Bereich
@@ -3898,16 +3924,19 @@ einheiten:
     vermerkt.'
   requirement: []
   gate: []
-  befund: nicht_einschlaegig
-  befund_grund: Das Verbot bindet grundsaetzlich auch einen 'verwendenden' Betreiber, das Redispatch-System
-    (Anhang III Nr. 2, Netzsteuerung) erstellt oder erweitert jedoch keine Gesichtserkennungsdatenbank
-    durch Scraping - kategorial ausserhalb des Anwendungsfalls, analog Art. 26 Abs. 8/10.
-  po_bestaetigt: false
+  befund: luecke
+  befund_grund: 'Das Verbot trifft jede Verwendung, auch durch den Betreiber - kein Adressat- oder Ausnahme-out.
+    Ob das eigene System es tut, ist eine Tatsachenfrage ueber das System, keine Normfrage; genau dafuer
+    sind Gates da. Massnahme: ein Art.-5-Screening in G-PRE-01 fuer alle Verbote (P1).'
+  po_bestaetigt: true
   uid: Art. 5 Abs. 1 lit. e@292637
   abschnitt: null
   nummer: null
   unterabsatz: null
   ziffer: null
+  po_entscheid:
+  - 2026-09-23 · 2a Gruppe D (Verbote Art. 5 als Luecke, P1)
+  - 2026-09-23 · 2b E4 (VERIFIZIERT - Betreiber in der Einheit oder ihrem Einleitungssatz genannt)
 - id: Art. 5 Abs. 1 lit. f
   artikel: '5'
   artikel_titel: Verbotene Praktiken im KI-Bereich
@@ -3935,16 +3964,19 @@ einheiten:
     vermerkt.'
   requirement: []
   gate: []
-  befund: nicht_einschlaegig
-  befund_grund: Der Betreiber (Netzbetreiber als Arbeitgeber) faellt theoretisch unter das Verbot, das
-    Redispatch-System selbst ist aber kein Emotionserkennungssystem am Arbeitsplatz - kategorial ausserhalb
-    des Anwendungsfalls.
-  po_bestaetigt: false
+  befund: luecke
+  befund_grund: 'Das Verbot trifft jede Verwendung, auch durch den Betreiber - kein Adressat- oder Ausnahme-out.
+    Ob das eigene System es tut, ist eine Tatsachenfrage ueber das System, keine Normfrage; genau dafuer
+    sind Gates da. Massnahme: ein Art.-5-Screening in G-PRE-01 fuer alle Verbote (P1).'
+  po_bestaetigt: true
   uid: Art. 5 Abs. 1 lit. f@292915
   abschnitt: null
   nummer: null
   unterabsatz: null
   ziffer: null
+  po_entscheid:
+  - 2026-09-23 · 2a Gruppe D (Verbote Art. 5 als Luecke, P1)
+  - 2026-09-23 · 2b E4 (VERIFIZIERT - Betreiber in der Einheit oder ihrem Einleitungssatz genannt)
 - id: Art. 5 Abs. 1 lit. g
   artikel: '5'
   artikel_titel: Verbotene Praktiken im KI-Bereich
@@ -3976,15 +4008,19 @@ einheiten:
     vermerkt.'
   requirement: []
   gate: []
-  befund: nicht_einschlaegig
-  befund_grund: Das Redispatch-System verarbeitet keine biometrischen Daten zur Kategorisierung natuerlicher
-    Personen - kategorial ausserhalb des Anwendungsfalls.
-  po_bestaetigt: false
+  befund: luecke
+  befund_grund: 'Das Verbot trifft jede Verwendung, auch durch den Betreiber - kein Adressat- oder Ausnahme-out.
+    Ob das eigene System es tut, ist eine Tatsachenfrage ueber das System, keine Normfrage; genau dafuer
+    sind Gates da. Massnahme: ein Art.-5-Screening in G-PRE-01 fuer alle Verbote (P1).'
+  po_bestaetigt: true
   uid: Art. 5 Abs. 1 lit. g@293274
   abschnitt: null
   nummer: null
   unterabsatz: null
   ziffer: null
+  po_entscheid:
+  - 2026-09-23 · 2a Gruppe D (Verbote Art. 5 als Luecke, P1)
+  - 2026-09-23 · 2b E4 (VERIFIZIERT - Betreiber in der Einheit oder ihrem Einleitungssatz genannt)
 - id: Art. 5 Abs. 1 lit. h
   artikel: '5'
   artikel_titel: Verbotene Praktiken im KI-Bereich
@@ -4595,24 +4631,25 @@ einheiten:
   adressat: anbieter
   pflicht: Zusaetzlich zu Abs. 1 gelten auch die in Anhang III genannten KI-Systeme als hochriskant (Grundlage
     der Einstufung des Redispatch-Anwendungsfalls unter Anhang III Nr. 2).
-  scope: out
-  scope_grund: Klassifizierungsnorm, adressiert den Anbieter bei der Einstufung vor Inverkehrbringen;
-    begruendet selbst keine Betreiberpflicht (die Betreiberpflichten knuepfen erst in Art. 26 an eine
-    bereits erfolgte Hochrisiko-Einstufung an).
-  verifikation: VERIFIZIERT
+  scope: in
+  scope_grund: Steuernde Norm (T-13 Raster, Ausnahme von Schritt 3) - Hochrisiko-Einstufung, die G-PRE-01
+    prueft.
+  verifikation: null
   hypothese_grund: null
   omnibus: unveraendert - VO (EU) 2026/1744 Art. 1 Nr. 8 fuegt lediglich neue Absaetze 1a-1c ein (Klarstellungen
     zu Sicherheitsbauteilen), aendert Abs. 1-8 selbst nicht (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
   requirement: []
   gate: []
-  befund: null
-  befund_grund: null
+  befund: nicht_einschlaegig
+  befund_grund: Einstufungsregel, begruendet keine eigene pruefbare Pflicht.
   po_bestaetigt: false
   uid: Art. 6 Abs. 2@302942
   abschnitt: null
   nummer: null
   unterabsatz: null
   ziffer: null
+  po_entscheid:
+  - 2026-09-23 · 2b E5 (steuernde Norm)
 - id: Art. 6 Abs. 3
   artikel: '6'
   artikel_titel: Einstufungsvorschriften für Hochrisiko-KI-Systeme
@@ -4629,24 +4666,25 @@ einheiten:
   pflicht: Ein in Anhang III genanntes System gilt abweichend NICHT als hochriskant, wenn es kein erhebliches
     Risiko birgt (Ausnahmetatbestaende in lit. a-d), es sei denn, es fuehrt Profiling natuerlicher Personen
     durch.
-  scope: out
-  scope_grund: Klassifizierungsnorm fuer die Hochrisiko-Einstufung (Art. 6) - adressiert den Anbieter
-    (Einstufung vor Inverkehrbringen) bzw. die Kommission (delegierte Rechtsakte); keine im Wortlaut erkennbare
-    Betreiber-Handlungspflicht.
-  verifikation: VERIFIZIERT
+  scope: in
+  scope_grund: Steuernde Norm (T-13 Raster, Ausnahme von Schritt 3) - Hochrisiko-Einstufung, die G-PRE-01
+    prueft.
+  verifikation: null
   hypothese_grund: null
   omnibus: unveraendert - VO (EU) 2026/1744 Art. 1 Nr. 8 fuegt lediglich neue Absaetze 1a-1c ein (Klarstellungen
     zu Sicherheitsbauteilen), aendert Abs. 1-8 selbst nicht (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
   requirement: []
   gate: []
-  befund: null
-  befund_grund: null
+  befund: nicht_einschlaegig
+  befund_grund: Einstufungsregel, begruendet keine eigene pruefbare Pflicht.
   po_bestaetigt: false
   uid: Art. 6 Abs. 3@303075
   abschnitt: null
   nummer: null
   unterabsatz: null
   ziffer: null
+  po_entscheid:
+  - 2026-09-23 · 2b E5 (steuernde Norm)
 - id: Art. 6 Abs. 3 lit. a
   artikel: '6'
   artikel_titel: Einstufungsvorschriften für Hochrisiko-KI-Systeme
@@ -4658,24 +4696,25 @@ einheiten:
   beleg: a) das KI-System ist dazu bestimmt, eine eng gefasste Verfahrensaufgabe durchzuführen;
   adressat: anbieter
   pflicht: 'Ausnahme a): das System fuehrt eine eng gefasste Verfahrensaufgabe durch.'
-  scope: out
-  scope_grund: Klassifizierungsnorm fuer die Hochrisiko-Einstufung (Art. 6) - adressiert den Anbieter
-    (Einstufung vor Inverkehrbringen) bzw. die Kommission (delegierte Rechtsakte); keine im Wortlaut erkennbare
-    Betreiber-Handlungspflicht.
-  verifikation: VERIFIZIERT
+  scope: in
+  scope_grund: Steuernde Norm (T-13 Raster, Ausnahme von Schritt 3) - Hochrisiko-Einstufung, die G-PRE-01
+    prueft.
+  verifikation: null
   hypothese_grund: null
   omnibus: unveraendert - VO (EU) 2026/1744 Art. 1 Nr. 8 fuegt lediglich neue Absaetze 1a-1c ein (Klarstellungen
     zu Sicherheitsbauteilen), aendert Abs. 1-8 selbst nicht (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
   requirement: []
   gate: []
-  befund: null
-  befund_grund: null
+  befund: nicht_einschlaegig
+  befund_grund: Einstufungsregel, begruendet keine eigene pruefbare Pflicht.
   po_bestaetigt: false
   uid: Art. 6 Abs. 3 lit. a@303471
   abschnitt: null
   nummer: null
   unterabsatz: null
   ziffer: null
+  po_entscheid:
+  - 2026-09-23 · 2b E5 (steuernde Norm)
 - id: Art. 6 Abs. 3 lit. b
   artikel: '6'
   artikel_titel: Einstufungsvorschriften für Hochrisiko-KI-Systeme
@@ -4689,24 +4728,25 @@ einheiten:
   adressat: anbieter
   pflicht: 'Ausnahme b): das System verbessert das Ergebnis einer bereits abgeschlossenen menschlichen
     Taetigkeit.'
-  scope: out
-  scope_grund: Klassifizierungsnorm fuer die Hochrisiko-Einstufung (Art. 6) - adressiert den Anbieter
-    (Einstufung vor Inverkehrbringen) bzw. die Kommission (delegierte Rechtsakte); keine im Wortlaut erkennbare
-    Betreiber-Handlungspflicht.
-  verifikation: VERIFIZIERT
+  scope: in
+  scope_grund: Steuernde Norm (T-13 Raster, Ausnahme von Schritt 3) - Hochrisiko-Einstufung, die G-PRE-01
+    prueft.
+  verifikation: null
   hypothese_grund: null
   omnibus: unveraendert - VO (EU) 2026/1744 Art. 1 Nr. 8 fuegt lediglich neue Absaetze 1a-1c ein (Klarstellungen
     zu Sicherheitsbauteilen), aendert Abs. 1-8 selbst nicht (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
   requirement: []
   gate: []
-  befund: null
-  befund_grund: null
+  befund: nicht_einschlaegig
+  befund_grund: Einstufungsregel, begruendet keine eigene pruefbare Pflicht.
   po_bestaetigt: false
   uid: Art. 6 Abs. 3 lit. b@303563
   abschnitt: null
   nummer: null
   unterabsatz: null
   ziffer: null
+  po_entscheid:
+  - 2026-09-23 · 2b E5 (steuernde Norm)
 - id: Art. 6 Abs. 3 lit. c
   artikel: '6'
   artikel_titel: Einstufungsvorschriften für Hochrisiko-KI-Systeme
@@ -4721,24 +4761,25 @@ einheiten:
   adressat: anbieter
   pflicht: 'Ausnahme c): das System erkennt Entscheidungsmuster/Abweichungen, ohne die menschliche Bewertung
     ohne Ueberpruefung zu ersetzen.'
-  scope: out
-  scope_grund: Klassifizierungsnorm fuer die Hochrisiko-Einstufung (Art. 6) - adressiert den Anbieter
-    (Einstufung vor Inverkehrbringen) bzw. die Kommission (delegierte Rechtsakte); keine im Wortlaut erkennbare
-    Betreiber-Handlungspflicht.
-  verifikation: VERIFIZIERT
+  scope: in
+  scope_grund: Steuernde Norm (T-13 Raster, Ausnahme von Schritt 3) - Hochrisiko-Einstufung, die G-PRE-01
+    prueft.
+  verifikation: null
   hypothese_grund: null
   omnibus: unveraendert - VO (EU) 2026/1744 Art. 1 Nr. 8 fuegt lediglich neue Absaetze 1a-1c ein (Klarstellungen
     zu Sicherheitsbauteilen), aendert Abs. 1-8 selbst nicht (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
   requirement: []
   gate: []
-  befund: null
-  befund_grund: null
+  befund: nicht_einschlaegig
+  befund_grund: Einstufungsregel, begruendet keine eigene pruefbare Pflicht.
   po_bestaetigt: false
   uid: Art. 6 Abs. 3 lit. c@303683
   abschnitt: null
   nummer: null
   unterabsatz: null
   ziffer: null
+  po_entscheid:
+  - 2026-09-23 · 2b E5 (steuernde Norm)
 - id: Art. 6 Abs. 3 lit. d
   artikel: '6'
   artikel_titel: Einstufungsvorschriften für Hochrisiko-KI-Systeme
@@ -4754,24 +4795,25 @@ einheiten:
   adressat: anbieter
   pflicht: 'Ausnahme d): das System fuehrt eine vorbereitende Aufgabe fuer eine Anhang-III-relevante Bewertung
     durch; Profiling natuerlicher Personen schliesst die Ausnahme stets aus.'
-  scope: out
-  scope_grund: Klassifizierungsnorm fuer die Hochrisiko-Einstufung (Art. 6) - adressiert den Anbieter
-    (Einstufung vor Inverkehrbringen) bzw. die Kommission (delegierte Rechtsakte); keine im Wortlaut erkennbare
-    Betreiber-Handlungspflicht.
-  verifikation: VERIFIZIERT
+  scope: in
+  scope_grund: Steuernde Norm (T-13 Raster, Ausnahme von Schritt 3) - Hochrisiko-Einstufung, die G-PRE-01
+    prueft.
+  verifikation: null
   hypothese_grund: null
   omnibus: unveraendert - VO (EU) 2026/1744 Art. 1 Nr. 8 fuegt lediglich neue Absaetze 1a-1c ein (Klarstellungen
     zu Sicherheitsbauteilen), aendert Abs. 1-8 selbst nicht (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
   requirement: []
   gate: []
-  befund: null
-  befund_grund: null
+  befund: nicht_einschlaegig
+  befund_grund: Einstufungsregel, begruendet keine eigene pruefbare Pflicht.
   po_bestaetigt: false
   uid: Art. 6 Abs. 3 lit. d@303969
   abschnitt: null
   nummer: null
   unterabsatz: null
   ziffer: null
+  po_entscheid:
+  - 2026-09-23 · 2b E5 (steuernde Norm)
 - id: Art. 6 Abs. 4
   artikel: '6'
   artikel_titel: Einstufungsvorschriften für Hochrisiko-KI-Systeme
@@ -6017,8 +6059,9 @@ einheiten:
     zu beruecksichtigen sind.
   scope: in
   scope_grund: null
-  verifikation: VERIFIZIERT
-  hypothese_grund: null
+  verifikation: HYPOTHESE
+  hypothese_grund: 'Anbieterpflicht, fuer den Betreiber in nach der Durchschlagsregel (2b E4): der Wortlaut
+    nennt den Betreiber als Empfaenger (''schult gegebenenfalls die Betreiber'').'
   omnibus: 'unveraendert - Art. 9 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
     (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf: die Liste geaenderter Artikel geht
     von Nr. 8 [Art. 6] auf Nr. 9 [Art. 10] ueber).'
@@ -6032,12 +6075,15 @@ einheiten:
     - kein Gate prueft, ob Betreiber-Personal tatsaechlich geschult wurde. Da ''gegebenenfalls'' (konditional)
     formuliert ist, waere selbst ein Nachweis der Konditionsprüfung (wann ist Schulung erforderlich) ein
     sinnvoller Ansatzpunkt fuer ein spaeteres Requirement.'
-  po_bestaetigt: false
+  po_bestaetigt: true
   uid: Art. 9 Abs. 5 lit. c@314843
   abschnitt: null
   nummer: null
   unterabsatz: null
   ziffer: null
+  po_entscheid:
+  - 2026-09-23 · 2b E2 (P2 KI-Kompetenz)
+  - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, Anker (a) Wortlaut nennt den Betreiber)
 - id: Art. 9 Abs. 6
   artikel: '9'
   artikel_titel: Risikomanagementsystem
@@ -7380,8 +7426,10 @@ einheiten:
     muss es Anbietern UND Betreibern ermoeglichen, ihre Abschnitt-3-Pflichten zu erfuellen.
   scope: in
   scope_grund: null
-  verifikation: VERIFIZIERT
-  hypothese_grund: null
+  verifikation: HYPOTHESE
+  hypothese_grund: 'Anbieterpflicht, fuer den Betreiber in nach der Durchschlagsregel (2b E4): (a) der
+    Wortlaut nennt den Betreiber als Zweck (''damit die Betreiber ...'', Abs. 1) und (b) Art. 26 Abs.
+    1 und 9 verweisen auf Art. 13.'
   omnibus: unveraendert - Art. 13 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
     (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf; SPEC-06 Abschnitt 2 haelt das ebenso
     fest).
@@ -7402,6 +7450,8 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  po_entscheid:
+  - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, Anker (a) und (b))
 - id: Art. 13 Abs. 2
   artikel: '13'
   artikel_titel: Transparenz und Bereitstellung von Informationen für die Betreiber
@@ -7420,8 +7470,10 @@ einheiten:
     relevante, barrierefrei zugaengliche und verstaendliche Informationen enthalten.
   scope: in
   scope_grund: null
-  verifikation: VERIFIZIERT
-  hypothese_grund: null
+  verifikation: HYPOTHESE
+  hypothese_grund: 'Anbieterpflicht, fuer den Betreiber in nach der Durchschlagsregel (2b E4): (a) der
+    Wortlaut nennt den Betreiber als Zweck (''damit die Betreiber ...'', Abs. 1) und (b) Art. 26 Abs.
+    1 und 9 verweisen auf Art. 13.'
   omnibus: unveraendert - Art. 13 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
     (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf; SPEC-06 Abschnitt 2 haelt das ebenso
     fest).
@@ -7439,6 +7491,8 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  po_entscheid:
+  - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, Anker (a) und (b))
 - id: Art. 13 Abs. 3
   artikel: '13'
   artikel_titel: Transparenz und Bereitstellung von Informationen für die Betreiber
@@ -7452,8 +7506,10 @@ einheiten:
   pflicht: Die Betriebsanleitungen enthalten mindestens die in lit. a-f genannten Informationen.
   scope: in
   scope_grund: null
-  verifikation: VERIFIZIERT
-  hypothese_grund: null
+  verifikation: HYPOTHESE
+  hypothese_grund: 'Anbieterpflicht, fuer den Betreiber in nach der Durchschlagsregel (2b E4): (a) der
+    Wortlaut nennt den Betreiber als Zweck (''damit die Betreiber ...'', Abs. 1) und (b) Art. 26 Abs.
+    1 und 9 verweisen auf Art. 13.'
   omnibus: unveraendert - Art. 13 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
     (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf; SPEC-06 Abschnitt 2 haelt das ebenso
     fest).
@@ -7469,6 +7525,8 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  po_entscheid:
+  - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, Anker (a) und (b))
 - id: Art. 13 Abs. 3 lit. a
   artikel: '13'
   artikel_titel: Transparenz und Bereitstellung von Informationen für die Betreiber
@@ -7482,8 +7540,10 @@ einheiten:
   pflicht: Name und Kontaktangaben des Anbieters (sowie ggf. seines Bevollmaechtigten).
   scope: in
   scope_grund: null
-  verifikation: VERIFIZIERT
-  hypothese_grund: null
+  verifikation: HYPOTHESE
+  hypothese_grund: 'Anbieterpflicht, fuer den Betreiber in nach der Durchschlagsregel (2b E4): (a) der
+    Wortlaut nennt den Betreiber als Zweck (''damit die Betreiber ...'', Abs. 1) und (b) Art. 26 Abs.
+    1 und 9 verweisen auf Art. 13.'
   omnibus: unveraendert - Art. 13 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
     (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf; SPEC-06 Abschnitt 2 haelt das ebenso
     fest).
@@ -7501,6 +7561,8 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  po_entscheid:
+  - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, Anker (a) und (b))
 - id: Art. 13 Abs. 3 lit. b
   artikel: '13'
   artikel_titel: Transparenz und Bereitstellung von Informationen für die Betreiber
@@ -7515,8 +7577,10 @@ einheiten:
     Art. 13 Abs. 3 lit. i und lit. v erfasst).
   scope: in
   scope_grund: null
-  verifikation: VERIFIZIERT
-  hypothese_grund: null
+  verifikation: HYPOTHESE
+  hypothese_grund: 'Anbieterpflicht, fuer den Betreiber in nach der Durchschlagsregel (2b E4): (a) der
+    Wortlaut nennt den Betreiber als Zweck (''damit die Betreiber ...'', Abs. 1) und (b) Art. 26 Abs.
+    1 und 9 verweisen auf Art. 13.'
   omnibus: unveraendert - Art. 13 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
     (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf; SPEC-06 Abschnitt 2 haelt das ebenso
     fest).
@@ -7532,6 +7596,8 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  po_entscheid:
+  - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, Anker (a) und (b))
 - uid: Art. 13 Abs. 3 lit. b Ziff. i@326480
   id: Art. 13 Abs. 3 lit. b Ziff. i
   artikel: '13'
@@ -7553,8 +7619,10 @@ einheiten:
     fuehren koennen; ggf. technische Faehigkeiten zur Erlaeuterung der Ausgaben.
   scope: in
   scope_grund: null
-  verifikation: VERIFIZIERT
-  hypothese_grund: null
+  verifikation: HYPOTHESE
+  hypothese_grund: 'Anbieterpflicht, fuer den Betreiber in nach der Durchschlagsregel (2b E4): (a) der
+    Wortlaut nennt den Betreiber als Zweck (''damit die Betreiber ...'', Abs. 1) und (b) Art. 26 Abs.
+    1 und 9 verweisen auf Art. 13.'
   omnibus: unveraendert - Art. 13 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
     (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
   requirement: &id017
@@ -7572,6 +7640,8 @@ einheiten:
   po_bestaetigt: false
   migriert_von: Art. 13 Abs. 3 lit. i@326480
   migration: kennung_geaendert
+  po_entscheid:
+  - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, Anker (a) und (b))
 - uid: Art. 13 Abs. 3 lit. b Ziff. ii@326512
   id: Art. 13 Abs. 3 lit. b Ziff. ii
   artikel: '13'
@@ -7596,21 +7666,28 @@ einheiten:
     fuehren koennen; ggf. technische Faehigkeiten zur Erlaeuterung der Ausgaben.
   scope: in
   scope_grund: null
-  verifikation: VERIFIZIERT
-  hypothese_grund: null
+  verifikation: HYPOTHESE
+  hypothese_grund: 'Anbieterpflicht, fuer den Betreiber in nach der Durchschlagsregel (2b E4): (a) der
+    Wortlaut nennt den Betreiber als Zweck (''damit die Betreiber ...'', Abs. 1) und (b) Art. 26 Abs.
+    1 und 9 verweisen auf Art. 13.'
   omnibus: unveraendert - Art. 13 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
     (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
   requirement: *id017
-  gate: *id018
+  gate:
+  - G-DEP-03
+  - G-DEP-02
   befund: teilabdeckung
   befund_grund: 'Verknuepft Art. 13 mit Art. 15 (Genauigkeit/Robustheit/Cybersicherheit, G-DEP-02) und
     Art. 9 Abs. 2 (Risiken, G-PRE-01/G-PRE-03 - dort scope: out als Anbieterpflicht erfasst). G-DEP-02
     misst accuracy/safety_score (teils E-0/E-3 gemischt), aber nicht ob diese Werte in der BETRIEBSANLEITUNG
     dokumentiert sind. Die Erlaeuterbarkeits-Faehigkeiten (XAI) sind in G-DEP-03/C-02 als ''design_only''
     gefuehrt - explizit noch nicht implementiert.'
-  po_bestaetigt: false
+  po_bestaetigt: true
   migriert_von: Art. 13 Abs. 3 lit. i@326480
   migration: geerbt
+  po_entscheid:
+  - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, Anker (a) und (b))
+  - 2026-09-23 · T-14.1 (geerbte Zeile)
 - uid: Art. 13 Abs. 3 lit. b Ziff. iii@326874
   id: Art. 13 Abs. 3 lit. b Ziff. iii
   artikel: '13'
@@ -7635,21 +7712,27 @@ einheiten:
     fuehren koennen; ggf. technische Faehigkeiten zur Erlaeuterung der Ausgaben.
   scope: in
   scope_grund: null
-  verifikation: VERIFIZIERT
-  hypothese_grund: null
+  verifikation: HYPOTHESE
+  hypothese_grund: 'Anbieterpflicht, fuer den Betreiber in nach der Durchschlagsregel (2b E4): (a) der
+    Wortlaut nennt den Betreiber als Zweck (''damit die Betreiber ...'', Abs. 1) und (b) Art. 26 Abs.
+    1 und 9 verweisen auf Art. 13.'
   omnibus: unveraendert - Art. 13 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
     (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
   requirement: *id017
-  gate: *id018
+  gate:
+  - G-DEP-03
   befund: teilabdeckung
   befund_grund: 'Verknuepft Art. 13 mit Art. 15 (Genauigkeit/Robustheit/Cybersicherheit, G-DEP-02) und
     Art. 9 Abs. 2 (Risiken, G-PRE-01/G-PRE-03 - dort scope: out als Anbieterpflicht erfasst). G-DEP-02
     misst accuracy/safety_score (teils E-0/E-3 gemischt), aber nicht ob diese Werte in der BETRIEBSANLEITUNG
     dokumentiert sind. Die Erlaeuterbarkeits-Faehigkeiten (XAI) sind in G-DEP-03/C-02 als ''design_only''
     gefuehrt - explizit noch nicht implementiert.'
-  po_bestaetigt: false
+  po_bestaetigt: true
   migriert_von: Art. 13 Abs. 3 lit. i@326480
   migration: geerbt
+  po_entscheid:
+  - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, Anker (a) und (b))
+  - 2026-09-23 · T-14.1 (geerbte Zeile)
 - uid: Art. 13 Abs. 3 lit. b Ziff. iv@327199
   id: Art. 13 Abs. 3 lit. b Ziff. iv
   artikel: '13'
@@ -7672,21 +7755,22 @@ einheiten:
     fuehren koennen; ggf. technische Faehigkeiten zur Erlaeuterung der Ausgaben.
   scope: in
   scope_grund: null
-  verifikation: VERIFIZIERT
-  hypothese_grund: null
+  verifikation: HYPOTHESE
+  hypothese_grund: 'Anbieterpflicht, fuer den Betreiber in nach der Durchschlagsregel (2b E4): (a) der
+    Wortlaut nennt den Betreiber als Zweck (''damit die Betreiber ...'', Abs. 1) und (b) Art. 26 Abs.
+    1 und 9 verweisen auf Art. 13.'
   omnibus: unveraendert - Art. 13 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
     (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
   requirement: *id017
   gate: *id018
-  befund: teilabdeckung
-  befund_grund: 'Verknuepft Art. 13 mit Art. 15 (Genauigkeit/Robustheit/Cybersicherheit, G-DEP-02) und
-    Art. 9 Abs. 2 (Risiken, G-PRE-01/G-PRE-03 - dort scope: out als Anbieterpflicht erfasst). G-DEP-02
-    misst accuracy/safety_score (teils E-0/E-3 gemischt), aber nicht ob diese Werte in der BETRIEBSANLEITUNG
-    dokumentiert sind. Die Erlaeuterbarkeits-Faehigkeiten (XAI) sind in G-DEP-03/C-02 als ''design_only''
-    gefuehrt - explizit noch nicht implementiert.'
-  po_bestaetigt: false
+  befund: luecke
+  befund_grund: 'Kein implementierter Check: der einzige passende, G-DEP-03/C-02, ist design_only (P3).'
+  po_bestaetigt: true
   migriert_von: Art. 13 Abs. 3 lit. i@326480
   migration: geerbt
+  po_entscheid:
+  - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, Anker (a) und (b))
+  - 2026-09-23 · T-14.1 (geerbte Zeile, P3)
 - uid: Art. 13 Abs. 3 lit. b Ziff. v@327376
   id: Art. 13 Abs. 3 lit. b Ziff. v
   artikel: '13'
@@ -7708,8 +7792,10 @@ einheiten:
     und angemessenen Nutzung der Ausgabe durch Betreiber.
   scope: in
   scope_grund: null
-  verifikation: VERIFIZIERT
-  hypothese_grund: null
+  verifikation: HYPOTHESE
+  hypothese_grund: 'Anbieterpflicht, fuer den Betreiber in nach der Durchschlagsregel (2b E4): (a) der
+    Wortlaut nennt den Betreiber als Zweck (''damit die Betreiber ...'', Abs. 1) und (b) Art. 26 Abs.
+    1 und 9 verweisen auf Art. 13.'
   omnibus: unveraendert - Art. 13 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
     (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
   requirement: &id019
@@ -7728,6 +7814,8 @@ einheiten:
   po_bestaetigt: false
   migriert_von: Art. 13 Abs. 3 lit. v@327376
   migration: kennung_geaendert
+  po_entscheid:
+  - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, Anker (a) und (b))
 - uid: Art. 13 Abs. 3 lit. b Ziff. vi@327528
   id: Art. 13 Abs. 3 lit. b Ziff. vi
   artikel: '13'
@@ -7750,12 +7838,15 @@ einheiten:
     und angemessenen Nutzung der Ausgabe durch Betreiber.
   scope: in
   scope_grund: null
-  verifikation: VERIFIZIERT
-  hypothese_grund: null
+  verifikation: HYPOTHESE
+  hypothese_grund: 'Anbieterpflicht, fuer den Betreiber in nach der Durchschlagsregel (2b E4): (a) der
+    Wortlaut nennt den Betreiber als Zweck (''damit die Betreiber ...'', Abs. 1) und (b) Art. 26 Abs.
+    1 und 9 verweisen auf Art. 13.'
   omnibus: unveraendert - Art. 13 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
     (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
   requirement: *id019
-  gate: *id020
+  gate:
+  - G-DEP-01
   befund: teilabdeckung
   befund_grund: Leistung nach Personengruppen ueberschneidet sich mit Bias/Fairness (R013, G-DEP-05, SHOULD);
     Eingabedaten-Spezifikation ueberschneidet sich mit R006/Art. 26 Abs. 4 (dort als 'luecke' erfasst
@@ -7763,9 +7854,12 @@ einheiten:
     prueft, ob diese Angaben tatsaechlich in der Betriebsanleitung STEHEN; die verlinkten Gates pruefen
     die zugrundeliegenden Sachverhalte (Bias-Assessment, Datenherkunft), nicht deren Dokumentation im
     Anleitungsdokument selbst.
-  po_bestaetigt: false
+  po_bestaetigt: true
   migriert_von: Art. 13 Abs. 3 lit. v@327376
   migration: geerbt
+  po_entscheid:
+  - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, Anker (a) und (b))
+  - 2026-09-23 · T-14.1 (geerbte Zeile, Bezug P4)
 - uid: Art. 13 Abs. 3 lit. b Ziff. vii@327770
   id: Art. 13 Abs. 3 lit. b Ziff. vii
   artikel: '13'
@@ -7787,22 +7881,23 @@ einheiten:
     und angemessenen Nutzung der Ausgabe durch Betreiber.
   scope: in
   scope_grund: null
-  verifikation: VERIFIZIERT
-  hypothese_grund: null
+  verifikation: HYPOTHESE
+  hypothese_grund: 'Anbieterpflicht, fuer den Betreiber in nach der Durchschlagsregel (2b E4): (a) der
+    Wortlaut nennt den Betreiber als Zweck (''damit die Betreiber ...'', Abs. 1) und (b) Art. 26 Abs.
+    1 und 9 verweisen auf Art. 13.'
   omnibus: unveraendert - Art. 13 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
     (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
   requirement: *id019
   gate: *id020
-  befund: teilabdeckung
-  befund_grund: Leistung nach Personengruppen ueberschneidet sich mit Bias/Fairness (R013, G-DEP-05, SHOULD);
-    Eingabedaten-Spezifikation ueberschneidet sich mit R006/Art. 26 Abs. 4 (dort als 'luecke' erfasst
-    - G-DEP-01 prueft Trainingsdaten, nicht Eingabedaten-Spezifikationen in der Anleitung). Kein Gate
-    prueft, ob diese Angaben tatsaechlich in der Betriebsanleitung STEHEN; die verlinkten Gates pruefen
-    die zugrundeliegenden Sachverhalte (Bias-Assessment, Datenherkunft), nicht deren Dokumentation im
-    Anleitungsdokument selbst.
-  po_bestaetigt: false
+  befund: luecke
+  befund_grund: Kein Gate prueft, ob die Informationen zur Interpretation der Ausgaben in der Betriebsanleitung
+    stehen (P3); Bezug zur Kompetenz der Aufsichtsperson (P2).
+  po_bestaetigt: true
   migriert_von: Art. 13 Abs. 3 lit. v@327376
   migration: geerbt
+  po_entscheid:
+  - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, Anker (a) und (b))
+  - 2026-09-23 · T-14.1 (geerbte Zeile, P3, Bezug P2)
 - id: Art. 13 Abs. 3 lit. c
   artikel: '13'
   artikel_titel: Transparenz und Bereitstellung von Informationen für die Betreiber
@@ -7818,8 +7913,10 @@ einheiten:
     Konformitaetsbewertung vorab bestimmt hat.
   scope: in
   scope_grund: null
-  verifikation: VERIFIZIERT
-  hypothese_grund: null
+  verifikation: HYPOTHESE
+  hypothese_grund: 'Anbieterpflicht, fuer den Betreiber in nach der Durchschlagsregel (2b E4): (a) der
+    Wortlaut nennt den Betreiber als Zweck (''damit die Betreiber ...'', Abs. 1) und (b) Art. 26 Abs.
+    1 und 9 verweisen auf Art. 13.'
   omnibus: unveraendert - Art. 13 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
     (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
   requirement: []
@@ -7828,12 +7925,15 @@ einheiten:
   befund_grund: Kein Gate prueft, ob vorab bestimmte Aenderungen aus der urspruenglichen Konformitaetsbewertung
     in der Betriebsanleitung dokumentiert sind; G-DEP-04 prueft nur das VORLIEGEN einer gueltigen Konformitaetserklaerung,
     nicht deren Aenderungshistorie.
-  po_bestaetigt: false
+  po_bestaetigt: true
   uid: Art. 13 Abs. 3 lit. c@327930
   abschnitt: null
   nummer: null
   unterabsatz: null
   ziffer: null
+  po_entscheid:
+  - 2026-09-23 · 2b E2 (P3 Betriebsanleitung)
+  - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, Anker (a) und (b))
 - id: Art. 13 Abs. 3 lit. d
   artikel: '13'
   artikel_titel: Transparenz und Bereitstellung von Informationen für die Betreiber
@@ -7850,8 +7950,10 @@ einheiten:
     Massnahmen zur Erleichterung der Ausgaben-Interpretation durch Betreiber.
   scope: in
   scope_grund: null
-  verifikation: VERIFIZIERT
-  hypothese_grund: null
+  verifikation: HYPOTHESE
+  hypothese_grund: 'Anbieterpflicht, fuer den Betreiber in nach der Durchschlagsregel (2b E4): (a) der
+    Wortlaut nennt den Betreiber als Zweck (''damit die Betreiber ...'', Abs. 1) und (b) Art. 26 Abs.
+    1 und 9 verweisen auf Art. 13.'
   omnibus: unveraendert - Art. 13 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
     (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
   requirement:
@@ -7872,6 +7974,8 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  po_entscheid:
+  - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, Anker (a) und (b))
 - id: Art. 13 Abs. 3 lit. e
   artikel: '13'
   artikel_titel: Transparenz und Bereitstellung von Informationen für die Betreiber
@@ -7888,8 +7992,10 @@ einheiten:
     (inkl. Haeufigkeit, auch Software-Updates) zur Gewaehrleistung des ordnungsgemaessen Funktionierens.
   scope: in
   scope_grund: null
-  verifikation: VERIFIZIERT
-  hypothese_grund: null
+  verifikation: HYPOTHESE
+  hypothese_grund: 'Anbieterpflicht, fuer den Betreiber in nach der Durchschlagsregel (2b E4): (a) der
+    Wortlaut nennt den Betreiber als Zweck (''damit die Betreiber ...'', Abs. 1) und (b) Art. 26 Abs.
+    1 und 9 verweisen auf Art. 13.'
   omnibus: unveraendert - Art. 13 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
     (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
   requirement: []
@@ -7898,12 +8004,15 @@ einheiten:
   befund_grund: Keine Gate-Zuordnung im Katalog. Ressourcen-/Lebensdauer-/Wartungsangaben sind operativ
     relevant fuer den Redispatch-Anwendungsfall (Verfuegbarkeit kritischer Infrastruktur), aber weder
     R007/G-DEP-03 noch ein anderes Requirement prueft ihre Dokumentation.
-  po_bestaetigt: false
+  po_bestaetigt: true
   uid: Art. 13 Abs. 3 lit. e@328337
   abschnitt: null
   nummer: null
   unterabsatz: null
   ziffer: null
+  po_entscheid:
+  - 2026-09-23 · 2b E2 (P3 Betriebsanleitung)
+  - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, Anker (a) und (b))
 - id: Art. 13 Abs. 3 lit. f
   artikel: '13'
   artikel_titel: Transparenz und Bereitstellung von Informationen für die Betreiber
@@ -7920,8 +8029,10 @@ einheiten:
     Protokolle gemaess Art. 12 ordnungsgemaess zu erfassen, zu speichern und auszuwerten.
   scope: in
   scope_grund: null
-  verifikation: VERIFIZIERT
-  hypothese_grund: null
+  verifikation: HYPOTHESE
+  hypothese_grund: 'Anbieterpflicht, fuer den Betreiber in nach der Durchschlagsregel (2b E4): (a) der
+    Wortlaut nennt den Betreiber als Zweck (''damit die Betreiber ...'', Abs. 1) und (b) Art. 26 Abs.
+    1 und 9 verweisen auf Art. 13.'
   omnibus: unveraendert - Art. 13 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
     (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
   requirement:
@@ -7940,6 +8051,8 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  po_entscheid:
+  - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, Anker (a) und (b))
 - id: Art. 14 Abs. 1
   artikel: '14'
   artikel_titel: Menschliche Aufsicht
@@ -7956,8 +8069,10 @@ einheiten:
     von natuerlichen Personen wirksam beaufsichtigt werden koennen (auch mittels Mensch-Maschine-Schnittstelle).
   scope: in
   scope_grund: null
-  verifikation: VERIFIZIERT
-  hypothese_grund: null
+  verifikation: HYPOTHESE
+  hypothese_grund: 'Anbieterpflicht, fuer den Betreiber in nach der Durchschlagsregel (2b E4): (a) der
+    Wortlaut nennt die Personen, denen die Aufsicht uebertragen wurde (Abs. 4), und (b) Art. 26 Abs. 2
+    verweist auf Art. 14.'
   omnibus: 'unveraendert - Art. 14 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
     (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf: die Liste geaenderter Artikel geht
     von Nr. 10 [Art. 11] direkt auf Nr. 11 [Art. 17] ueber).'
@@ -7982,6 +8097,8 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  po_entscheid:
+  - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, Anker (a) und (b))
 - id: Art. 14 Abs. 2
   artikel: '14'
   artikel_titel: Menschliche Aufsicht
@@ -8000,8 +8117,10 @@ einheiten:
     Fehlanwendung, insbesondere wenn Risiken trotz Einhaltung anderer Anforderungen fortbestehen.
   scope: in
   scope_grund: null
-  verifikation: VERIFIZIERT
-  hypothese_grund: null
+  verifikation: HYPOTHESE
+  hypothese_grund: 'Anbieterpflicht, fuer den Betreiber in nach der Durchschlagsregel (2b E4): (a) der
+    Wortlaut nennt die Personen, denen die Aufsicht uebertragen wurde (Abs. 4), und (b) Art. 26 Abs. 2
+    verweist auf Art. 14.'
   omnibus: 'unveraendert - Art. 14 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
     (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf: die Liste geaenderter Artikel geht
     von Nr. 10 [Art. 11] direkt auf Nr. 11 [Art. 17] ueber).'
@@ -8014,12 +8133,15 @@ einheiten:
     Wirksamkeitspruefung wird nicht ausgefuehrt'', ''es gibt keine Eskalation, weil es keine Messung der
     Sterz-Bedingungen (Causal Power, Epistemic Access, Self-Control, Fitting Intentions) gibt''. Kein
     Gate im Katalog prueft, ob Aufsicht wirkt statt nur existiert.'
-  po_bestaetigt: false
+  po_bestaetigt: true
   uid: Art. 14 Abs. 2@329155
   abschnitt: null
   nummer: null
   unterabsatz: null
   ziffer: null
+  po_entscheid:
+  - 2026-09-23 · 2b E2 (P5 Aufsicht wirksam)
+  - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, Anker (a) und (b))
 - id: Art. 14 Abs. 3
   artikel: '14'
   artikel_titel: Menschliche Aufsicht
@@ -8036,8 +8158,10 @@ einheiten:
     und werden durch Vorkehrungen nach lit. a oder b (oder beide) gewaehrleistet.
   scope: in
   scope_grund: null
-  verifikation: VERIFIZIERT
-  hypothese_grund: null
+  verifikation: HYPOTHESE
+  hypothese_grund: 'Anbieterpflicht, fuer den Betreiber in nach der Durchschlagsregel (2b E4): (a) der
+    Wortlaut nennt die Personen, denen die Aufsicht uebertragen wurde (Abs. 4), und (b) Art. 26 Abs. 2
+    verweist auf Art. 14.'
   omnibus: 'unveraendert - Art. 14 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
     (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf: die Liste geaenderter Artikel geht
     von Nr. 10 [Art. 11] direkt auf Nr. 11 [Art. 17] ueber).'
@@ -8057,6 +8181,8 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  po_entscheid:
+  - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, Anker (a) und (b))
 - id: Art. 14 Abs. 3 lit. a
   artikel: '14'
   artikel_titel: Menschliche Aufsicht
@@ -8072,8 +8198,10 @@ einheiten:
     technisch machbar, in das System eingebaute Massnahmen.'
   scope: in
   scope_grund: null
-  verifikation: VERIFIZIERT
-  hypothese_grund: null
+  verifikation: HYPOTHESE
+  hypothese_grund: 'Anbieterpflicht, fuer den Betreiber in nach der Durchschlagsregel (2b E4): (a) der
+    Wortlaut nennt die Personen, denen die Aufsicht uebertragen wurde (Abs. 4), und (b) Art. 26 Abs. 2
+    verweist auf Art. 14.'
   omnibus: 'unveraendert - Art. 14 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
     (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf: die Liste geaenderter Artikel geht
     von Nr. 10 [Art. 11] direkt auf Nr. 11 [Art. 17] ueber).'
@@ -8083,12 +8211,15 @@ einheiten:
   befund_grund: Ob das System eingebaute Aufsichtsvorkehrungen tatsaechlich enthaelt, ist eine Systemzustands-Frage
     (E-2, Cluster-/Produktpruefung); kein Gate im Katalog prueft dies am System selbst - G-OPS-01/G-PRE-05
     pruefen Betreiber-seitige Dokumentation, nicht die vom Anbieter geleistete technische Einbettung.
-  po_bestaetigt: false
+  po_bestaetigt: true
   uid: Art. 14 Abs. 3 lit. a@329795
   abschnitt: null
   nummer: null
   unterabsatz: null
   ziffer: null
+  po_entscheid:
+  - 2026-09-23 · 2b E2 (P5 Aufsicht wirksam)
+  - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, Anker (a) und (b))
 - id: Art. 14 Abs. 3 lit. b
   artikel: '14'
   artikel_titel: Menschliche Aufsicht
@@ -8104,8 +8235,10 @@ einheiten:
     Massnahmen, die dazu geeignet sind, vom Betreiber umgesetzt zu werden.'
   scope: in
   scope_grund: null
-  verifikation: VERIFIZIERT
-  hypothese_grund: null
+  verifikation: HYPOTHESE
+  hypothese_grund: 'Anbieterpflicht, fuer den Betreiber in nach der Durchschlagsregel (2b E4): (a) der
+    Wortlaut nennt die Personen, denen die Aufsicht uebertragen wurde (Abs. 4), und (b) Art. 26 Abs. 2
+    verweist auf Art. 14.'
   omnibus: 'unveraendert - Art. 14 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
     (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf: die Liste geaenderter Artikel geht
     von Nr. 10 [Art. 11] direkt auf Nr. 11 [Art. 17] ueber).'
@@ -8126,6 +8259,8 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  po_entscheid:
+  - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, Anker (a) und (b))
 - id: Art. 14 Abs. 4
   artikel: '14'
   artikel_titel: Menschliche Aufsicht
@@ -8143,8 +8278,10 @@ einheiten:
     in der Lage sind, lit. a-e auszufuehren.
   scope: in
   scope_grund: null
-  verifikation: VERIFIZIERT
-  hypothese_grund: null
+  verifikation: HYPOTHESE
+  hypothese_grund: 'Anbieterpflicht, fuer den Betreiber in nach der Durchschlagsregel (2b E4): (a) der
+    Wortlaut nennt die Personen, denen die Aufsicht uebertragen wurde (Abs. 4), und (b) Art. 26 Abs. 2
+    verweist auf Art. 14.'
   omnibus: 'unveraendert - Art. 14 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
     (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf: die Liste geaenderter Artikel geht
     von Nr. 10 [Art. 11] direkt auf Nr. 11 [Art. 17] ueber).'
@@ -8163,6 +8300,8 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  po_entscheid:
+  - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, Anker (a) und (b))
 - id: Art. 14 Abs. 4 lit. a
   artikel: '14'
   artikel_titel: Menschliche Aufsicht
@@ -8180,8 +8319,10 @@ einheiten:
     Anomalien, Fehlfunktionen und unerwarteter Leistung.
   scope: in
   scope_grund: null
-  verifikation: VERIFIZIERT
-  hypothese_grund: null
+  verifikation: HYPOTHESE
+  hypothese_grund: 'Anbieterpflicht, fuer den Betreiber in nach der Durchschlagsregel (2b E4): (a) der
+    Wortlaut nennt die Personen, denen die Aufsicht uebertragen wurde (Abs. 4), und (b) Art. 26 Abs. 2
+    verweist auf Art. 14.'
   omnibus: 'unveraendert - Art. 14 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
     (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf: die Liste geaenderter Artikel geht
     von Nr. 10 [Art. 11] direkt auf Nr. 11 [Art. 17] ueber).'
@@ -8199,6 +8340,8 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  po_entscheid:
+  - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, Anker (a) und (b))
 - id: Art. 14 Abs. 4 lit. b
   artikel: '14'
   artikel_titel: Menschliche Aufsicht
@@ -8217,8 +8360,10 @@ einheiten:
     auf deren Grundlage Entscheidungen getroffen werden.
   scope: in
   scope_grund: null
-  verifikation: VERIFIZIERT
-  hypothese_grund: null
+  verifikation: HYPOTHESE
+  hypothese_grund: 'Anbieterpflicht, fuer den Betreiber in nach der Durchschlagsregel (2b E4): (a) der
+    Wortlaut nennt die Personen, denen die Aufsicht uebertragen wurde (Abs. 4), und (b) Art. 26 Abs. 2
+    verweist auf Art. 14.'
   omnibus: 'unveraendert - Art. 14 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
     (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf: die Liste geaenderter Artikel geht
     von Nr. 10 [Art. 11] direkt auf Nr. 11 [Art. 17] ueber).'
@@ -8229,12 +8374,15 @@ einheiten:
     adressiert Automatisierungsbias-Bewusstsein oder eine entsprechende Schulung. Fuer den Anwendungsfall
     Redispatch (Leitstellenpersonal uebernimmt haeufig KI-Empfehlungen unter Zeitdruck) potenziell praxisrelevant
     - kein Requirement zieht diese Pflicht heran.
-  po_bestaetigt: false
+  po_bestaetigt: true
   uid: Art. 14 Abs. 4 lit. b@330678
   abschnitt: null
   nummer: null
   unterabsatz: null
   ziffer: null
+  po_entscheid:
+  - 2026-09-23 · 2b E2 (P2 KI-Kompetenz)
+  - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, Anker (a) und (b))
 - id: Art. 14 Abs. 4 lit. c
   artikel: '14'
   artikel_titel: Menschliche Aufsicht
@@ -8250,8 +8398,10 @@ einheiten:
     vorhandener Interpretationsinstrumente und -methoden.
   scope: in
   scope_grund: null
-  verifikation: VERIFIZIERT
-  hypothese_grund: null
+  verifikation: HYPOTHESE
+  hypothese_grund: 'Anbieterpflicht, fuer den Betreiber in nach der Durchschlagsregel (2b E4): (a) der
+    Wortlaut nennt die Personen, denen die Aufsicht uebertragen wurde (Abs. 4), und (b) Art. 26 Abs. 2
+    verweist auf Art. 14.'
   omnibus: 'unveraendert - Art. 14 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
     (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf: die Liste geaenderter Artikel geht
     von Nr. 10 [Art. 11] direkt auf Nr. 11 [Art. 17] ueber).'
@@ -8261,12 +8411,15 @@ einheiten:
   befund_grund: Keine Interpretationsfaehigkeit/-hilfsmittel-Pruefung im Katalog; ueberschneidet sich
     inhaltlich mit Art. 13 Abs. 3 lit. b Ziff. iv/vii (Erlaeuterungs-/Interpretationsinformationen), die
     ebenfalls keinem Gate zugeordnet sind (siehe dort).
-  po_bestaetigt: false
+  po_bestaetigt: true
   uid: Art. 14 Abs. 4 lit. c@331018
   abschnitt: null
   nummer: null
   unterabsatz: null
   ziffer: null
+  po_entscheid:
+  - 2026-09-23 · 2b E2 (P2 KI-Kompetenz)
+  - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, Anker (a) und (b))
 - id: Art. 14 Abs. 4 lit. d
   artikel: '14'
   artikel_titel: Menschliche Aufsicht
@@ -8283,8 +8436,10 @@ einheiten:
     oder seine Ausgabe ausser Acht zu lassen, ausser Kraft zu setzen oder rueckgaengig zu machen.
   scope: in
   scope_grund: null
-  verifikation: VERIFIZIERT
-  hypothese_grund: null
+  verifikation: HYPOTHESE
+  hypothese_grund: 'Anbieterpflicht, fuer den Betreiber in nach der Durchschlagsregel (2b E4): (a) der
+    Wortlaut nennt die Personen, denen die Aufsicht uebertragen wurde (Abs. 4), und (b) Art. 26 Abs. 2
+    verweist auf Art. 14.'
   omnibus: 'unveraendert - Art. 14 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
     (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf: die Liste geaenderter Artikel geht
     von Nr. 10 [Art. 11] direkt auf Nr. 11 [Art. 17] ueber).'
@@ -8303,6 +8458,8 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  po_entscheid:
+  - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, Anker (a) und (b))
 - id: Art. 14 Abs. 4 lit. e
   artikel: '14'
   artikel_titel: Menschliche Aufsicht
@@ -8319,8 +8476,10 @@ einheiten:
     aehnlichen Verfahren unterbrechen, sodass das System sicher zum Stillstand kommt.
   scope: in
   scope_grund: null
-  verifikation: VERIFIZIERT
-  hypothese_grund: null
+  verifikation: HYPOTHESE
+  hypothese_grund: 'Anbieterpflicht, fuer den Betreiber in nach der Durchschlagsregel (2b E4): (a) der
+    Wortlaut nennt die Personen, denen die Aufsicht uebertragen wurde (Abs. 4), und (b) Art. 26 Abs. 2
+    verweist auf Art. 14.'
   omnibus: 'unveraendert - Art. 14 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
     (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf: die Liste geaenderter Artikel geht
     von Nr. 10 [Art. 11] direkt auf Nr. 11 [Art. 17] ueber).'
@@ -8339,6 +8498,8 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  po_entscheid:
+  - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, Anker (a) und (b))
 - id: Art. 14 Abs. 5
   artikel: '14'
   artikel_titel: Menschliche Aufsicht
@@ -8360,24 +8521,25 @@ einheiten:
     allein aufgrund des biometrischen Identifizierungsergebnisses, solange dieses nicht von mindestens
     zwei kompetenten, ausgebildeten und befugten natuerlichen Personen getrennt ueberprueft und bestaetigt
     wurde; Ausnahme fuer Strafverfolgung/Migration/Grenzkontrolle/Asyl bei Unverhaeltnismaessigkeit.
-  scope: in
-  scope_grund: null
+  scope: out
+  scope_grund: Systemtyp - gilt nur fuer Hochrisiko-KI-Systeme nach Anhang III Nr. 1 lit. a (biometrische
+    Fernidentifizierung).
   verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: unveraendert - Art. 14 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
     (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
   requirement: []
   gate: []
-  befund: nicht_einschlaegig
-  befund_grund: Gilt ausschliesslich fuer Hochrisiko-KI-Systeme nach Anhang III Nr. 1 lit. a (biometrische
-    Identifizierung). Der Anwendungsfall Redispatch faellt unter Anhang III Nr. 2 (kritische Infrastruktur)
-    - kategorial nicht einschlaegig, analog Art. 26 Abs. 10 und Art. 26 Abs. 8.
-  po_bestaetigt: false
+  befund: null
+  befund_grund: null
+  po_bestaetigt: true
   uid: Art. 14 Abs. 5@331641
   abschnitt: null
   nummer: null
   unterabsatz: null
   ziffer: null
+  po_entscheid:
+  - 2026-09-23 · 2a Gruppe C (anderer Systemtyp)
 - id: Art. 15 Abs. 1
   artikel: '15'
   artikel_titel: Genauigkeit, Robustheit und Cybersicherheit
@@ -8395,8 +8557,9 @@ einheiten:
     funktionieren.
   scope: in
   scope_grund: null
-  verifikation: VERIFIZIERT
-  hypothese_grund: null
+  verifikation: HYPOTHESE
+  hypothese_grund: Anbieterpflicht mit Durchschlag auf den Betreiber (2b E4); die Regel nennt fuer diesen
+    Artikel weder Anker (a) noch (b). Ob einer traegt, prueft 2c (Leitfrage Q9).
   omnibus: 'unveraendert - Art. 15 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
     (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf: die Liste geaenderter Artikel geht
     von Nr. 10 [Art. 11] direkt auf Nr. 11 [Art. 17] ueber).'
@@ -8421,6 +8584,8 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  po_entscheid:
+  - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, kein Anker benannt)
 - id: Art. 15 Abs. 2
   artikel: '15'
   artikel_titel: Genauigkeit, Robustheit und Cybersicherheit
@@ -8469,8 +8634,9 @@ einheiten:
     in den beigefuegten Betriebsanleitungen angegeben.
   scope: in
   scope_grund: null
-  verifikation: VERIFIZIERT
-  hypothese_grund: null
+  verifikation: HYPOTHESE
+  hypothese_grund: Anbieterpflicht mit Durchschlag auf den Betreiber (2b E4); die Regel nennt fuer diesen
+    Artikel weder Anker (a) noch (b). Ob einer traegt, prueft 2c (Leitfrage Q9).
   omnibus: 'unveraendert - Art. 15 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
     (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf: die Liste geaenderter Artikel geht
     von Nr. 10 [Art. 11] direkt auf Nr. 11 [Art. 17] ueber).'
@@ -8488,6 +8654,8 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  po_entscheid:
+  - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, kein Anker benannt)
 - uid: Art. 15 Abs. 4 UAbs. 1 Satz 1@333325
   id: Art. 15 Abs. 4 UAbs. 1 Satz 1
   artikel: '15'
@@ -8511,8 +8679,9 @@ einheiten:
     muessen das Risiko verzerrter Ausgaben durch Rueckkopplungsschleifen beseitigen oder minimieren.
   scope: in
   scope_grund: null
-  verifikation: VERIFIZIERT
-  hypothese_grund: null
+  verifikation: HYPOTHESE
+  hypothese_grund: Anbieterpflicht mit Durchschlag auf den Betreiber (2b E4); die Regel nennt fuer diesen
+    Artikel weder Anker (a) noch (b). Ob einer traegt, prueft 2c (Leitfrage Q9).
   omnibus: 'unveraendert - Art. 15 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
     (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf: die Liste geaenderter Artikel geht
     von Nr. 10 [Art. 11] direkt auf Nr. 11 [Art. 17] ueber).'
@@ -8530,6 +8699,8 @@ einheiten:
   po_bestaetigt: false
   migriert_von: Art. 15 Abs. 4@333319
   migration: geerbt
+  po_entscheid:
+  - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, kein Anker benannt)
 - uid: Art. 15 Abs. 4 UAbs. 1 Satz 2@333625
   id: Art. 15 Abs. 4 UAbs. 1 Satz 2
   artikel: '15'
@@ -8551,8 +8722,9 @@ einheiten:
     muessen das Risiko verzerrter Ausgaben durch Rueckkopplungsschleifen beseitigen oder minimieren.
   scope: in
   scope_grund: null
-  verifikation: VERIFIZIERT
-  hypothese_grund: null
+  verifikation: HYPOTHESE
+  hypothese_grund: Anbieterpflicht mit Durchschlag auf den Betreiber (2b E4); die Regel nennt fuer diesen
+    Artikel weder Anker (a) noch (b). Ob einer traegt, prueft 2c (Leitfrage Q9).
   omnibus: 'unveraendert - Art. 15 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
     (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf: die Liste geaenderter Artikel geht
     von Nr. 10 [Art. 11] direkt auf Nr. 11 [Art. 17] ueber).'
@@ -8567,6 +8739,8 @@ einheiten:
   po_bestaetigt: false
   migriert_von: Art. 15 Abs. 4@333319
   migration: geerbt
+  po_entscheid:
+  - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, kein Anker benannt)
 - uid: Art. 15 Abs. 4 UAbs. 2 Satz 1@333710
   id: Art. 15 Abs. 4 UAbs. 2 Satz 1
   artikel: '15'
@@ -8589,8 +8763,9 @@ einheiten:
     muessen das Risiko verzerrter Ausgaben durch Rueckkopplungsschleifen beseitigen oder minimieren.
   scope: in
   scope_grund: null
-  verifikation: VERIFIZIERT
-  hypothese_grund: null
+  verifikation: HYPOTHESE
+  hypothese_grund: Anbieterpflicht mit Durchschlag auf den Betreiber (2b E4); die Regel nennt fuer diesen
+    Artikel weder Anker (a) noch (b). Ob einer traegt, prueft 2c (Leitfrage Q9).
   omnibus: 'unveraendert - Art. 15 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
     (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf: die Liste geaenderter Artikel geht
     von Nr. 10 [Art. 11] direkt auf Nr. 11 [Art. 17] ueber).'
@@ -8605,6 +8780,8 @@ einheiten:
   po_bestaetigt: false
   migriert_von: Art. 15 Abs. 4@333319
   migration: geerbt
+  po_entscheid:
+  - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, kein Anker benannt)
 - uid: Art. 15 Abs. 4 UAbs. 3 Satz 1@333868
   id: Art. 15 Abs. 4 UAbs. 3 Satz 1
   artikel: '15'
@@ -8630,8 +8807,9 @@ einheiten:
     muessen das Risiko verzerrter Ausgaben durch Rueckkopplungsschleifen beseitigen oder minimieren.
   scope: in
   scope_grund: null
-  verifikation: VERIFIZIERT
-  hypothese_grund: null
+  verifikation: HYPOTHESE
+  hypothese_grund: Anbieterpflicht mit Durchschlag auf den Betreiber (2b E4); die Regel nennt fuer diesen
+    Artikel weder Anker (a) noch (b). Ob einer traegt, prueft 2c (Leitfrage Q9).
   omnibus: 'unveraendert - Art. 15 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
     (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf: die Liste geaenderter Artikel geht
     von Nr. 10 [Art. 11] direkt auf Nr. 11 [Art. 17] ueber).'
@@ -8646,6 +8824,8 @@ einheiten:
   po_bestaetigt: false
   migriert_von: Art. 15 Abs. 4@333319
   migration: geerbt
+  po_entscheid:
+  - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, kein Anker benannt)
 - id: Art. 15 Abs. 5
   artikel: '15'
   artikel_titel: Genauigkeit, Robustheit und Cybersicherheit
@@ -8670,8 +8850,9 @@ einheiten:
     examples/model evasion sowie Angriffe auf vertrauliche Daten oder Modellmaengel.
   scope: in
   scope_grund: null
-  verifikation: VERIFIZIERT
-  hypothese_grund: null
+  verifikation: HYPOTHESE
+  hypothese_grund: Anbieterpflicht mit Durchschlag auf den Betreiber (2b E4); die Regel nennt fuer diesen
+    Artikel weder Anker (a) noch (b). Ob einer traegt, prueft 2c (Leitfrage Q9).
   omnibus: 'unveraendert - Art. 15 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
     (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf: die Liste geaenderter Artikel geht
     von Nr. 10 [Art. 11] direkt auf Nr. 11 [Art. 17] ueber).'
@@ -8694,6 +8875,8 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  po_entscheid:
+  - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, kein Anker benannt)
 - id: Art. 16
   artikel: '16'
   artikel_titel: Pflichten der Anbieter von Hochrisiko-KI-Systemen
@@ -9943,17 +10126,18 @@ einheiten:
   requirement: []
   gate: []
   befund: luecke
-  befund_grund: 'PO-FRAGE: Art. 20 steht nicht auf der SPEC-06-Abschnitt-3-Artikelliste, enthaelt aber
-    mit ''gemeinsam mit dem meldenden Betreiber'' eine echte Mitwirkungspflicht des Betreibers an der
-    Ursachenuntersuchung nach einer Risikomeldung (Anschlussstueck zu Art. 26 Abs. 5, dort bereits als
-    teilabdeckung erfasst - G-OPS-02). Kein Requirement/Gate bildet die Mitwirkungspflicht an der Anbieter-Ursachenuntersuchung
-    selbst ab (grep ''Art. 20'' ohne Treffer in requirements/, gate-definitions/).'
-  po_bestaetigt: false
+  befund_grund: '''gemeinsam mit dem meldenden Betreiber'' - Mitwirkungspflicht des Betreibers an der
+    Ursachenuntersuchung des Anbieters nach einer Risikomeldung (Anschluss an Art. 26 Abs. 5). Kein Requirement
+    und kein Gate bildet sie ab (P6).'
+  po_bestaetigt: true
   uid: Art. 20 Abs. 2@344106
   abschnitt: null
   nummer: null
   unterabsatz: null
   ziffer: null
+  po_entscheid:
+  - 2026-09-23 · 2b E2 (P6 Vorfall und Behoerden)
+  - 2026-09-23 · 2b E4 (VERIFIZIERT - Betreiber in der Einheit oder ihrem Einleitungssatz genannt)
 - id: Art. 21 Abs. 1
   artikel: '21'
   artikel_titel: Zusammenarbeit mit den zuständigen Behörden
@@ -10852,6 +11036,8 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  po_entscheid:
+  - 2026-09-23 · 2b E4 (VERIFIZIERT - Betreiber in der Einheit oder ihrem Einleitungssatz genannt)
 - id: Art. 25 Abs. 1 lit. a
   artikel: '25'
   artikel_titel: Verantwortlichkeiten entlang der KI-Wertschöpfungskette
@@ -10885,6 +11071,8 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  po_entscheid:
+  - 2026-09-23 · 2b E4 (VERIFIZIERT - Betreiber in der Einheit oder ihrem Einleitungssatz genannt)
 - id: Art. 25 Abs. 1 lit. b
   artikel: '25'
   artikel_titel: Verantwortlichkeiten entlang der KI-Wertschöpfungskette
@@ -10920,6 +11108,8 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  po_entscheid:
+  - 2026-09-23 · 2b E4 (VERIFIZIERT - Betreiber in der Einheit oder ihrem Einleitungssatz genannt)
 - id: Art. 25 Abs. 1 lit. c
   artikel: '25'
   artikel_titel: Verantwortlichkeiten entlang der KI-Wertschöpfungskette
@@ -10954,6 +11144,8 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  po_entscheid:
+  - 2026-09-23 · 2b E4 (VERIFIZIERT - Betreiber in der Einheit oder ihrem Einleitungssatz genannt)
 - id: Art. 25 Abs. 2
   artikel: '25'
   artikel_titel: Verantwortlichkeiten entlang der KI-Wertschöpfungskette
@@ -10977,8 +11169,9 @@ einheiten:
     bereitstellen - ausser der Erstanbieter hat den Uebergang zum Hochrisiko-System ausdruecklich ausgeschlossen.
   scope: in
   scope_grund: null
-  verifikation: VERIFIZIERT
-  hypothese_grund: null
+  verifikation: HYPOTHESE
+  hypothese_grund: Anbieterpflicht mit Durchschlag auf den Betreiber (2b E4); die Regel nennt fuer diesen
+    Artikel weder Anker (a) noch (b). Ob einer traegt, prueft 2c (Leitfrage Q9).
   omnibus: 'GEAENDERT durch VO (EU) 2026/1744 Art. 1 Nr. 12 lit. a: UAbs. 2 zaehlt die Kooperationspflicht
     seit der Aenderung explizit in drei Elemente auf - a) Bereitstellung technischer Unterlagen fuer die
     Art.-16-Bewertung, b) Unterrichtung ueber bekannte Einschraenkungen/Fehlerarten, c) gezielter technischer
@@ -11008,6 +11201,8 @@ einheiten:
   - Art. 25 Abs. 2 lit. a n.F.@95227
   - Art. 25 Abs. 2 lit. b n.F.@95361
   - Art. 25 Abs. 2 lit. c n.F.@95448
+  po_entscheid:
+  - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, kein Anker benannt)
 - id: Art. 25 Abs. 3
   artikel: '25'
   artikel_titel: Verantwortlichkeiten entlang der KI-Wertschöpfungskette
@@ -11230,6 +11425,8 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  po_entscheid:
+  - 2026-09-23 · 2b E4 (VERIFIZIERT - Betreiber in der Einheit oder ihrem Einleitungssatz genannt)
 - id: Art. 26 Abs. 2
   artikel: '26'
   artikel_titel: Pflichten der Betreiber von Hochrisiko-KI-Systemen
@@ -11270,6 +11467,8 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  po_entscheid:
+  - 2026-09-23 · 2b E4 (VERIFIZIERT - Betreiber in der Einheit oder ihrem Einleitungssatz genannt)
 - id: Art. 26 Abs. 3
   artikel: '26'
   artikel_titel: Pflichten der Betreiber von Hochrisiko-KI-Systemen
@@ -11335,12 +11534,15 @@ einheiten:
     der Eingabedaten und keine Persistierung eines Validierungsergebnisses. runtime_coverage in R006 bereits
     als declared_gap gefuehrt. Damit ist Abs. 4 - die einzige originaere Betreiberpflicht zur Datenqualitaet
     in Art. 26 - im Katalog nicht operationalisiert.'
-  po_bestaetigt: false
+  po_bestaetigt: true
   uid: Art. 26 Abs. 4@359727
   abschnitt: null
   nummer: null
   unterabsatz: null
   ziffer: null
+  po_entscheid:
+  - 2026-09-23 · 2b E2 (P4 Eingabedaten)
+  - 2026-09-23 · 2b E4 (VERIFIZIERT - Betreiber in der Einheit oder ihrem Einleitungssatz genannt)
 - uid: Art. 26 Abs. 5 UAbs. 1 Satz 1@359973
   id: Art. 26 Abs. 5 UAbs. 1 Satz 1
   artikel: '26'
@@ -11392,6 +11594,8 @@ einheiten:
   po_bestaetigt: false
   migriert_von: Art. 26 Abs. 5@359967
   migration: geerbt
+  po_entscheid:
+  - 2026-09-23 · 2b E4 (VERIFIZIERT - Betreiber in der Einheit oder ihrem Einleitungssatz genannt)
 - uid: Art. 26 Abs. 5 UAbs. 1 Satz 2@360127
   id: Art. 26 Abs. 5 UAbs. 1 Satz 2
   artikel: '26'
@@ -11426,23 +11630,16 @@ einheiten:
     nicht enthalten (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
   requirement: *id023
   gate: *id024
-  befund: teilabdeckung
-  befund_grund: 'BAUVERBOT-KONTEXT (HANDBUCH 6.1): dieser Lauf liest und erfasst Abs. 5 nur, baut nichts
-    - die Meldekaskade bleibt gesperrt, bis Art. 26 Abs. 5 und Art. 73 EUR-Lex-abgeglichen sind; mit dieser
-    Zeile ist genau dieser Abgleich (fuer Abs. 5) erstmals im Wortlaut gefuehrt (Art. 73 folgt in Lauf
-    2). G-OPS-02 prueft heute drei Pod-Annotationen (incident-response-configured, incident-contact, rollback-mechanism,
-    alle E-0) plus C-02..C-05 gegen governance/incident_thresholds.yaml (Fristen, Beweissicherung). Nicht
-    abgedeckt: (1) die eigentliche UEBERWACHUNG des Betriebs anhand der Betriebsanleitung als solche -
-    kein Gate prueft, dass ueberwacht WIRD, nur dass ein Incident-Prozess deklariert ist; (2) die Risikoerkennung
-    nach Art. 79 Abs. 1 mit Aussetzungspflicht - existiert nicht; (3) die REIHENFOLGE der Meldekette (zuerst
-    Anbieter, dann Einfuehrer/Haendler, dann Behoerde) - C-01 prueft nur ''incident-contact'' pauschal,
-    nicht die Reihenfolge; (4) der Ausweichfall ''Anbieter nicht erreichbar -> Art. 73 entsprechend'';
-    (5) die Sonderregeln fuer Strafverfolgungsbehoerden/Finanzinstitute. Die triggers ''start_deadline''
-    und ''open_incident'' sind in G-OPS-02 explizit als declared_only gefuehrt - die Luecke ist im Gate
-    selbst bereits benannt, nicht neu.'
-  po_bestaetigt: false
+  befund: luecke
+  befund_grund: 'Hat der Betreiber Grund zur Annahme eines Risikos nach Art. 79 Abs. 1, setzt er die Verwendung
+    aus. Kein Gate hat diese Wirkung: halt_pipeline stoppt das Deployment, nicht den laufenden Betrieb,
+    und G-PRE-05 prueft nur, dass ein kill_switch dokumentiert ist (P8).'
+  po_bestaetigt: true
   migriert_von: Art. 26 Abs. 5@359967
   migration: geerbt
+  po_entscheid:
+  - 2026-09-23 · 2b E2 (P8 Aussetzen bei Risiko, Art. 26 Abs. 5 Satz 2 nach Teilung)
+  - 2026-09-23 · 2b E4 (VERIFIZIERT - Betreiber in der Einheit oder ihrem Einleitungssatz genannt)
 - uid: Art. 26 Abs. 5 UAbs. 1 Satz 3@360464
   id: Art. 26 Abs. 5 UAbs. 1 Satz 3
   artikel: '26'
@@ -11493,6 +11690,8 @@ einheiten:
   po_bestaetigt: false
   migriert_von: Art. 26 Abs. 5@359967
   migration: geerbt
+  po_entscheid:
+  - 2026-09-23 · 2b E4 (VERIFIZIERT - Betreiber in der Einheit oder ihrem Einleitungssatz genannt)
 - uid: Art. 26 Abs. 5 UAbs. 1 Satz 4@360685
   id: Art. 26 Abs. 5 UAbs. 1 Satz 4
   artikel: '26'
@@ -11541,6 +11740,8 @@ einheiten:
   po_bestaetigt: false
   migriert_von: Art. 26 Abs. 5@359967
   migration: geerbt
+  po_entscheid:
+  - 2026-09-23 · 2b E4 (VERIFIZIERT - Betreiber in der Einheit oder ihrem Einleitungssatz genannt)
 - uid: Art. 26 Abs. 5 UAbs. 1 Satz 5@360767
   id: Art. 26 Abs. 5 UAbs. 1 Satz 5
   artikel: '26'
@@ -11590,6 +11791,8 @@ einheiten:
   po_bestaetigt: false
   migriert_von: Art. 26 Abs. 5@359967
   migration: geerbt
+  po_entscheid:
+  - 2026-09-23 · 2b E4 (VERIFIZIERT - Betreiber in der Einheit oder ihrem Einleitungssatz genannt)
 - uid: Art. 26 Abs. 5 UAbs. 2 Satz 1@360889
   id: Art. 26 Abs. 5 UAbs. 2 Satz 1
   artikel: '26'
@@ -11642,6 +11845,8 @@ einheiten:
   po_bestaetigt: false
   migriert_von: Art. 26 Abs. 5@359967
   migration: geerbt
+  po_entscheid:
+  - 2026-09-23 · 2b E4 (VERIFIZIERT - Betreiber in der Einheit oder ihrem Einleitungssatz genannt)
 - id: Art. 26 Abs. 6
   artikel: '26'
   artikel_titel: Pflichten der Betreiber von Hochrisiko-KI-Systemen
@@ -11690,6 +11895,8 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  po_entscheid:
+  - 2026-09-23 · 2b E4 (VERIFIZIERT - Betreiber in der Einheit oder ihrem Einleitungssatz genannt)
 - id: Art. 26 Abs. 7
   artikel: '26'
   artikel_titel: Pflichten der Betreiber von Hochrisiko-KI-Systemen
@@ -11731,6 +11938,8 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  po_entscheid:
+  - 2026-09-23 · 2b E4 (VERIFIZIERT - Betreiber in der Einheit oder ihrem Einleitungssatz genannt)
 - id: Art. 26 Abs. 8
   artikel: '26'
   artikel_titel: Pflichten der Betreiber von Hochrisiko-KI-Systemen
@@ -11748,26 +11957,24 @@ einheiten:
   pflicht: Betreiber von Hochrisiko-KI-Systemen, die Organe, Einrichtungen oder sonstige Stellen der Union
     sind, erfuellen die Registrierungspflichten nach Art. 49 und verwenden das System nicht, wenn es nicht
     in der EU-Datenbank nach Art. 71 registriert ist, sondern informieren stattdessen Anbieter oder Haendler.
-  scope: in
-  scope_grund: null
+  scope: out
+  scope_grund: Adressat - Betreiber, die Organe, Einrichtungen oder sonstige Stellen der Union sind.
   verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: unveraendert - VO (EU) 2026/1744 Art. 1 aendert Art. 25 und Art. 27, Art. 26 ist in der Aenderungsliste
     nicht enthalten (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
   requirement: []
   gate: []
-  befund: nicht_einschlaegig
-  befund_grund: 'Adressiert ausschliesslich Betreiber, die Organe, Einrichtungen oder sonstige Stellen
-    der Union sind (Registrierungspflicht nach Art. 49). Der Zieladressat dieses Projekts ist ein Verteilnetzbetreiber
-    (HANDBUCH 4.4), keine Unionsstelle - die Pflicht ist fuer den Anwendungsfall Redispatch nicht einschlaegig,
-    obwohl sie textlich zu Art. 26 gehoert (scope: in gemaess PO-Festlegung 1, ''Art. 26 ganz''). Kein
-    Requirement/Gate im Katalog adressiert diesen Fall; das ist konsistent, keine Luecke.'
-  po_bestaetigt: false
+  befund: null
+  befund_grund: null
+  po_bestaetigt: true
   uid: Art. 26 Abs. 8@362637
   abschnitt: null
   nummer: null
   unterabsatz: null
   ziffer: null
+  po_entscheid:
+  - 2026-09-23 · 2a Gruppe B (anderer Betreibertyp)
 - id: Art. 26 Abs. 9
   artikel: '26'
   artikel_titel: Pflichten der Betreiber von Hochrisiko-KI-Systemen
@@ -11798,12 +12005,15 @@ einheiten:
     durchschlagend auf den Betreiber (im redispatch-Kontext, sofern die KI-Verarbeitung personenbezogene
     Daten beruehrt, z.B. Kundendaten bei Lastabwurf-Priorisierung), aber bewusst unbearbeitet - kein Gate
     deckt sie.
-  po_bestaetigt: false
+  po_bestaetigt: true
   uid: Art. 26 Abs. 9@363084
   abschnitt: null
   nummer: null
   unterabsatz: null
   ziffer: null
+  po_entscheid:
+  - 2026-09-23 · 2b E2 (P7 Datenschutz)
+  - 2026-09-23 · 2b E4 (VERIFIZIERT - Betreiber in der Einheit oder ihrem Einleitungssatz genannt)
 - id: Art. 26 Abs. 10
   artikel: '26'
   artikel_titel: Pflichten der Betreiber von Hochrisiko-KI-Systemen
@@ -11850,25 +12060,25 @@ einheiten:
     eine gerichtliche/verwaltungsbehoerdliche Genehmigung ein, beschraenkt die Nutzung auf das Erforderliche,
     loescht bei Ablehnung die erhobenen Daten, dokumentiert jede Nutzung in der Polizeiakte und legt den
     Behoerden Jahresberichte vor.
-  scope: in
-  scope_grund: null
+  scope: out
+  scope_grund: Adressat - Betreiber eines Systems zur nachtraeglichen biometrischen Fernidentifizierung
+    zu Strafverfolgungszwecken.
   verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: unveraendert - VO (EU) 2026/1744 Art. 1 aendert Art. 25 und Art. 27, Art. 26 ist in der Aenderungsliste
     nicht enthalten (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
   requirement: []
   gate: []
-  befund: nicht_einschlaegig
-  befund_grund: Adressiert ausschliesslich Strafverfolgungsbehoerden als Betreiber eines spezifischen
-    Hochrisiko-KI-Systemtyps (nachtraegliche biometrische Fernidentifizierung, Anhang III Nr. 1 lit. a).
-    Der Adressat dieses Projekts (Verteilnetzbetreiber, Anwendungsfall Redispatch, Anhang III Nr. 2) betreibt
-    kein solches System und ist keine Strafverfolgungsbehoerde - nicht einschlaegig fuer den Anwendungsfall.
-  po_bestaetigt: false
+  befund: null
+  befund_grund: null
+  po_bestaetigt: true
   uid: Art. 26 Abs. 10@363413
   abschnitt: null
   nummer: null
   unterabsatz: null
   ziffer: null
+  po_entscheid:
+  - 2026-09-23 · 2a Gruppe B (anderer Betreibertyp)
 - id: Art. 26 Abs. 11
   artikel: '26'
   artikel_titel: Pflichten der Betreiber von Hochrisiko-KI-Systemen
@@ -11914,6 +12124,8 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  po_entscheid:
+  - 2026-09-23 · 2b E4 (VERIFIZIERT - Betreiber in der Einheit oder ihrem Einleitungssatz genannt)
 - id: Art. 26 Abs. 12
   artikel: '26'
   artikel_titel: Pflichten der Betreiber von Hochrisiko-KI-Systemen
@@ -11941,12 +12153,15 @@ einheiten:
     ist kein Schwellenwert-/Dokumenten-Check), aber ein leichtgewichtiger Dokumentencheck waere denkbar,
     analog zu ''incident-contact'' in G-OPS-02/C-01 (Ansprechpartner benannt). Als offene PO-Frage vorgemerkt:
     soll ein solcher Minimal-Check (z.B. ''Behoerdenkontakt benannt und aktuell'') ergaenzt werden?'
-  po_bestaetigt: false
+  po_bestaetigt: true
   uid: Art. 26 Abs. 12@367100
   abschnitt: null
   nummer: null
   unterabsatz: null
   ziffer: null
+  po_entscheid:
+  - 2026-09-23 · 2b E2 (P6 Vorfall und Behoerden)
+  - 2026-09-23 · 2b E4 (VERIFIZIERT - Betreiber in der Einheit oder ihrem Einleitungssatz genannt)
 - id: Art. 27 Abs. 1
   artikel: '27'
   artikel_titel: Grundrechte-Folgenabschätzung für Hochrisiko-KI-Systeme
@@ -11966,36 +12181,26 @@ einheiten:
   pflicht: Vor Erstinbetriebnahme eines Hochrisiko-KI-Systems (ausser Anhang-III-Nr.-2-Systemen) fuehren
     Betreiber, die oeffentliche/oeffentliche-Dienste-Einrichtungen sind, sowie Betreiber von Anhang-III-Nr.-5-lit.-b/c-Systemen,
     eine Grundrechte-Folgenabschaetzung (FRIA) mit den in lit. a-f genannten Elementen durch.
-  scope: in
-  scope_grund: null
+  scope: out
+  scope_grund: 'Bereichsausnahme: Art. 27 Abs. 1 nimmt Hochrisiko-KI-Systeme aus, die in dem in Anhang
+    III Nummer 2 aufgefuehrten Bereich verwendet werden sollen; lit. a-f und Abs. 2-4 setzen die Pflicht
+    aus Abs. 1 voraus. Die DSFA bleibt ueber Art. 26 Abs. 9.'
   verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: unveraendert (Art. 27 Abs. 1 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht
     enthalten - Nr. 13 aendert nur Abs. 4 und Abs. 5).
   requirement: []
   gate: []
-  befund: nicht_einschlaegig
-  befund_grund: 'ZENTRALER BEFUND DIESES LAUFS: Der Chapeau von Abs. 1 nimmt Hochrisiko-KI-Systeme ''die
-    in dem in Anhang III Nummer 2 aufgefuehrten Bereich verwendet werden sollen'' ausdruecklich von der
-    FRIA-Pflicht aus (''mit Ausnahme von...''). Anhang III Nr. 2 (''Kritische Infrastruktur: KI-Systeme,
-    die bestimmungsgemaess als Sicherheitsbauteile im Rahmen der Verwaltung und des Betriebs kritischer...
-    Wasser-, Gas-, Waerme- oder Stromversorgung verwendet werden sollen'') ist exakt die fuer diesen Adressaten
-    einschlaegige Einstufung (HANDBUCH 4.4, Anwendungsfall Redispatch/Engpassmanagement). Die FRIA-Pflicht
-    bindet damit weder oeffentlich-rechtliche noch private Betreiber dieses konkreten Anwendungsfalls
-    - unabhaengig von der Betreiber-Kategorie, die die uebrigen Tatbestandsmerkmale sonst verlangen wuerden.
-    PO-RELEVANT: R012/G-PRE-02 fuehren ''Art. 27'' pauschal (ohne Absatzbezug und ohne den Anhang-III-Nr.-2-Carve-out)
-    als Rechtsgrundlage fuer eine als ''Best Practice'' deklarierte FRIA-MUST-Pruefung; R012s eigene notes
-    sagen zutreffend ''Pflicht nur fuer bestimmte Deployer-Kategorien'', erwaehnen aber nicht, dass der
-    Redispatch-Anwendungsfall selbst durch den Wortlaut kategorial ausgenommen ist. Requirement/Gate werden
-    hier bewusst leer gelassen (analog Art. 14 Abs. 5), weil der Wortlaut fuer diesen Anwendungsfall keine
-    Pflicht begruendet, an die ein R0xx/G-xxx anknuepfen koennte; die ''Best Practice''-Charakterisierung
-    von R012 bleibt davon unberuehrt, ist aber PO-seitig zu pruefen (siehe Bericht).'
-  po_bestaetigt: false
+  befund: null
+  befund_grund: null
+  po_bestaetigt: true
   uid: Art. 27 Abs. 1@367366
   abschnitt: null
   nummer: null
   unterabsatz: null
   ziffer: null
+  po_entscheid:
+  - 2026-09-23 · 2a Gruppe A (Bereichsausnahme Anhang III Nr. 2)
 - id: Art. 27 Abs. 1 lit. a
   artikel: '27'
   artikel_titel: Grundrechte-Folgenabschätzung für Hochrisiko-KI-Systeme
@@ -12009,22 +12214,25 @@ einheiten:
   adressat: betreiber
   pflicht: 'Element 1 der FRIA: Beschreibung der Verfahren, in denen das System zweckbestimmungsgemaess
     verwendet wird.'
-  scope: in
-  scope_grund: null
+  scope: out
+  scope_grund: 'Bereichsausnahme: Art. 27 Abs. 1 nimmt Hochrisiko-KI-Systeme aus, die in dem in Anhang
+    III Nummer 2 aufgefuehrten Bereich verwendet werden sollen; lit. a-f und Abs. 2-4 setzen die Pflicht
+    aus Abs. 1 voraus. Die DSFA bleibt ueber Art. 26 Abs. 9.'
   verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: unveraendert (s. Art. 27 Abs. 1).
   requirement: []
   gate: []
-  befund: nicht_einschlaegig
-  befund_grund: Unselbststaendiges Element der FRIA-Pflicht aus Abs. 1; teilt deren kategorialen Ausschluss
-    fuer Anhang-III-Nr.-2-Systeme (dort ausfuehrliche Begruendung).
-  po_bestaetigt: false
+  befund: null
+  befund_grund: null
+  po_bestaetigt: true
   uid: Art. 27 Abs. 1 lit. a@368007
   abschnitt: null
   nummer: null
   unterabsatz: null
   ziffer: null
+  po_entscheid:
+  - 2026-09-23 · 2a Gruppe A (Bereichsausnahme Anhang III Nr. 2)
 - id: Art. 27 Abs. 1 lit. b
   artikel: '27'
   artikel_titel: Grundrechte-Folgenabschätzung für Hochrisiko-KI-Systeme
@@ -12037,22 +12245,25 @@ einheiten:
     verwendet werden soll;
   adressat: betreiber
   pflicht: 'Element 2 der FRIA: Beschreibung von Zeitraum und Haeufigkeit der vorgesehenen Verwendung.'
-  scope: in
-  scope_grund: null
+  scope: out
+  scope_grund: 'Bereichsausnahme: Art. 27 Abs. 1 nimmt Hochrisiko-KI-Systeme aus, die in dem in Anhang
+    III Nummer 2 aufgefuehrten Bereich verwendet werden sollen; lit. a-f und Abs. 2-4 setzen die Pflicht
+    aus Abs. 1 voraus. Die DSFA bleibt ueber Art. 26 Abs. 9.'
   verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: unveraendert (s. Art. 27 Abs. 1).
   requirement: []
   gate: []
-  befund: nicht_einschlaegig
-  befund_grund: Unselbststaendiges Element der FRIA-Pflicht aus Abs. 1; teilt deren kategorialen Ausschluss
-    fuer Anhang-III-Nr.-2-Systeme (dort ausfuehrliche Begruendung).
-  po_bestaetigt: false
+  befund: null
+  befund_grund: null
+  po_bestaetigt: true
   uid: Art. 27 Abs. 1 lit. b@368153
   abschnitt: null
   nummer: null
   unterabsatz: null
   ziffer: null
+  po_entscheid:
+  - 2026-09-23 · 2a Gruppe A (Bereichsausnahme Anhang III Nr. 2)
 - id: Art. 27 Abs. 1 lit. c
   artikel: '27'
   artikel_titel: Grundrechte-Folgenabschätzung für Hochrisiko-KI-Systeme
@@ -12065,22 +12276,25 @@ einheiten:
     spezifischen Kontext betroffen sein könnten;
   adressat: betreiber
   pflicht: 'Element 3 der FRIA: Kategorien der betroffenen natuerlichen Personen/Personengruppen.'
-  scope: in
-  scope_grund: null
+  scope: out
+  scope_grund: 'Bereichsausnahme: Art. 27 Abs. 1 nimmt Hochrisiko-KI-Systeme aus, die in dem in Anhang
+    III Nummer 2 aufgefuehrten Bereich verwendet werden sollen; lit. a-f und Abs. 2-4 setzen die Pflicht
+    aus Abs. 1 voraus. Die DSFA bleibt ueber Art. 26 Abs. 9.'
   verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: unveraendert (s. Art. 27 Abs. 1).
   requirement: []
   gate: []
-  befund: nicht_einschlaegig
-  befund_grund: Unselbststaendiges Element der FRIA-Pflicht aus Abs. 1; teilt deren kategorialen Ausschluss
-    fuer Anhang-III-Nr.-2-Systeme (dort ausfuehrliche Begruendung).
-  po_bestaetigt: false
+  befund: null
+  befund_grund: null
+  po_bestaetigt: true
   uid: Art. 27 Abs. 1 lit. c@368293
   abschnitt: null
   nummer: null
   unterabsatz: null
   ziffer: null
+  po_entscheid:
+  - 2026-09-23 · 2a Gruppe A (Bereichsausnahme Anhang III Nr. 2)
 - id: Art. 27 Abs. 1 lit. d
   artikel: '27'
   artikel_titel: Grundrechte-Folgenabschätzung für Hochrisiko-KI-Systeme
@@ -12095,22 +12309,25 @@ einheiten:
   adressat: betreiber
   pflicht: 'Element 4 der FRIA: spezifische Schadensrisiken fuer die unter lit. c ermittelten Personen(-gruppen),
     unter Beruecksichtigung der vom Anbieter nach Art. 13 bereitgestellten Informationen.'
-  scope: in
-  scope_grund: null
+  scope: out
+  scope_grund: 'Bereichsausnahme: Art. 27 Abs. 1 nimmt Hochrisiko-KI-Systeme aus, die in dem in Anhang
+    III Nummer 2 aufgefuehrten Bereich verwendet werden sollen; lit. a-f und Abs. 2-4 setzen die Pflicht
+    aus Abs. 1 voraus. Die DSFA bleibt ueber Art. 26 Abs. 9.'
   verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: unveraendert (s. Art. 27 Abs. 1).
   requirement: []
   gate: []
-  befund: nicht_einschlaegig
-  befund_grund: Unselbststaendiges Element der FRIA-Pflicht aus Abs. 1; teilt deren kategorialen Ausschluss
-    fuer Anhang-III-Nr.-2-Systeme (dort ausfuehrliche Begruendung).
-  po_bestaetigt: false
+  befund: null
+  befund_grund: null
+  po_bestaetigt: true
   uid: Art. 27 Abs. 1 lit. d@368436
   abschnitt: null
   nummer: null
   unterabsatz: null
   ziffer: null
+  po_entscheid:
+  - 2026-09-23 · 2a Gruppe A (Bereichsausnahme Anhang III Nr. 2)
 - id: Art. 27 Abs. 1 lit. e
   artikel: '27'
   artikel_titel: Grundrechte-Folgenabschätzung für Hochrisiko-KI-Systeme
@@ -12123,22 +12340,25 @@ einheiten:
   adressat: betreiber
   pflicht: 'Element 5 der FRIA: Beschreibung der Umsetzung menschlicher Aufsichtsmassnahmen entsprechend
     der Betriebsanleitung.'
-  scope: in
-  scope_grund: null
+  scope: out
+  scope_grund: 'Bereichsausnahme: Art. 27 Abs. 1 nimmt Hochrisiko-KI-Systeme aus, die in dem in Anhang
+    III Nummer 2 aufgefuehrten Bereich verwendet werden sollen; lit. a-f und Abs. 2-4 setzen die Pflicht
+    aus Abs. 1 voraus. Die DSFA bleibt ueber Art. 26 Abs. 9.'
   verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: unveraendert (s. Art. 27 Abs. 1).
   requirement: []
   gate: []
-  befund: nicht_einschlaegig
-  befund_grund: Unselbststaendiges Element der FRIA-Pflicht aus Abs. 1; teilt deren kategorialen Ausschluss
-    fuer Anhang-III-Nr.-2-Systeme (dort ausfuehrliche Begruendung).
-  po_bestaetigt: false
+  befund: null
+  befund_grund: null
+  po_bestaetigt: true
   uid: Art. 27 Abs. 1 lit. e@368702
   abschnitt: null
   nummer: null
   unterabsatz: null
   ziffer: null
+  po_entscheid:
+  - 2026-09-23 · 2a Gruppe A (Bereichsausnahme Anhang III Nr. 2)
 - id: Art. 27 Abs. 1 lit. f
   artikel: '27'
   artikel_titel: Grundrechte-Folgenabschätzung für Hochrisiko-KI-Systeme
@@ -12152,22 +12372,25 @@ einheiten:
   adressat: betreiber
   pflicht: 'Element 6 der FRIA: Massnahmen bei Risikoeintritt, einschliesslich interner Governance-Regelungen
     und Beschwerdemechanismen.'
-  scope: in
-  scope_grund: null
+  scope: out
+  scope_grund: 'Bereichsausnahme: Art. 27 Abs. 1 nimmt Hochrisiko-KI-Systeme aus, die in dem in Anhang
+    III Nummer 2 aufgefuehrten Bereich verwendet werden sollen; lit. a-f und Abs. 2-4 setzen die Pflicht
+    aus Abs. 1 voraus. Die DSFA bleibt ueber Art. 26 Abs. 9.'
   verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: unveraendert (s. Art. 27 Abs. 1).
   requirement: []
   gate: []
-  befund: nicht_einschlaegig
-  befund_grund: Unselbststaendiges Element der FRIA-Pflicht aus Abs. 1; teilt deren kategorialen Ausschluss
-    fuer Anhang-III-Nr.-2-Systeme (dort ausfuehrliche Begruendung).
-  po_bestaetigt: false
+  befund: null
+  befund_grund: null
+  po_bestaetigt: true
   uid: Art. 27 Abs. 1 lit. f@368820
   abschnitt: null
   nummer: null
   unterabsatz: null
   ziffer: null
+  po_entscheid:
+  - 2026-09-23 · 2a Gruppe A (Bereichsausnahme Anhang III Nr. 2)
 - id: Art. 27 Abs. 2
   artikel: '27'
   artikel_titel: Grundrechte-Folgenabschätzung für Hochrisiko-KI-Systeme
@@ -12186,22 +12409,25 @@ einheiten:
   pflicht: Die FRIA-Pflicht gilt fuer die Erstverwendung; der Betreiber kann sich in aehnlichen Faellen
     auf frueher durchgefuehrte eigene oder Anbieter-Folgenabschaetzungen stuetzen; aendern sich die Abs.-1-Elemente
     wesentlich, muss der Betreiber die Informationen aktualisieren.
-  scope: in
-  scope_grund: null
+  scope: out
+  scope_grund: 'Bereichsausnahme: Art. 27 Abs. 1 nimmt Hochrisiko-KI-Systeme aus, die in dem in Anhang
+    III Nummer 2 aufgefuehrten Bereich verwendet werden sollen; lit. a-f und Abs. 2-4 setzen die Pflicht
+    aus Abs. 1 voraus. Die DSFA bleibt ueber Art. 26 Abs. 9.'
   verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: unveraendert (s. Art. 27 Abs. 1 - Nr. 13 aendert nur Abs. 4/5).
   requirement: []
   gate: []
-  befund: nicht_einschlaegig
-  befund_grund: Verfahrensregel zur bereits nach Abs. 1 nicht bestehenden FRIA-Pflicht (Anhang-III-Nr.-2-Ausschluss,
-    dort ausfuehrliche Begruendung); ohne Grundpflicht keine Aktualisierungspflicht.
-  po_bestaetigt: false
+  befund: null
+  befund_grund: null
+  po_bestaetigt: true
   uid: Art. 27 Abs. 2@368998
   abschnitt: null
   nummer: null
   unterabsatz: null
   ziffer: null
+  po_entscheid:
+  - 2026-09-23 · 2a Gruppe A (Bereichsausnahme Anhang III Nr. 2)
 - id: Art. 27 Abs. 3
   artikel: '27'
   artikel_titel: Grundrechte-Folgenabschätzung für Hochrisiko-KI-Systeme
@@ -12218,22 +12444,25 @@ einheiten:
   pflicht: Nach Abschluss der FRIA teilt der Betreiber der Marktueberwachungsbehoerde die Ergebnisse mittels
     des Musters aus Abs. 5 mit; im Fall des Art. 46 Abs. 1 kann von dieser Mitteilungspflicht befreit
     werden.
-  scope: in
-  scope_grund: null
+  scope: out
+  scope_grund: 'Bereichsausnahme: Art. 27 Abs. 1 nimmt Hochrisiko-KI-Systeme aus, die in dem in Anhang
+    III Nummer 2 aufgefuehrten Bereich verwendet werden sollen; lit. a-f und Abs. 2-4 setzen die Pflicht
+    aus Abs. 1 voraus. Die DSFA bleibt ueber Art. 26 Abs. 9.'
   verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: unveraendert (s. Art. 27 Abs. 1).
   requirement: []
   gate: []
-  befund: nicht_einschlaegig
-  befund_grund: Mitteilungspflicht setzt eine durchgefuehrte FRIA nach Abs. 1 voraus, die fuer Anhang-III-Nr.-2-Systeme
-    kategorial nicht besteht (dort ausfuehrliche Begruendung).
-  po_bestaetigt: false
+  befund: null
+  befund_grund: null
+  po_bestaetigt: true
   uid: Art. 27 Abs. 3@369586
   abschnitt: null
   nummer: null
   unterabsatz: null
   ziffer: null
+  po_entscheid:
+  - 2026-09-23 · 2a Gruppe A (Bereichsausnahme Anhang III Nr. 2)
 - id: Art. 27 Abs. 4
   artikel: '27'
   artikel_titel: Grundrechte-Folgenabschätzung für Hochrisiko-KI-Systeme
@@ -12250,8 +12479,10 @@ einheiten:
   pflicht: Ist eine Art.-27-Pflicht bereits durch eine DSGVO-/JI-Richtlinien-Datenschutz-Folgenabschaetzung
     erfuellt, kann der Betreiber bei der FRIA auf die einschlaegigen Abschnitte/Teile dieser Datenschutz-Folgenabschaetzung
     verweisen, statt sie zu wiederholen.
-  scope: in
-  scope_grund: null
+  scope: out
+  scope_grund: 'Bereichsausnahme: Art. 27 Abs. 1 nimmt Hochrisiko-KI-Systeme aus, die in dem in Anhang
+    III Nummer 2 aufgefuehrten Bereich verwendet werden sollen; lit. a-f und Abs. 2-4 setzen die Pflicht
+    aus Abs. 1 voraus. Die DSFA bleibt ueber Art. 26 Abs. 9.'
   verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: 'GEAENDERT durch VO (EU) 2026/1744 Art. 1 Nr. 13 lit. a: Die Grundfassung ordnete an, dass
@@ -12262,13 +12493,9 @@ einheiten:
     mehr.'
   requirement: []
   gate: []
-  befund: nicht_einschlaegig
-  befund_grund: Setzt eine bestehende FRIA-Pflicht nach Abs. 1 voraus, die fuer den Anhang-III-Nr.-2-Anwendungsfall
-    dieses Adressaten kategorial nicht besteht (dort ausfuehrliche Begruendung). Die Omnibus-Aenderung
-    selbst ist damit fuer diesen Adressaten derzeit folgenlos, aber dokumentationspflichtig fuer den Fall
-    einer PO-Korrektur der Scope-Einordnung. R012 haengt laut Ticket-Hinweis an dieser Aenderung - die
-    Aenderung ist erfasst, ihre praktische Relevanz haengt von der PO-Entscheidung zu Abs. 1 ab.
-  po_bestaetigt: false
+  befund: null
+  befund_grund: null
+  po_bestaetigt: true
   uid: Art. 27 Abs. 4@369973
   abschnitt: null
   nummer: null
@@ -12276,6 +12503,8 @@ einheiten:
   ziffer: null
   fassung_2026_1744:
   - Art. 27 Abs. 4 n.F.@96790
+  po_entscheid:
+  - 2026-09-23 · 2a Gruppe A (Bereichsausnahme Anhang III Nr. 2)
 - id: Art. 27 Abs. 5
   artikel: '27'
   artikel_titel: Grundrechte-Folgenabschätzung für Hochrisiko-KI-Systeme
@@ -16337,25 +16566,25 @@ einheiten:
   pflicht: Betreiber, die Behoerden oder EU-Organe/-Einrichtungen (oder in deren Namen Handelnde) sind,
     registrieren sich und das ausgewaehlte Anhang-III-System vor Inbetriebnahme/Verwendung in der EU-Datenbank
     - AUSSER bei Anhang-III-Nr.-2-Systemen.
-  scope: in
-  scope_grund: null
+  scope: out
+  scope_grund: Bereichsausnahme ('mit Ausnahme der in Anhang III Nummer 2 aufgefuehrten Hochrisiko-KI-Systeme')
+    und Adressat Behoerden.
   verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: unveraendert - Art. 49 ist in der Aenderungsliste der VO (EU) 2026/1744 nicht erwaehnt (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
   requirement: []
   gate: []
-  befund: nicht_einschlaegig
-  befund_grund: 'Doppelt ausserhalb des Anwendungsfalls: (1) Anhang III Nr. 2 (kritische Infrastruktur/Redispatch)
-    ist von dieser Registrierungspflicht ausdruecklich ausgenommen - Parallelbefund zum Art.-27-FRIA-Carve-out
-    aus Lauf 2; (2) selbst ohne diese Ausnahme gilt die Pflicht nur fuer Betreiber, die Behoerden/EU-Organe
-    sind, nicht fuer einen privatrechtlich organisierten Netzbetreiber.'
-  po_bestaetigt: false
+  befund: null
+  befund_grund: null
+  po_bestaetigt: true
   uid: Art. 49 Abs. 3@419602
   abschnitt: null
   nummer: null
   unterabsatz: null
   ziffer: null
+  po_entscheid:
+  - 2026-09-23 · 2a Gruppe A (Bereichsausnahme Anhang III Nr. 2)
 - id: Art. 49 Abs. 4
   artikel: '49'
   artikel_titel: Registrierung
@@ -16512,30 +16741,26 @@ einheiten:
   adressat: sonstige
   pflicht: Anhang-III-Nr.-2-Systeme (kritische Infrastruktur) werden nicht in der EU-Datenbank, sondern
     auf nationaler Ebene registriert.
-  scope: in
-  scope_grund: null
+  scope: out
+  scope_grund: Adressat Anbieter - die Registrierung nimmt der Anbieter vor (Art. 49 Abs. 1); fuer den
+    Betreiber erst relevant, wenn er selbst Anbieter wird (K2/K3).
   verifikation: HYPOTHESE
-  hypothese_grund: Der Wortlaut nennt fuer die nationale Registrierung keinen Adressaten (Passivkonstruktion
-    'werden ... registriert'); dass diese Pflicht - in Analogie zu Abs. 1 (Anbieter) und Abs. 3 (Betreiber-Behoerde)
-    - im Regelfall den Betreiber des Anhang-III-Nr.-2-Systems trifft, ist eine Auslegung, kein unmittelbarer
-    Wortlautbefund. Welche nationale Stelle/welches Gesetz die Registrierung in Deutschland regelt, ist
-    im Pflichtenraum nicht ermittelt.
+  hypothese_grund: Dass die nationale Registrierung nach Abs. 5 beim Anbieter liegt, ist aus Art. 49 Abs.
+    1 abgeleitet; Abs. 5 selbst nennt keinen Adressaten.
   omnibus: unveraendert - Art. 49 ist in der Aenderungsliste der VO (EU) 2026/1744 nicht erwaehnt (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
   requirement: []
   gate: []
-  befund: luecke
-  befund_grund: 'Genau der Anwendungsfall dieses Projekts (Anhang III Nr. 2, Redispatch): der Wortlaut
-    verlangt eine nationale Registrierung, aber kein Requirement/Gate im Katalog bildet sie ab, und das
-    nationale Umsetzungsrecht (welche deutsche Stelle, welches Verfahren) ist nicht referenziert. Zentraler
-    Befund fuer den Abschlussbericht - direkt neben dem Art.-27-Carve-out zu nennen, weil hier trotz Carve-out
-    von der EU-Datenbank eine Ersatzpflicht (national) sichtbar wird, die der Katalog komplett uebersieht.'
-  po_bestaetigt: false
+  befund: null
+  befund_grund: null
+  po_bestaetigt: true
   uid: Art. 49 Abs. 5@420862
   abschnitt: null
   nummer: null
   unterabsatz: null
   ziffer: null
+  po_entscheid:
+  - 2026-09-23 · 2b E1 (Adressat Anbieter)
 - id: Art. 50 Abs. 1
   artikel: '50'
   artikel_titel: Transparenzpflichten für Anbieter und Betreiber bestimmter KI-Systeme
@@ -16643,26 +16868,24 @@ einheiten:
   pflicht: Der Betreiber eines Emotionserkennungssystems oder Systems zur biometrischen Kategorisierung
     informiert die betroffenen natuerlichen Personen ueber den Systembetrieb und verarbeitet personenbezogene
     Daten nach DSGVO/JI-Richtlinie; Ausnahme fuer gesetzlich zugelassene Strafverfolgung mit Schutzvorkehrungen.
-  scope: in
-  scope_grund: null
+  scope: out
+  scope_grund: Systemtyp - Abs. 3 und 4 gelten nur fuer Emotionserkennung, biometrische Kategorisierung
+    und Deepfakes; Abs. 5 regelt die Form der Informationen nach Abs. 1-4.
   verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: unveraendert (s. Art. 50 Abs. 1).
   requirement: []
   gate: []
-  befund: luecke
-  befund_grund: 'Echte, im Wortlaut ausdruecklich an den Betreiber gerichtete Informationspflicht - anders
-    als Abs. 1/2 (dort Adressaten-Befund). Kein R0xx/G-xxx bildet sie gezielt ab: R007/G-DEP-03 pruefen
-    nur eine allgemeine ''KI-Content-Kennzeichnung'' (der Sache nach Abs. 2, s. dort), nicht die hier
-    verlangte Informationspflicht ueber den Betrieb eines Emotionserkennungs-/Kategorisierungssystems.
-    Ob ein solches System im Redispatch-Anwendungsfall (Anhang III Nr. 2) ueberhaupt zum Einsatz kommt,
-    ist eine Systemfrage ausserhalb dieser Wortlautanalyse und daher hier nicht entschieden.'
-  po_bestaetigt: false
+  befund: null
+  befund_grund: null
+  po_bestaetigt: true
   uid: Art. 50 Abs. 3@422921
   abschnitt: null
   nummer: null
   unterabsatz: null
   ziffer: null
+  po_entscheid:
+  - 2026-09-23 · 2b E1 (anderer Systemtyp)
 - id: Art. 50 Abs. 4
   artikel: '50'
   artikel_titel: Transparenzpflichten für Anbieter und Betreiber bestimmter KI-Systeme
@@ -16690,23 +16913,24 @@ einheiten:
     offen (Ausnahmen: Strafverfolgung, offensichtlich kuenstlerisch/kreativ/satirisch/fiktional mit angemessener
     Offenlegung); der Betreiber eines Systems, das oeffentlich-relevanten Text erzeugt/manipuliert, legt
     dies ebenfalls offen (Ausnahmen: Strafverfolgung, redaktionelle Kontrolle mit Verantwortungsuebernahme).'
-  scope: in
-  scope_grund: null
+  scope: out
+  scope_grund: Systemtyp - Abs. 3 und 4 gelten nur fuer Emotionserkennung, biometrische Kategorisierung
+    und Deepfakes; Abs. 5 regelt die Form der Informationen nach Abs. 1-4.
   verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: unveraendert (s. Art. 50 Abs. 1).
   requirement: []
   gate: []
-  befund: luecke
-  befund_grund: Echte Betreiberpflicht (Deepfake-/Text-Offenlegung), im Requirement-Katalog nicht gezielt
-    abgebildet - R007/G-DEP-03 decken nur die allgemeine Content-Kennzeichnung (Abs. 2, Anbieterpflicht),
-    nicht diese spezifische Betreiber-Offenlegungspflicht mit ihren eigenen Ausnahmetatbestaenden.
-  po_bestaetigt: false
+  befund: null
+  befund_grund: null
+  po_bestaetigt: true
   uid: Art. 50 Abs. 4@423555
   abschnitt: null
   nummer: null
   unterabsatz: null
   ziffer: null
+  po_entscheid:
+  - 2026-09-23 · 2b E1 (anderer Systemtyp)
 - id: Art. 50 Abs. 5
   artikel: '50'
   artikel_titel: Transparenzpflichten für Anbieter und Betreiber bestimmter KI-Systeme
@@ -16722,25 +16946,24 @@ einheiten:
   pflicht: Die Informationen nach Abs. 1-4 werden den betroffenen Personen spaetestens bei der ersten
     Interaktion/Aussetzung klar und eindeutig bereitgestellt und muessen den geltenden Barrierefreiheitsanforderungen
     entsprechen.
-  scope: in
-  scope_grund: null
+  scope: out
+  scope_grund: Systemtyp - Abs. 3 und 4 gelten nur fuer Emotionserkennung, biometrische Kategorisierung
+    und Deepfakes; Abs. 5 regelt die Form der Informationen nach Abs. 1-4.
   verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: unveraendert (s. Art. 50 Abs. 1).
   requirement: []
   gate: []
-  befund: luecke
-  befund_grund: Zeitpunkt- und Barrierefreiheitsanforderung, die - soweit sie die echten Betreiberpflichten
-    aus Abs. 3/4 betrifft - denselben Deckungsluecken unterliegt (kein R0xx/G-xxx); soweit sie die Anbieterpflichten
-    aus Abs. 1/2 betrifft, gilt dort der Adressaten-Vorbehalt aus Abs. 1 (dort ausfuehrliche Begruendung).
-    B-14-Charakter (Laufzeit-/UI-Eigenschaft, kein Gate beobachtet den Betrieb), analog R007s eigenem
-    declared_gap zur Sichtbarkeit von Transparenzhinweisen.
-  po_bestaetigt: false
+  befund: null
+  befund_grund: null
+  po_bestaetigt: true
   uid: Art. 50 Abs. 5@424921
   abschnitt: null
   nummer: null
   unterabsatz: null
   ziffer: null
+  po_entscheid:
+  - 2026-09-23 · 2b E1 (anderer Systemtyp)
 - id: Art. 50 Abs. 6
   artikel: '50'
   artikel_titel: Transparenzpflichten für Anbieter und Betreiber bestimmter KI-Systeme
@@ -18491,8 +18714,7 @@ einheiten:
     des Betreibers.
   verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
-    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 21 - Abs. 6 neu gefasst (Art. 56 Abs. 6 n.F.).
   requirement: []
   gate: []
   befund: null
@@ -18505,6 +18727,8 @@ einheiten:
   ziffer: null
   fassung_2026_1744:
   - Art. 56 Abs. 6 n.F.@108619
+  po_entscheid:
+  - 2026-09-23 · 2b E6 (Omnibus-Feld)
 - id: Art. 56 Abs. 7
   artikel: '56'
   artikel_titel: Praxisleitfäden
@@ -19579,9 +19803,8 @@ einheiten:
     nur als moeglichen Mitantragsteller, keine eigene Betreiberpflicht.
   verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 22 - Art. 57 Abs. 1/3 neu gefasst, Abs. 3a (Buero
-    fuer KI als Reallabor-Traeger) neu eingefuegt; Art. 58 selbst ist in der Aenderungsliste nicht gesondert
-    erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  omnibus: unveraendert - Art. 1 Nr. 23 der VO (EU) 2026/1744 aendert Art. 58 Abs. 1 UAbs. 1, nicht Abs.
+    2.
   requirement: []
   gate: []
   befund: null
@@ -19592,6 +19815,8 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  po_entscheid:
+  - 2026-09-23 · 2b E6 (Omnibus-Feld)
 - id: Art. 58 Abs. 2 lit. c
   artikel: '58'
   artikel_titel: Detaillierte Regelungen für KI-Reallabore und deren Funktionsweise
@@ -20554,9 +20779,8 @@ einheiten:
     nur als moeglichen freiwilligen Partner, keine eigene Betreiberpflicht.
   verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: 'unveraendert - Art. 60 Abs. 1/2 sind von VO (EU) 2026/1744 Art. 1 Nr. 24 betroffen (Abs. 1
-    UAbs. 1 und Abs. 2 neu gefasst: neu ''oder unter die Anhang-I-Abschnitt-A-Harmonisierungsvorschriften
-    fallende Systeme''); materiell fuer den Anwendungsfall unveraendert (geprueft am verfuegenden Teil).'
+  omnibus: 'geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 24 lit. b - Abs. 2 neu gefasst (Art. 60 Abs.
+    2 n.F.): neu auch Systeme, die unter Anhang I Abschnitt A fallen.'
   requirement: []
   gate: []
   befund: null
@@ -20569,6 +20793,8 @@ einheiten:
   ziffer: null
   fassung_2026_1744:
   - Art. 60 Abs. 2 n.F.@114577
+  po_entscheid:
+  - 2026-09-23 · 2b E6 (Omnibus-Feld)
 - id: Art. 60 Abs. 3
   artikel: '60'
   artikel_titel: Tests von Hochrisiko-KI-Systemen unter Realbedingungen außerhalb von KI-Reallaboren
@@ -20875,27 +21101,26 @@ einheiten:
   pflicht: Organisiert ein Anbieter den Test unter Realbedingungen in Zusammenarbeit mit einem oder mehreren
     Betreibern, werden Letztere vorab ueber alle teilnahmerelevanten Aspekte informiert und erhalten die
     Art.-13-Betriebsanleitungen; Anbieter und Betreiber schliessen eine Vereinbarung ueber ihre Aufgaben.
-  scope: in
-  scope_grund: null
+  scope: out
+  scope_grund: 'Bedingte Pflicht: entsteht nur bei freiwilliger Teilnahme an einem Test unter Realbedingungen
+    nach Art. 60, die der Regelfall (Zukauf) nicht vorsieht - Wiedervorlage, sobald eine Teilnahme geplant
+    ist.'
   verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: unveraendert - Art. 60 Abs. 4 lit. h ist von der Aenderung des Abs. 1/2 (Nr. 24) nicht betroffen
     (geprueft am verfuegenden Teil).
   requirement: []
   gate: []
-  befund: nicht_einschlaegig
-  befund_grund: 'PO-FRAGE (ausserhalb SPEC-06 Abschnitt 3): echte, aber KONDITIONALE Betreiberpflicht
-    - entsteht nur, wenn der Betreiber freiwillig an einem vorab-marktreifen Realbedingungstest eines
-    Anbieters teilnimmt (Art. 60, Titel VI KI-Reallabore/Innovation). Der Redispatch-Anwendungsfall (K1,
-    Zukauf eines bereits zertifizierten Systems, HANDBUCH 4.4) sieht keine Teilnahme an Anbieter-Pre-Market-Tests
-    vor - kategorial ausserhalb der Standard-Betriebsrealitaet dieses Projekts, aber kein Ausschlusstatbestand
-    im Gesetz selbst (anders als Art. 26 Abs. 8/10).'
-  po_bestaetigt: false
+  befund: null
+  befund_grund: null
+  po_bestaetigt: true
   uid: Art. 60 Abs. 4 lit. h@470510
   abschnitt: null
   nummer: null
   unterabsatz: null
   ziffer: null
+  po_entscheid:
+  - 2026-09-23 · 2a Gruppe E (bedingte Pflicht)
 - id: Art. 60 Abs. 4 lit. i
   artikel: '60'
   artikel_titel: Tests von Hochrisiko-KI-Systemen unter Realbedingungen außerhalb von KI-Reallaboren
@@ -20945,24 +21170,26 @@ einheiten:
   adressat: betreiber
   pflicht: Anbieter/zukuenftiger Anbieter UND Betreiber/zukuenftige Betreiber lassen den Test unter Realbedingungen
     von angemessen qualifizierten, befugten Personen wirksam ueberwachen.
-  scope: in
-  scope_grund: null
+  scope: out
+  scope_grund: 'Bedingte Pflicht: entsteht nur bei freiwilliger Teilnahme an einem Test unter Realbedingungen
+    nach Art. 60, die der Regelfall (Zukauf) nicht vorsieht - Wiedervorlage, sobald eine Teilnahme geplant
+    ist.'
   verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: unveraendert - Art. 60 Abs. 4 lit. j ist von der Aenderung des Abs. 1/2 (Nr. 24) nicht betroffen
     (geprueft am verfuegenden Teil).
   requirement: []
   gate: []
-  befund: nicht_einschlaegig
-  befund_grund: 'Wie Art. 60 Abs. 4 lit. h: echte, aber konditionale Mitwirkungspflicht bei freiwilliger
-    Teilnahme an einem Anbieter-Realbedingungstest vor Marktreife - im K1-Zukauf-Szenario des Redispatch-Anwendungsfalls
-    nicht die Betriebsrealitaet, kein gesetzlicher Ausschluss.'
-  po_bestaetigt: false
+  befund: null
+  befund_grund: null
+  po_bestaetigt: true
   uid: Art. 60 Abs. 4 lit. j@471663
   abschnitt: null
   nummer: null
   unterabsatz: null
   ziffer: null
+  po_entscheid:
+  - 2026-09-23 · 2a Gruppe E (bedingte Pflicht)
 - id: Art. 60 Abs. 4 lit. k
   artikel: '60'
   artikel_titel: Tests von Hochrisiko-KI-Systemen unter Realbedingungen außerhalb von KI-Reallaboren
@@ -24232,23 +24459,24 @@ einheiten:
   adressat: betreiber
   pflicht: Die Anhang-VIII-Abschnitt-C-Daten werden vom Betreiber, der eine Behoerde/EU-Einrichtung ist
     oder in deren Namen handelt, gemaess Art. 49 Abs. 3/4 in die EU-Datenbank eingegeben.
-  scope: in
-  scope_grund: null
+  scope: out
+  scope_grund: Adressat - Dateneingabe durch Betreiber, die Behoerden sind.
   verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: unveraendert - Art. 71 ist in der Aenderungsliste der VO (EU) 2026/1744 nicht erwaehnt (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
   requirement: []
   gate: []
-  befund: nicht_einschlaegig
-  befund_grund: 'Operative Ergaenzung zu Art. 49 Abs. 3 (dort bereits erfasst): doppelt nicht einschlaegig
-    - Anhang-III-Nr.-2-Ausnahme UND Beschraenkung auf Betreiber-Behoerden.'
-  po_bestaetigt: false
+  befund: null
+  befund_grund: null
+  po_bestaetigt: true
   uid: Art. 71 Abs. 3@500026
   abschnitt: null
   nummer: null
   unterabsatz: null
   ziffer: null
+  po_entscheid:
+  - 2026-09-23 · 2a Gruppe A (Adressat Behoerde)
 - id: Art. 71 Abs. 4
   artikel: '71'
   artikel_titel: EU-Datenbank für die in Anhang III aufgeführten Hochrisiko-KI-Systeme
@@ -24530,8 +24758,9 @@ einheiten:
     Vorfaelle den Marktueberwachungsbehoerden der Mitgliedstaaten, in denen der Vorfall stattfand.
   scope: in
   scope_grund: null
-  verifikation: VERIFIZIERT
-  hypothese_grund: null
+  verifikation: HYPOTHESE
+  hypothese_grund: 'Anbieterpflicht, fuer den Betreiber in nach der Durchschlagsregel (2b E4): (b) Art.
+    26 Abs. 5 verweist auf Art. 73.'
   omnibus: unveraendert (Art. 73 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
     - die Liste springt von Nr. 30 [Art. 72] auf Nr. 31 [Art. 75]; neu eingefuegt wird Art. 75 Abs. 1a,
     der fuer KI-Buero-zustaendige Systeme einen Parallelweg zu Art. 73 schafft, Anhang-III-Nr.-2-Systeme
@@ -24560,6 +24789,8 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  po_entscheid:
+  - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, Anker (b))
 - uid: Art. 73 Abs. 2 UAbs. 1 Satz 1@504781
   id: Art. 73 Abs. 2 UAbs. 1 Satz 1
   artikel: '73'
@@ -24584,8 +24815,9 @@ einheiten:
     wird bei der Fristbemessung beruecksichtigt.
   scope: in
   scope_grund: null
-  verifikation: VERIFIZIERT
-  hypothese_grund: null
+  verifikation: HYPOTHESE
+  hypothese_grund: 'Anbieterpflicht, fuer den Betreiber in nach der Durchschlagsregel (2b E4): (b) Art.
+    26 Abs. 5 verweist auf Art. 73.'
   omnibus: unveraendert (s. Art. 73 Abs. 1).
   requirement: &id037
   - R009
@@ -24600,6 +24832,8 @@ einheiten:
   po_bestaetigt: false
   migriert_von: Art. 73 Abs. 2@504775
   migration: geerbt
+  po_entscheid:
+  - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, Anker (b))
 - uid: Art. 73 Abs. 2 UAbs. 2 Satz 1@505167
   id: Art. 73 Abs. 2 UAbs. 2 Satz 1
   artikel: '73'
@@ -24622,8 +24856,9 @@ einheiten:
     wird bei der Fristbemessung beruecksichtigt.
   scope: in
   scope_grund: null
-  verifikation: VERIFIZIERT
-  hypothese_grund: null
+  verifikation: HYPOTHESE
+  hypothese_grund: 'Anbieterpflicht, fuer den Betreiber in nach der Durchschlagsregel (2b E4): (b) Art.
+    26 Abs. 5 verweist auf Art. 73.'
   omnibus: unveraendert (s. Art. 73 Abs. 1).
   requirement: *id037
   gate: *id038
@@ -24636,6 +24871,8 @@ einheiten:
   po_bestaetigt: false
   migriert_von: Art. 73 Abs. 2@504775
   migration: geerbt
+  po_entscheid:
+  - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, Anker (b))
 - id: Art. 73 Abs. 3
   artikel: '73'
   artikel_titel: Meldung schwerwiegender Vorfälle
@@ -24654,8 +24891,9 @@ einheiten:
     spaetestens 2 Tage nach Kenntniserlangung durch Anbieter oder ggf. Betreiber.
   scope: in
   scope_grund: null
-  verifikation: VERIFIZIERT
-  hypothese_grund: null
+  verifikation: HYPOTHESE
+  hypothese_grund: 'Anbieterpflicht, fuer den Betreiber in nach der Durchschlagsregel (2b E4): (b) Art.
+    26 Abs. 5 verweist auf Art. 73.'
   omnibus: unveraendert (s. Art. 73 Abs. 1).
   requirement:
   - R009
@@ -24674,6 +24912,8 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  po_entscheid:
+  - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, Anker (b))
 - id: Art. 73 Abs. 4
   artikel: '73'
   artikel_titel: Meldung schwerwiegender Vorfälle
@@ -24692,8 +24932,9 @@ einheiten:
     durch Anbieter oder Betreiber, spaetestens 10 Tage nach Kenntniserlangung.
   scope: in
   scope_grund: null
-  verifikation: VERIFIZIERT
-  hypothese_grund: null
+  verifikation: HYPOTHESE
+  hypothese_grund: 'Anbieterpflicht, fuer den Betreiber in nach der Durchschlagsregel (2b E4): (b) Art.
+    26 Abs. 5 verweist auf Art. 73.'
   omnibus: unveraendert (s. Art. 73 Abs. 1).
   requirement:
   - R009
@@ -24709,6 +24950,8 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  po_entscheid:
+  - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, Anker (b))
 - id: Art. 73 Abs. 5
   artikel: '73'
   artikel_titel: Meldung schwerwiegender Vorfälle
@@ -24732,19 +24975,18 @@ einheiten:
   - R009
   gate:
   - G-OPS-02
-  befund: luecke
-  befund_grund: 'Staerkste eigenstaendige Textstelle fuer eine Betreiber-Handlungsmoeglichkeit in Art.
-    73 (anders als Abs. 2-4, wo er nur als Kenntnis-Zeitpunkt erscheint, wird der Betreiber hier als gleichrangige
-    Alternative zum Anbieter genannt: ''kann der Anbieter oder gegebenenfalls der Betreiber... vorlegen'').
-    Kein Gate bildet diese Option ab: G-OPS-02 erzeugt laut R009 acceptance_criteria keine Incident-Records
-    ueberhaupt (''Es werden keine Incident-Records erzeugt, also auch keine versioniert''), unabhaengig
-    davon, wer sie einreichen wuerde.'
-  po_bestaetigt: false
+  befund: nicht_einschlaegig
+  befund_grund: 'Erlaubnis (''kann ... einen unvollstaendigen Erstbericht vorlegen''), keine Pflicht.
+    Designvorgabe fuer G-OPS-02: ein Erstbericht muss moeglich sein.'
+  po_bestaetigt: true
   uid: Art. 73 Abs. 5@506088
   abschnitt: null
   nummer: null
   unterabsatz: null
   ziffer: null
+  po_entscheid:
+  - 2026-09-23 · 2b E1 (Erlaubnis)
+  - 2026-09-23 · 2b E4 (VERIFIZIERT - Betreiber in der Einheit oder ihrem Einleitungssatz genannt)
 - id: Art. 73 Abs. 6
   artikel: '73'
   artikel_titel: Meldung schwerwiegender Vorfälle
@@ -24868,8 +25110,9 @@ einheiten:
     werden.
   scope: in
   scope_grund: null
-  verifikation: VERIFIZIERT
-  hypothese_grund: null
+  verifikation: HYPOTHESE
+  hypothese_grund: 'Anbieterpflicht, fuer den Betreiber in nach der Durchschlagsregel (2b E4): (b) Art.
+    26 Abs. 5 verweist auf Art. 73.'
   omnibus: unveraendert (s. Art. 73 Abs. 1).
   requirement:
   - R009
@@ -24895,6 +25138,8 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  po_entscheid:
+  - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, Anker (b))
 - id: Art. 73 Abs. 10
   artikel: '73'
   artikel_titel: Meldung schwerwiegender Vorfälle
@@ -24912,24 +25157,23 @@ einheiten:
   pflicht: Bei Hochrisiko-Systemen, die Sicherheitsbauteile von Medizinprodukten (VO (EU) 2017/745/746)
     sind oder selbst solche Produkte sind, muessen nur Vorfaelle nach Art. 3 Nr. 49 lit. c gemeldet werden,
     und zwar an die dafuer ausgewaehlte zustaendige nationale Behoerde.
-  scope: in
-  scope_grund: null
+  scope: out
+  scope_grund: Systemtyp - gilt nur fuer Medizinprodukte nach VO (EU) 2017/745 und 2017/746.
   verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: unveraendert (s. Art. 73 Abs. 1).
   requirement: []
   gate: []
-  befund: nicht_einschlaegig
-  befund_grund: Gilt ausschliesslich fuer Hochrisiko-KI-Systeme, die Sicherheitsbauteile von Medizinprodukten
-    nach VO (EU) 2017/745/746 sind oder selbst solche sind. Der Anwendungsfall Redispatch faellt unter
-    Anhang III Nr. 2 (kritische Infrastruktur/Stromversorgung), nicht unter die Medizinprodukte-Verordnungen
-    - kategorial nicht einschlaegig, analog Art. 26 Abs. 8/10 und Art. 14 Abs. 5 (Lauf 1).
-  po_bestaetigt: false
+  befund: null
+  befund_grund: null
+  po_bestaetigt: true
   uid: Art. 73 Abs. 10@508150
   abschnitt: null
   nummer: null
   unterabsatz: null
   ziffer: null
+  po_entscheid:
+  - 2026-09-23 · 2a Gruppe C (anderer Systemtyp)
 - id: Art. 73 Abs. 11
   artikel: '73'
   artikel_titel: Meldung schwerwiegender Vorfälle
@@ -25618,11 +25862,8 @@ einheiten:
     KI; Betreiber wird nur als Nutzungskontext genannt, keine eigene Betreiberpflicht.
   verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 31 - Art. 75 umfassend neu gefasst (u.a. neue
-    Ueberschrift, neue Abs. 1a-1e und 2a); Abs. 2 selbst (Kooperationspflicht bei GPAI) ist in der neuen
-    Fassung nicht mehr enthalten bzw. in Abs. 1 aufgegangen - Praezisierung dem PO ueberlassen, da die
-    exakte Zuordnung der Restnummerierung eine eigene Pruefung erfordert (geprueft am verfuegenden Teil,
-    docs/legal/OJ_L_202601744_DE.pdf).
+  omnibus: unveraendert - Art. 1 Nr. 31 der VO (EU) 2026/1744 fasst Ueberschrift und Abs. 1 neu und fuegt
+    Abs. 1a-1e und 2a ein; Abs. 2 selbst bleibt.
   requirement: []
   gate: []
   befund: null
@@ -25633,6 +25874,8 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  po_entscheid:
+  - 2026-09-23 · 2b E6 (Omnibus-Feld)
 - id: Art. 75 Abs. 3
   artikel: '75'
   artikel_titel: Amtshilfe, Marktüberwachung und Kontrolle von KI-Systemen mit allgemeinem Verwendungszweck
@@ -26409,28 +26652,32 @@ einheiten:
     Die Marktüberwachungsbehörde informiert die betreffende notifizierte Stelle entsprechend. Artikel
     18 der Verordnung (EU) 2019/1020 gilt für die in Unterabsatz 2 des vorliegenden Absatzes genannten
     Maßnahmen.
-  adressat: behoerde
+  adressat: betreiber
   pflicht: Hat eine Marktueberwachungsbehoerde hinreichenden Grund zur Annahme eines Risikos, prueft sie
     das KI-System, informiert gegebenenfalls die Grundrechtsbehoerden und fordert den betroffenen Akteur
     bei festgestellter Nichtkonformitaet zu Korrekturmassnahmen, Marktruecknahme oder Ruckruf binnen kurzer
     Frist auf.
-  scope: out
-  scope_grund: Regelt das behoerdliche Verfahren zum Umgang mit risikobehafteten oder nicht konformen
-    KI-Systemen; keine Betreiberpflicht.
-  verifikation: VERIFIZIERT
-  hypothese_grund: null
+  scope: in
+  scope_grund: '''Die betreffenden Akteure arbeiten ... mit der Marktueberwachungsbehoerde zusammen''
+    - Akteur umfasst den Betreiber (Art. 3 Nr. 8).'
+  verifikation: HYPOTHESE
+  hypothese_grund: Art. 79 Abs. 2 nennt 'Akteure', nicht den Betreiber; dass er gemeint ist, folgt aus
+    der Begriffsbestimmung in Art. 3 Nr. 8, nicht aus Art. 79 selbst.
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
   requirement: []
   gate: []
-  befund: null
-  befund_grund: null
-  po_bestaetigt: false
+  befund: luecke
+  befund_grund: Kooperationspflicht der Akteure bei der Bewertung eines Risikos durch die Marktueberwachungsbehoerde;
+    kein Requirement und kein Gate bildet sie ab (P6).
+  po_bestaetigt: true
   uid: Art. 79 Abs. 2@527186
   abschnitt: null
   nummer: null
   unterabsatz: null
   ziffer: null
+  po_entscheid:
+  - 2026-09-23 · 2b E1 (in, P6)
 - id: Art. 79 Abs. 3
   artikel: '79'
   artikel_titel: Verfahren auf nationaler Ebene für den Umgang mit KI-Systemen, die ein Risiko bergen
@@ -27693,28 +27940,25 @@ einheiten:
     Nr. 2) betroffene Personen, deren Gesundheit/Sicherheit/Grundrechte dadurch nach ihrer Auffassung
     erheblich beeintraechtigt werden, haben das Recht, vom Betreiber eine klare, aussagekraeftige Erlaeuterung
     zur Rolle des KI-Systems und den wichtigsten Entscheidungselementen zu erhalten.
-  scope: in
-  scope_grund: null
+  scope: out
+  scope_grund: Bereichsausnahme Art. 86 Abs. 1 ('mit Ausnahme der in Nummer 2 des genannten Anhangs aufgefuehrten
+    Systeme').
   verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: unveraendert - Art. 86 ist in der Aenderungsliste der VO (EU) 2026/1744 nicht erwaehnt (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
   requirement: []
   gate: []
-  befund: nicht_einschlaegig
-  befund_grund: 'PO-FRAGE (ausserhalb SPEC-06 Abschnitt 3): echte, individualrechtlich einklagbare Betreiberpflicht
-    (Erlaeuterungsrecht Betroffener) - DRITTER Anhang-III-Nr.-2-Carve-out neben Art. 27 (FRIA, Lauf 2)
-    und Art. 49 Abs. 1/3 (Registrierung, dieser Lauf): der Wortlaut nimmt Nr.-2-Systeme (kritische Infrastruktur/Redispatch)
-    ausdruecklich aus. Kein Requirement/Gate im Katalog bildet ein Erlaeuterungsrecht ab (grep ''Art.
-    86'', ''Erlaeuterung'' ohne Treffer) - fuer den konkreten Anwendungsfall aber wegen des Carve-outs
-    nicht einschlaegig, nicht luecke. Musterhaftes drittes Beispiel des wiederkehrenden Anhang-III-Nr.-2-Ausschlussmusters
-    - im Abschlussbericht zusammen mit Art. 27 und Art. 49 zu nennen.'
-  po_bestaetigt: false
+  befund: null
+  befund_grund: null
+  po_bestaetigt: true
   uid: Art. 86 Abs. 1@541619
   abschnitt: null
   nummer: null
   unterabsatz: null
   ziffer: null
+  po_entscheid:
+  - 2026-09-23 · 2a Gruppe A (Bereichsausnahme Anhang III Nr. 2)
 - id: Art. 86 Abs. 2
   artikel: '86'
   artikel_titel: Recht auf Erläuterung der Entscheidungsfindung im Einzelfall
@@ -29196,8 +29440,7 @@ einheiten:
   scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
   verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
-    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 35 - Abs. 4 neu gefasst (Art. 95 Abs. 4 n.F.).
   requirement: []
   gate: []
   befund: null
@@ -29210,6 +29453,8 @@ einheiten:
   ziffer: null
   fassung_2026_1744:
   - Art. 95 Abs. 4 n.F.@148560
+  po_entscheid:
+  - 2026-09-23 · 2b E6 (Omnibus-Feld)
 - id: Art. 96 Abs. 1
   artikel: '96'
   artikel_titel: Leitlinien der Kommission zur Durchführung dieser Verordnung
@@ -31857,21 +32102,17 @@ einheiten:
     dadurch NOCH bedeutsamer, nicht kleiner.'
   requirement: &id041 []
   gate: &id042 []
-  befund: luecke
-  befund_grund: 'ZENTRALER BEFUND (im Abschlussbericht gesondert hervorzuheben), NACH OMNIBUS-PRUEFUNG
-    PRAEZISIERT: Kapitel III (und damit Art. 26) gilt fuer bereits vor dem Stichtag in Verkehr gebrachte/in
-    Betrieb genommene Anhang-III-Systeme erst ab dem 2. Dezember 2027 (Art. 113 Abs. 3 lit. c Ziff. i
-    n.F.), AUSSER bei nachtraeglicher wesentlicher Konzeptionsaenderung oder bei einem Behoerden-Betreiber
-    (Frist 2.8.2030 statt eines Bestandsschutzes). WENN das Redispatch-KI-System bereits vor diesem Stichtag
-    in Verkehr gebracht/in Betrieb genommen wurde UND seither nicht wesentlich veraendert wurde UND der
-    Netzbetreiber keine Behoerde ist, greifen die in diesem Pflichtenraum geprueften Art.-26-Betreiberpflichten
-    fuer dieses spezifische System derzeit (Stand dieses Laufs: September 2026) noch gar nicht. Kein Requirement/Gate
-    im Katalog prueft das Inverkehrbringungsdatum, die Aenderungshistorie oder die Rechtsnatur des Betreibers
-    - die zeitliche Anwendbarkeit der gesamten uebrigen Deckungsanalyse (Art. 26 ff.) auf DIESES Projekt
-    ist damit eine ungeklaerte Tatsachenfrage, die der PO vorab klaeren sollte.'
-  po_bestaetigt: false
+  befund: nicht_einschlaegig
+  befund_grund: 'Steuernd: Anwendbarkeitsregel. Fuer Hochrisiko-KI-Systeme, die vor dem Beginn der Anwendung
+    von Kapitel III (Anhang III: 2. Dezember 2027, Art. 113 Abs. 3 lit. c Ziff. i n.F.) in Betrieb genommen
+    wurden, gilt die Verordnung nur nach erheblicher Veraenderung der Konzeption. Keine eigene pruefbare
+    Pflicht; ob das eigene System darunter faellt, prueft die Massnahme P0 (G-PRE-01, Kopplung an G-OPS-06/C-25b).'
+  po_bestaetigt: true
   migriert_von: Art. 111 Abs. 2@579913
   migration: geerbt
+  po_entscheid:
+  - 2026-09-23 · 2b E1 (steuernd, Massnahme P0)
+  - 2026-09-23 · 2b E4 (VERIFIZIERT - Betreiber in der Einheit oder ihrem Einleitungssatz genannt)
 - uid: Art. 111 Abs. 2 Satz 2@580304
   id: Art. 111 Abs. 2 Satz 2
   artikel: '111'
@@ -31927,6 +32168,8 @@ einheiten:
   po_bestaetigt: false
   migriert_von: Art. 111 Abs. 2@579913
   migration: geerbt
+  po_entscheid:
+  - 2026-09-23 · 2b E4 (VERIFIZIERT - Betreiber in der Einheit oder ihrem Einleitungssatz genannt)
 - id: Art. 111 Abs. 3
   artikel: '111'
   artikel_titel: Bereits in Verkehr gebrachte oder in Betrieb genommene KI-Systeme und bereits in Verkehr
@@ -33333,19 +33576,22 @@ einheiten:
     Gas-, Wärme- oder Stromversorgung verwendet werden sollen'
   adressat: null
   pflicht: null
-  scope: null
-  scope_grund: null
+  scope: in
+  scope_grund: Steuernde Norm (T-13 Raster, Ausnahme von Schritt 3) - Einstufung kritische Infrastruktur,
+    auf der das Vorhaben ruht (G-PRE-01).
   verifikation: null
   hypothese_grund: null
   omnibus: null
   requirement: *id043
   gate: *id044
-  befund: null
-  befund_grund: null
+  befund: nicht_einschlaegig
+  befund_grund: Einstufung, begruendet keine eigene pruefbare Pflicht.
   abschnitt: null
   nummer: '2'
   unterabsatz: null
   ziffer: null
+  po_entscheid:
+  - 2026-09-23 · 2b E5 (steuernde Norm)
 - uid: Anhang III Nr. 3@611479
   id: Anhang III Nr. 3
   artikel: Anhang III

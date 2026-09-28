@@ -414,15 +414,18 @@ einheiten:
   aenderung: geaendert
   adressat: null
   pflicht: null
-  scope: null
-  scope_grund: null
+  scope: in
+  scope_grund: Steuernde Norm (T-13 Raster, Ausnahme von Schritt 3) - Sicherheitsbauteil und seine Klarstellung,
+    geprueft von G-PRE-01/C-A3 bis C-A6.
   verifikation: null
   hypothese_grund: null
   omnibus: null
   requirement: *id001
   gate: *id002
-  befund: null
-  befund_grund: null
+  befund: nicht_einschlaegig
+  befund_grund: Begriffsbestimmung bzw. Klarstellung, begruendet keine eigene pruefbare Pflicht.
+  po_entscheid:
+  - 2026-09-23 · 2b E5 (steuernde Norm)
 - uid: Omnibus Art. 1 Nr. 4 lit. b@83149
   id: Omnibus Art. 1 Nr. 4 lit. b
   artikel: '3'
@@ -952,15 +955,18 @@ einheiten:
   aenderung: eingefuegt
   adressat: null
   pflicht: null
-  scope: null
-  scope_grund: null
+  scope: in
+  scope_grund: Richtet sich an Betreiber von Hochrisiko-KI-Systemen; R013 stuetzt sich darauf.
   verifikation: null
   hypothese_grund: null
   omnibus: null
   requirement: *id001
   gate: *id002
-  befund: null
-  befund_grund: null
+  befund: nicht_einschlaegig
+  befund_grund: Erlaubnis - Betreiber duerfen ausnahmsweise besondere Kategorien personenbezogener Daten
+    verarbeiten; keine Pflicht.
+  po_entscheid:
+  - 2026-09-23 · 2b E5 (Erlaubnis)
 - uid: Art. 4a Abs. 2 lit. a n.F.@87657
   id: Art. 4a Abs. 2 lit. a n.F.
   artikel: ''
@@ -1102,15 +1108,18 @@ einheiten:
   aenderung: eingefuegt
   adressat: null
   pflicht: null
-  scope: null
-  scope_grund: null
+  scope: in
+  scope_grund: Verbot der Verwendung - trifft auch den Betreiber; gilt ab 2. Dezember 2026 (Art. 113 Abs.
+    3 lit. a n.F.).
   verifikation: null
   hypothese_grund: null
   omnibus: null
   requirement: *id001
   gate: *id002
-  befund: null
-  befund_grund: null
+  befund: luecke
+  befund_grund: Kein Gate prueft die neuen Verbote; Teil des Art.-5-Screenings (P1).
+  po_entscheid:
+  - 2026-09-23 · 2b E2 (P1 Verbote, neu ab 02.12.2026)
 - uid: Art. 5 Abs. 1 UAbs. 1 lit. bb n.F.@88927
   id: Art. 5 Abs. 1 UAbs. 1 lit. bb n.F.
   artikel: '5'
@@ -1132,15 +1141,18 @@ einheiten:
   aenderung: eingefuegt
   adressat: null
   pflicht: null
-  scope: null
-  scope_grund: null
+  scope: in
+  scope_grund: Verbot der Verwendung - trifft auch den Betreiber; gilt ab 2. Dezember 2026 (Art. 113 Abs.
+    3 lit. a n.F.).
   verifikation: null
   hypothese_grund: null
   omnibus: null
   requirement: *id001
   gate: *id002
-  befund: null
-  befund_grund: null
+  befund: luecke
+  befund_grund: Kein Gate prueft die neuen Verbote; Teil des Art.-5-Screenings (P1).
+  po_entscheid:
+  - 2026-09-23 · 2b E2 (P1 Verbote, neu ab 02.12.2026)
 - uid: Omnibus Art. 1 Nr. 7 lit. b@89226
   id: Omnibus Art. 1 Nr. 7 lit. b
   artikel: '5'
@@ -1372,15 +1384,18 @@ einheiten:
   aenderung: eingefuegt
   adressat: null
   pflicht: null
-  scope: null
-  scope_grund: null
+  scope: in
+  scope_grund: Steuernde Norm (T-13 Raster, Ausnahme von Schritt 3) - Sicherheitsbauteil und seine Klarstellung,
+    geprueft von G-PRE-01/C-A3 bis C-A6.
   verifikation: null
   hypothese_grund: null
   omnibus: null
   requirement: *id001
   gate: *id002
-  befund: null
-  befund_grund: null
+  befund: nicht_einschlaegig
+  befund_grund: Begriffsbestimmung bzw. Klarstellung, begruendet keine eigene pruefbare Pflicht.
+  po_entscheid:
+  - 2026-09-23 · 2b E5 (steuernde Norm)
 - uid: Art. 6 Abs. 1b n.F.@91291
   id: Art. 6 Abs. 1b n.F.
   artikel: '6'
@@ -1401,15 +1416,18 @@ einheiten:
   aenderung: eingefuegt
   adressat: null
   pflicht: null
-  scope: null
-  scope_grund: null
+  scope: in
+  scope_grund: Steuernde Norm (T-13 Raster, Ausnahme von Schritt 3) - Sicherheitsbauteil und seine Klarstellung,
+    geprueft von G-PRE-01/C-A3 bis C-A6.
   verifikation: null
   hypothese_grund: null
   omnibus: null
   requirement: *id001
   gate: *id002
-  befund: null
-  befund_grund: null
+  befund: nicht_einschlaegig
+  befund_grund: Begriffsbestimmung bzw. Klarstellung, begruendet keine eigene pruefbare Pflicht.
+  po_entscheid:
+  - 2026-09-23 · 2b E5 (steuernde Norm)
 - uid: Art. 6 Abs. 1c n.F.@91443
   id: Art. 6 Abs. 1c n.F.
   artikel: '6'
@@ -1433,15 +1451,18 @@ einheiten:
   aenderung: eingefuegt
   adressat: null
   pflicht: null
-  scope: null
-  scope_grund: null
+  scope: in
+  scope_grund: Steuernde Norm (T-13 Raster, Ausnahme von Schritt 3) - Sicherheitsbauteil und seine Klarstellung,
+    geprueft von G-PRE-01/C-A3 bis C-A6.
   verifikation: null
   hypothese_grund: null
   omnibus: null
   requirement: *id001
   gate: *id002
-  befund: null
-  befund_grund: null
+  befund: nicht_einschlaegig
+  befund_grund: Begriffsbestimmung bzw. Klarstellung, begruendet keine eigene pruefbare Pflicht.
+  po_entscheid:
+  - 2026-09-23 · 2b E5 (steuernde Norm)
 - uid: Omnibus Art. 1 Nr. 9@91871
   id: Omnibus Art. 1 Nr. 9
   artikel: '10'
@@ -7348,15 +7369,18 @@ einheiten:
   aenderung: neu_gefasst
   adressat: null
   pflicht: null
-  scope: null
-  scope_grund: null
+  scope: in
+  scope_grund: Steuernde Norm (T-13 Raster, Ausnahme von Schritt 3) - Geltungsbeginn; lit. c Ziff. i setzt
+    den 2. Dezember 2027 fuer Anhang III (P0).
   verifikation: null
   hypothese_grund: null
   omnibus: null
   requirement: *id001
   gate: *id002
-  befund: null
-  befund_grund: null
+  befund: nicht_einschlaegig
+  befund_grund: Stichtag, begruendet keine eigene pruefbare Pflicht.
+  po_entscheid:
+  - 2026-09-23 · 2b E5 (steuernde Norm, Stichtage P0)
 - uid: Omnibus Art. 1 Nr. 40 lit. b@155121
   id: Omnibus Art. 1 Nr. 40 lit. b
   artikel: '113'
@@ -7404,15 +7428,18 @@ einheiten:
   aenderung: neu_gefasst
   adressat: null
   pflicht: null
-  scope: null
-  scope_grund: null
+  scope: in
+  scope_grund: Steuernde Norm (T-13 Raster, Ausnahme von Schritt 3) - Geltungsbeginn; lit. c Ziff. i setzt
+    den 2. Dezember 2027 fuer Anhang III (P0).
   verifikation: null
   hypothese_grund: null
   omnibus: null
   requirement: *id001
   gate: *id002
-  befund: null
-  befund_grund: null
+  befund: nicht_einschlaegig
+  befund_grund: Stichtag, begruendet keine eigene pruefbare Pflicht.
+  po_entscheid:
+  - 2026-09-23 · 2b E5 (steuernde Norm, Stichtage P0)
 - uid: Art. 113 Abs. 3 lit. c Ziff. i n.F.@155252
   id: Art. 113 Abs. 3 lit. c Ziff. i n.F.
   artikel: '113'
@@ -7433,15 +7460,18 @@ einheiten:
   aenderung: neu_gefasst
   adressat: null
   pflicht: null
-  scope: null
-  scope_grund: null
+  scope: in
+  scope_grund: Steuernde Norm (T-13 Raster, Ausnahme von Schritt 3) - Geltungsbeginn; lit. c Ziff. i setzt
+    den 2. Dezember 2027 fuer Anhang III (P0).
   verifikation: null
   hypothese_grund: null
   omnibus: null
   requirement: *id001
   gate: *id002
-  befund: null
-  befund_grund: null
+  befund: nicht_einschlaegig
+  befund_grund: Stichtag, begruendet keine eigene pruefbare Pflicht.
+  po_entscheid:
+  - 2026-09-23 · 2b E5 (steuernde Norm, Stichtage P0)
 - uid: Art. 113 Abs. 3 lit. c Ziff. ii n.F.@155378
   id: Art. 113 Abs. 3 lit. c Ziff. ii n.F.
   artikel: '113'
