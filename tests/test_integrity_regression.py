@@ -3027,6 +3027,47 @@ def check_norm_sentence_units_current() -> dict:
     )
 
 
+def check_po_decisions_applied() -> dict:
+    """Der Pflichtenraum traegt genau die PO-Entscheide, die in docs/coverage/entscheide/ stehen.
+
+    T-14.5 (28.09.2026). po_bestaetigt ist die Stelle, an der der Pflichtenraum
+    sagt: das hat der PO entschieden. Ein `po_bestaetigt: true` sieht in jedem
+    Diff richtig aus und bringt keinen Test zum Scheitern — dieselbe Lage wie
+    bei den vier Ehrlichkeitsfeldern (AGENTS.md 3), und dieselbe Gefahr: eine
+    KI, die eine Tabelle sauber abschliesst.
+
+    Deshalb in beiden Richtungen:
+      * jeder Entscheid einer Entscheidungsdatei steht so im Pflichtenraum —
+        Felder, Beleg in po_entscheid, po_bestaetigt;
+      * jede Zeile mit po_bestaetigt: true hat einen Entscheid mit
+        bestaetigt: true. Eine Bestaetigung ohne Entscheid ist keine.
+
+    Nebenbei faengt er, was ein Neuschnitt anrichtet: build_pflichtenraum.py
+    setzt geerbte Zeilen auf po_bestaetigt: false — der Check meldet dann den
+    Entscheid, der seine Zeile verloren hat.
+
+    HIGH wie NORM_UNIT_IDS_UNIQUE: der Fehler traegt eine Rechtszuordnung und
+    ist ohne Maschine nicht zu sehen. Einstufung durch den PO zu bestaetigen.
+    """
+    import importlib.util
+
+    titel = "jede PO-Bestaetigung im Pflichtenraum hat ihren Entscheid, und jeder Entscheid steht dort (T-14.5)"
+    pfad = REPO_ROOT / "tools" / "legal" / "po_entscheide.py"
+    spec = importlib.util.spec_from_file_location("po_entscheide", pfad)
+    modul = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(modul)
+    befunde = modul.abweichungen(REPO_ROOT)
+    soll = modul.erwartet(REPO_ROOT)
+    bestaetigt = sum(1 for s in soll.values() if s["bestaetigt"])
+    return make_result(
+        "PO_DECISIONS_APPLIED", titel, "high", not befunde,
+        f"{len(befunde)} Abweichung(en) zwischen Entscheidungsdateien und Pflichtenraum." if befunde
+        else f"{len(soll)} entschiedene Zeilen stehen so im Pflichtenraum, {bestaetigt} davon bestaetigt; "
+             f"keine Bestaetigung ohne Entscheid.",
+        befunde[:12] + ([f"… und {len(befunde) - 12} weitere"] if len(befunde) > 12 else []),
+    )
+
+
 def check_norm_refs_resolve() -> dict:
     """Jede Normverweisung eines Gates oder Requirements zeigt auf eine Einheit des Pflichtenraums.
 
@@ -3118,6 +3159,7 @@ def collect_results() -> list[dict]:
         check_legal_quotes_verbatim,
         check_norm_unit_ids_unique,
         check_norm_sentence_units_current,
+        check_po_decisions_applied,
         check_norm_refs_resolve,
     ]
     results = []
