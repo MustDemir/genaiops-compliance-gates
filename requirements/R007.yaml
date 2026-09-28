@@ -23,9 +23,10 @@ acceptance_criteria:
   gap_reason: Sichtbarkeit fuer Endnutzer ist eine Laufzeiteigenschaft der Oberflaeche. G-DEP-03 prueft Dokumente
     (B-14).
 - criterion: Informationspflichten gemaess Art. 13 und Art. 26 Abs. 7 sind dokumentiert.
-  status: met
-  evidence:
-  - G-DEP-03/C-01
+  status: gap
+  gap_reason: G-DEP-03/C-01 prueft, dass Anleitung, Faehigkeiten und Grenzen dokumentiert sind (Art. 13).
+    Die Unterrichtung der Arbeitnehmervertretung und der betroffenen Arbeitnehmer nach Art. 26
+    Abs. 7 prueft kein Check. Bis 29.09.2026 stand hier 'met' mit Beleg G-DEP-03/C-01 (Befund B2c-6).
 - criterion: KI-generierte Inhalte werden gemaess Art. 50 gekennzeichnet.
   status: unverified
 linked_gates:
