@@ -14,7 +14,8 @@ Arbeitsdokumente zur Abnahme von SPEC-06 / T-12: Die Vorschläge der Nachtläufe
 | 03 | [`03-gegenpruefung-omnibus-art26-out.md`](03-gegenpruefung-omnibus-art26-out.md) | Omnibus selbst gelesen, Art. 26 Volltext, ~280 `out`-Zeilen geprüft; Werkzeugbefunde T1–T4 | in 02 v2 eingearbeitet |
 | 04 | [`04-schritt-2c-teilabdeckungen.md`](04-schritt-2c-teilabdeckungen.md) | 44 Teilabdeckungen in 6 Clustern, Maßnahmen je Zeile, Q9 (Requirements ohne Betreiber-Anker), Befunde zu Art. 73 | **entschieden 28.09.2026** (F1a–F6a) |
 | 05 | [`05-schritt-2d-2e-gedeckt-querbefunde.md`](05-schritt-2d-2e-gedeckt-querbefunde.md) | Gegenprobe der 3 gedeckten Zeilen, 17 Querbefunde mit Stand | Vorschlag – Entscheidungsvorlage D1, D2, E1–E3 |
-| 06 | [`06-grenzen-statt-teilabdeckung.md`](06-grenzen-statt-teilabdeckung.md) | Teilabdeckung getrennt in Grenze (Element ungeprüft) und gedeckt mit E-0; Hinweisfunktion am Gate | Vorschlag – Entscheidungsvorlage H1–H4 |
+| 06 | [`06-grenzen-statt-teilabdeckung.md`](06-grenzen-statt-teilabdeckung.md) | Teilabdeckung getrennt in Grenze (Element ungeprüft) und gedeckt mit E-0; Hinweisfunktion am Gate | **entschieden 28./29.09.2026** (H1b, H2a, H3a, H4 Option 1) |
+| 07 | [`07-element-matrix.md`](07-element-matrix.md) | Alle 50 Pflichten mit Gate-Bezug gegen die 196 Regeln aus dem Code; Korrekturen, Methodenfrage Nachbarprüfung | Vorschlag – Entscheidungsvorlage M1, M2 |
 
 Ticket-Entwurf zu den Werkzeugbefunden: [`../../tickets/T-14-pflichtenraum-werkzeug.md`](../../tickets/T-14-pflichtenraum-werkzeug.md)
 

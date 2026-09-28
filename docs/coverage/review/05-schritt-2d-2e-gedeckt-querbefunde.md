@@ -2,7 +2,7 @@
 titel: Schritt 2d und 2e – die drei gedeckten Zeilen und die Querbefunde
 stand: 2026-09-28
 basis: Branch review-2c · Pflichtenraum nach 2c · Querbefunde aus 00 (A6) und 02 (Teil 6)
-status: VORSCHLAG – Entscheidungsvorlage D1, D2, E1–E3 in Teil 3
+status: ENTSCHIEDEN 29.09.2026 – D1/D2 aufgegangen in 06 H3a · E1a (G-DEP-06 auf Abs. 6, umgesetzt) · E2a (Schritt 4) · E3a (R007-Kriterium auf gap, umgesetzt)
 ---
 
 # Kurzfazit

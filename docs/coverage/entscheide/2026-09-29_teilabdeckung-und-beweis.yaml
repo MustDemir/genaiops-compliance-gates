@@ -1,0 +1,62 @@
+# PO-Entscheide vom 28./29.09.2026 — Teilabdeckung und Beweisachse (Review 06, H1–H4)
+#
+# Nachweis: docs/coverage/review/06-grenzen-statt-teilabdeckung.md (Entscheide) und
+# docs/coverage/review/07-element-matrix.md (Gegenprobe am Rego-Code).
+#
+# H1b: Der Befundwert heisst weiter 'teilabdeckung' — ein Element der Pflicht prueft
+#      kein Check im ganzen Katalog.
+# H2a: Prueft der Katalog alle Elemente, aber nur als Selbstauskunft, ist die Pflicht
+#      'gedeckt'; die Schwaeche steht auf der Beweisachse (evidence_level). Die Review 06
+#      nannte sechs Zeilen; die Gegenprobe am Code (07) haelt vier — bei Art. 14 Abs. 3 und
+#      Abs. 4 lit. d prueft der Code nicht alle Elemente.
+# H3a: Art. 25 Abs. 1 lit. a und c sind Teilabdeckungen, bis R017 steht (Kette: kein
+#      Requirement traegt Art. 25); Art. 13 Abs. 3 lit. a ist Teilabdeckung (Bevollmaechtigter).
+# H4 (Option 1, PASS mit Hinweis) betrifft Gates und Orchestrator — Umsetzung in Schritt 5.
+
+entschieden: '2026-09-29'
+eintraege:
+
+  - beleg: Review 06 H2 (alle Elemente geprueft, nur deklariert - gedeckt mit E-0)
+    raum: aiact
+    ids: [Art. 26 Abs. 6]
+    setze:
+      befund: gedeckt
+      befund_grund: >-
+        Alle Elemente geprueft (policy_logging_configured): Protokollierung aktiv,
+        retention_period_days >= 180, Zugaenglichkeit dokumentiert. Nur als Konfiguration
+        (E-0) - ob die Protokolle tatsaechlich sechs Monate vorliegen, misst nichts (M-E5).
+    bestaetigt: true
+
+  - beleg: Review 06 H2 (alle Elemente geprueft, nur deklariert - gedeckt mit E-0)
+    raum: aiact
+    ids: [Art. 73 Abs. 2 UAbs. 2 Satz 1, Art. 73 Abs. 3, Art. 73 Abs. 4]
+    setze:
+      befund: gedeckt
+      befund_grund: >-
+        Die Frist dieser Einheit ist in governance/incident_thresholds.yaml deklariert und
+        policy_incident_thresholds haelt sie gegen das Gesetz (48 h / 240 h / 360 h, je mit
+        Rechtsgrundlage). Nur deklariert (E-0) - eine laufende Fristenuhr fehlt (M-F3). Fuer
+        den Betreiber gilt Art. 73 nur ueber Art. 26 Abs. 5 Satz 4 (Befund B2c-1).
+    bestaetigt: true
+
+  - beleg: Review 06 H3 (Kettengrenze - kein Requirement traegt Art. 25, gedeckt mit R017)
+    raum: aiact
+    ids: [Art. 25 Abs. 1 lit. a, Art. 25 Abs. 1 lit. c]
+    setze:
+      befund: teilabdeckung
+      befund_grund: >-
+        G-OPS-06 prueft den Tatbestand vollstaendig (C-25a bzw. C-25c, deny). Es fehlt die
+        Kette: kein Requirement traegt Art. 25, G-OPS-06 verweist auf R001 (Art. 9). Mit R017
+        wird die Pflicht gedeckt (SPEC-06 Befunde 1 und 2).
+    bestaetigt: true
+
+  - beleg: Review 06 H3 / Review 05 D2 (Bevollmaechtigter ungeprueft)
+    raum: aiact
+    ids: [Art. 13 Abs. 3 lit. a]
+    setze:
+      befund: teilabdeckung
+      befund_grund: >-
+        policy_conformity_verified prueft model_info.provider und provider_contact (nicht
+        leer). Der Bevollmaechtigte nach Art. 22 - Pflichtangabe bei Anbietern ausserhalb der
+        Union - wird nicht geprueft; der Kontakt nur als nicht-leerer String (M-A1).
+    bestaetigt: true

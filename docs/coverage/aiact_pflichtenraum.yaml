@@ -7554,11 +7554,11 @@ einheiten:
   - R011
   gate:
   - G-DEP-04
-  befund: gedeckt
-  befund_grund: 'Direkter Treffer: G-DEP-04/C-01 prueft explizit, dass ''Provider-Doku erhalten und kontaktierbar''
-    ist - genau der Inhalt dieses Buchstabens. Einziger ''gedeckt''-Befund innerhalb Art. 13 in diesem
-    Lauf.'
-  po_bestaetigt: false
+  befund: teilabdeckung
+  befund_grund: policy_conformity_verified prueft model_info.provider und provider_contact (nicht leer).
+    Der Bevollmaechtigte nach Art. 22 - Pflichtangabe bei Anbietern ausserhalb der Union - wird nicht
+    geprueft; der Kontakt nur als nicht-leerer String (M-A1).
+  po_bestaetigt: true
   uid: Art. 13 Abs. 3 lit. a@326282
   abschnitt: null
   nummer: null
@@ -7566,6 +7566,7 @@ einheiten:
   ziffer: null
   po_entscheid:
   - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, Anker (a) und (b))
+  - 2026-09-29 · Review 06 H3 / Review 05 D2 (Bevollmaechtigter ungeprueft)
 - id: Art. 13 Abs. 3 lit. b
   artikel: '13'
   artikel_titel: Transparenz und Bereitstellung von Informationen für die Betreiber
@@ -11073,11 +11074,11 @@ einheiten:
   requirement: []
   gate:
   - G-OPS-06
-  befund: gedeckt
-  befund_grund: G-OPS-06/C-25a bildet exakt diesen Tatbestand ab (severity MUST, implemented) - 'eigener
-    Name oder eigene Marke auf einem bereits in Verkehr gebrachten Hochrisiko-System'. Wortlaut und Check-Beschreibung
-    decken sich woertlich. Requirement fehlt weiterhin (Befund 1).
-  po_bestaetigt: false
+  befund: teilabdeckung
+  befund_grund: 'G-OPS-06 prueft den Tatbestand vollstaendig (C-25a bzw. C-25c, deny). Es fehlt die Kette:
+    kein Requirement traegt Art. 25, G-OPS-06 verweist auf R001 (Art. 9). Mit R017 wird die Pflicht gedeckt
+    (SPEC-06 Befunde 1 und 2).'
+  po_bestaetigt: true
   uid: Art. 25 Abs. 1 lit. a@354877
   abschnitt: null
   nummer: null
@@ -11085,6 +11086,7 @@ einheiten:
   ziffer: null
   po_entscheid:
   - 2026-09-23 · 2b E4 (VERIFIZIERT - Betreiber in der Einheit oder ihrem Einleitungssatz genannt)
+  - 2026-09-29 · Review 06 H3 (Kettengrenze - kein Requirement traegt Art. 25, gedeckt mit R017)
 - id: Art. 25 Abs. 1 lit. b
   artikel: '25'
   artikel_titel: Verantwortlichkeiten entlang der KI-Wertschöpfungskette
@@ -11147,11 +11149,11 @@ einheiten:
   requirement: []
   gate:
   - G-OPS-06
-  befund: gedeckt
-  befund_grund: G-OPS-06/C-25c bildet den Tatbestand als MUST ab und wertet dafuer die classification-Regel
-    aus G-PRE-01/SPEC-02 vor und nach der Zweckaenderung aus - keine blosse Selbstauskunft, sondern eine
-    abgeleitete Pruefung. Requirement fehlt weiterhin (Befund 1).
-  po_bestaetigt: false
+  befund: teilabdeckung
+  befund_grund: 'G-OPS-06 prueft den Tatbestand vollstaendig (C-25a bzw. C-25c, deny). Es fehlt die Kette:
+    kein Requirement traegt Art. 25, G-OPS-06 verweist auf R001 (Art. 9). Mit R017 wird die Pflicht gedeckt
+    (SPEC-06 Befunde 1 und 2).'
+  po_bestaetigt: true
   uid: Art. 25 Abs. 1 lit. c@355339
   abschnitt: null
   nummer: null
@@ -11159,6 +11161,7 @@ einheiten:
   ziffer: null
   po_entscheid:
   - 2026-09-23 · 2b E4 (VERIFIZIERT - Betreiber in der Einheit oder ihrem Einleitungssatz genannt)
+  - 2026-09-29 · Review 06 H3 (Kettengrenze - kein Requirement traegt Art. 25, gedeckt mit R017)
 - id: Art. 25 Abs. 2
   artikel: '25'
   artikel_titel: Verantwortlichkeiten entlang der KI-Wertschöpfungskette
@@ -11845,17 +11848,10 @@ einheiten:
   - R014
   gate:
   - G-DEP-06
-  befund: teilabdeckung
-  befund_grund: 'G-DEP-06/C-01 prueft, ob retention_days >= 180 im Manifest STEHT (E-0, Konfiguration);
-    ob 180 Tage lueckenlos VORLIEGEN, prueft niemand (R014 selbst: declared_gap, die Antwort stuende in
-    der eigenen Datenbank). Die Sonderregel fuer Finanzinstitute (Satz 2) ist im Manifest nicht abgebildet
-    - fuer den Anwendungsfall Redispatch/Netzbetreiber ohne praktische Relevanz. ZUSAETZLICHER BEFUND:
-    G-DEP-06.legal_refs und .links.eu_ai_act_refs nennen fuer C-01 ''Art. 26 Abs. 3'' - das ist falsch.
-    Art. 26 Abs. 3 ist die Unberuehrtheitsklausel zu Abs. 1/2 ohne Aufbewahrungsbezug (siehe Art. 26 Abs.
-    3 in diesem Pflichtenraum); die Aufbewahrungspflicht steht in Abs. 6. R014.yaml haelt genau diese
-    Korrektur bereits in seinen eigenen notes fest (''[Fix 2026-05-27: Abs. 3 -> Abs. 6 korrigiert]'')
-    - der Fix wurde im Requirement nachvollzogen, aber nie in gate-definitions/deployment/G-DEP-06_protokollierungskonfiguration.yaml
-    selbst uebertragen. PO-Entscheidung: G-DEP-06 legal_refs/eu_ai_act_refs auf ''Art. 26 Abs. 6'' korrigieren.'
+  befund: gedeckt
+  befund_grund: 'Alle Elemente geprueft (policy_logging_configured): Protokollierung aktiv, retention_period_days
+    >= 180, Zugaenglichkeit dokumentiert. Nur als Konfiguration (E-0) - ob die Protokolle tatsaechlich
+    sechs Monate vorliegen, misst nichts (M-E5).'
   po_bestaetigt: true
   uid: Art. 26 Abs. 6@361351
   abschnitt: null
@@ -11865,6 +11861,7 @@ einheiten:
   po_entscheid:
   - 2026-09-23 · 2b E4 (VERIFIZIERT - Betreiber in der Einheit oder ihrem Einleitungssatz genannt)
   - 2026-09-28 · 2c F1 (T-E Art. 26, M-E5 tatsaechliche Aufbewahrung messen)
+  - 2026-09-29 · Review 06 H2 (alle Elemente geprueft, nur deklariert - gedeckt mit E-0)
 - id: Art. 26 Abs. 7
   artikel: '26'
   artikel_titel: Pflichten der Betreiber von Hochrisiko-KI-Systemen
@@ -24829,18 +24826,18 @@ einheiten:
   omnibus: unveraendert (s. Art. 73 Abs. 1).
   requirement: *id037
   gate: *id038
-  befund: teilabdeckung
-  befund_grund: Regelfrist (15 Tage = 360h) fuer den Meldefall aus Abs. 1; durchschlagend fuer den Betreiber
-    nur im Unerreichbarkeits-Fallback (s. Art. 73 Abs. 1). G-OPS-02/C-04 gibt '360h Regelfall' zutreffend
-    wieder (15 Tage x 24h = 360h). Dass eine Frist tatsaechlich laeuft und eingehalten wird, misst nichts
-    (Fristenuhr fehlt, s. Art. 73 Abs. 1); die Betreiber-Kenntnis als alternativer Fristbeginn ('nachdem
-    der Anbieter oder gegebenenfalls der Betreiber Kenntnis... erlangt hat') wird von keinem Gate ausgewertet.
+  befund: gedeckt
+  befund_grund: Die Frist dieser Einheit ist in governance/incident_thresholds.yaml deklariert und policy_incident_thresholds
+    haelt sie gegen das Gesetz (48 h / 240 h / 360 h, je mit Rechtsgrundlage). Nur deklariert (E-0) -
+    eine laufende Fristenuhr fehlt (M-F3). Fuer den Betreiber gilt Art. 73 nur ueber Art. 26 Abs. 5 Satz
+    4 (Befund B2c-1).
   po_bestaetigt: true
   migriert_von: Art. 73 Abs. 2@504775
   migration: geerbt
   po_entscheid:
   - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, Anker (b))
   - 2026-09-28 · 2c F1 (T-F Art. 73, M-F3 Fristenuhr)
+  - 2026-09-29 · Review 06 H2 (alle Elemente geprueft, nur deklariert - gedeckt mit E-0)
 - id: Art. 73 Abs. 3
   artikel: '73'
   artikel_titel: Meldung schwerwiegender Vorfälle
@@ -24867,13 +24864,11 @@ einheiten:
   - R009
   gate:
   - G-OPS-02
-  befund: teilabdeckung
-  befund_grund: 'Kuerzeste Frist (2 Tage = 48h) und fuer den Redispatch-Anwendungsfall (Anhang III Nr.
-    2, kritische Infrastruktur/Stromversorgung) die praktisch wichtigste - Art. 3 Nr. 49 lit. b (''schwere
-    und unumkehrbare Stoerung der Verwaltung oder des Betriebs kritischer Infrastrukturen'') trifft die
-    Kernrisikoklasse dieses Adressaten unmittelbar. G-OPS-02/C-04 gibt ''48h kritische Infrastruktur''
-    zutreffend wieder (2 Tage x 24h = 48h). Sonst wie Art. 73 Abs. 2: durchschlagend fuer den Betreiber
-    nur im Unerreichbarkeits-Fallback, keine Fristenuhr, keine Vorfallerkennung.'
+  befund: gedeckt
+  befund_grund: Die Frist dieser Einheit ist in governance/incident_thresholds.yaml deklariert und policy_incident_thresholds
+    haelt sie gegen das Gesetz (48 h / 240 h / 360 h, je mit Rechtsgrundlage). Nur deklariert (E-0) -
+    eine laufende Fristenuhr fehlt (M-F3). Fuer den Betreiber gilt Art. 73 nur ueber Art. 26 Abs. 5 Satz
+    4 (Befund B2c-1).
   po_bestaetigt: true
   uid: Art. 73 Abs. 3@505289
   abschnitt: null
@@ -24883,6 +24878,7 @@ einheiten:
   po_entscheid:
   - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, Anker (b))
   - 2026-09-28 · 2c F1 (T-F Art. 73, M-F3 Fristenuhr)
+  - 2026-09-29 · Review 06 H2 (alle Elemente geprueft, nur deklariert - gedeckt mit E-0)
 - id: Art. 73 Abs. 4
   artikel: '73'
   artikel_titel: Meldung schwerwiegender Vorfälle
@@ -24909,10 +24905,11 @@ einheiten:
   - R009
   gate:
   - G-OPS-02
-  befund: teilabdeckung
-  befund_grund: 'Todesfall-Frist (10 Tage = 240h) - G-OPS-02/C-04 gibt ''240h Tod'' zutreffend wieder.
-    Sonst wie Art. 73 Abs. 2/3: durchschlagend fuer den Betreiber nur im Unerreichbarkeits-Fallback, keine
-    Fristenuhr, keine Vorfallerkennung.'
+  befund: gedeckt
+  befund_grund: Die Frist dieser Einheit ist in governance/incident_thresholds.yaml deklariert und policy_incident_thresholds
+    haelt sie gegen das Gesetz (48 h / 240 h / 360 h, je mit Rechtsgrundlage). Nur deklariert (E-0) -
+    eine laufende Fristenuhr fehlt (M-F3). Fuer den Betreiber gilt Art. 73 nur ueber Art. 26 Abs. 5 Satz
+    4 (Befund B2c-1).
   po_bestaetigt: true
   uid: Art. 73 Abs. 4@505657
   abschnitt: null
@@ -24922,6 +24919,7 @@ einheiten:
   po_entscheid:
   - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, Anker (b))
   - 2026-09-28 · 2c F1 (T-F Art. 73, M-F3 Fristenuhr)
+  - 2026-09-29 · Review 06 H2 (alle Elemente geprueft, nur deklariert - gedeckt mit E-0)
 - id: Art. 73 Abs. 5
   artikel: '73'
   artikel_titel: Meldung schwerwiegender Vorfälle

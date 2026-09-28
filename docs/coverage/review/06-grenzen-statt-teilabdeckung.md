@@ -2,10 +2,18 @@
 titel: Grenze statt Teilabdeckung – Einordnung und Hinweisfunktion
 stand: 2026-09-28
 basis: Branch review-2c · 39 Teilabdeckungen + 3 bisher „gedeckt“ (2d) · PO-Idee 28.09.: Teilabdeckung als Grenze mit Hinweisfunktion
-status: VORSCHLAG – Entscheidungsvorlage H1–H4 in Teil 4
+status: ENTSCHIEDEN 28./29.09.2026 – H1b, H2a (4 statt 6 Zeilen, siehe 07), H3a, H4 Option 1
 ---
 
-# Kurzfazit
+# PO-Entscheid
+- **H1b:** Der Name bleibt `teilabdeckung` – ein Element der Pflicht prüft kein Check im ganzen Katalog.
+- **H2a:** Werden alle Elemente geprüft, aber nur deklariert, ist die Pflicht `gedeckt`; die Schwäche steht auf der Beweisachse. Die Gegenprobe am Code (07) hält das für 4 der 6 Zeilen; Art. 14 Abs. 3 und Abs. 4 lit. d bleiben Teilabdeckung.
+- **H3a:** Art. 25 Abs. 1 lit. a/c und Art. 13 Abs. 3 lit. a sind Teilabdeckung.
+- **H4 = Option 1:** Das Gate urteilt nur über das, was es prüft – **PASS mit Hinweis** auf den ungeprüften Teil. Begründung des PO: Was ein Gate nicht prüft, ist nicht Teil dieses Gates. Bau in Schritt 5.
+- Im Pflichtenraum: `docs/coverage/entscheide/2026-09-29_teilabdeckung-und-beweis.yaml`.
+- Der folgende Text ist der Vorschlag, wie er zur Entscheidung stand; wo er „Grenze“ sagt, gilt jetzt „Teilabdeckung“.
+
+# Kurzfazit (Vorschlag)
 - „Teilabdeckung“ vermischte zwei Achsen: **Was** wird geprüft (Befund) und **wie stark** ist der Beleg (E-0 bis E-3).
 - Getrennt ergibt sich:
   - **26 echte Grenzen:** Ein Element der Pflicht prüft kein Check.
