@@ -2954,6 +2954,75 @@ def check_norm_unit_ids_unique() -> dict:
         findings,
     )
 
+def check_norm_sentence_units_current() -> dict:
+    """Die Satzebene im Pflichtenraum ist genau die, die der PO gelistet hat.
+
+    T-14.3 (28.09.2026). PO-Festlegung P-2 = b: nur Absaetze mit mehr als einer
+    Pflicht werden in Saetze geschnitten, gelistet in docs/coverage/entscheide/satzebene.yaml.
+    Anlass war Art. 26 Abs. 5 — vier Pflichten, ein Befund 'teilabdeckung', und
+    die Pflicht, die Verwendung auszusetzen, war nirgends abgebildet.
+
+    Die Liste ist eine Deklaration; dieser Check haelt sie gegen die Daten, in
+    beiden Richtungen:
+      * eine gelistete Einheit existiert nicht mehr als Ganzes, sondern als
+        mindestens zwei Saetze — sonst ist der Sammelbefund zurueck, etwa nach
+        einem Lauf des Builders ohne Liste;
+      * jede Satz-Einheit gehoert zu einer gelisteten — sonst schneidet jemand
+        feiner, als der PO entschieden hat, und die Befunde zerfallen ungefragt.
+
+    MEDIUM: der Fehler verschiebt, wo ein Befund steht, verfaelscht aber kein
+    Zitat. Einstufung durch den PO zu bestaetigen.
+    """
+    import yaml
+
+    titel = "die Satzebene der Pflichtenraeume ist genau die vom PO gelistete (T-14.3)"
+    liste_pfad = REPO_ROOT / "docs" / "coverage" / "entscheide" / "satzebene.yaml"
+    if not liste_pfad.exists():
+        return make_result("NORM_SENTENCE_UNITS_CURRENT", titel, "medium", True,
+                           "Keine docs/coverage/entscheide/satzebene.yaml — keine Satzebene deklariert.")
+    liste = (yaml.safe_load(liste_pfad.read_text(encoding="utf-8")) or {}).get("quellen") or {}
+
+    raeume = {}
+    for datei in sorted((REPO_ROOT / "docs" / "coverage").glob("*_pflichtenraum.yaml")):
+        doc = yaml.safe_load(datei.read_text(encoding="utf-8")) or {}
+        name = Path((doc.get("quelle") or {}).get("datei", "")).name
+        raeume[name] = (datei, [e.get("id") or "" for e in doc.get("einheiten") or []])
+
+    satz_muster = re.compile(r"^(?P<basis>.+?)(?: UAbs\. \d+)? Satz \d+(?P<nf> n\.F\.)?$")
+    findings = []
+    geschnitten = 0
+    for quelle, eintraege in liste.items():
+        if quelle not in raeume:
+            findings.append(f"satzebene.yaml nennt {quelle}, dazu gibt es keinen Pflichtenraum")
+            continue
+        datei, ids = raeume[quelle]
+        rel = datei.relative_to(REPO_ROOT)
+        for eintrag in eintraege or []:
+            ziel = eintrag.get("id", "")
+            if ziel in ids:
+                findings.append(f"{rel}: {ziel} steht noch als ganze Einheit — die Satzebene fehlt")
+            saetze = [i for i in ids if (m := satz_muster.match(i))
+                      and m.group("basis") + (m.group("nf") or "") == ziel]
+            if len(saetze) < 2:
+                findings.append(f"{rel}: {ziel} hat {len(saetze)} Satz-Einheit(en), erwartet mindestens 2")
+            else:
+                geschnitten += 1
+    for quelle, (datei, ids) in raeume.items():
+        gelistet = {e.get("id") for e in (liste.get(quelle) or [])}
+        for i in ids:
+            m = satz_muster.match(i)
+            if m and m.group("basis") + (m.group("nf") or "") not in gelistet:
+                findings.append(f"{datei.relative_to(REPO_ROOT)}: {i} ist auf Satzebene geschnitten, "
+                                f"steht aber nicht in satzebene.yaml")
+
+    return make_result(
+        "NORM_SENTENCE_UNITS_CURRENT", titel, "medium", not findings,
+        "Pflichtenraum und PO-Liste der Satzebene weichen voneinander ab." if findings
+        else f"{geschnitten} gelistete Einheit(en) auf Satzebene, keine Satz-Einheit ohne Listeneintrag.",
+        findings,
+    )
+
+
 def collect_results() -> list[dict]:
     checks = [
         check_orchestrator_fallbacks,
@@ -2996,6 +3065,7 @@ def collect_results() -> list[dict]:
         check_handbook_roadmap_is_current,
         check_legal_quotes_verbatim,
         check_norm_unit_ids_unique,
+        check_norm_sentence_units_current,
     ]
     results = []
     for check in checks:
