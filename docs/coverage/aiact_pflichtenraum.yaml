@@ -7444,7 +7444,7 @@ einheiten:
     fuer DSGVO-Folgenabschaetzung). G-DEP-03/C-01 prueft, DASS Anleitungs-/Model-Dokumentation existiert,
     nicht die materielle Transparenz-Qualitaet ('hinreichend, damit Betreiber angemessen interpretieren
     koennen').
-  po_bestaetigt: false
+  po_bestaetigt: true
   uid: Art. 13 Abs. 1@325470
   abschnitt: null
   nummer: null
@@ -7452,6 +7452,7 @@ einheiten:
   ziffer: null
   po_entscheid:
   - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, Anker (a) und (b))
+  - 2026-09-28 · 2c F1 (T-A Betriebsanleitung, M-A2 Qualitaet als manuelles Review)
 - id: Art. 13 Abs. 2
   artikel: '13'
   artikel_titel: Transparenz und Bereitstellung von Informationen für die Betreiber
@@ -7485,7 +7486,7 @@ einheiten:
   befund_grund: 'Wie Abs. 1: G-DEP-03/C-01 prueft Existenz der Deployer-Anleitung, nicht die Qualitaetsmerkmale
     (praezise/vollstaendig/korrekt/eindeutig/barrierefrei/verstaendlich), die der Wortlaut ausdruecklich
     verlangt.'
-  po_bestaetigt: false
+  po_bestaetigt: true
   uid: Art. 13 Abs. 2@325873
   abschnitt: null
   nummer: null
@@ -7493,6 +7494,7 @@ einheiten:
   ziffer: null
   po_entscheid:
   - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, Anker (a) und (b))
+  - 2026-09-28 · 2c F1 (T-A Betriebsanleitung, M-A2 Qualitaet als manuelles Review)
 - id: Art. 13 Abs. 3
   artikel: '13'
   artikel_titel: Transparenz und Bereitstellung von Informationen für die Betreiber
@@ -7519,7 +7521,7 @@ einheiten:
   - G-DEP-03
   befund: teilabdeckung
   befund_grund: Chapeau-Norm zur Mindestinhalts-Liste lit. a-f; Einzelbefunde je Buchstabe.
-  po_bestaetigt: false
+  po_bestaetigt: true
   uid: Art. 13 Abs. 3@326206
   abschnitt: null
   nummer: null
@@ -7527,6 +7529,7 @@ einheiten:
   ziffer: null
   po_entscheid:
   - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, Anker (a) und (b))
+  - 2026-09-28 · 2c F1 (T-A Betriebsanleitung, M-A1 Pflichtinhalte-Check)
 - id: Art. 13 Abs. 3 lit. a
   artikel: '13'
   artikel_titel: Transparenz und Bereitstellung von Informationen für die Betreiber
@@ -7590,7 +7593,7 @@ einheiten:
   - G-DEP-03
   befund: teilabdeckung
   befund_grund: Chapeau; G-DEP-03/C-01 prueft 'Faehigkeiten, Limitationen' pauschal, ohne die Ziff.-i-vii-Detailtiefe.
-  po_bestaetigt: false
+  po_bestaetigt: true
   uid: Art. 13 Abs. 3 lit. b@326383
   abschnitt: null
   nummer: null
@@ -7598,6 +7601,7 @@ einheiten:
   ziffer: null
   po_entscheid:
   - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, Anker (a) und (b))
+  - 2026-09-28 · 2c F1 (T-A Betriebsanleitung, M-A1 Pflichtinhalte-Check)
 - uid: Art. 13 Abs. 3 lit. b Ziff. i@326480
   id: Art. 13 Abs. 3 lit. b Ziff. i
   artikel: '13'
@@ -7637,11 +7641,12 @@ einheiten:
     misst accuracy/safety_score (teils E-0/E-3 gemischt), aber nicht ob diese Werte in der BETRIEBSANLEITUNG
     dokumentiert sind. Die Erlaeuterbarkeits-Faehigkeiten (XAI) sind in G-DEP-03/C-02 als ''design_only''
     gefuehrt - explizit noch nicht implementiert.'
-  po_bestaetigt: false
+  po_bestaetigt: true
   migriert_von: Art. 13 Abs. 3 lit. i@326480
   migration: kennung_geaendert
   po_entscheid:
   - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, Anker (a) und (b))
+  - 2026-09-28 · 2c F1 (T-A Betriebsanleitung, M-A1 Pflichtinhalte-Check)
 - uid: Art. 13 Abs. 3 lit. b Ziff. ii@326512
   id: Art. 13 Abs. 3 lit. b Ziff. ii
   artikel: '13'
@@ -7811,11 +7816,12 @@ einheiten:
     prueft, ob diese Angaben tatsaechlich in der Betriebsanleitung STEHEN; die verlinkten Gates pruefen
     die zugrundeliegenden Sachverhalte (Bias-Assessment, Datenherkunft), nicht deren Dokumentation im
     Anleitungsdokument selbst.
-  po_bestaetigt: false
+  po_bestaetigt: true
   migriert_von: Art. 13 Abs. 3 lit. v@327376
   migration: kennung_geaendert
   po_entscheid:
   - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, Anker (a) und (b))
+  - 2026-09-28 · 2c F1 (T-A Betriebsanleitung, M-A1 Pflichtinhalte-Check)
 - uid: Art. 13 Abs. 3 lit. b Ziff. vi@327528
   id: Art. 13 Abs. 3 lit. b Ziff. vi
   artikel: '13'
@@ -7968,7 +7974,7 @@ einheiten:
   befund_grund: Verknuepft Art. 13 mit Art. 14 (dort im Detail erfasst, ueberwiegend teilabdeckung/luecke).
     G-DEP-03 prueft allgemeine Anleitungsdokumentation, nicht spezifisch, ob die Art.-14-Massnahmen DARIN
     beschrieben sind.
-  po_bestaetigt: false
+  po_bestaetigt: true
   uid: Art. 13 Abs. 3 lit. d@328088
   abschnitt: null
   nummer: null
@@ -7976,6 +7982,7 @@ einheiten:
   ziffer: null
   po_entscheid:
   - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, Anker (a) und (b))
+  - 2026-09-28 · 2c F1 (T-A Betriebsanleitung, M-A1 Pflichtinhalte-Check)
 - id: Art. 13 Abs. 3 lit. e
   artikel: '13'
   artikel_titel: Transparenz und Bereitstellung von Informationen für die Betreiber
@@ -8045,7 +8052,7 @@ einheiten:
   befund_grund: Verknuepft Art. 13 mit Art. 12 (Logging-Mechanismen). G-DEP-06/C-01 prueft, DASS Logging
     konfiguriert und aufbewahrbar ist, nicht ob die Betriebsanleitung diese Mechanismen fuer den Betreiber
     BESCHREIBT.
-  po_bestaetigt: false
+  po_bestaetigt: true
   uid: Art. 13 Abs. 3 lit. f@328644
   abschnitt: null
   nummer: null
@@ -8053,6 +8060,7 @@ einheiten:
   ziffer: null
   po_entscheid:
   - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, Anker (a) und (b))
+  - 2026-09-28 · 2c F1 (T-A Betriebsanleitung, M-A1 Pflichtinhalte-Check)
 - id: Art. 14 Abs. 1
   artikel: '14'
   artikel_titel: Menschliche Aufsicht
@@ -8091,7 +8099,7 @@ einheiten:
     Betreiber-seitige DOKUMENTATION der Aufsicht, nicht ob das SYSTEM selbst technisch wirksam beaufsichtigbar
     ist (das waere eine Anbieter-seitige, am System pruefbare Eigenschaft, E-2-faehig - HANDBUCH 4.5 nennt
     Beweiskraft als Rang-1-Achse, hier nicht erreicht).'
-  po_bestaetigt: false
+  po_bestaetigt: true
   uid: Art. 14 Abs. 1@328910
   abschnitt: null
   nummer: null
@@ -8099,6 +8107,7 @@ einheiten:
   ziffer: null
   po_entscheid:
   - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, Anker (a) und (b))
+  - 2026-09-28 · 2c F1 (T-B Aufsicht, M-B4 Abgleich Anbieter-Vorgabe mit Betreiber-Umsetzung)
 - id: Art. 14 Abs. 2
   artikel: '14'
   artikel_titel: Menschliche Aufsicht
@@ -8175,7 +8184,7 @@ einheiten:
   befund_grund: Rahmenklausel; die Angemessenheitspruefung (Risiken/Autonomiegrad/Kontext) ist inhaltlicher
     Teil des manuellen Reviews in G-PRE-05/G-OPS-01 (beide HYBRID), aber nicht als eigener automatisierter
     Check ausformuliert - abhaengig von Review-Qualitaet, nicht strukturell erzwungen.
-  po_bestaetigt: false
+  po_bestaetigt: true
   uid: Art. 14 Abs. 3@329567
   abschnitt: null
   nummer: null
@@ -8183,6 +8192,7 @@ einheiten:
   ziffer: null
   po_entscheid:
   - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, Anker (a) und (b))
+  - 2026-09-28 · 2c F1 (T-B Aufsicht, Angemessenheit bleibt manuelles Review)
 - id: Art. 14 Abs. 3 lit. a
   artikel: '14'
   artikel_titel: Menschliche Aufsicht
@@ -8253,7 +8263,7 @@ einheiten:
     Abs. 3. G-PRE-05/G-OPS-01 pruefen, DASS ein Aufsichtsmodell dokumentiert ist, nicht ob die dokumentierten
     Massnahmen tatsaechlich vom Anbieter so BESTIMMT wurden (Nachweiskette Anbieter -> Betreiber fehlt;
     das Manifest ist reine Betreiber-Selbstauskunft).
-  po_bestaetigt: false
+  po_bestaetigt: true
   uid: Art. 14 Abs. 3 lit. b@329969
   abschnitt: null
   nummer: null
@@ -8261,6 +8271,7 @@ einheiten:
   ziffer: null
   po_entscheid:
   - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, Anker (a) und (b))
+  - 2026-09-28 · 2c F1 (T-B Aufsicht, M-B4 Abgleich Anbieter-Vorgabe mit Betreiber-Umsetzung)
 - id: Art. 14 Abs. 4
   artikel: '14'
   artikel_titel: Menschliche Aufsicht
@@ -8294,7 +8305,7 @@ einheiten:
     beauftragten Personen bezogen - definiert die Kompetenzanforderungen, die Art. 26 Abs. 2 voraussetzt.
     G-OPS-01/C-01 prueft Rollen-/Eskalations-/Override-/Monitoring-Dokumentation (E-0); ob die BEREITSTELLUNG
     des Systems diese Faehigkeiten tatsaechlich ermoeglicht (lit. a-e im Einzelnen), siehe dort.
-  po_bestaetigt: false
+  po_bestaetigt: true
   uid: Art. 14 Abs. 4@330158
   abschnitt: null
   nummer: null
@@ -8302,6 +8313,7 @@ einheiten:
   ziffer: null
   po_entscheid:
   - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, Anker (a) und (b))
+  - 2026-09-28 · 2c F1 (T-B Aufsicht, M-B2 = P2 Kompetenz)
 - id: Art. 14 Abs. 4 lit. a
   artikel: '14'
   artikel_titel: Menschliche Aufsicht
@@ -8334,7 +8346,7 @@ einheiten:
   befund_grund: Deckt sich am ehesten mit G-OPS-01/C-01's Feld 'real_time_monitoring' und 'oversight_roles'
     (Dokumentation, dass ueberwacht wird), nicht mit der Faehigkeit der Person, Anomalien tatsaechlich
     zu erkennen (keine Kompetenz-/Schulungspruefung, s. auch Art. 9 Abs. 5 lit. c).
-  po_bestaetigt: false
+  po_bestaetigt: true
   uid: Art. 14 Abs. 4 lit. a@330420
   abschnitt: null
   nummer: null
@@ -8342,6 +8354,7 @@ einheiten:
   ziffer: null
   po_entscheid:
   - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, Anker (a) und (b))
+  - 2026-09-28 · 2c F1 (T-B Aufsicht, M-B2 = P2 Kompetenz und M-B1 = P5 Wirksamkeit)
 - id: Art. 14 Abs. 4 lit. b
   artikel: '14'
   artikel_titel: Menschliche Aufsicht
@@ -8452,7 +8465,7 @@ einheiten:
     Uebereinstimmung zwischen Art. 14 Abs. 4 und dem Katalog. Gepruefte Reichweite bleibt E-0 (Dokumentation,
     dass ein Override-Mechanismus existiert), nicht ob er im Betrieb tatsaechlich genutzt wird/genutzt
     werden kann (Override-Rate fehlt, R008 declared_gap 'Luecke 2').
-  po_bestaetigt: false
+  po_bestaetigt: true
   uid: Art. 14 Abs. 4 lit. d@331194
   abschnitt: null
   nummer: null
@@ -8460,6 +8473,7 @@ einheiten:
   ziffer: null
   po_entscheid:
   - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, Anker (a) und (b))
+  - 2026-09-28 · 2c F1 (T-B Aufsicht, M-B1 = P5 Override-Rate)
 - id: Art. 14 Abs. 4 lit. e
   artikel: '14'
   artikel_titel: Menschliche Aufsicht
@@ -8492,7 +8506,7 @@ einheiten:
     direkter Bezug zur ''Stopptaste''. Nicht geprueft: ob der Stillstand tatsaechlich SICHER erfolgt (sicherer
     Zustand als Systemeigenschaft, E-2/E-3-Territorium) und ob G-OPS-01 denselben Sachverhalt zur Laufzeit
     erneut prueft (Redundanz-/Konsistenzfrage zwischen G-PRE-05 und G-OPS-01 nicht geklaert).'
-  po_bestaetigt: false
+  po_bestaetigt: true
   uid: Art. 14 Abs. 4 lit. e@331406
   abschnitt: null
   nummer: null
@@ -8500,6 +8514,7 @@ einheiten:
   ziffer: null
   po_entscheid:
   - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, Anker (a) und (b))
+  - 2026-09-28 · 2c F1 (T-B Aufsicht, M-B3 Stopptasten-Uebung)
 - id: Art. 14 Abs. 5
   artikel: '14'
   artikel_titel: Menschliche Aufsicht
@@ -8771,17 +8786,14 @@ einheiten:
     von Nr. 10 [Art. 11] direkt auf Nr. 11 [Art. 17] ueber).'
   requirement: *id021
   gate: *id022
-  befund: teilabdeckung
-  befund_grund: 'Wie Abs. 1: Infrastruktur-Redundanz/-Resilienz teilweise ueber G-OPS-04 pruefbar. Echte
-    Luecke: die ''Rueckkopplungsschleifen'' bei weiterlernenden Systemen (Bias-Verstaerkung durch eigene
-    Ausgaben als kuenftige Eingaben) wird von keinem Gate erfasst - G-OPS-03 misst Drift (PSI/JSD) allgemein,
-    nicht spezifisch selbstverstaerkende Rueckkopplungseffekte; G-DEP-05 (Bias) prueft einmalig vor Freigabe,
-    nicht die Feedback-Loop-Dynamik im Betrieb.'
+  befund: nicht_einschlaegig
+  befund_grund: Mittel ('kann durch technische Redundanz erreicht werden'), keine eigene pruefbare Pflicht.
   po_bestaetigt: false
   migriert_von: Art. 15 Abs. 4@333319
   migration: geerbt
   po_entscheid:
   - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, kein Anker benannt)
+  - 2026-09-28 · 2c F2 (Mittel, keine Pflicht)
 - uid: Art. 15 Abs. 4 UAbs. 3 Satz 1@333868
   id: Art. 15 Abs. 4 UAbs. 3 Satz 1
   artikel: '15'
@@ -8815,17 +8827,16 @@ einheiten:
     von Nr. 10 [Art. 11] direkt auf Nr. 11 [Art. 17] ueber).'
   requirement: *id021
   gate: *id022
-  befund: teilabdeckung
-  befund_grund: 'Wie Abs. 1: Infrastruktur-Redundanz/-Resilienz teilweise ueber G-OPS-04 pruefbar. Echte
-    Luecke: die ''Rueckkopplungsschleifen'' bei weiterlernenden Systemen (Bias-Verstaerkung durch eigene
-    Ausgaben als kuenftige Eingaben) wird von keinem Gate erfasst - G-OPS-03 misst Drift (PSI/JSD) allgemein,
-    nicht spezifisch selbstverstaerkende Rueckkopplungseffekte; G-DEP-05 (Bias) prueft einmalig vor Freigabe,
-    nicht die Feedback-Loop-Dynamik im Betrieb.'
+  befund: luecke
+  befund_grund: Rueckkopplungsschleifen bei Systemen, die im Betrieb weiterlernen, prueft kein Gate; G-OPS-03
+    misst Drift allgemein. Ob das System weiterlernt, ist eine Tatsache, die heute nirgends erfasst ist
+    (M-C1).
   po_bestaetigt: false
   migriert_von: Art. 15 Abs. 4@333319
   migration: geerbt
   po_entscheid:
   - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, kein Anker benannt)
+  - 2026-09-28 · 2c F2 (Luecke - kein Gate prueft Rueckkopplungsschleifen, M-C1)
 - id: Art. 15 Abs. 5
   artikel: '15'
   artikel_titel: Genauigkeit, Robustheit und Cybersicherheit
@@ -11030,7 +11041,7 @@ einheiten:
     (Art. 43-49) fuer den nun-Anbieter-gewordenen Betreiber sind nach SPEC-06 Abschnitt 4 ausdruecklich
     eine spaetere Ausbaustufe. Kein R0xx nennt Art. 25 als eu_ai_act_refs (Befund 1 aus SPEC-06 Abschnitt
     1.2, hiermit am Wortlaut bestaetigt: G-OPS-06 haengt ohne Requirement in der Kette).'
-  po_bestaetigt: false
+  po_bestaetigt: true
   uid: Art. 25 Abs. 1@354658
   abschnitt: null
   nummer: null
@@ -11038,6 +11049,7 @@ einheiten:
   ziffer: null
   po_entscheid:
   - 2026-09-23 · 2b E4 (VERIFIZIERT - Betreiber in der Einheit oder ihrem Einleitungssatz genannt)
+  - 2026-09-28 · 2c F1 (T-D Rollenwechsel, M-D1 Requirement R017)
 - id: Art. 25 Abs. 1 lit. a
   artikel: '25'
   artikel_titel: Verantwortlichkeiten entlang der KI-Wertschöpfungskette
@@ -11102,7 +11114,7 @@ einheiten:
     ueber Art. 97-Durchfuehrungsrechtsakte) fehlen. Ob Art. 97 diese Schwellenwerte tatsaechlich vorsieht,
     ist in diesem Lauf nicht geprueft (Art. 97 ist nicht Teil von Lauf 2, s. Bericht). Requirement fehlt
     (Befund 1).
-  po_bestaetigt: false
+  po_bestaetigt: true
   uid: Art. 25 Abs. 1 lit. b@355119
   abschnitt: null
   nummer: null
@@ -11110,6 +11122,7 @@ einheiten:
   ziffer: null
   po_entscheid:
   - 2026-09-23 · 2b E4 (VERIFIZIERT - Betreiber in der Einheit oder ihrem Einleitungssatz genannt)
+  - 2026-09-28 · 2c F1 (T-D Rollenwechsel, M-D2 eine Schwelle fuer C-25b und P0)
 - id: Art. 25 Abs. 1 lit. c
   artikel: '25'
   artikel_titel: Verantwortlichkeiten entlang der KI-Wertschöpfungskette
@@ -11190,7 +11203,7 @@ einheiten:
     der eigentlichen Kooperation/Uebergabe beim Erstanbieter) ist laut Gate-eigener Deklaration ''declared_only'',
     nicht durchgesetzt - das Gate stellt das Fehlen fest, loest die Kooperation aber nicht aus. Requirement
     fehlt (Befund 1).'
-  po_bestaetigt: false
+  po_bestaetigt: true
   uid: Art. 25 Abs. 2@355671
   abschnitt: null
   nummer: null
@@ -11203,6 +11216,7 @@ einheiten:
   - Art. 25 Abs. 2 lit. c n.F.@95448
   po_entscheid:
   - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, kein Anker benannt)
+  - 2026-09-28 · 2c F1 (T-D Rollenwechsel, M-D3 Trigger notify)
 - id: Art. 25 Abs. 3
   artikel: '25'
   artikel_titel: Verantwortlichkeiten entlang der KI-Wertschöpfungskette
@@ -11419,7 +11433,7 @@ einheiten:
     durchschlagend nur als Betreiber-Eingangspruefung) und fuer Abs. 1 selbst ein eigenes Requirement
     erwaegen, oder Abs. 1 als durch die Summe der uebrigen Art.-26-Gates (Abs. 2, 5, 6 u.a.) als hinreichend
     operationalisiert ansehen. befund bleibt auf ''teilabdeckung'' stehen, bis die PO entscheidet.'
-  po_bestaetigt: false
+  po_bestaetigt: true
   uid: Art. 26 Abs. 1@358947
   abschnitt: null
   nummer: null
@@ -11427,6 +11441,7 @@ einheiten:
   ziffer: null
   po_entscheid:
   - 2026-09-23 · 2b E4 (VERIFIZIERT - Betreiber in der Einheit oder ihrem Einleitungssatz genannt)
+  - 2026-09-28 · 2c F1 (T-E Art. 26, M-E1 Einsatzgrenzen aus der Anleitung als Policy)
 - id: Art. 26 Abs. 2
   artikel: '26'
   artikel_titel: Pflichten der Betreiber von Hochrisiko-KI-Systemen
@@ -11461,7 +11476,7 @@ einheiten:
     links.requirements nur R001, nicht R008, obwohl C-A7 legal_refs explizit Art. 26 Abs. 2 nennt; umgekehrt
     fuehrt R008.linked_gates nur G-OPS-01, nicht G-PRE-01 (SPEC-06 Abschnitt 1.2, Befund 2 - hier ein
     weiteres Beispiel derselben Asymmetrie-Klasse, PO-Entscheidung noetig).'
-  po_bestaetigt: false
+  po_bestaetigt: true
   uid: Art. 26 Abs. 2@359204
   abschnitt: null
   nummer: null
@@ -11469,6 +11484,7 @@ einheiten:
   ziffer: null
   po_entscheid:
   - 2026-09-23 · 2b E4 (VERIFIZIERT - Betreiber in der Einheit oder ihrem Einleitungssatz genannt)
+  - 2026-09-28 · 2c F1 (T-B Aufsicht, M-B2 = P2 Kompetenz und M-B1 = P5 Wirksamkeit)
 - id: Art. 26 Abs. 3
   artikel: '26'
   artikel_titel: Pflichten der Betreiber von Hochrisiko-KI-Systemen
@@ -11578,24 +11594,15 @@ einheiten:
   gate: &id024
   - G-OPS-02
   befund: teilabdeckung
-  befund_grund: 'BAUVERBOT-KONTEXT (HANDBUCH 6.1): dieser Lauf liest und erfasst Abs. 5 nur, baut nichts
-    - die Meldekaskade bleibt gesperrt, bis Art. 26 Abs. 5 und Art. 73 EUR-Lex-abgeglichen sind; mit dieser
-    Zeile ist genau dieser Abgleich (fuer Abs. 5) erstmals im Wortlaut gefuehrt (Art. 73 folgt in Lauf
-    2). G-OPS-02 prueft heute drei Pod-Annotationen (incident-response-configured, incident-contact, rollback-mechanism,
-    alle E-0) plus C-02..C-05 gegen governance/incident_thresholds.yaml (Fristen, Beweissicherung). Nicht
-    abgedeckt: (1) die eigentliche UEBERWACHUNG des Betriebs anhand der Betriebsanleitung als solche -
-    kein Gate prueft, dass ueberwacht WIRD, nur dass ein Incident-Prozess deklariert ist; (2) die Risikoerkennung
-    nach Art. 79 Abs. 1 mit Aussetzungspflicht - existiert nicht; (3) die REIHENFOLGE der Meldekette (zuerst
-    Anbieter, dann Einfuehrer/Haendler, dann Behoerde) - C-01 prueft nur ''incident-contact'' pauschal,
-    nicht die Reihenfolge; (4) der Ausweichfall ''Anbieter nicht erreichbar -> Art. 73 entsprechend'';
-    (5) die Sonderregeln fuer Strafverfolgungsbehoerden/Finanzinstitute. Die triggers ''start_deadline''
-    und ''open_incident'' sind in G-OPS-02 explizit als declared_only gefuehrt - die Luecke ist im Gate
-    selbst bereits benannt, nicht neu.'
-  po_bestaetigt: false
+  befund_grund: G-OPS-03 misst Drift im Betrieb, stuetzt sich aber auf Art. 72 statt auf diese Betreiberpflicht;
+    dass ueberwacht wird, ist damit teilweise belegt. Die Information an den Anbieter bei Auffaelligkeiten
+    loest kein Gate aus (M-E2).
+  po_bestaetigt: true
   migriert_von: Art. 26 Abs. 5@359967
   migration: geerbt
   po_entscheid:
   - 2026-09-23 · 2b E4 (VERIFIZIERT - Betreiber in der Einheit oder ihrem Einleitungssatz genannt)
+  - 2026-09-28 · 2c F1 (T-E Art. 26, M-E2 Ueberwachung und Information an den Anbieter)
 - uid: Art. 26 Abs. 5 UAbs. 1 Satz 2@360127
   id: Art. 26 Abs. 5 UAbs. 1 Satz 2
   artikel: '26'
@@ -11674,24 +11681,14 @@ einheiten:
   requirement: *id023
   gate: *id024
   befund: teilabdeckung
-  befund_grund: 'BAUVERBOT-KONTEXT (HANDBUCH 6.1): dieser Lauf liest und erfasst Abs. 5 nur, baut nichts
-    - die Meldekaskade bleibt gesperrt, bis Art. 26 Abs. 5 und Art. 73 EUR-Lex-abgeglichen sind; mit dieser
-    Zeile ist genau dieser Abgleich (fuer Abs. 5) erstmals im Wortlaut gefuehrt (Art. 73 folgt in Lauf
-    2). G-OPS-02 prueft heute drei Pod-Annotationen (incident-response-configured, incident-contact, rollback-mechanism,
-    alle E-0) plus C-02..C-05 gegen governance/incident_thresholds.yaml (Fristen, Beweissicherung). Nicht
-    abgedeckt: (1) die eigentliche UEBERWACHUNG des Betriebs anhand der Betriebsanleitung als solche -
-    kein Gate prueft, dass ueberwacht WIRD, nur dass ein Incident-Prozess deklariert ist; (2) die Risikoerkennung
-    nach Art. 79 Abs. 1 mit Aussetzungspflicht - existiert nicht; (3) die REIHENFOLGE der Meldekette (zuerst
-    Anbieter, dann Einfuehrer/Haendler, dann Behoerde) - C-01 prueft nur ''incident-contact'' pauschal,
-    nicht die Reihenfolge; (4) der Ausweichfall ''Anbieter nicht erreichbar -> Art. 73 entsprechend'';
-    (5) die Sonderregeln fuer Strafverfolgungsbehoerden/Finanzinstitute. Die triggers ''start_deadline''
-    und ''open_incident'' sind in G-OPS-02 explizit als declared_only gefuehrt - die Luecke ist im Gate
-    selbst bereits benannt, nicht neu.'
-  po_bestaetigt: false
+  befund_grund: G-OPS-02/C-01 prueft, dass ein Incident-Kontakt deklariert ist, nicht die Reihenfolge
+    zuerst Anbieter, dann Einfuehrer oder Haendler, dann Behoerde (M-E3, P6).
+  po_bestaetigt: true
   migriert_von: Art. 26 Abs. 5@359967
   migration: geerbt
   po_entscheid:
   - 2026-09-23 · 2b E4 (VERIFIZIERT - Betreiber in der Einheit oder ihrem Einleitungssatz genannt)
+  - 2026-09-28 · 2c F1 (T-E Art. 26, M-E3 Reihenfolge der Meldekette, P6)
 - uid: Art. 26 Abs. 5 UAbs. 1 Satz 4@360685
   id: Art. 26 Abs. 5 UAbs. 1 Satz 4
   artikel: '26'
@@ -11724,24 +11721,14 @@ einheiten:
   requirement: *id023
   gate: *id024
   befund: teilabdeckung
-  befund_grund: 'BAUVERBOT-KONTEXT (HANDBUCH 6.1): dieser Lauf liest und erfasst Abs. 5 nur, baut nichts
-    - die Meldekaskade bleibt gesperrt, bis Art. 26 Abs. 5 und Art. 73 EUR-Lex-abgeglichen sind; mit dieser
-    Zeile ist genau dieser Abgleich (fuer Abs. 5) erstmals im Wortlaut gefuehrt (Art. 73 folgt in Lauf
-    2). G-OPS-02 prueft heute drei Pod-Annotationen (incident-response-configured, incident-contact, rollback-mechanism,
-    alle E-0) plus C-02..C-05 gegen governance/incident_thresholds.yaml (Fristen, Beweissicherung). Nicht
-    abgedeckt: (1) die eigentliche UEBERWACHUNG des Betriebs anhand der Betriebsanleitung als solche -
-    kein Gate prueft, dass ueberwacht WIRD, nur dass ein Incident-Prozess deklariert ist; (2) die Risikoerkennung
-    nach Art. 79 Abs. 1 mit Aussetzungspflicht - existiert nicht; (3) die REIHENFOLGE der Meldekette (zuerst
-    Anbieter, dann Einfuehrer/Haendler, dann Behoerde) - C-01 prueft nur ''incident-contact'' pauschal,
-    nicht die Reihenfolge; (4) der Ausweichfall ''Anbieter nicht erreichbar -> Art. 73 entsprechend'';
-    (5) die Sonderregeln fuer Strafverfolgungsbehoerden/Finanzinstitute. Die triggers ''start_deadline''
-    und ''open_incident'' sind in G-OPS-02 explizit als declared_only gefuehrt - die Luecke ist im Gate
-    selbst bereits benannt, nicht neu.'
-  po_bestaetigt: false
+  befund_grund: G-OPS-02/C-04 fuehrt die Fristen des Art. 73, aber als eigene Betreiberpflicht; der Fall,
+    fuer den sie dem Betreiber gelten - Anbieter nicht erreichbar -, ist nicht abgebildet (M-E4, M-F1).
+  po_bestaetigt: true
   migriert_von: Art. 26 Abs. 5@359967
   migration: geerbt
   po_entscheid:
   - 2026-09-23 · 2b E4 (VERIFIZIERT - Betreiber in der Einheit oder ihrem Einleitungssatz genannt)
+  - 2026-09-28 · 2c F1 (T-E Art. 26, M-E4 Fallback-Pfad, P6)
 - uid: Art. 26 Abs. 5 UAbs. 1 Satz 5@360767
   id: Art. 26 Abs. 5 UAbs. 1 Satz 5
   artikel: '26'
@@ -11766,33 +11753,23 @@ einheiten:
     Behoerden (bei Unerreichbarkeit des Anbieters gilt Art. 73 entsprechend); Sonderregeln gelten fuer
     Strafverfolgungsbehoerden (Ausnahme fuer sensible operative Daten) und Finanzinstitute (Erfuellung
     durch bestehende Governance-Vorschriften).
-  scope: in
-  scope_grund: null
+  scope: out
+  scope_grund: Adressat - Betreiber, die Strafverfolgungsbehoerden sind (Ausnahme fuer sensible operative
+    Daten).
   verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: unveraendert - VO (EU) 2026/1744 Art. 1 aendert Art. 25 und Art. 27, Art. 26 ist in der Aenderungsliste
     nicht enthalten (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
   requirement: *id023
   gate: *id024
-  befund: teilabdeckung
-  befund_grund: 'BAUVERBOT-KONTEXT (HANDBUCH 6.1): dieser Lauf liest und erfasst Abs. 5 nur, baut nichts
-    - die Meldekaskade bleibt gesperrt, bis Art. 26 Abs. 5 und Art. 73 EUR-Lex-abgeglichen sind; mit dieser
-    Zeile ist genau dieser Abgleich (fuer Abs. 5) erstmals im Wortlaut gefuehrt (Art. 73 folgt in Lauf
-    2). G-OPS-02 prueft heute drei Pod-Annotationen (incident-response-configured, incident-contact, rollback-mechanism,
-    alle E-0) plus C-02..C-05 gegen governance/incident_thresholds.yaml (Fristen, Beweissicherung). Nicht
-    abgedeckt: (1) die eigentliche UEBERWACHUNG des Betriebs anhand der Betriebsanleitung als solche -
-    kein Gate prueft, dass ueberwacht WIRD, nur dass ein Incident-Prozess deklariert ist; (2) die Risikoerkennung
-    nach Art. 79 Abs. 1 mit Aussetzungspflicht - existiert nicht; (3) die REIHENFOLGE der Meldekette (zuerst
-    Anbieter, dann Einfuehrer/Haendler, dann Behoerde) - C-01 prueft nur ''incident-contact'' pauschal,
-    nicht die Reihenfolge; (4) der Ausweichfall ''Anbieter nicht erreichbar -> Art. 73 entsprechend'';
-    (5) die Sonderregeln fuer Strafverfolgungsbehoerden/Finanzinstitute. Die triggers ''start_deadline''
-    und ''open_incident'' sind in G-OPS-02 explizit als declared_only gefuehrt - die Luecke ist im Gate
-    selbst bereits benannt, nicht neu.'
-  po_bestaetigt: false
+  befund: null
+  befund_grund: null
+  po_bestaetigt: true
   migriert_von: Art. 26 Abs. 5@359967
   migration: geerbt
   po_entscheid:
   - 2026-09-23 · 2b E4 (VERIFIZIERT - Betreiber in der Einheit oder ihrem Einleitungssatz genannt)
+  - 2026-09-28 · 2c F2 (anderer Betreibertyp, wie 2a Gruppe B)
 - uid: Art. 26 Abs. 5 UAbs. 2 Satz 1@360889
   id: Art. 26 Abs. 5 UAbs. 2 Satz 1
   artikel: '26'
@@ -11820,33 +11797,23 @@ einheiten:
     Behoerden (bei Unerreichbarkeit des Anbieters gilt Art. 73 entsprechend); Sonderregeln gelten fuer
     Strafverfolgungsbehoerden (Ausnahme fuer sensible operative Daten) und Finanzinstitute (Erfuellung
     durch bestehende Governance-Vorschriften).
-  scope: in
-  scope_grund: null
+  scope: out
+  scope_grund: Adressat - Betreiber, die Finanzinstitute sind (Ueberwachungspflicht gilt durch Governance-Recht
+    als erfuellt).
   verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: unveraendert - VO (EU) 2026/1744 Art. 1 aendert Art. 25 und Art. 27, Art. 26 ist in der Aenderungsliste
     nicht enthalten (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
   requirement: *id023
   gate: *id024
-  befund: teilabdeckung
-  befund_grund: 'BAUVERBOT-KONTEXT (HANDBUCH 6.1): dieser Lauf liest und erfasst Abs. 5 nur, baut nichts
-    - die Meldekaskade bleibt gesperrt, bis Art. 26 Abs. 5 und Art. 73 EUR-Lex-abgeglichen sind; mit dieser
-    Zeile ist genau dieser Abgleich (fuer Abs. 5) erstmals im Wortlaut gefuehrt (Art. 73 folgt in Lauf
-    2). G-OPS-02 prueft heute drei Pod-Annotationen (incident-response-configured, incident-contact, rollback-mechanism,
-    alle E-0) plus C-02..C-05 gegen governance/incident_thresholds.yaml (Fristen, Beweissicherung). Nicht
-    abgedeckt: (1) die eigentliche UEBERWACHUNG des Betriebs anhand der Betriebsanleitung als solche -
-    kein Gate prueft, dass ueberwacht WIRD, nur dass ein Incident-Prozess deklariert ist; (2) die Risikoerkennung
-    nach Art. 79 Abs. 1 mit Aussetzungspflicht - existiert nicht; (3) die REIHENFOLGE der Meldekette (zuerst
-    Anbieter, dann Einfuehrer/Haendler, dann Behoerde) - C-01 prueft nur ''incident-contact'' pauschal,
-    nicht die Reihenfolge; (4) der Ausweichfall ''Anbieter nicht erreichbar -> Art. 73 entsprechend'';
-    (5) die Sonderregeln fuer Strafverfolgungsbehoerden/Finanzinstitute. Die triggers ''start_deadline''
-    und ''open_incident'' sind in G-OPS-02 explizit als declared_only gefuehrt - die Luecke ist im Gate
-    selbst bereits benannt, nicht neu.'
-  po_bestaetigt: false
+  befund: null
+  befund_grund: null
+  po_bestaetigt: true
   migriert_von: Art. 26 Abs. 5@359967
   migration: geerbt
   po_entscheid:
   - 2026-09-23 · 2b E4 (VERIFIZIERT - Betreiber in der Einheit oder ihrem Einleitungssatz genannt)
+  - 2026-09-28 · 2c F2 (anderer Betreibertyp, wie 2a Gruppe B)
 - id: Art. 26 Abs. 6
   artikel: '26'
   artikel_titel: Pflichten der Betreiber von Hochrisiko-KI-Systemen
@@ -11889,7 +11856,7 @@ einheiten:
     Korrektur bereits in seinen eigenen notes fest (''[Fix 2026-05-27: Abs. 3 -> Abs. 6 korrigiert]'')
     - der Fix wurde im Requirement nachvollzogen, aber nie in gate-definitions/deployment/G-DEP-06_protokollierungskonfiguration.yaml
     selbst uebertragen. PO-Entscheidung: G-DEP-06 legal_refs/eu_ai_act_refs auf ''Art. 26 Abs. 6'' korrigieren.'
-  po_bestaetigt: false
+  po_bestaetigt: true
   uid: Art. 26 Abs. 6@361351
   abschnitt: null
   nummer: null
@@ -11897,6 +11864,7 @@ einheiten:
   ziffer: null
   po_entscheid:
   - 2026-09-23 · 2b E4 (VERIFIZIERT - Betreiber in der Einheit oder ihrem Einleitungssatz genannt)
+  - 2026-09-28 · 2c F1 (T-E Art. 26, M-E5 tatsaechliche Aufbewahrung messen)
 - id: Art. 26 Abs. 7
   artikel: '26'
   artikel_titel: Pflichten der Betreiber von Hochrisiko-KI-Systemen
@@ -11924,15 +11892,11 @@ einheiten:
   - R007
   gate:
   - G-DEP-03
-  befund: teilabdeckung
-  befund_grund: 'R007 fuehrt das eigene acceptance_criterion ''Informationspflichten gemaess Art. 13 und
-    Art. 26 Abs. 7 sind dokumentiert'' als ''met'' (Evidenz G-DEP-03/C-01). Am Wortlaut der Check-Beschreibung
-    selbst gepruefte Praezisierung: G-DEP-03/C-01 prueft ''Deployer-Anleitung, Faehigkeiten, Limitationen,
-    KI-Content-Kennzeichnung dokumentiert'' - die Arbeitnehmervertreter- bzw. Arbeitsplatz-Unterrichtung
-    nach Abs. 7 ist darin nicht namentlich enthalten. Die ''gedeckt''-Einstufung von R007 beruht auf der
-    Requirement-Ebene (allgemeine Transparenzdokumentation), nicht auf einem am Policy-Wortlaut nachpruefbaren,
-    spezifischen Arbeitsplatz-Unterrichtungscheck - deshalb hier ''teilabdeckung'' statt ''gedeckt''.'
-  po_bestaetigt: false
+  befund: luecke
+  befund_grund: Kein Check prueft die Unterrichtung der Arbeitnehmervertretung und der betroffenen Arbeitnehmer
+    vor Inbetriebnahme. G-DEP-03/C-01 nennt sie nicht, R007 fuehrt das Kriterium trotzdem als 'met' (Befund
+    B2c-6). Massnahme M-E6.
+  po_bestaetigt: true
   uid: Art. 26 Abs. 7@362148
   abschnitt: null
   nummer: null
@@ -11940,6 +11904,7 @@ einheiten:
   ziffer: null
   po_entscheid:
   - 2026-09-23 · 2b E4 (VERIFIZIERT - Betreiber in der Einheit oder ihrem Einleitungssatz genannt)
+  - 2026-09-28 · 2c F2 (Luecke - kein Check trifft die Unterrichtung, M-E6)
 - id: Art. 26 Abs. 8
   artikel: '26'
   artikel_titel: Pflichten der Betreiber von Hochrisiko-KI-Systemen
@@ -24783,7 +24748,7 @@ einheiten:
     eigenen notes nur drei Pod-Annotationen und vier Schwellenwert-/Fristendokument-Merkmale (E-0); eine
     tatsaechliche Vorfallerkennung, Fristenuhr oder Meldekaskade existiert nicht (B-08 Luecke 5, R009
     eigener gap_reason: ''es gibt keine Vorfallerkennung... die Fristenuhr existiert nicht'').'
-  po_bestaetigt: false
+  po_bestaetigt: true
   uid: Art. 73 Abs. 1@504575
   abschnitt: null
   nummer: null
@@ -24791,6 +24756,7 @@ einheiten:
   ziffer: null
   po_entscheid:
   - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, Anker (b))
+  - 2026-09-28 · 2c F1 (T-F Art. 73, M-F1 Frist-Arm nur im Fallback)
 - uid: Art. 73 Abs. 2 UAbs. 1 Satz 1@504781
   id: Art. 73 Abs. 2 UAbs. 1 Satz 1
   artikel: '73'
@@ -24829,11 +24795,12 @@ einheiten:
     wieder (15 Tage x 24h = 360h). Dass eine Frist tatsaechlich laeuft und eingehalten wird, misst nichts
     (Fristenuhr fehlt, s. Art. 73 Abs. 1); die Betreiber-Kenntnis als alternativer Fristbeginn ('nachdem
     der Anbieter oder gegebenenfalls der Betreiber Kenntnis... erlangt hat') wird von keinem Gate ausgewertet.
-  po_bestaetigt: false
+  po_bestaetigt: true
   migriert_von: Art. 73 Abs. 2@504775
   migration: geerbt
   po_entscheid:
   - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, Anker (b))
+  - 2026-09-28 · 2c F1 (T-F Art. 73, M-F1 Fallback und M-F3 Fristenuhr)
 - uid: Art. 73 Abs. 2 UAbs. 2 Satz 1@505167
   id: Art. 73 Abs. 2 UAbs. 2 Satz 1
   artikel: '73'
@@ -24868,11 +24835,12 @@ einheiten:
     wieder (15 Tage x 24h = 360h). Dass eine Frist tatsaechlich laeuft und eingehalten wird, misst nichts
     (Fristenuhr fehlt, s. Art. 73 Abs. 1); die Betreiber-Kenntnis als alternativer Fristbeginn ('nachdem
     der Anbieter oder gegebenenfalls der Betreiber Kenntnis... erlangt hat') wird von keinem Gate ausgewertet.
-  po_bestaetigt: false
+  po_bestaetigt: true
   migriert_von: Art. 73 Abs. 2@504775
   migration: geerbt
   po_entscheid:
   - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, Anker (b))
+  - 2026-09-28 · 2c F1 (T-F Art. 73, M-F3 Fristenuhr)
 - id: Art. 73 Abs. 3
   artikel: '73'
   artikel_titel: Meldung schwerwiegender Vorfälle
@@ -24906,7 +24874,7 @@ einheiten:
     Kernrisikoklasse dieses Adressaten unmittelbar. G-OPS-02/C-04 gibt ''48h kritische Infrastruktur''
     zutreffend wieder (2 Tage x 24h = 48h). Sonst wie Art. 73 Abs. 2: durchschlagend fuer den Betreiber
     nur im Unerreichbarkeits-Fallback, keine Fristenuhr, keine Vorfallerkennung.'
-  po_bestaetigt: false
+  po_bestaetigt: true
   uid: Art. 73 Abs. 3@505289
   abschnitt: null
   nummer: null
@@ -24914,6 +24882,7 @@ einheiten:
   ziffer: null
   po_entscheid:
   - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, Anker (b))
+  - 2026-09-28 · 2c F1 (T-F Art. 73, M-F3 Fristenuhr)
 - id: Art. 73 Abs. 4
   artikel: '73'
   artikel_titel: Meldung schwerwiegender Vorfälle
@@ -24944,7 +24913,7 @@ einheiten:
   befund_grund: 'Todesfall-Frist (10 Tage = 240h) - G-OPS-02/C-04 gibt ''240h Tod'' zutreffend wieder.
     Sonst wie Art. 73 Abs. 2/3: durchschlagend fuer den Betreiber nur im Unerreichbarkeits-Fallback, keine
     Fristenuhr, keine Vorfallerkennung.'
-  po_bestaetigt: false
+  po_bestaetigt: true
   uid: Art. 73 Abs. 4@505657
   abschnitt: null
   nummer: null
@@ -24952,6 +24921,7 @@ einheiten:
   ziffer: null
   po_entscheid:
   - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, Anker (b))
+  - 2026-09-28 · 2c F1 (T-F Art. 73, M-F3 Fristenuhr)
 - id: Art. 73 Abs. 5
   artikel: '73'
   artikel_titel: Meldung schwerwiegender Vorfälle
@@ -25132,7 +25102,7 @@ einheiten:
     G-OPS-02/C-02/C-03 pruefen diese Anbieter-Identitaetsfrage nicht, sondern setzen die Reduktion pauschal
     fuer Anhang-III-Nr.-2-Systeme an. PO-ENTSCHEIDUNG NOETIG: gilt die Reduktion auch im Zukauf-Regelfall
     K1, oder nur bei Eigenentwicklung (K2)?'
-  po_bestaetigt: false
+  po_bestaetigt: true
   uid: Art. 73 Abs. 9@507790
   abschnitt: null
   nummer: null
@@ -25140,6 +25110,7 @@ einheiten:
   ziffer: null
   po_entscheid:
   - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, Anker (b))
+  - 2026-09-28 · 2c F1 (T-F Art. 73, M-F2 Reduktion an den Anbieter-Status)
 - id: Art. 73 Abs. 10
   artikel: '73'
   artikel_titel: Meldung schwerwiegender Vorfälle

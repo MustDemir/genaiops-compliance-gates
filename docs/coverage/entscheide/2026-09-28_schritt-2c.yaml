@@ -1,0 +1,203 @@
+# PO-Entscheide vom 28.09.2026 — Schritt 2c (Teilabdeckungen), F1a und F2a
+#
+# Nachweis: docs/coverage/review/04-schritt-2c-teilabdeckungen.md, Teil 2 und Teil 5.
+# F1a bestaetigt die Zeilen, die Teil 2 als 'bestaetigbar' fuehrt (ohne die drei, die
+# T-14.1 schon bestaetigt hat); der Beleg nennt Cluster und Massnahme, damit Schritt 4
+# jede Zeile ihrem Paket zuordnen kann. F2a klassifiziert fuenf Zeilen um.
+# F3a-F6a betreffen Requirements und Gates und werden in Schritt 4 umgesetzt.
+#
+# Nicht bestaetigt, bewusst: Art. 15 (sieben Zeilen) wartet auf den Anker (F4a),
+# Art. 26 Abs. 11 ist vertagt (Q11, Schritt 3).
+
+entschieden: '2026-09-28'
+eintraege:
+
+# ── F1a: Teilabdeckung bestaetigt, je Massnahme ──────────────────────────────
+
+  - beleg: 2c F1 (T-A Betriebsanleitung, M-A2 Qualitaet als manuelles Review)
+    raum: aiact
+    ids: [Art. 13 Abs. 1, Art. 13 Abs. 2]
+    setze: {befund: teilabdeckung}
+    bestaetigt: true
+
+  - beleg: 2c F1 (T-A Betriebsanleitung, M-A1 Pflichtinhalte-Check)
+    raum: aiact
+    ids: [Art. 13 Abs. 3, Art. 13 Abs. 3 lit. b, Art. 13 Abs. 3 lit. b Ziff. i, Art. 13 Abs. 3 lit. b Ziff. v,
+          Art. 13 Abs. 3 lit. d, Art. 13 Abs. 3 lit. f]
+    setze: {befund: teilabdeckung}
+    bestaetigt: true
+
+  - beleg: 2c F1 (T-B Aufsicht, M-B4 Abgleich Anbieter-Vorgabe mit Betreiber-Umsetzung)
+    raum: aiact
+    ids: [Art. 14 Abs. 1, Art. 14 Abs. 3 lit. b]
+    setze: {befund: teilabdeckung}
+    bestaetigt: true
+
+  - beleg: 2c F1 (T-B Aufsicht, Angemessenheit bleibt manuelles Review)
+    raum: aiact
+    ids: [Art. 14 Abs. 3]
+    setze: {befund: teilabdeckung}
+    bestaetigt: true
+
+  - beleg: 2c F1 (T-B Aufsicht, M-B2 = P2 Kompetenz)
+    raum: aiact
+    ids: [Art. 14 Abs. 4]
+    setze: {befund: teilabdeckung}
+    bestaetigt: true
+
+  - beleg: 2c F1 (T-B Aufsicht, M-B2 = P2 Kompetenz und M-B1 = P5 Wirksamkeit)
+    raum: aiact
+    ids: [Art. 14 Abs. 4 lit. a, Art. 26 Abs. 2]
+    setze: {befund: teilabdeckung}
+    bestaetigt: true
+
+  - beleg: 2c F1 (T-B Aufsicht, M-B1 = P5 Override-Rate)
+    raum: aiact
+    ids: [Art. 14 Abs. 4 lit. d]
+    setze: {befund: teilabdeckung}
+    bestaetigt: true
+
+  - beleg: 2c F1 (T-B Aufsicht, M-B3 Stopptasten-Uebung)
+    raum: aiact
+    ids: [Art. 14 Abs. 4 lit. e]
+    setze: {befund: teilabdeckung}
+    bestaetigt: true
+
+  - beleg: 2c F1 (T-D Rollenwechsel, M-D1 Requirement R017)
+    raum: aiact
+    ids: [Art. 25 Abs. 1]
+    setze: {befund: teilabdeckung}
+    bestaetigt: true
+
+  - beleg: 2c F1 (T-D Rollenwechsel, M-D2 eine Schwelle fuer C-25b und P0)
+    raum: aiact
+    ids: [Art. 25 Abs. 1 lit. b]
+    setze: {befund: teilabdeckung}
+    bestaetigt: true
+
+  - beleg: 2c F1 (T-D Rollenwechsel, M-D3 Trigger notify)
+    raum: aiact
+    ids: [Art. 25 Abs. 2]
+    setze: {befund: teilabdeckung}
+    bestaetigt: true
+
+  - beleg: 2c F1 (T-E Art. 26, M-E1 Einsatzgrenzen aus der Anleitung als Policy)
+    raum: aiact
+    ids: [Art. 26 Abs. 1]
+    setze: {befund: teilabdeckung}
+    bestaetigt: true
+
+  - beleg: 2c F1 (T-E Art. 26, M-E2 Ueberwachung und Information an den Anbieter)
+    raum: aiact
+    ids: [Art. 26 Abs. 5 UAbs. 1 Satz 1]
+    setze:
+      befund: teilabdeckung
+      befund_grund: >-
+        G-OPS-03 misst Drift im Betrieb, stuetzt sich aber auf Art. 72 statt auf diese
+        Betreiberpflicht; dass ueberwacht wird, ist damit teilweise belegt. Die
+        Information an den Anbieter bei Auffaelligkeiten loest kein Gate aus (M-E2).
+    bestaetigt: true
+
+  - beleg: 2c F1 (T-E Art. 26, M-E3 Reihenfolge der Meldekette, P6)
+    raum: aiact
+    ids: [Art. 26 Abs. 5 UAbs. 1 Satz 3]
+    setze:
+      befund: teilabdeckung
+      befund_grund: >-
+        G-OPS-02/C-01 prueft, dass ein Incident-Kontakt deklariert ist, nicht die
+        Reihenfolge zuerst Anbieter, dann Einfuehrer oder Haendler, dann Behoerde
+        (M-E3, P6).
+    bestaetigt: true
+
+  - beleg: 2c F1 (T-E Art. 26, M-E4 Fallback-Pfad, P6)
+    raum: aiact
+    ids: [Art. 26 Abs. 5 UAbs. 1 Satz 4]
+    setze:
+      befund: teilabdeckung
+      befund_grund: >-
+        G-OPS-02/C-04 fuehrt die Fristen des Art. 73, aber als eigene Betreiberpflicht; der
+        Fall, fuer den sie dem Betreiber gelten - Anbieter nicht erreichbar -, ist nicht
+        abgebildet (M-E4, M-F1).
+    bestaetigt: true
+
+  - beleg: 2c F1 (T-E Art. 26, M-E5 tatsaechliche Aufbewahrung messen)
+    raum: aiact
+    ids: [Art. 26 Abs. 6]
+    setze: {befund: teilabdeckung}
+    bestaetigt: true
+
+  - beleg: 2c F1 (T-F Art. 73, M-F1 Frist-Arm nur im Fallback)
+    raum: aiact
+    ids: [Art. 73 Abs. 1]
+    setze: {befund: teilabdeckung}
+    bestaetigt: true
+
+  - beleg: 2c F1 (T-F Art. 73, M-F1 Fallback und M-F3 Fristenuhr)
+    raum: aiact
+    ids: [Art. 73 Abs. 2 UAbs. 1 Satz 1]
+    setze: {befund: teilabdeckung}
+    bestaetigt: true
+
+  - beleg: 2c F1 (T-F Art. 73, M-F3 Fristenuhr)
+    raum: aiact
+    ids: [Art. 73 Abs. 2 UAbs. 2 Satz 1, Art. 73 Abs. 3, Art. 73 Abs. 4]
+    setze: {befund: teilabdeckung}
+    bestaetigt: true
+
+  - beleg: 2c F1 (T-F Art. 73, M-F2 Reduktion an den Anbieter-Status)
+    raum: aiact
+    ids: [Art. 73 Abs. 9]
+    setze: {befund: teilabdeckung}
+    bestaetigt: true
+
+# ── F2a: fuenf Zeilen umklassifiziert ────────────────────────────────────────
+
+  - beleg: 2c F2 (anderer Betreibertyp, wie 2a Gruppe B)
+    raum: aiact
+    ids: [Art. 26 Abs. 5 UAbs. 1 Satz 5]
+    setze:
+      scope: out
+      scope_grund: Adressat - Betreiber, die Strafverfolgungsbehoerden sind (Ausnahme fuer sensible operative Daten).
+      befund: null
+      befund_grund: null
+    bestaetigt: true
+
+  - beleg: 2c F2 (anderer Betreibertyp, wie 2a Gruppe B)
+    raum: aiact
+    ids: [Art. 26 Abs. 5 UAbs. 2 Satz 1]
+    setze:
+      scope: out
+      scope_grund: Adressat - Betreiber, die Finanzinstitute sind (Ueberwachungspflicht gilt durch Governance-Recht als erfuellt).
+      befund: null
+      befund_grund: null
+    bestaetigt: true
+
+  - beleg: 2c F2 (Luecke - kein Check trifft die Unterrichtung, M-E6)
+    raum: aiact
+    ids: [Art. 26 Abs. 7]
+    setze:
+      befund: luecke
+      befund_grund: >-
+        Kein Check prueft die Unterrichtung der Arbeitnehmervertretung und der
+        betroffenen Arbeitnehmer vor Inbetriebnahme. G-DEP-03/C-01 nennt sie nicht,
+        R007 fuehrt das Kriterium trotzdem als 'met' (Befund B2c-6). Massnahme M-E6.
+    bestaetigt: true
+
+  - beleg: 2c F2 (Mittel, keine Pflicht)
+    raum: aiact
+    ids: [Art. 15 Abs. 4 UAbs. 2 Satz 1]
+    setze:
+      befund: nicht_einschlaegig
+      befund_grund: Mittel ('kann durch technische Redundanz erreicht werden'), keine eigene pruefbare Pflicht.
+    bestaetigt: false
+
+  - beleg: 2c F2 (Luecke - kein Gate prueft Rueckkopplungsschleifen, M-C1)
+    raum: aiact
+    ids: [Art. 15 Abs. 4 UAbs. 3 Satz 1]
+    setze:
+      befund: luecke
+      befund_grund: >-
+        Rueckkopplungsschleifen bei Systemen, die im Betrieb weiterlernen, prueft kein
+        Gate; G-OPS-03 misst Drift allgemein. Ob das System weiterlernt, ist eine
+        Tatsache, die heute nirgends erfasst ist (M-C1).
+    bestaetigt: false
