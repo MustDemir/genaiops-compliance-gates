@@ -1,8 +1,32 @@
 ---
 titel: Systembild + Plan – Regulariendurchlauf abschließen
-stand: 2026-09-23
+stand: 2026-09-28 (Leitsatz ergänzt; Teil A/B unverändert seit 2026-09-23)
 basis: Branch spec06-aiact-stufe0 (30 Commits vor domain_netzbetrieb, nicht gemergt)
-status: Schritt 1 fertig – wartet auf PO-Prüfung
+status: Systembild vom PO bestätigt 23.09.2026 · Leitsatz ergänzt 28.09.2026
+---
+
+# Leitsatz – unser Ziel
+
+> **EU-AI-Act-Konformität für einen Verteilnetzbetreiber nachweisbar statt behauptbar machen – lückenlos von der Norm bis zum Beleg.**
+
+- **Wer:** Betreiber (Verteilnetzbetreiber), nicht Anbieter
+- **Was:** KI im Redispatch, Einstufung Anhang III Nr. 2 (kritische Infrastruktur)
+- **Bis wann:** Stichtag 02.12.2027 (Omnibus)
+- **Form:** Referenzarchitektur, kein Produkt (D-05)
+
+**Fertig heißt:**
+- Jede `in`-Pflicht ist durch Gate/Check gedeckt (mit ehrlicher Beweisstufe) **oder** bewusst offen (`declared_gap`) mit Begründung
+- Jede Zeile `po_bestaetigt: true` – die 4 Ehrlichkeitsfelder entscheidet nur der PO
+- Beide Richtungen geprüft: Verifikation (Gate prüft, was es behauptet) + Validierung (Katalog deckt alle Pflichten – „richtige 17 Gates?")
+- PR `spec06-aiact-stufe0` → `domain_netzbetrieb` gemergt
+
+**Danach:**
+```
+AI-Act-Durchlauf fertig ──► Sektorstapel (T-13: NIS2, BSIG, DSGVO, KRITIS-DachG, EnWG) ──► EU-AI-Act-Agenten (Use Cases zuerst)
+```
+
+**Warum:** Belege statt Aussagen gegenüber Aufsicht und Kunden (Hash-Chain, cosign) · Art. 99 Abs. 7: dokumentierte TOMs mindern Bußgeld (Q10) · Grundlage für die Agenten
+
 ---
 
 # Teil A – Systembild (zur Prüfung durch den PO)
