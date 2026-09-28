@@ -1,6 +1,6 @@
 # T-14 — Pflichtenraum: eindeutige IDs, Art. 3 nach Nummern, Omnibus als eigene Einheiten
 
-**Status:** BEREIT · gestellt 23.09.2026 · PO-Festlegungen P-1 und P-2 entschieden 23.09.2026
+**Status:** IN ARBEIT · gestellt 23.09.2026 · P-1/P-2 entschieden 23.09.2026, P-3/P-4 entschieden 28.09.2026 · geliefert: T-14.1, T-14.2, T-14.3
 **Bezug:** [`SPEC-06`](../../specs/SPEC-06-deckungsanalyse-norm-requirement.md) · [`T-12`](T-12-cowork-aiact-stufe0.md) · [`T-13`](T-13-cowork-sektorstapel.md) · Gegenprüfung `docs/coverage/review/03-gegenpruefung-omnibus-art26-out.md` · 2b v2 `docs/coverage/review/02-schritt-2b-luecken.md`
 
 ---
@@ -28,6 +28,9 @@ Die vier Ehrlichkeitsfelder sind nicht betroffen. Entschieden am 23.09.2026 – 
 
 - [x] **P-1 Omnibus-Quelle = (a).** (a) Omnibus-Text als zweite Quelle `docs/legal/wortlaut/omnibus_2026-1744_DE.txt` (aus dem PDF extrahiert, gehasht), neue Einheiten mit `quelle: 2026/1744` und eigenem Offset · **oder** (b) konsolidierte Fassung selbst erzeugen. **Empfehlung (a)**: bestehende Offsets bleiben gültig, Herkunft je Einheit nachweisbar, keine selbst erzeugte Rechtsfassung
 - [x] **P-2 Satzebene = (b).** (a) alle Einheiten auf Sätze · **oder** (b) nur Absätze mit mehr als einer Pflicht (Liste vom PO, Start: Art. 26 Abs. 5, Art. 13 Abs. 3 lit. b, Art. 73 Abs. 2). **Empfehlung (b)**: Aufwand proportional zum Nutzen, Befunde bleiben lesbar
+
+- [x] **P-3 Satzebene-Liste (28.09.2026).** Art. 26 Abs. 5 · Art. 73 Abs. 2 · Art. 15 Abs. 4 · Art. 111 Abs. 2 (Grundfassung und n.F.). Art. 13 Abs. 3 lit. b ist durch T-14.1 schon nach Ziffern geschnitten. Die Liste steht in `docs/coverage/entscheide/satzebene.yaml`, `NORM_SENTENCE_UNITS_CURRENT` hält den Pflichtenraum dagegen
+- [x] **P-4 PO-Entscheide in den Pflichtenraum (28.09.2026).** Die bereits getroffenen Entscheide (2a, 2b E1–E8, T-14.1) werden als T-14.5 in `aiact_pflichtenraum.yaml` geschrieben – nur Entschiedenes, mit Verweis auf das Review-Dokument je Zeile
 
 Festgelegt (aus 2a/2b):
 - Steuernde Normen (Art. 2 Abs. 1 lit. b, Art. 3 Nr. 4/8/14/23/49, Art. 6 Abs. 1a–1c/2/3, Art. 111 Abs. 2, Art. 113 Abs. 3, Anhang III Nr. 2) bekommen adressierbare Einheiten

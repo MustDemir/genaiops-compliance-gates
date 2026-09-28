@@ -346,8 +346,14 @@ def split_absaetze(norm: str, art: dict) -> list[dict]:
 
 
 def split_saetze(norm: str, start: int, end: int) -> list[dict]:
-    """Saetze einer Einheit, mit Offset. Konservativ: trennt nur an '. ' und
-    niemals hinter einer bekannten Abkuerzung."""
+    """Saetze einer Einheit. Konservativ: trennt nur an '. ' und niemals hinter
+    einer bekannten Abkuerzung.
+
+    Bleibt bewusst unveraendert (T-14.3): das Feld `saetze` aller Pflichtenraeume
+    ist mit dieser Zaehlung erzeugt. Sie zaehlt eine Fundstelle am Satzende zu
+    kurz ('gemaess Artikel 72. Haben …' ist fuer sie EIN Satz). Wo es auf die
+    Saetze ankommt, schneidet `satz_spannen` — mit Offset und mit dieser Regel.
+    """
     seg = norm[start:end]
     flat = re.sub(r"[\t ]*\n[\t \n]*", " ", seg).strip()
     if not flat:
@@ -368,6 +374,122 @@ def split_saetze(norm: str, start: int, end: int) -> list[dict]:
     if buf.strip():
         parts.append(buf.strip())
     return [{"nr": i + 1, "text": p} for i, p in enumerate(parts)]
+
+
+# ── Satzebene (T-14.3) ──────────────────────────────────────────────────────
+#
+# PO-Festlegung P-2 = b (23.09.2026): nur Absaetze, die mehr als eine Pflicht
+# tragen, werden in Saetze geschnitten; die Liste fuehrt der PO in
+# docs/coverage/entscheide/satzebene.yaml. Anlass war Art. 26 Abs. 5 — vier Pflichten, ein
+# Befund, und die vierte ('setzen die Verwendung ... aus') war nirgends
+# abgebildet, weil der Sammelbefund 'teilabdeckung' sie verdeckte.
+
+# Vor einer Zahl mit Punkt: dann ist die Zahl eine Fundstelle oder ein Jahr, und
+# der Punkt beendet den Satz ('gemaess Artikel 72. Haben …', '… bis zum
+# 2. August 2030.'). Sonst ist sie eine Ordnungszahl ('vor dem 2. August 2026').
+_FUNDSTELLE = {"Artikel", "Artikels", "Absatz", "Absatzes", "Unterabsatz", "Nummer",
+               "Satz", "Anhang", "Anhangs", "Buchstabe"}
+_MONATE = {"Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August",
+           "September", "Oktober", "November", "Dezember"}
+_ABBREV_SET = set(ABBREV)
+
+
+def _ist_satzende(seg: str, anfang: int, punkt: int) -> bool:
+    """Endet bei `punkt` (Index des '.') der Satz, der bei `anfang` beginnt?"""
+    tokens = seg[anfang:punkt].split()
+    if not tokens:
+        return False
+    tail = tokens[-1]
+    if tail.rstrip(".") in _ABBREV_SET or " ".join(tokens[-2:]).rstrip(".") in _ABBREV_SET:
+        return False
+    rest = seg[punkt + 1:].lstrip()
+    if re.fullmatch(r"\d+[a-z]?", tail):
+        vorher = tokens[-2] if len(tokens) > 1 else ""
+        if not (vorher in _FUNDSTELLE or vorher in _MONATE or not rest):
+            return False
+    # Ein Satz beginnt gross, mit Anfuehrungszeichen oder Klammer — sonst ist der
+    # Punkt Teil einer Abkuerzung, die ABBREV nicht kennt.
+    return not rest or rest[0].isupper() or rest[0] in "„\"(«"
+
+
+def satz_spannen(norm: str, start: int, end: int) -> list[tuple[int, int]]:
+    """Saetze eines Ausschnitts als (start, ende) in der Quelle.
+
+    Anders als `split_saetze` mit echten Offsets: jeder Satz wird eine eigene
+    Einheit und muss sich an seiner Stelle in der Quelle wortgleich pruefen
+    lassen (LEGAL_QUOTES_VERBATIM).
+    """
+    seg = norm[start:end]
+    spannen: list[tuple[int, int]] = []
+    anfang = len(seg) - len(seg.lstrip())
+    for m in re.finditer(r"\.(?=\s|$)", seg):
+        p = m.start()
+        if p < anfang or not _ist_satzende(seg, anfang, p):
+            continue
+        spannen.append((start + anfang, start + p + 1))
+        rest = seg[p + 1:]
+        anfang = p + 1 + (len(rest) - len(rest.lstrip()))
+    if seg[anfang:].strip():
+        ende = len(seg.rstrip())
+        spannen.append((start + anfang, start + ende))
+    return spannen
+
+
+_ABSATZMARKE = re.compile(r"\(\d+[a-z]?\)\s+")
+_UNTERABSATZ = re.compile(r"\n[ \t]*\n\s*")
+
+
+def auf_satzebene(norm: str, units: list[dict], ids: list[str]) -> tuple[list[dict], dict]:
+    """Ersetzt jede gelistete Einheit durch ihre Saetze.
+
+    Kennung: '<Einheit> Satz N', bei mehr als einem Unterabsatz '<Einheit>
+    UAbs. U Satz N' — so wird im Unionsrecht zitiert, und 'Art. 26 Abs. 5
+    Satz 6' gibt es nicht. Unterabsaetze erkennt der Schnitt an der Leerzeile,
+    mit der die Quelle sie trennt. Die Absatzmarke '(5)' gehoert zu keinem Satz.
+
+    Eine gelistete Einheit, die es nicht gibt, die Unterglieder hat oder die in
+    weniger als zwei Saetze zerfaellt, ist ein Fehler der Liste und bricht ab:
+    eine PO-Festlegung, die still nicht greift, ist keine.
+    """
+    gesucht = set(ids)
+    vorhanden = {u["id"] for u in units}
+    fehlt = sorted(gesucht - vorhanden)
+    if fehlt:
+        raise ValueError(f"Satzebene: Einheit(en) nicht in der Quelle: {', '.join(fehlt)}")
+
+    out: list[dict] = []
+    zuordnung: dict[str, list[str]] = {}
+    for u in units:
+        if u["id"] not in gesucht:
+            out.append(u)
+            continue
+        s, e = u["offset"], u["offset"] + u["laenge"]
+        kinder = [x["id"] for x in units if x is not u and s < x["offset"] < e]
+        if kinder:
+            raise ValueError(f"Satzebene: {u['id']} hat Unterglieder ({', '.join(kinder[:3])}) "
+                             f"— geschnitten wird nur, was keine Gliederung mehr hat")
+        seg = norm[s:e]
+        m = _ABSATZMARKE.match(seg)
+        koerper = s + (m.end() if m else 0)
+        grenzen = [koerper] + [s + g.end() for g in _UNTERABSATZ.finditer(seg)
+                               if s + g.end() > koerper and s + g.end() < e]
+        uabs = [(a, grenzen[i + 1] if i + 1 < len(grenzen) else e)
+                for i, a in enumerate(grenzen) if norm[a:(grenzen[i + 1] if i + 1 < len(grenzen) else e)].strip()]
+        basis, nf = (u["id"][:-5], " n.F.") if u["id"].endswith(" n.F.") else (u["id"], "")
+        neu = []
+        for ui, (ua, ue) in enumerate(uabs, start=1):
+            for si, (ss, se) in enumerate(satz_spannen(norm, ua, ue), start=1):
+                kennung = basis + (f" UAbs. {ui}" if len(uabs) > 1 else "") + f" Satz {si}" + nf
+                text = re.sub(r"[\t ]*\n[\t \n]*", " ", norm[ss:se]).strip()
+                neu.append({**u, "uid": f"{kennung}@{ss}", "id": kennung,
+                            "unterabsatz": str(ui) if len(uabs) > 1 else u.get("unterabsatz"),
+                            "satz": str(si), "offset": ss, "laenge": se - ss, "text": text,
+                            "saetze": [{"nr": 1, "text": text}]})
+        if len(neu) < 2:
+            raise ValueError(f"Satzebene: {u['id']} ergibt {len(neu)} Satz — nichts zu schneiden")
+        zuordnung[u["uid"]] = [x["uid"] for x in neu]
+        out.extend(neu)
+    return out, zuordnung
 
 
 def units_for(norm: str, art: dict) -> list[dict]:

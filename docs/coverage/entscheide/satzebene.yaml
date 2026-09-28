@@ -1,0 +1,41 @@
+# Satzebene — welche Einheiten in Saetze geschnitten werden (T-14.3)
+#
+# PO-Festlegung P-2 = b (23.09.2026): nicht alle Einheiten, nur Absaetze, die mehr
+# als eine Pflicht tragen. Ein Sammelbefund ueber vier Pflichten verdeckt die, die
+# fehlt — so bei Art. 26 Abs. 5, wo 'setzen die Verwendung ... aus' in
+# 'teilabdeckung' unterging (Gegenpruefung G2, Paket P8).
+#
+# Die Liste entscheidet der PO. build_pflichtenraum.py schneidet danach und bricht
+# ab, wenn eine gelistete Einheit nicht existiert oder nicht in Saetze zerfaellt.
+# NORM_SENTENCE_UNITS_CURRENT haelt den Pflichtenraum gegen diese Liste.
+#
+# Schluessel ist der Dateiname der Quelle: eine Kennung wie 'Art. 26 Abs. 5' gibt
+# es auch in DSGVO und NIS2.
+
+entschieden: '2026-09-28'
+quellen:
+  aiact_2024-1689_DE.txt:
+    - id: Art. 26 Abs. 5
+      grund: >-
+        Vier Betreiberpflichten in einem Absatz: Betrieb ueberwachen und Anbieter
+        informieren (Satz 1), bei Risiko informieren und Verwendung aussetzen (Satz 2,
+        P8), schwerwiegenden Vorfall melden (Satz 3), Art. 73 bei unerreichbarem
+        Anbieter (Satz 4); dazu zwei Ausnahmen.
+    - id: Art. 73 Abs. 2
+      grund: >-
+        Meldefrist (Unterabsatz 1) und ihre Abstufung nach Schwere (Unterabsatz 2)
+        werden getrennt geprueft.
+    - id: Art. 15 Abs. 4
+      grund: >-
+        Robustheit mit technischen und organisatorischen Massnahmen, Redundanz als
+        Mittel, Rueckkopplungsschleifen bei weiterlernenden Systemen — drei
+        Pruefgegenstaende.
+    - id: Art. 111 Abs. 2
+      grund: >-
+        Satz 1 ist die Anwendbarkeitsregel (P0), Satz 2 die Frist 2030 fuer Systeme,
+        die Behoerden verwenden — ein anderer Adressat.
+  omnibus_2026-1744_DE.txt:
+    - id: Art. 111 Abs. 2 n.F.
+      grund: >-
+        Neufassung von Art. 111 Abs. 2 (Omnibus Art. 1 Nr. 39 lit. a); gleiche
+        Teilung wie in der Grundfassung. P0 stuetzt sich auf diese Fassung.

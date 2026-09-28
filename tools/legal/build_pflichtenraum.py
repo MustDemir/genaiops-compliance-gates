@@ -32,8 +32,10 @@ from pathlib import Path
 import yaml
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from extract_norm_units import (index_anhaenge, index_articles,
+from extract_norm_units import (auf_satzebene, index_anhaenge, index_articles,
                                  index_paragraphen, load, units_for)  # noqa: E402
+
+REPO_ROOT = Path(__file__).resolve().parents[2]
 
 LEER = {
     "adressat": None,        # betreiber | anbieter | behoerde | sonstige
@@ -52,7 +54,7 @@ LEER = {
 
 # Felder, die aus der Quelle kommen. Alles andere an einer Zeile ist Analyse.
 STRUKTUR = ("uid", "id", "artikel", "artikel_titel", "abschnitt", "absatz", "nummer",
-            "unterabsatz", "buchstabe", "ziffer", "offset", "laenge", "saetze", "beleg",
+            "unterabsatz", "buchstabe", "ziffer", "satz", "offset", "laenge", "saetze", "beleg",
             "anweisung", "ziel", "aenderung", "fassung_2026_1744")
 
 
@@ -64,7 +66,8 @@ def _hat_analyse(e: dict) -> bool:
     return any(v not in (None, [], "") for v in _analyse(e).values())
 
 
-def _migrieren(zusammen: list, alt: dict, verwaist: list, bericht: Path) -> tuple[list, list]:
+def _migrieren(zusammen: list, alt: dict, verwaist: list, bericht: Path,
+               anlass: str) -> tuple[list, list]:
     """Traegt die Analyse verwaister Zeilen auf die neuen Einheiten derselben Stelle.
 
     Anlass T-14: der Extraktor schneidet feiner (Nummern, Ziffern, Abschnitte).
@@ -84,6 +87,7 @@ def _migrieren(zusammen: list, alt: dict, verwaist: list, bericht: Path) -> tupl
     alte = [alt[k] for k in verwaist]
     nach_offset = {e["offset"]: e for e in alte}
     zuordnung: dict[str, list] = {k: [] for k in verwaist}
+    geerbt_jetzt: list[str] = []
     for e in zusammen:
         if e["uid"] in alt:
             continue  # unveraendert fortgeschrieben
@@ -105,6 +109,8 @@ def _migrieren(zusammen: list, alt: dict, verwaist: list, bericht: Path) -> tupl
         e.update(uebernahme)
         e["migriert_von"] = quelle["uid"]
         e["migration"] = art
+        if art == "geerbt":
+            geerbt_jetzt.append(e["uid"])
         if quelle["uid"] in zuordnung:
             zuordnung[quelle["uid"]].append(e["uid"])
 
@@ -116,12 +122,13 @@ def _migrieren(zusammen: list, alt: dict, verwaist: list, bericht: Path) -> tupl
             bleibt.append(k)
     bericht.parent.mkdir(parents=True, exist_ok=True)
     bericht.write_text(yaml.dump({
-        "anlass": "T-14 — Extraktor schneidet Nummern, Ziffern, Unterabsaetze, Abschnitte",
+        "anlass": anlass,
         "verwaist": len(verwaist),
         "entfernt": len(entfernt),
         "bleibt_mit_analyse": bleibt,
         "zuordnung": {k: zuordnung[k] for k in verwaist},
-        "geerbt": sorted(e["uid"] for e in zusammen if e.get("migration") == "geerbt"),
+        # nur, was DIESER Lauf geerbt hat — fruehere Laeufe stehen in ihren Berichten
+        "geerbt": sorted(geerbt_jetzt),
     }, allow_unicode=True, sort_keys=False, width=100), encoding="utf-8")
     return zusammen, bleibt
 
@@ -138,6 +145,11 @@ def main() -> int:
                     help="Analyse verwaister Zeilen auf die neuen Einheiten derselben "
                          "Textstelle uebertragen (T-14) und den Zuordnungsbericht "
                          "alte uid -> neue uid(s) nach BERICHT schreiben.")
+    ap.add_argument("--anlass", default="T-14 — Extraktor schneidet Nummern, Ziffern, "
+                                         "Unterabsaetze, Abschnitte",
+                    help="Anlass im Zuordnungsbericht von --migrieren")
+    ap.add_argument("--satzebene", type=Path, default=REPO_ROOT / "docs" / "coverage" / "entscheide" / "satzebene.yaml",
+                    help="PO-Liste der Einheiten, die in Saetze geschnitten werden (T-14.3)")
     ap.add_argument("--omnibus", action="store_true",
                     help="Die Quelle ist ein Aenderungsrechtsakt (T-14.2): Einheiten je "
                          "Anweisung und je neu gefasstem oder eingefuegtem Normtext.")
@@ -159,6 +171,18 @@ def main() -> int:
         quellen_einheiten = [u for art in arts if art["artikel"] in want
                              for u in units_for(norm, art)]
 
+    # T-14.3: Absaetze mit mehr als einer Pflicht werden Saetze — nur die, die der
+    # PO listet. Schluessel ist der Dateiname der Quelle.
+    if a.satzebene and a.satzebene.exists():
+        liste = (yaml.safe_load(a.satzebene.read_text(encoding="utf-8")) or {}).get("quellen") or {}
+        ids = [x["id"] for x in (liste.get(a.quelle.name) or [])]
+        if ids:
+            try:
+                quellen_einheiten, _ = auf_satzebene(norm, quellen_einheiten, ids)
+            except ValueError as err:
+                print(f"FEHLER — {err}")
+                return 1
+
     neu = []
     for u in quellen_einheiten:
         if True:
@@ -174,6 +198,7 @@ def main() -> int:
                     "unterabsatz": u["unterabsatz"],
                     "buchstabe": u["buchstabe"],
                     "ziffer": u["ziffer"],
+                    **({"satz": u["satz"]} if u.get("satz") else {}),
                     "offset": u["offset"],
                     "laenge": u["laenge"],
                     "saetze": len(u["saetze"]),
@@ -213,12 +238,15 @@ def main() -> int:
 
     verwaist = sorted(set(alt) - {e["uid"] for e in neu})
     if a.migrieren:
-        zusammen, verwaist = _migrieren(zusammen, alt_vorher, verwaist, a.migrieren)
+        zusammen, verwaist = _migrieren(zusammen, alt_vorher, verwaist, a.migrieren, a.anlass)
     if verwaist and not a.verwaiste_entfernen:
         # Nicht stillschweigend wegwerfen: eine verwaiste Zeile kann Analyse
         # tragen, die jemand geschrieben hat. Sie bleibt, bis es jemand sagt.
         zusammen.extend(alt[k] for k in verwaist)
 
+    # Herkunft aus dem PDF bleibt stehen, wenn der Lauf sie nicht neu angibt: ein
+    # erneuter Lauf ohne --pdf hat sie sonst still aus dem Kopf entfernt (T-14.3).
+    vorher_q = doc.get("quelle") or {}
     doc["quelle"] = {
         "datei": str(a.quelle),
         "sha256": digest,
@@ -233,8 +261,12 @@ def main() -> int:
         import hashlib
         doc["quelle"]["pdf"] = str(a.pdf)
         doc["quelle"]["pdf_sha256"] = hashlib.sha256(a.pdf.read_bytes()).hexdigest()
-    if a.ableitung:
-        doc["quelle"]["ableitung"] = a.ableitung
+    else:
+        for k in ("pdf", "pdf_sha256"):
+            if k in vorher_q:
+                doc["quelle"][k] = vorher_q[k]
+    if a.ableitung or "ableitung" in vorher_q:
+        doc["quelle"]["ableitung"] = a.ableitung or vorher_q["ableitung"]
     doc["einheiten"] = zusammen
 
     a.ziel.parent.mkdir(parents=True, exist_ok=True)
