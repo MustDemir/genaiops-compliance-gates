@@ -7149,8 +7149,8 @@ einheiten:
   gate: *id002
   befund: null
   befund_grund: null
-- uid: Art. 111 Abs. 2 n.F.@153784
-  id: Art. 111 Abs. 2 n.F.
+- uid: Art. 111 Abs. 2 Satz 1 n.F.@153788
+  id: Art. 111 Abs. 2 Satz 1 n.F.
   artikel: '111'
   artikel_titel: Änderung der Verordnung (EU) 2024/1689
   abschnitt: null
@@ -7159,16 +7159,15 @@ einheiten:
   unterabsatz: null
   buchstabe: null
   ziffer: null
-  offset: 153784
-  laenge: 696
-  saetze: 2
-  beleg: (2) Unbeschadet der Anwendung des Artikels 5 gemäß Artikel 113 Absatz 3 Buchstabe a gilt diese
-    Verordnung für Akteure von Hochrisiko-KI-Systemen — mit Ausnahme der in Absatz 1 des vorliegenden
-    Artikels genannten Systeme —, die vor dem Beginn der Anwendung des Kapitels III gemäß Artikel 113
-    in Verkehr gebracht oder in Betrieb genommen wurden, nur dann, wenn diese Systeme danach in ihrer
-    Konzeption erheblich verändert wurden. In jedem Fall treffen die Anbieter und Betreiber von Hochrisiko-KI-Systemen,
-    die bestimmungsgemäß von Behörden verwendet werden sollen, die erforderlichen Maßnahmen zur Erfüllung
-    der in dieser Verordnung festgelegten Anforderungen und Pflichten bis zum 2. August 2030.
+  satz: '1'
+  offset: 153788
+  laenge: 423
+  saetze: 1
+  beleg: Unbeschadet der Anwendung des Artikels 5 gemäß Artikel 113 Absatz 3 Buchstabe a gilt diese Verordnung
+    für Akteure von Hochrisiko-KI-Systemen — mit Ausnahme der in Absatz 1 des vorliegenden Artikels genannten
+    Systeme —, die vor dem Beginn der Anwendung des Kapitels III gemäß Artikel 113 in Verkehr gebracht
+    oder in Betrieb genommen wurden, nur dann, wenn diese Systeme danach in ihrer Konzeption erheblich
+    verändert wurden.
   anweisung: Omnibus Art. 1 Nr. 39 lit. a
   ziel: Art. 111 Abs. 2
   aenderung: neu_gefasst
@@ -7179,8 +7178,39 @@ einheiten:
   verifikation: null
   hypothese_grund: null
   omnibus: null
-  requirement: *id001
-  gate: *id002
+  requirement: &id003 []
+  gate: &id004 []
+  befund: null
+  befund_grund: null
+- uid: Art. 111 Abs. 2 Satz 2 n.F.@154212
+  id: Art. 111 Abs. 2 Satz 2 n.F.
+  artikel: '111'
+  artikel_titel: Änderung der Verordnung (EU) 2024/1689
+  abschnitt: null
+  absatz: null
+  nummer: null
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  satz: '2'
+  offset: 154212
+  laenge: 268
+  saetze: 1
+  beleg: In jedem Fall treffen die Anbieter und Betreiber von Hochrisiko-KI-Systemen, die bestimmungsgemäß
+    von Behörden verwendet werden sollen, die erforderlichen Maßnahmen zur Erfüllung der in dieser Verordnung
+    festgelegten Anforderungen und Pflichten bis zum 2. August 2030.
+  anweisung: Omnibus Art. 1 Nr. 39 lit. a
+  ziel: Art. 111 Abs. 2
+  aenderung: neu_gefasst
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
   befund: null
   befund_grund: null
 - uid: Omnibus Art. 1 Nr. 39 lit. b@154482

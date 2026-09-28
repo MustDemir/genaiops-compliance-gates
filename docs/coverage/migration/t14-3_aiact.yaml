@@ -1,0 +1,38 @@
+anlass: T-14.3 — Satzebene fuer die Einheiten aus docs/coverage/entscheide/satzebene.yaml
+verwaist: 4
+entfernt: 4
+bleibt_mit_analyse: []
+zuordnung:
+  Art. 111 Abs. 2@579913:
+  - Art. 111 Abs. 2 Satz 1@579919
+  - Art. 111 Abs. 2 Satz 2@580304
+  Art. 15 Abs. 4@333319:
+  - Art. 15 Abs. 4 UAbs. 1 Satz 1@333325
+  - Art. 15 Abs. 4 UAbs. 1 Satz 2@333625
+  - Art. 15 Abs. 4 UAbs. 2 Satz 1@333710
+  - Art. 15 Abs. 4 UAbs. 3 Satz 1@333868
+  Art. 26 Abs. 5@359967:
+  - Art. 26 Abs. 5 UAbs. 1 Satz 1@359973
+  - Art. 26 Abs. 5 UAbs. 1 Satz 2@360127
+  - Art. 26 Abs. 5 UAbs. 1 Satz 3@360464
+  - Art. 26 Abs. 5 UAbs. 1 Satz 4@360685
+  - Art. 26 Abs. 5 UAbs. 1 Satz 5@360767
+  - Art. 26 Abs. 5 UAbs. 2 Satz 1@360889
+  Art. 73 Abs. 2@504775:
+  - Art. 73 Abs. 2 UAbs. 1 Satz 1@504781
+  - Art. 73 Abs. 2 UAbs. 2 Satz 1@505167
+geerbt:
+- Art. 111 Abs. 2 Satz 1@579919
+- Art. 111 Abs. 2 Satz 2@580304
+- Art. 15 Abs. 4 UAbs. 1 Satz 1@333325
+- Art. 15 Abs. 4 UAbs. 1 Satz 2@333625
+- Art. 15 Abs. 4 UAbs. 2 Satz 1@333710
+- Art. 15 Abs. 4 UAbs. 3 Satz 1@333868
+- Art. 26 Abs. 5 UAbs. 1 Satz 1@359973
+- Art. 26 Abs. 5 UAbs. 1 Satz 2@360127
+- Art. 26 Abs. 5 UAbs. 1 Satz 3@360464
+- Art. 26 Abs. 5 UAbs. 1 Satz 4@360685
+- Art. 26 Abs. 5 UAbs. 1 Satz 5@360767
+- Art. 26 Abs. 5 UAbs. 2 Satz 1@360889
+- Art. 73 Abs. 2 UAbs. 1 Satz 1@504781
+- Art. 73 Abs. 2 UAbs. 2 Satz 1@505167
