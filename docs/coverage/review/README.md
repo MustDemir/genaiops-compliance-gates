@@ -17,7 +17,7 @@ Arbeitsdokumente zur Abnahme von SPEC-06 / T-12: Die Vorschläge der Nachtläufe
 | 06 | [`06-grenzen-statt-teilabdeckung.md`](06-grenzen-statt-teilabdeckung.md) | Teilabdeckung getrennt in Grenze (Element ungeprüft) und gedeckt mit E-0; Hinweisfunktion am Gate | **entschieden 28./29.09.2026** (H1b, H2a, H3a, H4 Option 1) |
 | 07 | [`07-element-matrix.md`](07-element-matrix.md) | Alle 50 Pflichten mit Gate-Bezug gegen die 196 Regeln aus dem Code; Korrekturen, Methodenfrage Nachbarprüfung | M2a entschieden 29.09.2026 · M1 offen (Paket 4) |
 | 08 | [`08-paket-1-anhaenge.md`](08-paket-1-anhaenge.md) | Paket 1: 206 Anhang-Einheiten und Art. 113 eingeordnet (4 in, alle steuernd; 206 out), Omnibus-Änderungen an Anhängen, Fragen A-F1, A-F2 | Vorschlag – Stichprobe in Paket 4 |
-| 09 | [`09-paket-2-omnibus.md`](09-paket-2-omnibus.md) | Paket 2: 259 Omnibus-Einheiten eingeordnet (100 Änderungsanweisungen out; 159 n.F.: 11 in, 148 out), A-F2a umgesetzt (6 AI-Act-Zeilen ersetzt → out), Wächter `OMNIBUS_SUPERSEDED_UNITS_OUT`, Fragen P2-F1–F5, R-2 | Vorschlag – Fragen in Paket 4 |
+| 09 | [`09-paket-2-omnibus.md`](09-paket-2-omnibus.md) | Paket 2: 259 Omnibus-Einheiten eingeordnet (100 Änderungsanweisungen out; 159 n.F.: 11 in, 148 out), A-F2a umgesetzt (6 AI-Act-Zeilen ersetzt → out), Wächter `OMNIBUS_SUPERSEDED_UNITS_OUT`, Fragen P2-F1–F5, R-2 | **entschieden 29.09.2026** (P2-F1 a, F2 a, F3 a, F4 c, F5 a, R-2 HIGH) |
 | – | [`entscheidungsregister.md`](entscheidungsregister.md) | **Alle offenen Entscheide des PO und ausstehenden Schritte mit Ziel-Paket** (Wächter `PO_DECISIONS_REGISTERED`) | lebend |
 
 Ticket-Entwurf zu den Werkzeugbefunden: [`../../tickets/T-14-pflichtenraum-werkzeug.md`](../../tickets/T-14-pflichtenraum-werkzeug.md)

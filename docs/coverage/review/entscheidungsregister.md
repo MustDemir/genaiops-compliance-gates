@@ -29,15 +29,9 @@ Pakete:  1 Anhänge ✅ · 2 Omnibus · 3 Befunde + Matrix · 4 PO-Runde · 5 Be
 | Q11 | Art. 26 Abs. 11 (Information der betroffenen Personen) | `05-schritt-2d-2e-gedeckt-querbefunde.md` | vertagt | 4 |
 | M1 | Zählt eine Nachbarprüfung als geprüftes Element? 9 Zeilen, Empfehlung a (streng: werden Lücke) | `07-element-matrix.md` | offen | 4 |
 | A-F1 | Anhang IV nennt den Betreiber: Durchschlag? Empfehlung a (nein, out) | `08-paket-1-anhaenge.md` | offen | 4 |
-| IN-1 | Alle `in`-Zeilen bestätigen (nach Paket 2: 61 von 104 bestätigt – AI Act 61 von 83, Omnibus 0 von 21) | `entscheidungsregister.md` | offen | 4 |
-| OUT-1 | `out`-Zeilen: Stichprobe nach Adressat-Gruppen, dann Sammelbestätigung (nach Paket 2: 31 von 1368 bestätigt – AI Act 31 von 1120, Omnibus 0 von 248) | `entscheidungsregister.md` | offen | 4 |
+| IN-1 | Alle `in`-Zeilen bestätigen (nach Paket 2 und P2-F2: 64 von 104 bestätigt – AI Act 61 von 83, Omnibus 3 von 21) | `entscheidungsregister.md` | offen | 4 |
+| OUT-1 | `out`-Zeilen: Stichprobe nach Adressat-Gruppen, dann Sammelbestätigung (nach Paket 2 und P2-F1/F4/F5: 138 von 1368 bestätigt – AI Act 31 von 1120, Omnibus 107 von 248) | `entscheidungsregister.md` | offen | 4 |
 | R-1 | Severity des Wächters `PO_DECISIONS_REGISTERED` (Vorschlag LOW: bricht `make verify`, wie `HANDBOOK_ROADMAP_CURRENT`) | `entscheidungsregister.md` | offen | 4 |
-| P2-F1 | 100 Änderungsanweisungen des Omnibus `out` („bewertet wird die n.F.-Zeile“)? Empfehlung a | `09-paket-2-omnibus.md` | offen | 4 |
-| P2-F2 | Bestätigte Einordnungen von Art. 4, Art. 25 Abs. 2, Art. 111 Abs. 2 Satz 1 gelten für die n.F.-Zeilen weiter (Sammelbestätigung)? Empfehlung a | `09-paket-2-omnibus.md` | offen | 4 |
-| P2-F3 | Art. 25 Abs. 2 ganz ersetzt, nicht teilweise (Abweichung von Review 08)? Empfehlung a | `09-paket-2-omnibus.md` | offen | 4 |
-| P2-F4 | Art. 4a Abs. 1 lit. a–f: nutzt der Betreiber die Erlaubnis nach Art. 4a Abs. 2? Empfehlung a (nein, out, Wiedervorlage) | `09-paket-2-omnibus.md` | offen | 4 |
-| P2-F5 | Omnibus Art. 4 (Inkrafttreten 27.07.2026) out oder steuernd? Empfehlung a (out) | `09-paket-2-omnibus.md` | offen | 4 |
-| R-2 | Severity des Wächters `OMNIBUS_SUPERSEDED_UNITS_OUT` (Vorschlag MEDIUM) | `09-paket-2-omnibus.md` | offen | 4 |
 | M-B1 | Welches Requirement trägt Art. 26 Abs. 5 Satz 1: R009 wie heute oder R008/R010 der prüfenden Gates? | `07-element-matrix.md` | offen | 5 |
 | EF | Die vier Ehrlichkeitsfelder je neuem oder geändertem Requirement und Check: Norm↔Pflicht, MUST/SHOULD, `evidence_level`, `implemented`/`design_only` (AGENTS.md 3) | `entscheidungsregister.md` | offen | 5 |
 | P9-1 | Use Cases des Prüf-Agenten | `00-systembild-und-plan.md` | offen | 9 |
@@ -59,6 +53,7 @@ Pakete:  1 Anhänge ✅ · 2 Omnibus · 3 Befunde + Matrix · 4 PO-Runde · 5 Be
 | F5 | G-OPS-02 umbauen: Art.-73-Fristen nur als Auffangregel, Reduktion nach Abs. 9 am Status des Anbieters. Zwischenschritt „Vermerk HYPOTHESE im Gate“ am 29.09.2026 nachgeholt | `04-schritt-2c-teilabdeckungen.md` | entschieden 28.09.2026 a | 5 |
 | F6 | Neues Requirement R017 Rollenwechsel (Art. 25), MUST/SHOULD in Paket 5 | `04-schritt-2c-teilabdeckungen.md` | entschieden 28.09.2026 a | 5 |
 | E2 | Rego-Meldungen mit Check-ID (130 von 195 ohne), Wächter `REGO_MESSAGES_CARRY_CHECK_ID` im selben Commit | `05-schritt-2d-2e-gedeckt-querbefunde.md` | entschieden 29.09.2026 a | 5 |
+| P2-F4 | Art. 4a Abs. 1 lit. a–f bleiben out (bedingte Pflicht); Wiedervorlage maschinell: Manifest-Feld `special_categories_for_bias` + Check, der die Zeilen meldet, sobald `true` (Bedingungsparameter je Anwendungsfall, wie SPEC-03) | `09-paket-2-omnibus.md` | entschieden 29.09.2026 c | 5 |
 | E7 | Meldekaskade: planen ja, bauen erst in der Umsetzung | `02-schritt-2b-luecken.md` | entschieden 23.09.2026 | 6 |
 | F4 | R001, R002, R003, R005, R011 ohne Betreiber-Anker: `anker: offen`, Anker-Suche im Sektorstapel. Zwischenschritt `anker: offen` am 29.09.2026 nachgeholt. **Folge aus Teil C:** Der Sektorstapel kommt nach dem Agenten, der Anker bleibt so lange offen, und der Agent muss „Anker offen“ melden | `04-schritt-2c-teilabdeckungen.md` | entschieden 28.09.2026 a | 7 |
 | H4 | `known_limits` je Gate, Hinweis in jedem Lauf, Urteil unverändert, Wächter `GATE_LIMITS_DECLARED` | `06-grenzen-statt-teilabdeckung.md` | entschieden 29.09.2026 Option 1 | 7 |
@@ -97,6 +92,11 @@ Pakete:  1 Anhänge ✅ · 2 Omnibus · 3 Befunde + Matrix · 4 PO-Runde · 5 Be
 | H3 | Art. 25 Abs. 1 lit. a, c und Art. 13 Abs. 3 lit. a Teilabdeckung | `06-grenzen-statt-teilabdeckung.md` | umgesetzt | – |
 | A-F2 | Vom Omnibus neu gefasste AI-Act-Zeilen `out` („ersetzt durch n.F.“): 6 in-Zeilen als Entscheid, 54 Zeilen mit `neufassung`, Wächter `OMNIBUS_SUPERSEDED_UNITS_OUT` | `08-paket-1-anhaenge.md` | umgesetzt 29.09.2026 (Paket 2, Review 09) | – |
 | A-W4 | Art. 3 Nr. 4, 8, 23 (und 52 weitere Zeilen): falscher Omnibus-Vermerk berichtigt | `08-paket-1-anhaenge.md` | umgesetzt 29.09.2026 (Paket 2) | – |
+| P2-F1 | 100 Änderungsanweisungen des Omnibus `out`, bewertet wird die n.F.-Zeile | `09-paket-2-omnibus.md` | umgesetzt 29.09.2026 a | – |
+| P2-F2 | Bestätigte Einordnungen von Art. 4, 25 Abs. 2, 111 Abs. 2 Satz 1 gelten für die n.F.-Zeilen | `09-paket-2-omnibus.md` | umgesetzt 29.09.2026 a | – |
+| P2-F3 | Art. 25 Abs. 2 ganz ersetzt (nicht teilweise) | `09-paket-2-omnibus.md` | umgesetzt 29.09.2026 a | – |
+| P2-F5 | Omnibus Art. 4 (Inkrafttreten) `out` | `09-paket-2-omnibus.md` | umgesetzt 29.09.2026 a | – |
+| R-2 | Severity `OMNIBUS_SUPERSEDED_UNITS_OUT` = HIGH (unbewertete Neufassung = unbekannte Lücke = falsches „konform“) | `09-paket-2-omnibus.md` | umgesetzt 29.09.2026 HIGH | – |
 | A-W5 | Verknüpfer verlor nach der Satzebene den Verweis Art. 111 Abs. 2 → n.F. | `09-paket-2-omnibus.md` | umgesetzt 29.09.2026 | – |
 | A-W6 | Verknüpfer verband Art. 96 Abs. 1 UAbs. 2 n.F. mit allen Buchstaben | `09-paket-2-omnibus.md` | umgesetzt 29.09.2026 | – |
 | Q2 | Nr.-2-Ausnahmen (Art. 27, 43 Abs. 2, 49, 75, 86) für einen Fachbeitrag | `05-schritt-2d-2e-gedeckt-querbefunde.md` | außerhalb | – |

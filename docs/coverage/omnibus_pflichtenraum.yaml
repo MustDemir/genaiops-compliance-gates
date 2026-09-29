@@ -40,7 +40,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Art. 1 Abs. 2 lit. g n.F.@80284
   id: Art. 1 Abs. 2 lit. g n.F.
   artikel: '1'
@@ -101,7 +104,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Omnibus Art. 1 Nr. 2 lit. a@80502
   id: Omnibus Art. 1 Nr. 2 lit. a
   artikel: '2'
@@ -131,7 +137,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Art. 2 Abs. 2 n.F.@80541
   id: Art. 2 Abs. 2 n.F.
   artikel: '2'
@@ -197,7 +206,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Art. 2 Abs. 7 n.F.@81085
   id: Art. 2 Abs. 7 n.F.
   artikel: '2'
@@ -262,7 +274,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Art. 2 Abs. 13 n.F.@81596
   id: Art. 2 Abs. 13 n.F.
   artikel: '2'
@@ -397,7 +412,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Omnibus Art. 1 Nr. 4 lit. a@82631
   id: Omnibus Art. 1 Nr. 4 lit. a
   artikel: '3'
@@ -427,7 +445,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Art. 3 Nr. 14 n.F.@82670
   id: Art. 3 Nr. 14 n.F.
   artikel: '3'
@@ -492,7 +513,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Art. 3 Nr. 14a n.F.@83193
   id: Art. 3 Nr. 14a n.F.
   artikel: '3'
@@ -588,7 +612,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Art. 4 n.F.@83572
   id: Art. 4 n.F.
   artikel: '4'
@@ -659,7 +686,9 @@ einheiten:
   befund_grund: Kein Requirement und kein Gate prueft Massnahmen zur KI-Kompetenz des Personals. Geprueft
     wird nach der Neufassung, ob Massnahmen zur Unterstuetzung der Kompetenzentwicklung je Aufsichtsrolle
     bestehen - nicht, ob ein Niveau erreicht ist (P2, R016).
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F2 a (bestaetigte Einordnung gilt fuer die Neufassung weiter)
 - uid: Art. 4 Abs. 2 n.F.@84235
   id: Art. 4 Abs. 2 n.F.
   artikel: '4'
@@ -753,7 +782,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Art. 4a n.F.@84948
   id: Art. 4a n.F.
   artikel: ''
@@ -815,19 +847,22 @@ einheiten:
     im Zusammenhang mit Hochrisiko-KI-Systemen im Einklang mit Artikel 10 Absatz 2 Buchstaben f …'
   scope: out
   scope_grund: 'Adressat (T-13 Schritt 1): Anbieter von Hochrisiko-KI-Systemen (Art. 10 Abs. 2 lit. f,
-    g). Den Betreiber binden die Bedingungen nur ueber Abs. 2 lit. b, wenn er die Erlaubnis des Abs. 2
-    nutzt - eine bedingte Pflicht (2c). Wiedervorlage, sobald der Betreiber besondere Kategorien zur Bias-Erkennung
-    verarbeitet (Frage P2-F4).'
+    g). Den Betreiber binden die Bedingungen nur ueber Abs. 2 lit. b, wenn er die Erlaubnis nutzt, besondere
+    Kategorien personenbezogener Daten zur Bias-Erkennung zu verarbeiten - eine bedingte Pflicht (2c);
+    fuer Redispatch nicht vorgesehen (PO 29.09.2026, P2-F4 c). Wiedervorlage maschinell: Manifest-Feld
+    special_categories_for_bias, ein Check meldet diese Einheiten, sobald es true ist (Bau Paket 5).'
   verifikation: HYPOTHESE
   hypothese_grund: Durchschlag verneint, weil Abs. 2 lit. b die Bedingungen nur fuer den Fall der Nutzung
-    der Erlaubnis anordnet; ob der Betreiber sie nutzt, ist eine Tatsachenfrage (R013 prueft Bias-Metriken,
-    keine Verarbeitung besonderer Kategorien).
+    der Erlaubnis anordnet. Dass der Betreiber sie fuer Redispatch nicht nutzt, hat der PO festgestellt
+    (P2-F4 c); Auslegung bleibt die Einordnung als bedingte Pflicht.
   omnibus: null
   requirement: []
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F4 c (bedingte Pflicht out, Wiedervorlage ueber Bedingungsparameter, Bau Paket 5)
 - uid: Art. 4a Abs. 1 lit. a n.F.@85737
   id: Art. 4a Abs. 1 lit. a n.F.
   artikel: ''
@@ -852,19 +887,22 @@ einheiten:
     Verarbeitung anderer Daten, einschließlich synthetischer oder anonymisierter Daten, nicht …'
   scope: out
   scope_grund: 'Adressat (T-13 Schritt 1): Anbieter von Hochrisiko-KI-Systemen (Art. 10 Abs. 2 lit. f,
-    g). Den Betreiber binden die Bedingungen nur ueber Abs. 2 lit. b, wenn er die Erlaubnis des Abs. 2
-    nutzt - eine bedingte Pflicht (2c). Wiedervorlage, sobald der Betreiber besondere Kategorien zur Bias-Erkennung
-    verarbeitet (Frage P2-F4).'
+    g). Den Betreiber binden die Bedingungen nur ueber Abs. 2 lit. b, wenn er die Erlaubnis nutzt, besondere
+    Kategorien personenbezogener Daten zur Bias-Erkennung zu verarbeiten - eine bedingte Pflicht (2c);
+    fuer Redispatch nicht vorgesehen (PO 29.09.2026, P2-F4 c). Wiedervorlage maschinell: Manifest-Feld
+    special_categories_for_bias, ein Check meldet diese Einheiten, sobald es true ist (Bau Paket 5).'
   verifikation: HYPOTHESE
   hypothese_grund: Durchschlag verneint, weil Abs. 2 lit. b die Bedingungen nur fuer den Fall der Nutzung
-    der Erlaubnis anordnet; ob der Betreiber sie nutzt, ist eine Tatsachenfrage (R013 prueft Bias-Metriken,
-    keine Verarbeitung besonderer Kategorien).
+    der Erlaubnis anordnet. Dass der Betreiber sie fuer Redispatch nicht nutzt, hat der PO festgestellt
+    (P2-F4 c); Auslegung bleibt die Einordnung als bedingte Pflicht.
   omnibus: null
   requirement: []
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F4 c (bedingte Pflicht out, Wiedervorlage ueber Bedingungsparameter, Bau Paket 5)
 - uid: Art. 4a Abs. 1 lit. b n.F.@85921
   id: Art. 4a Abs. 1 lit. b n.F.
   artikel: ''
@@ -890,19 +928,22 @@ einheiten:
     technischen Beschränkungen bezüglich einer Weiterverwendung der personenbezogenen Daten …'
   scope: out
   scope_grund: 'Adressat (T-13 Schritt 1): Anbieter von Hochrisiko-KI-Systemen (Art. 10 Abs. 2 lit. f,
-    g). Den Betreiber binden die Bedingungen nur ueber Abs. 2 lit. b, wenn er die Erlaubnis des Abs. 2
-    nutzt - eine bedingte Pflicht (2c). Wiedervorlage, sobald der Betreiber besondere Kategorien zur Bias-Erkennung
-    verarbeitet (Frage P2-F4).'
+    g). Den Betreiber binden die Bedingungen nur ueber Abs. 2 lit. b, wenn er die Erlaubnis nutzt, besondere
+    Kategorien personenbezogener Daten zur Bias-Erkennung zu verarbeiten - eine bedingte Pflicht (2c);
+    fuer Redispatch nicht vorgesehen (PO 29.09.2026, P2-F4 c). Wiedervorlage maschinell: Manifest-Feld
+    special_categories_for_bias, ein Check meldet diese Einheiten, sobald es true ist (Bau Paket 5).'
   verifikation: HYPOTHESE
   hypothese_grund: Durchschlag verneint, weil Abs. 2 lit. b die Bedingungen nur fuer den Fall der Nutzung
-    der Erlaubnis anordnet; ob der Betreiber sie nutzt, ist eine Tatsachenfrage (R013 prueft Bias-Metriken,
-    keine Verarbeitung besonderer Kategorien).
+    der Erlaubnis anordnet. Dass der Betreiber sie fuer Redispatch nicht nutzt, hat der PO festgestellt
+    (P2-F4 c); Auslegung bleibt die Einordnung als bedingte Pflicht.
   omnibus: null
   requirement: []
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F4 c (bedingte Pflicht out, Wiedervorlage ueber Bedingungsparameter, Bau Paket 5)
 - uid: Art. 4a Abs. 1 lit. c n.F.@86163
   id: Art. 4a Abs. 1 lit. c n.F.
   artikel: ''
@@ -930,19 +971,22 @@ einheiten:
     Maßnahmen, mit denen sichergestellt wird, dass die verarbeiteten personenbezogenen …'
   scope: out
   scope_grund: 'Adressat (T-13 Schritt 1): Anbieter von Hochrisiko-KI-Systemen (Art. 10 Abs. 2 lit. f,
-    g). Den Betreiber binden die Bedingungen nur ueber Abs. 2 lit. b, wenn er die Erlaubnis des Abs. 2
-    nutzt - eine bedingte Pflicht (2c). Wiedervorlage, sobald der Betreiber besondere Kategorien zur Bias-Erkennung
-    verarbeitet (Frage P2-F4).'
+    g). Den Betreiber binden die Bedingungen nur ueber Abs. 2 lit. b, wenn er die Erlaubnis nutzt, besondere
+    Kategorien personenbezogener Daten zur Bias-Erkennung zu verarbeiten - eine bedingte Pflicht (2c);
+    fuer Redispatch nicht vorgesehen (PO 29.09.2026, P2-F4 c). Wiedervorlage maschinell: Manifest-Feld
+    special_categories_for_bias, ein Check meldet diese Einheiten, sobald es true ist (Bau Paket 5).'
   verifikation: HYPOTHESE
   hypothese_grund: Durchschlag verneint, weil Abs. 2 lit. b die Bedingungen nur fuer den Fall der Nutzung
-    der Erlaubnis anordnet; ob der Betreiber sie nutzt, ist eine Tatsachenfrage (R013 prueft Bias-Metriken,
-    keine Verarbeitung besonderer Kategorien).
+    der Erlaubnis anordnet. Dass der Betreiber sie fuer Redispatch nicht nutzt, hat der PO festgestellt
+    (P2-F4 c); Auslegung bleibt die Einordnung als bedingte Pflicht.
   omnibus: null
   requirement: []
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F4 c (bedingte Pflicht out, Wiedervorlage ueber Bedingungsparameter, Bau Paket 5)
 - uid: Art. 4a Abs. 1 lit. d n.F.@86678
   id: Art. 4a Abs. 1 lit. d n.F.
   artikel: ''
@@ -967,19 +1011,22 @@ einheiten:
     nicht an Dritte übermittelt oder übertragen, noch haben diese Dritten anderweitigen Zugang …'
   scope: out
   scope_grund: 'Adressat (T-13 Schritt 1): Anbieter von Hochrisiko-KI-Systemen (Art. 10 Abs. 2 lit. f,
-    g). Den Betreiber binden die Bedingungen nur ueber Abs. 2 lit. b, wenn er die Erlaubnis des Abs. 2
-    nutzt - eine bedingte Pflicht (2c). Wiedervorlage, sobald der Betreiber besondere Kategorien zur Bias-Erkennung
-    verarbeitet (Frage P2-F4).'
+    g). Den Betreiber binden die Bedingungen nur ueber Abs. 2 lit. b, wenn er die Erlaubnis nutzt, besondere
+    Kategorien personenbezogener Daten zur Bias-Erkennung zu verarbeiten - eine bedingte Pflicht (2c);
+    fuer Redispatch nicht vorgesehen (PO 29.09.2026, P2-F4 c). Wiedervorlage maschinell: Manifest-Feld
+    special_categories_for_bias, ein Check meldet diese Einheiten, sobald es true ist (Bau Paket 5).'
   verifikation: HYPOTHESE
   hypothese_grund: Durchschlag verneint, weil Abs. 2 lit. b die Bedingungen nur fuer den Fall der Nutzung
-    der Erlaubnis anordnet; ob der Betreiber sie nutzt, ist eine Tatsachenfrage (R013 prueft Bias-Metriken,
-    keine Verarbeitung besonderer Kategorien).
+    der Erlaubnis anordnet. Dass der Betreiber sie fuer Redispatch nicht nutzt, hat der PO festgestellt
+    (P2-F4 c); Auslegung bleibt die Einordnung als bedingte Pflicht.
   omnibus: null
   requirement: []
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F4 c (bedingte Pflicht out, Wiedervorlage ueber Bedingungsparameter, Bau Paket 5)
 - uid: Art. 4a Abs. 1 lit. e n.F.@86847
   id: Art. 4a Abs. 1 lit. e n.F.
   artikel: ''
@@ -1005,19 +1052,22 @@ einheiten:
     gelöscht, sobald die Verzerrung korrigiert wurde oder das Ende der Speicherfrist für die …'
   scope: out
   scope_grund: 'Adressat (T-13 Schritt 1): Anbieter von Hochrisiko-KI-Systemen (Art. 10 Abs. 2 lit. f,
-    g). Den Betreiber binden die Bedingungen nur ueber Abs. 2 lit. b, wenn er die Erlaubnis des Abs. 2
-    nutzt - eine bedingte Pflicht (2c). Wiedervorlage, sobald der Betreiber besondere Kategorien zur Bias-Erkennung
-    verarbeitet (Frage P2-F4).'
+    g). Den Betreiber binden die Bedingungen nur ueber Abs. 2 lit. b, wenn er die Erlaubnis nutzt, besondere
+    Kategorien personenbezogener Daten zur Bias-Erkennung zu verarbeiten - eine bedingte Pflicht (2c);
+    fuer Redispatch nicht vorgesehen (PO 29.09.2026, P2-F4 c). Wiedervorlage maschinell: Manifest-Feld
+    special_categories_for_bias, ein Check meldet diese Einheiten, sobald es true ist (Bau Paket 5).'
   verifikation: HYPOTHESE
   hypothese_grund: Durchschlag verneint, weil Abs. 2 lit. b die Bedingungen nur fuer den Fall der Nutzung
-    der Erlaubnis anordnet; ob der Betreiber sie nutzt, ist eine Tatsachenfrage (R013 prueft Bias-Metriken,
-    keine Verarbeitung besonderer Kategorien).
+    der Erlaubnis anordnet. Dass der Betreiber sie fuer Redispatch nicht nutzt, hat der PO festgestellt
+    (P2-F4 c); Auslegung bleibt die Einordnung als bedingte Pflicht.
   omnibus: null
   requirement: []
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F4 c (bedingte Pflicht out, Wiedervorlage ueber Bedingungsparameter, Bau Paket 5)
 - uid: Art. 4a Abs. 1 lit. f n.F.@87072
   id: Art. 4a Abs. 1 lit. f n.F.
   artikel: ''
@@ -1044,19 +1094,22 @@ einheiten:
     Verordnungen (EU) 2016/679 und (EU) 2018/1725 und der Richtlinie (EU) 2016/680 enthalten …'
   scope: out
   scope_grund: 'Adressat (T-13 Schritt 1): Anbieter von Hochrisiko-KI-Systemen (Art. 10 Abs. 2 lit. f,
-    g). Den Betreiber binden die Bedingungen nur ueber Abs. 2 lit. b, wenn er die Erlaubnis des Abs. 2
-    nutzt - eine bedingte Pflicht (2c). Wiedervorlage, sobald der Betreiber besondere Kategorien zur Bias-Erkennung
-    verarbeitet (Frage P2-F4).'
+    g). Den Betreiber binden die Bedingungen nur ueber Abs. 2 lit. b, wenn er die Erlaubnis nutzt, besondere
+    Kategorien personenbezogener Daten zur Bias-Erkennung zu verarbeiten - eine bedingte Pflicht (2c);
+    fuer Redispatch nicht vorgesehen (PO 29.09.2026, P2-F4 c). Wiedervorlage maschinell: Manifest-Feld
+    special_categories_for_bias, ein Check meldet diese Einheiten, sobald es true ist (Bau Paket 5).'
   verifikation: HYPOTHESE
   hypothese_grund: Durchschlag verneint, weil Abs. 2 lit. b die Bedingungen nur fuer den Fall der Nutzung
-    der Erlaubnis anordnet; ob der Betreiber sie nutzt, ist eine Tatsachenfrage (R013 prueft Bias-Metriken,
-    keine Verarbeitung besonderer Kategorien).
+    der Erlaubnis anordnet. Dass der Betreiber sie fuer Redispatch nicht nutzt, hat der PO festgestellt
+    (P2-F4 c); Auslegung bleibt die Einordnung als bedingte Pflicht.
   omnibus: null
   requirement: []
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F4 c (bedingte Pflicht out, Wiedervorlage ueber Bedingungsparameter, Bau Paket 5)
 - uid: Art. 4a Abs. 2 n.F.@87468
   id: Art. 4a Abs. 2 n.F.
   artikel: ''
@@ -1189,7 +1242,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Omnibus Art. 1 Nr. 7 lit. a@88328
   id: Omnibus Art. 1 Nr. 7 lit. a
   artikel: '5'
@@ -1220,7 +1276,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Art. 5 Abs. 1 UAbs. 1 lit. ba n.F.@88396
   id: Art. 5 Abs. 1 UAbs. 1 lit. ba n.F.
   artikel: '5'
@@ -1319,7 +1378,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Art. 5 Abs. 1a n.F.@89265
   id: Art. 5 Abs. 1a n.F.
   artikel: '5'
@@ -1519,7 +1581,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Art. 6 Abs. 1a n.F.@90944
   id: Art. 6 Abs. 1a n.F.
   artikel: '6'
@@ -1650,7 +1715,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Omnibus Art. 1 Nr. 9 lit. a@91911
   id: Omnibus Art. 1 Nr. 9 lit. a
   artikel: '10'
@@ -1680,7 +1748,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Art. 10 Abs. 1 n.F.@91949
   id: Art. 10 Abs. 1 n.F.
   artikel: '10'
@@ -1746,7 +1817,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Omnibus Art. 1 Nr. 9 lit. c@92330
   id: Omnibus Art. 1 Nr. 9 lit. c
   artikel: '10'
@@ -1776,7 +1850,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Art. 10 Abs. 6 n.F.@92368
   id: Art. 10 Abs. 6 n.F.
   artikel: '10'
@@ -1841,7 +1918,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Art. 11 Abs. 1 UAbs. 2 n.F.@92663
   id: Art. 11 Abs. 1 UAbs. 2 n.F.
   artikel: '11'
@@ -1912,7 +1992,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Art. 17 Abs. 2 n.F.@93909
   id: Art. 17 Abs. 2 n.F.
   artikel: '17'
@@ -1975,7 +2058,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Omnibus Art. 1 Nr. 12 lit. a@94422
   id: Omnibus Art. 1 Nr. 12 lit. a
   artikel: '25'
@@ -2005,7 +2091,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Art. 25 Abs. 2 n.F.@94460
   id: Art. 25 Abs. 2 n.F.
   artikel: '25'
@@ -2052,7 +2141,9 @@ einheiten:
     der eigentlichen Kooperation/Uebergabe beim Erstanbieter) ist laut Gate-eigener Deklaration ''declared_only'',
     nicht durchgesetzt - das Gate stellt das Fehlen fest, loest die Kooperation aber nicht aus. Requirement
     fehlt (Befund 1).'
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F2 a (bestaetigte Einordnung gilt fuer die Neufassung weiter)
 - uid: Art. 25 Abs. 2 lit. a n.F.@95227
   id: Art. 25 Abs. 2 lit. a n.F.
   artikel: '25'
@@ -2193,7 +2284,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Art. 25 Abs. 4 UAbs. 1 n.F.@95904
   id: Art. 25 Abs. 4 UAbs. 1 n.F.
   artikel: '25'
@@ -2261,7 +2355,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Omnibus Art. 1 Nr. 13 lit. a@96751
   id: Omnibus Art. 1 Nr. 13 lit. a
   artikel: '27'
@@ -2291,7 +2388,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Art. 27 Abs. 4 n.F.@96790
   id: Art. 27 Abs. 4 n.F.
   artikel: '27'
@@ -2357,7 +2457,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Art. 27 Abs. 5 n.F.@97338
   id: Art. 27 Abs. 5 n.F.
   artikel: '27'
@@ -2420,7 +2523,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Art. 28 Abs. 8 n.F.@97910
   id: Art. 28 Abs. 8 n.F.
   artikel: '28'
@@ -2535,7 +2641,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Art. 29 Abs. 4 n.F.@100710
   id: Art. 29 Abs. 4 n.F.
   artikel: '29'
@@ -2604,7 +2713,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Art. 30 Abs. 2 n.F.@101751
   id: Art. 30 Abs. 2 n.F.
   artikel: '30'
@@ -2673,7 +2785,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Art. 40 Abs. 2 (angefügt) n.F.@102749
   id: Art. 40 Abs. 2 (angefügt) n.F.
   artikel: '40'
@@ -2737,7 +2852,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Art. 42 Abs. 3 n.F.@103980
   id: Art. 42 Abs. 3 n.F.
   artikel: '42'
@@ -2801,7 +2919,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Art. 43 Abs. 3 n.F.@104336
   id: Art. 43 Abs. 3 n.F.
   artikel: '43'
@@ -2893,7 +3014,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Art. 50 Abs. 7 n.F.@107743
   id: Art. 50 Abs. 7 n.F.
   artikel: '50'
@@ -2959,7 +3083,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Art. 56 Abs. 6 n.F.@108619
   id: Art. 56 Abs. 6 n.F.
   artikel: '56'
@@ -3023,7 +3150,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Omnibus Art. 1 Nr. 22 lit. a@109217
   id: Omnibus Art. 1 Nr. 22 lit. a
   artikel: '57'
@@ -3054,7 +3184,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Art. 57 Abs. 1 UAbs. 1 n.F.@109270
   id: Art. 57 Abs. 1 UAbs. 1 n.F.
   artikel: '57'
@@ -3119,7 +3252,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Art. 57 Abs. 3 n.F.@109745
   id: Art. 57 Abs. 3 n.F.
   artikel: '57'
@@ -3182,7 +3318,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Art. 57 Abs. 3a n.F.@110083
   id: Art. 57 Abs. 3a n.F.
   artikel: '57'
@@ -3251,7 +3390,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Art. 57 Abs. 5 n.F.@111027
   id: Art. 57 Abs. 5 n.F.
   artikel: '57'
@@ -3320,7 +3462,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Art. 57 Abs. 9 lit. e n.F.@111824
   id: Art. 57 Abs. 9 lit. e n.F.
   artikel: '57'
@@ -3383,7 +3528,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Art. 57 Abs. 10 n.F.@112068
   id: Art. 57 Abs. 10 n.F.
   artikel: '57'
@@ -3449,7 +3597,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Art. 57 Abs. 14 n.F.@112652
   id: Art. 57 Abs. 14 n.F.
   artikel: '57'
@@ -3515,7 +3666,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Omnibus Art. 1 Nr. 23 lit. a@113184
   id: Omnibus Art. 1 Nr. 23 lit. a
   artikel: '58'
@@ -3546,7 +3700,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Art. 58 Abs. 1 UAbs. 1 Einleitung n.F.@113229
   id: Art. 58 Abs. 1 UAbs. 1 Einleitung n.F.
   artikel: '58'
@@ -3611,7 +3768,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Art. 58 Abs. 1 UAbs. 1 lit. d n.F.@113633
   id: Art. 58 Abs. 1 UAbs. 1 lit. d n.F.
   artikel: '58'
@@ -3675,7 +3835,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Omnibus Art. 1 Nr. 24 lit. a@114015
   id: Omnibus Art. 1 Nr. 24 lit. a
   artikel: '60'
@@ -3706,7 +3869,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Art. 60 Abs. 1 UAbs. 1 n.F.@114068
   id: Art. 60 Abs. 1 UAbs. 1 n.F.
   artikel: '60'
@@ -3772,7 +3938,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Art. 60 Abs. 2 n.F.@114577
   id: Art. 60 Abs. 2 n.F.
   artikel: '60'
@@ -3837,7 +4006,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Art. 60a n.F.@115001
   id: Art. 60a n.F.
   artikel: ''
@@ -4241,7 +4413,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Art. 63 Abs. 1 n.F.@118435
   id: Art. 63 Abs. 1 n.F.
   artikel: '63'
@@ -4305,7 +4480,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Art. 64 Abs. 3 n.F.@119100
   id: Art. 64 Abs. 3 n.F.
   artikel: '64'
@@ -4367,7 +4545,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Art. 69 Abs. 2 n.F.@119388
   id: Art. 69 Abs. 2 n.F.
   artikel: '69'
@@ -4429,7 +4610,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Art. 70 Abs. 8 n.F.@119705
   id: Art. 70 Abs. 8 n.F.
   artikel: '70'
@@ -4494,7 +4678,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Art. 72 Abs. 3 n.F.@120337
   id: Art. 72 Abs. 3 n.F.
   artikel: '72'
@@ -4560,7 +4747,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Omnibus Art. 1 Nr. 31 lit. a@120849
   id: Omnibus Art. 1 Nr. 31 lit. a
   artikel: '75'
@@ -4591,7 +4781,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Art. 75 Überschrift n.F.@120894
   id: Art. 75 Überschrift n.F.
   artikel: '75'
@@ -4651,7 +4844,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Art. 75 Abs. 1 n.F.@120996
   id: Art. 75 Abs. 1 n.F.
   artikel: '75'
@@ -4910,7 +5106,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Art. 75 Abs. 1a n.F.@122340
   id: Art. 75 Abs. 1a n.F.
   artikel: '75'
@@ -5131,7 +5330,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Art. 75 Abs. 2a n.F.@125908
   id: Art. 75 Abs. 2a n.F.
   artikel: '75'
@@ -5307,7 +5509,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Art. 75a n.F.@127819
   id: Art. 75a n.F.
   artikel: ''
@@ -6844,7 +7049,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Art. 76 Abs. 1 (angefügt) n.F.@145955
   id: Art. 76 Abs. 1 (angefügt) n.F.
   artikel: '76'
@@ -6907,7 +7115,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Omnibus Art. 1 Nr. 34 lit. a@146384
   id: Omnibus Art. 1 Nr. 34 lit. a
   artikel: '77'
@@ -6938,7 +7149,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Art. 77 Überschrift n.F.@146429
   id: Art. 77 Überschrift n.F.
   artikel: '77'
@@ -7000,7 +7214,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Art. 77 Abs. 1 n.F.@146588
   id: Art. 77 Abs. 1 n.F.
   artikel: '77'
@@ -7070,7 +7287,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Art. 77 Abs. 1a n.F.@147463
   id: Art. 77 Abs. 1a n.F.
   artikel: '77'
@@ -7174,7 +7394,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Art. 95 Abs. 4 n.F.@148560
   id: Art. 95 Abs. 4 n.F.
   artikel: '95'
@@ -7236,7 +7459,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Omnibus Art. 1 Nr. 36 lit. a@148876
   id: Omnibus Art. 1 Nr. 36 lit. a
   artikel: '96'
@@ -7267,7 +7493,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Art. 96 Abs. 1 UAbs. 1 lit. a n.F.@148931
   id: Art. 96 Abs. 1 UAbs. 1 lit. a n.F.
   artikel: '96'
@@ -7329,7 +7558,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Art. 96 Abs. 1 UAbs. 1 lit. g n.F.@149103
   id: Art. 96 Abs. 1 UAbs. 1 lit. g n.F.
   artikel: '96'
@@ -7394,7 +7626,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Art. 96 Abs. 1 UAbs. 2 n.F.@149675
   id: Art. 96 Abs. 1 UAbs. 2 n.F.
   artikel: '96'
@@ -7457,7 +7692,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Omnibus Art. 1 Nr. 37 lit. a@150031
   id: Omnibus Art. 1 Nr. 37 lit. a
   artikel: '97'
@@ -7487,7 +7725,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Art. 97 Abs. 2 n.F.@150078
   id: Art. 97 Abs. 2 n.F.
   artikel: '97'
@@ -7592,7 +7833,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Art. 97 Abs. 6 n.F.@151736
   id: Art. 97 Abs. 6 n.F.
   artikel: '97'
@@ -7659,7 +7903,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Omnibus Art. 1 Nr. 38 lit. a@152535
   id: Omnibus Art. 1 Nr. 38 lit. a
   artikel: '99'
@@ -7689,7 +7936,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Art. 99 Abs. 1 n.F.@152573
   id: Art. 99 Abs. 1 n.F.
   artikel: '99'
@@ -7757,7 +8007,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Art. 99 Abs. 4 lit. da n.F.@153411
   id: Art. 99 Abs. 4 lit. da n.F.
   artikel: '99'
@@ -7817,7 +8070,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Art. 99 Abs. 6a n.F.@153522
   id: Art. 99 Abs. 6a n.F.
   artikel: '99'
@@ -7879,7 +8135,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Omnibus Art. 1 Nr. 39 lit. a@153746
   id: Omnibus Art. 1 Nr. 39 lit. a
   artikel: '111'
@@ -7909,7 +8168,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Art. 111 Abs. 2 Satz 1 n.F.@153788
   id: Art. 111 Abs. 2 Satz 1 n.F.
   artikel: '111'
@@ -7952,7 +8214,9 @@ einheiten:
     von Kapitel III (Anhang III: 2. Dezember 2027, Art. 113 Abs. 3 lit. c Ziff. i n.F.) in Betrieb genommen
     wurden, gilt die Verordnung nur nach erheblicher Veraenderung der Konzeption. Keine eigene pruefbare
     Pflicht; ob das eigene System darunter faellt, prueft die Massnahme P0 (G-PRE-01, Kopplung an G-OPS-06/C-25b).'
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F2 a (bestaetigte Einordnung gilt fuer die Neufassung weiter)
 - uid: Art. 111 Abs. 2 Satz 2 n.F.@154212
   id: Art. 111 Abs. 2 Satz 2 n.F.
   artikel: '111'
@@ -8027,7 +8291,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Art. 111 Abs. 4 n.F.@154521
   id: Art. 111 Abs. 4 n.F.
   artikel: '111'
@@ -8091,7 +8358,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Omnibus Art. 1 Nr. 40 lit. a@154884
   id: Omnibus Art. 1 Nr. 40 lit. a
   artikel: '113'
@@ -8122,7 +8392,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Art. 113 Abs. 3 lit. a n.F.@154925
   id: Art. 113 Abs. 3 lit. a n.F.
   artikel: '113'
@@ -8185,7 +8458,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Art. 113 Abs. 3 lit. c n.F.@155162
   id: Art. 113 Abs. 3 lit. c n.F.
   artikel: '113'
@@ -8310,7 +8586,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Art. 113 Abs. 3 lit. d n.F.@155537
   id: Art. 113 Abs. 3 lit. d n.F.
   artikel: '113'
@@ -8371,7 +8650,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Omnibus Art. 1 Nr. 41 lit. a@155633
   id: Omnibus Art. 1 Nr. 41 lit. a
   artikel: ''
@@ -8402,7 +8684,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Omnibus Art. 1 Nr. 41 lit. b@155681
   id: Omnibus Art. 1 Nr. 41 lit. b
   artikel: ''
@@ -8432,7 +8717,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Anhang I Abschn. B Nr. 21 n.F.@155731
   id: Anhang I Abschn. B Nr. 21 n.F.
   artikel: ''
@@ -8495,7 +8783,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Omnibus Art. 1 Nr. 43@156117
   id: Omnibus Art. 1 Nr. 43
   artikel: ''
@@ -8525,7 +8816,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Anhang XIV n.F.@156158
   id: Anhang XIV n.F.
   artikel: ''
@@ -8750,7 +9044,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Omnibus Art. 2 Nr. 2@160398
   id: Omnibus Art. 2 Nr. 2
   artikel: ''
@@ -8786,7 +9083,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Omnibus Art. 2 Nr. 3@160801
   id: Omnibus Art. 2 Nr. 3
   artikel: ''
@@ -8822,7 +9122,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Omnibus Art. 2 Nr. 4@161129
   id: Omnibus Art. 2 Nr. 4
   artikel: ''
@@ -8858,7 +9161,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Omnibus Art. 2 Nr. 5@161515
   id: Omnibus Art. 2 Nr. 5
   artikel: ''
@@ -8894,7 +9200,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Omnibus Art. 2 Nr. 6@161843
   id: Omnibus Art. 2 Nr. 6
   artikel: ''
@@ -8930,7 +9239,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Omnibus Art. 2 Nr. 7@162229
   id: Omnibus Art. 2 Nr. 7
   artikel: ''
@@ -8966,7 +9278,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Omnibus Art. 3 Nr. 1@162696
   id: Omnibus Art. 3 Nr. 1
   artikel: ''
@@ -9013,7 +9328,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Omnibus Art. 3 Nr. 2@164204
   id: Omnibus Art. 3 Nr. 2
   artikel: ''
@@ -9052,7 +9370,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Omnibus Art. 3 Nr. 3@164849
   id: Omnibus Art. 3 Nr. 3
   artikel: ''
@@ -9104,7 +9425,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)
 - uid: Omnibus Art. 4@166868
   id: Omnibus Art. 4
   artikel: ''
@@ -9139,4 +9463,7 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
+    Art. 4)

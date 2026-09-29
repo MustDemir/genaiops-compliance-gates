@@ -3092,9 +3092,10 @@ def check_omnibus_superseded_units_out() -> dict:
         ersetzte oder gestrichene Einheit auf, sondern auf ihre Neufassung
         (tools/legal/resolve_norm_refs.py).
 
-    MEDIUM wie NORM_SENTENCE_UNITS_CURRENT: der Fehler verschiebt, wo eine
-    Pflicht gezaehlt wird, und verfaelscht kein Zitat. Vorschlag, PO-Frage R-2
-    (Review 09).
+    HIGH, PO-Entscheid R-2 (29.09.2026, Review 09 Teil 6): eine unbewertete
+    Neufassung ist eine unbekannte Luecke, und aus ihr wuerde der Pruef-Agent
+    (Paket 9) ein falsches 'konform' machen. Vorgeschlagen war MEDIUM, weil kein
+    Zitat falsch wird; das wiegt weniger als die falsche Konformitaetsaussage.
     """
     import importlib.util
     from collections import Counter
@@ -3105,7 +3106,7 @@ def check_omnibus_superseded_units_out() -> dict:
     ai_pfad = REPO_ROOT / "docs" / "coverage" / "aiact_pflichtenraum.yaml"
     om_pfad = REPO_ROOT / "docs" / "coverage" / "omnibus_pflichtenraum.yaml"
     if not (ai_pfad.exists() and om_pfad.exists()):
-        return make_result("OMNIBUS_SUPERSEDED_UNITS_OUT", titel, "medium", False,
+        return make_result("OMNIBUS_SUPERSEDED_UNITS_OUT", titel, "high", False,
                            "Pflichtenraum AI Act oder Omnibus fehlt — der Check kann nicht laufen.", [])
     ai = (yaml.safe_load(ai_pfad.read_text(encoding="utf-8")) or {}).get("einheiten") or []
     om = (yaml.safe_load(om_pfad.read_text(encoding="utf-8")) or {}).get("einheiten") or []
@@ -3154,7 +3155,7 @@ def check_omnibus_superseded_units_out() -> dict:
                             f"nicht auf ihre Neufassung")
 
     return make_result(
-        "OMNIBUS_SUPERSEDED_UNITS_OUT", titel, "medium", not findings,
+        "OMNIBUS_SUPERSEDED_UNITS_OUT", titel, "high", not findings,
         f"{len(findings)} Befund(e) zu vom Omnibus abgeloesten Einheiten." if findings
         else (f"{sum(zahl.values())} Einheiten mit Neufassung eingeordnet: "
               + " · ".join(f"{k} {n}" for k, n in sorted(zahl.items()))

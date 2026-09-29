@@ -1,0 +1,159 @@
+# PO-Entscheide vom 29.09.2026 zu Paket 2 (Review 09 Teil 3, Antworten Teil 6)
+#
+# Nachweis: docs/coverage/review/09-paket-2-omnibus.md Teil 6.
+#
+# P2-F1 a: Aenderungsanweisungen des Omnibus sind out; bewertet wird die n.F.-Zeile.
+# P2-F5 a: Omnibus Art. 4 (Inkrafttreten 27.07.2026) ist out.
+# P2-F2 a: die bestaetigten Einordnungen von Art. 4, Art. 25 Abs. 2 und Art. 111 Abs. 2
+#          Satz 1 gelten fuer ihre Neufassungen weiter (Sammelbestaetigung). Art. 111 Abs. 2
+#          Satz 2 war nicht bestaetigt (S3-1) und bleibt Vorschlag; Art. 25 Abs. 2 lit. a-c
+#          sind neu und laufen in Paket 3 (P2-B1).
+# P2-F3 a: Art. 25 Abs. 2 ist ganz ersetzt - steht schon in
+#          2026-09-29_ueberholt-durch-omnibus.yaml.
+# P2-F4 c: Art. 4a Abs. 1 und lit. a-f bleiben out (bedingte Pflicht, 2c). Die Wiedervorlage
+#          wird maschinell: ein Manifest-Feld special_categories_for_bias und ein Check, der
+#          meldet, sobald es true ist (Bau Paket 5). Gedanke des PO: Bedingungsparameter je
+#          Anwendungsfall, wie die Rollenparameter aus SPEC-03 - eine andere Branche setzt
+#          den Schalter, statt den Pflichtenraum umzubauen.
+# R-2 HIGH: OMNIBUS_SUPERSEDED_UNITS_OUT - eine unbewertete Neufassung ist eine unbekannte
+#          Luecke, und aus ihr wuerde der Pruef-Agent ein falsches 'konform' machen.
+
+entschieden: '2026-09-29'
+eintraege:
+
+  - beleg: P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus Art. 4)
+    raum: omnibus
+    ids:
+      - Omnibus Art. 1 Nr. 1
+      - Omnibus Art. 1 Nr. 2
+      - Omnibus Art. 1 Nr. 2 lit. a
+      - Omnibus Art. 1 Nr. 2 lit. b
+      - Omnibus Art. 1 Nr. 3
+      - Omnibus Art. 1 Nr. 4
+      - Omnibus Art. 1 Nr. 4 lit. a
+      - Omnibus Art. 1 Nr. 4 lit. b
+      - Omnibus Art. 1 Nr. 5
+      - Omnibus Art. 1 Nr. 6
+      - Omnibus Art. 1 Nr. 7
+      - Omnibus Art. 1 Nr. 7 lit. a
+      - Omnibus Art. 1 Nr. 7 lit. b
+      - Omnibus Art. 1 Nr. 8
+      - Omnibus Art. 1 Nr. 9
+      - Omnibus Art. 1 Nr. 9 lit. a
+      - Omnibus Art. 1 Nr. 9 lit. b
+      - Omnibus Art. 1 Nr. 9 lit. c
+      - Omnibus Art. 1 Nr. 10
+      - Omnibus Art. 1 Nr. 11
+      - Omnibus Art. 1 Nr. 12
+      - Omnibus Art. 1 Nr. 12 lit. a
+      - Omnibus Art. 1 Nr. 12 lit. b
+      - Omnibus Art. 1 Nr. 13
+      - Omnibus Art. 1 Nr. 13 lit. a
+      - Omnibus Art. 1 Nr. 13 lit. b
+      - Omnibus Art. 1 Nr. 14
+      - Omnibus Art. 1 Nr. 15
+      - Omnibus Art. 1 Nr. 16
+      - Omnibus Art. 1 Nr. 17
+      - Omnibus Art. 1 Nr. 18
+      - Omnibus Art. 1 Nr. 19
+      - Omnibus Art. 1 Nr. 20
+      - Omnibus Art. 1 Nr. 21
+      - Omnibus Art. 1 Nr. 22
+      - Omnibus Art. 1 Nr. 22 lit. a
+      - Omnibus Art. 1 Nr. 22 lit. b
+      - Omnibus Art. 1 Nr. 22 lit. c
+      - Omnibus Art. 1 Nr. 22 lit. d
+      - Omnibus Art. 1 Nr. 22 lit. e
+      - Omnibus Art. 1 Nr. 22 lit. f
+      - Omnibus Art. 1 Nr. 22 lit. g
+      - Omnibus Art. 1 Nr. 23
+      - Omnibus Art. 1 Nr. 23 lit. a
+      - Omnibus Art. 1 Nr. 23 lit. b
+      - Omnibus Art. 1 Nr. 24
+      - Omnibus Art. 1 Nr. 24 lit. a
+      - Omnibus Art. 1 Nr. 24 lit. b
+      - Omnibus Art. 1 Nr. 25
+      - Omnibus Art. 1 Nr. 26
+      - Omnibus Art. 1 Nr. 27
+      - Omnibus Art. 1 Nr. 28
+      - Omnibus Art. 1 Nr. 29
+      - Omnibus Art. 1 Nr. 30
+      - Omnibus Art. 1 Nr. 31
+      - Omnibus Art. 1 Nr. 31 lit. a
+      - Omnibus Art. 1 Nr. 31 lit. b
+      - Omnibus Art. 1 Nr. 31 lit. c
+      - Omnibus Art. 1 Nr. 31 lit. d
+      - Omnibus Art. 1 Nr. 32
+      - Omnibus Art. 1 Nr. 33
+      - Omnibus Art. 1 Nr. 34
+      - Omnibus Art. 1 Nr. 34 lit. a
+      - Omnibus Art. 1 Nr. 34 lit. b
+      - Omnibus Art. 1 Nr. 34 lit. c
+      - Omnibus Art. 1 Nr. 35
+      - Omnibus Art. 1 Nr. 36
+      - Omnibus Art. 1 Nr. 36 lit. a
+      - Omnibus Art. 1 Nr. 36 lit. b
+      - Omnibus Art. 1 Nr. 36 lit. c
+      - Omnibus Art. 1 Nr. 37
+      - Omnibus Art. 1 Nr. 37 lit. a
+      - Omnibus Art. 1 Nr. 37 lit. b
+      - Omnibus Art. 1 Nr. 38
+      - Omnibus Art. 1 Nr. 38 lit. a
+      - Omnibus Art. 1 Nr. 38 lit. b
+      - Omnibus Art. 1 Nr. 38 lit. c
+      - Omnibus Art. 1 Nr. 39
+      - Omnibus Art. 1 Nr. 39 lit. a
+      - Omnibus Art. 1 Nr. 39 lit. b
+      - Omnibus Art. 1 Nr. 40
+      - Omnibus Art. 1 Nr. 40 lit. a
+      - Omnibus Art. 1 Nr. 40 lit. b
+      - Omnibus Art. 1 Nr. 40 lit. c
+      - Omnibus Art. 1 Nr. 41
+      - Omnibus Art. 1 Nr. 41 lit. a
+      - Omnibus Art. 1 Nr. 41 lit. b
+      - Omnibus Art. 1 Nr. 42
+      - Omnibus Art. 1 Nr. 43
+      - Omnibus Art. 2 Nr. 1
+      - Omnibus Art. 2 Nr. 2
+      - Omnibus Art. 2 Nr. 3
+      - Omnibus Art. 2 Nr. 4
+      - Omnibus Art. 2 Nr. 5
+      - Omnibus Art. 2 Nr. 6
+      - Omnibus Art. 2 Nr. 7
+      - Omnibus Art. 3 Nr. 1
+      - Omnibus Art. 3 Nr. 2
+      - Omnibus Art. 3 Nr. 3
+      - Omnibus Art. 4
+    setze:
+      scope: out
+    bestaetigt: true
+
+  - beleg: P2-F2 a (bestaetigte Einordnung gilt fuer die Neufassung weiter)
+    raum: omnibus
+    ids: [Art. 4 Abs. 1 n.F., Art. 25 Abs. 2 n.F., Art. 111 Abs. 2 Satz 1 n.F.]
+    bestaetigt: true
+
+  - beleg: P2-F4 c (bedingte Pflicht out, Wiedervorlage ueber Bedingungsparameter, Bau Paket 5)
+    raum: omnibus
+    ids:
+      - Art. 4a Abs. 1 n.F.
+      - Art. 4a Abs. 1 lit. a n.F.
+      - Art. 4a Abs. 1 lit. b n.F.
+      - Art. 4a Abs. 1 lit. c n.F.
+      - Art. 4a Abs. 1 lit. d n.F.
+      - Art. 4a Abs. 1 lit. e n.F.
+      - Art. 4a Abs. 1 lit. f n.F.
+    setze:
+      scope: out
+      scope_grund: >-
+        Adressat (T-13 Schritt 1): Anbieter von Hochrisiko-KI-Systemen (Art. 10 Abs. 2 lit. f, g).
+        Den Betreiber binden die Bedingungen nur ueber Abs. 2 lit. b, wenn er die Erlaubnis nutzt,
+        besondere Kategorien personenbezogener Daten zur Bias-Erkennung zu verarbeiten - eine
+        bedingte Pflicht (2c); fuer Redispatch nicht vorgesehen (PO 29.09.2026, P2-F4 c).
+        Wiedervorlage maschinell: Manifest-Feld special_categories_for_bias, ein Check meldet
+        diese Einheiten, sobald es true ist (Bau Paket 5).
+      hypothese_grund: >-
+        Durchschlag verneint, weil Abs. 2 lit. b die Bedingungen nur fuer den Fall der Nutzung
+        der Erlaubnis anordnet. Dass der Betreiber sie fuer Redispatch nicht nutzt, hat der PO
+        festgestellt (P2-F4 c); Auslegung bleibt die Einordnung als bedingte Pflicht.
+    bestaetigt: true

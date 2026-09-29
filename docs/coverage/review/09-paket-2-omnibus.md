@@ -2,7 +2,7 @@
 titel: Paket 2 – Omnibus-Neufassungen eingeordnet, A-F2a umgesetzt
 stand: 2026-09-29
 basis: Branch review-2c · Omnibus-Pflichtenraum VO (EU) 2026/1744 (269 Einheiten) · AI-Act-Pflichtenraum (1203) · Raster T-13 (Schritte 1, 2, 2b, 2c, 3, Ausnahme steuernde Norm) · Durchschlagsregel 2b E4 · A-F2a (Review 08 Teil 7)
-status: VORSCHLAG – alle 259 neu eingeordneten Omnibus-Zeilen po_bestaetigt false · A-F2a an sechs in-Zeilen als PO-Entscheid eingetragen · Fragen P2-F1 bis P2-F5 und R-2 in Paket 4
+status: ENTSCHIEDEN 29.09.2026 – P2-F1 a · P2-F2 a · P2-F3 a · P2-F4 c · P2-F5 a · R-2 HIGH (Teil 6) · übrige n.F.-Zeilen Vorschlag, Stichprobe in Paket 4
 ---
 
 # Kurzfazit
@@ -165,3 +165,29 @@ Elf Zeilen, je eine pro Begründungsart:
   - 5 als Adressat einer Pflicht, Erlaubnis oder Verbotsgrenze: Art. 4 Abs. 1 · 4a Abs. 2 · 5 Abs. 1a lit. b · 111 Abs. 2 Satz 2 (alle in) · 27 Abs. 4 (out, Bereichsausnahme).
   - 9 als Empfänger einer Unterstützung oder Gegenstand einer Behördenbefugnis: Art. 4 Abs. 2 · 27 Abs. 5 · 60 Abs. 2 · 75 Abs. 1 lit. b · 75 Abs. 2a, lit. a · 75a Abs. 2 · 75a Abs. 4 lit. a · 77 Abs. 1a (alle out).
 - Der `pflicht`-Text ist eine Kurzform des Belegs mit Vorsatz. Er beschreibt, er legt nicht aus.
+
+# Teil 6 – Entscheide des PO (29.09.2026)
+
+| Frage | Entscheid | Umsetzung |
+|---|---|---|
+| P2-F1 | **a** – Änderungsanweisungen `out` | 100 Zeilen bestätigt (`2026-09-29_zeilen-paket-2.yaml`) |
+| P2-F2 | **a** – Sammelbestätigung | Art. 4 Abs. 1 n.F., Art. 25 Abs. 2 n.F., Art. 111 Abs. 2 Satz 1 n.F. bestätigt; Satz 2 n.F. bleibt Vorschlag (S3-1), lit. a–c laufen in Paket 3 |
+| P2-F3 | **a** – ganz ersetzt | stand schon so (`2026-09-29_ueberholt-durch-omnibus.yaml`) |
+| P2-F4 | **c** – `out` bleibt, Wiedervorlage wird maschinell | 7 Zeilen bestätigt; Manifest-Feld `special_categories_for_bias` + Check in **Paket 5** |
+| P2-F5 | **a** – `out` | Omnibus Art. 4 bestätigt |
+| R-2 | **HIGH** | `OMNIBUS_SUPERSEDED_UNITS_OUT` auf HIGH |
+
+**P2-F4 c – der Gedanke dahinter:** Eine Tatsache über den Betreiber („verarbeitet er besondere Kategorien zur Bias-Erkennung?“) wird ein **Bedingungsparameter je Anwendungsfall**, wie die Rollenparameter aus SPEC-03.
+
+```
+Redispatch      special_categories_for_bias: false  → Art. 4a Abs. 1 lit. a–f out, still
+andere Branche  special_categories_for_bias: true   → Check meldet: lit. a–f jetzt einschlägig
+(z. B. Healthcare-Vignette, Personal, Kredit)
+```
+
+- Die Referenzarchitektur trägt so keine Schein-Lücken, und eine andere Branche setzt einen Schalter, statt den Pflichtenraum umzubauen.
+- Die Prüfungen für lit. a–f baut die Branche, die den Schalter setzt.
+
+**R-2 HIGH:** Vorgeschlagen war MEDIUM, weil kein Zitat falsch wird. Entscheidend ist aber Fall 2 des Wächters: eine unbewertete Neufassung ist eine unbekannte Lücke, und der Prüf-Agent (Paket 9) würde daraus ein falsches „konform“ machen (Plan Teil C1).
+
+**Stand danach:** in bestätigt 64 von 104 · out bestätigt 138 von 1368.
