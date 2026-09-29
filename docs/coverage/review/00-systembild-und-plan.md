@@ -1,9 +1,12 @@
 ---
 titel: Systembild + Plan – Regulariendurchlauf abschließen
-stand: 2026-09-28 (Leitsatz ergänzt; Teil A/B unverändert seit 2026-09-23)
+stand: 2026-09-29 (Teil C Ziellinie und Reihenfolge; Teil A/B unverändert seit 2026-09-23)
 basis: Branch spec06-aiact-stufe0 (30 Commits vor domain_netzbetrieb, nicht gemergt)
-status: Systembild vom PO bestätigt 23.09.2026 · Leitsatz ergänzt 28.09.2026
+status: Systembild vom PO bestätigt 23.09.2026 · Leitsatz ergänzt 28.09.2026 · Teil C vom PO bestätigt 29.09.2026
 ---
+
+> **Seit 29.09.2026 gilt Teil C** (unten): messbare Ziellinie, acht Pakete, neue Reihenfolge.
+> AI Act + Omnibus → Prüf-Agent → Sektorstapel. Teil B bleibt als Herkunft stehen.
 
 # Leitsatz – unser Ziel
 
@@ -20,10 +23,11 @@ status: Systembild vom PO bestätigt 23.09.2026 · Leitsatz ergänzt 28.09.2026
 - Beide Richtungen geprüft: Verifikation (Gate prüft, was es behauptet) + Validierung (Katalog deckt alle Pflichten – „richtige 17 Gates?")
 - PR `spec06-aiact-stufe0` → `domain_netzbetrieb` gemergt
 
-**Danach:**
+**Danach** (Reihenfolge seit 29.09.2026, Teil C):
 ```
-AI-Act-Durchlauf fertig ──► Sektorstapel (T-13: NIS2, BSIG, DSGVO, KRITIS-DachG, EnWG) ──► EU-AI-Act-Agenten (Use Cases zuerst)
+AI Act + Omnibus fertig ──► EU-AI-Act-Prüf-Agent ──► Sektorstapel (T-13: NIS2, BSIG, DSGVO, KRITIS-DachG, EnWG)
 ```
+(bis 28.09.2026: AI-Act-Durchlauf → Sektorstapel → Agenten)
 
 **Warum:** Belege statt Aussagen gegenüber Aufsicht und Kunden (Hash-Chain, cosign) · Art. 99 Abs. 7: dokumentierte TOMs mindern Bußgeld (Q10) · Grundlage für die Agenten
 
@@ -115,8 +119,73 @@ Norm (Wortlaut, gehasht)
 
 ## Schritt 5 – Umsetzung + Ausbau
 - **5a** Tickets nach TICKET_TEMPLATE, je Paket
-- **5b** Anhänge-Lauf (180 Einheiten)
-- **5c** Stichprobe der 801 `out` nach Adressat-Gruppen → Sammelbestätigung
-- **5d** PR spec06-aiact-stufe0 → domain_netzbetrieb
-- **5e** Danach: Sektorstapel (T-13), gleiches Verfahren
-- **5f** Danach: Agent-Use-Cases (siehe Agent-Aufbau-Handbuch)
+- **5b** Anhänge-Lauf (180 Einheiten) → **vorgezogen als Paket 1 (Teil C)**
+- **5c** Stichprobe der 801 `out` nach Adressat-Gruppen → Sammelbestätigung → **Paket 4**
+- **5d** PR spec06-aiact-stufe0 → domain_netzbetrieb → **Paket 8**
+- **5e** Danach: Sektorstapel (T-13), gleiches Verfahren → **nach dem Agenten**
+- **5f** Danach: Agent-Use-Cases (siehe Agent-Aufbau-Handbuch) → **Paket 9, vor dem Sektorstapel**
+
+---
+
+# Teil C – Ziellinie und Reihenfolge (PO 29.09.2026)
+
+## C1 Ziel
+
+- **Ziel bleibt der Leitsatz:** EU-AI-Act-Konformität des Betreibers nachweisbar statt behauptbar.
+- **Neu: der Zweck dahinter.** Das Gate-System wird die Prüfbasis für einen **EU-AI-Act-Agenten im Betrieb**.
+- **Der Agent fällt Urteile** („konform / nicht konform / nicht geprüft“). Er ist ein Prüf-Agent, kein Auskunfts-Agent. Deshalb braucht er **alle Pakete 1–8**.
+- **Die Architektur des Agenten ist offen.** Sie wird in Paket 9 erarbeitet: erst Use Cases, dann Technik.
+- **Warum Vollständigkeit Voraussetzung ist:** Der Agent darf nur urteilen, was das System belegt. Eine unbekannte Lücke wird sonst zu einem falschen „konform“.
+
+## C2 Reihenfolge
+
+```
+AI Act + Omnibus (Pakete 1–8) ──► Prüf-Agent (Paket 9) ──► Sektorstapel (T-13)
+```
+
+- **Sektorstapel nach dem Agenten:** zulässig, weil der Agent seine Grenze offen nennt. Er prüft den AI Act, nicht NIS2, BSIG, DSGVO, KRITIS-DachG oder EnWG.
+- Das ist dieselbe Logik wie H4 (PASS mit Hinweis): Der Agent urteilt nur über das, was er prüft, und sagt, was er nicht prüft.
+- **Anhänge und Omnibus vor der Bedarfsanalyse:** Sonst planen wir Requirements und Gates, bevor alle Pflichten bekannt sind.
+
+## C3 Ziellinie – messbar
+
+„Qualitätsprüfung Policies und Gates abgeschlossen“ heißt: alle Zeilen auf Soll.
+
+| Kriterium | Ist 29.09.2026 | Soll |
+|---|---|---|
+| AI-Act-Einheiten ohne in/out (206 Anhänge, 4 Art. 113) | 210 | 0 |
+| Omnibus-Einheiten ohne in/out | 259 von 269 | 0 |
+| `in`-Pflichten vom PO bestätigt | 64 von 85 | alle |
+| `out` vom PO bestätigt | 25 von 908 | Stichprobe nach Adressat-Gruppen, dann Sammelbestätigung |
+| Lücken (28) und Teilabdeckungen (38) | benannt | je gebaut **oder** `declared_gap` mit Begründung |
+| Gate nennt, was es nicht prüft | nein | `known_limits` je Gate, Hinweis in jedem Lauf (H4) |
+| Element-Matrix Pflicht ↔ Rego-Regel | einmal von Hand (Review 07) | als Daten, Wächter in `make verify` |
+| PR `spec06-aiact-stufe0` → `domain_netzbetrieb` | offen | gemergt |
+
+- Ist-Zahlen gemessen am Pflichtenraum auf Branch `review-2c`, Stand 29.09.2026.
+
+## C4 Die acht Pakete
+
+```
+A VOLLSTÄNDIGKEIT          B ABGLEICH                C BAUEN
+1 Anhänge + Art. 113       5 Bedarfsanalyse          6 Checks + Rego
+2 Omnibus n.F.      ─► 4 ─►  je Lücke/Teil:    ──►   7 known_limits + Wächter ─► 8 PR ─► 9 AGENT
+3 Befunde + Matrix   PO-     bauen oder offen
+  (2. Lauf)          Runde
+```
+
+| # | Paket | aus Plan | Größe | PO |
+|---|---|---|---|---|
+| 1 | Anhänge + Art. 113 einordnen (210) | 5b, vorgezogen | M | Stichprobe |
+| 2 | Omnibus-Neufassungen einordnen (259) | neu | M | Stichprobe |
+| 3 | Befunde für neue `in`-Zeilen + Element-Matrix, 2. Lauf | 2 | S–M | ja |
+| 4 | PO-Runde: Schritt-3-Liste (FRIA, Art. 111 Abs. 2 Satz 2, Unterglieder, Verifikationsstufen, Hypothesen, Art. 26 Abs. 11, M1), alle `in` bestätigen, `out`-Stichprobe | 3, 5c | M | **viel** |
+| 5 | Bedarfsanalyse: R015–R017, Anker (F3/F4/F6), je Lücke/Teilabdeckung bauen oder `declared_gap`, E2 | 4 | L | ja |
+| 6 | Checks + Rego bauen, nach MUST + Stichtag | 5a | **L** | Abnahme |
+| 7 | `known_limits` + Hinweis-Stufe (H4), Element-Matrix als Wächter | 5 | M | – |
+| 8 | PR mergen | 5d | S | Freigabe |
+| 9 | Prüf-Agent: Use Cases → Architektur → Betrieb | 5f | offen | ja |
+
+- Paket 6 wird kleiner als 66 Zeilen: Laufzeitpflichten sind oft nur als `declared_gap` führbar (B-14: 8 von 9).
+- Paket 9: Der Agent ist selbst ein KI-System und braucht eine eigene Einordnung nach AI Act (HYPOTHESE: kein Hochrisiko; Art. 4, ggf. Art. 50 prüfen).
+- **Element-Matrix:** läuft nach Paket 3 (2. Lauf) und nach Paket 6 (3. Lauf, als Wächter) erneut. Review 07 ist der 1. Lauf, gültig für den AI-Act-Artikelteil.
