@@ -136,6 +136,12 @@ deshalb selbst prüfrelevant, obwohl er für sich genommen keine Pflicht begrün
 | `luecke` | Kein Requirement und kein Gate trifft sie | `befund_grund`: ein Satz, warum das eine Lücke und keine Scope-Grenze ist |
 | `nicht_einschlaegig` | Adressiert uns und ist lebenszyklusrelevant, begründet aber **keine prüfbare Pflicht** — ein Recht, eine Erlaubnis, eine steuernde Definition | `befund_grund` |
 
+**`gate` und `nachbar_gate` (PO 29.09.2026, Review 07 M2a):** `gate` nennt nur Gates,
+deren Rego-Regel ein Element der Pflicht prüft — ein Element gilt als geprüft, wenn eine
+Regel anschlägt, sobald es fehlt oder falsch ist. Ein Gate, das nur etwas Verwandtes
+prüft, steht in `nachbar_gate`. Maßgeblich ist der Code, nicht die Check-Beschreibung
+(`tools/rego_inputs.py` zeigt, welche Felder jede Regel liest).
+
 Der Unterschied zwischen `luecke` und `nicht_einschlaegig` ist der teuerste in dieser
 Tabelle: **eine Lücke verlangt ein Gate, ein `nicht_einschlaegig` verlangt keines.** Wer
 die beiden vermischt, erzeugt entweder Arbeit, die niemand braucht, oder eine Deckung,

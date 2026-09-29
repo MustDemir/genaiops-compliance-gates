@@ -11594,18 +11594,22 @@ einheiten:
     nicht enthalten (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
   requirement: &id023
   - R009
-  gate: &id024
-  - G-OPS-02
+  gate:
+  - G-OPS-01
+  - G-OPS-03
   befund: teilabdeckung
-  befund_grund: G-OPS-03 misst Drift im Betrieb, stuetzt sich aber auf Art. 72 statt auf diese Betreiberpflicht;
-    dass ueberwacht wird, ist damit teilweise belegt. Die Information an den Anbieter bei Auffaelligkeiten
-    loest kein Gate aus (M-E2).
+  befund_grund: 'Das Element Ueberwachung pruefen G-OPS-01 (policy_human_oversight_operational: real_time_monitoring
+    deklariert) und G-OPS-03 (policy_monitoring_configured: Drift wird gemessen; das Gate stuetzt sich
+    auf Art. 72 statt auf diese Betreiberpflicht). Die Information an den Anbieter prueft kein Gate (M-E2).
+    G-OPS-02 prueft den eigenen Meldekontakt des Betreibers, nicht den Weg zum Anbieter, und steht deshalb
+    nicht mehr im Feld gate.'
   po_bestaetigt: true
   migriert_von: Art. 26 Abs. 5@359967
   migration: geerbt
   po_entscheid:
   - 2026-09-23 · 2b E4 (VERIFIZIERT - Betreiber in der Einheit oder ihrem Einleitungssatz genannt)
   - 2026-09-28 · 2c F1 (T-E Art. 26, M-E2 Ueberwachung und Information an den Anbieter)
+  - 2026-09-29 · Review 07 M2a (gate nennt nur elementpruefende Gates)
 - uid: Art. 26 Abs. 5 UAbs. 1 Satz 2@360127
   id: Art. 26 Abs. 5 UAbs. 1 Satz 2
   artikel: '26'
@@ -11639,7 +11643,8 @@ einheiten:
   omnibus: unveraendert - VO (EU) 2026/1744 Art. 1 aendert Art. 25 und Art. 27, Art. 26 ist in der Aenderungsliste
     nicht enthalten (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
   requirement: *id023
-  gate: *id024
+  gate: &id024
+  - G-OPS-02
   befund: luecke
   befund_grund: 'Hat der Betreiber Grund zur Annahme eines Risikos nach Art. 79 Abs. 1, setzt er die Verwendung
     aus. Kein Gate hat diese Wirkung: halt_pipeline stoppt das Deployment, nicht den laufenden Betrieb,

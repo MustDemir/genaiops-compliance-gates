@@ -127,6 +127,10 @@ Fehlschlag statt einer unsichtbaren Auslassung.
   befund_grund: "…"
 ```
 
+`gate` nennt nur Gates, deren Rego-Regel ein Element der Pflicht prüft; ein Gate, das
+nur etwas Verwandtes prüft, steht im optionalen Feld `nachbar_gate` (PO 29.09.2026,
+[Review 07](../docs/coverage/review/07-element-matrix.md) M2a).
+
 `beleg` wird **geschnitten, nie getippt**. Das ist der Unterschied zwischen Auszug und
 Erinnerung, und er ist der Kern der Fälschungssicherheit dieser Analyse.
 

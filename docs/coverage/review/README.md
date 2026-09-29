@@ -15,14 +15,17 @@ Arbeitsdokumente zur Abnahme von SPEC-06 / T-12: Die Vorschläge der Nachtläufe
 | 04 | [`04-schritt-2c-teilabdeckungen.md`](04-schritt-2c-teilabdeckungen.md) | 44 Teilabdeckungen in 6 Clustern, Maßnahmen je Zeile, Q9 (Requirements ohne Betreiber-Anker), Befunde zu Art. 73 | **entschieden 28.09.2026** (F1a–F6a) |
 | 05 | [`05-schritt-2d-2e-gedeckt-querbefunde.md`](05-schritt-2d-2e-gedeckt-querbefunde.md) | Gegenprobe der 3 gedeckten Zeilen, 17 Querbefunde mit Stand | Vorschlag – Entscheidungsvorlage D1, D2, E1–E3 |
 | 06 | [`06-grenzen-statt-teilabdeckung.md`](06-grenzen-statt-teilabdeckung.md) | Teilabdeckung getrennt in Grenze (Element ungeprüft) und gedeckt mit E-0; Hinweisfunktion am Gate | **entschieden 28./29.09.2026** (H1b, H2a, H3a, H4 Option 1) |
-| 07 | [`07-element-matrix.md`](07-element-matrix.md) | Alle 50 Pflichten mit Gate-Bezug gegen die 196 Regeln aus dem Code; Korrekturen, Methodenfrage Nachbarprüfung | Vorschlag – Entscheidungsvorlage M1, M2 |
+| 07 | [`07-element-matrix.md`](07-element-matrix.md) | Alle 50 Pflichten mit Gate-Bezug gegen die 196 Regeln aus dem Code; Korrekturen, Methodenfrage Nachbarprüfung | M2a entschieden 29.09.2026 · M1 offen (Paket 4) |
 
 Ticket-Entwurf zu den Werkzeugbefunden: [`../../tickets/T-14-pflichtenraum-werkzeug.md`](../../tickets/T-14-pflichtenraum-werkzeug.md)
 
 ## Plan
 
 ```
-1 Verstehen ✅ → 2a ✅ → 2b ✅ → Gegenprüfung ✅ → T-14 ✅ → 2c ✅ → 2d/2e (Vorlage) → 3 PO-Entscheid → 4 Bedarf Requirements/Rego/Gates → 5 Tickets
+1 Verstehen ✅ → 2a ✅ → 2b ✅ → Gegenprüfung ✅ → T-14 ✅ → 2c ✅ → 2d/2e ✅ → 06 ✅ → 07 (M2 ✅, M1 offen)
+
+ab 29.09.2026 (00 Teil C): 1 Anhänge → 2 Omnibus n.F. → 3 Befunde + Matrix-Lauf 2 → 4 PO-Runde
+                           → 5 Bedarfsanalyse → 6 Bauen → 7 known_limits + Wächter → 8 PR → 9 Prüf-Agent
 ```
 
 ## Nächste Schritte

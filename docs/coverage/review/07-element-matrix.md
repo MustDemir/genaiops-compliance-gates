@@ -2,7 +2,7 @@
 titel: Element-Matrix – jede Pflicht mit Gate-Bezug gegen den Rego-Code
 stand: 2026-09-29
 basis: Branch review-2c · alle 19 Policies, 196 Regeln aus dem OPA-AST (`tools/rego_inputs.py`, Zahl = README) · 50 in-Zeilen mit Gate-Bezug
-status: VORSCHLAG – Entscheidungsvorlage M1, M2 in Teil 4
+status: M2a ENTSCHIEDEN 29.09.2026 (umgesetzt für Art. 26 Abs. 5 Satz 1; alle Zeilen mit Matrix-Lauf 2) · M1 offen (Paket 4)
 ---
 
 # Kurzfazit
@@ -116,3 +116,22 @@ Kurzformen der Felder: `trans.*` = policy_transparency_docs_present · `conf.*` 
 - Die Strenge ist das Raster, das wir bisher angelegt haben: „Trifft der Katalog die Pflicht?“
 - Die zweckbezogene Lesart klingt vernünftig, öffnet aber genau die Tür, gegen die das Repo gebaut ist: Ein verwandter Check „deckt“ eine Pflicht, die er nicht prüft.
 - Der Nachbar geht dabei nicht verloren: Er ist oft der kürzeste Weg zur Maßnahme. Beispiel Ziff. ii: M-A1 kann die Genauigkeit aus der Anleitung gegen die Messung aus G-DEP-02 halten (E-2).
+
+# Teil 5 – Entscheid und Folgen (29.09.2026)
+
+**M2a entschieden:**
+- `gate` nennt nur Gates, deren Regel ein Element prüft; Nachbarn stehen in `nachbar_gate`. Festgehalten in SPEC-06 5.1 und T-13.
+- Umgesetzt für Art. 26 Abs. 5 UAbs. 1 Satz 1: `gate` G-OPS-02 → G-OPS-01, G-OPS-03 (`docs/coverage/entscheide/2026-09-29_element-matrix.yaml`).
+  - G-OPS-02 ist kein Nachbar: Die Regel prüft den eigenen Meldekontakt des Betreibers (`genaiops.io/incident-contact`), nicht den Weg zum Anbieter.
+- **Alle übrigen Zeilen folgen mit Matrix-Lauf 2 (Plan Teil C, Paket 3).** Dort wird `gate` aus den Matrix-Daten abgeleitet statt von Hand gesetzt. Bis dahin kann `gate` noch Nachbarn enthalten (die ≈-Fälle in Teil 2).
+- Dabei zu klären: Bei Lücken nennt `gate` heute oft das Gate, in das ein Check **gehören würde** (z. B. Art. 26 Abs. 7 → G-DEP-03). Das ist weder Prüfer noch Nachbar, sondern ein Ziel. Es gehört in die Maßnahme der Bedarfsanalyse (Paket 5), nicht in `gate`.
+
+**M1 offen:** Paket 4 (PO-Runde), zusammen mit den Anhängen, damit die Regel für alle Zeilen auf einmal gilt.
+
+**Zwei neue Befunde beim Umsetzen:**
+
+| # | Befund | Wohin |
+|---|---|---|
+| M-B1 | Art. 26 Abs. 5 UAbs. 1 Satz 1 trägt `requirement` R009 (Vorfallprozess, gehört zu G-OPS-02). Die prüfenden Gates hängen an R008 (G-OPS-01) und R010 (G-OPS-03). Welches Requirement die Pflicht trägt, entscheidet der PO. | Paket 5, zusammen mit F3 (Anker R010) |
+| M-B2 | 14 Satz-Einheiten tragen noch den `pflicht`-Text des ganzen Absatzes, geerbt beim Schnitt auf Satzebene (T-14.3): Art. 15 Abs. 4 (4), Art. 26 Abs. 5 (6), Art. 73 Abs. 2 (2), Art. 111 Abs. 2 (2). Der Beleg ist richtig geschnitten, die Aussage nicht. | Paket 3: je Satz eine eigene Pflicht formulieren, PO bestätigt |
+

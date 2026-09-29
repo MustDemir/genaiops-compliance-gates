@@ -1,0 +1,28 @@
+# PO-Entscheide vom 29.09.2026 — Element-Matrix (Review 07, M2)
+#
+# Nachweis: docs/coverage/review/07-element-matrix.md (Teil 4, Entscheid M2a).
+#
+# M2a: Das Feld 'gate' nennt nur Gates, deren Rego-Regel ein Element der Pflicht prueft
+#      (Element geprueft <=> eine Regel schlaegt an, wenn es fehlt oder falsch ist).
+#      Gates, die nur etwas Verwandtes pruefen, stehen im Feld 'nachbar_gate'.
+#      Angewandt hier auf die eine Zeile, die M2 benennt. Auf alle Zeilen wird die Regel
+#      mit dem zweiten Lauf der Element-Matrix angewandt (Plan Teil C, Paket 3): dort
+#      wird 'gate' aus den Matrix-Daten abgeleitet, nicht von Hand gesetzt.
+# M1 (zaehlt eine Nachbarpruefung als Element?) ist offen (Paket 4).
+
+entschieden: '2026-09-29'
+eintraege:
+
+  - beleg: Review 07 M2a (gate nennt nur elementpruefende Gates)
+    raum: aiact
+    ids: [Art. 26 Abs. 5 UAbs. 1 Satz 1]
+    setze:
+      gate: [G-OPS-01, G-OPS-03]
+      befund_grund: >-
+        Das Element Ueberwachung pruefen G-OPS-01 (policy_human_oversight_operational:
+        real_time_monitoring deklariert) und G-OPS-03 (policy_monitoring_configured: Drift
+        wird gemessen; das Gate stuetzt sich auf Art. 72 statt auf diese Betreiberpflicht).
+        Die Information an den Anbieter prueft kein Gate (M-E2). G-OPS-02 prueft den
+        eigenen Meldekontakt des Betreibers, nicht den Weg zum Anbieter, und steht deshalb
+        nicht mehr im Feld gate.
+    bestaetigt: true
