@@ -2,7 +2,7 @@
 titel: Schritt 2a – die 22 „nicht_einschlaegig" neu eingeordnet
 stand: 2026-09-23
 basis: Branch spec06-aiact-stufe0, Raster aus T-13 (07.09.2026)
-status: VORSCHLAG – alle Zeilen po_bestaetigt: false, PO entscheidet
+status: ENTSCHIEDEN 23.09.2026 (Nachweis: 02 „PO-Entscheide bisher“, entscheide/2026-09-23_schritt-2.yaml)
 ---
 
 # Warum dieser Schritt

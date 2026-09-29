@@ -7,6 +7,10 @@ eu_ai_act_refs:
 - Art. 26 Abs. 1
 - Art. 47
 - Art. 48
+# F4a (PO 28.09.2026, Review 04): kein Betreiber-Anker im Wortlaut des AI Act.
+# Anker-Suche im Sektorstapel (T-13); der kommt nach dem Pruef-Agenten (Plan Teil C).
+anker: offen
+anker_grund: "Art. 26 Abs. 1 traegt die Verwendung nach Anleitung, nicht die CE-Pruefung; Art. 47/48 sind Anbieterpflichten."
 must_should: MUST
 description: Vor Einsatz eines High-Risk-KI-Systems muss der Deployer pruefen, ob
   eine gueltige EU-Konformitaetserklaerung und CE-Kennzeichnung des Providers vorliegen.

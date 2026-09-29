@@ -2,7 +2,7 @@
 titel: Paket 1 – Anhänge und Art. 113 eingeordnet
 stand: 2026-09-29
 basis: Branch review-2c · Pflichtenraum AI Act · Raster T-13 (Schritte 1, 2, 2b, 2c, 3, Ausnahme steuernde Norm) · Durchschlagsregel 2b E4 · Omnibus-Wortlaut Art. 1 Nr. 1–43
-status: VORSCHLAG – alle 210 Zeilen po_bestaetigt false · Stichprobe und Fragen A-F1, A-F2 in Paket 4
+status: VORSCHLAG – alle 210 Zeilen po_bestaetigt false · A-F2a ENTSCHIEDEN 29.09.2026 (Umsetzung Paket 2) · Stichprobe und A-F1 in Paket 4
 ---
 
 # Kurzfazit
@@ -83,6 +83,7 @@ Anhang füllt Artikel X aus  ──►  Scope wie Artikel X
 | A-W1 | **Art. 113:** Der Extraktor führt die drei Absätze ohne Nummer als eine Einheit „Art. 113“ und die Buchstaben als „Art. 113 lit. a“. Das Gesetz selbst zitiert „Artikel 113 Absatz 3 Buchstabe a“ (Omnibus Art. 1 Nr. 40 und Art. 111 Abs. 2 n.F. aus Nr. 39). Die Kennung weicht von der amtlichen Zitierweise ab. | Werkzeug-Ticket wie T-14.1; dabei prüfen, welche Artikel sonst Absätze ohne Nummer haben |
 | A-W2 | **Anhang I Abschn. B:** Nr. 13–20 stehen in einer Einheit. Ohne Folge für die Analyse (alle `out`). | Werkzeug-Ticket, niedrig |
 | A-W3 | **Anhang XIII lit. g:** Der Beleg endet mit der Fußzeile „ELI: … ISSN 1977-0642 (electronic edition)“ aus der Quelldatei. Wortgleich, aber kein Normtext. | Werkzeug-Ticket, niedrig |
+| A-W4 | **Art. 3 Nr. 4, Nr. 8, Nr. 23:** Das Feld `omnibus` sagt „geaendert … Nr. 14 (Sicherheitsbauteil) neu gefasst“. Geändert ist aber nur Nr. 14; die drei Zeilen haben den Vermerk beim Schnitt nach Nummern (T-14.1) von der alten Sammelzeile Art. 3 geerbt. | Paket 2, mit A-F2 |
 
 # Teil 5 – Wiedervorlage
 
@@ -108,3 +109,11 @@ Acht Zeilen, je eine pro Begründungsart:
 **Ehrlich zur Methode:**
 - Die Einordnung ist gruppenweise nach dem verweisenden Artikel gemacht. Jede Zeile trägt Grund und Rasterschritt, und jede Zeile ist gelesen.
 - Der `pflicht`-Text der Listeneinträge ist eine Kurzform des Belegs mit Vorsatz (z. B. „Pflichtinhalt der technischen Dokumentation des Anbieters (Art. 11 Abs. 1): …“). Er beschreibt, er legt nicht aus.
+
+# Teil 7 – Entscheid A-F2 (29.09.2026)
+
+- **A-F2a:** Eine AI-Act-Zeile, die der Omnibus neu gefasst hat, wird `out` mit Grund „ersetzt durch n.F.“. Bewertet wird nur die n.F.-Zeile mit ihrem eigenen Wortlaut.
+- **Umsetzung in Paket 2, nicht jetzt.** Würde die alte Zeile heute `out`, verschwände z. B. die Lücke Art. 4 (KI-Kompetenz) aus der Zählung, bis Art. 4 n.F. bewertet ist. Deshalb geht beides in einem Schritt: n.F.-Zeile bewerten, alte Zeile `out`.
+- **Umfang, gezählt am 29.09.2026:** 112 AI-Act-Zeilen tragen einen Omnibus-Vermerk außer „unveraendert“. Davon 9 `in`: Art. 4, Art. 25 Abs. 2 (nur UAbs. 2 geändert), Art. 111 Abs. 2 Satz 1 und 2, Art. 113 lit. a und c, dazu Art. 3 Nr. 4, 8, 23, die nur scheinbar betroffen sind (A-W4).
+- Teilweise geänderte Zeilen (etwa Art. 25 Abs. 2, Art. 11 Abs. 1) bleiben `in` bzw. behalten ihren Scope für den unveränderten Teil; das Paket 2 legt je Zeile vor.
+

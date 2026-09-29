@@ -7,6 +7,10 @@ governance_dimension: regulatorisch
 eu_ai_act_refs:
 - Art. 12
 - Art. 15
+# F4a (PO 28.09.2026, Review 04): kein Betreiber-Anker im Wortlaut des AI Act.
+# Anker-Suche im Sektorstapel (T-13); der kommt nach dem Pruef-Agenten (Plan Teil C).
+anker: offen
+anker_grund: "Die Betreiberpflicht zu Protokollen steht in Art. 26 Abs. 6 (R014); die Evidence-Persistierung ist ein Architekturprinzip der Referenz, keine AI-Act-Pflicht."
 must_should: MUST
 description: Alle Gate-Entscheidungen muessen mit unveraenderlicher Evidence-Ablage
   und eindeutiger Referenz gespeichert werden.

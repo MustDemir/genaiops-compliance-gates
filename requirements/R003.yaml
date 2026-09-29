@@ -7,6 +7,10 @@ lifecycle_phase: deployment
 governance_dimension: technisch
 eu_ai_act_refs:
 - Art. 15
+# F4a (PO 28.09.2026, Review 04): kein Betreiber-Anker im Wortlaut des AI Act.
+# Anker-Suche im Sektorstapel (T-13); der kommt nach dem Pruef-Agenten (Plan Teil C).
+anker: offen
+anker_grund: "Art. 15 richtet sich an das System (Anbieter); ein Betreiber-Anker fuer die Infrastruktur liegt vermutlich in NIS2/BSIG (HYPOTHESE), Art. 42 Abs. 3 n.F. als Eingangsnachweis."
 must_should: MUST
 description: Ein Deployment darf nur erfolgen, wenn definierte technische Mindestkriterien
   nachweisbar erfuellt sind.

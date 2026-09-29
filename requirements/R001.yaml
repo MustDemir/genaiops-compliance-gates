@@ -6,6 +6,10 @@ lifecycle_phase: pre-deployment
 governance_dimension: regulatorisch
 eu_ai_act_refs:
 - Art. 9
+# F4a (PO 28.09.2026, Review 04): kein Betreiber-Anker im Wortlaut des AI Act.
+# Anker-Suche im Sektorstapel (T-13); der kommt nach dem Pruef-Agenten (Plan Teil C).
+anker: offen
+anker_grund: "Art. 9 ist Anbieterpflicht (bis auf Abs. 5 lit. c); ein Betreiber-Anker fuer Risikomanagement liegt vermutlich in NIS2/BSIG (HYPOTHESE)."
 must_should: MUST
 description: Vor Freigabe muss ein versioniertes Risiko-Assessment mit benannten Mitigationsmassnahmen
   vorliegen.

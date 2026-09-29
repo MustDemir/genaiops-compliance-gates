@@ -106,10 +106,10 @@ Norm (Wortlaut, gehasht)
 - PO geht Tabelle Zeile für Zeile durch → Entscheid = `po_bestaetigt: true` für diese 81 Zeilen
 - Ergebnis: Entscheidungsliste mit Begründung (neue D-xx-Einträge in HISTORIE)
 - **Vertagt auf Schritt 3 (PO 28.09.2026, P2b/P3c):**
-  - Art. 111 Abs. 2 Satz 2 – Betreiber als Behörde (z. B. kommunaler Eigenbetrieb) → ggf. dritte Bedingung im P0-Check
-  - Unterglieder entschiedener Normen: Art. 3 Nr. 49 lit. a–d · Art. 4a Abs. 2 lit. a/b n.F. · Art. 113 Abs. 3 lit. c Ziff. ii n.F.
-  - Verifikationsstufe der 22 Zeilen ohne Stufe (12 steuernde Normen AI Act, 10 Omnibus inkl. Art. 5 lit. ba/bb)
-  - Hypothesen-Prüfung (43 + neue) gegen Sekundärquellen
+  - **S3-1** Art. 111 Abs. 2 Satz 2 – Betreiber als Behörde (z. B. kommunaler Eigenbetrieb) → ggf. dritte Bedingung im P0-Check
+  - **S3-2** Unterglieder entschiedener Normen: Art. 3 Nr. 49 lit. a–d · Art. 4a Abs. 2 lit. a/b n.F. · Art. 113 Abs. 3 lit. c Ziff. ii n.F.
+  - **S3-3** Verifikationsstufe der 22 Zeilen ohne Stufe (12 steuernde Normen AI Act, 10 Omnibus inkl. Art. 5 lit. ba/bb)
+  - **S3-4** Hypothesen-Prüfung (43 + neue) gegen Sekundärquellen
 
 ## Schritt 4 – Bedarfsanalyse (Requirements · Rego · Gates)
 - **4a** Neue/zu ändernde Requirements (R015 ff., eu_ai_act_refs, acceptance_criteria)
@@ -184,8 +184,9 @@ A VOLLSTÄNDIGKEIT          B ABGLEICH                C BAUEN
 | 6 | Checks + Rego bauen, nach MUST + Stichtag | 5a | **L** | Abnahme |
 | 7 | `known_limits` + Hinweis-Stufe (H4), Element-Matrix als Wächter | 5 | M | – |
 | 8 | PR mergen | 5d | S | Freigabe |
-| 9 | Prüf-Agent: Use Cases → Architektur → Betrieb | 5f | offen | ja |
+| 9 | Prüf-Agent: Use Cases (P9-1) → Einordnung des Agenten selbst nach AI Act (P9-2) → Architektur (P9-3) → Betrieb | 5f | offen | ja |
 
 - Paket 6 wird kleiner als 66 Zeilen: Laufzeitpflichten sind oft nur als `declared_gap` führbar (B-14: 8 von 9).
 - Paket 9: Der Agent ist selbst ein KI-System und braucht eine eigene Einordnung nach AI Act (HYPOTHESE: kein Hochrisiko; Art. 4, ggf. Art. 50 prüfen).
+- **Alle offenen Entscheide und Befunde mit Ziel-Paket** stehen im [Entscheidungsregister](entscheidungsregister.md); der Wächter `PO_DECISIONS_REGISTERED` hält es vollständig.
 - **Element-Matrix:** läuft nach Paket 3 (2. Lauf) und nach Paket 6 (3. Lauf, als Wächter) erneut. Review 07 ist der 1. Lauf, gültig für den AI-Act-Artikelteil.

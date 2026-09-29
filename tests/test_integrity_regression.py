@@ -3116,6 +3116,126 @@ def check_norm_refs_resolve() -> dict:
     )
 
 
+_REVIEW_DIR = REPO_ROOT / "docs" / "coverage" / "review"
+_REGISTER = "entscheidungsregister.md"
+_DECISION_HEADERS = {
+    ("#", "Entscheidung", "Optionen"),
+    ("#", "Entscheidung", "Empfehlung"),
+    ("#", "Frage", "Optionen"),
+    ("#", "Befund", "Wohin"),
+}
+_REGISTER_HEADER = ("ID", "Gegenstand", "Quelle", "Stand", "Paket")
+_REGISTER_STAENDE = ("offen", "vertagt", "entschieden", "umgesetzt", "außerhalb")
+_REGISTER_PAKETE = {str(n) for n in range(1, 10)} | {"T-13", "jederzeit"}
+
+
+def _md_tables(text: str) -> list[tuple[tuple[str, ...], list[list[str]]]]:
+    """Every pipe table in a Markdown text as (header cells, body rows)."""
+    def cells(line: str) -> list[str]:
+        return [c.strip() for c in line.strip().strip("|").split("|")]
+
+    tables, lines, i = [], text.splitlines(), 0
+    while i < len(lines) - 1:
+        if lines[i].lstrip().startswith("|") and re.match(r"^\s*\|[\s:|-]+\|\s*$", lines[i + 1]):
+            header, rows, j = tuple(cells(lines[i])), [], i + 2
+            while j < len(lines) and lines[j].lstrip().startswith("|"):
+                rows.append(cells(lines[j]))
+                j += 1
+            tables.append((header, rows))
+            i = j
+        else:
+            i += 1
+    return tables
+
+
+def check_po_decisions_registered() -> dict:
+    """Jede Frage an den PO und jeder Befund mit Ziel steht im Entscheidungsregister.
+
+    PO 29.09.2026: "ich hoffe, wir vergessen keinen Schritt und keine
+    Entscheidung". Die Entscheidungen standen in neun Reviews, jede in ihrer
+    eigenen Tabelle, und zwei beschlossene Zwischenschritte (F4a: Requirements
+    als `anker: offen` kennzeichnen, F5a: Vermerk HYPOTHESE in G-OPS-02) waren
+    einen Tag nach dem Entscheid nirgends umgesetzt. Beide Male stand der
+    Entscheid im Review, und niemand fragte ihn wieder ab.
+
+    Das Register sammelt alles an einer Stelle; dieser Check haelt es
+    vollstaendig, in beiden Richtungen:
+      * jede Zeile einer Entscheidungs- oder Befundtabelle eines Reviews
+        (`| # | Entscheidung | Optionen |`, `| # | Entscheidung | Empfehlung |`,
+        `| # | Frage | Optionen |`, `| # | Befund | Wohin |`) steht im Register,
+        mit diesem Review als Quelle;
+      * jede Registerzeile zeigt auf eine Quelle, die es gibt und in der ihre
+        Kennung steht, traegt einen gueltigen Stand, und was offen oder
+        vertagt ist, hat ein Paket aus dem Plan (00 Teil C).
+
+    Ob ein Entscheid richtig umgesetzt ist, prueft dieser Check NICHT — das
+    tun PO_DECISIONS_APPLIED und die Wächter der jeweiligen Umsetzung. Er
+    prueft, dass nichts aus dem Blick geraet.
+
+    LOW wie HANDBOOK_ROADMAP_CURRENT: ein Pflegesignal, keine falsche
+    Aussage — aber `make verify` laeuft mit --fail-on low, der Build haelt
+    also an. Einstufung als Vorschlag, PO-Entscheid R-1 im Register.
+    """
+    titel = "jede Frage an den PO und jeder Befund mit Ziel steht im Entscheidungsregister"
+    findings: list[str] = []
+    register_pfad = _REVIEW_DIR / _REGISTER
+    if not register_pfad.exists():
+        return make_result("PO_DECISIONS_REGISTERED", titel, "low", False,
+                           f"{register_pfad.relative_to(REPO_ROOT)} fehlt.", [])
+
+    registriert: dict[tuple[str, str], list[str]] = {}
+    for header, rows in _md_tables(register_pfad.read_text(encoding="utf-8")):
+        if header != _REGISTER_HEADER:
+            continue
+        for row in rows:
+            if len(row) != len(_REGISTER_HEADER):
+                findings.append(f"Registerzeile mit {len(row)} statt 5 Spalten: {' | '.join(row)[:80]}")
+                continue
+            kennung, _, quelle, stand, paket = row
+            m = re.search(r"`([^`]+\.md)`", quelle)
+            if not m:
+                findings.append(f"{kennung}: Quelle '{quelle}' nennt keine Datei in `…md`")
+                continue
+            schluessel = (m.group(1), kennung)
+            if schluessel in registriert:
+                findings.append(f"{kennung} ({m.group(1)}): doppelt im Register")
+            registriert[schluessel] = row
+            q = _REVIEW_DIR / m.group(1)
+            if not q.exists():
+                findings.append(f"{kennung}: Quelle {m.group(1)} gibt es nicht")
+            elif m.group(1) != _REGISTER and kennung not in q.read_text(encoding="utf-8"):
+                findings.append(f"{kennung}: steht nicht in seiner Quelle {m.group(1)}")
+            wort = stand.split()[0] if stand.split() else ""
+            if wort not in _REGISTER_STAENDE:
+                findings.append(f"{kennung}: Stand '{stand}' beginnt nicht mit {'/'.join(_REGISTER_STAENDE)}")
+            if wort in ("offen", "vertagt") and paket not in _REGISTER_PAKETE:
+                findings.append(f"{kennung}: {wort}, aber kein Paket (steht: '{paket}')")
+
+    quellen = 0
+    for pfad in sorted(_REVIEW_DIR.glob("*.md")):
+        if pfad.name in (_REGISTER, "README.md"):
+            continue
+        for header, rows in _md_tables(pfad.read_text(encoding="utf-8")):
+            if header[:3] not in _DECISION_HEADERS:
+                continue
+            for row in rows:
+                kennung = row[0].replace("*", "").strip()
+                if not kennung:
+                    continue
+                quellen += 1
+                if (pfad.name, kennung) not in registriert:
+                    findings.append(f"{pfad.name}: {kennung} fehlt im Register")
+
+    offen = sum(1 for r in registriert.values() if r[3].split()[:1] in (["offen"], ["vertagt"]))
+    return make_result(
+        "PO_DECISIONS_REGISTERED", titel, "low", not findings,
+        f"{len(findings)} Befund(e) zwischen Reviews und Entscheidungsregister." if findings
+        else f"{quellen} Zeilen aus Entscheidungs- und Befundtabellen der Reviews stehen im Register; "
+             f"{len(registriert)} Registerzeilen, davon {offen} offen oder vertagt, jede mit Paket.",
+        findings[:12] + ([f"… und {len(findings) - 12} weitere"] if len(findings) > 12 else []),
+    )
+
+
 def collect_results() -> list[dict]:
     checks = [
         check_orchestrator_fallbacks,
@@ -3161,6 +3281,7 @@ def collect_results() -> list[dict]:
         check_norm_sentence_units_current,
         check_po_decisions_applied,
         check_norm_refs_resolve,
+        check_po_decisions_registered,
     ]
     results = []
     for check in checks:
