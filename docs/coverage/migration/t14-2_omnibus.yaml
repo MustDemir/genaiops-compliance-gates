@@ -1,8 +1,8 @@
 anlass: T-14.2 — Omnibus VO (EU) 2026/1744 als zweite Quelle
 anweisungen_art_1: 43
 anweisungen_art_1_lueckenlos_1_bis_43: true
-einheiten_omnibus: 268
-grundfassung_mit_neuer_fassung: 58
+einheiten_omnibus: 269
+grundfassung_mit_neuer_fassung: 54
 neu_gefasst_oder_gestrichen_ohne_grundfassungsziel:
 - Omnibus Art. 1 Nr. 31 lit. a
 - Omnibus Art. 1 Nr. 34 lit. a
@@ -618,12 +618,6 @@ anweisungen:
     - Omnibus Art. 1 Nr. 36 lit. c
     - Art. 96 Abs. 1 UAbs. 2 n.F.
     ziele_grundfassung:
-    - Art. 96 Abs. 1
-    - Art. 96 Abs. 1 lit. a
-    - Art. 96 Abs. 1 lit. b
-    - Art. 96 Abs. 1 lit. c
-    - Art. 96 Abs. 1 lit. d
-    - Art. 96 Abs. 1 lit. e
     - Art. 96 Abs. 1 lit. f
   Omnibus Art. 1 Nr. 37:
     aenderung:
@@ -688,9 +682,11 @@ anweisungen:
     - neu_gefasst
     einheiten:
     - Omnibus Art. 1 Nr. 39 lit. a
-    - Art. 111 Abs. 2 n.F.
+    - Art. 111 Abs. 2 Satz 1 n.F.
+    - Art. 111 Abs. 2 Satz 2 n.F.
     ziele_grundfassung:
-    - Art. 111 Abs. 2
+    - Art. 111 Abs. 2 Satz 1
+    - Art. 111 Abs. 2 Satz 2
   Omnibus Art. 1 Nr. 39 lit. b:
     aenderung:
     - angefuegt

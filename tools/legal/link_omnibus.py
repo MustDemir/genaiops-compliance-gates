@@ -62,7 +62,16 @@ def main() -> int:
             continue  # die Anweisung selbst ersetzt nichts; der neue Text tut es
         for ziel in re.split(r", ", u["ziel"]):
             treffer = None
-            for k in _kandidaten(ziel):
+            nur_kopf = False
+            m = re.fullmatch(r"(.+) UAbs\. (\d+)", ziel)
+            if m and int(m.group(2)) >= 2 and ziel not in g_ids and m.group(1) in g_ids:
+                kinder = [e["id"] for e in g_units if e["id"].startswith(m.group(1) + " ")]
+                if kinder:
+                    # A-W6 (Review 09): the extractor appends a later subparagraph to the last
+                    # subdivision of the paragraph (Art. 96 Abs. 1 lit. f carries UAbs. 2 and 3).
+                    # The new UAbs. 2 replaces that unit, not every letter of the paragraph.
+                    treffer, nur_kopf = [kinder[-1]], True
+            for k in ([] if treffer else _kandidaten(ziel)):
                 if " und " in k:  # 'Nr. 7 und 9'
                     stamm, rest = k.rsplit(" Nr. ", 1)
                     ks = [f"{stamm} Nr. {n}" for n in rest.split(" und ")]
@@ -72,7 +81,15 @@ def main() -> int:
                 elif k in g_ids:
                     treffer = [k]
                     break
-            nur_kopf = False
+            if not treffer:
+                # A-W5 (Review 09): since T-14.3 some paragraphs exist only as sentence units
+                # ('Art. 111 Abs. 2 Satz 1', 'Satz 2'). A new version of the paragraph replaces
+                # every sentence; without this the link was lost silently.
+                for k in _kandidaten(ziel):
+                    saetze = [e["id"] for e in g_units if e["id"].startswith(k + " Satz ")]
+                    if saetze:
+                        treffer, nur_kopf = saetze, True
+                        break
             if not treffer and ziel.endswith(" Einleitung"):
                 # 'Die Einleitung erhaelt folgende Fassung' ersetzt den Kopf, nicht die Buchstaben
                 for k in _kandidaten(ziel[:-len(" Einleitung")]):

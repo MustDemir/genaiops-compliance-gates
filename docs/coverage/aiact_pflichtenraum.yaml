@@ -250,8 +250,9 @@ einheiten:
   pflicht: 'Regelungsgegenstand: Massnahmen zur Innovationsfoerderung mit Augenmerk auf KMU/Start-ups
     (nach Omnibus: auch kleine Midcap-Unternehmen).'
   scope: out
-  scope_grund: Zweckbestimmungs-/Inhaltsuebersichtsnorm (Art. 1) - keine Handlungspflicht fuer einen Akteur,
-    insbesondere keine Betreiberpflicht.
+  scope_grund: 'Zweckbestimmungs-/Inhaltsuebersichtsnorm (Art. 1) - keine Handlungspflicht fuer einen
+    Akteur, insbesondere keine Betreiberpflicht. Zudem ersetzt durch n.F. (A-F2a): Art. 1 Abs. 2 lit.
+    g n.F.'
   verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: 'geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 1 - lit. g neu gefasst: ''kleine Midcap-Unternehmen''
@@ -268,6 +269,7 @@ einheiten:
   ziffer: null
   fassung_2026_1744:
   - Art. 1 Abs. 2 lit. g n.F.@80284
+  neufassung: ersetzt
 - id: Art. 2 Abs. 1
   artikel: '2'
   artikel_titel: Anwendungsbereich
@@ -512,8 +514,8 @@ einheiten:
   pflicht: Fuer Hochrisiko-KI-Systeme als Sicherheitsbauteile von Anhang-I-Abschnitt-B-Produkten gelten
     nur eine eng umrissene Auswahl an Artikeln (Art. 6 Abs. 1, Art. 102-112 u.a.), nicht die volle Verordnung.
   scope: out
-  scope_grund: Anwendungsbereichsnorm (Art. 2) - legt fest, wer/was der Verordnung unterliegt bzw. ausgenommen
-    ist, begruendet selbst keine Handlungspflicht.
+  scope_grund: 'Anwendungsbereichsnorm (Art. 2) - legt fest, wer/was der Verordnung unterliegt bzw. ausgenommen
+    ist, begruendet selbst keine Handlungspflicht. Zudem ersetzt durch n.F. (A-F2a): Art. 2 Abs. 2 n.F.'
   verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: 'geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 2 lit. a - Anwendungsbereich erweitert: neu zusaetzlich
@@ -531,6 +533,7 @@ einheiten:
   ziffer: null
   fassung_2026_1744:
   - Art. 2 Abs. 2 n.F.@80541
+  neufassung: ersetzt
 - id: Art. 2 Abs. 3
   artikel: '2'
   artikel_titel: Anwendungsbereich
@@ -677,8 +680,8 @@ einheiten:
   adressat: sonstige
   pflicht: Stellt klar, dass EU-Datenschutzrecht (u.a. DSGVO) neben dieser Verordnung anwendbar bleibt.
   scope: out
-  scope_grund: Anwendungsbereichsnorm (Art. 2) - legt fest, wer/was der Verordnung unterliegt bzw. ausgenommen
-    ist, begruendet selbst keine Handlungspflicht.
+  scope_grund: 'Anwendungsbereichsnorm (Art. 2) - legt fest, wer/was der Verordnung unterliegt bzw. ausgenommen
+    ist, begruendet selbst keine Handlungspflicht. Zudem ersetzt durch n.F. (A-F2a): Art. 2 Abs. 7 n.F.'
   verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 2 lit. b - Unbeschadet-Klausel verweist nun auf
@@ -696,6 +699,7 @@ einheiten:
   ziffer: null
   fassung_2026_1744:
   - Art. 2 Abs. 7 n.F.@81085
+  neufassung: ersetzt
 - id: Art. 2 Abs. 8
   artikel: '2'
   artikel_titel: Anwendungsbereich
@@ -865,9 +869,8 @@ einheiten:
     keine Handlungspflicht fuer einen Akteur.
   verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 4 - Nr. 14 (Sicherheitsbauteil) neu gefasst, Nr.
-    14a (KMU) und 14b (kleines Midcap-Unternehmen) neu eingefuegt; die uebrigen in dieser Einheit zusammengefassten
-    Definitionen unveraendert (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  omnibus: unveraendert - Einleitungssatz; Art. 1 Nr. 4 der VO (EU) 2026/1744 aendert in Art. 3 nur Nr.
+    14 und fuegt Nr. 14a und 14b ein (geprueft am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
   requirement: &id001 []
   gate: &id002 []
   befund: null
@@ -905,9 +908,9 @@ einheiten:
     keine Handlungspflicht fuer einen Akteur.
   verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 4 - Nr. 14 (Sicherheitsbauteil) neu gefasst, Nr.
-    14a (KMU) und 14b (kleines Midcap-Unternehmen) neu eingefuegt; die uebrigen in dieser Einheit zusammengefassten
-    Definitionen unveraendert (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  omnibus: unveraendert - Art. 1 Nr. 4 der VO (EU) 2026/1744 aendert in Art. 3 nur Nr. 14 (neu gefasst,
+    Art. 3 Nr. 14 n.F.) und fuegt Nr. 14a und 14b ein; diese Nummer ist nicht betroffen (A-W4, geprueft
+    am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
   requirement: *id001
   gate: *id002
   befund: null
@@ -939,9 +942,9 @@ einheiten:
     keine Handlungspflicht fuer einen Akteur.
   verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 4 - Nr. 14 (Sicherheitsbauteil) neu gefasst, Nr.
-    14a (KMU) und 14b (kleines Midcap-Unternehmen) neu eingefuegt; die uebrigen in dieser Einheit zusammengefassten
-    Definitionen unveraendert (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  omnibus: unveraendert - Art. 1 Nr. 4 der VO (EU) 2026/1744 aendert in Art. 3 nur Nr. 14 (neu gefasst,
+    Art. 3 Nr. 14 n.F.) und fuegt Nr. 14a und 14b ein; diese Nummer ist nicht betroffen (A-W4, geprueft
+    am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
   requirement: *id001
   gate: *id002
   befund: null
@@ -975,9 +978,9 @@ einheiten:
     keine Handlungspflicht fuer einen Akteur.
   verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 4 - Nr. 14 (Sicherheitsbauteil) neu gefasst, Nr.
-    14a (KMU) und 14b (kleines Midcap-Unternehmen) neu eingefuegt; die uebrigen in dieser Einheit zusammengefassten
-    Definitionen unveraendert (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  omnibus: unveraendert - Art. 1 Nr. 4 der VO (EU) 2026/1744 aendert in Art. 3 nur Nr. 14 (neu gefasst,
+    Art. 3 Nr. 14 n.F.) und fuegt Nr. 14a und 14b ein; diese Nummer ist nicht betroffen (A-W4, geprueft
+    am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
   requirement: *id001
   gate: *id002
   befund: null
@@ -1010,9 +1013,9 @@ einheiten:
     wesentliche Veraenderung, schwerwiegender Vorfall; genutzt von G-PRE-01, G-OPS-02 und G-OPS-06.
   verifikation: null
   hypothese_grund: null
-  omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 4 - Nr. 14 (Sicherheitsbauteil) neu gefasst, Nr.
-    14a (KMU) und 14b (kleines Midcap-Unternehmen) neu eingefuegt; die uebrigen in dieser Einheit zusammengefassten
-    Definitionen unveraendert (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  omnibus: unveraendert - Art. 1 Nr. 4 der VO (EU) 2026/1744 aendert in Art. 3 nur Nr. 14 (neu gefasst,
+    Art. 3 Nr. 14 n.F.) und fuegt Nr. 14a und 14b ein; diese Nummer ist nicht betroffen (A-W4, geprueft
+    am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
   requirement: *id001
   gate: *id002
   befund: nicht_einschlaegig
@@ -1048,9 +1051,9 @@ einheiten:
     keine Handlungspflicht fuer einen Akteur.
   verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 4 - Nr. 14 (Sicherheitsbauteil) neu gefasst, Nr.
-    14a (KMU) und 14b (kleines Midcap-Unternehmen) neu eingefuegt; die uebrigen in dieser Einheit zusammengefassten
-    Definitionen unveraendert (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  omnibus: unveraendert - Art. 1 Nr. 4 der VO (EU) 2026/1744 aendert in Art. 3 nur Nr. 14 (neu gefasst,
+    Art. 3 Nr. 14 n.F.) und fuegt Nr. 14a und 14b ein; diese Nummer ist nicht betroffen (A-W4, geprueft
+    am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
   requirement: *id001
   gate: *id002
   befund: null
@@ -1083,9 +1086,9 @@ einheiten:
     keine Handlungspflicht fuer einen Akteur.
   verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 4 - Nr. 14 (Sicherheitsbauteil) neu gefasst, Nr.
-    14a (KMU) und 14b (kleines Midcap-Unternehmen) neu eingefuegt; die uebrigen in dieser Einheit zusammengefassten
-    Definitionen unveraendert (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  omnibus: unveraendert - Art. 1 Nr. 4 der VO (EU) 2026/1744 aendert in Art. 3 nur Nr. 14 (neu gefasst,
+    Art. 3 Nr. 14 n.F.) und fuegt Nr. 14a und 14b ein; diese Nummer ist nicht betroffen (A-W4, geprueft
+    am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
   requirement: *id001
   gate: *id002
   befund: null
@@ -1117,9 +1120,9 @@ einheiten:
     keine Handlungspflicht fuer einen Akteur.
   verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 4 - Nr. 14 (Sicherheitsbauteil) neu gefasst, Nr.
-    14a (KMU) und 14b (kleines Midcap-Unternehmen) neu eingefuegt; die uebrigen in dieser Einheit zusammengefassten
-    Definitionen unveraendert (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  omnibus: unveraendert - Art. 1 Nr. 4 der VO (EU) 2026/1744 aendert in Art. 3 nur Nr. 14 (neu gefasst,
+    Art. 3 Nr. 14 n.F.) und fuegt Nr. 14a und 14b ein; diese Nummer ist nicht betroffen (A-W4, geprueft
+    am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
   requirement: *id001
   gate: *id002
   befund: null
@@ -1150,9 +1153,9 @@ einheiten:
     wesentliche Veraenderung, schwerwiegender Vorfall; genutzt von G-PRE-01, G-OPS-02 und G-OPS-06.
   verifikation: null
   hypothese_grund: null
-  omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 4 - Nr. 14 (Sicherheitsbauteil) neu gefasst, Nr.
-    14a (KMU) und 14b (kleines Midcap-Unternehmen) neu eingefuegt; die uebrigen in dieser Einheit zusammengefassten
-    Definitionen unveraendert (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  omnibus: unveraendert - Art. 1 Nr. 4 der VO (EU) 2026/1744 aendert in Art. 3 nur Nr. 14 (neu gefasst,
+    Art. 3 Nr. 14 n.F.) und fuegt Nr. 14a und 14b ein; diese Nummer ist nicht betroffen (A-W4, geprueft
+    am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
   requirement: *id001
   gate: *id002
   befund: nicht_einschlaegig
@@ -1186,9 +1189,9 @@ einheiten:
     keine Handlungspflicht fuer einen Akteur.
   verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 4 - Nr. 14 (Sicherheitsbauteil) neu gefasst, Nr.
-    14a (KMU) und 14b (kleines Midcap-Unternehmen) neu eingefuegt; die uebrigen in dieser Einheit zusammengefassten
-    Definitionen unveraendert (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  omnibus: unveraendert - Art. 1 Nr. 4 der VO (EU) 2026/1744 aendert in Art. 3 nur Nr. 14 (neu gefasst,
+    Art. 3 Nr. 14 n.F.) und fuegt Nr. 14a und 14b ein; diese Nummer ist nicht betroffen (A-W4, geprueft
+    am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
   requirement: *id001
   gate: *id002
   befund: null
@@ -1221,9 +1224,9 @@ einheiten:
     keine Handlungspflicht fuer einen Akteur.
   verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 4 - Nr. 14 (Sicherheitsbauteil) neu gefasst, Nr.
-    14a (KMU) und 14b (kleines Midcap-Unternehmen) neu eingefuegt; die uebrigen in dieser Einheit zusammengefassten
-    Definitionen unveraendert (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  omnibus: unveraendert - Art. 1 Nr. 4 der VO (EU) 2026/1744 aendert in Art. 3 nur Nr. 14 (neu gefasst,
+    Art. 3 Nr. 14 n.F.) und fuegt Nr. 14a und 14b ein; diese Nummer ist nicht betroffen (A-W4, geprueft
+    am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
   requirement: *id001
   gate: *id002
   befund: null
@@ -1255,9 +1258,9 @@ einheiten:
     keine Handlungspflicht fuer einen Akteur.
   verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 4 - Nr. 14 (Sicherheitsbauteil) neu gefasst, Nr.
-    14a (KMU) und 14b (kleines Midcap-Unternehmen) neu eingefuegt; die uebrigen in dieser Einheit zusammengefassten
-    Definitionen unveraendert (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  omnibus: unveraendert - Art. 1 Nr. 4 der VO (EU) 2026/1744 aendert in Art. 3 nur Nr. 14 (neu gefasst,
+    Art. 3 Nr. 14 n.F.) und fuegt Nr. 14a und 14b ein; diese Nummer ist nicht betroffen (A-W4, geprueft
+    am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
   requirement: *id001
   gate: *id002
   befund: null
@@ -1291,9 +1294,9 @@ einheiten:
     keine Handlungspflicht fuer einen Akteur.
   verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 4 - Nr. 14 (Sicherheitsbauteil) neu gefasst, Nr.
-    14a (KMU) und 14b (kleines Midcap-Unternehmen) neu eingefuegt; die uebrigen in dieser Einheit zusammengefassten
-    Definitionen unveraendert (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  omnibus: unveraendert - Art. 1 Nr. 4 der VO (EU) 2026/1744 aendert in Art. 3 nur Nr. 14 (neu gefasst,
+    Art. 3 Nr. 14 n.F.) und fuegt Nr. 14a und 14b ein; diese Nummer ist nicht betroffen (A-W4, geprueft
+    am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
   requirement: *id001
   gate: *id002
   befund: null
@@ -1327,9 +1330,9 @@ einheiten:
     keine Handlungspflicht fuer einen Akteur.
   verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 4 - Nr. 14 (Sicherheitsbauteil) neu gefasst, Nr.
-    14a (KMU) und 14b (kleines Midcap-Unternehmen) neu eingefuegt; die uebrigen in dieser Einheit zusammengefassten
-    Definitionen unveraendert (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  omnibus: unveraendert - Art. 1 Nr. 4 der VO (EU) 2026/1744 aendert in Art. 3 nur Nr. 14 (neu gefasst,
+    Art. 3 Nr. 14 n.F.) und fuegt Nr. 14a und 14b ein; diese Nummer ist nicht betroffen (A-W4, geprueft
+    am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
   requirement: *id001
   gate: *id002
   befund: null
@@ -1358,8 +1361,8 @@ einheiten:
     Bevollmaechtigter, Einfuehrer, Haendler, Akteur, Inverkehrbringen, Zweckbestimmung, Sicherheitsbauteil,
     Betriebsanleitungen).
   scope: out
-  scope_grund: Begriffsbestimmung (Art. 3) - definiert Rechtsbegriffe der Verordnung, begruendet selbst
-    keine Handlungspflicht fuer einen Akteur.
+  scope_grund: 'Begriffsbestimmung (Art. 3) - definiert Rechtsbegriffe der Verordnung, begruendet selbst
+    keine Handlungspflicht fuer einen Akteur. Zudem ersetzt durch n.F. (A-F2a): Art. 3 Nr. 14 n.F.'
   verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 4 - Nr. 14 (Sicherheitsbauteil) neu gefasst, Nr.
@@ -1374,6 +1377,7 @@ einheiten:
   migration: geerbt
   fassung_2026_1744:
   - Art. 3 Nr. 14 n.F.@82670
+  neufassung: ersetzt
 - uid: Art. 3 Nr. 15@273277
   id: Art. 3 Nr. 15
   artikel: '3'
@@ -1398,9 +1402,9 @@ einheiten:
     keine Handlungspflicht fuer einen Akteur.
   verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 4 - Nr. 14 (Sicherheitsbauteil) neu gefasst, Nr.
-    14a (KMU) und 14b (kleines Midcap-Unternehmen) neu eingefuegt; die uebrigen in dieser Einheit zusammengefassten
-    Definitionen unveraendert (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  omnibus: unveraendert - Art. 1 Nr. 4 der VO (EU) 2026/1744 aendert in Art. 3 nur Nr. 14 (neu gefasst,
+    Art. 3 Nr. 14 n.F.) und fuegt Nr. 14a und 14b ein; diese Nummer ist nicht betroffen (A-W4, geprueft
+    am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
   requirement: *id001
   gate: *id002
   befund: null
@@ -1433,9 +1437,9 @@ einheiten:
     keine Handlungspflicht fuer einen Akteur.
   verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 4 - Nr. 14 (Sicherheitsbauteil) neu gefasst, Nr.
-    14a (KMU) und 14b (kleines Midcap-Unternehmen) neu eingefuegt; die uebrigen in dieser Einheit zusammengefassten
-    Definitionen unveraendert (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  omnibus: unveraendert - Art. 1 Nr. 4 der VO (EU) 2026/1744 aendert in Art. 3 nur Nr. 14 (neu gefasst,
+    Art. 3 Nr. 14 n.F.) und fuegt Nr. 14a und 14b ein; diese Nummer ist nicht betroffen (A-W4, geprueft
+    am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
   requirement: *id001
   gate: *id002
   befund: null
@@ -1467,9 +1471,9 @@ einheiten:
     keine Handlungspflicht fuer einen Akteur.
   verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 4 - Nr. 14 (Sicherheitsbauteil) neu gefasst, Nr.
-    14a (KMU) und 14b (kleines Midcap-Unternehmen) neu eingefuegt; die uebrigen in dieser Einheit zusammengefassten
-    Definitionen unveraendert (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  omnibus: unveraendert - Art. 1 Nr. 4 der VO (EU) 2026/1744 aendert in Art. 3 nur Nr. 14 (neu gefasst,
+    Art. 3 Nr. 14 n.F.) und fuegt Nr. 14a und 14b ein; diese Nummer ist nicht betroffen (A-W4, geprueft
+    am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
   requirement: *id001
   gate: *id002
   befund: null
@@ -1500,9 +1504,9 @@ einheiten:
     keine Handlungspflicht fuer einen Akteur.
   verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 4 - Nr. 14 (Sicherheitsbauteil) neu gefasst, Nr.
-    14a (KMU) und 14b (kleines Midcap-Unternehmen) neu eingefuegt; die uebrigen in dieser Einheit zusammengefassten
-    Definitionen unveraendert (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  omnibus: unveraendert - Art. 1 Nr. 4 der VO (EU) 2026/1744 aendert in Art. 3 nur Nr. 14 (neu gefasst,
+    Art. 3 Nr. 14 n.F.) und fuegt Nr. 14a und 14b ein; diese Nummer ist nicht betroffen (A-W4, geprueft
+    am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
   requirement: *id001
   gate: *id002
   befund: null
@@ -1535,9 +1539,9 @@ einheiten:
     keine Handlungspflicht fuer einen Akteur.
   verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 4 - Nr. 14 (Sicherheitsbauteil) neu gefasst, Nr.
-    14a (KMU) und 14b (kleines Midcap-Unternehmen) neu eingefuegt; die uebrigen in dieser Einheit zusammengefassten
-    Definitionen unveraendert (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  omnibus: unveraendert - Art. 1 Nr. 4 der VO (EU) 2026/1744 aendert in Art. 3 nur Nr. 14 (neu gefasst,
+    Art. 3 Nr. 14 n.F.) und fuegt Nr. 14a und 14b ein; diese Nummer ist nicht betroffen (A-W4, geprueft
+    am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
   requirement: *id001
   gate: *id002
   befund: null
@@ -1569,9 +1573,9 @@ einheiten:
     keine Handlungspflicht fuer einen Akteur.
   verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 4 - Nr. 14 (Sicherheitsbauteil) neu gefasst, Nr.
-    14a (KMU) und 14b (kleines Midcap-Unternehmen) neu eingefuegt; die uebrigen in dieser Einheit zusammengefassten
-    Definitionen unveraendert (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  omnibus: unveraendert - Art. 1 Nr. 4 der VO (EU) 2026/1744 aendert in Art. 3 nur Nr. 14 (neu gefasst,
+    Art. 3 Nr. 14 n.F.) und fuegt Nr. 14a und 14b ein; diese Nummer ist nicht betroffen (A-W4, geprueft
+    am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
   requirement: *id001
   gate: *id002
   befund: null
@@ -1603,9 +1607,9 @@ einheiten:
     keine Handlungspflicht fuer einen Akteur.
   verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 4 - Nr. 14 (Sicherheitsbauteil) neu gefasst, Nr.
-    14a (KMU) und 14b (kleines Midcap-Unternehmen) neu eingefuegt; die uebrigen in dieser Einheit zusammengefassten
-    Definitionen unveraendert (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  omnibus: unveraendert - Art. 1 Nr. 4 der VO (EU) 2026/1744 aendert in Art. 3 nur Nr. 14 (neu gefasst,
+    Art. 3 Nr. 14 n.F.) und fuegt Nr. 14a und 14b ein; diese Nummer ist nicht betroffen (A-W4, geprueft
+    am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
   requirement: *id001
   gate: *id002
   befund: null
@@ -1637,9 +1641,9 @@ einheiten:
     keine Handlungspflicht fuer einen Akteur.
   verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 4 - Nr. 14 (Sicherheitsbauteil) neu gefasst, Nr.
-    14a (KMU) und 14b (kleines Midcap-Unternehmen) neu eingefuegt; die uebrigen in dieser Einheit zusammengefassten
-    Definitionen unveraendert (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  omnibus: unveraendert - Art. 1 Nr. 4 der VO (EU) 2026/1744 aendert in Art. 3 nur Nr. 14 (neu gefasst,
+    Art. 3 Nr. 14 n.F.) und fuegt Nr. 14a und 14b ein; diese Nummer ist nicht betroffen (A-W4, geprueft
+    am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
   requirement: *id001
   gate: *id002
   befund: null
@@ -1674,9 +1678,9 @@ einheiten:
     wesentliche Veraenderung, schwerwiegender Vorfall; genutzt von G-PRE-01, G-OPS-02 und G-OPS-06.
   verifikation: null
   hypothese_grund: null
-  omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 4 - Nr. 14 (Sicherheitsbauteil) neu gefasst, Nr.
-    14a (KMU) und 14b (kleines Midcap-Unternehmen) neu eingefuegt; die uebrigen in dieser Einheit zusammengefassten
-    Definitionen unveraendert (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  omnibus: unveraendert - Art. 1 Nr. 4 der VO (EU) 2026/1744 aendert in Art. 3 nur Nr. 14 (neu gefasst,
+    Art. 3 Nr. 14 n.F.) und fuegt Nr. 14a und 14b ein; diese Nummer ist nicht betroffen (A-W4, geprueft
+    am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
   requirement: *id001
   gate: *id002
   befund: nicht_einschlaegig
@@ -1711,9 +1715,9 @@ einheiten:
     keine Handlungspflicht fuer einen Akteur.
   verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 4 - Nr. 14 (Sicherheitsbauteil) neu gefasst, Nr.
-    14a (KMU) und 14b (kleines Midcap-Unternehmen) neu eingefuegt; die uebrigen in dieser Einheit zusammengefassten
-    Definitionen unveraendert (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  omnibus: unveraendert - Art. 1 Nr. 4 der VO (EU) 2026/1744 aendert in Art. 3 nur Nr. 14 (neu gefasst,
+    Art. 3 Nr. 14 n.F.) und fuegt Nr. 14a und 14b ein; diese Nummer ist nicht betroffen (A-W4, geprueft
+    am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
   requirement: *id001
   gate: *id002
   befund: null
@@ -1747,9 +1751,9 @@ einheiten:
     keine Handlungspflicht fuer einen Akteur.
   verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 4 - Nr. 14 (Sicherheitsbauteil) neu gefasst, Nr.
-    14a (KMU) und 14b (kleines Midcap-Unternehmen) neu eingefuegt; die uebrigen in dieser Einheit zusammengefassten
-    Definitionen unveraendert (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  omnibus: unveraendert - Art. 1 Nr. 4 der VO (EU) 2026/1744 aendert in Art. 3 nur Nr. 14 (neu gefasst,
+    Art. 3 Nr. 14 n.F.) und fuegt Nr. 14a und 14b ein; diese Nummer ist nicht betroffen (A-W4, geprueft
+    am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
   requirement: *id001
   gate: *id002
   befund: null
@@ -1781,9 +1785,9 @@ einheiten:
     keine Handlungspflicht fuer einen Akteur.
   verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 4 - Nr. 14 (Sicherheitsbauteil) neu gefasst, Nr.
-    14a (KMU) und 14b (kleines Midcap-Unternehmen) neu eingefuegt; die uebrigen in dieser Einheit zusammengefassten
-    Definitionen unveraendert (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  omnibus: unveraendert - Art. 1 Nr. 4 der VO (EU) 2026/1744 aendert in Art. 3 nur Nr. 14 (neu gefasst,
+    Art. 3 Nr. 14 n.F.) und fuegt Nr. 14a und 14b ein; diese Nummer ist nicht betroffen (A-W4, geprueft
+    am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
   requirement: *id001
   gate: *id002
   befund: null
@@ -1815,9 +1819,9 @@ einheiten:
     keine Handlungspflicht fuer einen Akteur.
   verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 4 - Nr. 14 (Sicherheitsbauteil) neu gefasst, Nr.
-    14a (KMU) und 14b (kleines Midcap-Unternehmen) neu eingefuegt; die uebrigen in dieser Einheit zusammengefassten
-    Definitionen unveraendert (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  omnibus: unveraendert - Art. 1 Nr. 4 der VO (EU) 2026/1744 aendert in Art. 3 nur Nr. 14 (neu gefasst,
+    Art. 3 Nr. 14 n.F.) und fuegt Nr. 14a und 14b ein; diese Nummer ist nicht betroffen (A-W4, geprueft
+    am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
   requirement: *id001
   gate: *id002
   befund: null
@@ -1850,9 +1854,9 @@ einheiten:
     keine Handlungspflicht fuer einen Akteur.
   verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 4 - Nr. 14 (Sicherheitsbauteil) neu gefasst, Nr.
-    14a (KMU) und 14b (kleines Midcap-Unternehmen) neu eingefuegt; die uebrigen in dieser Einheit zusammengefassten
-    Definitionen unveraendert (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  omnibus: unveraendert - Art. 1 Nr. 4 der VO (EU) 2026/1744 aendert in Art. 3 nur Nr. 14 (neu gefasst,
+    Art. 3 Nr. 14 n.F.) und fuegt Nr. 14a und 14b ein; diese Nummer ist nicht betroffen (A-W4, geprueft
+    am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
   requirement: *id001
   gate: *id002
   befund: null
@@ -1884,9 +1888,9 @@ einheiten:
     keine Handlungspflicht fuer einen Akteur.
   verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 4 - Nr. 14 (Sicherheitsbauteil) neu gefasst, Nr.
-    14a (KMU) und 14b (kleines Midcap-Unternehmen) neu eingefuegt; die uebrigen in dieser Einheit zusammengefassten
-    Definitionen unveraendert (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  omnibus: unveraendert - Art. 1 Nr. 4 der VO (EU) 2026/1744 aendert in Art. 3 nur Nr. 14 (neu gefasst,
+    Art. 3 Nr. 14 n.F.) und fuegt Nr. 14a und 14b ein; diese Nummer ist nicht betroffen (A-W4, geprueft
+    am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
   requirement: *id001
   gate: *id002
   befund: null
@@ -1919,9 +1923,9 @@ einheiten:
     keine Handlungspflicht fuer einen Akteur.
   verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 4 - Nr. 14 (Sicherheitsbauteil) neu gefasst, Nr.
-    14a (KMU) und 14b (kleines Midcap-Unternehmen) neu eingefuegt; die uebrigen in dieser Einheit zusammengefassten
-    Definitionen unveraendert (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  omnibus: unveraendert - Art. 1 Nr. 4 der VO (EU) 2026/1744 aendert in Art. 3 nur Nr. 14 (neu gefasst,
+    Art. 3 Nr. 14 n.F.) und fuegt Nr. 14a und 14b ein; diese Nummer ist nicht betroffen (A-W4, geprueft
+    am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
   requirement: *id001
   gate: *id002
   befund: null
@@ -1953,9 +1957,9 @@ einheiten:
     keine Handlungspflicht fuer einen Akteur.
   verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 4 - Nr. 14 (Sicherheitsbauteil) neu gefasst, Nr.
-    14a (KMU) und 14b (kleines Midcap-Unternehmen) neu eingefuegt; die uebrigen in dieser Einheit zusammengefassten
-    Definitionen unveraendert (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  omnibus: unveraendert - Art. 1 Nr. 4 der VO (EU) 2026/1744 aendert in Art. 3 nur Nr. 14 (neu gefasst,
+    Art. 3 Nr. 14 n.F.) und fuegt Nr. 14a und 14b ein; diese Nummer ist nicht betroffen (A-W4, geprueft
+    am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
   requirement: *id001
   gate: *id002
   befund: null
@@ -1987,9 +1991,9 @@ einheiten:
     keine Handlungspflicht fuer einen Akteur.
   verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 4 - Nr. 14 (Sicherheitsbauteil) neu gefasst, Nr.
-    14a (KMU) und 14b (kleines Midcap-Unternehmen) neu eingefuegt; die uebrigen in dieser Einheit zusammengefassten
-    Definitionen unveraendert (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  omnibus: unveraendert - Art. 1 Nr. 4 der VO (EU) 2026/1744 aendert in Art. 3 nur Nr. 14 (neu gefasst,
+    Art. 3 Nr. 14 n.F.) und fuegt Nr. 14a und 14b ein; diese Nummer ist nicht betroffen (A-W4, geprueft
+    am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
   requirement: *id001
   gate: *id002
   befund: null
@@ -2021,9 +2025,9 @@ einheiten:
     keine Handlungspflicht fuer einen Akteur.
   verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 4 - Nr. 14 (Sicherheitsbauteil) neu gefasst, Nr.
-    14a (KMU) und 14b (kleines Midcap-Unternehmen) neu eingefuegt; die uebrigen in dieser Einheit zusammengefassten
-    Definitionen unveraendert (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  omnibus: unveraendert - Art. 1 Nr. 4 der VO (EU) 2026/1744 aendert in Art. 3 nur Nr. 14 (neu gefasst,
+    Art. 3 Nr. 14 n.F.) und fuegt Nr. 14a und 14b ein; diese Nummer ist nicht betroffen (A-W4, geprueft
+    am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
   requirement: *id001
   gate: *id002
   befund: null
@@ -2056,9 +2060,9 @@ einheiten:
     keine Handlungspflicht fuer einen Akteur.
   verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 4 - Nr. 14 (Sicherheitsbauteil) neu gefasst, Nr.
-    14a (KMU) und 14b (kleines Midcap-Unternehmen) neu eingefuegt; die uebrigen in dieser Einheit zusammengefassten
-    Definitionen unveraendert (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  omnibus: unveraendert - Art. 1 Nr. 4 der VO (EU) 2026/1744 aendert in Art. 3 nur Nr. 14 (neu gefasst,
+    Art. 3 Nr. 14 n.F.) und fuegt Nr. 14a und 14b ein; diese Nummer ist nicht betroffen (A-W4, geprueft
+    am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
   requirement: *id001
   gate: *id002
   befund: null
@@ -2092,9 +2096,9 @@ einheiten:
     keine Handlungspflicht fuer einen Akteur.
   verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 4 - Nr. 14 (Sicherheitsbauteil) neu gefasst, Nr.
-    14a (KMU) und 14b (kleines Midcap-Unternehmen) neu eingefuegt; die uebrigen in dieser Einheit zusammengefassten
-    Definitionen unveraendert (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  omnibus: unveraendert - Art. 1 Nr. 4 der VO (EU) 2026/1744 aendert in Art. 3 nur Nr. 14 (neu gefasst,
+    Art. 3 Nr. 14 n.F.) und fuegt Nr. 14a und 14b ein; diese Nummer ist nicht betroffen (A-W4, geprueft
+    am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
   requirement: *id001
   gate: *id002
   befund: null
@@ -2127,9 +2131,9 @@ einheiten:
     keine Handlungspflicht fuer einen Akteur.
   verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 4 - Nr. 14 (Sicherheitsbauteil) neu gefasst, Nr.
-    14a (KMU) und 14b (kleines Midcap-Unternehmen) neu eingefuegt; die uebrigen in dieser Einheit zusammengefassten
-    Definitionen unveraendert (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  omnibus: unveraendert - Art. 1 Nr. 4 der VO (EU) 2026/1744 aendert in Art. 3 nur Nr. 14 (neu gefasst,
+    Art. 3 Nr. 14 n.F.) und fuegt Nr. 14a und 14b ein; diese Nummer ist nicht betroffen (A-W4, geprueft
+    am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
   requirement: *id001
   gate: *id002
   befund: null
@@ -2162,9 +2166,9 @@ einheiten:
     keine Handlungspflicht fuer einen Akteur.
   verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 4 - Nr. 14 (Sicherheitsbauteil) neu gefasst, Nr.
-    14a (KMU) und 14b (kleines Midcap-Unternehmen) neu eingefuegt; die uebrigen in dieser Einheit zusammengefassten
-    Definitionen unveraendert (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  omnibus: unveraendert - Art. 1 Nr. 4 der VO (EU) 2026/1744 aendert in Art. 3 nur Nr. 14 (neu gefasst,
+    Art. 3 Nr. 14 n.F.) und fuegt Nr. 14a und 14b ein; diese Nummer ist nicht betroffen (A-W4, geprueft
+    am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
   requirement: *id001
   gate: *id002
   befund: null
@@ -2197,9 +2201,9 @@ einheiten:
     keine Handlungspflicht fuer einen Akteur.
   verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 4 - Nr. 14 (Sicherheitsbauteil) neu gefasst, Nr.
-    14a (KMU) und 14b (kleines Midcap-Unternehmen) neu eingefuegt; die uebrigen in dieser Einheit zusammengefassten
-    Definitionen unveraendert (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  omnibus: unveraendert - Art. 1 Nr. 4 der VO (EU) 2026/1744 aendert in Art. 3 nur Nr. 14 (neu gefasst,
+    Art. 3 Nr. 14 n.F.) und fuegt Nr. 14a und 14b ein; diese Nummer ist nicht betroffen (A-W4, geprueft
+    am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
   requirement: *id001
   gate: *id002
   befund: null
@@ -2231,9 +2235,9 @@ einheiten:
     keine Handlungspflicht fuer einen Akteur.
   verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 4 - Nr. 14 (Sicherheitsbauteil) neu gefasst, Nr.
-    14a (KMU) und 14b (kleines Midcap-Unternehmen) neu eingefuegt; die uebrigen in dieser Einheit zusammengefassten
-    Definitionen unveraendert (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  omnibus: unveraendert - Art. 1 Nr. 4 der VO (EU) 2026/1744 aendert in Art. 3 nur Nr. 14 (neu gefasst,
+    Art. 3 Nr. 14 n.F.) und fuegt Nr. 14a und 14b ein; diese Nummer ist nicht betroffen (A-W4, geprueft
+    am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
   requirement: *id001
   gate: *id002
   befund: null
@@ -2267,9 +2271,9 @@ einheiten:
     keine Handlungspflicht fuer einen Akteur.
   verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 4 - Nr. 14 (Sicherheitsbauteil) neu gefasst, Nr.
-    14a (KMU) und 14b (kleines Midcap-Unternehmen) neu eingefuegt; die uebrigen in dieser Einheit zusammengefassten
-    Definitionen unveraendert (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  omnibus: unveraendert - Art. 1 Nr. 4 der VO (EU) 2026/1744 aendert in Art. 3 nur Nr. 14 (neu gefasst,
+    Art. 3 Nr. 14 n.F.) und fuegt Nr. 14a und 14b ein; diese Nummer ist nicht betroffen (A-W4, geprueft
+    am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
   requirement: *id001
   gate: *id002
   befund: null
@@ -2302,9 +2306,9 @@ einheiten:
     keine Handlungspflicht fuer einen Akteur.
   verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 4 - Nr. 14 (Sicherheitsbauteil) neu gefasst, Nr.
-    14a (KMU) und 14b (kleines Midcap-Unternehmen) neu eingefuegt; die uebrigen in dieser Einheit zusammengefassten
-    Definitionen unveraendert (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  omnibus: unveraendert - Art. 1 Nr. 4 der VO (EU) 2026/1744 aendert in Art. 3 nur Nr. 14 (neu gefasst,
+    Art. 3 Nr. 14 n.F.) und fuegt Nr. 14a und 14b ein; diese Nummer ist nicht betroffen (A-W4, geprueft
+    am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
   requirement: *id001
   gate: *id002
   befund: null
@@ -2338,9 +2342,9 @@ einheiten:
     keine Handlungspflicht fuer einen Akteur.
   verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 4 - Nr. 14 (Sicherheitsbauteil) neu gefasst, Nr.
-    14a (KMU) und 14b (kleines Midcap-Unternehmen) neu eingefuegt; die uebrigen in dieser Einheit zusammengefassten
-    Definitionen unveraendert (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  omnibus: unveraendert - Art. 1 Nr. 4 der VO (EU) 2026/1744 aendert in Art. 3 nur Nr. 14 (neu gefasst,
+    Art. 3 Nr. 14 n.F.) und fuegt Nr. 14a und 14b ein; diese Nummer ist nicht betroffen (A-W4, geprueft
+    am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
   requirement: *id001
   gate: *id002
   befund: null
@@ -2372,9 +2376,9 @@ einheiten:
     keine Handlungspflicht fuer einen Akteur.
   verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 4 - Nr. 14 (Sicherheitsbauteil) neu gefasst, Nr.
-    14a (KMU) und 14b (kleines Midcap-Unternehmen) neu eingefuegt; die uebrigen in dieser Einheit zusammengefassten
-    Definitionen unveraendert (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  omnibus: unveraendert - Art. 1 Nr. 4 der VO (EU) 2026/1744 aendert in Art. 3 nur Nr. 14 (neu gefasst,
+    Art. 3 Nr. 14 n.F.) und fuegt Nr. 14a und 14b ein; diese Nummer ist nicht betroffen (A-W4, geprueft
+    am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
   requirement: *id001
   gate: *id002
   befund: null
@@ -2407,9 +2411,9 @@ einheiten:
     keine Handlungspflicht fuer einen Akteur.
   verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 4 - Nr. 14 (Sicherheitsbauteil) neu gefasst, Nr.
-    14a (KMU) und 14b (kleines Midcap-Unternehmen) neu eingefuegt; die uebrigen in dieser Einheit zusammengefassten
-    Definitionen unveraendert (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  omnibus: unveraendert - Art. 1 Nr. 4 der VO (EU) 2026/1744 aendert in Art. 3 nur Nr. 14 (neu gefasst,
+    Art. 3 Nr. 14 n.F.) und fuegt Nr. 14a und 14b ein; diese Nummer ist nicht betroffen (A-W4, geprueft
+    am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
   requirement: *id001
   gate: *id002
   befund: null
@@ -2440,9 +2444,9 @@ einheiten:
     keine Handlungspflicht fuer einen Akteur.
   verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 4 - Nr. 14 (Sicherheitsbauteil) neu gefasst, Nr.
-    14a (KMU) und 14b (kleines Midcap-Unternehmen) neu eingefuegt; die uebrigen in dieser Einheit zusammengefassten
-    Definitionen unveraendert (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  omnibus: unveraendert - Art. 1 Nr. 4 der VO (EU) 2026/1744 aendert in Art. 3 nur Nr. 14 (neu gefasst,
+    Art. 3 Nr. 14 n.F.) und fuegt Nr. 14a und 14b ein; diese Nummer ist nicht betroffen (A-W4, geprueft
+    am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
   requirement: *id001
   gate: *id002
   befund: null
@@ -3584,35 +3588,37 @@ einheiten:
   pflicht: Anbieter und Betreiber ergreifen Massnahmen, um die Entwicklung der KI-Kompetenz ihres Personals
     und anderer in ihrem Auftrag mit Betrieb und Nutzung befasster Personen zu unterstuetzen (Art. 4 Abs.
     1 n.F.); ein bestimmtes Kompetenzniveau muessen sie nicht garantieren.
-  scope: in
-  scope_grund: null
+  scope: out
+  scope_grund: 'Ersetzt durch n.F. (A-F2a, PO 29.09.2026): VO (EU) 2026/1744 fasst den Wortlaut dieser
+    Einheit neu. Bewertet wird nur die Neufassung im Omnibus-Pflichtenraum (Feld fassung_2026_1744); dieser
+    Beleg ist nicht mehr geltendes Recht.'
   verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: 'geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 5 - Art. 4 neu gefasst. Abs. 1 schwaecht die
     Pflicht ab: statt ''sicherzustellen, dass ... ueber ein ausreichendes Mass an KI-Kompetenz verfuegen''
     nun ''ergreifen Massnahmen, um die Entwicklung der KI-Kompetenz ... zu unterstuetzen'', ausdruecklich
     ohne Pflicht zu einem bestimmten Niveau. Abs. 2 und 3 neu. Neufassung: Art. 4 n.F. im Omnibus-Pflichtenraum.'
-  requirement: []
-  gate: []
-  befund: luecke
-  befund_grund: Kein Requirement und kein Gate prueft Massnahmen zur KI-Kompetenz des Personals. Geprueft
-    wird nach der Neufassung, ob Massnahmen zur Unterstuetzung der Kompetenzentwicklung je Aufsichtsrolle
-    bestehen - nicht, ob ein Niveau erreicht ist (P2, R016).
+  requirement: &id023 []
+  gate: &id024 []
+  befund: null
+  befund_grund: null
   po_bestaetigt: true
   uid: Art. 4@288967
   abschnitt: null
   nummer: null
   unterabsatz: null
   ziffer: null
+  po_entscheid:
+  - 2026-09-23 · 2b E2 (P2 KI-Kompetenz)
+  - 2026-09-23 · 2b E4 (VERIFIZIERT - Betreiber in der Einheit oder ihrem Einleitungssatz genannt)
+  - 2026-09-23 · 2b E6 (Omnibus-Feld, Art. 4 auf den neuen Wortlaut)
+  - 2026-09-29 · A-F2a (Review 08 Teil 7) - ersetzt durch n.F., bewertet wird die n.F.-Zeile
   fassung_2026_1744:
   - Art. 4 n.F.@83572
   - Art. 4 Abs. 1 n.F.@83595
   - Art. 4 Abs. 2 n.F.@84235
   - Art. 4 Abs. 3 n.F.@84646
-  po_entscheid:
-  - 2026-09-23 · 2b E2 (P2 KI-Kompetenz)
-  - 2026-09-23 · 2b E4 (VERIFIZIERT - Betreiber in der Einheit oder ihrem Einleitungssatz genannt)
-  - 2026-09-23 · 2b E6 (Omnibus-Feld, Art. 4 auf den neuen Wortlaut)
+  neufassung: ersetzt
 - id: Art. 5 Abs. 1
   artikel: '5'
   artikel_titel: Verbotene Praktiken im KI-Bereich
@@ -6270,7 +6276,7 @@ einheiten:
   scope_grund: 'Anbieterpflicht (Daten-Governance bei der Entwicklung/dem Training des Systems, Kapitel
     III Abschnitt 2 i.V.m. Art. 16 lit. a); R006 selbst haelt fest: ''Art. 10 primaer Provider-Pflicht,
     fuer Deployer relevant via Art. 26 Abs. 4'' - die Betreiber-seitige Entsprechung ist dort (Lauf 1,
-    bereits erfasst) und nicht hier abgebildet.'
+    bereits erfasst) und nicht hier abgebildet. Zudem ersetzt durch n.F. (A-F2a): Art. 10 Abs. 1 n.F.'
   verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 9 lit. a - neue Fassung verweist zusaetzlich auf
@@ -6288,6 +6294,7 @@ einheiten:
   ziffer: null
   fassung_2026_1744:
   - Art. 10 Abs. 1 n.F.@91949
+  neufassung: ersetzt
 - id: Art. 10 Abs. 2
   artikel: '10'
   artikel_titel: Daten und Daten-Governance
@@ -6703,6 +6710,7 @@ einheiten:
   ziffer: null
   fassung_2026_1744:
   - Omnibus Art. 1 Nr. 9 lit. b@92301
+  neufassung: gestrichen
 - id: Art. 10 Abs. 5 lit. a
   artikel: '10'
   artikel_titel: Daten und Daten-Governance
@@ -6740,6 +6748,7 @@ einheiten:
   ziffer: null
   fassung_2026_1744:
   - Omnibus Art. 1 Nr. 9 lit. b@92301
+  neufassung: gestrichen
 - id: Art. 10 Abs. 5 lit. b
   artikel: '10'
   artikel_titel: Daten und Daten-Governance
@@ -6778,6 +6787,7 @@ einheiten:
   ziffer: null
   fassung_2026_1744:
   - Omnibus Art. 1 Nr. 9 lit. b@92301
+  neufassung: gestrichen
 - id: Art. 10 Abs. 5 lit. c
   artikel: '10'
   artikel_titel: Daten und Daten-Governance
@@ -6818,6 +6828,7 @@ einheiten:
   ziffer: null
   fassung_2026_1744:
   - Omnibus Art. 1 Nr. 9 lit. b@92301
+  neufassung: gestrichen
 - id: Art. 10 Abs. 5 lit. d
   artikel: '10'
   artikel_titel: Daten und Daten-Governance
@@ -6855,6 +6866,7 @@ einheiten:
   ziffer: null
   fassung_2026_1744:
   - Omnibus Art. 1 Nr. 9 lit. b@92301
+  neufassung: gestrichen
 - id: Art. 10 Abs. 5 lit. e
   artikel: '10'
   artikel_titel: Daten und Daten-Governance
@@ -6893,6 +6905,7 @@ einheiten:
   ziffer: null
   fassung_2026_1744:
   - Omnibus Art. 1 Nr. 9 lit. b@92301
+  neufassung: gestrichen
 - id: Art. 10 Abs. 5 lit. f
   artikel: '10'
   artikel_titel: Daten und Daten-Governance
@@ -6931,6 +6944,7 @@ einheiten:
   ziffer: null
   fassung_2026_1744:
   - Omnibus Art. 1 Nr. 9 lit. b@92301
+  neufassung: gestrichen
 - id: Art. 10 Abs. 6
   artikel: '10'
   artikel_titel: Daten und Daten-Governance
@@ -6957,7 +6971,7 @@ einheiten:
     auf einer verkuerzten Lesart beruhen (moeglicherweise verwechselt mit der Anwendungslogik von Abs.
     6 als SCHWELLENWERT dafuer, WELCHE Anbieter-Pruefungen im Trainingsfall entfallen - nicht damit, dass
     der Betreiber selbst geprueft wird). PO-Entscheidung: Anhang M.3 der Masterarbeit an dieser Stelle
-    korrigieren oder Gegenargument nachreichen.'
+    korrigieren oder Gegenargument nachreichen. Zudem ersetzt durch n.F. (A-F2a): Art. 10 Abs. 6 n.F.'
   verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 9 lit. c - verweist zusaetzlich auf Art. 4a Abs.
@@ -6975,6 +6989,7 @@ einheiten:
   ziffer: null
   fassung_2026_1744:
   - Art. 10 Abs. 6 n.F.@92368
+  neufassung: ersetzt
 - id: Art. 11 Abs. 1
   artikel: '11'
   artikel_titel: Technische Dokumentation
@@ -7011,7 +7026,8 @@ einheiten:
     durch nationale Behoerden/notifizierte Stellen - kein Bezugspunkt fuer den Betreiber. R002 (role:
     deployer, eu_ai_act_refs Art. 11, linked_gates G-DEP-01) tragt dieselbe Spannung wie R001/Art. 9 und
     R013/Art. 10 Abs. 2 lit. f - hier aber nicht neu entdeckt, sondern der Gate-eigene Befund bestaetigt
-    scope: out.'
+    scope: out. Teilweise ersetzt (A-F2a): nur UAbs. 2 neu gefasst (Art. 11 Abs. 1 UAbs. 2 n.F.); Satz
+    1 (UAbs. 1) gilt fort; Scope des fortgeltenden Teils unveraendert.'
   verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: 'geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 10 - Abs. 1 UAbs. 2 neu gefasst: KMU- Vereinfachung
@@ -7031,6 +7047,7 @@ einheiten:
   ziffer: null
   fassung_2026_1744:
   - Art. 11 Abs. 1 UAbs. 2 n.F.@92663
+  neufassung: teilweise
 - id: Art. 11 Abs. 2
   artikel: '11'
   artikel_titel: Technische Dokumentation
@@ -9692,8 +9709,8 @@ einheiten:
   pflicht: Die QMS-Umsetzung ist verhaeltnismaessig zur Organisationsgroesse (insb. KMU/kleine Midcap-Unternehmen),
     das Schutzniveau muss aber in jedem Fall eingehalten werden.
   scope: out
-  scope_grund: Anbieter-internes Qualitaetsmanagementsystem (Art. 17) - reine Organisationspflicht des
-    Anbieters, keine Betreiber-Handlungspflicht.
+  scope_grund: 'Anbieter-internes Qualitaetsmanagementsystem (Art. 17) - reine Organisationspflicht des
+    Anbieters, keine Betreiber-Handlungspflicht. Zudem ersetzt durch n.F. (A-F2a): Art. 17 Abs. 2 n.F.'
   verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: 'geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 11 - Abs. 2 neu gefasst: ergaenzt die Klarstellung
@@ -9711,6 +9728,7 @@ einheiten:
   ziffer: null
   fassung_2026_1744:
   - Art. 17 Abs. 2 n.F.@93909
+  neufassung: ersetzt
 - id: Art. 17 Abs. 3
   artikel: '17'
   artikel_titel: Qualitätsmanagementsystem
@@ -11183,8 +11201,10 @@ einheiten:
   pflicht: Wird der Betreiber durch lit. a-c zum neuen Anbieter, muss der urspruengliche Anbieter (Erstanbieter)
     mit ihm kooperieren, Informationen, technischen Zugang und Unterstuetzung fuer die Konformitaetsbewertung
     bereitstellen - ausser der Erstanbieter hat den Uebergang zum Hochrisiko-System ausdruecklich ausgeschlossen.
-  scope: in
-  scope_grund: null
+  scope: out
+  scope_grund: 'Ersetzt durch n.F. (A-F2a, PO 29.09.2026): VO (EU) 2026/1744 fasst den Wortlaut dieser
+    Einheit neu. Bewertet wird nur die Neufassung im Omnibus-Pflichtenraum (Feld fassung_2026_1744); dieser
+    Beleg ist nicht mehr geltendes Recht.'
   verifikation: HYPOTHESE
   hypothese_grund: Anbieterpflicht mit Durchschlag auf den Betreiber (2b E4); die Regel nennt fuer diesen
     Artikel weder Anker (a) noch (b). Ob einer traegt, prueft 2c (Leitfrage Q9).
@@ -11196,30 +11216,26 @@ einheiten:
     Pflicht zur Zusammenarbeit MIT NEUEN ANBIETERN UND zur Uebergabe der Dokumentation (vorher nur von
     der Uebergabepflicht allein). Beide Fassungen sind inhaltlich in dieselbe Richtung, die neue ist praeziser
     und breiter im Carve-out.'
-  requirement: []
-  gate:
-  - G-OPS-06
-  befund: teilabdeckung
-  befund_grund: 'G-OPS-06/C-25d prueft, ob nach einem bindenden Ausloeser (C-25a/C-25c) die Uebergabeartefakte
-    vorliegen bzw. der Carve-out belegt ist (MUST, implemented) - das deckt die praktische Nachweisseite
-    dieser Pflicht fuer den Betreiber-als-neuen-Anbieter. Nicht gedeckt: der trigger ''notify'' (Anstossen
-    der eigentlichen Kooperation/Uebergabe beim Erstanbieter) ist laut Gate-eigener Deklaration ''declared_only'',
-    nicht durchgesetzt - das Gate stellt das Fehlen fest, loest die Kooperation aber nicht aus. Requirement
-    fehlt (Befund 1).'
+  requirement: *id023
+  gate: *id024
+  befund: null
+  befund_grund: null
   po_bestaetigt: true
   uid: Art. 25 Abs. 2@355671
   abschnitt: null
   nummer: null
   unterabsatz: null
   ziffer: null
+  po_entscheid:
+  - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, kein Anker benannt)
+  - 2026-09-28 · 2c F1 (T-D Rollenwechsel, M-D3 Trigger notify)
+  - 2026-09-29 · A-F2a (Review 08 Teil 7) - ersetzt durch n.F., bewertet wird die n.F.-Zeile
   fassung_2026_1744:
   - Art. 25 Abs. 2 n.F.@94460
   - Art. 25 Abs. 2 lit. a n.F.@95227
   - Art. 25 Abs. 2 lit. b n.F.@95361
   - Art. 25 Abs. 2 lit. c n.F.@95448
-  po_entscheid:
-  - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, kein Anker benannt)
-  - 2026-09-28 · 2c F1 (T-D Rollenwechsel, M-D3 Trigger notify)
+  neufassung: ersetzt
 - id: Art. 25 Abs. 3
   artikel: '25'
   artikel_titel: Verantwortlichkeiten entlang der KI-Wertschöpfungskette
@@ -11339,11 +11355,13 @@ einheiten:
     technischen Zugang/die Unterstuetzung in einer schriftlichen Vereinbarung fest; Ausnahme fuer freie/quelloffene
     Nicht-GPAI-Komponenten. Das KI-Buero kann freiwillige Musterbedingungen ausarbeiten.
   scope: out
-  scope_grund: Regelt das Verhaeltnis Anbieter/Dritter (Komponenten-/Werkzeuglieferant) im Chapter-III-Kontext,
+  scope_grund: 'Regelt das Verhaeltnis Anbieter/Dritter (Komponenten-/Werkzeuglieferant) im Chapter-III-Kontext,
     keine im Wortlaut erkennbare Betreiberpflicht in der Zukauf-Regelkonstellation K1 (HANDBUCH 4.4).
     Wuerde der Betreiber selbst zum Anbieter (Art. 25 Abs. 1), traefe ihn diese Norm erst in seiner neuen
     Anbieterrolle - die volle Anbieterpflichtenkette nach einem Rollenwechsel ist laut SPEC-06 Abschnitt
-    4 ausdruecklich eine spaetere Ausbaustufe, hier nicht mitentschieden.
+    4 ausdruecklich eine spaetere Ausbaustufe, hier nicht mitentschieden. Teilweise ersetzt (A-F2a): nur
+    UAbs. 1 neu gefasst (Art. 25 Abs. 4 UAbs. 1 n.F.); UAbs. 2 (Musterbedingungen) gilt fort; Scope des
+    fortgeltenden Teils unveraendert.'
   verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: 'GEAENDERT durch VO (EU) 2026/1744 Art. 1 Nr. 12 lit. b: UAbs. 1 ergaenzt in der Aufzaehlung
@@ -11362,6 +11380,7 @@ einheiten:
   ziffer: null
   fassung_2026_1744:
   - Art. 25 Abs. 4 UAbs. 1 n.F.@95904
+  neufassung: teilweise
 - id: Art. 25 Abs. 5
   artikel: '25'
   artikel_titel: Verantwortlichkeiten entlang der KI-Wertschöpfungskette
@@ -11592,7 +11611,7 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - VO (EU) 2026/1744 Art. 1 aendert Art. 25 und Art. 27, Art. 26 ist in der Aenderungsliste
     nicht enthalten (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: &id023
+  requirement: &id025
   - R009
   gate:
   - G-OPS-01
@@ -11642,8 +11661,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - VO (EU) 2026/1744 Art. 1 aendert Art. 25 und Art. 27, Art. 26 ist in der Aenderungsliste
     nicht enthalten (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id023
-  gate: &id024
+  requirement: *id025
+  gate: &id026
   - G-OPS-02
   befund: luecke
   befund_grund: 'Hat der Betreiber Grund zur Annahme eines Risikos nach Art. 79 Abs. 1, setzt er die Verwendung
@@ -11686,8 +11705,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - VO (EU) 2026/1744 Art. 1 aendert Art. 25 und Art. 27, Art. 26 ist in der Aenderungsliste
     nicht enthalten (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id023
-  gate: *id024
+  requirement: *id025
+  gate: *id026
   befund: teilabdeckung
   befund_grund: G-OPS-02/C-01 prueft, dass ein Incident-Kontakt deklariert ist, nicht die Reihenfolge
     zuerst Anbieter, dann Einfuehrer oder Haendler, dann Behoerde (M-E3, P6).
@@ -11726,8 +11745,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - VO (EU) 2026/1744 Art. 1 aendert Art. 25 und Art. 27, Art. 26 ist in der Aenderungsliste
     nicht enthalten (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id023
-  gate: *id024
+  requirement: *id025
+  gate: *id026
   befund: teilabdeckung
   befund_grund: G-OPS-02/C-04 fuehrt die Fristen des Art. 73, aber als eigene Betreiberpflicht; der Fall,
     fuer den sie dem Betreiber gelten - Anbieter nicht erreichbar -, ist nicht abgebildet (M-E4, M-F1).
@@ -11768,8 +11787,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - VO (EU) 2026/1744 Art. 1 aendert Art. 25 und Art. 27, Art. 26 ist in der Aenderungsliste
     nicht enthalten (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id023
-  gate: *id024
+  requirement: *id025
+  gate: *id026
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -11812,8 +11831,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - VO (EU) 2026/1744 Art. 1 aendert Art. 25 und Art. 27, Art. 26 ist in der Aenderungsliste
     nicht enthalten (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id023
-  gate: *id024
+  requirement: *id025
+  gate: *id026
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -12468,10 +12487,11 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
-  fassung_2026_1744:
-  - Art. 27 Abs. 4 n.F.@96790
   po_entscheid:
   - 2026-09-23 · 2a Gruppe A (Bereichsausnahme Anhang III Nr. 2)
+  fassung_2026_1744:
+  - Art. 27 Abs. 4 n.F.@96790
+  neufassung: ersetzt
 - id: Art. 27 Abs. 5
   artikel: '27'
   artikel_titel: Grundrechte-Folgenabschätzung für Hochrisiko-KI-Systeme
@@ -12488,7 +12508,8 @@ einheiten:
   pflicht: Das KI-Buero erarbeitet ein Fragebogen-Muster (ggf. mit automatisiertem Instrument), das dem
     Betreiber die vereinfachte Erfuellung seiner Art.-27-Pflichten ermoeglicht.
   scope: out
-  scope_grund: Adressat ist das Buero fuer Kuenstliche Intelligenz (Kommission), keine Betreiberpflicht.
+  scope_grund: 'Adressat ist das Buero fuer Kuenstliche Intelligenz (Kommission), keine Betreiberpflicht.
+    Zudem ersetzt durch n.F. (A-F2a): Art. 27 Abs. 5 n.F.'
   verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: 'GEAENDERT durch VO (EU) 2026/1744 Art. 1 Nr. 13 lit. b: Ergaenzt, dass das Fragebogen-Muster
@@ -12506,6 +12527,7 @@ einheiten:
   ziffer: null
   fassung_2026_1744:
   - Art. 27 Abs. 5 n.F.@97338
+  neufassung: ersetzt
 - id: Art. 28 Abs. 1
   artikel: '28'
   artikel_titel: Notifizierende Behörden
@@ -12833,7 +12855,8 @@ einheiten:
     Stelle aktualisiert ihre Dokumentation bei relevanten Aenderungen, damit die zustaendige Behoerde
     die fortlaufende Erfuellung des Art. 31 pruefen kann.
   scope: out
-  scope_grund: Aktualisierungspflicht der notifizierten Stelle, keine Betreiberpflicht.
+  scope_grund: 'Aktualisierungspflicht der notifizierten Stelle, keine Betreiberpflicht. Zudem ersetzt
+    durch n.F. (A-F2a): Art. 29 Abs. 4 n.F.'
   verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 15 - Abs. 4 neu gefasst (einheitliches Bewertungsverfahren
@@ -12850,6 +12873,7 @@ einheiten:
   ziffer: null
   fassung_2026_1744:
   - Art. 29 Abs. 4 n.F.@100710
+  neufassung: ersetzt
 - id: Art. 30 Abs. 1
   artikel: '30'
   artikel_titel: Notifizierungsverfahren
@@ -12894,7 +12918,8 @@ einheiten:
   pflicht: Notifizierende Behoerden unterrichten Kommission und uebrige Mitgliedstaaten ueber jede notifizierte
     Konformitaetsbewertungsstelle mittels des elektronischen Notifizierungsinstruments der Kommission.
   scope: out
-  scope_grund: Unterrichtungspflicht der notifizierenden Behoerde, keine Betreiberpflicht.
+  scope_grund: 'Unterrichtungspflicht der notifizierenden Behoerde, keine Betreiberpflicht. Zudem ersetzt
+    durch n.F. (A-F2a): Art. 30 Abs. 2 n.F.'
   verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 16 - Abs. 2 neu gefasst (Verweis auf delegierte
@@ -12911,6 +12936,7 @@ einheiten:
   ziffer: null
   fassung_2026_1744:
   - Art. 30 Abs. 2 n.F.@101751
+  neufassung: ersetzt
 - id: Art. 30 Abs. 3
   artikel: '30'
   artikel_titel: Notifizierungsverfahren
@@ -14725,8 +14751,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - Art. 41 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
     nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: &id025 []
-  gate: &id026 []
+  requirement: &id027 []
+  gate: &id028 []
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -14757,8 +14783,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - Art. 41 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
     nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id025
-  gate: *id026
+  requirement: *id027
+  gate: *id028
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -14789,8 +14815,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - Art. 41 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
     nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id025
-  gate: *id026
+  requirement: *id027
+  gate: *id028
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -14820,8 +14846,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - Art. 41 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
     nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id025
-  gate: *id026
+  requirement: *id027
+  gate: *id028
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -15369,7 +15395,8 @@ einheiten:
     sofern Art. 31 Abs. 4/5/10/11 erfuellt sind, und ein Verzicht auf Drittbewertung nur zulaessig ist,
     wenn auch die einschlaegigen harmonisierten Normen/Spezifikationen dieses Kapitels angewandt wurden.
   scope: out
-  scope_grund: Verfahrenspflicht des Anbieters (Doppelregulierung mit anderem Produktrecht), keine Betreiberpflicht.
+  scope_grund: 'Verfahrenspflicht des Anbieters (Doppelregulierung mit anderem Produktrecht), keine Betreiberpflicht.
+    Zudem ersetzt durch n.F. (A-F2a): Art. 43 Abs. 3 n.F.'
   verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 19 - Abs. 3 neu gefasst (Konformitaetsbewertung
@@ -15386,6 +15413,7 @@ einheiten:
   ziffer: null
   fassung_2026_1744:
   - Art. 43 Abs. 3 n.F.@104336
+  neufassung: ersetzt
 - id: Art. 43 Abs. 4
   artikel: '43'
   artikel_titel: Konformitätsbewertung
@@ -15411,8 +15439,8 @@ einheiten:
     Betreibers' ist nur ein Bezugspunkt (Fortnutzung), keine eigene Handlungspflicht des Betreibers.
   verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 19 - Art. 43 Abs. 3 (nicht Abs. 4) neu gefasst;
-    Abs. 4 selbst unveraendert (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  omnibus: unveraendert - Art. 1 Nr. 19 der VO (EU) 2026/1744 fasst nur Art. 43 Abs. 3 neu (geprueft am
+    verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
   requirement: []
   gate: []
   befund: null
@@ -16981,8 +17009,8 @@ einheiten:
     fuer kuenstlich erzeugte/manipulierte Inhalte; die Kommission kann Praxisleitfaeden per Durchfuehrungsrechtsakt
     genehmigen oder bei Unzulaenglichkeit gemeinsame Vorschriften erlassen.
   scope: out
-  scope_grund: Adressat ist das KI-Buero/die Kommission (Verfahren zur Praxisleitfaden-Entwicklung), keine
-    Betreiberpflicht.
+  scope_grund: 'Adressat ist das KI-Buero/die Kommission (Verfahren zur Praxisleitfaden-Entwicklung),
+    keine Betreiberpflicht. Zudem ersetzt durch n.F. (A-F2a): Art. 50 Abs. 7 n.F.'
   verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: 'GEAENDERT durch VO (EU) 2026/1744 Art. 1 Nr. 20: rein verfahrensbezogene Neufassung (Zustaendigkeit/Verfahren
@@ -17001,6 +17029,7 @@ einheiten:
   ziffer: null
   fassung_2026_1744:
   - Art. 50 Abs. 7 n.F.@107743
+  neufassung: ersetzt
 - id: Art. 51 Abs. 1
   artikel: '51'
   artikel_titel: Einstufung von KI-Modellen mit allgemeinem Verwendungszweck als KI-Modelle mit allgemeinem
@@ -17506,8 +17535,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: &id027 []
-  gate: &id028 []
+  requirement: &id029 []
+  gate: &id030 []
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -17538,8 +17567,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id027
-  gate: *id028
+  requirement: *id029
+  gate: *id030
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -18676,9 +18705,9 @@ einheiten:
     der Praxisleitfaeden regelmaessig; die Kommission kann einen Praxisleitfaden per Durchfuehrungsrechtsakt
     allgemeinguelitg erklaeren.
   scope: out
-  scope_grund: Die Regelung betrifft eine Handlungs- oder Aufsichtspflicht der Kommission, des Buero fuer
-    Kuenstliche Intelligenz, des KI-Gremiums oder der zustaendigen Behoerden und begruendet keine Pflicht
-    des Betreibers.
+  scope_grund: 'Die Regelung betrifft eine Handlungs- oder Aufsichtspflicht der Kommission, des Buero
+    fuer Kuenstliche Intelligenz, des KI-Gremiums oder der zustaendigen Behoerden und begruendet keine
+    Pflicht des Betreibers. Zudem ersetzt durch n.F. (A-F2a): Art. 56 Abs. 6 n.F.'
   verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 21 - Abs. 6 neu gefasst (Art. 56 Abs. 6 n.F.).
@@ -18692,10 +18721,11 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
-  fassung_2026_1744:
-  - Art. 56 Abs. 6 n.F.@108619
   po_entscheid:
   - 2026-09-23 · 2b E6 (Omnibus-Feld)
+  fassung_2026_1744:
+  - Art. 56 Abs. 6 n.F.@108619
+  neufassung: ersetzt
 - id: Art. 56 Abs. 7
   artikel: '56'
   artikel_titel: Praxisleitfäden
@@ -18820,9 +18850,10 @@ einheiten:
   pflicht: Die Mitgliedstaaten muessen sicherstellen, dass ihre zustaendigen Behoerden bis zum 2. August
     2026 mindestens ein nationales KI-Reallabor einrichten.
   scope: out
-  scope_grund: Die Regelung betrifft eine Handlungs- oder Aufsichtspflicht der Kommission, des Buero fuer
-    Kuenstliche Intelligenz, des KI-Gremiums oder der zustaendigen Behoerden und begruendet keine Pflicht
-    des Betreibers.
+  scope_grund: 'Die Regelung betrifft eine Handlungs- oder Aufsichtspflicht der Kommission, des Buero
+    fuer Kuenstliche Intelligenz, des KI-Gremiums oder der zustaendigen Behoerden und begruendet keine
+    Pflicht des Betreibers. Teilweise ersetzt (A-F2a): nur UAbs. 1 neu gefasst (Art. 57 Abs. 1 UAbs. 1
+    n.F.); UAbs. 2 gilt fort; Scope des fortgeltenden Teils unveraendert.'
   verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 22 - Abs. 1 UAbs. 1 neu gefasst (Reallabor-Einrichtungsfrist
@@ -18839,6 +18870,7 @@ einheiten:
   ziffer: null
   fassung_2026_1744:
   - Art. 57 Abs. 1 UAbs. 1 n.F.@109270
+  neufassung: teilweise
 - id: Art. 57 Abs. 2
   artikel: '57'
   artikel_titel: KI-Reallabore
@@ -18885,9 +18917,9 @@ einheiten:
   pflicht: Der Europaeische Datenschutzbeauftragte kann ein KI-Reallabor fuer Organe und Einrichtungen
     der Union einrichten und dabei die Rolle der zustaendigen nationalen Behoerden uebernehmen.
   scope: out
-  scope_grund: Die Regelung betrifft eine Handlungs- oder Aufsichtspflicht der Kommission, des Buero fuer
-    Kuenstliche Intelligenz, des KI-Gremiums oder der zustaendigen Behoerden und begruendet keine Pflicht
-    des Betreibers.
+  scope_grund: 'Die Regelung betrifft eine Handlungs- oder Aufsichtspflicht der Kommission, des Buero
+    fuer Kuenstliche Intelligenz, des KI-Gremiums oder der zustaendigen Behoerden und begruendet keine
+    Pflicht des Betreibers. Zudem ersetzt durch n.F. (A-F2a): Art. 57 Abs. 3 n.F.'
   verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 22 - Abs. 3 neu gefasst (Europaeischer Datenschutzbeauftragter
@@ -18904,6 +18936,7 @@ einheiten:
   ziffer: null
   fassung_2026_1744:
   - Art. 57 Abs. 3 n.F.@109745
+  neufassung: ersetzt
 - id: Art. 57 Abs. 4
   artikel: '57'
   artikel_titel: KI-Reallabore
@@ -18959,9 +18992,9 @@ einheiten:
     innovativer KI-Systeme vor Markteinfuehrung nach einem mit der Behoerde vereinbarten Plan zu erleichtern,
     einschliesslich beaufsichtigter Tests unter Realbedingungen.
   scope: out
-  scope_grund: Die Regelung betrifft eine Handlungs- oder Aufsichtspflicht der Kommission, des Buero fuer
-    Kuenstliche Intelligenz, des KI-Gremiums oder der zustaendigen Behoerden und begruendet keine Pflicht
-    des Betreibers.
+  scope_grund: 'Die Regelung betrifft eine Handlungs- oder Aufsichtspflicht der Kommission, des Buero
+    fuer Kuenstliche Intelligenz, des KI-Gremiums oder der zustaendigen Behoerden und begruendet keine
+    Pflicht des Betreibers. Zudem ersetzt durch n.F. (A-F2a): Art. 57 Abs. 5 n.F.'
   verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 22 - Abs. 5 neu gefasst (Bezug auf Reallabor-Plan
@@ -18978,6 +19011,7 @@ einheiten:
   ziffer: null
   fassung_2026_1744:
   - Art. 57 Abs. 5 n.F.@111027
+  neufassung: ersetzt
 - id: Art. 57 Abs. 6
   artikel: '57'
   artikel_titel: KI-Reallabore
@@ -19255,9 +19289,9 @@ einheiten:
   pflicht: Ziel ist die Erleichterung und Beschleunigung des Marktzugangs von KI-Systemen, insbesondere
     fuer KMU und Start-ups.
   scope: out
-  scope_grund: Die Regelung betrifft eine Handlungs- oder Aufsichtspflicht der Kommission, des Buero fuer
-    Kuenstliche Intelligenz, des KI-Gremiums oder der zustaendigen Behoerden und begruendet keine Pflicht
-    des Betreibers.
+  scope_grund: 'Die Regelung betrifft eine Handlungs- oder Aufsichtspflicht der Kommission, des Buero
+    fuer Kuenstliche Intelligenz, des KI-Gremiums oder der zustaendigen Behoerden und begruendet keine
+    Pflicht des Betreibers. Zudem ersetzt durch n.F. (A-F2a): Art. 57 Abs. 9 lit. e n.F.'
   verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 22 - Abs. 9 lit. e neu gefasst; geprueft am verfuegenden
@@ -19274,6 +19308,7 @@ einheiten:
   ziffer: null
   fassung_2026_1744:
   - Art. 57 Abs. 9 lit. e n.F.@111824
+  neufassung: ersetzt
 - id: Art. 57 Abs. 10
   artikel: '57'
   artikel_titel: KI-Reallabore
@@ -19292,9 +19327,9 @@ einheiten:
   pflicht: Verarbeiten die im Reallabor erprobten KI-Systeme personenbezogene Daten, muessen die zustaendigen
     Behoerden die volle Einbeziehung der Datenschutzbehoerden in Betrieb und Aufsicht sicherstellen.
   scope: out
-  scope_grund: Die Regelung betrifft eine Handlungs- oder Aufsichtspflicht der Kommission, des Buero fuer
-    Kuenstliche Intelligenz, des KI-Gremiums oder der zustaendigen Behoerden und begruendet keine Pflicht
-    des Betreibers.
+  scope_grund: 'Die Regelung betrifft eine Handlungs- oder Aufsichtspflicht der Kommission, des Buero
+    fuer Kuenstliche Intelligenz, des KI-Gremiums oder der zustaendigen Behoerden und begruendet keine
+    Pflicht des Betreibers. Zudem ersetzt durch n.F. (A-F2a): Art. 57 Abs. 10 n.F.'
   verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 22 - Abs. 10 neu gefasst; geprueft am verfuegenden
@@ -19311,6 +19346,7 @@ einheiten:
   ziffer: null
   fassung_2026_1744:
   - Art. 57 Abs. 10 n.F.@112068
+  neufassung: ersetzt
 - id: Art. 57 Abs. 11
   artikel: '57'
   artikel_titel: KI-Reallabore
@@ -19432,9 +19468,9 @@ einheiten:
   pflicht: Die zustaendigen nationalen Behoerden koordinieren ihre Taetigkeiten und arbeiten im Rahmen
     des KI-Gremiums zusammen.
   scope: out
-  scope_grund: Die Regelung betrifft eine Handlungs- oder Aufsichtspflicht der Kommission, des Buero fuer
-    Kuenstliche Intelligenz, des KI-Gremiums oder der zustaendigen Behoerden und begruendet keine Pflicht
-    des Betreibers.
+  scope_grund: 'Die Regelung betrifft eine Handlungs- oder Aufsichtspflicht der Kommission, des Buero
+    fuer Kuenstliche Intelligenz, des KI-Gremiums oder der zustaendigen Behoerden und begruendet keine
+    Pflicht des Betreibers. Zudem ersetzt durch n.F. (A-F2a): Art. 57 Abs. 14 n.F.'
   verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 22 - Abs. 14 neu gefasst; geprueft am verfuegenden
@@ -19451,6 +19487,7 @@ einheiten:
   ziffer: null
   fassung_2026_1744:
   - Art. 57 Abs. 14 n.F.@112652
+  neufassung: ersetzt
 - id: Art. 57 Abs. 15
   artikel: '57'
   artikel_titel: KI-Reallabore
@@ -19577,9 +19614,9 @@ einheiten:
     Entwicklung, Betrieb und Beaufsichtigung der KI-Reallabore, um eine Zersplitterung in der Union zu
     vermeiden.
   scope: out
-  scope_grund: Die Regelung betrifft eine Handlungs- oder Aufsichtspflicht der Kommission, des Buero fuer
-    Kuenstliche Intelligenz, des KI-Gremiums oder der zustaendigen Behoerden und begruendet keine Pflicht
-    des Betreibers.
+  scope_grund: 'Die Regelung betrifft eine Handlungs- oder Aufsichtspflicht der Kommission, des Buero
+    fuer Kuenstliche Intelligenz, des KI-Gremiums oder der zustaendigen Behoerden und begruendet keine
+    Pflicht des Betreibers. Zudem ersetzt durch n.F. (A-F2a): Art. 58 Abs. 1 UAbs. 1 Einleitung n.F.'
   verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 23 - Einleitung von Abs. 1 UAbs. 1 neu gefasst;
@@ -19596,6 +19633,7 @@ einheiten:
   ziffer: null
   fassung_2026_1744:
   - Art. 58 Abs. 1 UAbs. 1 Einleitung n.F.@113229
+  neufassung: ersetzt
 - id: Art. 58 Abs. 1 lit. a
   artikel: '58'
   artikel_titel: Detaillierte Regelungen für KI-Reallabore und deren Funktionsweise
@@ -20179,8 +20217,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: &id029 []
-  gate: &id030 []
+  requirement: &id031 []
+  gate: &id032 []
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -20213,8 +20251,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id029
-  gate: *id030
+  requirement: *id031
+  gate: *id032
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -20245,8 +20283,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id029
-  gate: *id030
+  requirement: *id031
+  gate: *id032
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -20278,8 +20316,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id029
-  gate: *id030
+  requirement: *id031
+  gate: *id032
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -20707,8 +20745,10 @@ einheiten:
     von Reallaboren Tests unter Realbedingungen nach einem von der Kommission per Durchfuehrungsrechtsakt
     naeher geregelten Testplan durchfuehren.
   scope: out
-  scope_grund: Die Pflicht richtet sich an den Anbieter bzw. kuenftigen Anbieter des KI-Modells oder KI-Systems
-    und nicht an den Betreiber im Sinne der Verordnung.
+  scope_grund: 'Die Pflicht richtet sich an den Anbieter bzw. kuenftigen Anbieter des KI-Modells oder
+    KI-Systems und nicht an den Betreiber im Sinne der Verordnung. Teilweise ersetzt (A-F2a): nur UAbs.
+    1 neu gefasst (Art. 60 Abs. 1 UAbs. 1 n.F.); UAbs. 2 und 3 gelten fort; Scope des fortgeltenden Teils
+    unveraendert.'
   verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: 'geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 24 - Abs. 1 UAbs. 1 / Abs. 2 neu gefasst: Anwendungsbereich
@@ -20726,6 +20766,7 @@ einheiten:
   ziffer: null
   fassung_2026_1744:
   - Art. 60 Abs. 1 UAbs. 1 n.F.@114068
+  neufassung: teilweise
 - id: Art. 60 Abs. 2
   artikel: '60'
   artikel_titel: Tests von Hochrisiko-KI-Systemen unter Realbedingungen außerhalb von KI-Reallaboren
@@ -20742,8 +20783,9 @@ einheiten:
     jederzeit selbst oder in Partnerschaft mit einem oder mehreren Betreibern/zukuenftigen Betreibern
     unter Realbedingungen testen.
   scope: out
-  scope_grund: Erlaubnisnorm/Option fuer den Anbieter (Test unter Realbedingungen); nennt den Betreiber
-    nur als moeglichen freiwilligen Partner, keine eigene Betreiberpflicht.
+  scope_grund: 'Erlaubnisnorm/Option fuer den Anbieter (Test unter Realbedingungen); nennt den Betreiber
+    nur als moeglichen freiwilligen Partner, keine eigene Betreiberpflicht. Zudem ersetzt durch n.F. (A-F2a):
+    Art. 60 Abs. 2 n.F.'
   verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: 'geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 24 lit. b - Abs. 2 neu gefasst (Art. 60 Abs.
@@ -20758,10 +20800,11 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
-  fassung_2026_1744:
-  - Art. 60 Abs. 2 n.F.@114577
   po_entscheid:
   - 2026-09-23 · 2b E6 (Omnibus-Feld)
+  fassung_2026_1744:
+  - Art. 60 Abs. 2 n.F.@114577
+  neufassung: ersetzt
 - id: Art. 60 Abs. 3
   artikel: '60'
   artikel_titel: Tests von Hochrisiko-KI-Systemen unter Realbedingungen außerhalb von KI-Reallaboren
@@ -21938,8 +21981,9 @@ einheiten:
   pflicht: Kleinstunternehmen ohne Partner- oder verbundene Unternehmen duerfen bestimmte Elemente des
     Qualitaetsmanagementsystems nach Art. 17 vereinfacht einhalten; die Kommission erarbeitet dazu Leitlinien.
   scope: out
-  scope_grund: Die Pflicht richtet sich an den Anbieter bzw. kuenftigen Anbieter des KI-Modells oder KI-Systems
-    und nicht an den Betreiber im Sinne der Verordnung.
+  scope_grund: 'Die Pflicht richtet sich an den Anbieter bzw. kuenftigen Anbieter des KI-Modells oder
+    KI-Systems und nicht an den Betreiber im Sinne der Verordnung. Zudem ersetzt durch n.F. (A-F2a): Art.
+    63 Abs. 1 n.F.'
   verifikation: HYPOTHESE
   hypothese_grund: Der Wortlaut spricht von 'Kleinstunternehmen', nicht ausdruecklich von 'Anbieter';
     die Zuordnung zu 'anbieter' folgt aus dem Bezug auf das Qualitaetsmanagementsystem nach Art. 17, das
@@ -21958,6 +22002,7 @@ einheiten:
   ziffer: null
   fassung_2026_1744:
   - Art. 63 Abs. 1 n.F.@118435
+  neufassung: ersetzt
 - id: Art. 63 Abs. 2
   artikel: '63'
   artikel_titel: Ausnahmen für bestimmte Akteure
@@ -22609,8 +22654,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: &id031 []
-  gate: &id032 []
+  requirement: &id033 []
+  gate: &id034 []
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -22645,8 +22690,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id031
-  gate: *id032
+  requirement: *id033
+  gate: *id034
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -22678,8 +22723,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id031
-  gate: *id032
+  requirement: *id033
+  gate: *id034
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -22711,8 +22756,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id031
-  gate: *id032
+  requirement: *id033
+  gate: *id034
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -22744,8 +22789,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: &id033 []
-  gate: &id034 []
+  requirement: &id035 []
+  gate: &id036 []
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -22777,8 +22822,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id033
-  gate: *id034
+  requirement: *id035
+  gate: *id036
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -22811,8 +22856,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id033
-  gate: *id034
+  requirement: *id035
+  gate: *id036
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -23656,8 +23701,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: &id035 []
-  gate: &id036 []
+  requirement: &id037 []
+  gate: &id038 []
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -23688,8 +23733,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id035
-  gate: *id036
+  requirement: *id037
+  gate: *id038
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -23720,8 +23765,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id035
-  gate: *id036
+  requirement: *id037
+  gate: *id038
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -23752,8 +23797,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id035
-  gate: *id036
+  requirement: *id037
+  gate: *id038
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -23997,8 +24042,8 @@ einheiten:
     durch die Sachverstaendigen verpflichtet werden, wobei Struktur und Hoehe der Gebuehren im Durchfuehrungsrechtsakt
     nach Artikel 68 Absatz 1 festgelegt werden.
   scope: out
-  scope_grund: Betrifft Einrichtung und Aufgaben des wissenschaftlichen Gremiums unabhaengiger Sachverstaendiger;
-    keine Betreiberpflicht.
+  scope_grund: 'Betrifft Einrichtung und Aufgaben des wissenschaftlichen Gremiums unabhaengiger Sachverstaendiger;
+    keine Betreiberpflicht. Zudem ersetzt durch n.F. (A-F2a): Art. 69 Abs. 2 n.F.'
   verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 28 - Abs. 2 neu gefasst (Gebuehrenregelung fuer
@@ -24015,6 +24060,7 @@ einheiten:
   ziffer: null
   fassung_2026_1744:
   - Art. 69 Abs. 2 n.F.@119388
+  neufassung: ersetzt
 - id: Art. 69 Abs. 3
   artikel: '69'
   artikel_titel: Zugang zum Pool von Sachverständigen durch die Mitgliedstaaten
@@ -24298,8 +24344,8 @@ einheiten:
     der Durchfuehrung der Verordnung unterstuetzen und muessen dabei gegebenenfalls die nach sektoralem
     Unionsrecht zustaendigen Behoerden konsultieren.
   scope: out
-  scope_grund: Regelt Benennung, Ausstattung oder Zusammenarbeit der zustaendigen nationalen Behoerden;
-    keine Betreiberpflicht.
+  scope_grund: 'Regelt Benennung, Ausstattung oder Zusammenarbeit der zustaendigen nationalen Behoerden;
+    keine Betreiberpflicht. Zudem ersetzt durch n.F. (A-F2a): Art. 70 Abs. 8 n.F.'
   verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 29 - Abs. 8 neu gefasst; geprueft am verfuegenden
@@ -24316,6 +24362,7 @@ einheiten:
   ziffer: null
   fassung_2026_1744:
   - Art. 70 Abs. 8 n.F.@119705
+  neufassung: ersetzt
 - id: Art. 70 Abs. 9
   artikel: '70'
   artikel_titel: Benennung von zuständigen nationalen Behörden und zentrale Anlaufstelle
@@ -24646,8 +24693,9 @@ einheiten:
     ist; die Kommission erlaesst dazu Leitlinien einschliesslich eines Musters bis 2. September 2027 (Verfahren
     nach Art. 98 Abs. 2).
   scope: out
-  scope_grund: Wie Art. 72 Abs. 1 (dort ausfuehrliche Begruendung) - Anbieter-Dokumentationspflicht (PMS-Plan
-    als Teil der Anhang-IV-Technikdokumentation) plus Kommissions-Leitlinienpflicht.
+  scope_grund: 'Wie Art. 72 Abs. 1 (dort ausfuehrliche Begruendung) - Anbieter-Dokumentationspflicht (PMS-Plan
+    als Teil der Anhang-IV-Technikdokumentation) plus Kommissions-Leitlinienpflicht. Zudem ersetzt durch
+    n.F. (A-F2a): Art. 72 Abs. 3 n.F.'
   verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: 'GEAENDERT durch VO (EU) 2026/1744 Art. 1 Nr. 30 (vollstaendige Neufassung von Abs. 3): Neu
@@ -24668,6 +24716,7 @@ einheiten:
   ziffer: null
   fassung_2026_1744:
   - Art. 72 Abs. 3 n.F.@120337
+  neufassung: ersetzt
 - id: Art. 72 Abs. 4
   artikel: '72'
   artikel_titel: Beobachtung nach dem Inverkehrbringen durch die Anbieter und Plan für die Beobachtung
@@ -24787,9 +24836,9 @@ einheiten:
   hypothese_grund: 'Anbieterpflicht, fuer den Betreiber in nach der Durchschlagsregel (2b E4): (b) Art.
     26 Abs. 5 verweist auf Art. 73.'
   omnibus: unveraendert (s. Art. 73 Abs. 1).
-  requirement: &id037
+  requirement: &id039
   - R009
-  gate: &id038
+  gate: &id040
   - G-OPS-02
   befund: teilabdeckung
   befund_grund: Regelfrist (15 Tage = 360h) fuer den Meldefall aus Abs. 1; durchschlagend fuer den Betreiber
@@ -24829,8 +24878,8 @@ einheiten:
   hypothese_grund: 'Anbieterpflicht, fuer den Betreiber in nach der Durchschlagsregel (2b E4): (b) Art.
     26 Abs. 5 verweist auf Art. 73.'
   omnibus: unveraendert (s. Art. 73 Abs. 1).
-  requirement: *id037
-  gate: *id038
+  requirement: *id039
+  gate: *id040
   befund: gedeckt
   befund_grund: Die Frist dieser Einheit ist in governance/incident_thresholds.yaml deklariert und policy_incident_thresholds
     haelt sie gegen das Gesetz (48 h / 240 h / 360 h, je mit Rechtsgrundlage). Nur deklariert (E-0) -
@@ -25788,13 +25837,16 @@ einheiten:
     vom selben Anbieter entwickelt, ist das Buero fuer Kuenstliche Intelligenz befugt, die Konformitaet
     des Systems mit allen Befugnissen einer Marktueberwachungsbehoerde zu ueberwachen.
   scope: out
-  scope_grund: Regelt Aufsichts- und Durchsetzungsbefugnisse des Buero fuer Kuenstliche Intelligenz bzw.
+  scope_grund: 'Regelt Aufsichts- und Durchsetzungsbefugnisse des Buero fuer Kuenstliche Intelligenz bzw.
     der Kommission gegenueber Anbietern von KI-Modellen mit allgemeinem Verwendungszweck; keine Betreiberpflicht.
+    Zudem ersetzt durch n.F. (A-F2a): Art. 75 Abs. 1 n.F., Art. 75 Abs. 1 lit. a n.F., Art. 75 Abs. 1
+    lit. a Ziff. i n.F., Art. 75 Abs. 1 lit. a Ziff. ii n.F., Art. 75 Abs. 1 lit. a Ziff. iii n.F., Art.
+    75 Abs. 1 lit. a Ziff. iv n.F., Art. 75 Abs. 1 lit. b n.F.'
   verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: VO (EU) 2026/1744 Art. 1 Nr. 31/32 fasst Art. 75 umfassend neu und fuegt Art. 75a/75b (Aufsichts-/Durchsetzungsbefugnisse
-    Buero fuer KI) neu ein - Praezisierung der exakten Restnummerierung dem PO ueberlassen; geprueft am
-    verfuegenden Teil.
+  omnibus: ersetzt - Art. 1 Nr. 31 lit. b der VO (EU) 2026/1744 fasst Abs. 1 neu (Art. 75 Abs. 1 n.F.
+    mit lit. a, b); lit. a fuegt die Ueberschrift, lit. c die Abs. 1a-1e, lit. d den Abs. 2a ein; Nr.
+    32 fuegt Art. 75a-75d ein (geprueft am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
   requirement: []
   gate: []
   befund: null
@@ -25813,6 +25865,7 @@ einheiten:
   - Art. 75 Abs. 1 lit. a Ziff. iii n.F.@121617
   - Art. 75 Abs. 1 lit. a Ziff. iv n.F.@121801
   - Art. 75 Abs. 1 lit. b n.F.@121875
+  neufassung: ersetzt
 - id: Art. 75 Abs. 2
   artikel: '75'
   artikel_titel: Amtshilfe, Marktüberwachung und Kontrolle von KI-Systemen mit allgemeinem Verwendungszweck
@@ -25877,9 +25930,9 @@ einheiten:
     der Kommission gegenueber Anbietern von KI-Modellen mit allgemeinem Verwendungszweck; keine Betreiberpflicht.
   verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: VO (EU) 2026/1744 Art. 1 Nr. 31/32 fasst Art. 75 umfassend neu und fuegt Art. 75a/75b (Aufsichts-/Durchsetzungsbefugnisse
-    Buero fuer KI) neu ein - Praezisierung der exakten Restnummerierung dem PO ueberlassen; geprueft am
-    verfuegenden Teil.
+  omnibus: unveraendert - Art. 1 Nr. 31 der VO (EU) 2026/1744 aendert in Art. 75 die Ueberschrift und
+    Abs. 1 und fuegt Abs. 1a-1e und 2a ein; Abs. 3 ist nicht betroffen (geprueft am verfuegenden Teil,
+    docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
   requirement: []
   gate: []
   befund: null
@@ -26128,12 +26181,12 @@ einheiten:
     Zugang zur Dokumentation ueber Hochrisiko-KI-Systeme nach Anhang III verlangen und muessen die Marktueberwachungsbehoerde
     ueber solche Anfragen informieren.
   scope: out
-  scope_grund: Betrifft Befugnisse der fuer den Schutz der Grundrechte zustaendigen nationalen Behoerden;
-    keine Betreiberpflicht.
+  scope_grund: 'Betrifft Befugnisse der fuer den Schutz der Grundrechte zustaendigen nationalen Behoerden;
+    keine Betreiberpflicht. Zudem ersetzt durch n.F. (A-F2a): Art. 77 Abs. 1 n.F.'
   verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: VO (EU) 2026/1744 Art. 1 Nr. 34 aendert Art. 77 - genaue Textstelle dem PO zur Praezisierung
-    ueberlassen; geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf.
+  omnibus: ersetzt - Art. 1 Nr. 34 lit. b der VO (EU) 2026/1744 fasst Abs. 1 neu (Art. 77 Abs. 1 n.F.);
+    lit. a aendert die Ueberschrift, lit. c fuegt Abs. 1a und 1b ein (geprueft am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
   requirement: []
   gate: []
   befund: null
@@ -26146,6 +26199,7 @@ einheiten:
   ziffer: null
   fassung_2026_1744:
   - Art. 77 Abs. 1 n.F.@146588
+  neufassung: ersetzt
 - id: Art. 77 Abs. 2
   artikel: '77'
   artikel_titel: Befugnisse der für den Schutz der Grundrechte zuständigen Behörden
@@ -26165,8 +26219,8 @@ einheiten:
     keine Betreiberpflicht.
   verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: VO (EU) 2026/1744 Art. 1 Nr. 34 aendert Art. 77 - genaue Textstelle dem PO zur Praezisierung
-    ueberlassen; geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf.
+  omnibus: unveraendert - Art. 1 Nr. 34 der VO (EU) 2026/1744 aendert in Art. 77 die Ueberschrift und
+    Abs. 1 und fuegt Abs. 1a und 1b ein; Abs. 2 ist nicht betroffen (geprueft am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
   requirement: []
   gate: []
   befund: null
@@ -26199,8 +26253,8 @@ einheiten:
     keine Betreiberpflicht.
   verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: VO (EU) 2026/1744 Art. 1 Nr. 34 aendert Art. 77 - genaue Textstelle dem PO zur Praezisierung
-    ueberlassen; geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf.
+  omnibus: unveraendert - Art. 1 Nr. 34 der VO (EU) 2026/1744 aendert in Art. 77 die Ueberschrift und
+    Abs. 1 und fuegt Abs. 1a und 1b ein; Abs. 3 ist nicht betroffen (geprueft am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
   requirement: []
   gate: []
   befund: null
@@ -26231,8 +26285,8 @@ einheiten:
     keine Betreiberpflicht.
   verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: VO (EU) 2026/1744 Art. 1 Nr. 34 aendert Art. 77 - genaue Textstelle dem PO zur Praezisierung
-    ueberlassen; geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf.
+  omnibus: unveraendert - Art. 1 Nr. 34 der VO (EU) 2026/1744 aendert in Art. 77 die Ueberschrift und
+    Abs. 1 und fuegt Abs. 1a und 1b ein; Abs. 4 ist nicht betroffen (geprueft am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
   requirement: []
   gate: []
   befund: null
@@ -29411,7 +29465,8 @@ einheiten:
   pflicht: Buero fuer KI und Mitgliedstaaten beruecksichtigen bei der Kodex-Foerderung die besonderen
     Beduerfnisse von KMU/Start-ups.
   scope: out
-  scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
+  scope_grund: 'Adressiert behoerde, keine Betreiber-Handlungspflicht. Zudem ersetzt durch n.F. (A-F2a):
+    Art. 95 Abs. 4 n.F.'
   verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 35 - Abs. 4 neu gefasst (Art. 95 Abs. 4 n.F.).
@@ -29425,10 +29480,11 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
-  fassung_2026_1744:
-  - Art. 95 Abs. 4 n.F.@148560
   po_entscheid:
   - 2026-09-23 · 2b E6 (Omnibus-Feld)
+  fassung_2026_1744:
+  - Art. 95 Abs. 4 n.F.@148560
+  neufassung: ersetzt
 - id: Art. 96 Abs. 1
   artikel: '96'
   artikel_titel: Leitlinien der Kommission zur Durchführung dieser Verordnung
@@ -29445,10 +29501,9 @@ einheiten:
   scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
   verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: 'GEAENDERT durch VO (EU) 2026/1744 Art. 1 Nr. 36 - Abs. 1: lit. a neu gefasst (nennt jetzt
-    auch Art. 26), neue lit. g (Leitlinien zu Art. 8 Abs. 2/Art. 9 Abs. 10/Art. 17 Abs. 3, Komplementaritaet
-    mit Anhang-I-Abschnitt-A-Recht, bis 1.8.2027), UAbs. 2 neu gefasst (KI-Gremium-Einbeziehung, kleine
-    Midcap-Unternehmen). Details je Einheit unten.'
+  omnibus: unveraendert - Art. 1 Nr. 36 der VO (EU) 2026/1744 fasst in Art. 96 Abs. 1 nur UAbs. 1 lit.
+    a und UAbs. 2 neu und fuegt lit. g an; diese Einheit ist nicht betroffen (geprueft am verfuegenden
+    Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
   requirement: []
   gate: []
   befund: null
@@ -29459,8 +29514,6 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
-  fassung_2026_1744:
-  - Art. 96 Abs. 1 UAbs. 2 n.F.@149675
 - id: Art. 96 Abs. 1 lit. a
   artikel: '96'
   artikel_titel: Leitlinien der Kommission zur Durchführung dieser Verordnung
@@ -29473,14 +29526,12 @@ einheiten:
   adressat: behoerde
   pflicht: 'Leitlinien-Gegenstand a): Anwendung der Art. 8-15 und Art. 25 Anforderungen/Pflichten.'
   scope: out
-  scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
+  scope_grund: 'Adressiert behoerde, keine Betreiber-Handlungspflicht. Zudem ersetzt durch n.F. (A-F2a):
+    Art. 96 Abs. 1 UAbs. 1 lit. a n.F.'
   verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: 'GEAENDERT durch VO (EU) 2026/1744 Art. 1 Nr. 36 - Abs. 1: lit. a neu gefasst (nennt jetzt
-    auch Art. 26), neue lit. g (Leitlinien zu Art. 8 Abs. 2/Art. 9 Abs. 10/Art. 17 Abs. 3, Komplementaritaet
-    mit Anhang-I-Abschnitt-A-Recht, bis 1.8.2027), UAbs. 2 neu gefasst (KI-Gremium-Einbeziehung, kleine
-    Midcap-Unternehmen). Details je Einheit unten. Diese Einheit betrifft direkt lit. a: neu gefasst,
-    nennt jetzt zusaetzlich Art. 26.'
+  omnibus: ersetzt - Art. 1 Nr. 36 lit. a der VO (EU) 2026/1744 fasst UAbs. 1 lit. a neu (nennt jetzt
+    auch Art. 26), Art. 96 Abs. 1 UAbs. 1 lit. a n.F. (geprueft am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
   requirement: []
   gate: []
   befund: null
@@ -29493,7 +29544,7 @@ einheiten:
   ziffer: null
   fassung_2026_1744:
   - Art. 96 Abs. 1 UAbs. 1 lit. a n.F.@148931
-  - Art. 96 Abs. 1 UAbs. 2 n.F.@149675
+  neufassung: ersetzt
 - id: Art. 96 Abs. 1 lit. b
   artikel: '96'
   artikel_titel: Leitlinien der Kommission zur Durchführung dieser Verordnung
@@ -29509,10 +29560,9 @@ einheiten:
   scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
   verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: 'GEAENDERT durch VO (EU) 2026/1744 Art. 1 Nr. 36 - Abs. 1: lit. a neu gefasst (nennt jetzt
-    auch Art. 26), neue lit. g (Leitlinien zu Art. 8 Abs. 2/Art. 9 Abs. 10/Art. 17 Abs. 3, Komplementaritaet
-    mit Anhang-I-Abschnitt-A-Recht, bis 1.8.2027), UAbs. 2 neu gefasst (KI-Gremium-Einbeziehung, kleine
-    Midcap-Unternehmen). Details je Einheit unten.'
+  omnibus: unveraendert - Art. 1 Nr. 36 der VO (EU) 2026/1744 fasst in Art. 96 Abs. 1 nur UAbs. 1 lit.
+    a und UAbs. 2 neu und fuegt lit. g an; diese Einheit ist nicht betroffen (geprueft am verfuegenden
+    Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
   requirement: []
   gate: []
   befund: null
@@ -29523,8 +29573,6 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
-  fassung_2026_1744:
-  - Art. 96 Abs. 1 UAbs. 2 n.F.@149675
 - id: Art. 96 Abs. 1 lit. c
   artikel: '96'
   artikel_titel: Leitlinien der Kommission zur Durchführung dieser Verordnung
@@ -29540,10 +29588,9 @@ einheiten:
   scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
   verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: 'GEAENDERT durch VO (EU) 2026/1744 Art. 1 Nr. 36 - Abs. 1: lit. a neu gefasst (nennt jetzt
-    auch Art. 26), neue lit. g (Leitlinien zu Art. 8 Abs. 2/Art. 9 Abs. 10/Art. 17 Abs. 3, Komplementaritaet
-    mit Anhang-I-Abschnitt-A-Recht, bis 1.8.2027), UAbs. 2 neu gefasst (KI-Gremium-Einbeziehung, kleine
-    Midcap-Unternehmen). Details je Einheit unten.'
+  omnibus: unveraendert - Art. 1 Nr. 36 der VO (EU) 2026/1744 fasst in Art. 96 Abs. 1 nur UAbs. 1 lit.
+    a und UAbs. 2 neu und fuegt lit. g an; diese Einheit ist nicht betroffen (geprueft am verfuegenden
+    Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
   requirement: []
   gate: []
   befund: null
@@ -29554,8 +29601,6 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
-  fassung_2026_1744:
-  - Art. 96 Abs. 1 UAbs. 2 n.F.@149675
 - id: Art. 96 Abs. 1 lit. d
   artikel: '96'
   artikel_titel: Leitlinien der Kommission zur Durchführung dieser Verordnung
@@ -29571,10 +29616,9 @@ einheiten:
   scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
   verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: 'GEAENDERT durch VO (EU) 2026/1744 Art. 1 Nr. 36 - Abs. 1: lit. a neu gefasst (nennt jetzt
-    auch Art. 26), neue lit. g (Leitlinien zu Art. 8 Abs. 2/Art. 9 Abs. 10/Art. 17 Abs. 3, Komplementaritaet
-    mit Anhang-I-Abschnitt-A-Recht, bis 1.8.2027), UAbs. 2 neu gefasst (KI-Gremium-Einbeziehung, kleine
-    Midcap-Unternehmen). Details je Einheit unten.'
+  omnibus: unveraendert - Art. 1 Nr. 36 der VO (EU) 2026/1744 fasst in Art. 96 Abs. 1 nur UAbs. 1 lit.
+    a und UAbs. 2 neu und fuegt lit. g an; diese Einheit ist nicht betroffen (geprueft am verfuegenden
+    Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
   requirement: []
   gate: []
   befund: null
@@ -29585,8 +29629,6 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
-  fassung_2026_1744:
-  - Art. 96 Abs. 1 UAbs. 2 n.F.@149675
 - id: Art. 96 Abs. 1 lit. e
   artikel: '96'
   artikel_titel: Leitlinien der Kommission zur Durchführung dieser Verordnung
@@ -29605,10 +29647,9 @@ einheiten:
   scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
   verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: 'GEAENDERT durch VO (EU) 2026/1744 Art. 1 Nr. 36 - Abs. 1: lit. a neu gefasst (nennt jetzt
-    auch Art. 26), neue lit. g (Leitlinien zu Art. 8 Abs. 2/Art. 9 Abs. 10/Art. 17 Abs. 3, Komplementaritaet
-    mit Anhang-I-Abschnitt-A-Recht, bis 1.8.2027), UAbs. 2 neu gefasst (KI-Gremium-Einbeziehung, kleine
-    Midcap-Unternehmen). Details je Einheit unten.'
+  omnibus: unveraendert - Art. 1 Nr. 36 der VO (EU) 2026/1744 fasst in Art. 96 Abs. 1 nur UAbs. 1 lit.
+    a und UAbs. 2 neu und fuegt lit. g an; diese Einheit ist nicht betroffen (geprueft am verfuegenden
+    Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
   requirement: []
   gate: []
   befund: null
@@ -29619,8 +29660,6 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
-  fassung_2026_1744:
-  - Art. 96 Abs. 1 UAbs. 2 n.F.@149675
 - id: Art. 96 Abs. 1 lit. f
   artikel: '96'
   artikel_titel: Leitlinien der Kommission zur Durchführung dieser Verordnung
@@ -29641,13 +29680,13 @@ einheiten:
   pflicht: 'Leitlinien-Gegenstand f): Anwendung der KI-System-Definition (Art. 3 Nr. 1); Leitlinien beruecksichtigen
     KMU/lokale Behoerden/betroffene Sektoren sowie Stand der Technik und harmonisierte Normen.'
   scope: out
-  scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
+  scope_grund: 'Adressiert behoerde, keine Betreiber-Handlungspflicht. Teilweise ersetzt (A-F2a): die
+    Einheit traegt lit. f und die UAbs. 2 und 3 des Abs. 1 (Extraktor, A-W6); neu gefasst ist nur UAbs.
+    2 (Art. 96 Abs. 1 UAbs. 2 n.F.); Scope des fortgeltenden Teils unveraendert.'
   verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: 'GEAENDERT durch VO (EU) 2026/1744 Art. 1 Nr. 36 - Abs. 1: lit. a neu gefasst (nennt jetzt
-    auch Art. 26), neue lit. g (Leitlinien zu Art. 8 Abs. 2/Art. 9 Abs. 10/Art. 17 Abs. 3, Komplementaritaet
-    mit Anhang-I-Abschnitt-A-Recht, bis 1.8.2027), UAbs. 2 neu gefasst (KI-Gremium-Einbeziehung, kleine
-    Midcap-Unternehmen). Details je Einheit unten.'
+  omnibus: teilweise - Art. 1 Nr. 36 lit. c der VO (EU) 2026/1744 fasst UAbs. 2 neu, den diese Einheit
+    mittraegt (A-W6); lit. f selbst und UAbs. 3 unveraendert (geprueft am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
   requirement: []
   gate: []
   befund: null
@@ -29660,6 +29699,7 @@ einheiten:
   ziffer: null
   fassung_2026_1744:
   - Art. 96 Abs. 1 UAbs. 2 n.F.@149675
+  neufassung: teilweise
 - id: Art. 96 Abs. 2
   artikel: '96'
   artikel_titel: Leitlinien der Kommission zur Durchführung dieser Verordnung
@@ -29739,7 +29779,8 @@ einheiten:
   pflicht: Die Befugnisuebertragung fuer die genannten Ermaechtigungsgrundlagen gilt fuer 5 Jahre ab 1.8.2024
     mit stillschweigender Verlaengerung, vorbehaltlich eines Berichts der Kommission.
   scope: out
-  scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
+  scope_grund: 'Adressiert behoerde, keine Betreiber-Handlungspflicht. Zudem ersetzt durch n.F. (A-F2a):
+    Art. 97 Abs. 2 n.F.'
   verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: 'GEAENDERT durch VO (EU) 2026/1744 Art. 1 Nr. 37 - Abs. 2/3/6 neu gefasst: Liste der Ermaechtigungsgrundlagen
@@ -29759,6 +29800,7 @@ einheiten:
   ziffer: null
   fassung_2026_1744:
   - Art. 97 Abs. 2 n.F.@150078
+  neufassung: ersetzt
 - id: Art. 97 Abs. 3
   artikel: '97'
   artikel_titel: Ausübung der Befugnisübertragung
@@ -29778,7 +29820,8 @@ einheiten:
   pflicht: Die Befugnisuebertragung kann vom Europaeischen Parlament oder Rat jederzeit widerrufen werden;
     bereits erlassene delegierte Rechtsakte bleiben gueltig.
   scope: out
-  scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
+  scope_grund: 'Adressiert behoerde, keine Betreiber-Handlungspflicht. Zudem ersetzt durch n.F. (A-F2a):
+    Art. 97 Abs. 3 n.F.'
   verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: 'GEAENDERT durch VO (EU) 2026/1744 Art. 1 Nr. 37 - Abs. 2/3/6 neu gefasst: Liste der Ermaechtigungsgrundlagen
@@ -29798,6 +29841,7 @@ einheiten:
   ziffer: null
   fassung_2026_1744:
   - Art. 97 Abs. 3 n.F.@150981
+  neufassung: ersetzt
 - id: Art. 97 Abs. 4
   artikel: '97'
   artikel_titel: Ausübung der Befugnisübertragung
@@ -29876,7 +29920,8 @@ einheiten:
   pflicht: Ein delegierter Rechtsakt tritt nur in Kraft, wenn Parlament/Rat innerhalb von drei Monaten
     keine Einwaende erheben (verlaengerbar um drei Monate).
   scope: out
-  scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
+  scope_grund: 'Adressiert behoerde, keine Betreiber-Handlungspflicht. Zudem ersetzt durch n.F. (A-F2a):
+    Art. 97 Abs. 6 n.F.'
   verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: 'GEAENDERT durch VO (EU) 2026/1744 Art. 1 Nr. 37 - Abs. 2/3/6 neu gefasst: Liste der Ermaechtigungsgrundlagen
@@ -29896,6 +29941,7 @@ einheiten:
   ziffer: null
   fassung_2026_1744:
   - Art. 97 Abs. 6 n.F.@151736
+  neufassung: ersetzt
 - id: Art. 98 Abs. 1
   artikel: '98'
   artikel_titel: Ausschussverfahren
@@ -29972,7 +30018,8 @@ einheiten:
     von Akteuren und setzen sie wirksam durch; Sanktionen muessen wirksam/verhaeltnismaessig/abschreckend
     sein und KMU-Interessen beruecksichtigen.
   scope: out
-  scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
+  scope_grund: 'Adressiert behoerde, keine Betreiber-Handlungspflicht. Zudem ersetzt durch n.F. (A-F2a):
+    Art. 99 Abs. 1 n.F.'
   verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: 'GEAENDERT durch VO (EU) 2026/1744 Art. 1 Nr. 38 lit. a - Abs. 1 neu gefasst: nennt jetzt ausdruecklich
@@ -29991,6 +30038,7 @@ einheiten:
   ziffer: null
   fassung_2026_1744:
   - Art. 99 Abs. 1 n.F.@152573
+  neufassung: ersetzt
 - id: Art. 99 Abs. 2
   artikel: '99'
   artikel_titel: Sanktionen
@@ -30072,9 +30120,9 @@ einheiten:
     z.B. Art. 26).
   verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 38 - Art. 99 wird geaendert (u.a. Abs. 5 zu Geldbussen
-    fuer irrefuehrende Informationsbereitstellung); genaue Betroffenheit von Abs. 4 selbst dem PO zur
-    Praezisierung ueberlassen (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  omnibus: geaendert - Art. 1 Nr. 38 lit. b der VO (EU) 2026/1744 fuegt in Abs. 4 lit. da ein (Art. 99
+    Abs. 4 lit. da n.F.); der Einleitungssatz dieser Einheit ist unveraendert (geprueft am verfuegenden
+    Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
   requirement: []
   gate: []
   befund: null
@@ -31700,8 +31748,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: &id039 []
-  gate: &id040 []
+  requirement: &id041 []
+  gate: &id042 []
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -31744,8 +31792,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id039
-  gate: *id040
+  requirement: *id041
+  gate: *id042
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -31779,8 +31827,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id039
-  gate: *id040
+  requirement: *id041
+  gate: *id042
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -31814,8 +31862,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id039
-  gate: *id040
+  requirement: *id041
+  gate: *id042
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -31849,8 +31897,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id039
-  gate: *id040
+  requirement: *id041
+  gate: *id042
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -31884,8 +31932,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id039
-  gate: *id040
+  requirement: *id041
+  gate: *id042
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -31919,8 +31967,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id039
-  gate: *id040
+  requirement: *id041
+  gate: *id042
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -32060,8 +32108,10 @@ einheiten:
     gilt die Verordnung fuer deren AKTEURE nur bei danach erfolgter wesentlicher Konzeptionsaenderung;
     fuer von Behoerden bestimmungsgemaess genutzte Systeme treffen Anbieter UND Betreiber die erforderlichen
     Massnahmen in jedem Fall bis zum 2.8.2030.
-  scope: in
-  scope_grund: null
+  scope: out
+  scope_grund: 'Ersetzt durch n.F. (A-F2a, PO 29.09.2026): VO (EU) 2026/1744 fasst den Wortlaut dieser
+    Einheit neu. Bewertet wird nur die Neufassung im Omnibus-Pflichtenraum (Feld fassung_2026_1744); dieser
+    Beleg ist nicht mehr geltendes Recht.'
   verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: 'GEAENDERT durch VO (EU) 2026/1744 Art. 1 Nr. 39 lit. a - Abs. 2 neu gefasst: (1) der Adressatenkreis
@@ -32074,19 +32124,21 @@ einheiten:
     Teil, docs/legal/OJ_L_202601744_DE.pdf). Damit verschiebt sich der in befund_grund beschriebene Bestandsschutz-Stichtag
     inhaltlich auf den 2. Dezember 2027 (statt 2. August 2026) - die zeitliche Anwendbarkeitsfrage wird
     dadurch NOCH bedeutsamer, nicht kleiner.'
-  requirement: &id041 []
-  gate: &id042 []
-  befund: nicht_einschlaegig
-  befund_grund: 'Steuernd: Anwendbarkeitsregel. Fuer Hochrisiko-KI-Systeme, die vor dem Beginn der Anwendung
-    von Kapitel III (Anhang III: 2. Dezember 2027, Art. 113 Abs. 3 lit. c Ziff. i n.F.) in Betrieb genommen
-    wurden, gilt die Verordnung nur nach erheblicher Veraenderung der Konzeption. Keine eigene pruefbare
-    Pflicht; ob das eigene System darunter faellt, prueft die Massnahme P0 (G-PRE-01, Kopplung an G-OPS-06/C-25b).'
+  requirement: *id023
+  gate: *id024
+  befund: null
+  befund_grund: null
   po_bestaetigt: true
   migriert_von: Art. 111 Abs. 2@579913
   migration: geerbt
   po_entscheid:
   - 2026-09-23 · 2b E1 (steuernd, Massnahme P0)
   - 2026-09-23 · 2b E4 (VERIFIZIERT - Betreiber in der Einheit oder ihrem Einleitungssatz genannt)
+  - 2026-09-29 · A-F2a (Review 08 Teil 7) - ersetzt durch n.F., bewertet wird die n.F.-Zeile
+  fassung_2026_1744:
+  - Art. 111 Abs. 2 Satz 1 n.F.@153788
+  - Art. 111 Abs. 2 Satz 2 n.F.@154212
+  neufassung: ersetzt
 - uid: Art. 111 Abs. 2 Satz 2@580304
   id: Art. 111 Abs. 2 Satz 2
   artikel: '111'
@@ -32111,8 +32163,10 @@ einheiten:
     gilt die Verordnung fuer deren AKTEURE nur bei danach erfolgter wesentlicher Konzeptionsaenderung;
     fuer von Behoerden bestimmungsgemaess genutzte Systeme treffen Anbieter UND Betreiber die erforderlichen
     Massnahmen in jedem Fall bis zum 2.8.2030.
-  scope: in
-  scope_grund: null
+  scope: out
+  scope_grund: 'Ersetzt durch n.F. (A-F2a, PO 29.09.2026): VO (EU) 2026/1744 fasst den Wortlaut dieser
+    Einheit neu. Bewertet wird nur die Neufassung im Omnibus-Pflichtenraum (Feld fassung_2026_1744); dieser
+    Beleg ist nicht mehr geltendes Recht.'
   verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: 'GEAENDERT durch VO (EU) 2026/1744 Art. 1 Nr. 39 lit. a - Abs. 2 neu gefasst: (1) der Adressatenkreis
@@ -32125,25 +32179,20 @@ einheiten:
     Teil, docs/legal/OJ_L_202601744_DE.pdf). Damit verschiebt sich der in befund_grund beschriebene Bestandsschutz-Stichtag
     inhaltlich auf den 2. Dezember 2027 (statt 2. August 2026) - die zeitliche Anwendbarkeitsfrage wird
     dadurch NOCH bedeutsamer, nicht kleiner.'
-  requirement: *id041
-  gate: *id042
-  befund: luecke
-  befund_grund: 'ZENTRALER BEFUND (im Abschlussbericht gesondert hervorzuheben), NACH OMNIBUS-PRUEFUNG
-    PRAEZISIERT: Kapitel III (und damit Art. 26) gilt fuer bereits vor dem Stichtag in Verkehr gebrachte/in
-    Betrieb genommene Anhang-III-Systeme erst ab dem 2. Dezember 2027 (Art. 113 Abs. 3 lit. c Ziff. i
-    n.F.), AUSSER bei nachtraeglicher wesentlicher Konzeptionsaenderung oder bei einem Behoerden-Betreiber
-    (Frist 2.8.2030 statt eines Bestandsschutzes). WENN das Redispatch-KI-System bereits vor diesem Stichtag
-    in Verkehr gebracht/in Betrieb genommen wurde UND seither nicht wesentlich veraendert wurde UND der
-    Netzbetreiber keine Behoerde ist, greifen die in diesem Pflichtenraum geprueften Art.-26-Betreiberpflichten
-    fuer dieses spezifische System derzeit (Stand dieses Laufs: September 2026) noch gar nicht. Kein Requirement/Gate
-    im Katalog prueft das Inverkehrbringungsdatum, die Aenderungshistorie oder die Rechtsnatur des Betreibers
-    - die zeitliche Anwendbarkeit der gesamten uebrigen Deckungsanalyse (Art. 26 ff.) auf DIESES Projekt
-    ist damit eine ungeklaerte Tatsachenfrage, die der PO vorab klaeren sollte.'
-  po_bestaetigt: false
+  requirement: *id023
+  gate: *id024
+  befund: null
+  befund_grund: null
+  po_bestaetigt: true
   migriert_von: Art. 111 Abs. 2@579913
   migration: geerbt
   po_entscheid:
   - 2026-09-23 · 2b E4 (VERIFIZIERT - Betreiber in der Einheit oder ihrem Einleitungssatz genannt)
+  - 2026-09-29 · A-F2a (Review 08 Teil 7) - ersetzt durch n.F., bewertet wird die n.F.-Zeile
+  fassung_2026_1744:
+  - Art. 111 Abs. 2 Satz 1 n.F.@153788
+  - Art. 111 Abs. 2 Satz 2 n.F.@154212
+  neufassung: ersetzt
 - id: Art. 111 Abs. 3
   artikel: '111'
   artikel_titel: Bereits in Verkehr gebrachte oder in Betrieb genommene KI-Systeme und bereits in Verkehr
@@ -32899,24 +32948,28 @@ einheiten:
   pflicht: Kapitel I und II (u. a. Art. 4 KI-Kompetenz, Art. 5 Verbote) gelten ab 2. Februar 2025; die
     neuen Verbote Art. 5 Abs. 1 UAbs. 1 lit. ba und bb sowie Art. 5 Abs. 1a und 1b ab 2. Dezember 2026
     (Neufassung).
-  scope: in
-  scope_grund: 'Steuernde Norm (T-13 Raster, Ausnahme von Schritt 3) - Geltungsbeginn; bestimmt, ab wann
-    die Betreiberpflichten gelten (mit Art. 113 Abs. 3 lit. c Ziff. i n.F.: 02.12.2027, P0).'
+  scope: out
+  scope_grund: 'Ersetzt durch n.F. (A-F2a, PO 29.09.2026): VO (EU) 2026/1744 fasst den Wortlaut dieser
+    Einheit neu. Bewertet wird nur die Neufassung im Omnibus-Pflichtenraum (Feld fassung_2026_1744); dieser
+    Beleg ist nicht mehr geltendes Recht.'
   verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: 'geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 40 lit. a - neu gefasst (Ausnahme fuer die neuen
     Verbote, ab 2. Dezember 2026). Neufassung: Art. 113 Abs. 3 lit. a n.F. im Omnibus-Pflichtenraum.'
-  requirement: []
-  gate: []
-  befund: nicht_einschlaegig
-  befund_grund: Stichtag, begruendet keine eigene pruefbare Pflicht.
+  requirement: *id023
+  gate: *id024
+  befund: null
+  befund_grund: null
   abschnitt: null
   nummer: null
   unterabsatz: null
   ziffer: null
+  po_bestaetigt: true
   fassung_2026_1744:
   - Art. 113 Abs. 3 lit. a n.F.@154925
-  po_bestaetigt: false
+  neufassung: ersetzt
+  po_entscheid:
+  - 2026-09-29 · A-F2a (Review 08 Teil 7) - ersetzt durch n.F., bewertet wird die n.F.-Zeile
 - uid: Art. 113 lit. b@587157
   id: Art. 113 lit. b
   artikel: '113'
@@ -32964,26 +33017,30 @@ einheiten:
   pflicht: 'Kapitel III Abschnitte 1-3 (ohne Art. 6 Abs. 5) gelten fuer Anhang-III-Systeme ab 2. Dezember
     2027, fuer Anhang-I-Systeme ab 2. August 2028 (Neufassung; Urfassung: Art. 6 Abs. 1 und die entsprechenden
     Pflichten ab 2. August 2027).'
-  scope: in
-  scope_grund: 'Steuernde Norm (T-13 Raster, Ausnahme von Schritt 3) - Geltungsbeginn; bestimmt, ab wann
-    die Betreiberpflichten gelten (mit Art. 113 Abs. 3 lit. c Ziff. i n.F.: 02.12.2027, P0).'
+  scope: out
+  scope_grund: 'Ersetzt durch n.F. (A-F2a, PO 29.09.2026): VO (EU) 2026/1744 fasst den Wortlaut dieser
+    Einheit neu. Bewertet wird nur die Neufassung im Omnibus-Pflichtenraum (Feld fassung_2026_1744); dieser
+    Beleg ist nicht mehr geltendes Recht.'
   verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: 'geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 40 lit. b - neu gefasst (Ziff. i: Anhang III
     ab 02.12.2027, Ziff. ii: Anhang I ab 02.08.2028). Neufassung: Art. 113 Abs. 3 lit. c n.F. im Omnibus-Pflichtenraum.'
-  requirement: []
-  gate: []
-  befund: nicht_einschlaegig
-  befund_grund: Stichtag, begruendet keine eigene pruefbare Pflicht.
+  requirement: *id023
+  gate: *id024
+  befund: null
+  befund_grund: null
   abschnitt: null
   nummer: null
   unterabsatz: null
   ziffer: null
+  po_bestaetigt: true
   fassung_2026_1744:
   - Art. 113 Abs. 3 lit. c n.F.@155162
   - Art. 113 Abs. 3 lit. c Ziff. i n.F.@155252
   - Art. 113 Abs. 3 lit. c Ziff. ii n.F.@155378
-  po_bestaetigt: false
+  neufassung: ersetzt
+  po_entscheid:
+  - 2026-09-29 · A-F2a (Review 08 Teil 7) - ersetzt durch n.F., bewertet wird die n.F.-Zeile
 - uid: Anhang I Abschn. A@602960
   id: Anhang I Abschn. A
   artikel: Anhang I
@@ -33047,9 +33104,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
   fassung_2026_1744:
   - Omnibus Art. 1 Nr. 41 lit. a@155633
-  po_bestaetigt: false
+  neufassung: gestrichen
 - uid: Anhang I Abschn. A Nr. 2@603252
   id: Anhang I Abschn. A Nr. 2
   artikel: Anhang I
@@ -37571,9 +37629,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
   fassung_2026_1744:
   - Omnibus Art. 1 Nr. 42@156047
-  po_bestaetigt: false
+  neufassung: gestrichen
 - uid: Anhang VIII Abschn. B Nr. 8@639519
   id: Anhang VIII Abschn. B Nr. 8
   artikel: Anhang VIII
@@ -37632,9 +37691,10 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
+  po_bestaetigt: false
   fassung_2026_1744:
   - Omnibus Art. 1 Nr. 42@156047
-  po_bestaetigt: false
+  neufassung: gestrichen
 - uid: Anhang VIII Abschn. C@639760
   id: Anhang VIII Abschn. C
   artikel: Anhang VIII

@@ -3068,6 +3068,101 @@ def check_po_decisions_applied() -> dict:
     )
 
 
+def check_omnibus_superseded_units_out() -> dict:
+    """Eine vom Omnibus ersetzte Einheit der Grundfassung ist out, und ihre Neufassung ist bewertet.
+
+    A-F2a (PO 29.09.2026, Review 08 Teil 7, umgesetzt in Paket 2 / Review 09).
+    Bis dahin trugen AI-Act-Zeilen wie Art. 4 den Inhalt der Neufassung, ihr
+    Beleg aber war der alte Wortlaut: die Aussage stand auf einem Text, der
+    nicht mehr gilt, und die n.F.-Zeile im Omnibus-Raum zaehlte dieselbe Pflicht
+    ein zweites Mal. Die Umsetzung ist eine Richtigstellung; dieser Check haelt
+    sie (AGENTS.md 4, B-19):
+
+      * jede Einheit, deren Text der Omnibus ersetzt oder streicht
+        (fassung_2026_1744, gesetzt von tools/legal/link_omnibus.py), sagt in
+        'neufassung', ob ganz ('ersetzt'), 'teilweise' oder 'gestrichen' —
+        ein neuer Verweis ohne Einordnung faellt auf;
+      * 'ersetzt' und 'gestrichen' sind out und tragen weder Befund noch Gate
+        noch Requirement — die gehoeren an die n.F.-Zeile;
+      * jede Neufassung, auf die eine ersetzte oder teilweise ersetzte
+        Einheit verweist, ist bewertet (in/out) — sonst fiele die Pflicht aus
+        der Zaehlung, genau der Grund, warum A-F2a nur zusammen mit Paket 2
+        umgesetzt werden durfte;
+      * keine Normverweisung eines Gates oder Requirements loest auf eine
+        ersetzte oder gestrichene Einheit auf, sondern auf ihre Neufassung
+        (tools/legal/resolve_norm_refs.py).
+
+    MEDIUM wie NORM_SENTENCE_UNITS_CURRENT: der Fehler verschiebt, wo eine
+    Pflicht gezaehlt wird, und verfaelscht kein Zitat. Vorschlag, PO-Frage R-2
+    (Review 09).
+    """
+    import importlib.util
+    from collections import Counter
+
+    import yaml
+
+    titel = "eine vom Omnibus ersetzte Einheit ist out, und ihre Neufassung ist bewertet (A-F2a)"
+    ai_pfad = REPO_ROOT / "docs" / "coverage" / "aiact_pflichtenraum.yaml"
+    om_pfad = REPO_ROOT / "docs" / "coverage" / "omnibus_pflichtenraum.yaml"
+    if not (ai_pfad.exists() and om_pfad.exists()):
+        return make_result("OMNIBUS_SUPERSEDED_UNITS_OUT", titel, "medium", False,
+                           "Pflichtenraum AI Act oder Omnibus fehlt — der Check kann nicht laufen.", [])
+    ai = (yaml.safe_load(ai_pfad.read_text(encoding="utf-8")) or {}).get("einheiten") or []
+    om = (yaml.safe_load(om_pfad.read_text(encoding="utf-8")) or {}).get("einheiten") or []
+    om_uid = {e.get("uid"): e for e in om}
+
+    findings: list[str] = []
+    zahl: Counter = Counter()
+    abgeloest: set[str] = set()
+    for e in ai:
+        sid, verweis, art = e.get("id"), e.get("fassung_2026_1744") or [], e.get("neufassung")
+        if verweis and art not in ("ersetzt", "teilweise", "gestrichen"):
+            findings.append(f"{sid}: der Omnibus ersetzt oder streicht Text dieser Einheit "
+                            f"({', '.join(v.split('@')[0] for v in verweis)}), neufassung ist {art!r} "
+                            f"— ganz, teilweise oder gestrichen?")
+            continue
+        if art and not verweis:
+            findings.append(f"{sid}: neufassung '{art}' ohne Verweis fassung_2026_1744")
+            continue
+        if not art:
+            continue
+        zahl[art] += 1
+        if art in ("ersetzt", "gestrichen"):
+            abgeloest.add(sid)
+            if e.get("scope") != "out":
+                findings.append(f"{sid}: {art} durch den Omnibus, aber scope '{e.get('scope')}' — die Aussage "
+                                f"stuende auf einem Wortlaut, der nicht mehr gilt (A-F2a)")
+            if e.get("befund") or e.get("gate") or e.get("requirement"):
+                findings.append(f"{sid}: {art}, traegt aber noch Befund, Gate oder Requirement — "
+                                f"das gehoert an die Neufassung")
+        for v in verweis:
+            ziel = om_uid.get(v)
+            if ziel is None:
+                findings.append(f"{sid}: fassung_2026_1744 nennt {v}, im Omnibus-Pflichtenraum nicht vorhanden")
+            elif art != "gestrichen" and ziel.get("scope") not in ("in", "out"):
+                findings.append(f"{sid}: die Neufassung {ziel.get('id')} ist nicht bewertet — "
+                                f"die Pflicht fiele aus der Zaehlung")
+
+    pfad = REPO_ROOT / "tools" / "legal" / "resolve_norm_refs.py"
+    spec = importlib.util.spec_from_file_location("resolve_norm_refs", pfad)
+    modul = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(modul)
+    for r in modul.aufloesen(REPO_ROOT):
+        if r["ref"] in abgeloest and r["aufloesung"] != "n.F.":
+            findings.append(f"{r['datei']}: {r['traeger']}{'/' + r['check'] if r['check'] else ''} "
+                            f"'{r['ref']}' loest als '{r['aufloesung']}' auf eine abgeloeste Einheit auf, "
+                            f"nicht auf ihre Neufassung")
+
+    return make_result(
+        "OMNIBUS_SUPERSEDED_UNITS_OUT", titel, "medium", not findings,
+        f"{len(findings)} Befund(e) zu vom Omnibus abgeloesten Einheiten." if findings
+        else (f"{sum(zahl.values())} Einheiten mit Neufassung eingeordnet: "
+              + " · ".join(f"{k} {n}" for k, n in sorted(zahl.items()))
+              + "; ersetzte und gestrichene sind out, jede Neufassung ist bewertet."),
+        findings[:12] + ([f"… und {len(findings) - 12} weitere"] if len(findings) > 12 else []),
+    )
+
+
 def check_norm_refs_resolve() -> dict:
     """Jede Normverweisung eines Gates oder Requirements zeigt auf eine Einheit des Pflichtenraums.
 
@@ -3098,10 +3193,11 @@ def check_norm_refs_resolve() -> dict:
     spec.loader.exec_module(modul)
     erg = modul.aufloesen(REPO_ROOT)
 
-    offen = [e for e in erg if e["aufloesung"] == "offen"]
+    offen = [e for e in erg if e["aufloesung"] in ("offen", "gestrichen")]
     findings = [
         f"{e['datei']}: {e['traeger']}{'/' + e['check'] if e['check'] else ''} "
-        f"{e['schluessel']} '{e['ref']}' — keine Einheit im Pflichtenraum"
+        f"{e['schluessel']} '{e['ref']}' — "
+        + ("vom Omnibus gestrichen" if e["aufloesung"] == "gestrichen" else "keine Einheit im Pflichtenraum")
         for e in offen
     ]
     verschieden = {e["ref"]: e for e in erg}
@@ -3280,6 +3376,7 @@ def collect_results() -> list[dict]:
         check_norm_unit_ids_unique,
         check_norm_sentence_units_current,
         check_po_decisions_applied,
+        check_omnibus_superseded_units_out,
         check_norm_refs_resolve,
         check_po_decisions_registered,
     ]

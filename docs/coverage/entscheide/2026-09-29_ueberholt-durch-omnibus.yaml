@@ -1,0 +1,43 @@
+# PO-Entscheid vom 29.09.2026 — A-F2a: vom Omnibus neu gefasste AI-Act-Zeilen
+#
+# Nachweis: docs/coverage/review/08-paket-1-anhaenge.md Teil 7 (Entscheid A-F2a) und
+# docs/coverage/review/09-paket-2-omnibus.md Teil 2 (Umsetzung je Zeile).
+#
+# A-F2a: Eine AI-Act-Zeile, die der Omnibus neu gefasst hat, wird 'out' mit dem Grund
+# "ersetzt durch n.F.". Bewertet wird nur die n.F.-Zeile mit ihrem eigenen Wortlaut
+# (Omnibus-Pflichtenraum). Umgesetzt in einem Schritt mit der Bewertung der n.F.-Zeilen
+# (Paket 2), damit keine Pflicht aus der Zaehlung faellt.
+#
+# Diese Datei traegt nur die sechs Zeilen, die bis dahin 'in' waren. Review 08 Teil 7
+# nennt sie als Umfang des Entscheids (Art. 4, Art. 25 Abs. 2, Art. 111 Abs. 2 Satz 1
+# und 2, Art. 113 lit. a und c). Welche Zeile ganz und welche nur teilweise ersetzt ist,
+# steht im Feld 'neufassung' jeder Zeile mit Verweis 'fassung_2026_1744';
+# OMNIBUS_SUPERSEDED_UNITS_OUT haelt das.
+#
+# Art. 25 Abs. 2: Review 08 nannte die Zeile "nur UAbs. 2 geaendert". Die Anweisung
+# (Omnibus Art. 1 Nr. 12 lit. a) lautet aber "Absatz 2 erhaelt folgende Fassung" — der
+# ganze Absatz ist ersetzt, auch der inhaltsgleiche Satz 1. Deshalb 'ersetzt'; als
+# Frage P2-F3 in Review 09 vorgelegt (Option b stellt die alte Zeile wieder her).
+#
+# Art. 3 Nr. 4, 8, 23 (Review 08 A-W4) sind nicht betroffen: der Omnibus aendert in
+# Art. 3 nur Nr. 14. Sie bleiben 'in'; ihr Feld 'omnibus' ist in Paket 2 berichtigt.
+
+entschieden: '2026-09-29'
+eintraege:
+
+  - beleg: A-F2a (Review 08 Teil 7) - ersetzt durch n.F., bewertet wird die n.F.-Zeile
+    raum: aiact
+    ids: [Art. 4, Art. 25 Abs. 2, Art. 111 Abs. 2 Satz 1, Art. 111 Abs. 2 Satz 2,
+          Art. 113 lit. a, Art. 113 lit. c]
+    setze:
+      scope: out
+      scope_grund: >-
+        Ersetzt durch n.F. (A-F2a, PO 29.09.2026): VO (EU) 2026/1744 fasst den Wortlaut
+        dieser Einheit neu. Bewertet wird nur die Neufassung im Omnibus-Pflichtenraum
+        (Feld fassung_2026_1744); dieser Beleg ist nicht mehr geltendes Recht.
+      befund: null
+      befund_grund: null
+      requirement: []
+      gate: []
+      neufassung: ersetzt
+    bestaetigt: true

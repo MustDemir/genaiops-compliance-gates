@@ -17,6 +17,7 @@ Arbeitsdokumente zur Abnahme von SPEC-06 / T-12: Die Vorschläge der Nachtläufe
 | 06 | [`06-grenzen-statt-teilabdeckung.md`](06-grenzen-statt-teilabdeckung.md) | Teilabdeckung getrennt in Grenze (Element ungeprüft) und gedeckt mit E-0; Hinweisfunktion am Gate | **entschieden 28./29.09.2026** (H1b, H2a, H3a, H4 Option 1) |
 | 07 | [`07-element-matrix.md`](07-element-matrix.md) | Alle 50 Pflichten mit Gate-Bezug gegen die 196 Regeln aus dem Code; Korrekturen, Methodenfrage Nachbarprüfung | M2a entschieden 29.09.2026 · M1 offen (Paket 4) |
 | 08 | [`08-paket-1-anhaenge.md`](08-paket-1-anhaenge.md) | Paket 1: 206 Anhang-Einheiten und Art. 113 eingeordnet (4 in, alle steuernd; 206 out), Omnibus-Änderungen an Anhängen, Fragen A-F1, A-F2 | Vorschlag – Stichprobe in Paket 4 |
+| 09 | [`09-paket-2-omnibus.md`](09-paket-2-omnibus.md) | Paket 2: 259 Omnibus-Einheiten eingeordnet (100 Änderungsanweisungen out; 159 n.F.: 11 in, 148 out), A-F2a umgesetzt (6 AI-Act-Zeilen ersetzt → out), Wächter `OMNIBUS_SUPERSEDED_UNITS_OUT`, Fragen P2-F1–F5, R-2 | Vorschlag – Fragen in Paket 4 |
 | – | [`entscheidungsregister.md`](entscheidungsregister.md) | **Alle offenen Entscheide des PO und ausstehenden Schritte mit Ziel-Paket** (Wächter `PO_DECISIONS_REGISTERED`) | lebend |
 
 Ticket-Entwurf zu den Werkzeugbefunden: [`../../tickets/T-14-pflichtenraum-werkzeug.md`](../../tickets/T-14-pflichtenraum-werkzeug.md)
@@ -26,7 +27,7 @@ Ticket-Entwurf zu den Werkzeugbefunden: [`../../tickets/T-14-pflichtenraum-werkz
 ```
 1 Verstehen ✅ → 2a ✅ → 2b ✅ → Gegenprüfung ✅ → T-14 ✅ → 2c ✅ → 2d/2e ✅ → 06 ✅ → 07 (M2 ✅, M1 offen)
 
-ab 29.09.2026 (00 Teil C): 1 Anhänge ✅ (Vorschlag, 08) → 2 Omnibus n.F. → 3 Befunde + Matrix-Lauf 2 → 4 PO-Runde
+ab 29.09.2026 (00 Teil C): 1 Anhänge ✅ (Vorschlag, 08) → 2 Omnibus n.F. ✅ (Vorschlag, 09) → 3 Befunde + Matrix-Lauf 2 → 4 PO-Runde
                            → 5 Bedarfsanalyse → 6 Bauen → 7 known_limits + Wächter → 8 PR → 9 Prüf-Agent
 ```
 
