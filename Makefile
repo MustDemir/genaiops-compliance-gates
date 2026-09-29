@@ -1,15 +1,11 @@
 .PHONY: help install-conftest local-up local-down minikube gatekeeper monitoring app smoke \
         aks-up aks-down test test-integrity test-rego test-evidence check-python \
-        verify verify-cluster clean-runtime
+        verify verify-cluster clean-runtime check-verify test-eval test-verify-contract
 
 # ── Interpreter ──────────────────────────────────────────────────────
 #
 # The suites need PyYAML. Which interpreter has it is a property of the
-# MACHINE, not of this repository, so it is not hard-coded here: on the
-# development machine pip is unusable (macOS 26.2 returns an empty
-# platform.mac_ver(), which breaks pip's wheel-tag resolution) and PyYAML
-# lives unpacked under ~/.local/pylibs. Putting that path in a tracked
-# Makefile would make the build depend on one laptop.
+# MACHINE, not of this repository, so it is not hard-coded here.
 #
 # Instead: override PYTHON — and PYTHONPATH if needed — in Makefile.local,
 # which is untracked (.gitignore covers *.local). check-python fails loudly
@@ -43,7 +39,9 @@ help:
 	@echo "  make test-integrity         Run integrity regression suite (tests/test_integrity_regression.py)"
 	@echo "  make test-rego              Run all Rego unit tests (needs opa on PATH)"
 	@echo "  make test-evidence          Run hash parity, chain migration and manifest tests"
-	@echo "  make verify                 Everything that runs WITHOUT a cluster — the push gate"
+	@echo "  make test-eval              Run evaluation-reader tests against a local stand-in"
+	@echo "  make test-verify-contract   Test verification prerequisites and verdict parsing"
+	@echo "  make verify                 Selected local suites — the push gate (no cluster)"
 	@echo "  make verify-cluster         verify + smoke (needs a running cluster)"
 	@echo ""
 	@echo "Maintenance:"
@@ -92,16 +90,18 @@ check-python:
 	  echo "  $(PYTHON) cannot import yaml — the gate, requirement and README"; \
 	  echo "  checks would all fail with a stack trace instead of a verdict."; \
 	  echo ""; \
-	  echo "  Point PYTHON at an interpreter that has PyYAML. Machine-specific,"; \
-	  echo "  so put it in Makefile.local (untracked), for example:"; \
+	  echo "  Install requirements.txt into your Python environment, then select it:"; \
 	  echo ""; \
-	  echo "      PYTHON = /opt/homebrew/bin/python3.13"; \
-	  echo "      export PYTHONPATH := \$$(HOME)/.local/pylibs"; \
+	  echo "      make PYTHON=.venv/bin/python verify"; \
+	  echo "  You can also set PYTHON in Makefile.local (untracked)."; \
 	  echo ""; \
 	  exit 1; \
 	}
 
-test: check-python
+check-verify: check-python
+	$(PYTHON) tests/verify_contract.py preflight
+
+test: check-verify
 	$(PYTHON) tests/test_all.py
 
 test-integrity: check-python
@@ -116,11 +116,18 @@ test-evidence: check-python
 	$(PYTHON) tests/test_hash_chain_migration.py
 	$(PYTHON) tests/test_evidence_manifest.py
 
-# Everything that runs WITHOUT a cluster. This is the push gate: .githooks/pre-push
+test-eval: check-verify
+	$(PYTHON) scenarios/healthcare-ambient-ai-scribe/eval/test_eval_runner.py
+
+test-verify-contract: check-python
+	$(PYTHON) tests/test_verify_contract.py
+
+# Selected local suites, without a cluster. This is the push gate: .githooks/pre-push
 # runs it, which is why the integrity suite runs at --fail-on low here. At medium the
 # roadmap check would print and the push would go through — noise, not a reminder.
 # The suite's own default stays medium for standalone runs.
-verify: check-python test test-rego test-evidence
+verify: check-verify
+	$(MAKE) test-verify-contract test test-evidence test-eval
 	$(PYTHON) tests/test_integrity_regression.py --fail-on low
 
 verify-cluster: verify smoke

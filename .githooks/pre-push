@@ -2,9 +2,9 @@
 #
 # pre-push — the push is the session's end, so the push is where the checks run.
 #
-# `make verify` fires everything that needs no cluster, at --fail-on low: the
+# `make verify` runs the selected local suites, at --fail-on low: the
 # integration suite, the integrity suite, the Rego unit tests, hash parity, chain
-# migration and the evidence manifest. About six and a half seconds.
+# migration, evidence manifest, verification contracts and evaluation-reader tests.
 #
 # Why here and not in a habit: HANDBOOK_ROADMAP_CURRENT reports when HANDBUCH Teil 7
 # has fallen behind the gates, the pipeline and the specs — but only if somebody runs

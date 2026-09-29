@@ -343,11 +343,11 @@ genaiops-compliance-gates/
 ## Verification
 
 ```bash
-make verify                            # everything that runs without a cluster, ~6.5s
+make verify                            # selected local suites; requires Python/PyYAML, OPA, Conftest
 make verify-cluster                    # the same, plus the smoke test (needs a cluster)
 ```
 
-`make verify` runs the six suites below. They can also be run one at a time:
+`make verify` runs the suites below. They can also be run one at a time:
 
 ```bash
 ./tests/run_all_rego_tests.sh          # 215 Rego unit tests
@@ -356,7 +356,24 @@ python3 tests/test_integrity_regression.py --fail-on medium   # 37 credibility c
 python3 tests/test_hash_parity.py                  # the three hash implementations agree
 python3 tests/test_hash_chain_migration.py         # the chain verifies across payload generations
 python3 tests/test_evidence_manifest.py            # guards on the signable evidence manifest
+python3 tests/test_verify_contract.py              # prerequisites and Conftest verdict contracts
+python3 scenarios/healthcare-ambient-ai-scribe/eval/test_eval_runner.py  # local HTTP stand-in
 ```
+
+Install Python dependencies from `requirements.txt` into your environment and put
+`opa` and `conftest` on PATH. Select the interpreter with
+`make PYTHON=.venv/bin/python verify` or `Makefile.local`. A missing dependency or
+mandatory suite fails preflight; it is not a successful skip. OPA must support
+Rego v1 and `opa test --fail-on-empty`; Conftest must support these policies and
+JSON results. The command does not install tools or contact a cluster.
+
+The integration suite evaluates explicit pass/block fixture pairs for the security
+baseline, safety metrics and evidence annotations, with named namespaces and an
+expected blocking reason. These are representative cases, not complete policy
+coverage. The recorder fault-injection test runs in a temporary copy. Other pipeline
+tests generate local evidence/report artifacts. Evaluation tests use a loopback
+HTTP stand-in, not the real app or an AI model. A green result does **not** establish
+live admission, production readiness, legal completeness, or close other QG findings.
 
 Beyond the suites, for a full closed-loop run:
 
