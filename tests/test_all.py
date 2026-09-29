@@ -2,25 +2,22 @@
 """
 test_all.py — GenAIOps PoC Master Integration Test
 
-Runs ALL local tests across all implemented phases:
+Runs the selected local integration checks across the implemented phases:
 
   Phase 3:  Rego Policies (Structure + OPA Unit Tests + Conftest)
-  Phase 5:  Rego Policy Validation (conftest --verify)
   Phase 8:  Closed-Loop Pipeline (3 scenarios + tamper detection)
   Phase 9:  Drift Detection (21 unit tests + 16 E2E tests)
   Infra:    YAML validation + Bash syntax check
   Evidence: Hybrid Gate Integration test
 
 Rego Test Layers (Shift-Left, fail-fast):
-  Layer 1 — OPA Unit Tests: 103 tests across 10 policies
-            (tests/run_all_rego_tests.sh, ground-truth 2026-04-17).
+  Layer 1 — OPA Unit Tests (tests/run_all_rego_tests.sh).
             Runs BEFORE Conftest to catch rule-semantic drift.
   Layer 2 — Conftest against fixtures (integration check).
 
 What this proves:
-  This single command validates the ENTIRE PoC — all 5 architecture
-  pillars working together. If this passes, the system is consistent
-  and ready for Minikube deployment.
+  Selected local fixture, pipeline and consistency checks passed.
+  This is not a live cluster, legal completeness or production-readiness test.
 
 Usage:
   python3 test_all.py
@@ -29,14 +26,19 @@ Usage:
 import subprocess
 import sys
 import time
-import shutil
 from pathlib import Path
+from verify_contract import CASES, preflight
 
 # ══════════════════════════════════════════════════════════════
 # Setup
 # ══════════════════════════════════════════════════════════════
 
 REPO_ROOT = Path(__file__).resolve().parent.parent  # tests/ -> repo root
+
+try:
+    preflight(REPO_ROOT)
+except ValueError as exc:
+    sys.exit(str(exc))
 
 GREEN = "\033[92m"
 RED = "\033[91m"
@@ -108,19 +110,8 @@ def run_test(phase: str, name: str, cmd: list, cwd: str = None, expect_exit: int
 # ══════════════════════════════════════════════════════════════
 print(f"\n{BOLD}{'═' * 65}{RESET}")
 print(f"{BOLD}  GenAIOps PoC — Master Integration Test{RESET}")
-print(f"{BOLD}  Validating ALL phases locally{RESET}")
+print(f"{BOLD}  Selected local integration checks (no live cluster){RESET}")
 print(f"{BOLD}{'═' * 65}{RESET}\n")
-
-# Preflight: the consistency/traceability checks (Phase 7) parse YAML in
-# subprocesses. Without PyYAML they fail with an opaque ModuleNotFoundError
-# that looks like a real defect — surface a clear hint instead.
-_yaml_probe = subprocess.run(
-    [sys.executable, "-c", "import yaml"], capture_output=True, text=True
-)
-if _yaml_probe.returncode != 0:
-    print(f"{YELLOW}{BOLD}⚠ PyYAML is not installed for {sys.executable}.{RESET}")
-    print(f"{YELLOW}  Phase 7 consistency/traceability checks will fail spuriously.{RESET}")
-    print(f"{YELLOW}  Fix: pip install -r requirements.txt  (see repo root){RESET}\n")
 
 
 # ══════════════════════════════════════════════════════════════
@@ -207,33 +198,15 @@ print(f"{{len(files)}} Rego policies have valid structure")
 
 # ── Layer 1: OPA Unit Tests (fail-fast, rule-semantic check) ──
 # Runner:    tests/run_all_rego_tests.sh
-# Scope:     103 tests / 10 policies (ground-truth baseline 2026-04-17)
 # Purpose:   catch rule-semantic drift BEFORE Conftest evaluates fixtures
-opa_available = shutil.which("opa") is not None or Path("/tmp/opa").is_file()
 runner = REPO_ROOT / "tests" / "run_all_rego_tests.sh"
-if opa_available and runner.is_file():
-    run_test("Rego", "OPA Unit Tests (10 policies, 103 tests)",
-             ["bash", str(runner), "--quiet"])
-else:
-    missing = "opa binary" if not opa_available else "runner script"
-    print(f"  {DIM}[SKIP] OPA Unit Tests — {missing} not available{RESET}")
-    print(f"  {DIM}       (Install OPA: https://www.openpolicyagent.org/docs/latest/#running-opa){RESET}")
+run_test("Rego", "OPA Unit Tests (counts reported by OPA)",
+         ["bash", str(runner), "--quiet"])
 
 # ── Layer 2: Conftest integration against fixtures ──
-conftest_available = shutil.which("conftest") is not None
-if conftest_available:
-    # Test Rego policies against fixtures
-    for policy_dir in ["pre-deployment", "deployment", "operations"]:
-        policy_path = REPO_ROOT / "policies" / policy_dir
-        if policy_path.exists() and list(policy_path.glob("*.rego")):
-            fixtures = list((REPO_ROOT / "scenarios" / "healthcare-ambient-ai-scribe" / "fixtures").glob("*.json"))
-            if fixtures:
-                run_test("Rego", f"Conftest: {policy_dir}",
-                         ["conftest", "test", str(fixtures[0]),
-                          "--policy", str(policy_path), "--no-fail"])
-else:
-    print(f"  {DIM}[SKIP] Conftest not installed — Rego policy execution skipped{RESET}")
-    print(f"  {DIM}       (Policies validated structurally only){RESET}")
+for phase in CASES:
+    run_test("Rego", f"Conftest: {phase} (explicit pass/block pair)",
+             [sys.executable, str(REPO_ROOT / "tests/verify_contract.py"), phase])
 
 
 # ══════════════════════════════════════════════════════════════
@@ -292,7 +265,7 @@ if orchestrator.exists():
                       str(REPO_ROOT / "pipeline" / "scenarios" / scen)])
 
     # Scenario 1: PASS
-    run_test("Pipeline", "Scenario: Healthcare PASS (10 gates)",
+    run_test("Pipeline", "Scenario: Healthcare PASS",
              [sys.executable, str(orchestrator),
               "--scenario", str(REPO_ROOT / "pipeline" / "scenarios" / "poc_healthcare_pass.json")])
 
@@ -314,7 +287,7 @@ if orchestrator.exists():
     fail_closed = REPO_ROOT / "pipeline" / "test_evidence_fail_closed.py"
     if fail_closed.exists():
         run_test("Pipeline", "Evidence path is fail-closed (B-16)",
-                 [sys.executable, str(fail_closed)])
+                 [sys.executable, str(REPO_ROOT / "tests/run_isolated_evidence_test.py")])
 
     # Tamper Detection
     tamper_test = REPO_ROOT / "pipeline" / "test_tamper_detection.py"
@@ -331,13 +304,13 @@ print(f"\n{BOLD}{BLUE}▸ Phase 6: Drift Detection (Phase 9){RESET}")
 # Unit Tests (21 tests)
 drift_unit = REPO_ROOT / "monitoring" / "test_drift_detector.py"
 if drift_unit.exists():
-    run_test("Drift", "PSI/JSD Unit Tests (21 tests)",
+    run_test("Drift", "PSI/JSD Unit Tests",
              [sys.executable, str(drift_unit)])
 
 # E2E Test (16 tests)
 drift_e2e = REPO_ROOT / "monitoring" / "test_drift_e2e.py"
 if drift_e2e.exists():
-    run_test("Drift", "Drift E2E Pipeline (16 tests)",
+    run_test("Drift", "Drift E2E Pipeline",
              [sys.executable, str(drift_e2e)])
 
 
@@ -539,7 +512,7 @@ if errors > 0:
 # ══════════════════════════════════════════════════════════════
 
 # Architecture-Alignment: Gate-Definition YAMLs ↔ Rego Policies ↔ Pipeline Steps
-run_test("Architecture-Alignment", "Gate-Definitions ↔ Rego ↔ Pipeline (16 Gates)",
+run_test("Architecture-Alignment", "Gate-Definitions ↔ Rego ↔ Pipeline (static references)",
          [sys.executable, "-c", """
 import yaml, re, sys
 from pathlib import Path
@@ -564,8 +537,6 @@ for d in gate_dirs:
         }
 
 print(f"Gate-Definitions: {len(all_gates)} gates found")
-if len(all_gates) != 16:
-    print(f"WARNING: expected 16 gates, found {len(all_gates)}")
 
 # ── 2. PoC gates with Rego policies ──
 poc_gates = {
@@ -585,9 +556,14 @@ poc_gates = {
     'G-OPS-03': 'policies/operations/policy_monitoring_configured.rego',
     'G-OPS-04': 'policies/operations/policy_data_security_controls.rego',
     'G-OPS-05': 'policies/operations/policy_evidence_completeness.rego',
+    'G-OPS-06': 'policies/operations/policy_role_change_monitoring.rego',
 }
 
 errors = 0
+
+for gate_id in set(all_gates) - set(poc_gates):
+    print(f"ERROR: gate {gate_id} has no policy mapping in the integration check")
+    errors += 1
 
 # ── 3. Check: Every PoC gate has a gate-definition YAML ──
 for gate_id in poc_gates:
@@ -756,6 +732,7 @@ gate_dirs = ['pre-deployment', 'deployment', 'operations']
 errors = 0
 gates_with_reqs = 0
 gates_with_evidence = 0
+gate_count = 0
 
 for d in gate_dirs:
     gdir = repo / 'gate-definitions' / d
@@ -764,6 +741,7 @@ for d in gate_dirs:
     for f in sorted(gdir.glob('G-*.yaml')):
         gate = yaml.safe_load(open(f))
         gate_id = gate['id']
+        gate_count += 1
 
         # Every gate must link to at least one R-xx
         reqs = gate.get('links', {}).get('requirements', [])
@@ -788,13 +766,13 @@ for d in gate_dirs:
             errors += 1
 
 print(f"\\nTraceability Results:")
-print(f"  Gates with R-xx links:     {gates_with_reqs}/16")
-print(f"  Gates with audit_trail:    {gates_with_evidence}/16")
+print(f"  Gates with R-xx links:     {gates_with_reqs}/{gate_count}")
+print(f"  Gates with audit_trail:    {gates_with_evidence}/{gate_count}")
 print(f"  Errors: {errors}")
 
 if errors > 0:
     sys.exit(1)
-print("DP2 Traceability chain verified: all 16 gates → R-xx + Evidence Store")
+print(f"Traceability declarations checked for {gate_count} gates (not runtime evidence)")
 """ % str(REPO_ROOT)])
 
 
@@ -835,23 +813,11 @@ else:
 print(f"{total_tests} tests  |  {total_time:.1f}s")
 
 if failed_tests == 0:
-    print(f"\n  {GREEN}{BOLD}✓ ALL TESTS PASSED — PoC is consistent and complete{RESET}")
-    print(f"\n  {BOLD}Was hiermit bewiesen wurde:{RESET}")
-    print("  • Alle YAML/JSON Konfigurationen sind syntaktisch korrekt")
-    print("  • Alle Infrastructure-Scripts sind valide Bash")
-    print("  • Rego-Policies haben gültige Struktur")
-    print("  • Evidence Store: Record + Verify + Hybrid funktionieren")
-    print("  • Closed-Loop Pipeline: PASS, FAIL und Gatekeeper-Szenarien korrekt")
-    print("  • Tamper Detection: Hash-Chain erkennt Manipulation")
-    print("  • Drift Detection: PSI/JSD mathematisch korrekt + E2E Pipeline")
-    print("  • Cross-Artifact Konsistenz: Requirements ↔ Gates ↔ Annotations")
-    print(f"\n  {BOLD}Architektur-Abdeckung:{RESET}")
-    print("  • Pillar S1 (Design Principles) — Requirements validated")
-    print("  • Pillar S2 (Quality Gates) — gate_orchestrator 16 Gates")
-    print("  • Pillar S3 (Policy Engine) — Rego structure verified")
-    print("  • Pillar S4 (Evidence Store) — Record + Hash-Chain + Tamper")
-    print("  • Pillar S5 (Monitoring) — PSI/JSD Drift Detection")
-    print(f"\n  {BOLD}Nächster Schritt:{RESET} Minikube starten → Phase 6 Scripts → Live Deployment")
+    print(f"\n  {GREEN}{BOLD}✓ Selected local integration checks passed{RESET}")
+    print(f"  Executed: {total_tests} checks; {len(gate_yamls)} gate definition files discovered.")
+    print("  Conftest: three representative policy/fixture pass-block pairs, not all policies.")
+    print("  Not proved: live admission, production readiness or legal completeness.")
+    print("  Static consistency checks retain their documented limitations; QG findings remain separate.")
 else:
     print(f"\n  {RED}{BOLD}✗ {failed_tests} TEST(S) FAILED — fix issues above{RESET}")
 

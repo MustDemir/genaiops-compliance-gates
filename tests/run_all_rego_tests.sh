@@ -3,7 +3,7 @@
 # run_all_rego_tests.sh — Unified Rego Test Runner
 # ================================================================
 # Purpose:   Single entrypoint to run ALL OPA/Rego unit tests for
-#            the 10 Quality-Gate policies of the GenAIOps Compliance
+#            the Quality-Gate policies of the GenAIOps Compliance
 #            Gates PoC (FIX-K6.3-012 rollout).
 #
 # Usage (from repo root):
@@ -12,7 +12,7 @@
 #   ./tests/run_all_rego_tests.sh --coverage # run with coverage report
 #
 # Requirements:
-#   - opa binary available as `opa` in PATH, or at /tmp/opa
+#   - opa binary available as `opa` in PATH
 #   - Rego test files in policies/<stage>/*_test.rego
 #   - Fixture wrapper in tests/fixtures/healthcare_scenarios.rego
 #
@@ -27,10 +27,8 @@ set -euo pipefail
 # ---------- Locate opa binary ----------
 if command -v opa >/dev/null 2>&1; then
     OPA_BIN="opa"
-elif [ -x "/tmp/opa" ]; then
-    OPA_BIN="/tmp/opa"
 else
-    echo "ERROR: opa binary not found in PATH or at /tmp/opa" >&2
+    echo "ERROR: opa binary not found in PATH" >&2
     echo "Install:  https://www.openpolicyagent.org/docs/latest/#running-opa" >&2
     exit 2
 fi
@@ -62,7 +60,7 @@ done
 # ---------- Header ----------
 echo "================================================================"
 echo "  GenAIOps Compliance Gates — Rego Unit Test Suite"
-echo "  FIX-K6.3-012: 10 Policies / 105 Rules → verifiable evidence"
+echo "  Local policy unit tests; counts are reported by OPA"
 echo "================================================================"
 echo "  Repo:         ${REPO_ROOT}"
 echo "  OPA binary:   ${OPA_BIN} ($(${OPA_BIN} version | head -1))"
@@ -77,7 +75,7 @@ echo ""
 # We pass both policies/ (where tests live) and tests/fixtures/ (wrapper
 # module with fixture imports) so that fixture data is resolvable.
 
-CMD="${OPA_BIN} test policies/ tests/fixtures/ ${VERBOSE_FLAG} ${COVERAGE_FLAG}"
+CMD="${OPA_BIN} test policies/ tests/fixtures/ --fail-on-empty ${VERBOSE_FLAG} ${COVERAGE_FLAG}"
 echo "Running: ${CMD}"
 echo "----------------------------------------------------------------"
 
