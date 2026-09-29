@@ -2,6 +2,7 @@
 """Regression tests for verification's dependency and verdict boundaries."""
 
 import json
+import shutil
 import subprocess
 import tempfile
 import unittest
@@ -46,6 +47,18 @@ class PreflightTests(unittest.TestCase):
 
 
 class WiringTests(unittest.TestCase):
+    def test_rego_runner_rejects_an_empty_suite(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root / "policies").mkdir()
+            (root / "tests/fixtures").mkdir(parents=True)
+            runner = root / "tests/run_all_rego_tests.sh"
+            shutil.copy2(contract.ROOT / "tests/run_all_rego_tests.sh", runner)
+            result = subprocess.run(["bash", str(runner), "--quiet"],
+                                    capture_output=True, text=True, timeout=30)
+            self.assertNotEqual(result.returncode, 0, result.stdout)
+            self.assertIn("Running: opa test", result.stdout)
+
     def test_verify_schedules_eval_and_contract_suites(self):
         result = subprocess.run(
             ["make", "--dry-run", "verify"], cwd=contract.ROOT,
