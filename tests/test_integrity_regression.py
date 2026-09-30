@@ -3019,6 +3019,21 @@ def check_norm_sentence_units_current() -> dict:
                 findings.append(f"{datei.relative_to(REPO_ROOT)}: {i} ist auf Satzebene geschnitten, "
                                 f"steht aber nicht in satzebene.yaml")
 
+    # M-B2 (Review 07, umgesetzt in Paket 3 / Review 10): beim Schnitt auf Satzebene erbte
+    # jeder Satz den pflicht-Text des ganzen Absatzes - 14 Saetze trugen eine Aussage, die
+    # ihr Beleg nicht traegt. Zwei Saetze derselben Einheit duerfen nicht denselben Text haben.
+    for datei in sorted((REPO_ROOT / "docs" / "coverage").glob("*_pflichtenraum.yaml")):
+        doc = yaml.safe_load(datei.read_text(encoding="utf-8")) or {}
+        texte: dict = {}
+        for e in doc.get("einheiten") or []:
+            m = satz_muster.match(e.get("id") or "")
+            if m and (e.get("pflicht") or "").strip():
+                texte.setdefault((m.group("basis") + (m.group("nf") or ""), e["pflicht"].strip()), []).append(e["id"])
+        for (basis, _), satz_ids in texte.items():
+            if len(satz_ids) > 1:
+                findings.append(f"{datei.relative_to(REPO_ROOT)}: {', '.join(satz_ids)} tragen denselben "
+                                f"pflicht-Text - ein Satz beschreibt nur, was sein Beleg sagt (M-B2)")
+
     return make_result(
         "NORM_SENTENCE_UNITS_CURRENT", titel, "medium", not findings,
         "Pflichtenraum und PO-Liste der Satzebene weichen voneinander ab." if findings

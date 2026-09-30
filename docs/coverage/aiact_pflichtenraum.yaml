@@ -3598,8 +3598,8 @@ einheiten:
     Pflicht ab: statt ''sicherzustellen, dass ... ueber ein ausreichendes Mass an KI-Kompetenz verfuegen''
     nun ''ergreifen Massnahmen, um die Entwicklung der KI-Kompetenz ... zu unterstuetzen'', ausdruecklich
     ohne Pflicht zu einem bestimmten Niveau. Abs. 2 und 3 neu. Neufassung: Art. 4 n.F. im Omnibus-Pflichtenraum.'
-  requirement: &id021 []
-  gate: &id022 []
+  requirement: &id029 []
+  gate: &id030 []
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -4148,15 +4148,13 @@ einheiten:
   buchstabe: h
   ziffer: iii
   offset: 294616
-  laenge: 636
-  saetze: 2
+  laenge: 463
+  saetze: 1
   beleg: iii) Aufspüren oder Identifizieren einer Person, die der Begehung einer Straftat verdächtigt
     wird, zum Zwecke der Durchführung von strafrechtlichen Ermittlungen oder von Strafverfahren oder der
     Vollstreckung einer Strafe für die in Anhang II aufgeführten Straftaten, die in dem betreffenden Mitgliedstaat
     nach dessen Recht mit einer Freiheitsstrafe oder einer freiheitsentziehenden Maßregel der Sicherung
-    im Höchstmaß von mindestens vier Jahren bedroht ist. Unterabsatz 1 Buchstabe h gilt unbeschadet des
-    Artikels 9 der Verordnung (EU) 2016/679 für die Verarbeitung biometrischer Daten zu anderen Zwecken
-    als der Strafverfolgung.
+    im Höchstmaß von mindestens vier Jahren bedroht ist.
   adressat: behoerde
   pflicht: Nennt die drei zulaessigen Strafverfolgungsziele (i-iii) fuer die Ausnahme in lit. h und stellt
     klar, dass die Regel Art. 9 DSGVO fuer andere Zwecke unberuehrt laesst.
@@ -4177,6 +4175,43 @@ einheiten:
   befund_grund: null
   po_bestaetigt: false
   migriert_von: Art. 5 Abs. 1 lit. i@294219
+  migration: geerbt
+- uid: Art. 5 Abs. 1 UAbs. 2@295079
+  id: Art. 5 Abs. 1 UAbs. 2
+  artikel: '5'
+  artikel_titel: Verbotene Praktiken im KI-Bereich
+  abschnitt: null
+  absatz: '1'
+  nummer: null
+  unterabsatz: '2'
+  buchstabe: null
+  ziffer: null
+  offset: 295079
+  laenge: 173
+  saetze: 1
+  beleg: Unterabsatz 1 Buchstabe h gilt unbeschadet des Artikels 9 der Verordnung (EU) 2016/679 für die
+    Verarbeitung biometrischer Daten zu anderen Zwecken als der Strafverfolgung.
+  adressat: behoerde
+  pflicht: 'Unterabsatz nach der Aufzaehlung: Unterabsatz 1 Buchstabe h gilt unbeschadet des Artikels
+    9 der Verordnung (EU) 2016/679 für die Verarbeitung biometrischer Daten zu anderen Zwecken als der
+    …'
+  scope: out
+  scope_grund: Teil derselben Strafverfolgungs-Ausnahme wie lit. h, adressiert Strafverfolgungsbehoerden,
+    nicht den Netzbetreiber.
+  verifikation: VERIFIZIERT
+  hypothese_grund: null
+  omnibus: 'unveraendert - VO (EU) 2026/1744 Art. 1 Nr. 7 fuegt lediglich neue Buchstaben ba/bb (Deepfake-/intime
+    Bildinhalte ohne Einwilligung) und neue Absaetze 1a/1b ein, aendert lit. a-h selbst nicht (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf). PO-HINWEIS: die neuen Tatbestaende ba/bb
+    existieren als eigene Einheiten NICHT im Pflichtenraum, da dieser aus der PRAE-Omnibus-Quelle geschnitten
+    ist (docs/legal/wortlaut/aiact_2024-1689_DE.txt) - echte inhaltliche Neuerung, im Abschlussbericht
+    vermerkt.'
+  requirement: *id013
+  gate: *id014
+  befund: null
+  befund_grund: null
+  po_bestaetigt: false
+  migriert_von: Art. 5 Abs. 1 lit. h Ziff. iii@294616
   migration: geerbt
 - id: Art. 5 Abs. 2
   artikel: '5'
@@ -4254,20 +4289,10 @@ einheiten:
   absatz: '2'
   buchstabe: b
   offset: 295848
-  laenge: 1222
-  saetze: 4
+  laenge: 184
+  saetze: 1
   beleg: b) die Folgen der Verwendung des Systems für die Rechte und Freiheiten aller betroffenen Personen,
-    insbesondere die Schwere, die Wahrscheinlichkeit und das Ausmaß solcher Folgen. Darüber hinaus sind
-    bei der Verwendung biometrischer Echtzeit-Fernidentifizierungssysteme in öffentlich zugänglichen Räumen
-    zu Strafverfolgungszwecken im Hinblick auf die in Absatz 1 Unterabsatz 1 Buchstabe h des vorliegenden
-    Artikels genannten Ziele notwendige und verhältnismäßige Schutzvorkehrungen und Bedingungen für die
-    Verwendung im Einklang mit nationalem Recht über die Ermächtigung ihrer Verwendung einzuhalten, insbesondere
-    in Bezug auf die zeitlichen, geografischen und personenbezogenen Beschränkungen. Die Verwendung biometrischer
-    Echtzeit-Fernidentifizierungssysteme in öffentlich zugänglichen Räumen ist nur dann zu gestatten,
-    wenn die Strafverfolgungsbehörde eine Folgenabschätzung im Hinblick auf die Grundrechte gemäß Artikel
-    27 abgeschlossen und das System gemäß Artikel 49 in der EU-Datenbank registriert hat. In hinreichend
-    begründeten dringenden Fällen kann jedoch mit der Verwendung solcher Systeme zunächst ohne Registrierung
-    in der EU-Datenbank begonnen werden, sofern diese Registrierung unverzüglich erfolgt.
+    insbesondere die Schwere, die Wahrscheinlichkeit und das Ausmaß solcher Folgen.
   adressat: behoerde
   pflicht: 'Abwaegungskriterium b): Folgen der Systemverwendung fuer Rechte/Freiheiten Betroffener; verlangt
     zusaetzlich Grundrechte-Folgenabschaetzung (Art. 27) und EU-Datenbank-Registrierung (Art. 49) vor
@@ -4283,8 +4308,8 @@ einheiten:
     existieren als eigene Einheiten NICHT im Pflichtenraum, da dieser aus der PRAE-Omnibus-Quelle geschnitten
     ist (docs/legal/wortlaut/aiact_2024-1689_DE.txt) - echte inhaltliche Neuerung, im Abschlussbericht
     vermerkt.'
-  requirement: []
-  gate: []
+  requirement: &id015 []
+  gate: &id016 []
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -4293,6 +4318,51 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+- uid: Art. 5 Abs. 2 UAbs. 2@296032
+  id: Art. 5 Abs. 2 UAbs. 2
+  artikel: '5'
+  artikel_titel: Verbotene Praktiken im KI-Bereich
+  abschnitt: null
+  absatz: '2'
+  nummer: null
+  unterabsatz: '2'
+  buchstabe: null
+  ziffer: null
+  offset: 296032
+  laenge: 1038
+  saetze: 3
+  beleg: Darüber hinaus sind bei der Verwendung biometrischer Echtzeit-Fernidentifizierungssysteme in
+    öffentlich zugänglichen Räumen zu Strafverfolgungszwecken im Hinblick auf die in Absatz 1 Unterabsatz
+    1 Buchstabe h des vorliegenden Artikels genannten Ziele notwendige und verhältnismäßige Schutzvorkehrungen
+    und Bedingungen für die Verwendung im Einklang mit nationalem Recht über die Ermächtigung ihrer Verwendung
+    einzuhalten, insbesondere in Bezug auf die zeitlichen, geografischen und personenbezogenen Beschränkungen.
+    Die Verwendung biometrischer Echtzeit-Fernidentifizierungssysteme in öffentlich zugänglichen Räumen
+    ist nur dann zu gestatten, wenn die Strafverfolgungsbehörde eine Folgenabschätzung im Hinblick auf
+    die Grundrechte gemäß Artikel 27 abgeschlossen und das System gemäß Artikel 49 in der EU-Datenbank
+    registriert hat. In hinreichend begründeten dringenden Fällen kann jedoch mit der Verwendung solcher
+    Systeme zunächst ohne Registrierung in der EU-Datenbank begonnen werden, sofern diese Registrierung
+    unverzüglich erfolgt.
+  adressat: behoerde
+  pflicht: 'Unterabsatz nach der Aufzaehlung: Darüber hinaus sind bei der Verwendung biometrischer Echtzeit-Fernidentifizierungssysteme
+    in öffentlich zugänglichen Räumen zu Strafverfolgungszwecken im …'
+  scope: out
+  scope_grund: Teil der RBI-Abwaegungskriterien und Verfahrensvoraussetzungen fuer Strafverfolgungsbehoerden,
+    nicht Betreiber-adressiert.
+  verifikation: VERIFIZIERT
+  hypothese_grund: null
+  omnibus: 'unveraendert - VO (EU) 2026/1744 Art. 1 Nr. 7 fuegt lediglich neue Buchstaben ba/bb (Deepfake-/intime
+    Bildinhalte ohne Einwilligung) und neue Absaetze 1a/1b ein, aendert lit. a-h selbst nicht (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf). PO-HINWEIS: die neuen Tatbestaende ba/bb
+    existieren als eigene Einheiten NICHT im Pflichtenraum, da dieser aus der PRAE-Omnibus-Quelle geschnitten
+    ist (docs/legal/wortlaut/aiact_2024-1689_DE.txt) - echte inhaltliche Neuerung, im Abschlussbericht
+    vermerkt.'
+  requirement: *id015
+  gate: *id016
+  befund: null
+  befund_grund: null
+  po_bestaetigt: false
+  migriert_von: Art. 5 Abs. 2 lit. b@295848
+  migration: geerbt
 - id: Art. 5 Abs. 3
   artikel: '5'
   artikel_titel: Verbotene Praktiken im KI-Bereich
@@ -4791,15 +4861,13 @@ einheiten:
   absatz: '3'
   buchstabe: d
   offset: 303969
-  laenge: 341
-  saetze: 2
+  laenge: 182
+  saetze: 1
   beleg: d) das KI-System ist dazu bestimmt, eine vorbereitende Aufgabe für eine Bewertung durchzuführen,
-    die für die Zwecke der in Anhang III aufgeführten Anwendungsfälle relevant ist. Ungeachtet des Unterabsatzes
-    1 gilt ein in Anhang III aufgeführtes KI-System immer dann als hochriskant, wenn es ein Profiling
-    natürlicher Personen vornimmt.
+    die für die Zwecke der in Anhang III aufgeführten Anwendungsfälle relevant ist.
   adressat: anbieter
   pflicht: 'Ausnahme d): das System fuehrt eine vorbereitende Aufgabe fuer eine Anhang-III-relevante Bewertung
-    durch; Profiling natuerlicher Personen schliesst die Ausnahme stets aus.'
+    durch.'
   scope: in
   scope_grund: Steuernde Norm (T-13 Raster, Ausnahme von Schritt 3) - Hochrisiko-Einstufung, die G-PRE-01
     prueft.
@@ -4807,8 +4875,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - VO (EU) 2026/1744 Art. 1 Nr. 8 fuegt lediglich neue Absaetze 1a-1c ein (Klarstellungen
     zu Sicherheitsbauteilen), aendert Abs. 1-8 selbst nicht (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: []
-  gate: []
+  requirement: &id017 []
+  gate: &id018 []
   befund: nicht_einschlaegig
   befund_grund: Einstufungsregel, begruendet keine eigene pruefbare Pflicht.
   po_bestaetigt: false
@@ -4817,8 +4885,41 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
-  po_entscheid:
+  po_entscheid: &id019
   - 2026-09-23 · 2b E5 (steuernde Norm)
+- uid: Art. 6 Abs. 3 UAbs. 3@304151
+  id: Art. 6 Abs. 3 UAbs. 3
+  artikel: '6'
+  artikel_titel: Einstufungsvorschriften für Hochrisiko-KI-Systeme
+  abschnitt: null
+  absatz: '3'
+  nummer: null
+  unterabsatz: '3'
+  buchstabe: null
+  ziffer: null
+  offset: 304151
+  laenge: 159
+  saetze: 1
+  beleg: Ungeachtet des Unterabsatzes 1 gilt ein in Anhang III aufgeführtes KI-System immer dann als hochriskant,
+    wenn es ein Profiling natürlicher Personen vornimmt.
+  adressat: anbieter
+  pflicht: Ungeachtet des UAbs. 1 gilt ein Anhang-III-System immer als hochriskant, wenn es ein Profiling
+    natuerlicher Personen vornimmt.
+  scope: in
+  scope_grund: Steuernde Norm (T-13 Raster, Ausnahme von Schritt 3) - Hochrisiko-Einstufung, die G-PRE-01
+    prueft; eigene Einheit seit T-15 Teil 2 (A-W11), vorher Teil von Art. 6 Abs. 3 lit. d.
+  verifikation: null
+  hypothese_grund: null
+  omnibus: unveraendert - VO (EU) 2026/1744 Art. 1 Nr. 8 fuegt lediglich neue Absaetze 1a-1c ein (Klarstellungen
+    zu Sicherheitsbauteilen), aendert Abs. 1-8 selbst nicht (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: *id017
+  gate: *id018
+  befund: nicht_einschlaegig
+  befund_grund: Einstufungsregel, begruendet keine eigene pruefbare Pflicht.
+  po_bestaetigt: false
+  po_entscheid: *id019
+  migriert_von: Art. 6 Abs. 3 lit. d@303969
+  migration: geerbt
 - id: Art. 6 Abs. 4
   artikel: '6'
   artikel_titel: Einstufungsvorschriften für Hochrisiko-KI-Systeme
@@ -5469,8 +5570,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - Art. 7 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
     nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: &id015 []
-  gate: &id016 []
+  requirement: &id020 []
+  gate: &id021 []
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -5499,8 +5600,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - Art. 7 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
     nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id015
-  gate: *id016
+  requirement: *id020
+  gate: *id021
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -6051,17 +6152,13 @@ einheiten:
   absatz: '5'
   buchstabe: c
   offset: 314843
-  laenge: 458
-  saetze: 2
+  laenge: 130
+  saetze: 1
   beleg: c) Bereitstellung der gemäß Artikel 13 erforderlichen Informationen und gegebenenfalls entsprechende
-    Schulung der Betreiber. Zur Beseitigung oder Verringerung der Risiken im Zusammenhang mit der Verwendung
-    des Hochrisiko-KI-Systems werden die technischen Kenntnisse, die Erfahrungen und der Bildungsstand,
-    die vom Betreiber erwartet werden können, sowie der voraussichtliche Kontext, in dem das System eingesetzt
-    werden soll, gebührend berücksichtigt.
+    Schulung der Betreiber.
   adressat: anbieter
-  pflicht: Der Anbieter stellt die nach Art. 13 erforderlichen Informationen bereit und schult gegebenenfalls
-    die Betreiber, wobei deren voraussichtliche Kenntnisse, Erfahrung, Bildungsstand und Einsatzkontext
-    zu beruecksichtigen sind.
+  pflicht: Der Anbieter stellt gegebenenfalls die nach Art. 13 erforderlichen Informationen bereit und
+    schult gegebenenfalls die Betreiber.
   scope: in
   scope_grund: null
   verifikation: HYPOTHESE
@@ -6086,9 +6183,49 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
-  po_entscheid:
+  po_entscheid: &id022
   - 2026-09-23 · 2b E2 (P2 KI-Kompetenz)
   - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, Anker (a) Wortlaut nennt den Betreiber)
+- uid: Art. 9 Abs. 5 UAbs. 3@314973
+  id: Art. 9 Abs. 5 UAbs. 3
+  artikel: '9'
+  artikel_titel: Risikomanagementsystem
+  abschnitt: null
+  absatz: '5'
+  nummer: null
+  unterabsatz: '3'
+  buchstabe: null
+  ziffer: null
+  offset: 314973
+  laenge: 328
+  saetze: 1
+  beleg: Zur Beseitigung oder Verringerung der Risiken im Zusammenhang mit der Verwendung des Hochrisiko-KI-Systems
+    werden die technischen Kenntnisse, die Erfahrungen und der Bildungsstand, die vom Betreiber erwartet
+    werden können, sowie der voraussichtliche Kontext, in dem das System eingesetzt werden soll, gebührend
+    berücksichtigt.
+  adressat: anbieter
+  pflicht: Der Anbieter beruecksichtigt bei der Beseitigung oder Verringerung der Risiken die vom Betreiber
+    zu erwartenden technischen Kenntnisse, Erfahrung und Ausbildung sowie den Einsatzkontext.
+  scope: out
+  scope_grund: 'Adressat (T-13 Schritt 1): Risikomanagement des Anbieters (Art. 9, out). Der Wortlaut
+    nennt den Betreiber als Gegenstand der Beruecksichtigung, nicht als Empfaenger oder Zweck - kein Durchschlag
+    (a) nach 2b E4, wie A-F1 (Anhang IV). Eigene Einheit seit T-15 Teil 2 (A-W11); vorher stand der Text
+    in Art. 9 Abs. 5 lit. c (in, Luecke), deren Betreiberbezug die Schulung der Betreiber in lit. c selbst
+    ist.'
+  verifikation: HYPOTHESE
+  hypothese_grund: 'Durchschlag verneint: der Betreiber ist Massstab der Risikominimierung des Anbieters,
+    nicht Empfaenger. Auslegung wie A-F1 - Frage P3-F1.'
+  omnibus: 'unveraendert - Art. 9 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
+    (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf: die Liste geaenderter Artikel geht
+    von Nr. 8 [Art. 6] auf Nr. 9 [Art. 10] ueber).'
+  requirement: []
+  gate: []
+  befund: null
+  befund_grund: null
+  po_bestaetigt: false
+  po_entscheid: *id022
+  migriert_von: Art. 9 Abs. 5 lit. c@314843
+  migration: geerbt
 - id: Art. 9 Abs. 6
   artikel: '9'
   artikel_titel: Risikomanagementsystem
@@ -7645,7 +7782,7 @@ einheiten:
     1 und 9 verweisen auf Art. 13.'
   omnibus: unveraendert - Art. 13 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
     (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: &id017
+  requirement: &id023
   - R007
   - R003
   gate: []
@@ -7691,7 +7828,7 @@ einheiten:
     1 und 9 verweisen auf Art. 13.'
   omnibus: unveraendert - Art. 13 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
     (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id017
+  requirement: *id023
   gate: []
   befund: luecke
   befund_grund: 'Kein Element geprueft (M1a). Nachbar: G-DEP-02 misst accuracy und safety_score. Ungeprueft:
@@ -7736,7 +7873,7 @@ einheiten:
     1 und 9 verweisen auf Art. 13.'
   omnibus: unveraendert - Art. 13 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
     (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id017
+  requirement: *id023
   gate: []
   befund: luecke
   befund_grund: 'Kein Element geprueft (M1a). Nachbar: G-DEP-03 prueft, dass known_limitations nicht leer
@@ -7779,7 +7916,7 @@ einheiten:
     1 und 9 verweisen auf Art. 13.'
   omnibus: unveraendert - Art. 13 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
     (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id017
+  requirement: *id023
   gate:
   - G-DEP-03
   - G-DEP-02
@@ -7818,7 +7955,7 @@ einheiten:
     1 und 9 verweisen auf Art. 13.'
   omnibus: unveraendert - Art. 13 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
     (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: &id018
+  requirement: &id024
   - R013
   - R006
   - R007
@@ -7864,7 +8001,7 @@ einheiten:
     1 und 9 verweisen auf Art. 13.'
   omnibus: unveraendert - Art. 13 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
     (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id018
+  requirement: *id024
   gate:
   - G-DEP-01
   befund: teilabdeckung
@@ -7907,7 +8044,7 @@ einheiten:
     1 und 9 verweisen auf Art. 13.'
   omnibus: unveraendert - Art. 13 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
     (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id018
+  requirement: *id024
   gate:
   - G-DEP-05
   befund: luecke
@@ -8706,9 +8843,8 @@ einheiten:
     Unstimmigkeiten sein, die innerhalb des Systems oder der Umgebung, in der das System betrieben wird,
     insbesondere wegen seiner Interaktion mit natürlichen Personen oder anderen Systemen, auftreten können.
   adressat: anbieter
-  pflicht: Hochrisiko-KI-Systeme muessen so widerstandsfaehig wie moeglich gegenueber Fehlern/Stoerungen/Unstimmigkeiten
-    sein (technische und organisatorische Massnahmen, ggf. technische Redundanz); weiterlernende Systeme
-    muessen das Risiko verzerrter Ausgaben durch Rueckkopplungsschleifen beseitigen oder minimieren.
+  pflicht: Hochrisiko-KI-Systeme muessen so widerstandsfaehig wie moeglich gegenueber Fehlern, Stoerungen
+    oder Unstimmigkeiten im System oder seiner Umgebung sein.
   scope: in
   scope_grund: null
   verifikation: HYPOTHESE
@@ -8717,9 +8853,9 @@ einheiten:
   omnibus: 'unveraendert - Art. 15 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
     (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf: die Liste geaenderter Artikel geht
     von Nr. 10 [Art. 11] direkt auf Nr. 11 [Art. 17] ueber).'
-  requirement: &id019
+  requirement: &id025
   - R003
-  gate: &id020
+  gate: &id026
   - G-DEP-02
   - G-OPS-04
   befund: teilabdeckung
@@ -8749,9 +8885,7 @@ einheiten:
   saetze: 1
   beleg: In diesem Zusammenhang sind technische und organisatorische Maßnahmen zu ergreifen.
   adressat: anbieter
-  pflicht: Hochrisiko-KI-Systeme muessen so widerstandsfaehig wie moeglich gegenueber Fehlern/Stoerungen/Unstimmigkeiten
-    sein (technische und organisatorische Massnahmen, ggf. technische Redundanz); weiterlernende Systeme
-    muessen das Risiko verzerrter Ausgaben durch Rueckkopplungsschleifen beseitigen oder minimieren.
+  pflicht: Dazu sind technische und organisatorische Massnahmen zu ergreifen.
   scope: in
   scope_grund: null
   verifikation: HYPOTHESE
@@ -8760,8 +8894,8 @@ einheiten:
   omnibus: 'unveraendert - Art. 15 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
     (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf: die Liste geaenderter Artikel geht
     von Nr. 10 [Art. 11] direkt auf Nr. 11 [Art. 17] ueber).'
-  requirement: *id019
-  gate: *id020
+  requirement: *id025
+  gate: *id026
   befund: teilabdeckung
   befund_grund: 'Wie Abs. 1: Infrastruktur-Redundanz/-Resilienz teilweise ueber G-OPS-04 pruefbar. Echte
     Luecke: die ''Rueckkopplungsschleifen'' bei weiterlernenden Systemen (Bias-Verstaerkung durch eigene
@@ -8790,9 +8924,7 @@ einheiten:
   beleg: Die Robustheit von Hochrisiko-KI-Systemen kann durch technische Redundanz erreicht werden, was
     auch Sicherungs- oder Störungssicherheitspläne umfassen kann.
   adressat: anbieter
-  pflicht: Hochrisiko-KI-Systeme muessen so widerstandsfaehig wie moeglich gegenueber Fehlern/Stoerungen/Unstimmigkeiten
-    sein (technische und organisatorische Massnahmen, ggf. technische Redundanz); weiterlernende Systeme
-    muessen das Risiko verzerrter Ausgaben durch Rueckkopplungsschleifen beseitigen oder minimieren.
+  pflicht: Robustheit kann durch technische Redundanz erreicht werden, auch durch Sicherungs- oder Stoerungssicherheitsplaene.
   scope: in
   scope_grund: null
   verifikation: HYPOTHESE
@@ -8801,8 +8933,8 @@ einheiten:
   omnibus: 'unveraendert - Art. 15 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
     (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf: die Liste geaenderter Artikel geht
     von Nr. 10 [Art. 11] direkt auf Nr. 11 [Art. 17] ueber).'
-  requirement: *id019
-  gate: *id020
+  requirement: *id025
+  gate: *id026
   befund: nicht_einschlaegig
   befund_grund: Mittel ('kann durch technische Redundanz erreicht werden'), keine eigene pruefbare Pflicht.
   po_bestaetigt: false
@@ -8831,9 +8963,9 @@ einheiten:
     wird, dass auf solche Rückkopplungsschleifen angemessen mit geeigneten Risikominderungsmaßnahmen eingegangen
     wird.
   adressat: anbieter
-  pflicht: Hochrisiko-KI-Systeme muessen so widerstandsfaehig wie moeglich gegenueber Fehlern/Stoerungen/Unstimmigkeiten
-    sein (technische und organisatorische Massnahmen, ggf. technische Redundanz); weiterlernende Systeme
-    muessen das Risiko verzerrter Ausgaben durch Rueckkopplungsschleifen beseitigen oder minimieren.
+  pflicht: Weiterlernende Hochrisiko-KI-Systeme sind so zu entwickeln, dass das Risiko verzerrter Ausgaben
+    durch Rueckkopplungsschleifen beseitigt oder minimiert und ihm mit geeigneten Massnahmen begegnet
+    wird.
   scope: in
   scope_grund: null
   verifikation: HYPOTHESE
@@ -8842,8 +8974,8 @@ einheiten:
   omnibus: 'unveraendert - Art. 15 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
     (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf: die Liste geaenderter Artikel geht
     von Nr. 10 [Art. 11] direkt auf Nr. 11 [Art. 17] ueber).'
-  requirement: *id019
-  gate: *id020
+  requirement: *id025
+  gate: *id026
   befund: luecke
   befund_grund: Rueckkopplungsschleifen bei Systemen, die im Betrieb weiterlernen, prueft kein Gate; G-OPS-03
     misst Drift allgemein. Ob das System weiterlernt, ist eine Tatsache, die heute nirgends erfasst ist
@@ -10470,13 +10602,11 @@ einheiten:
   absatz: '3'
   buchstabe: e
   offset: 348065
-  laenge: 490
-  saetze: 2
+  laenge: 259
+  saetze: 1
   beleg: e) gegebenenfalls die Einhaltung der Registrierungspflichten gemäß Artikel 49 Absatz 1 oder,
     falls die Registrierung vom Anbieter selbst vorgenommen wird, Sicherstellung der Richtigkeit der in
-    Anhang VIII Abschnitt A Nummer 3 aufgeführten Informationen. Mit dem Auftrag wird der Bevollmächtigte
-    ermächtigt, neben oder anstelle des Anbieters als Ansprechpartner für die zuständigen Behörden in
-    allen Fragen zu dienen, die die Gewährleistung der Einhaltung dieser Verordnung betreffen.
+    Anhang VIII Abschnitt A Nummer 3 aufgeführten Informationen.
   adressat: sonstige
   pflicht: 'lit. e: Einhaltung/Sicherstellung der Registrierungspflichten nach Art. 49 Abs. 1 bzw. Anhang
     VIII Abschnitt A Nr. 3; kann als Ansprechpartner fuer Behoerden dienen.'
@@ -10485,8 +10615,8 @@ einheiten:
   verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: unveraendert (geprueft am verfuegenden Teil).
-  requirement: []
-  gate: []
+  requirement: &id027 []
+  gate: &id028 []
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -10495,6 +10625,37 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+- uid: Art. 22 Abs. 3 UAbs. 2@348324
+  id: Art. 22 Abs. 3 UAbs. 2
+  artikel: '22'
+  artikel_titel: Bevollmächtigte der Anbieter von Hochrisiko-KI-Systemen
+  abschnitt: null
+  absatz: '3'
+  nummer: null
+  unterabsatz: '2'
+  buchstabe: null
+  ziffer: null
+  offset: 348324
+  laenge: 231
+  saetze: 1
+  beleg: Mit dem Auftrag wird der Bevollmächtigte ermächtigt, neben oder anstelle des Anbieters als Ansprechpartner
+    für die zuständigen Behörden in allen Fragen zu dienen, die die Gewährleistung der Einhaltung dieser
+    Verordnung betreffen.
+  adressat: sonstige
+  pflicht: 'Unterabsatz nach der Aufzaehlung: Mit dem Auftrag wird der Bevollmächtigte ermächtigt, neben
+    oder anstelle des Anbieters als Ansprechpartner für die zuständigen Behörden in allen Fragen zu …'
+  scope: out
+  scope_grund: Regelt die Beziehung Anbieter/Bevollmaechtigter (Art. 22) - keine Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
+  hypothese_grund: null
+  omnibus: unveraendert (geprueft am verfuegenden Teil).
+  requirement: *id027
+  gate: *id028
+  befund: null
+  befund_grund: null
+  po_bestaetigt: false
+  migriert_von: Art. 22 Abs. 3 lit. e@348065
+  migration: geerbt
 - id: Art. 22 Abs. 4
   artikel: '22'
   artikel_titel: Bevollmächtigte der Anbieter von Hochrisiko-KI-Systemen
@@ -11214,8 +11375,8 @@ einheiten:
     Pflicht zur Zusammenarbeit MIT NEUEN ANBIETERN UND zur Uebergabe der Dokumentation (vorher nur von
     der Uebergabepflicht allein). Beide Fassungen sind inhaltlich in dieselbe Richtung, die neue ist praeziser
     und breiter im Carve-out.'
-  requirement: *id021
-  gate: *id022
+  requirement: *id029
+  gate: *id030
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -11234,6 +11395,7 @@ einheiten:
   - Art. 25 Abs. 2 lit. a n.F.@95227
   - Art. 25 Abs. 2 lit. b n.F.@95361
   - Art. 25 Abs. 2 lit. c n.F.@95448
+  - Art. 25 Abs. 2 UAbs. 4 n.F.@95566
 - id: Art. 25 Abs. 3
   artikel: '25'
   artikel_titel: Verantwortlichkeiten entlang der KI-Wertschöpfungskette
@@ -11586,20 +11748,15 @@ einheiten:
   beleg: Die Betreiber überwachen den Betrieb des Hochrisiko-KI-Systems anhand der Betriebsanleitung und
     informieren gegebenenfalls die Anbieter gemäß Artikel 72.
   adressat: betreiber
-  pflicht: Der Betreiber ueberwacht den Betrieb des Hochrisiko-KI-Systems anhand der Betriebsanleitung;
-    erkennt er ein Risiko im Sinne von Art. 79 Abs. 1, informiert er unverzueglich Anbieter/Haendler und
-    die zustaendige Marktueberwachungsbehoerde und setzt die Verwendung aus; stellt er einen schwerwiegenden
-    Vorfall fest, informiert er unverzueglich zuerst den Anbieter, dann Einfuehrer/Haendler und die zustaendigen
-    Behoerden (bei Unerreichbarkeit des Anbieters gilt Art. 73 entsprechend); Sonderregeln gelten fuer
-    Strafverfolgungsbehoerden (Ausnahme fuer sensible operative Daten) und Finanzinstitute (Erfuellung
-    durch bestehende Governance-Vorschriften).
+  pflicht: Der Betreiber ueberwacht den Betrieb anhand der Betriebsanleitung und informiert gegebenenfalls
+    den Anbieter nach Art. 72.
   scope: in
   scope_grund: null
   verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: unveraendert - VO (EU) 2026/1744 Art. 1 aendert Art. 25 und Art. 27, Art. 26 ist in der Aenderungsliste
     nicht enthalten (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: &id023
+  requirement: &id031
   - R009
   gate:
   - G-OPS-01
@@ -11636,21 +11793,16 @@ einheiten:
     sie unverzüglich den Anbieter oder Händler und die zuständige Marktüberwachungsbehörde und setzen
     die Verwendung dieses Systems aus.
   adressat: betreiber
-  pflicht: Der Betreiber ueberwacht den Betrieb des Hochrisiko-KI-Systems anhand der Betriebsanleitung;
-    erkennt er ein Risiko im Sinne von Art. 79 Abs. 1, informiert er unverzueglich Anbieter/Haendler und
-    die zustaendige Marktueberwachungsbehoerde und setzt die Verwendung aus; stellt er einen schwerwiegenden
-    Vorfall fest, informiert er unverzueglich zuerst den Anbieter, dann Einfuehrer/Haendler und die zustaendigen
-    Behoerden (bei Unerreichbarkeit des Anbieters gilt Art. 73 entsprechend); Sonderregeln gelten fuer
-    Strafverfolgungsbehoerden (Ausnahme fuer sensible operative Daten) und Finanzinstitute (Erfuellung
-    durch bestehende Governance-Vorschriften).
+  pflicht: Hat der Betreiber Grund zur Annahme eines Risikos nach Art. 79 Abs. 1, informiert er unverzueglich
+    Anbieter oder Haendler und die Marktueberwachungsbehoerde und setzt die Verwendung aus.
   scope: in
   scope_grund: null
   verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: unveraendert - VO (EU) 2026/1744 Art. 1 aendert Art. 25 und Art. 27, Art. 26 ist in der Aenderungsliste
     nicht enthalten (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id023
-  gate: &id024
+  requirement: *id031
+  gate: &id032
   - G-OPS-02
   befund: luecke
   befund_grund: 'Hat der Betreiber Grund zur Annahme eines Risikos nach Art. 79 Abs. 1, setzt er die Verwendung
@@ -11680,21 +11832,16 @@ einheiten:
     zuerst den Anbieter und dann den Einführer oder Händler und die zuständigen Marktüberwachungsbehörden
     über diesen Vorfall.
   adressat: betreiber
-  pflicht: Der Betreiber ueberwacht den Betrieb des Hochrisiko-KI-Systems anhand der Betriebsanleitung;
-    erkennt er ein Risiko im Sinne von Art. 79 Abs. 1, informiert er unverzueglich Anbieter/Haendler und
-    die zustaendige Marktueberwachungsbehoerde und setzt die Verwendung aus; stellt er einen schwerwiegenden
-    Vorfall fest, informiert er unverzueglich zuerst den Anbieter, dann Einfuehrer/Haendler und die zustaendigen
-    Behoerden (bei Unerreichbarkeit des Anbieters gilt Art. 73 entsprechend); Sonderregeln gelten fuer
-    Strafverfolgungsbehoerden (Ausnahme fuer sensible operative Daten) und Finanzinstitute (Erfuellung
-    durch bestehende Governance-Vorschriften).
+  pflicht: Stellt der Betreiber einen schwerwiegenden Vorfall fest, informiert er unverzueglich zuerst
+    den Anbieter, dann Einfuehrer oder Haendler und die Marktueberwachungsbehoerden.
   scope: in
   scope_grund: null
   verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: unveraendert - VO (EU) 2026/1744 Art. 1 aendert Art. 25 und Art. 27, Art. 26 ist in der Aenderungsliste
     nicht enthalten (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id023
-  gate: *id024
+  requirement: *id031
+  gate: *id032
   befund: teilabdeckung
   befund_grund: G-OPS-02/C-01 prueft, dass ein Incident-Kontakt deklariert ist, nicht die Reihenfolge
     zuerst Anbieter, dann Einfuehrer oder Haendler, dann Behoerde (M-E3, P6).
@@ -11720,21 +11867,15 @@ einheiten:
   saetze: 1
   beleg: Kann der Betreiber den Anbieter nicht erreichen, so gilt Artikel 73 entsprechend.
   adressat: betreiber
-  pflicht: Der Betreiber ueberwacht den Betrieb des Hochrisiko-KI-Systems anhand der Betriebsanleitung;
-    erkennt er ein Risiko im Sinne von Art. 79 Abs. 1, informiert er unverzueglich Anbieter/Haendler und
-    die zustaendige Marktueberwachungsbehoerde und setzt die Verwendung aus; stellt er einen schwerwiegenden
-    Vorfall fest, informiert er unverzueglich zuerst den Anbieter, dann Einfuehrer/Haendler und die zustaendigen
-    Behoerden (bei Unerreichbarkeit des Anbieters gilt Art. 73 entsprechend); Sonderregeln gelten fuer
-    Strafverfolgungsbehoerden (Ausnahme fuer sensible operative Daten) und Finanzinstitute (Erfuellung
-    durch bestehende Governance-Vorschriften).
+  pflicht: Erreicht der Betreiber den Anbieter nicht, gilt Art. 73 entsprechend.
   scope: in
   scope_grund: null
   verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: unveraendert - VO (EU) 2026/1744 Art. 1 aendert Art. 25 und Art. 27, Art. 26 ist in der Aenderungsliste
     nicht enthalten (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id023
-  gate: *id024
+  requirement: *id031
+  gate: *id032
   befund: teilabdeckung
   befund_grund: G-OPS-02/C-04 fuehrt die Fristen des Art. 73, aber als eigene Betreiberpflicht; der Fall,
     fuer den sie dem Betreiber gelten - Anbieter nicht erreichbar -, ist nicht abgebildet (M-E4, M-F1).
@@ -11761,13 +11902,8 @@ einheiten:
   beleg: Diese Pflicht gilt nicht für sensible operative Daten von Betreibern von KI-Systemen, die Strafverfolgungsbehörden
     sind.
   adressat: betreiber
-  pflicht: Der Betreiber ueberwacht den Betrieb des Hochrisiko-KI-Systems anhand der Betriebsanleitung;
-    erkennt er ein Risiko im Sinne von Art. 79 Abs. 1, informiert er unverzueglich Anbieter/Haendler und
-    die zustaendige Marktueberwachungsbehoerde und setzt die Verwendung aus; stellt er einen schwerwiegenden
-    Vorfall fest, informiert er unverzueglich zuerst den Anbieter, dann Einfuehrer/Haendler und die zustaendigen
-    Behoerden (bei Unerreichbarkeit des Anbieters gilt Art. 73 entsprechend); Sonderregeln gelten fuer
-    Strafverfolgungsbehoerden (Ausnahme fuer sensible operative Daten) und Finanzinstitute (Erfuellung
-    durch bestehende Governance-Vorschriften).
+  pflicht: Die Pflicht gilt nicht fuer sensible operative Daten von Betreibern, die Strafverfolgungsbehoerden
+    sind.
   scope: out
   scope_grund: Adressat - Betreiber, die Strafverfolgungsbehoerden sind (Ausnahme fuer sensible operative
     Daten).
@@ -11775,8 +11911,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - VO (EU) 2026/1744 Art. 1 aendert Art. 25 und Art. 27, Art. 26 ist in der Aenderungsliste
     nicht enthalten (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id023
-  gate: *id024
+  requirement: *id031
+  gate: *id032
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -11805,13 +11941,8 @@ einheiten:
     Regelungen, Verfahren oder Mechanismen der internen Unternehmensführung gemäß einschlägigem Recht
     über Finanzdienstleistungen eingehalten werden.
   adressat: betreiber
-  pflicht: Der Betreiber ueberwacht den Betrieb des Hochrisiko-KI-Systems anhand der Betriebsanleitung;
-    erkennt er ein Risiko im Sinne von Art. 79 Abs. 1, informiert er unverzueglich Anbieter/Haendler und
-    die zustaendige Marktueberwachungsbehoerde und setzt die Verwendung aus; stellt er einen schwerwiegenden
-    Vorfall fest, informiert er unverzueglich zuerst den Anbieter, dann Einfuehrer/Haendler und die zustaendigen
-    Behoerden (bei Unerreichbarkeit des Anbieters gilt Art. 73 entsprechend); Sonderregeln gelten fuer
-    Strafverfolgungsbehoerden (Ausnahme fuer sensible operative Daten) und Finanzinstitute (Erfuellung
-    durch bestehende Governance-Vorschriften).
+  pflicht: Fuer Betreiber, die Finanzinstitute sind, gilt die Ueberwachungspflicht als erfuellt, wenn
+    sie die Governance-Vorschriften des Finanzdienstleistungsrechts einhalten.
   scope: out
   scope_grund: Adressat - Betreiber, die Finanzinstitute sind (Ueberwachungspflicht gilt durch Governance-Recht
     als erfuellt).
@@ -11819,8 +11950,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - VO (EU) 2026/1744 Art. 1 aendert Art. 25 und Art. 27, Art. 26 ist in der Aenderungsliste
     nicht enthalten (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id023
-  gate: *id024
+  requirement: *id031
+  gate: *id032
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -14260,17 +14391,11 @@ einheiten:
   absatz: '9'
   buchstabe: b
   offset: 391202
-  laenge: 857
-  saetze: 3
+  laenge: 240
+  saetze: 1
   beleg: b) eine andere notifizierte Stelle hat schriftlich bestätigt, dass sie die unmittelbare Verantwortung
     für diese KI-Systeme übernehmen und deren Bewertung innerhalb von 12 Monaten ab dem Widerruf der Benennung
-    abgeschlossen haben wird. Unter den in Unterabsatz 1 genannten Umständen kann die zuständige nationale
-    Behörde des Mitgliedstaats, in dem der Anbieter des von der Bescheinigung abgedeckten Systems seine
-    Niederlassung hat, die vorläufige Gültigkeit der Bescheinigungen um zusätzliche Zeiträume von je drei
-    Monaten, jedoch nicht um insgesamt mehr als 12 Monate, verlängern. Die zuständige nationale Behörde
-    oder die notifizierte Stelle, die die Aufgaben der von der Benennungsänderung betroffenen notifizierten
-    Stelle übernimmt, informiert unverzüglich die Kommission, die anderen Mitgliedstaaten und die anderen
-    notifizierten Stellen darüber.
+    abgeschlossen haben wird.
   adressat: behoerde
   pflicht: Eine andere notifizierte Stelle hat schriftlich die unmittelbare Verantwortung uebernommen
     und schliesst die Bewertung binnen 12 Monaten ab; die zustaendige nationale Behoerde kann die vorlaeufige
@@ -14282,8 +14407,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - Art. 36 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
     nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: []
-  gate: []
+  requirement: &id033 []
+  gate: &id034 []
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -14292,6 +14417,71 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+- uid: Art. 36 Abs. 9 UAbs. 2@391442
+  id: Art. 36 Abs. 9 UAbs. 2
+  artikel: '36'
+  artikel_titel: Änderungen der Notifizierungen
+  abschnitt: null
+  absatz: '9'
+  nummer: null
+  unterabsatz: '2'
+  buchstabe: null
+  ziffer: null
+  offset: 391442
+  laenge: 347
+  saetze: 1
+  beleg: Unter den in Unterabsatz 1 genannten Umständen kann die zuständige nationale Behörde des Mitgliedstaats,
+    in dem der Anbieter des von der Bescheinigung abgedeckten Systems seine Niederlassung hat, die vorläufige
+    Gültigkeit der Bescheinigungen um zusätzliche Zeiträume von je drei Monaten, jedoch nicht um insgesamt
+    mehr als 12 Monate, verlängern.
+  adressat: behoerde
+  pflicht: 'Unterabsatz nach der Aufzaehlung: Unter den in Unterabsatz 1 genannten Umständen kann die
+    zuständige nationale Behörde des Mitgliedstaats, in dem der Anbieter des von der Bescheinigung …'
+  scope: out
+  scope_grund: Verfahrenspflicht von Behoerde und uebernehmender notifizierter Stelle, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
+  hypothese_grund: null
+  omnibus: unveraendert - Art. 36 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: *id033
+  gate: *id034
+  befund: null
+  befund_grund: null
+  po_bestaetigt: false
+  migriert_von: Art. 36 Abs. 9 lit. b@391202
+  migration: geerbt
+- uid: Art. 36 Abs. 9 UAbs. 3@391789
+  id: Art. 36 Abs. 9 UAbs. 3
+  artikel: '36'
+  artikel_titel: Änderungen der Notifizierungen
+  abschnitt: null
+  absatz: '9'
+  nummer: null
+  unterabsatz: '3'
+  buchstabe: null
+  ziffer: null
+  offset: 391789
+  laenge: 270
+  saetze: 1
+  beleg: Die zuständige nationale Behörde oder die notifizierte Stelle, die die Aufgaben der von der Benennungsänderung
+    betroffenen notifizierten Stelle übernimmt, informiert unverzüglich die Kommission, die anderen Mitgliedstaaten
+    und die anderen notifizierten Stellen darüber.
+  adressat: behoerde
+  pflicht: 'Unterabsatz nach der Aufzaehlung: Die zuständige nationale Behörde oder die notifizierte Stelle,
+    die die Aufgaben der von der Benennungsänderung betroffenen notifizierten Stelle übernimmt, …'
+  scope: out
+  scope_grund: Verfahrenspflicht von Behoerde und uebernehmender notifizierter Stelle, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
+  hypothese_grund: null
+  omnibus: unveraendert - Art. 36 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: *id033
+  gate: *id034
+  befund: null
+  befund_grund: null
+  po_bestaetigt: false
+  migriert_von: Art. 36 Abs. 9 lit. b@391202
+  migration: geerbt
 - id: Art. 37 Abs. 1
   artikel: '37'
   artikel_titel: Anfechtungen der Kompetenz notifizierter Stellen
@@ -14737,8 +14927,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - Art. 41 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
     nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: &id025 []
-  gate: &id026 []
+  requirement: &id035 []
+  gate: &id036 []
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -14769,8 +14959,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - Art. 41 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
     nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id025
-  gate: *id026
+  requirement: *id035
+  gate: *id036
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -14801,8 +14991,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - Art. 41 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
     nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id025
-  gate: *id026
+  requirement: *id035
+  gate: *id036
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -14832,8 +15022,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - Art. 41 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
     nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id025
-  gate: *id026
+  requirement: *id035
+  gate: *id036
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -14845,15 +15035,13 @@ einheiten:
   absatz: '1'
   buchstabe: b
   offset: 398860
-  laenge: 698
-  saetze: 3
+  laenge: 420
+  saetze: 1
   beleg: b) im Amtsblatt der Europäischen Union sind keine Fundstellen zu harmonisierten Normen gemäß
     der Verordnung (EU) Nr. 1025/2012 veröffentlicht, die den in Abschnitt 2 dieses Kapitels aufgeführten
     Anforderungen oder gegebenenfalls den in Kapitel V Abschnitte 2 und 3 aufgeführten Pflichten genügen,
     und es ist nicht zu erwarten, dass eine solche Fundstelle innerhalb eines angemessenen Zeitraums veröffentlicht
-    wird. Bei der Verfassung der gemeinsamen Spezifikationen konsultiert die Kommission das in Artikel
-    67 genannte Beratungsforum. Die in Unterabsatz 1 des vorliegenden Absatzes genannten Durchführungsrechtsakte
-    werden gemäß dem in Artikel 98 Absatz 2 genannten Prüfverfahren erlassen.
+    wird.
   adressat: behoerde
   pflicht: 'Weitere Voraussetzung: keine entsprechende harmonisierte Norm ist veroeffentlicht und auch
     nicht absehbar; die Kommission konsultiert das Beratungsforum und erlaesst den Durchfuehrungsrechtsakt
@@ -14864,8 +15052,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - Art. 41 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
     nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: []
-  gate: []
+  requirement: &id037 []
+  gate: &id038 []
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -14874,6 +15062,68 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+- uid: Art. 41 Abs. 1 UAbs. 2@399280
+  id: Art. 41 Abs. 1 UAbs. 2
+  artikel: '41'
+  artikel_titel: Gemeinsame Spezifikationen
+  abschnitt: null
+  absatz: '1'
+  nummer: null
+  unterabsatz: '2'
+  buchstabe: null
+  ziffer: null
+  offset: 399280
+  laenge: 122
+  saetze: 1
+  beleg: Bei der Verfassung der gemeinsamen Spezifikationen konsultiert die Kommission das in Artikel
+    67 genannte Beratungsforum.
+  adressat: behoerde
+  pflicht: 'Unterabsatz nach der Aufzaehlung: Bei der Verfassung der gemeinsamen Spezifikationen konsultiert
+    die Kommission das in Artikel 67 genannte Beratungsforum.'
+  scope: out
+  scope_grund: Voraussetzung und Verfahrenspflicht der Kommission, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
+  hypothese_grund: null
+  omnibus: unveraendert - Art. 41 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: *id037
+  gate: *id038
+  befund: null
+  befund_grund: null
+  po_bestaetigt: false
+  migriert_von: Art. 41 Abs. 1 lit. b@398860
+  migration: geerbt
+- uid: Art. 41 Abs. 1 UAbs. 3@399402
+  id: Art. 41 Abs. 1 UAbs. 3
+  artikel: '41'
+  artikel_titel: Gemeinsame Spezifikationen
+  abschnitt: null
+  absatz: '1'
+  nummer: null
+  unterabsatz: '3'
+  buchstabe: null
+  ziffer: null
+  offset: 399402
+  laenge: 156
+  saetze: 1
+  beleg: Die in Unterabsatz 1 des vorliegenden Absatzes genannten Durchführungsrechtsakte werden gemäß
+    dem in Artikel 98 Absatz 2 genannten Prüfverfahren erlassen.
+  adressat: behoerde
+  pflicht: 'Unterabsatz nach der Aufzaehlung: Die in Unterabsatz 1 des vorliegenden Absatzes genannten
+    Durchführungsrechtsakte werden gemäß dem in Artikel 98 Absatz 2 genannten Prüfverfahren erlassen.'
+  scope: out
+  scope_grund: Voraussetzung und Verfahrenspflicht der Kommission, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
+  hypothese_grund: null
+  omnibus: unveraendert - Art. 41 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: *id037
+  gate: *id038
+  befund: null
+  befund_grund: null
+  po_bestaetigt: false
+  migriert_von: Art. 41 Abs. 1 lit. b@398860
+  migration: geerbt
 - id: Art. 41 Abs. 2
   artikel: '41'
   artikel_titel: Gemeinsame Spezifikationen
@@ -15172,12 +15422,10 @@ einheiten:
   buchstabe: b
   ziffer: null
   offset: 403312
-  laenge: 345
-  saetze: 2
+  laenge: 164
+  saetze: 1
   beleg: b) der Bewertung des Qualitätsmanagementsystems und der Bewertung der technischen Dokumentation
-    unter Beteiligung einer notifizierten Stelle gemäß Anhang VII. Zum Nachweis, dass sein Hochrisiko-KI-System
-    die in Abschnitt 2 festgelegten Anforderungen erfüllt, befolgt der Anbieter das Konformitätsbewertungsverfahren
-    gemäß Anhang VII, wenn
+    unter Beteiligung einer notifizierten Stelle gemäß Anhang VII.
   adressat: anbieter
   pflicht: 'Option b): Bewertung des Qualitaetsmanagementsystems und der technischen Dokumentation unter
     Beteiligung einer notifizierten Stelle gemaess Anhang VII; dieses Verfahren ist zwingend, wenn bestimmte
@@ -15188,13 +15436,44 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - Art. 43 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
     nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: []
-  gate: []
+  requirement: &id039 []
+  gate: &id040 []
   befund: null
   befund_grund: null
   po_bestaetigt: false
   migriert_von: Art. 43 Abs. 1 lit. b@403312
   migration: kennung_geaendert
+- uid: Art. 43 Abs. 1 UAbs. 2@403476
+  id: Art. 43 Abs. 1 UAbs. 2
+  artikel: '43'
+  artikel_titel: Konformitätsbewertung
+  abschnitt: null
+  absatz: '1'
+  nummer: null
+  unterabsatz: '2'
+  buchstabe: null
+  ziffer: null
+  offset: 403476
+  laenge: 181
+  saetze: 1
+  beleg: Zum Nachweis, dass sein Hochrisiko-KI-System die in Abschnitt 2 festgelegten Anforderungen erfüllt,
+    befolgt der Anbieter das Konformitätsbewertungsverfahren gemäß Anhang VII, wenn
+  adressat: anbieter
+  pflicht: 'Unterabsatz nach der Aufzaehlung: Zum Nachweis, dass sein Hochrisiko-KI-System die in Abschnitt
+    2 festgelegten Anforderungen erfüllt, befolgt der Anbieter das Konformitätsbewertungsverfahren …'
+  scope: out
+  scope_grund: Verfahrenspflicht des Anbieters, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
+  hypothese_grund: null
+  omnibus: unveraendert - Art. 43 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: *id039
+  gate: *id040
+  befund: null
+  befund_grund: null
+  po_bestaetigt: false
+  migriert_von: Art. 43 Abs. 1 UAbs. 1 lit. b@403312
+  migration: geerbt
 - uid: Art. 43 Abs. 1 UAbs. 2 lit. a@403657
   id: Art. 43 Abs. 1 UAbs. 2 lit. a
   artikel: '43'
@@ -15295,14 +15574,10 @@ einheiten:
   buchstabe: d
   ziffer: null
   offset: 403996
-  laenge: 609
-  saetze: 3
+  laenge: 173
+  saetze: 1
   beleg: d) eine oder mehrere der unter Buchstabe a genannten harmonisierten Normen mit einer Einschränkung
-    und nur für den eingeschränkten Teil der Norm veröffentlicht wurden. Für die Zwecke des Konformitätsbewertungsverfahrens
-    gemäß Anhang VII kann der Anbieter eine der notifizierten Stellen auswählen. Soll das Hochrisiko-KI-System
-    jedoch von Strafverfolgungs-, Einwanderungs- oder Asylbehörden oder von Organen, Einrichtungen oder
-    sonstigen Stellen der Union in Betrieb genommen werden, so übernimmt die in Artikel 74 Absatz 8 bzw.
-    9 genannte Marktüberwachungsbehörde die Funktion der notifizierten Stelle.
+    und nur für den eingeschränkten Teil der Norm veröffentlicht wurden.
   adressat: anbieter
   pflicht: 'Voraussetzung: eine oder mehrere harmonisierte Normen wurden nur eingeschraenkt veroeffentlicht;
     fuer das Anhang-VII-Verfahren kann der Anbieter eine notifizierte Stelle waehlen, ausser bei Systemen
@@ -15314,13 +15589,48 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - Art. 43 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
     nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: []
-  gate: []
+  requirement: &id041 []
+  gate: &id042 []
   befund: null
   befund_grund: null
   po_bestaetigt: false
   migriert_von: Art. 43 Abs. 1 lit. d@403996
   migration: kennung_geaendert
+- uid: Art. 43 Abs. 1 UAbs. 3@404169
+  id: Art. 43 Abs. 1 UAbs. 3
+  artikel: '43'
+  artikel_titel: Konformitätsbewertung
+  abschnitt: null
+  absatz: '1'
+  nummer: null
+  unterabsatz: '3'
+  buchstabe: null
+  ziffer: null
+  offset: 404169
+  laenge: 436
+  saetze: 2
+  beleg: Für die Zwecke des Konformitätsbewertungsverfahrens gemäß Anhang VII kann der Anbieter eine der
+    notifizierten Stellen auswählen. Soll das Hochrisiko-KI-System jedoch von Strafverfolgungs-, Einwanderungs-
+    oder Asylbehörden oder von Organen, Einrichtungen oder sonstigen Stellen der Union in Betrieb genommen
+    werden, so übernimmt die in Artikel 74 Absatz 8 bzw. 9 genannte Marktüberwachungsbehörde die Funktion
+    der notifizierten Stelle.
+  adressat: anbieter
+  pflicht: 'Unterabsatz nach der Aufzaehlung: Für die Zwecke des Konformitätsbewertungsverfahrens gemäß
+    Anhang VII kann der Anbieter eine der notifizierten Stellen auswählen. Soll das Hochrisiko-KI-System
+    …'
+  scope: out
+  scope_grund: Verfahrenspflicht/-wahlrecht des Anbieters mit Behoerdenausnahme, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
+  hypothese_grund: null
+  omnibus: unveraendert - Art. 43 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: *id041
+  gate: *id042
+  befund: null
+  befund_grund: null
+  po_bestaetigt: false
+  migriert_von: Art. 43 Abs. 1 UAbs. 2 lit. d@403996
+  migration: geerbt
 - id: Art. 43 Abs. 2
   artikel: '43'
   artikel_titel: Konformitätsbewertung
@@ -16685,11 +16995,9 @@ einheiten:
   absatz: '4'
   buchstabe: d
   offset: 420628
-  laenge: 234
+  laenge: 48
   saetze: 1
-  beleg: d) Anhang IX Nummern 1, 2, 3 und Nummer 5. Nur die Kommission und die in Artikel 74 Absatz 8
-    genannten nationalen Behörden haben Zugang zu den jeweiligen beschränkten Teilen der EU-Datenbank
-    gemäß Unterabsatz 1 dieses Absatzes.
+  beleg: d) Anhang IX Nummern 1, 2, 3 und Nummer 5.
   adressat: behoerde
   pflicht: Verweist auf Anhang IX Nr. 1, 2, 3 und 5; nur Kommission und die nach Art. 74 Abs. 8 genannten
     nationalen Behoerden haben Zugang zu den beschraenkten Datenbankteilen.
@@ -16699,8 +17007,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - Art. 49 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
     nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: []
-  gate: []
+  requirement: &id043 []
+  gate: &id044 []
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -16709,6 +17017,37 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+- uid: Art. 49 Abs. 4 UAbs. 2@420676
+  id: Art. 49 Abs. 4 UAbs. 2
+  artikel: '49'
+  artikel_titel: Registrierung
+  abschnitt: null
+  absatz: '4'
+  nummer: null
+  unterabsatz: '2'
+  buchstabe: null
+  ziffer: null
+  offset: 420676
+  laenge: 186
+  saetze: 1
+  beleg: Nur die Kommission und die in Artikel 74 Absatz 8 genannten nationalen Behörden haben Zugang
+    zu den jeweiligen beschränkten Teilen der EU-Datenbank gemäß Unterabsatz 1 dieses Absatzes.
+  adressat: behoerde
+  pflicht: 'Unterabsatz nach der Aufzaehlung: Nur die Kommission und die in Artikel 74 Absatz 8 genannten
+    nationalen Behörden haben Zugang zu den jeweiligen beschränkten Teilen der EU-Datenbank gemäß …'
+  scope: out
+  scope_grund: Zugangsbeschraenkung auf Kommission/nationale Behoerden, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
+  hypothese_grund: null
+  omnibus: unveraendert - Art. 49 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
+    nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: *id043
+  gate: *id044
+  befund: null
+  befund_grund: null
+  po_bestaetigt: false
+  migriert_von: Art. 49 Abs. 4 lit. d@420628
+  migration: geerbt
 - id: Art. 49 Abs. 5
   artikel: '49'
   artikel_titel: Registrierung
@@ -17519,8 +17858,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: &id027 []
-  gate: &id028 []
+  requirement: &id045 []
+  gate: &id046 []
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -17551,8 +17890,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id027
-  gate: *id028
+  requirement: *id045
+  gate: *id046
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -19684,10 +20023,9 @@ einheiten:
   absatz: '1'
   buchstabe: c
   offset: 456738
-  laenge: 168
-  saetze: 2
-  beleg: c) für Beteiligte geltende Anforderungen und Bedingungen. Diese Durchführungsrechtsakte werden
-    gemäß dem in Artikel 98 Absatz 2 genannten Prüfverfahren erlassen.
+  laenge: 63
+  saetze: 1
+  beleg: c) für Beteiligte geltende Anforderungen und Bedingungen.
   adressat: behoerde
   pflicht: Die Durchfuehrungsrechtsakte legen die fuer Beteiligte geltenden Anforderungen und Bedingungen
     fest.
@@ -19699,8 +20037,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: []
-  gate: []
+  requirement: &id047 []
+  gate: &id048 []
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -19709,6 +20047,39 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+- uid: Art. 58 Abs. 1 UAbs. 2@456801
+  id: Art. 58 Abs. 1 UAbs. 2
+  artikel: '58'
+  artikel_titel: Detaillierte Regelungen für KI-Reallabore und deren Funktionsweise
+  abschnitt: null
+  absatz: '1'
+  nummer: null
+  unterabsatz: '2'
+  buchstabe: null
+  ziffer: null
+  offset: 456801
+  laenge: 105
+  saetze: 1
+  beleg: Diese Durchführungsrechtsakte werden gemäß dem in Artikel 98 Absatz 2 genannten Prüfverfahren
+    erlassen.
+  adressat: behoerde
+  pflicht: 'Unterabsatz nach der Aufzaehlung: Diese Durchführungsrechtsakte werden gemäß dem in Artikel
+    98 Absatz 2 genannten Prüfverfahren erlassen.'
+  scope: out
+  scope_grund: Die Regelung betrifft eine Handlungs- oder Aufsichtspflicht der Kommission, des Buero fuer
+    Kuenstliche Intelligenz, des KI-Gremiums oder der zustaendigen Behoerden und begruendet keine Pflicht
+    des Betreibers.
+  verifikation: VERIFIZIERT
+  hypothese_grund: null
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: *id047
+  gate: *id048
+  befund: null
+  befund_grund: null
+  po_bestaetigt: false
+  migriert_von: Art. 58 Abs. 1 lit. c@456738
+  migration: geerbt
 - id: Art. 58 Abs. 2
   artikel: '58'
   artikel_titel: Detaillierte Regelungen für KI-Reallabore und deren Funktionsweise
@@ -20200,8 +20571,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: &id029 []
-  gate: &id030 []
+  requirement: &id049 []
+  gate: &id050 []
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -20234,8 +20605,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id029
-  gate: *id030
+  requirement: *id049
+  gate: *id050
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -20266,8 +20637,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id029
-  gate: *id030
+  requirement: *id049
+  gate: *id050
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -20299,8 +20670,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id029
-  gate: *id030
+  requirement: *id049
+  gate: *id050
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -22636,8 +23007,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: &id031 []
-  gate: &id032 []
+  requirement: &id051 []
+  gate: &id052 []
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -22672,8 +23043,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id031
-  gate: *id032
+  requirement: *id051
+  gate: *id052
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -22705,8 +23076,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id031
-  gate: *id032
+  requirement: *id051
+  gate: *id052
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -22738,8 +23109,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id031
-  gate: *id032
+  requirement: *id051
+  gate: *id052
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -22771,8 +23142,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: &id033 []
-  gate: &id034 []
+  requirement: &id053 []
+  gate: &id054 []
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -22804,8 +23175,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id033
-  gate: *id034
+  requirement: *id053
+  gate: *id054
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -22838,8 +23209,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id033
-  gate: *id034
+  requirement: *id053
+  gate: *id054
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -23572,12 +23943,9 @@ einheiten:
   absatz: '2'
   buchstabe: c
   offset: 491139
-  laenge: 333
-  saetze: 2
-  beleg: c) es ist in der Lage, Tätigkeiten sorgfältig, präzise und objektiv auszuführen. Die Kommission
-    legt in Absprache mit dem KI-Gremium die Anzahl der Sachverständigen des Gremiums nach Maßgabe der
-    jeweiligen Erfordernisse fest und sorgt für eine ausgewogene Vertretung der Geschlechter und eine
-    gerechte geografische Verteilung.
+  laenge: 86
+  saetze: 1
+  beleg: c) es ist in der Lage, Tätigkeiten sorgfältig, präzise und objektiv auszuführen.
   adressat: behoerde
   pflicht: Die Mitglieder muessen ihre Taetigkeit sorgfaeltig, praezise und objektiv ausueben koennen,
     wobei die Kommission fuer eine ausgewogene Geschlechter- und geografische Vertretung sorgt.
@@ -23588,8 +23956,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: []
-  gate: []
+  requirement: &id055 []
+  gate: &id056 []
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -23598,6 +23966,40 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+- uid: Art. 68 Abs. 2 UAbs. 2@491225
+  id: Art. 68 Abs. 2 UAbs. 2
+  artikel: '68'
+  artikel_titel: Wissenschaftliches Gremium unabhängiger Sachverständiger
+  abschnitt: null
+  absatz: '2'
+  nummer: null
+  unterabsatz: '2'
+  buchstabe: null
+  ziffer: null
+  offset: 491225
+  laenge: 247
+  saetze: 1
+  beleg: Die Kommission legt in Absprache mit dem KI-Gremium die Anzahl der Sachverständigen des Gremiums
+    nach Maßgabe der jeweiligen Erfordernisse fest und sorgt für eine ausgewogene Vertretung der Geschlechter
+    und eine gerechte geografische Verteilung.
+  adressat: behoerde
+  pflicht: 'Unterabsatz nach der Aufzaehlung: Die Kommission legt in Absprache mit dem KI-Gremium die
+    Anzahl der Sachverständigen des Gremiums nach Maßgabe der jeweiligen Erfordernisse fest und sorgt
+    für …'
+  scope: out
+  scope_grund: Betrifft Einrichtung und Aufgaben des wissenschaftlichen Gremiums unabhaengiger Sachverstaendiger;
+    keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
+  hypothese_grund: null
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: *id055
+  gate: *id056
+  befund: null
+  befund_grund: null
+  po_bestaetigt: false
+  migriert_von: Art. 68 Abs. 2 lit. c@491139
+  migration: geerbt
 - id: Art. 68 Abs. 3
   artikel: '68'
   artikel_titel: Wissenschaftliches Gremium unabhängiger Sachverständiger
@@ -23683,8 +24085,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: &id035 []
-  gate: &id036 []
+  requirement: &id057 []
+  gate: &id058 []
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -23715,8 +24117,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id035
-  gate: *id036
+  requirement: *id057
+  gate: *id058
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -23747,8 +24149,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id035
-  gate: *id036
+  requirement: *id057
+  gate: *id058
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -23779,8 +24181,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id035
-  gate: *id036
+  requirement: *id057
+  gate: *id058
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -24808,17 +25210,16 @@ einheiten:
     oder gegebenenfalls der Betreiber Kenntnis von diesem schwerwiegenden Vorfall erlangt hat.
   adressat: anbieter
   pflicht: Die Meldung erfolgt unmittelbar nach Feststellung des (wahrscheinlichen) Kausalzusammenhangs,
-    spaetestens 15 Tage nach Kenntniserlangung durch Anbieter oder ggf. Betreiber; die Schwere des Vorfalls
-    wird bei der Fristbemessung beruecksichtigt.
+    spaetestens 15 Tage nach Kenntnis des Anbieters oder gegebenenfalls des Betreibers.
   scope: in
   scope_grund: null
   verifikation: HYPOTHESE
   hypothese_grund: 'Anbieterpflicht, fuer den Betreiber in nach der Durchschlagsregel (2b E4): (b) Art.
     26 Abs. 5 verweist auf Art. 73.'
   omnibus: unveraendert (s. Art. 73 Abs. 1).
-  requirement: &id037
+  requirement: &id059
   - R009
-  gate: &id038
+  gate: &id060
   - G-OPS-02
   befund: teilabdeckung
   befund_grund: Regelfrist (15 Tage = 360h) fuer den Meldefall aus Abs. 1; durchschlagend fuer den Betreiber
@@ -24849,17 +25250,15 @@ einheiten:
   beleg: Bezüglich des in Unterabsatz 1 genannten Meldezeitraums wird der Schwere des schwerwiegenden
     Vorfalls Rechnung getragen.
   adressat: anbieter
-  pflicht: Die Meldung erfolgt unmittelbar nach Feststellung des (wahrscheinlichen) Kausalzusammenhangs,
-    spaetestens 15 Tage nach Kenntniserlangung durch Anbieter oder ggf. Betreiber; die Schwere des Vorfalls
-    wird bei der Fristbemessung beruecksichtigt.
+  pflicht: Bei der Meldefrist wird der Schwere des schwerwiegenden Vorfalls Rechnung getragen.
   scope: in
   scope_grund: null
   verifikation: HYPOTHESE
   hypothese_grund: 'Anbieterpflicht, fuer den Betreiber in nach der Durchschlagsregel (2b E4): (b) Art.
     26 Abs. 5 verweist auf Art. 73.'
   omnibus: unveraendert (s. Art. 73 Abs. 1).
-  requirement: *id037
-  gate: *id038
+  requirement: *id059
+  gate: *id060
   befund: gedeckt
   befund_grund: Die Frist dieser Einheit ist in governance/incident_thresholds.yaml deklariert und policy_incident_thresholds
     haelt sie gegen das Gesetz (48 h / 240 h / 360 h, je mit Rechtsgrundlage). Nur deklariert (E-0) -
@@ -25846,6 +26245,7 @@ einheiten:
   - Art. 75 Abs. 1 lit. a Ziff. iii n.F.@121617
   - Art. 75 Abs. 1 lit. a Ziff. iv n.F.@121801
   - Art. 75 Abs. 1 lit. b n.F.@121875
+  - Art. 75 Abs. 1 UAbs. 2 n.F.@122049
 - id: Art. 75 Abs. 2
   artikel: '75'
   artikel_titel: Amtshilfe, Marktüberwachung und Kontrolle von KI-Systemen mit allgemeinem Verwendungszweck
@@ -27919,8 +28319,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: &id039 []
-  gate: &id040 []
+  requirement: &id061 []
+  gate: &id062 []
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -27952,8 +28352,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id039
-  gate: *id040
+  requirement: *id061
+  gate: *id062
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -29676,29 +30076,21 @@ einheiten:
   absatz: '1'
   buchstabe: f
   offset: 556281
-  laenge: 741
-  saetze: 2
-  beleg: f) die Anwendung der Definition eines KI-Systems gemäß Artikel 3 Nummer 1. Wenn die Kommission
-    solche Leitlinien herausgibt, widmet sie den Bedürfnissen von KMU einschließlich Start-up-Unternehmen,
-    von lokalen Behörden und von den am wahrscheinlichsten von dieser Verordnung betroffenen Sektoren
-    besondere Aufmerksamkeit. Die Leitlinien gemäß Unterabsatz 1 dieses Absatzes tragen dem allgemein
-    anerkannten Stand der Technik im Bereich KI sowie den einschlägigen harmonisierten Normen und gemeinsamen
-    Spezifikationen, auf die in den Artikeln 40 und 41 Bezug genommen wird, oder den harmonisierten Normen
-    oder technischen Spezifikationen, die gemäß den Harmonisierungsrechtsvorschriften der Union festgelegt
-    wurden, gebührend Rechnung.
+  laenge: 80
+  saetze: 1
+  beleg: f) die Anwendung der Definition eines KI-Systems gemäß Artikel 3 Nummer 1.
   adressat: behoerde
   pflicht: 'Leitlinien-Gegenstand f): Anwendung der KI-System-Definition (Art. 3 Nr. 1); Leitlinien beruecksichtigen
     KMU/lokale Behoerden/betroffene Sektoren sowie Stand der Technik und harmonisierte Normen.'
   scope: out
-  scope_grund: 'Adressiert behoerde, keine Betreiber-Handlungspflicht. Teilweise ersetzt (A-F2a): die
-    Einheit traegt lit. f und die UAbs. 2 und 3 des Abs. 1 (Extraktor, A-W6); neu gefasst ist nur UAbs.
-    2 (Art. 96 Abs. 1 UAbs. 2 n.F.); Scope des fortgeltenden Teils unveraendert.'
+  scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
   verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: teilweise - Art. 1 Nr. 36 lit. c der VO (EU) 2026/1744 fasst UAbs. 2 neu, den diese Einheit
-    mittraegt (A-W6); lit. f selbst und UAbs. 3 unveraendert (geprueft am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
-  requirement: []
-  gate: []
+  omnibus: unveraendert - Art. 1 Nr. 36 der VO (EU) 2026/1744 fasst in Art. 96 Abs. 1 nur UAbs. 1 lit.
+    a und UAbs. 2 neu und fuegt lit. g an; diese Einheit ist nicht betroffen (geprueft am verfuegenden
+    Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
+  requirement: &id063 []
+  gate: &id064 []
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -29707,9 +30099,78 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
-  neufassung: teilweise
+- uid: Art. 96 Abs. 1 UAbs. 2@556361
+  id: Art. 96 Abs. 1 UAbs. 2
+  artikel: '96'
+  artikel_titel: Leitlinien der Kommission zur Durchführung dieser Verordnung
+  abschnitt: null
+  absatz: '1'
+  nummer: null
+  unterabsatz: '2'
+  buchstabe: null
+  ziffer: null
+  offset: 556361
+  laenge: 248
+  saetze: 1
+  beleg: Wenn die Kommission solche Leitlinien herausgibt, widmet sie den Bedürfnissen von KMU einschließlich
+    Start-up-Unternehmen, von lokalen Behörden und von den am wahrscheinlichsten von dieser Verordnung
+    betroffenen Sektoren besondere Aufmerksamkeit.
+  adressat: behoerde
+  pflicht: 'Unterabsatz nach der Aufzaehlung: Wenn die Kommission solche Leitlinien herausgibt, widmet
+    sie den Bedürfnissen von KMU einschließlich Start-up-Unternehmen, von lokalen Behörden und von den
+    am …'
+  scope: out
+  scope_grund: 'Adressiert behoerde, keine Betreiber-Handlungspflicht. Zudem ersetzt durch n.F. (A-F2a):
+    Art. 96 Abs. 1 UAbs. 2 n.F.'
+  verifikation: VERIFIZIERT
+  hypothese_grund: null
+  omnibus: ersetzt - Art. 1 Nr. 36 lit. c der VO (EU) 2026/1744 fasst UAbs. 2 neu (Art. 96 Abs. 1 UAbs.
+    2 n.F.) (geprueft am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
+  requirement: *id063
+  gate: *id064
+  befund: null
+  befund_grund: null
+  po_bestaetigt: false
+  neufassung: ersetzt
+  migriert_von: Art. 96 Abs. 1 lit. f@556281
+  migration: geerbt
   fassung_2026_1744:
   - Art. 96 Abs. 1 UAbs. 2 n.F.@149675
+- uid: Art. 96 Abs. 1 UAbs. 3@556609
+  id: Art. 96 Abs. 1 UAbs. 3
+  artikel: '96'
+  artikel_titel: Leitlinien der Kommission zur Durchführung dieser Verordnung
+  abschnitt: null
+  absatz: '1'
+  nummer: null
+  unterabsatz: '3'
+  buchstabe: null
+  ziffer: null
+  offset: 556609
+  laenge: 413
+  saetze: 1
+  beleg: Die Leitlinien gemäß Unterabsatz 1 dieses Absatzes tragen dem allgemein anerkannten Stand der
+    Technik im Bereich KI sowie den einschlägigen harmonisierten Normen und gemeinsamen Spezifikationen,
+    auf die in den Artikeln 40 und 41 Bezug genommen wird, oder den harmonisierten Normen oder technischen
+    Spezifikationen, die gemäß den Harmonisierungsrechtsvorschriften der Union festgelegt wurden, gebührend
+    Rechnung.
+  adressat: behoerde
+  pflicht: 'Unterabsatz nach der Aufzaehlung: Die Leitlinien gemäß Unterabsatz 1 dieses Absatzes tragen
+    dem allgemein anerkannten Stand der Technik im Bereich KI sowie den einschlägigen harmonisierten …'
+  scope: out
+  scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
+  verifikation: VERIFIZIERT
+  hypothese_grund: null
+  omnibus: unveraendert - Art. 1 Nr. 36 der VO (EU) 2026/1744 fasst in Art. 96 Abs. 1 nur UAbs. 1 lit.
+    a und UAbs. 2 neu und fuegt lit. g an; diese Einheit ist nicht betroffen (geprueft am verfuegenden
+    Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
+  requirement: *id063
+  gate: *id064
+  befund: null
+  befund_grund: null
+  po_bestaetigt: false
+  migriert_von: Art. 96 Abs. 1 lit. f@556281
+  migration: geerbt
 - id: Art. 96 Abs. 2
   artikel: '96'
   artikel_titel: Leitlinien der Kommission zur Durchführung dieser Verordnung
@@ -31361,14 +31822,11 @@ einheiten:
   absatz: '1'
   buchstabe: d
   offset: 570268
-  laenge: 602
-  saetze: 3
+  laenge: 226
+  saetze: 1
   beleg: d) der Kommission keinen Zugang zu dem KI-Modell mit allgemeinem Verwendungszweck oder dem KI-Modell
     mit allgemeinem Verwendungszweck mit systemischem Risiko gewährt hat, um eine Bewertung gemäß Artikel
-    92 durchzuführen. Bei der Festsetzung der Höhe der Geldbuße oder des Zwangsgelds wird der Art, der
-    Schwere und der Dauer des Verstoßes sowie den Grundsätzen der Verhältnismäßigkeit und der Angemessenheit
-    gebührend Rechnung getragen. Die Kommission berücksichtigt außerdem Verpflichtungen, die gemäß Artikel
-    93 Absatz 3 oder in den einschlägigen Praxisleitfäden nach Artikel 56 gemacht wurden.
+    92 durchzuführen.
   adressat: anbieter
   pflicht: 'Sanktionstatbestand d): kein Zugang zum Modell fuer eine Art.-92-Bewertung; Bemessung nach
     Verhaeltnismaessigkeit unter Beruecksichtigung von Art.-93-Zusagen/Praxisleitfaeden.'
@@ -31378,8 +31836,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: []
-  gate: []
+  requirement: &id065 []
+  gate: &id066 []
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -31388,6 +31846,39 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+- uid: Art. 101 Abs. 1 UAbs. 2@570494
+  id: Art. 101 Abs. 1 UAbs. 2
+  artikel: '101'
+  artikel_titel: Geldbußen für Anbieter von KI-Modellen mit allgemeinem Verwendungszweck
+  abschnitt: null
+  absatz: '1'
+  nummer: null
+  unterabsatz: '2'
+  buchstabe: null
+  ziffer: null
+  offset: 570494
+  laenge: 376
+  saetze: 2
+  beleg: Bei der Festsetzung der Höhe der Geldbuße oder des Zwangsgelds wird der Art, der Schwere und
+    der Dauer des Verstoßes sowie den Grundsätzen der Verhältnismäßigkeit und der Angemessenheit gebührend
+    Rechnung getragen. Die Kommission berücksichtigt außerdem Verpflichtungen, die gemäß Artikel 93 Absatz
+    3 oder in den einschlägigen Praxisleitfäden nach Artikel 56 gemacht wurden.
+  adressat: anbieter
+  pflicht: 'Unterabsatz nach der Aufzaehlung: Bei der Festsetzung der Höhe der Geldbuße oder des Zwangsgelds
+    wird der Art, der Schwere und der Dauer des Verstoßes sowie den Grundsätzen der …'
+  scope: out
+  scope_grund: Sanktionsnorm gegen GPAI-Modell-Anbieter, keine Betreiberpflicht.
+  verifikation: VERIFIZIERT
+  hypothese_grund: null
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: *id065
+  gate: *id066
+  befund: null
+  befund_grund: null
+  po_bestaetigt: false
+  migriert_von: Art. 101 Abs. 1 lit. d@570268
+  migration: geerbt
 - id: Art. 101 Abs. 2
   artikel: '101'
   artikel_titel: Geldbußen für Anbieter von KI-Modellen mit allgemeinem Verwendungszweck
@@ -31755,8 +32246,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: &id041 []
-  gate: &id042 []
+  requirement: &id067 []
+  gate: &id068 []
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -31799,8 +32290,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id041
-  gate: *id042
+  requirement: *id067
+  gate: *id068
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -31834,8 +32325,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id041
-  gate: *id042
+  requirement: *id067
+  gate: *id068
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -31869,8 +32360,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id041
-  gate: *id042
+  requirement: *id067
+  gate: *id068
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -31904,8 +32395,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id041
-  gate: *id042
+  requirement: *id067
+  gate: *id068
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -31939,8 +32430,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id041
-  gate: *id042
+  requirement: *id067
+  gate: *id068
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -31974,8 +32465,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id041
-  gate: *id042
+  requirement: *id067
+  gate: *id068
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -32110,11 +32601,9 @@ einheiten:
     genannten Systeme —, die vor dem 2. August 2026 in Verkehr gebracht oder in Betrieb genommen wurden,
     nur dann, wenn diese Systeme danach in ihrer Konzeption erheblich verändert wurden.
   adressat: betreiber
-  pflicht: Fuer vor Beginn der Anwendung von Kapitel III (Art. 113 Abs. 3 - fuer Anhang-III-Systeme der
-    2.12.2027) in Verkehr gebrachte/in Betrieb genommene Hochrisiko-KI-Systeme (ausser Anhang-X-Systemen)
-    gilt die Verordnung fuer deren AKTEURE nur bei danach erfolgter wesentlicher Konzeptionsaenderung;
-    fuer von Behoerden bestimmungsgemaess genutzte Systeme treffen Anbieter UND Betreiber die erforderlichen
-    Massnahmen in jedem Fall bis zum 2.8.2030.
+  pflicht: Fuer Hochrisiko-KI-Systeme, die vor dem 2. August 2026 in Verkehr gebracht oder in Betrieb
+    genommen wurden, gilt die Verordnung fuer Betreiber nur nach erheblicher Aenderung der Konzeption
+    (Grundfassung, ersetzt).
   scope: out
   scope_grund: 'Ersetzt durch n.F. (A-F2a, PO 29.09.2026): VO (EU) 2026/1744 fasst den Wortlaut dieser
     Einheit neu. Bewertet wird nur die Neufassung im Omnibus-Pflichtenraum (Feld fassung_2026_1744); dieser
@@ -32131,8 +32620,8 @@ einheiten:
     Teil, docs/legal/OJ_L_202601744_DE.pdf). Damit verschiebt sich der in befund_grund beschriebene Bestandsschutz-Stichtag
     inhaltlich auf den 2. Dezember 2027 (statt 2. August 2026) - die zeitliche Anwendbarkeitsfrage wird
     dadurch NOCH bedeutsamer, nicht kleiner.'
-  requirement: *id021
-  gate: *id022
+  requirement: *id029
+  gate: *id030
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -32165,11 +32654,8 @@ einheiten:
     von Behörden verwendet werden sollen, die erforderlichen Maßnahmen für die Erfüllung der Anforderungen
     und Pflichten dieser Verordnung bis zum 2. August 2030.
   adressat: betreiber
-  pflicht: Fuer vor Beginn der Anwendung von Kapitel III (Art. 113 Abs. 3 - fuer Anhang-III-Systeme der
-    2.12.2027) in Verkehr gebrachte/in Betrieb genommene Hochrisiko-KI-Systeme (ausser Anhang-X-Systemen)
-    gilt die Verordnung fuer deren AKTEURE nur bei danach erfolgter wesentlicher Konzeptionsaenderung;
-    fuer von Behoerden bestimmungsgemaess genutzte Systeme treffen Anbieter UND Betreiber die erforderlichen
-    Massnahmen in jedem Fall bis zum 2.8.2030.
+  pflicht: Anbieter und Betreiber von Systemen, die von Behoerden verwendet werden sollen, erfuellen die
+    Anforderungen bis zum 2. August 2030 (Grundfassung, ersetzt).
   scope: out
   scope_grund: 'Ersetzt durch n.F. (A-F2a, PO 29.09.2026): VO (EU) 2026/1744 fasst den Wortlaut dieser
     Einheit neu. Bewertet wird nur die Neufassung im Omnibus-Pflichtenraum (Feld fassung_2026_1744); dieser
@@ -32186,8 +32672,8 @@ einheiten:
     Teil, docs/legal/OJ_L_202601744_DE.pdf). Damit verschiebt sich der in befund_grund beschriebene Bestandsschutz-Stichtag
     inhaltlich auf den 2. Dezember 2027 (statt 2. August 2026) - die zeitliche Anwendbarkeitsfrage wird
     dadurch NOCH bedeutsamer, nicht kleiner.'
-  requirement: *id021
-  gate: *id022
+  requirement: *id029
+  gate: *id030
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -32936,8 +33422,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - VO (EU) 2026/1744 Art. 1 Nr. 40 aendert nur Art. 113 Abs. 3 (lit. a und c neu
     gefasst, lit. d angefuegt) (geprueft am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
-  requirement: &id043 []
-  gate: &id044 []
+  requirement: &id069 []
+  gate: &id070 []
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -32966,8 +33452,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - VO (EU) 2026/1744 Art. 1 Nr. 40 aendert nur Art. 113 Abs. 3 (lit. a und c neu
     gefasst, lit. d angefuegt) (geprueft am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
-  requirement: *id043
-  gate: *id044
+  requirement: *id069
+  gate: *id070
   befund: nicht_einschlaegig
   befund_grund: Stichtag, begruendet keine eigene pruefbare Pflicht.
   po_bestaetigt: false
@@ -32996,8 +33482,8 @@ einheiten:
   hypothese_grund: null
   omnibus: geaendert - VO (EU) 2026/1744 Art. 1 Nr. 40 fasst lit. a und c neu und fuegt lit. d an; die
     Einleitung selbst ist unveraendert (geprueft am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
-  requirement: *id043
-  gate: *id044
+  requirement: *id069
+  gate: *id070
   befund: nicht_einschlaegig
   befund_grund: Einleitung einer Liste von Stichtagen, begruendet keine eigene pruefbare Pflicht.
   po_bestaetigt: false
@@ -33029,8 +33515,8 @@ einheiten:
   hypothese_grund: null
   omnibus: 'geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 40 lit. a - neu gefasst (Ausnahme fuer die neuen
     Verbote, ab 2. Dezember 2026). Neufassung: Art. 113 Abs. 3 lit. a n.F. im Omnibus-Pflichtenraum.'
-  requirement: *id021
-  gate: *id022
+  requirement: *id029
+  gate: *id030
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -33102,8 +33588,8 @@ einheiten:
   hypothese_grund: null
   omnibus: 'geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 40 lit. b - neu gefasst (Ziff. i: Anhang III
     ab 02.12.2027, Ziff. ii: Anhang I ab 02.08.2028). Neufassung: Art. 113 Abs. 3 lit. c n.F. im Omnibus-Pflichtenraum.'
-  requirement: *id021
-  gate: *id022
+  requirement: *id029
+  gate: *id030
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -33569,8 +34055,8 @@ einheiten:
   hypothese_grund: null
   omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 41 lit. b - Nr. 21 (Maschinenverordnung (EU) 2023/1230)
     angefuegt, siehe Anhang I Abschn. B Nr. 21 n.F.
-  requirement: &id045 []
-  gate: &id046 []
+  requirement: &id071 []
+  gate: &id072 []
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -33602,8 +34088,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - Art. 1 Nr. 41 der VO (EU) 2026/1744 fuegt in Abschn. B nur Nr. 21 an (geprueft
     am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
-  requirement: *id045
-  gate: *id046
+  requirement: *id071
+  gate: *id072
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -33637,8 +34123,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - Art. 1 Nr. 41 der VO (EU) 2026/1744 fuegt in Abschn. B nur Nr. 21 an (geprueft
     am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
-  requirement: *id045
-  gate: *id046
+  requirement: *id071
+  gate: *id072
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -33672,8 +34158,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - Art. 1 Nr. 41 der VO (EU) 2026/1744 fuegt in Abschn. B nur Nr. 21 an (geprueft
     am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
-  requirement: *id045
-  gate: *id046
+  requirement: *id071
+  gate: *id072
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -33706,8 +34192,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - Art. 1 Nr. 41 der VO (EU) 2026/1744 fuegt in Abschn. B nur Nr. 21 an (geprueft
     am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
-  requirement: *id045
-  gate: *id046
+  requirement: *id071
+  gate: *id072
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -33741,8 +34227,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - Art. 1 Nr. 41 der VO (EU) 2026/1744 fuegt in Abschn. B nur Nr. 21 an (geprueft
     am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
-  requirement: *id045
-  gate: *id046
+  requirement: *id071
+  gate: *id072
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -33778,8 +34264,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - Art. 1 Nr. 41 der VO (EU) 2026/1744 fuegt in Abschn. B nur Nr. 21 an (geprueft
     am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
-  requirement: *id045
-  gate: *id046
+  requirement: *id071
+  gate: *id072
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -33820,8 +34306,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - Art. 1 Nr. 41 der VO (EU) 2026/1744 fuegt in Abschn. B nur Nr. 21 an (geprueft
     am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
-  requirement: *id045
-  gate: *id046
+  requirement: *id071
+  gate: *id072
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -33861,8 +34347,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - Art. 1 Nr. 41 der VO (EU) 2026/1744 fuegt in Abschn. B nur Nr. 21 an (geprueft
     am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
-  requirement: *id045
-  gate: *id046
+  requirement: *id071
+  gate: *id072
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -39421,11 +39907,9 @@ einheiten:
   buchstabe: e
   ziffer: null
   offset: 649749
-  laenge: 239
-  saetze: 2
-  beleg: e) bekannter oder geschätzter Energieverbrauch des Modells. Wenn der Energieverbrauch des Modells
-    nicht bekannt ist, kann für Buchstabe e der Energieverbrauch auf Informationen über die eingesetzten
-    Rechenressourcen gestützt werden.
+  laenge: 65
+  saetze: 1
+  beleg: e) bekannter oder geschätzter Energieverbrauch des Modells.
   adressat: anbieter
   pflicht: 'Pflichtinhalt der technischen Dokumentation des Anbieters eines KI-Modells mit allgemeinem
     Verwendungszweck (Art. 53 Abs. 1 lit. a): bekannter oder geschätzter Energieverbrauch des Modells.
@@ -39438,11 +39922,46 @@ einheiten:
   omnibus: unveraendert - Anhang XI ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht
     enthalten; Aenderungen an Anhaengen nur durch Art. 1 Nr. 41 (Anhang I), Nr. 42 (Anhang VIII Abschn.
     B Nr. 7 und 9) und Nr. 43 (neuer Anhang XIV) (geprueft am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
-  requirement: []
-  gate: []
+  requirement: &id073 []
+  gate: &id074 []
   befund: null
   befund_grund: null
   po_bestaetigt: false
+- uid: Anhang XI Abschn. 1 Nr. 2 UAbs. 2@649814
+  id: Anhang XI Abschn. 1 Nr. 2 UAbs. 2
+  artikel: Anhang XI
+  artikel_titel: Technische Dokumentation gemäß Artikel 53 Absatz 1 Buchstabe a — technische Dokumentation
+    für Anbieter von KI-Modellen mit allgemeinem Verwendungszweck
+  abschnitt: '1'
+  absatz: null
+  nummer: '2'
+  unterabsatz: '2'
+  buchstabe: null
+  ziffer: null
+  offset: 649814
+  laenge: 174
+  saetze: 1
+  beleg: Wenn der Energieverbrauch des Modells nicht bekannt ist, kann für Buchstabe e der Energieverbrauch
+    auf Informationen über die eingesetzten Rechenressourcen gestützt werden.
+  adressat: anbieter
+  pflicht: 'Unterabsatz nach der Aufzaehlung: Wenn der Energieverbrauch des Modells nicht bekannt ist,
+    kann für Buchstabe e der Energieverbrauch auf Informationen über die eingesetzten Rechenressourcen
+    …'
+  scope: out
+  scope_grund: 'Adressat (T-13 Schritt 1): Anbieter von KI-Modellen mit allgemeinem Verwendungszweck (Art.
+    53, Abschn. 2 zusaetzlich Art. 55); Art. 53 ist out.'
+  verifikation: VERIFIZIERT
+  hypothese_grund: null
+  omnibus: unveraendert - Anhang XI ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht
+    enthalten; Aenderungen an Anhaengen nur durch Art. 1 Nr. 41 (Anhang I), Nr. 42 (Anhang VIII Abschn.
+    B Nr. 7 und 9) und Nr. 43 (neuer Anhang XIV) (geprueft am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
+  requirement: *id073
+  gate: *id074
+  befund: null
+  befund_grund: null
+  po_bestaetigt: false
+  migriert_von: Anhang XI Abschn. 1 Nr. 2 lit. e@649749
+  migration: geerbt
 - uid: Anhang XI Abschn. 2@649988
   id: Anhang XI Abschn. 2
   artikel: Anhang XI

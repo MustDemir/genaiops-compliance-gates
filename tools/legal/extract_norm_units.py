@@ -599,12 +599,108 @@ def units_for(norm: str, art: dict) -> list[dict]:
         ende_kopf = grenzen[0]
         if seg[start_kopf:ende_kopf].strip():
             out.append(_unit(norm, art, b, {}, b["start"] + start_kopf, b["start"] + ende_kopf))
+        # Wie viele Unterabsaetze stehen im Elternglied schon vor der Liste? Der Kopf
+        # des Absatzes kann mehrere tragen; jeder Folgeabsatz zaehlt weiter.
+        uabs_bisher: dict = {None: max(1, _bloecke(seg[:grenzen[0]]))}
+        for k, it in enumerate(items):
+            if it["ebene"] == "nr":
+                kinder = [x for x in items[k + 1:] if x.get("eltern") is it]
+                bis = kinder[0]["pos"] if kinder else grenzen[k + 1]
+                uabs_bisher[id(it)] = max(1, _bloecke(seg[it["pos"]:bis]))
         for k, it in enumerate(items):
             pfad = _pfad(it, listen)
             s = b["start"] + it["pos"]
             e = b["start"] + grenzen[k + 1]
-            out.append(_unit(norm, art, b, pfad, s, e))
+            nach = items[k + 1] if k + 1 < len(items) else None
+            # Deutsche Gesetze zaehlen den Text hinter einer Aufzaehlung als Satz des
+            # Absatzes, nicht als Unterabsatz - dort bleibt der Schnitt, wie er war.
+            folge = _folgeabsaetze(norm, s, e) if not deutsch and _listenende(it, nach) else []
+            out.append(_unit(norm, art, b, pfad, s, folge[0] if folge else e))
+            for j, fs in enumerate(folge):
+                fe = folge[j + 1] if j + 1 < len(folge) else e
+                pfad_u, schluessel = _uabs_pfad(it)
+                uabs_bisher[schluessel] = uabs_bisher.get(schluessel, 1) + 1
+                pfad_u["unterabsatz"] = str(uabs_bisher[schluessel])
+                out.append(_unit(norm, art, b, pfad_u, fs, fe))
     return [u for u in out if u["text"].strip()]
+
+
+def _listenende(it: dict, nach: dict | None) -> bool:
+    """Endet mit diesem Glied eine Liste, ohne dass ein Geschwister folgt?
+
+    Folgt ein Geschwister (naechster Buchstabe derselben Liste, naechste Nummer,
+    naechste Ziffer) oder ein Unterglied, gehoert jeder Absatz im Glied zum Glied
+    selbst (Anhang III Nr. 1 lit. a: 'Dazu gehoeren nicht …'). Nur hinter dem letzten
+    Glied beginnt der naechste Unterabsatz des Elternglieds.
+    """
+    if nach is None:
+        return True
+    if nach.get("eltern") is it:
+        return False
+    kette = []
+    x = it
+    while x is not None:
+        kette.append(x)
+        x = x.get("eltern")
+    for g in kette:
+        if nach["ebene"] == g["ebene"] and nach.get("eltern") is g.get("eltern"):
+            if g["ebene"] == "lit" and nach.get("liste") != g.get("liste"):
+                return True  # eine neue Liste beginnt: davor steht ihr Einleitungssatz
+            return False
+    return True
+
+
+def _folgeabsaetze(norm: str, s: int, e: int) -> list[int]:
+    """Startpositionen von Unterabsaetzen, die hinter dem letzten Glied einer Liste stehen.
+
+    T-15 Teil 2 (A-W11, Review 10). Der Text nach einer Aufzaehlung ist der naechste
+    Unterabsatz des Elternglieds, nicht mehr Teil des letzten Buchstabens: 'Ungeachtet
+    des Unterabsatzes 1 gilt ein in Anhang III aufgefuehrtes KI-System immer dann als
+    hochriskant, wenn …' stand bis hierhin in Art. 6 Abs. 3 lit. d. Erkannt an der
+    Leerzeile, mit der die Quelle Unterabsaetze trennt: ein Block, der gross beginnt,
+    hinter einem Block, der mit Punkt oder Doppelpunkt endet. Zitierter Text ('„(3) …')
+    gehoert zur Aenderungsanweisung davor und beginnt keinen Unterabsatz.
+    """
+    seg = norm[s:e]
+    bloecke, pos = [], 0
+    for teil in re.split(r"(\n[ \t]*\n)", seg):
+        if teil.strip() and not re.fullmatch(r"\n[ \t]*\n", teil):
+            t = teil.strip()
+            if not re.fullmatch(r"\(?[a-z]{1,5}\)|\d+(?:\.\d+)*\.|\t*", t):
+                bloecke.append((pos + len(teil) - len(teil.lstrip()), t))
+        pos += len(teil)
+    starts = []
+    for i in range(1, len(bloecke)):
+        vorher, jetzt = bloecke[i - 1][1], bloecke[i][1]
+        if starts or (vorher.rstrip().endswith((".", ":")) and re.match(r"[A-ZÄÖÜ]", jetzt)):
+            starts.append(s + bloecke[i][0])
+    return starts
+
+
+def _bloecke(text: str) -> int:
+    """Wie viele Unterabsaetze ein Ausschnitt traegt: Bloecke zwischen Leerzeilen,
+    ohne Gliederungsmarken und ohne die Absatzmarke '(n)'."""
+    n = 0
+    for teil in re.split(r"\n[ \t]*\n", text):
+        t = re.sub(r"^\(\d+[a-z]?\)\s*", "", teil.strip())
+        if t and not re.fullmatch(r"\(?[a-z]{1,5}\)|\d+(?:\.\d+)*\.|\t*", t):
+            n += 1
+    return n
+
+
+def _uabs_pfad(it: dict) -> tuple[dict, object]:
+    """Pfad eines Unterabsatzes hinter der Liste, zu der `it` gehoert, und der Schluessel
+    seines Elternglieds (Nummer oder Absatz). Gezaehlt wird im Aufrufer: die Unterabsaetze
+    des Kopfes zuerst, dann jeder Folgeabsatz - Art. 43 Abs. 1 hat einen Kopf, eine Liste,
+    UAbs. 2 mit der zweiten Liste, dann UAbs. 3."""
+    x = it
+    while x.get("ebene") != "lit" and x.get("eltern") is not None:
+        x = x["eltern"]
+    if x.get("ebene") == "nr":  # Liste von Nummern ohne Buchstaben: Unterabsatz am Absatz
+        return {"nummer": None, "unterabsatz": None, "buchstabe": None, "ziffer": None}, None
+    eltern = x.get("eltern")
+    return ({"nummer": eltern["kennung"] if eltern else None, "unterabsatz": None,
+             "buchstabe": None, "ziffer": None}, id(eltern) if eltern else None)
 
 
 def _pfad(it: dict, listen: dict) -> dict:

@@ -308,8 +308,42 @@ def _buchstaben(norm, s, e, z, meta, kopf_einheit: bool = False) -> list[dict]:
         else:
             zz["buchstabe"] = it["kennung"]
         k = _kennung(zz)
-        out.append(_einheit(norm, s + it["pos"], s + grenzen[i + 1], k + " n.F.", {**meta, "ziel": k}))
+        i_s, i_e = s + it["pos"], s + grenzen[i + 1]
+        folge = _folgeabsaetze(norm, i_s, i_e) if i == len(items) - 1 else []
+        out.append(_einheit(norm, i_s, folge[0] if folge else i_e, k + " n.F.", {**meta, "ziel": k}))
+        # Unterabsaetze des Kopfes vor der Liste: jede Zeile, die gross beginnt, hinter
+        # einer, die mit Punkt endet ('Dieser Erstanbieter …' ist UAbs. 2 von Art. 25 Abs. 2,
+        # die Liste steht in UAbs. 3 - das Gesetz nennt 'Die in Unterabsatz 2 festgelegte
+        # Verpflichtung').
+        kopf_uabs = 1 + len(re.findall(r"\.[ \t]*\n(?:[ \t]*\n)*[ \t]*(?=[A-ZÄÖÜ])",
+                                       block[:grenzen[0]]))
+        for j, fs in enumerate(folge):
+            zu = {f: v for f, v in z.items() if f not in ("buchstabe", "ziffer")}
+            zu["unterabsatz"] = str(int(z.get("unterabsatz") or kopf_uabs) + 1 + j)
+            ku = _kennung(zu)
+            out.append(_einheit(norm, fs, folge[j + 1] if j + 1 < len(folge) else i_e, ku + " n.F.",
+                                {**meta, "ziel": ku}))
     return out
+
+
+def _folgeabsaetze(norm: str, s: int, e: int) -> list[int]:
+    """Unterabsaetze hinter dem letzten Glied einer Aufzaehlung (T-15 Teil 2, A-W11).
+
+    Im Amtsblatt-Text des Omnibus (pdftotext) trennt nicht immer eine Leerzeile:
+    'c) … beruhte.\nIst das Buero …'. Der erste Unterabsatz beginnt deshalb an der
+    ersten Zeile, die gross anfaengt, hinter einer Zeile, die mit Punkt endet; jeder
+    weitere an einer Leerzeile. 'Dieser Absatz gilt nicht …' stand bis hierhin im
+    letzten Buchstaben (Art. 25 Abs. 2 lit. c n.F.).
+    """
+    seg = norm[s:e]
+    starts: list[int] = []
+    m = re.search(r"\.[ \t]*\n(?:[ \t]*\n)*[ \t]*(?=[A-ZÄÖÜ])", seg)
+    if not m:
+        return starts
+    starts.append(s + m.end())
+    for b in re.finditer(r"\n[ \t]*\n[ \t]*(?=[A-ZÄÖÜ])", seg[m.end():]):
+        starts.append(s + m.end() + b.end())
+    return starts
 
 
 def omnibus_units(norm: str) -> tuple[list[dict], list[dict]]:

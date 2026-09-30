@@ -1,7 +1,7 @@
 anlass: T-14.2 — Omnibus VO (EU) 2026/1744 als zweite Quelle
 anweisungen_art_1: 43
 anweisungen_art_1_lueckenlos_1_bis_43: true
-einheiten_omnibus: 273
+einheiten_omnibus: 284
 grundfassung_mit_neuer_fassung: 54
 neu_gefasst_oder_gestrichen_ohne_grundfassungsziel:
 - Omnibus Art. 1 Nr. 31 lit. a
@@ -45,6 +45,7 @@ anweisungen:
     - Art. 2 Abs. 13 n.F.
     - Art. 2 Abs. 13 lit. a n.F.
     - Art. 2 Abs. 13 lit. b n.F.
+    - Art. 2 Abs. 13 UAbs. 2 n.F.
     ziele_grundfassung: []
   Omnibus Art. 1 Nr. 4:
     aenderung:
@@ -95,6 +96,7 @@ anweisungen:
     - Art. 4a Abs. 2 n.F.
     - Art. 4a Abs. 2 lit. a n.F.
     - Art. 4a Abs. 2 lit. b n.F.
+    - Art. 4a Abs. 2 UAbs. 2 n.F.
     ziele_grundfassung: []
   Omnibus Art. 1 Nr. 7:
     aenderung:
@@ -197,6 +199,7 @@ anweisungen:
     - Art. 25 Abs. 2 lit. a n.F.
     - Art. 25 Abs. 2 lit. b n.F.
     - Art. 25 Abs. 2 lit. c n.F.
+    - Art. 25 Abs. 2 UAbs. 4 n.F.
     ziele_grundfassung:
     - Art. 25 Abs. 2
   Omnibus Art. 1 Nr. 12 lit. b:
@@ -476,6 +479,7 @@ anweisungen:
     - Art. 75 Abs. 1 lit. a Ziff. iii n.F.
     - Art. 75 Abs. 1 lit. a Ziff. iv n.F.
     - Art. 75 Abs. 1 lit. b n.F.
+    - Art. 75 Abs. 1 UAbs. 2 n.F.
     ziele_grundfassung:
     - Art. 75 Abs. 1
   Omnibus Art. 1 Nr. 31 lit. c:
@@ -498,6 +502,8 @@ anweisungen:
     - Art. 75 Abs. 2a lit. a n.F.
     - Art. 75 Abs. 2a lit. b n.F.
     - Art. 75 Abs. 2a lit. c n.F.
+    - Art. 75 Abs. 2a UAbs. 2 n.F.
+    - Art. 75 Abs. 2a UAbs. 3 n.F.
     ziele_grundfassung: []
   Omnibus Art. 1 Nr. 32:
     aenderung:
@@ -514,6 +520,8 @@ anweisungen:
     - Art. 75a Abs. 4 lit. c n.F.
     - Art. 75a Abs. 4 lit. d n.F.
     - Art. 75a Abs. 4 lit. e n.F.
+    - Art. 75a Abs. 4 UAbs. 3 n.F.
+    - Art. 75a Abs. 4 UAbs. 4 n.F.
     - Art. 75a Abs. 5 n.F.
     - Art. 75a Abs. 6 n.F.
     - Art. 75a Abs. 6 lit. a n.F.
@@ -524,6 +532,7 @@ anweisungen:
     - Art. 75b lit. a n.F.
     - Art. 75b lit. b n.F.
     - Art. 75b lit. c n.F.
+    - Art. 75b UAbs. 2 n.F.
     - Art. 75c n.F.
     - Art. 75c Abs. 1 n.F.
     - Art. 75c Abs. 2 n.F.
@@ -532,6 +541,7 @@ anweisungen:
     - Art. 75c Abs. 4 lit. a n.F.
     - Art. 75c Abs. 4 lit. b n.F.
     - Art. 75c Abs. 4 lit. c n.F.
+    - Art. 75c Abs. 4 UAbs. 3 n.F.
     - Art. 75c Abs. 5 n.F.
     - Art. 75c Abs. 5 lit. a n.F.
     - Art. 75c Abs. 5 lit. b n.F.
@@ -540,6 +550,7 @@ anweisungen:
     - Art. 75c Abs. 5 lit. e n.F.
     - Art. 75c Abs. 5 lit. f n.F.
     - Art. 75c Abs. 5 lit. g n.F.
+    - Art. 75c Abs. 5 UAbs. 2 n.F.
     - Art. 75c Abs. 6 n.F.
     - Art. 75c Abs. 7 n.F.
     - Art. 75c Abs. 8 n.F.
@@ -622,7 +633,7 @@ anweisungen:
     - Omnibus Art. 1 Nr. 36 lit. c
     - Art. 96 Abs. 1 UAbs. 2 n.F.
     ziele_grundfassung:
-    - Art. 96 Abs. 1 lit. f
+    - Art. 96 Abs. 1 UAbs. 2
   Omnibus Art. 1 Nr. 37:
     aenderung:
     - geaendert

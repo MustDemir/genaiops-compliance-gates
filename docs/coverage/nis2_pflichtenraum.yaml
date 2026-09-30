@@ -1262,15 +1262,10 @@ einheiten:
   absatz: '4'
   buchstabe: d
   offset: 158318
-  laenge: 679
-  saetze: 4
+  laenge: 142
+  saetze: 1
   beleg: d) gegebenenfalls eine Liste der Mitgliedstaaten, in denen sie Dienste erbringen, die in den
-    Anwendungsbereich dieser Richtlinie fallen. Die in Absatz 3 genannten Einrichtungen teilen alle Änderungen
-    der gemäß Unterabsatz 1 des vorliegenden Absatzes übermittelten Angaben unverzüglich mit, in jedem
-    Fall jedoch innerhalb von zwei Wochen ab dem Zeitpunkt der Änderung. Die Kommission stellt mit Unterstützung
-    der Agentur der Europäischen Union für Cybersicherheit (ENISA) unverzüglich Leitlinien und Vorlagen
-    für die in diesem Absatz festgelegten Verpflichtungen bereit. Die Mitgliedstaaten können nationale
-    Mechanismen für die Registrierung von Einrichtungen einrichten.
+    Anwendungsbereich dieser Richtlinie fallen.
   adressat: null
   pflicht: null
   scope: null
@@ -1286,6 +1281,85 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+- uid: Art. 3 Abs. 4 UAbs. 2@158460
+  id: Art. 3 Abs. 4 UAbs. 2
+  artikel: '3'
+  artikel_titel: Wesentliche und wichtige Einrichtungen
+  abschnitt: null
+  absatz: '4'
+  nummer: null
+  unterabsatz: '2'
+  buchstabe: null
+  ziffer: null
+  offset: 158460
+  laenge: 232
+  saetze: 1
+  beleg: Die in Absatz 3 genannten Einrichtungen teilen alle Änderungen der gemäß Unterabsatz 1 des vorliegenden
+    Absatzes übermittelten Angaben unverzüglich mit, in jedem Fall jedoch innerhalb von zwei Wochen ab
+    dem Zeitpunkt der Änderung.
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: &id005 []
+  gate: &id006 []
+  befund: null
+  befund_grund: null
+- uid: Art. 3 Abs. 4 UAbs. 3@158692
+  id: Art. 3 Abs. 4 UAbs. 3
+  artikel: '3'
+  artikel_titel: Wesentliche und wichtige Einrichtungen
+  abschnitt: null
+  absatz: '4'
+  nummer: null
+  unterabsatz: '3'
+  buchstabe: null
+  ziffer: null
+  offset: 158692
+  laenge: 203
+  saetze: 1
+  beleg: Die Kommission stellt mit Unterstützung der Agentur der Europäischen Union für Cybersicherheit
+    (ENISA) unverzüglich Leitlinien und Vorlagen für die in diesem Absatz festgelegten Verpflichtungen
+    bereit.
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id005
+  gate: *id006
+  befund: null
+  befund_grund: null
+- uid: Art. 3 Abs. 4 UAbs. 4@158895
+  id: Art. 3 Abs. 4 UAbs. 4
+  artikel: '3'
+  artikel_titel: Wesentliche und wichtige Einrichtungen
+  abschnitt: null
+  absatz: '4'
+  nummer: null
+  unterabsatz: '4'
+  buchstabe: null
+  ziffer: null
+  offset: 158895
+  laenge: 102
+  saetze: 1
+  beleg: Die Mitgliedstaaten können nationale Mechanismen für die Registrierung von Einrichtungen einrichten.
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id005
+  gate: *id006
+  befund: null
+  befund_grund: null
 - uid: Art. 3 Abs. 5@158997
   id: Art. 3 Abs. 5
   artikel: '3'
@@ -4415,10 +4489,10 @@ einheiten:
   absatz: '1'
   buchstabe: f
   offset: 188131
-  laenge: 207
-  saetze: 2
+  laenge: 133
+  saetze: 1
   beleg: f) die CSIRTs müssen über Redundanzsysteme und Ausweicharbeitsräume verfügen, um die Kontinuität
-    ihrer Dienste sicherzustellen. Die CSIRTs können sich an internationalen Kooperationsnetzen beteiligen.
+    ihrer Dienste sicherzustellen.
   adressat: null
   pflicht: null
   scope: null
@@ -4434,6 +4508,31 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+- uid: Art. 11 Abs. 1 UAbs. 2@188264
+  id: Art. 11 Abs. 1 UAbs. 2
+  artikel: '11'
+  artikel_titel: Anforderungen an die CSIRTs sowie technische Kapazitäten und Aufgaben der CSIRTs
+  abschnitt: null
+  absatz: '1'
+  nummer: null
+  unterabsatz: '2'
+  buchstabe: null
+  ziffer: null
+  offset: 188264
+  laenge: 74
+  saetze: 1
+  beleg: Die CSIRTs können sich an internationalen Kooperationsnetzen beteiligen.
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id005
+  gate: *id006
+  befund: null
+  befund_grund: null
 - uid: Art. 11 Abs. 2@188338
   id: Art. 11 Abs. 2
   artikel: '11'
@@ -4680,16 +4779,10 @@ einheiten:
   absatz: '3'
   buchstabe: h
   offset: 190325
-  laenge: 738
-  saetze: 4
+  laenge: 106
+  saetze: 1
   beleg: h) Beitrag zum Einsatz sicherer Instrumente für den Informationsaustausch gemäß Artikel 10 Absatz
-    3. CSIRTs können eine proaktive nicht intrusive Überprüfung öffentlich zugänglicher Netz- und Informationssysteme
-    wesentlicher und wichtiger Einrichtungen durchführen. Eine solche Überprüfung wird durchgeführt, um
-    anfällige oder unsicher konfigurierte Netz- und Informationssysteme zu ermitteln und die betreffenden
-    Einrichtungen zu unterrichten. Eine solche Überprüfung darf keinerlei nachteilige Auswirkung auf das
-    Funktionieren der Dienste der Einrichtung haben. Bei der Durchführung der in Unterabsatz 1 genannten
-    Aufgaben können die CSIRTs auf der Grundlage eines risikobasierten Ansatzes bestimmten Aufgaben Vorrang
-    einräumen.
+    3.
   adressat: null
   pflicht: null
   scope: null
@@ -4705,6 +4798,61 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+- uid: Art. 11 Abs. 3 UAbs. 2@190431
+  id: Art. 11 Abs. 3 UAbs. 2
+  artikel: '11'
+  artikel_titel: Anforderungen an die CSIRTs sowie technische Kapazitäten und Aufgaben der CSIRTs
+  abschnitt: null
+  absatz: '3'
+  nummer: null
+  unterabsatz: '2'
+  buchstabe: null
+  ziffer: null
+  offset: 190431
+  laenge: 464
+  saetze: 3
+  beleg: CSIRTs können eine proaktive nicht intrusive Überprüfung öffentlich zugänglicher Netz- und Informationssysteme
+    wesentlicher und wichtiger Einrichtungen durchführen. Eine solche Überprüfung wird durchgeführt, um
+    anfällige oder unsicher konfigurierte Netz- und Informationssysteme zu ermitteln und die betreffenden
+    Einrichtungen zu unterrichten. Eine solche Überprüfung darf keinerlei nachteilige Auswirkung auf das
+    Funktionieren der Dienste der Einrichtung haben.
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id005
+  gate: *id006
+  befund: null
+  befund_grund: null
+- uid: Art. 11 Abs. 3 UAbs. 3@190895
+  id: Art. 11 Abs. 3 UAbs. 3
+  artikel: '11'
+  artikel_titel: Anforderungen an die CSIRTs sowie technische Kapazitäten und Aufgaben der CSIRTs
+  abschnitt: null
+  absatz: '3'
+  nummer: null
+  unterabsatz: '3'
+  buchstabe: null
+  ziffer: null
+  offset: 190895
+  laenge: 168
+  saetze: 1
+  beleg: Bei der Durchführung der in Unterabsatz 1 genannten Aufgaben können die CSIRTs auf der Grundlage
+    eines risikobasierten Ansatzes bestimmten Aufgaben Vorrang einräumen.
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id005
+  gate: *id006
+  befund: null
+  befund_grund: null
 - uid: Art. 11 Abs. 4@191063
   id: Art. 11 Abs. 4
   artikel: '11'
@@ -4920,17 +5068,10 @@ einheiten:
   absatz: '1'
   buchstabe: c
   offset: 192415
-  laenge: 856
-  saetze: 4
+  laenge: 141
+  saetze: 1
   beleg: c) Zeitpläne für die Offenlegung auszuhandeln und das Vorgehen bei Schwachstellen zu koordinieren,
-    die mehrere Einrichtungen betreffen. Die Mitgliedstaaten stellen sicher, dass natürliche oder juristische
-    Personen dem als Koordinator benannten CSIRT eine Schwachstelle, auf Wunsch anonym, melden können.
-    Das als Koordinator benannte CSIRT stellt sicher, dass in Bezug auf die gemeldete Schwachstelle sorgfältige
-    Folgemaßnahmen durchgeführt werden, und sorgen für die Anonymität der die Schwachstelle meldenden
-    natürlichen oder juristischen Person. Wenn die gemeldete Schwachstelle erhebliche Auswirkungen auf
-    Einrichtungen in mehreren Mitgliedstaaten haben könnte, arbeitet das als Koordinator benannte CSIRT
-    jedes betreffenden Mitgliedstaats gegebenenfalls mit den anderen als Koordinatoren benannten CSIRTs
-    innerhalb des CSIRTs-Netzwerks zusammen.
+    die mehrere Einrichtungen betreffen.
   adressat: null
   pflicht: null
   scope: null
@@ -4946,6 +5087,37 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+- uid: Art. 12 Abs. 1 UAbs. 2@192556
+  id: Art. 12 Abs. 1 UAbs. 2
+  artikel: '12'
+  artikel_titel: Koordinierte Offenlegung von Schwachstellen und eine europäische Schwachstellendatenbank
+  abschnitt: null
+  absatz: '1'
+  nummer: null
+  unterabsatz: '2'
+  buchstabe: null
+  ziffer: null
+  offset: 192556
+  laenge: 715
+  saetze: 3
+  beleg: Die Mitgliedstaaten stellen sicher, dass natürliche oder juristische Personen dem als Koordinator
+    benannten CSIRT eine Schwachstelle, auf Wunsch anonym, melden können. Das als Koordinator benannte
+    CSIRT stellt sicher, dass in Bezug auf die gemeldete Schwachstelle sorgfältige Folgemaßnahmen durchgeführt
+    werden, und sorgen für die Anonymität der die Schwachstelle meldenden natürlichen oder juristischen
+    Person. Wenn die gemeldete Schwachstelle erhebliche Auswirkungen auf Einrichtungen in mehreren Mitgliedstaaten
+    haben könnte, arbeitet das als Koordinator benannte CSIRT jedes betreffenden Mitgliedstaats gegebenenfalls
+    mit den anderen als Koordinatoren benannten CSIRTs innerhalb des CSIRTs-Netzwerks zusammen.
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id005
+  gate: *id006
+  befund: null
+  befund_grund: null
 - uid: Art. 12 Abs. 2@193271
   id: Art. 12 Abs. 2
   artikel: '12'
@@ -5823,11 +5995,10 @@ einheiten:
   absatz: '4'
   buchstabe: s
   offset: 202183
-  laenge: 282
-  saetze: 2
+  laenge: 137
+  saetze: 1
   beleg: s) Erörterung und regelmäßige Bewertung des aktuellen Stands in Bezug auf Cyberbedrohungen oder
-    Sicherheitsvorfälle wie Ransomware. Die Kooperationsgruppe unterbreitet die in Unterabsatz 1 Buchstabe
-    r genannten Berichte der Kommission, dem Europäischen Parlament und dem Rat.
+    Sicherheitsvorfälle wie Ransomware.
   adressat: null
   pflicht: null
   scope: null
@@ -5843,6 +6014,32 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+- uid: Art. 14 Abs. 4 UAbs. 2@202320
+  id: Art. 14 Abs. 4 UAbs. 2
+  artikel: '14'
+  artikel_titel: Kooperationsgruppe
+  abschnitt: null
+  absatz: '4'
+  nummer: null
+  unterabsatz: '2'
+  buchstabe: null
+  ziffer: null
+  offset: 202320
+  laenge: 145
+  saetze: 1
+  beleg: Die Kooperationsgruppe unterbreitet die in Unterabsatz 1 Buchstabe r genannten Berichte der Kommission,
+    dem Europäischen Parlament und dem Rat.
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id005
+  gate: *id006
+  befund: null
+  befund_grund: null
 - uid: Art. 14 Abs. 5@202465
   id: Art. 14 Abs. 5
   artikel: '14'
@@ -8584,15 +8781,12 @@ einheiten:
   absatz: '4'
   buchstabe: e
   offset: 229704
-  laenge: 700
-  saetze: 2
+  laenge: 339
+  saetze: 1
   beleg: e) im Falle eines andauernden Sicherheitsvorfalls zum Zeitpunkt der Vorlage des Abschlussberichts
     gemäß Buchstabe d stellen die Mitgliedstaaten sicher, dass die betreffenden Einrichtungen zu diesem
     Zeitpunkt einen Fortschrittsbericht und einen Abschlussbericht innerhalb eines Monats nach Behandlung
-    des Sicherheitsvorfalls vorlegen. Abweichend von Unterabsatz 1 Buchstabe b unterrichtet ein Vertrauensdiensteanbieter
-    das CSIRT oder gegebenenfalls die zuständige Behörde in Bezug auf erhebliche Sicherheitsvorfälle,
-    die sich auf die Erbringung seiner Vertrauensdienste auswirken, unverzüglich, in jedem Fall aber innerhalb
-    von 24 Stunden nach Kenntnisnahme des erheblichen Sicherheitsvorfalls.
+    des Sicherheitsvorfalls vorlegen.
   adressat: null
   pflicht: null
   scope: null
@@ -8608,6 +8802,34 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+- uid: Art. 23 Abs. 4 UAbs. 2@230043
+  id: Art. 23 Abs. 4 UAbs. 2
+  artikel: '23'
+  artikel_titel: Berichtspflichten
+  abschnitt: null
+  absatz: '4'
+  nummer: null
+  unterabsatz: '2'
+  buchstabe: null
+  ziffer: null
+  offset: 230043
+  laenge: 361
+  saetze: 1
+  beleg: Abweichend von Unterabsatz 1 Buchstabe b unterrichtet ein Vertrauensdiensteanbieter das CSIRT
+    oder gegebenenfalls die zuständige Behörde in Bezug auf erhebliche Sicherheitsvorfälle, die sich auf
+    die Erbringung seiner Vertrauensdienste auswirken, unverzüglich, in jedem Fall aber innerhalb von
+    24 Stunden nach Kenntnisnahme des erheblichen Sicherheitsvorfalls.
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id005
+  gate: *id006
+  befund: null
+  befund_grund: null
 - uid: Art. 23 Abs. 5@230404
   id: Art. 23 Abs. 5
   artikel: '23'
@@ -10413,17 +10635,11 @@ einheiten:
   absatz: '2'
   buchstabe: g
   offset: 254877
-  laenge: 865
-  saetze: 6
+  laenge: 240
+  saetze: 3
   beleg: g) Anforderung von Nachweisen für die Umsetzung der Cybersicherheitskonzepte, z. B. der Ergebnisse
     von Sicherheitsprüfungen, die von einem qualifizierten Prüfer durchgeführt wurden, und der entsprechenden
-    zugrunde liegenden Nachweise. Die in Unterabsatz 1 Buchstabe b genannten gezielten Sicherheitsprüfungen
-    stützen sich auf Risikobewertungen, die von der zuständigen Behörde oder der geprüften Einrichtung
-    durchgeführt werden, oder auf sonstige verfügbare risikobezogene Informationen. Die Ergebnisse einer
-    gezielten Sicherheitsprüfung sind der zuständigen Behörde zur Verfügung zu stellen. Die Kosten einer
-    solchen gezielten Sicherheitsprüfung, die von einer unabhängigen Stelle durchgeführt wird, sind von
-    der geprüften Einrichtung zu tragen, es sei denn, die zuständige Behörde trifft in hinreichend begründeten
-    Fällen eine anderslautende Entscheidung.
+    zugrunde liegenden Nachweise.
   adressat: null
   pflicht: null
   scope: null
@@ -10439,6 +10655,61 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+- uid: Art. 32 Abs. 2 UAbs. 2@255117
+  id: Art. 32 Abs. 2 UAbs. 2
+  artikel: '32'
+  artikel_titel: Aufsichts- und Durchsetzungsmaßnahmen in Bezug auf wesentliche Einrichtungen
+  abschnitt: null
+  absatz: '2'
+  nummer: null
+  unterabsatz: '2'
+  buchstabe: null
+  ziffer: null
+  offset: 255117
+  laenge: 254
+  saetze: 1
+  beleg: Die in Unterabsatz 1 Buchstabe b genannten gezielten Sicherheitsprüfungen stützen sich auf Risikobewertungen,
+    die von der zuständigen Behörde oder der geprüften Einrichtung durchgeführt werden, oder auf sonstige
+    verfügbare risikobezogene Informationen.
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id005
+  gate: *id006
+  befund: null
+  befund_grund: null
+- uid: Art. 32 Abs. 2 UAbs. 3@255371
+  id: Art. 32 Abs. 2 UAbs. 3
+  artikel: '32'
+  artikel_titel: Aufsichts- und Durchsetzungsmaßnahmen in Bezug auf wesentliche Einrichtungen
+  abschnitt: null
+  absatz: '2'
+  nummer: null
+  unterabsatz: '3'
+  buchstabe: null
+  ziffer: null
+  offset: 255371
+  laenge: 371
+  saetze: 2
+  beleg: Die Ergebnisse einer gezielten Sicherheitsprüfung sind der zuständigen Behörde zur Verfügung
+    zu stellen. Die Kosten einer solchen gezielten Sicherheitsprüfung, die von einer unabhängigen Stelle
+    durchgeführt wird, sind von der geprüften Einrichtung zu tragen, es sei denn, die zuständige Behörde
+    trifft in hinreichend begründeten Fällen eine anderslautende Entscheidung.
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id005
+  gate: *id006
+  befund: null
+  befund_grund: null
 - uid: Art. 32 Abs. 3@255742
   id: Art. 32 Abs. 3
   artikel: '32'
@@ -10797,20 +11068,12 @@ einheiten:
   absatz: '5'
   buchstabe: b
   offset: 259226
-  laenge: 1196
-  saetze: 4
+  laenge: 360
+  saetze: 1
   beleg: b) zu verlangen, dass die zuständigen Stellen oder Gerichte im Einklang mit dem nationalen Recht
     natürlichen Personen, die auf Geschäftsführungs- bzw. Vorstandsebene oder Ebene des rechtlichen Vertreters
     für Leitungsaufgaben in dieser wesentlichen Einrichtung zuständig sind, vorübergehend untersagen,
-    Leitungsaufgaben in dieser Einrichtung wahrzunehmen. Die gemäß diesem Absatz verhängten vorübergehenden
-    Aussetzungen oder Verbote werden nur so lange angewandt, bis die betreffende Einrichtung die erforderlichen
-    Maßnahmen ergreift, um die Mängel zu beheben oder die Anforderungen der zuständigen Behörde, wegen
-    deren Nichterfüllung die Durchsetzungsmaßnahmenverhängt wurden, zu erfüllen. Für die Verhängung solcher
-    vorübergehenden Aussetzungen oder Verbote muss es angemessene Verfahrensgarantien geben, die den allgemeinen
-    Grundsätzen des Unionsrechts und der Charta, einschließlich des Rechts auf einen wirksamen Rechtsbehelf
-    und ein unparteiisches Gericht, der Unschuldsvermutung und der Verteidigungsrechte, entsprechen. Die
-    in diesem Absatz vorgesehenen Durchsetzungsmaßnahmen finden keine Anwendung auf Einrichtungen der
-    öffentlichen Verwaltung, die dieser Richtlinie unterliegen.
+    Leitungsaufgaben in dieser Einrichtung wahrzunehmen.
   adressat: null
   pflicht: null
   scope: null
@@ -10826,6 +11089,63 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+- uid: Art. 32 Abs. 5 UAbs. 2@259586
+  id: Art. 32 Abs. 5 UAbs. 2
+  artikel: '32'
+  artikel_titel: Aufsichts- und Durchsetzungsmaßnahmen in Bezug auf wesentliche Einrichtungen
+  abschnitt: null
+  absatz: '5'
+  nummer: null
+  unterabsatz: '2'
+  buchstabe: null
+  ziffer: null
+  offset: 259586
+  laenge: 673
+  saetze: 2
+  beleg: Die gemäß diesem Absatz verhängten vorübergehenden Aussetzungen oder Verbote werden nur so lange
+    angewandt, bis die betreffende Einrichtung die erforderlichen Maßnahmen ergreift, um die Mängel zu
+    beheben oder die Anforderungen der zuständigen Behörde, wegen deren Nichterfüllung die Durchsetzungsmaßnahmenverhängt
+    wurden, zu erfüllen. Für die Verhängung solcher vorübergehenden Aussetzungen oder Verbote muss es
+    angemessene Verfahrensgarantien geben, die den allgemeinen Grundsätzen des Unionsrechts und der Charta,
+    einschließlich des Rechts auf einen wirksamen Rechtsbehelf und ein unparteiisches Gericht, der Unschuldsvermutung
+    und der Verteidigungsrechte, entsprechen.
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id005
+  gate: *id006
+  befund: null
+  befund_grund: null
+- uid: Art. 32 Abs. 5 UAbs. 3@260259
+  id: Art. 32 Abs. 5 UAbs. 3
+  artikel: '32'
+  artikel_titel: Aufsichts- und Durchsetzungsmaßnahmen in Bezug auf wesentliche Einrichtungen
+  abschnitt: null
+  absatz: '5'
+  nummer: null
+  unterabsatz: '3'
+  buchstabe: null
+  ziffer: null
+  offset: 260259
+  laenge: 163
+  saetze: 1
+  beleg: Die in diesem Absatz vorgesehenen Durchsetzungsmaßnahmen finden keine Anwendung auf Einrichtungen
+    der öffentlichen Verwaltung, die dieser Richtlinie unterliegen.
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id005
+  gate: *id006
+  befund: null
+  befund_grund: null
 - uid: Art. 32 Abs. 6@260422
   id: Art. 32 Abs. 6
   artikel: '32'
@@ -11505,16 +11825,11 @@ einheiten:
   absatz: '2'
   buchstabe: f
   offset: 266700
-  laenge: 850
-  saetze: 6
+  laenge: 229
+  saetze: 3
   beleg: f) Anforderung von Nachweisen für die Umsetzung der Cybersicherheitskonzepte, z. B. der Ergebnisse
     von von einem qualifizierten Prüfer durchgeführten Sicherheitsprüfungen und der entsprechenden zugrunde
-    liegenden Nachweise. Die in Unterabsatz 1 Buchstabe b genannten gezielten Sicherheitsprüfungen stützen
-    sich auf Risikobewertungen, die von der zuständigen Behörde oder der geprüften Einrichtung durchgeführt
-    werden, oder auf sonstige verfügbare risikobezogene Informationen. Die Ergebnisse gezielter Sicherheitsprüfungen
-    sind der zuständigen Behörde zur Verfügung zu stellen. Die Kosten einer solchen gezielten Sicherheitsprüfung,
-    die von einer unabhängigen Stelle durchgeführt wird, sind von der geprüften Einrichtung zu tragen,
-    es sei denn, die zuständige Behörde trifft in hinreichend begründeten Fällen eine anderslautende Entscheidung.
+    liegenden Nachweise.
   adressat: null
   pflicht: null
   scope: null
@@ -11530,6 +11845,61 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+- uid: Art. 33 Abs. 2 UAbs. 2@266929
+  id: Art. 33 Abs. 2 UAbs. 2
+  artikel: '33'
+  artikel_titel: Aufsichts- und Durchsetzungsmaßnahmen in Bezug auf wichtige Einrichtungen
+  abschnitt: null
+  absatz: '2'
+  nummer: null
+  unterabsatz: '2'
+  buchstabe: null
+  ziffer: null
+  offset: 266929
+  laenge: 254
+  saetze: 1
+  beleg: Die in Unterabsatz 1 Buchstabe b genannten gezielten Sicherheitsprüfungen stützen sich auf Risikobewertungen,
+    die von der zuständigen Behörde oder der geprüften Einrichtung durchgeführt werden, oder auf sonstige
+    verfügbare risikobezogene Informationen.
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id005
+  gate: *id006
+  befund: null
+  befund_grund: null
+- uid: Art. 33 Abs. 2 UAbs. 3@267183
+  id: Art. 33 Abs. 2 UAbs. 3
+  artikel: '33'
+  artikel_titel: Aufsichts- und Durchsetzungsmaßnahmen in Bezug auf wichtige Einrichtungen
+  abschnitt: null
+  absatz: '2'
+  nummer: null
+  unterabsatz: '3'
+  buchstabe: null
+  ziffer: null
+  offset: 267183
+  laenge: 367
+  saetze: 2
+  beleg: Die Ergebnisse gezielter Sicherheitsprüfungen sind der zuständigen Behörde zur Verfügung zu stellen.
+    Die Kosten einer solchen gezielten Sicherheitsprüfung, die von einer unabhängigen Stelle durchgeführt
+    wird, sind von der geprüften Einrichtung zu tragen, es sei denn, die zuständige Behörde trifft in
+    hinreichend begründeten Fällen eine anderslautende Entscheidung.
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id005
+  gate: *id006
+  befund: null
+  befund_grund: null
 - uid: Art. 33 Abs. 3@267550
   id: Art. 33 Abs. 3
   artikel: '33'
@@ -12291,12 +12661,41 @@ einheiten:
   absatz: '1'
   buchstabe: c
   offset: 276625
-  laenge: 1339
-  saetze: 4
+  laenge: 313
+  saetze: 1
   beleg: c) auf begründetes Ersuchen einer anderen zuständigen Behörde leistet eine zuständige Behörde
     der ersuchenden Behörde in einem ihren zur Verfügung stehenden Ressourcen angemessenen Umfang Amtshilfe,
     damit die Aufsichts- oder Durchsetzungsmaßnahmen wirksam, effizient und kohärent durchgeführt werden
-    können. Die in Unterabsatz 1 Buchstabe c genannte Amtshilfe kann Auskunftsersuchen und Aufsichtsmaßnahmen
+    können.
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id001
+  gate: *id002
+  befund: null
+  befund_grund: null
+  abschnitt: null
+  nummer: null
+  unterabsatz: null
+  ziffer: null
+- uid: Art. 37 Abs. 1 UAbs. 2@276938
+  id: Art. 37 Abs. 1 UAbs. 2
+  artikel: '37'
+  artikel_titel: Amtshilfe
+  abschnitt: null
+  absatz: '1'
+  nummer: null
+  unterabsatz: '2'
+  buchstabe: null
+  ziffer: null
+  offset: 276938
+  laenge: 1026
+  saetze: 3
+  beleg: Die in Unterabsatz 1 Buchstabe c genannte Amtshilfe kann Auskunftsersuchen und Aufsichtsmaßnahmen
     umfassen, einschließlich Ersuchen um Durchführung von Vor-Ort-Kontrollen und externen Aufsichtsmaßnahmen
     oder gezielten Sicherheitsprüfungen. Die ersuchte zuständige Behörde darf das Amtshilfeersuchen nur
     ablehnen, wenn festgestellt wird, dass sie für die erbetene Amtshilfe nicht zuständig ist, dass die
@@ -12314,14 +12713,10 @@ einheiten:
   verifikation: null
   hypothese_grund: null
   omnibus: null
-  requirement: *id001
-  gate: *id002
+  requirement: *id005
+  gate: *id006
   befund: null
   befund_grund: null
-  abschnitt: null
-  nummer: null
-  unterabsatz: null
-  ziffer: null
 - uid: Art. 37 Abs. 2@277964
   id: Art. 37 Abs. 2
   artikel: '37'
@@ -12749,8 +13144,8 @@ einheiten:
   verifikation: null
   hypothese_grund: null
   omnibus: null
-  requirement: &id005 []
-  gate: &id006 []
+  requirement: &id007 []
+  gate: &id008 []
   befund: null
   befund_grund: null
 - uid: Art. 44 Abs. 2@282393
@@ -12775,8 +13170,8 @@ einheiten:
   verifikation: null
   hypothese_grund: null
   omnibus: null
-  requirement: *id005
-  gate: *id006
+  requirement: *id007
+  gate: *id008
   befund: null
   befund_grund: null
 - uid: Art. 45@282620

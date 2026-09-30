@@ -28,8 +28,10 @@ Pakete:  1 Anhänge ✅ · 2 Omnibus · 3 Befunde + Matrix · 4 PO-Runde · 5 Be
 | Q1 | FRIA: R012, G-PRE-02 und G-PRE-05/C-01 verlangen eine Folgenabschätzung als MUST, Art. 27 nimmt Anhang III Nr. 2 aber aus | `05-schritt-2d-2e-gedeckt-querbefunde.md` | vertagt | 4 |
 | Q11 | Art. 26 Abs. 11 (Information der betroffenen Personen) | `05-schritt-2d-2e-gedeckt-querbefunde.md` | vertagt | 4 |
 | A-F1 | Anhang IV nennt den Betreiber: Durchschlag? Empfehlung a (nein, out) | `08-paket-1-anhaenge.md` | offen | 4 |
-| IN-1 | Alle `in`-Zeilen bestätigen (nach Paket 2 und P2-F2: 64 von 104 bestätigt – AI Act 61 von 83, Omnibus 3 von 21) | `entscheidungsregister.md` | offen | 4 |
-| OUT-1 | `out`-Zeilen: Stichprobe nach Adressat-Gruppen, dann Sammelbestätigung (nach Paket 2 und P2-F1/F4/F5: 138 von 1368 bestätigt – AI Act 31 von 1120, Omnibus 107 von 248) | `entscheidungsregister.md` | offen | 4 |
+| IN-1 | Alle `in`-Zeilen bestätigen (nach T-15: 64 von 109 bestätigt – AI Act 61 von 85, Omnibus 3 von 24) | `entscheidungsregister.md` | offen | 4 |
+| OUT-1 | `out`-Zeilen: Stichprobe nach Adressat-Gruppen, dann Sammelbestätigung (nach T-15: 138 von 1407 bestätigt – AI Act 31 von 1147, Omnibus 107 von 260) | `entscheidungsregister.md` | offen | 4 |
+| P3-F1 | Art. 9 Abs. 5 UAbs. 3: Durchschlag auf den Betreiber? Empfehlung a (nein, out, wie A-F1) | `10-paket-3-werkzeug.md` | offen | 4 |
+| P3-F2 | Neue Pflichttexte nach dem Neuschnitt bestätigen (13 Sätze, Art. 9 Abs. 5 lit. c, Art. 6 Abs. 3 lit. d)? Empfehlung a | `10-paket-3-werkzeug.md` | offen | 4 |
 | R-4 | Severity des Wächters `NORM_UNITS_MATCH_EXTRACTOR` (Vorschlag MEDIUM) | `10-paket-3-werkzeug.md` | offen | 4 |
 | R-3 | Severity des Wächters `COVERAGE_FINDING_NAMES_CHECKING_GATE` (Vorschlag HIGH, Begründung wie R-2) | `09-paket-2-omnibus.md` | offen | 4 |
 | R-1 | Severity des Wächters `PO_DECISIONS_REGISTERED` (Vorschlag LOW: bricht `make verify`, wie `HANDBOOK_ROADMAP_CURRENT`) | `entscheidungsregister.md` | offen | 4 |
@@ -62,9 +64,7 @@ Pakete:  1 Anhänge ✅ · 2 Omnibus · 3 Befunde + Matrix · 4 PO-Runde · 5 Be
 
 | ID | Gegenstand | Quelle | Stand | Paket |
 |---|---|---|---|---|
-| M-B2 | 14 Satz-Einheiten tragen den Pflichttext des ganzen Absatzes | `07-element-matrix.md` | offen | 3 |
-| A-W7 | Omnibus-Extraktor: Abs. 1b und Art. 75b behoben (T-15); offen: Folgesätze am letzten Buchstaben, aufgegangen in A-W11 | `09-paket-2-omnibus.md` | offen | 3 |
-| A-W11 | Unterabsätze nach einer Liste hängen am letzten Buchstaben (AI Act 26, DSGVO 5, NIS2 10; in: Art. 6 Abs. 3 lit. d, Art. 9 Abs. 5 lit. c) | `10-paket-3-werkzeug.md` | offen | 3 |
+| A-W12 | Omnibus-Unterabsätze aus dem Zeilenfall gezählt; Art. 75 Abs. 2a, 75a Abs. 4, 75c Abs. 4 ungeprüft (alle out) | `10-paket-3-werkzeug.md` | offen | 4 |
 | A-W10 | Sektorstapel: § 2 BSIG / § 2 KRITIS-DachG – erste Nummer der Begriffsbestimmungen nicht erkannt | `10-paket-3-werkzeug.md` | offen | T-13 |
 | P2-B1 | Art. 25 Abs. 2 lit. a–c n.F.: Teilabdeckung vorläufig, C-25d prüft den Übergabebeleg nicht je Element | `09-paket-2-omnibus.md` | offen | 3 |
 | AN-1 | Wächter Requirement-Anker ↔ Pflichtenraum: ein Requirement, dessen Normverweise nur auf `out`-Einheiten zeigen, muss `anker: offen` tragen. Gemessen am 29.09.2026: R002 (markiert), dazu R010 (F3) und R012 (Q1) ohne `in`-Anker. Kommt mit F3/F4 | `entscheidungsregister.md` | offen | 5 |
@@ -101,6 +101,9 @@ Pakete:  1 Anhänge ✅ · 2 Omnibus · 3 Befunde + Matrix · 4 PO-Runde · 5 Be
 | A-W1 | Art. 113 (und Art. 85, DSGVO Art. 67, NIS2 Art. 44): unnummerierte Absätze als Abs. 1–n, Kennung „Art. 113 Abs. 3 lit. a“ wie im Gesetz (T-15) | `08-paket-1-anhaenge.md` | umgesetzt 30.09.2026 | – |
 | A-W2 | Anhang I Abschn. B Nr. 13–20 einzeln (T-15) | `08-paket-1-anhaenge.md` | umgesetzt 30.09.2026 | – |
 | A-W3 | Fußzeile „ELI … ISSN“ nicht mehr im Beleg von Anhang XIII lit. g (T-15) | `08-paket-1-anhaenge.md` | umgesetzt 30.09.2026 | – |
+| M-B2 | Satz-Einheiten tragen je einen eigenen Pflichttext; Wächter in `NORM_SENTENCE_UNITS_CURRENT` | `07-element-matrix.md` | umgesetzt 30.09.2026 (T-15) | – |
+| A-W7 | Omnibus: Abs. 1b, Art. 75b und Folgesätze hinter Aufzählungen eigene Einheiten (T-15) | `09-paket-2-omnibus.md` | umgesetzt 30.09.2026 | – |
+| A-W11 | Unterabsätze hinter einer Aufzählung sind eigene Einheiten (AI Act 18, Omnibus 11, DSGVO 5, NIS2 16) | `10-paket-3-werkzeug.md` | umgesetzt 30.09.2026 (T-15) | – |
 | A-W5 | Verknüpfer verlor nach der Satzebene den Verweis Art. 111 Abs. 2 → n.F. | `09-paket-2-omnibus.md` | umgesetzt 29.09.2026 | – |
 | A-W6 | Verknüpfer verband Art. 96 Abs. 1 UAbs. 2 n.F. mit allen Buchstaben | `09-paket-2-omnibus.md` | umgesetzt 29.09.2026 | – |
 | Q2 | Nr.-2-Ausnahmen (Art. 27, 43 Abs. 2, 49, 75, 86) für einen Fachbeitrag | `05-schritt-2d-2e-gedeckt-querbefunde.md` | außerhalb | – |
