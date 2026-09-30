@@ -68,6 +68,7 @@ Pakete:  1 Anhänge ✅ · 2 Omnibus · 3 Befunde + Matrix · 4 PO-Runde · 5 Be
 | A-W10 | Sektorstapel: § 2 BSIG / § 2 KRITIS-DachG – erste Nummer der Begriffsbestimmungen nicht erkannt | `10-paket-3-werkzeug.md` | offen | T-13 |
 | P2-B1 | Art. 25 Abs. 2 lit. a–c n.F.: Teilabdeckung vorläufig, C-25d prüft den Übergabebeleg nicht je Element | `09-paket-2-omnibus.md` | offen | 3 |
 | AN-1 | Wächter Requirement-Anker ↔ Pflichtenraum: ein Requirement, dessen Normverweise nur auf `out`-Einheiten zeigen, muss `anker: offen` tragen. Gemessen am 29.09.2026: R002 (markiert), dazu R010 (F3) und R012 (Q1) ohne `in`-Anker. Kommt mit F3/F4 | `entscheidungsregister.md` | offen | 5 |
+| PR-1 | Paket 8: Der PR muss von `review-2c` kommen, nicht von `spec06-aiact-stufe0` (Plan Teil C). `review-2c` enthält `spec06-aiact-stufe0` und `t14-pflichtenraum-werkzeug` vollständig und liegt 38 Commits darüber (gemessen 30.09.2026); ein PR von `spec06-aiact-stufe0` ließe T-14 und alle Pakete aus | `entscheidungsregister.md` | offen | 8 |
 | MX-1 | Element-Matrix als Daten, `gate` daraus abgeleitet, Wächter in `make verify` | `entscheidungsregister.md` | offen | 7 |
 | W-1 | Wiedervorlage Anhang XI/XII (GPAI) beim Prüf-Agenten selbst | `entscheidungsregister.md` | offen | 9 |
 | W-2 | Wiedervorlage Anhang IX, sobald der Betreiber an einem Test unter Realbedingungen teilnimmt | `entscheidungsregister.md` | offen | jederzeit |
