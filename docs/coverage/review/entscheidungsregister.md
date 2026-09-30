@@ -27,10 +27,10 @@ Pakete:  1 Anhänge ✅ · 2 Omnibus · 3 Befunde + Matrix · 4 PO-Runde · 5 Be
 | S3-4 | Hypothesen gegen Sekundärquellen prüfen (43 in-Zeilen, dazu 4 aus Paket 1) | `00-systembild-und-plan.md` | vertagt | 4 |
 | Q1 | FRIA: R012, G-PRE-02 und G-PRE-05/C-01 verlangen eine Folgenabschätzung als MUST, Art. 27 nimmt Anhang III Nr. 2 aber aus | `05-schritt-2d-2e-gedeckt-querbefunde.md` | vertagt | 4 |
 | Q11 | Art. 26 Abs. 11 (Information der betroffenen Personen) | `05-schritt-2d-2e-gedeckt-querbefunde.md` | vertagt | 4 |
-| M1 | Zählt eine Nachbarprüfung als geprüftes Element? 9 Zeilen, Empfehlung a (streng: werden Lücke) | `07-element-matrix.md` | offen | 4 |
 | A-F1 | Anhang IV nennt den Betreiber: Durchschlag? Empfehlung a (nein, out) | `08-paket-1-anhaenge.md` | offen | 4 |
 | IN-1 | Alle `in`-Zeilen bestätigen (nach Paket 2 und P2-F2: 64 von 104 bestätigt – AI Act 61 von 83, Omnibus 3 von 21) | `entscheidungsregister.md` | offen | 4 |
 | OUT-1 | `out`-Zeilen: Stichprobe nach Adressat-Gruppen, dann Sammelbestätigung (nach Paket 2 und P2-F1/F4/F5: 138 von 1368 bestätigt – AI Act 31 von 1120, Omnibus 107 von 248) | `entscheidungsregister.md` | offen | 4 |
+| R-3 | Severity des Wächters `COVERAGE_FINDING_NAMES_CHECKING_GATE` (Vorschlag HIGH, Begründung wie R-2) | `09-paket-2-omnibus.md` | offen | 4 |
 | R-1 | Severity des Wächters `PO_DECISIONS_REGISTERED` (Vorschlag LOW: bricht `make verify`, wie `HANDBOOK_ROADMAP_CURRENT`) | `entscheidungsregister.md` | offen | 4 |
 | M-B1 | Welches Requirement trägt Art. 26 Abs. 5 Satz 1: R009 wie heute oder R008/R010 der prüfenden Gates? | `07-element-matrix.md` | offen | 5 |
 | EF | Die vier Ehrlichkeitsfelder je neuem oder geändertem Requirement und Check: Norm↔Pflicht, MUST/SHOULD, `evidence_level`, `implemented`/`design_only` (AGENTS.md 3) | `entscheidungsregister.md` | offen | 5 |
@@ -92,6 +92,7 @@ Pakete:  1 Anhänge ✅ · 2 Omnibus · 3 Befunde + Matrix · 4 PO-Runde · 5 Be
 | H3 | Art. 25 Abs. 1 lit. a, c und Art. 13 Abs. 3 lit. a Teilabdeckung | `06-grenzen-statt-teilabdeckung.md` | umgesetzt | – |
 | A-F2 | Vom Omnibus neu gefasste AI-Act-Zeilen `out` („ersetzt durch n.F.“): 6 in-Zeilen als Entscheid, 54 Zeilen mit `neufassung`, Wächter `OMNIBUS_SUPERSEDED_UNITS_OUT` | `08-paket-1-anhaenge.md` | umgesetzt 29.09.2026 (Paket 2, Review 09) | – |
 | A-W4 | Art. 3 Nr. 4, 8, 23 (und 52 weitere Zeilen): falscher Omnibus-Vermerk berichtigt | `08-paket-1-anhaenge.md` | umgesetzt 29.09.2026 (Paket 2) | – |
+| M1 | Nachbarprüfung zählt nicht als Element (streng): 9 Zeilen Teilabdeckung → Lücke, Nachbarn in `nachbar_gate`; Wächter `COVERAGE_FINDING_NAMES_CHECKING_GATE`. Art. 15 Abs. 3, Abs. 4 UAbs. 1 Satz 1, 2 folgen mit F4 | `07-element-matrix.md` | umgesetzt 30.09.2026 a | – |
 | P2-F1 | 100 Änderungsanweisungen des Omnibus `out`, bewertet wird die n.F.-Zeile | `09-paket-2-omnibus.md` | umgesetzt 29.09.2026 a | – |
 | P2-F2 | Bestätigte Einordnungen von Art. 4, 25 Abs. 2, 111 Abs. 2 Satz 1 gelten für die n.F.-Zeilen | `09-paket-2-omnibus.md` | umgesetzt 29.09.2026 a | – |
 | P2-F3 | Art. 25 Abs. 2 ganz ersetzt (nicht teilweise) | `09-paket-2-omnibus.md` | umgesetzt 29.09.2026 a | – |

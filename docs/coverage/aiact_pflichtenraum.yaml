@@ -3598,8 +3598,8 @@ einheiten:
     Pflicht ab: statt ''sicherzustellen, dass ... ueber ein ausreichendes Mass an KI-Kompetenz verfuegen''
     nun ''ergreifen Massnahmen, um die Entwicklung der KI-Kompetenz ... zu unterstuetzen'', ausdruecklich
     ohne Pflicht zu einem bestimmten Niveau. Abs. 2 und 3 neu. Neufassung: Art. 4 n.F. im Omnibus-Pflichtenraum.'
-  requirement: &id023 []
-  gate: &id024 []
+  requirement: &id021 []
+  gate: &id022 []
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -7452,15 +7452,11 @@ einheiten:
     fest).
   requirement:
   - R007
-  gate:
-  - G-DEP-03
-  befund: teilabdeckung
-  befund_grund: Design-/Entwicklungspflicht des Anbieters, aber der Wortlaut nennt 'die Betreiber' und
-    'Anbieter und Betreiber' ausdruecklich als Zweck der Transparenz - durchschlaegt direkt auf Art. 26
-    Abs. 1 (Verwendung gemaess Betriebsanleitung) und Art. 26 Abs. 9 (Nutzung der Art.-13-Informationen
-    fuer DSGVO-Folgenabschaetzung). G-DEP-03/C-01 prueft, DASS Anleitungs-/Model-Dokumentation existiert,
-    nicht die materielle Transparenz-Qualitaet ('hinreichend, damit Betreiber angemessen interpretieren
-    koennen').
+  gate: []
+  befund: luecke
+  befund_grund: 'Kein Element geprueft (M1a). Nachbar: G-DEP-03 prueft, dass instructions_for_deployers
+    nicht leer ist. Ungeprueft: ob der Betrieb so transparent ist, dass der Betreiber die Ausgaben interpretieren
+    und angemessen verwenden kann.'
   po_bestaetigt: true
   uid: Art. 13 Abs. 1@325470
   abschnitt: null
@@ -7470,6 +7466,9 @@ einheiten:
   po_entscheid:
   - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, Anker (a) und (b))
   - 2026-09-28 · 2c F1 (T-A Betriebsanleitung, M-A2 Qualitaet als manuelles Review)
+  - 2026-09-30 · M1a (Nachbarpruefung ist Luecke) - Review 07 Zeile 1
+  nachbar_gate:
+  - G-DEP-03
 - id: Art. 13 Abs. 2
   artikel: '13'
   artikel_titel: Transparenz und Bereitstellung von Informationen für die Betreiber
@@ -7650,21 +7649,19 @@ einheiten:
   requirement: &id017
   - R007
   - R003
-  gate: &id018
-  - G-DEP-03
-  - G-DEP-02
-  befund: teilabdeckung
-  befund_grund: 'Verknuepft Art. 13 mit Art. 15 (Genauigkeit/Robustheit/Cybersicherheit, G-DEP-02) und
-    Art. 9 Abs. 2 (Risiken, G-PRE-01/G-PRE-03 - dort scope: out als Anbieterpflicht erfasst). G-DEP-02
-    misst accuracy/safety_score (teils E-0/E-3 gemischt), aber nicht ob diese Werte in der BETRIEBSANLEITUNG
-    dokumentiert sind. Die Erlaeuterbarkeits-Faehigkeiten (XAI) sind in G-DEP-03/C-02 als ''design_only''
-    gefuehrt - explizit noch nicht implementiert.'
+  gate: []
+  befund: luecke
+  befund_grund: 'Kein Element geprueft (M1a). Nachbar: G-PRE-02 prueft den vom Betreiber deklarierten
+    Zweck (application.description). Ungeprueft: die Zweckbestimmung in der Betriebsanleitung des Anbieters.'
   po_bestaetigt: true
   migriert_von: Art. 13 Abs. 3 lit. i@326480
   migration: kennung_geaendert
   po_entscheid:
   - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, Anker (a) und (b))
   - 2026-09-28 · 2c F1 (T-A Betriebsanleitung, M-A1 Pflichtinhalte-Check)
+  - 2026-09-30 · M1a (Nachbarpruefung ist Luecke) - Review 07 Zeile 6
+  nachbar_gate:
+  - G-PRE-02
 - uid: Art. 13 Abs. 3 lit. b Ziff. ii@326512
   id: Art. 13 Abs. 3 lit. b Ziff. ii
   artikel: '13'
@@ -7696,21 +7693,20 @@ einheiten:
   omnibus: unveraendert - Art. 13 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
     (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
   requirement: *id017
-  gate:
-  - G-DEP-03
-  - G-DEP-02
-  befund: teilabdeckung
-  befund_grund: 'Verknuepft Art. 13 mit Art. 15 (Genauigkeit/Robustheit/Cybersicherheit, G-DEP-02) und
-    Art. 9 Abs. 2 (Risiken, G-PRE-01/G-PRE-03 - dort scope: out als Anbieterpflicht erfasst). G-DEP-02
-    misst accuracy/safety_score (teils E-0/E-3 gemischt), aber nicht ob diese Werte in der BETRIEBSANLEITUNG
-    dokumentiert sind. Die Erlaeuterbarkeits-Faehigkeiten (XAI) sind in G-DEP-03/C-02 als ''design_only''
-    gefuehrt - explizit noch nicht implementiert.'
+  gate: []
+  befund: luecke
+  befund_grund: 'Kein Element geprueft (M1a). Nachbar: G-DEP-02 misst accuracy und safety_score. Ungeprueft:
+    ob die Anleitung Genauigkeit, Robustheit und Cybersicherheit mit ihren Massen angibt. Kuerzester Weg
+    zur Massnahme: Anleitungswert gegen Messung halten (M-A1, E-2).'
   po_bestaetigt: true
   migriert_von: Art. 13 Abs. 3 lit. i@326480
   migration: geerbt
   po_entscheid:
   - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, Anker (a) und (b))
   - 2026-09-23 · T-14.1 (geerbte Zeile)
+  - 2026-09-30 · M1a (Nachbarpruefung ist Luecke) - Review 07 Zeile 7
+  nachbar_gate:
+  - G-DEP-02
 - uid: Art. 13 Abs. 3 lit. b Ziff. iii@326874
   id: Art. 13 Abs. 3 lit. b Ziff. iii
   artikel: '13'
@@ -7742,20 +7738,20 @@ einheiten:
   omnibus: unveraendert - Art. 13 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
     (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
   requirement: *id017
-  gate:
-  - G-DEP-03
-  befund: teilabdeckung
-  befund_grund: 'Verknuepft Art. 13 mit Art. 15 (Genauigkeit/Robustheit/Cybersicherheit, G-DEP-02) und
-    Art. 9 Abs. 2 (Risiken, G-PRE-01/G-PRE-03 - dort scope: out als Anbieterpflicht erfasst). G-DEP-02
-    misst accuracy/safety_score (teils E-0/E-3 gemischt), aber nicht ob diese Werte in der BETRIEBSANLEITUNG
-    dokumentiert sind. Die Erlaeuterbarkeits-Faehigkeiten (XAI) sind in G-DEP-03/C-02 als ''design_only''
-    gefuehrt - explizit noch nicht implementiert.'
+  gate: []
+  befund: luecke
+  befund_grund: 'Kein Element geprueft (M1a). Nachbar: G-DEP-03 prueft, dass known_limitations nicht leer
+    ist. Ungeprueft: die bekannten oder vorhersehbaren Umstaende, die zu Risiken fuehren koennen, in der
+    Anleitung.'
   po_bestaetigt: true
   migriert_von: Art. 13 Abs. 3 lit. i@326480
   migration: geerbt
   po_entscheid:
   - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, Anker (a) und (b))
   - 2026-09-23 · T-14.1 (geerbte Zeile)
+  - 2026-09-30 · M1a (Nachbarpruefung ist Luecke) - Review 07 Zeile 8
+  nachbar_gate:
+  - G-DEP-03
 - uid: Art. 13 Abs. 3 lit. b Ziff. iv@327199
   id: Art. 13 Abs. 3 lit. b Ziff. iv
   artikel: '13'
@@ -7785,7 +7781,9 @@ einheiten:
   omnibus: unveraendert - Art. 13 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
     (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
   requirement: *id017
-  gate: *id018
+  gate:
+  - G-DEP-03
+  - G-DEP-02
   befund: luecke
   befund_grund: 'Kein implementierter Check: der einzige passende, G-DEP-03/C-02, ist design_only (P3).'
   po_bestaetigt: true
@@ -7821,25 +7819,24 @@ einheiten:
     1 und 9 verweisen auf Art. 13.'
   omnibus: unveraendert - Art. 13 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
     (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: &id019
+  requirement: &id018
   - R013
   - R006
   - R007
-  gate: &id020
-  - G-DEP-05
-  befund: teilabdeckung
-  befund_grund: Leistung nach Personengruppen ueberschneidet sich mit Bias/Fairness (R013, G-DEP-05, SHOULD);
-    Eingabedaten-Spezifikation ueberschneidet sich mit R006/Art. 26 Abs. 4 (dort als 'luecke' erfasst
-    - G-DEP-01 prueft Trainingsdaten, nicht Eingabedaten-Spezifikationen in der Anleitung). Kein Gate
-    prueft, ob diese Angaben tatsaechlich in der Betriebsanleitung STEHEN; die verlinkten Gates pruefen
-    die zugrundeliegenden Sachverhalte (Bias-Assessment, Datenherkunft), nicht deren Dokumentation im
-    Anleitungsdokument selbst.
+  gate: []
+  befund: luecke
+  befund_grund: 'Kein Element geprueft (M1a). Nachbarn: G-DEP-05 (Bias-Kennzahlen) und G-DEP-02 (subgroup_analysis,
+    warn). Ungeprueft: die Leistung je Personengruppe in der Anleitung.'
   po_bestaetigt: true
   migriert_von: Art. 13 Abs. 3 lit. v@327376
   migration: kennung_geaendert
   po_entscheid:
   - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, Anker (a) und (b))
   - 2026-09-28 · 2c F1 (T-A Betriebsanleitung, M-A1 Pflichtinhalte-Check)
+  - 2026-09-30 · M1a (Nachbarpruefung ist Luecke) - Review 07 Zeile 10
+  nachbar_gate:
+  - G-DEP-05
+  - G-DEP-02
 - uid: Art. 13 Abs. 3 lit. b Ziff. vi@327528
   id: Art. 13 Abs. 3 lit. b Ziff. vi
   artikel: '13'
@@ -7868,7 +7865,7 @@ einheiten:
     1 und 9 verweisen auf Art. 13.'
   omnibus: unveraendert - Art. 13 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
     (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id019
+  requirement: *id018
   gate:
   - G-DEP-01
   befund: teilabdeckung
@@ -7911,8 +7908,9 @@ einheiten:
     1 und 9 verweisen auf Art. 13.'
   omnibus: unveraendert - Art. 13 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
     (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id019
-  gate: *id020
+  requirement: *id018
+  gate:
+  - G-DEP-05
   befund: luecke
   befund_grund: Kein Gate prueft, ob die Informationen zur Interpretation der Ausgaben in der Betriebsanleitung
     stehen (P3); Bezug zur Kompetenz der Aufsichtsperson (P2).
@@ -7984,14 +7982,10 @@ einheiten:
   - R004
   - R008
   - R007
-  gate:
-  - G-PRE-05
-  - G-OPS-01
-  - G-DEP-03
-  befund: teilabdeckung
-  befund_grund: Verknuepft Art. 13 mit Art. 14 (dort im Detail erfasst, ueberwiegend teilabdeckung/luecke).
-    G-DEP-03 prueft allgemeine Anleitungsdokumentation, nicht spezifisch, ob die Art.-14-Massnahmen DARIN
-    beschrieben sind.
+  gate: []
+  befund: luecke
+  befund_grund: 'Kein Element geprueft (M1a). Nachbarn: G-PRE-05 (oversight_model) und G-OPS-01 (oversight_roles)
+    pruefen die Aufsicht beim Betreiber. Ungeprueft: die Aufsichtsmassnahmen nach Art. 14 in der Anleitung.'
   po_bestaetigt: true
   uid: Art. 13 Abs. 3 lit. d@328088
   abschnitt: null
@@ -8001,6 +7995,10 @@ einheiten:
   po_entscheid:
   - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, Anker (a) und (b))
   - 2026-09-28 · 2c F1 (T-A Betriebsanleitung, M-A1 Pflichtinhalte-Check)
+  - 2026-09-30 · M1a (Nachbarpruefung ist Luecke) - Review 07 Zeile 13
+  nachbar_gate:
+  - G-PRE-05
+  - G-OPS-01
 - id: Art. 13 Abs. 3 lit. e
   artikel: '13'
   artikel_titel: Transparenz und Bereitstellung von Informationen für die Betreiber
@@ -8063,13 +8061,11 @@ einheiten:
   requirement:
   - R014
   - R007
-  gate:
-  - G-DEP-06
-  - G-DEP-03
-  befund: teilabdeckung
-  befund_grund: Verknuepft Art. 13 mit Art. 12 (Logging-Mechanismen). G-DEP-06/C-01 prueft, DASS Logging
-    konfiguriert und aufbewahrbar ist, nicht ob die Betriebsanleitung diese Mechanismen fuer den Betreiber
-    BESCHREIBT.
+  gate: []
+  befund: luecke
+  befund_grund: 'Kein Element geprueft (M1a). Nachbar: G-DEP-06 prueft, dass die Protokollierung beim
+    Betreiber konfiguriert und aufbewahrbar ist. Ungeprueft: die Beschreibung der Mechanismen zum Erfassen,
+    Speichern und Auswerten der Protokolle in der Anleitung.'
   po_bestaetigt: true
   uid: Art. 13 Abs. 3 lit. f@328644
   abschnitt: null
@@ -8079,6 +8075,9 @@ einheiten:
   po_entscheid:
   - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, Anker (a) und (b))
   - 2026-09-28 · 2c F1 (T-A Betriebsanleitung, M-A1 Pflichtinhalte-Check)
+  - 2026-09-30 · M1a (Nachbarpruefung ist Luecke) - Review 07 Zeile 14
+  nachbar_gate:
+  - G-DEP-06
 - id: Art. 14 Abs. 1
   artikel: '14'
   artikel_titel: Menschliche Aufsicht
@@ -8273,14 +8272,11 @@ einheiten:
   requirement:
   - R004
   - R008
-  gate:
-  - G-PRE-05
-  - G-OPS-01
-  befund: teilabdeckung
-  befund_grund: Ausdruecklich auf Betreiber-Umsetzung angelegt - klarste Betreiber-Bruecke in Art. 14
-    Abs. 3. G-PRE-05/G-OPS-01 pruefen, DASS ein Aufsichtsmodell dokumentiert ist, nicht ob die dokumentierten
-    Massnahmen tatsaechlich vom Anbieter so BESTIMMT wurden (Nachweiskette Anbieter -> Betreiber fehlt;
-    das Manifest ist reine Betreiber-Selbstauskunft).
+  gate: []
+  befund: luecke
+  befund_grund: 'Kein Element geprueft (M1a). Nachbarn: G-PRE-05 und G-OPS-01 pruefen, dass beim Betreiber
+    ein Aufsichtsmodell dokumentiert ist. Ungeprueft: dass die vom Anbieter bestimmten Vorkehrungen umgesetzt
+    sind (Nachweiskette Anbieter -> Betreiber).'
   po_bestaetigt: true
   uid: Art. 14 Abs. 3 lit. b@329969
   abschnitt: null
@@ -8290,6 +8286,10 @@ einheiten:
   po_entscheid:
   - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, Anker (a) und (b))
   - 2026-09-28 · 2c F1 (T-B Aufsicht, M-B4 Abgleich Anbieter-Vorgabe mit Betreiber-Umsetzung)
+  - 2026-09-30 · M1a (Nachbarpruefung ist Luecke) - Review 07 Zeile 17
+  nachbar_gate:
+  - G-PRE-05
+  - G-OPS-01
 - id: Art. 14 Abs. 4
   artikel: '14'
   artikel_titel: Menschliche Aufsicht
@@ -8718,9 +8718,9 @@ einheiten:
   omnibus: 'unveraendert - Art. 15 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
     (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf: die Liste geaenderter Artikel geht
     von Nr. 10 [Art. 11] direkt auf Nr. 11 [Art. 17] ueber).'
-  requirement: &id021
+  requirement: &id019
   - R003
-  gate: &id022
+  gate: &id020
   - G-DEP-02
   - G-OPS-04
   befund: teilabdeckung
@@ -8761,8 +8761,8 @@ einheiten:
   omnibus: 'unveraendert - Art. 15 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
     (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf: die Liste geaenderter Artikel geht
     von Nr. 10 [Art. 11] direkt auf Nr. 11 [Art. 17] ueber).'
-  requirement: *id021
-  gate: *id022
+  requirement: *id019
+  gate: *id020
   befund: teilabdeckung
   befund_grund: 'Wie Abs. 1: Infrastruktur-Redundanz/-Resilienz teilweise ueber G-OPS-04 pruefbar. Echte
     Luecke: die ''Rueckkopplungsschleifen'' bei weiterlernenden Systemen (Bias-Verstaerkung durch eigene
@@ -8802,8 +8802,8 @@ einheiten:
   omnibus: 'unveraendert - Art. 15 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
     (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf: die Liste geaenderter Artikel geht
     von Nr. 10 [Art. 11] direkt auf Nr. 11 [Art. 17] ueber).'
-  requirement: *id021
-  gate: *id022
+  requirement: *id019
+  gate: *id020
   befund: nicht_einschlaegig
   befund_grund: Mittel ('kann durch technische Redundanz erreicht werden'), keine eigene pruefbare Pflicht.
   po_bestaetigt: false
@@ -8843,8 +8843,8 @@ einheiten:
   omnibus: 'unveraendert - Art. 15 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
     (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf: die Liste geaenderter Artikel geht
     von Nr. 10 [Art. 11] direkt auf Nr. 11 [Art. 17] ueber).'
-  requirement: *id021
-  gate: *id022
+  requirement: *id019
+  gate: *id020
   befund: luecke
   befund_grund: Rueckkopplungsschleifen bei Systemen, die im Betrieb weiterlernen, prueft kein Gate; G-OPS-03
     misst Drift allgemein. Ob das System weiterlernt, ist eine Tatsache, die heute nirgends erfasst ist
@@ -11216,8 +11216,8 @@ einheiten:
     Pflicht zur Zusammenarbeit MIT NEUEN ANBIETERN UND zur Uebergabe der Dokumentation (vorher nur von
     der Uebergabepflicht allein). Beide Fassungen sind inhaltlich in dieselbe Richtung, die neue ist praeziser
     und breiter im Carve-out.'
-  requirement: *id023
-  gate: *id024
+  requirement: *id021
+  gate: *id022
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -11437,24 +11437,11 @@ einheiten:
     nicht enthalten
   requirement:
   - R011
-  gate:
-  - G-DEP-04
-  befund: teilabdeckung
-  befund_grund: 'VERDACHT GEPRUEFT (T-12 Lauf 1): R011 zielt ausweislich seines Titels und seiner eu_ai_act_refs
-    (Art. 26 Abs. 1, Art. 47, Art. 48) auf die CE-/Konformitaetserklaerungs-Eingangspruefung; G-DEP-04/C-01
-    prueft genau das ("CE-Kennzeichnung verifiziert, Provider-Doku erhalten und kontaktierbar") und schliesst
-    Art. 47/48 laut eigener notes ausdruecklich als Anbieterpflicht aus. Die Pflicht aus Abs. 1 selbst
-    - geeignete technische und organisatorische Massnahmen fuer den betriebsanleitungskonformen Einsatz
-    - ist etwas anderes: eine allgemeine Umsetzungspflicht, kein CE-Check. Im gesamten Katalog (G-PRE-01..05,
-    G-DEP-01..06, G-OPS-01..06) prueft kein Gate diese allgemeine Umsetzungspflicht als solche; die naechstliegenden
-    Gates (G-OPS-01 Human Oversight, G-PRE-05 Governance-Freigabe) decken jeweils nur einen Teilaspekt
-    (Aufsicht, Freigabe), nicht die Betriebsanleitungskonformitaet im Allgemeinen. Ergebnis: die Zuordnung
-    R011/G-DEP-04 zu Art. 26 Abs. 1 ist eine Fehlzuordnung (die Pflicht, die G-DEP-04 tatsaechlich prueft,
-    steht sachlich naeher bei Art. 47/48); die tatsaechliche Pflicht aus Abs. 1 ist im Katalog nicht gezielt
-    abgebildet. PO-Entscheidung noetig: R011 auf Art. 47/48 als eu_ai_act_refs praezisieren (Anbieterpflicht,
-    durchschlagend nur als Betreiber-Eingangspruefung) und fuer Abs. 1 selbst ein eigenes Requirement
-    erwaegen, oder Abs. 1 als durch die Summe der uebrigen Art.-26-Gates (Abs. 2, 5, 6 u.a.) als hinreichend
-    operationalisiert ansehen. befund bleibt auf ''teilabdeckung'' stehen, bis die PO entscheidet.'
+  gate: []
+  befund: luecke
+  befund_grund: 'Kein Element geprueft (M1a). Nachbar: G-DEP-04 prueft CE-Kennzeichnung und dass die Anbieterdokumentation
+    eingegangen ist. Ungeprueft: die technischen und organisatorischen Massnahmen, die die Verwendung
+    nach der Betriebsanleitung sicherstellen.'
   po_bestaetigt: true
   uid: Art. 26 Abs. 1@358947
   abschnitt: null
@@ -11464,6 +11451,9 @@ einheiten:
   po_entscheid:
   - 2026-09-23 · 2b E4 (VERIFIZIERT - Betreiber in der Einheit oder ihrem Einleitungssatz genannt)
   - 2026-09-28 · 2c F1 (T-E Art. 26, M-E1 Einsatzgrenzen aus der Anleitung als Policy)
+  - 2026-09-30 · M1a (Nachbarpruefung ist Luecke) - Review 07 Zeile 34
+  nachbar_gate:
+  - G-DEP-04
 - id: Art. 26 Abs. 2
   artikel: '26'
   artikel_titel: Pflichten der Betreiber von Hochrisiko-KI-Systemen
@@ -11611,7 +11601,7 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - VO (EU) 2026/1744 Art. 1 aendert Art. 25 und Art. 27, Art. 26 ist in der Aenderungsliste
     nicht enthalten (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: &id025
+  requirement: &id023
   - R009
   gate:
   - G-OPS-01
@@ -11661,8 +11651,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - VO (EU) 2026/1744 Art. 1 aendert Art. 25 und Art. 27, Art. 26 ist in der Aenderungsliste
     nicht enthalten (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id025
-  gate: &id026
+  requirement: *id023
+  gate: &id024
   - G-OPS-02
   befund: luecke
   befund_grund: 'Hat der Betreiber Grund zur Annahme eines Risikos nach Art. 79 Abs. 1, setzt er die Verwendung
@@ -11705,8 +11695,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - VO (EU) 2026/1744 Art. 1 aendert Art. 25 und Art. 27, Art. 26 ist in der Aenderungsliste
     nicht enthalten (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id025
-  gate: *id026
+  requirement: *id023
+  gate: *id024
   befund: teilabdeckung
   befund_grund: G-OPS-02/C-01 prueft, dass ein Incident-Kontakt deklariert ist, nicht die Reihenfolge
     zuerst Anbieter, dann Einfuehrer oder Haendler, dann Behoerde (M-E3, P6).
@@ -11745,8 +11735,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - VO (EU) 2026/1744 Art. 1 aendert Art. 25 und Art. 27, Art. 26 ist in der Aenderungsliste
     nicht enthalten (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id025
-  gate: *id026
+  requirement: *id023
+  gate: *id024
   befund: teilabdeckung
   befund_grund: G-OPS-02/C-04 fuehrt die Fristen des Art. 73, aber als eigene Betreiberpflicht; der Fall,
     fuer den sie dem Betreiber gelten - Anbieter nicht erreichbar -, ist nicht abgebildet (M-E4, M-F1).
@@ -11787,8 +11777,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - VO (EU) 2026/1744 Art. 1 aendert Art. 25 und Art. 27, Art. 26 ist in der Aenderungsliste
     nicht enthalten (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id025
-  gate: *id026
+  requirement: *id023
+  gate: *id024
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -11831,8 +11821,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - VO (EU) 2026/1744 Art. 1 aendert Art. 25 und Art. 27, Art. 26 ist in der Aenderungsliste
     nicht enthalten (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id025
-  gate: *id026
+  requirement: *id023
+  gate: *id024
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -14751,8 +14741,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - Art. 41 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
     nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: &id027 []
-  gate: &id028 []
+  requirement: &id025 []
+  gate: &id026 []
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -14783,8 +14773,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - Art. 41 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
     nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id027
-  gate: *id028
+  requirement: *id025
+  gate: *id026
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -14815,8 +14805,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - Art. 41 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
     nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id027
-  gate: *id028
+  requirement: *id025
+  gate: *id026
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -14846,8 +14836,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - Art. 41 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
     nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id027
-  gate: *id028
+  requirement: *id025
+  gate: *id026
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -17535,8 +17525,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: &id029 []
-  gate: &id030 []
+  requirement: &id027 []
+  gate: &id028 []
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -17567,8 +17557,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id029
-  gate: *id030
+  requirement: *id027
+  gate: *id028
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -20217,8 +20207,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: &id031 []
-  gate: &id032 []
+  requirement: &id029 []
+  gate: &id030 []
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -20251,8 +20241,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id031
-  gate: *id032
+  requirement: *id029
+  gate: *id030
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -20283,8 +20273,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id031
-  gate: *id032
+  requirement: *id029
+  gate: *id030
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -20316,8 +20306,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id031
-  gate: *id032
+  requirement: *id029
+  gate: *id030
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -22654,8 +22644,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: &id033 []
-  gate: &id034 []
+  requirement: &id031 []
+  gate: &id032 []
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -22690,8 +22680,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id033
-  gate: *id034
+  requirement: *id031
+  gate: *id032
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -22723,8 +22713,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id033
-  gate: *id034
+  requirement: *id031
+  gate: *id032
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -22756,8 +22746,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id033
-  gate: *id034
+  requirement: *id031
+  gate: *id032
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -22789,8 +22779,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: &id035 []
-  gate: &id036 []
+  requirement: &id033 []
+  gate: &id034 []
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -22822,8 +22812,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id035
-  gate: *id036
+  requirement: *id033
+  gate: *id034
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -22856,8 +22846,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id035
-  gate: *id036
+  requirement: *id033
+  gate: *id034
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -23701,8 +23691,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: &id037 []
-  gate: &id038 []
+  requirement: &id035 []
+  gate: &id036 []
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -23733,8 +23723,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id037
-  gate: *id038
+  requirement: *id035
+  gate: *id036
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -23765,8 +23755,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id037
-  gate: *id038
+  requirement: *id035
+  gate: *id036
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -23797,8 +23787,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id037
-  gate: *id038
+  requirement: *id035
+  gate: *id036
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -24836,9 +24826,9 @@ einheiten:
   hypothese_grund: 'Anbieterpflicht, fuer den Betreiber in nach der Durchschlagsregel (2b E4): (b) Art.
     26 Abs. 5 verweist auf Art. 73.'
   omnibus: unveraendert (s. Art. 73 Abs. 1).
-  requirement: &id039
+  requirement: &id037
   - R009
-  gate: &id040
+  gate: &id038
   - G-OPS-02
   befund: teilabdeckung
   befund_grund: Regelfrist (15 Tage = 360h) fuer den Meldefall aus Abs. 1; durchschlagend fuer den Betreiber
@@ -24878,8 +24868,8 @@ einheiten:
   hypothese_grund: 'Anbieterpflicht, fuer den Betreiber in nach der Durchschlagsregel (2b E4): (b) Art.
     26 Abs. 5 verweist auf Art. 73.'
   omnibus: unveraendert (s. Art. 73 Abs. 1).
-  requirement: *id039
-  gate: *id040
+  requirement: *id037
+  gate: *id038
   befund: gedeckt
   befund_grund: Die Frist dieser Einheit ist in governance/incident_thresholds.yaml deklariert und policy_incident_thresholds
     haelt sie gegen das Gesetz (48 h / 240 h / 360 h, je mit Rechtsgrundlage). Nur deklariert (E-0) -
@@ -31748,8 +31738,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: &id041 []
-  gate: &id042 []
+  requirement: &id039 []
+  gate: &id040 []
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -31792,8 +31782,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id041
-  gate: *id042
+  requirement: *id039
+  gate: *id040
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -31827,8 +31817,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id041
-  gate: *id042
+  requirement: *id039
+  gate: *id040
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -31862,8 +31852,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id041
-  gate: *id042
+  requirement: *id039
+  gate: *id040
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -31897,8 +31887,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id041
-  gate: *id042
+  requirement: *id039
+  gate: *id040
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -31932,8 +31922,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id041
-  gate: *id042
+  requirement: *id039
+  gate: *id040
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -31967,8 +31957,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id041
-  gate: *id042
+  requirement: *id039
+  gate: *id040
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -32124,8 +32114,8 @@ einheiten:
     Teil, docs/legal/OJ_L_202601744_DE.pdf). Damit verschiebt sich der in befund_grund beschriebene Bestandsschutz-Stichtag
     inhaltlich auf den 2. Dezember 2027 (statt 2. August 2026) - die zeitliche Anwendbarkeitsfrage wird
     dadurch NOCH bedeutsamer, nicht kleiner.'
-  requirement: *id023
-  gate: *id024
+  requirement: *id021
+  gate: *id022
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -32179,8 +32169,8 @@ einheiten:
     Teil, docs/legal/OJ_L_202601744_DE.pdf). Damit verschiebt sich der in befund_grund beschriebene Bestandsschutz-Stichtag
     inhaltlich auf den 2. Dezember 2027 (statt 2. August 2026) - die zeitliche Anwendbarkeitsfrage wird
     dadurch NOCH bedeutsamer, nicht kleiner.'
-  requirement: *id023
-  gate: *id024
+  requirement: *id021
+  gate: *id022
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -32956,8 +32946,8 @@ einheiten:
   hypothese_grund: null
   omnibus: 'geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 40 lit. a - neu gefasst (Ausnahme fuer die neuen
     Verbote, ab 2. Dezember 2026). Neufassung: Art. 113 Abs. 3 lit. a n.F. im Omnibus-Pflichtenraum.'
-  requirement: *id023
-  gate: *id024
+  requirement: *id021
+  gate: *id022
   befund: null
   befund_grund: null
   abschnitt: null
@@ -33025,8 +33015,8 @@ einheiten:
   hypothese_grund: null
   omnibus: 'geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 40 lit. b - neu gefasst (Ziff. i: Anhang III
     ab 02.12.2027, Ziff. ii: Anhang I ab 02.08.2028). Neufassung: Art. 113 Abs. 3 lit. c n.F. im Omnibus-Pflichtenraum.'
-  requirement: *id023
-  gate: *id024
+  requirement: *id021
+  gate: *id022
   befund: null
   befund_grund: null
   abschnitt: null

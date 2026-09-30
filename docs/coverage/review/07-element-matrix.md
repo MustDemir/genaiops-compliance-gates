@@ -2,7 +2,7 @@
 titel: Element-Matrix – jede Pflicht mit Gate-Bezug gegen den Rego-Code
 stand: 2026-09-29
 basis: Branch review-2c · alle 19 Policies, 196 Regeln aus dem OPA-AST (`tools/rego_inputs.py`, Zahl = README) · 50 in-Zeilen mit Gate-Bezug
-status: M2a ENTSCHIEDEN 29.09.2026 (umgesetzt für Art. 26 Abs. 5 Satz 1; alle Zeilen mit Matrix-Lauf 2) · M1 offen (Paket 4)
+status: M2a ENTSCHIEDEN 29.09.2026 (umgesetzt für Art. 26 Abs. 5 Satz 1; alle Zeilen mit Matrix-Lauf 2) · M1a ENTSCHIEDEN 30.09.2026 (umgesetzt, Review 09 Teil 7)
 ---
 
 # Kurzfazit

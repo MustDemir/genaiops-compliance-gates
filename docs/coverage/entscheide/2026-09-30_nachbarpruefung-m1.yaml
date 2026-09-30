@@ -1,0 +1,139 @@
+# PO-Entscheid vom 30.09.2026 — M1a: eine Nachbarpruefung ist keine Pruefung des Elements
+#
+# Nachweis: docs/coverage/review/07-element-matrix.md (Teil 2 Matrix, Teil 3 Folgen,
+# Teil 4 Frage M1) und docs/coverage/review/09-paket-2-omnibus.md Teil 7 (Entscheid).
+#
+# M1a (streng): Teilabdeckung nur, wenn mindestens ein Element der Pflicht selbst geprueft
+# wird (eine Regel schlaegt an, wenn es fehlt oder falsch ist). Prueft ein Gate nur etwas
+# Verwandtes, ist die Pflicht eine Luecke; das Gate steht als Hinweis in 'nachbar_gate'
+# (M2a), nicht in 'gate'. Grund: Der Pruef-Agent (Paket 9) darf nur urteilen, was eine
+# Regel wirklich prueft - ein verwandter Check wuerde sonst eine Pflicht 'teilweise
+# decken', die er nicht prueft.
+#
+# Die neun Zeilen stehen in Review 07 Teil 3. Ziff. ii und iii hatte der PO in T-14.1 als
+# Teilabdeckung bestaetigt, die uebrigen in 2c (F1); dieser Entscheid ersetzt das.
+# Art. 15 Abs. 3 und Abs. 4 UAbs. 1 Satz 1, 2 folgen, sobald F4 den Anker klaert.
+# Die Nachbarn sind die aus der Matrix (Review 07 Teil 2, Zeichen ≈), nicht die bisherigen
+# Eintraege im Feld 'gate'.
+
+entschieden: '2026-09-30'
+eintraege:
+
+  - beleg: M1a (Nachbarpruefung ist Luecke) - Review 07 Zeile 1
+    raum: aiact
+    ids: [Art. 13 Abs. 1]
+    setze:
+      befund: luecke
+      gate: []
+      nachbar_gate: [G-DEP-03]
+      befund_grund: >-
+        Kein Element geprueft (M1a). Nachbar: G-DEP-03 prueft, dass
+        instructions_for_deployers nicht leer ist. Ungeprueft: ob der Betrieb so transparent
+        ist, dass der Betreiber die Ausgaben interpretieren und angemessen verwenden kann.
+    bestaetigt: true
+
+  - beleg: M1a (Nachbarpruefung ist Luecke) - Review 07 Zeile 6
+    raum: aiact
+    ids: [Art. 13 Abs. 3 lit. b Ziff. i]
+    setze:
+      befund: luecke
+      gate: []
+      nachbar_gate: [G-PRE-02]
+      befund_grund: >-
+        Kein Element geprueft (M1a). Nachbar: G-PRE-02 prueft den vom Betreiber deklarierten
+        Zweck (application.description). Ungeprueft: die Zweckbestimmung in der
+        Betriebsanleitung des Anbieters.
+    bestaetigt: true
+
+  - beleg: M1a (Nachbarpruefung ist Luecke) - Review 07 Zeile 7
+    raum: aiact
+    ids: [Art. 13 Abs. 3 lit. b Ziff. ii]
+    setze:
+      befund: luecke
+      gate: []
+      nachbar_gate: [G-DEP-02]
+      befund_grund: >-
+        Kein Element geprueft (M1a). Nachbar: G-DEP-02 misst accuracy und safety_score.
+        Ungeprueft: ob die Anleitung Genauigkeit, Robustheit und Cybersicherheit mit ihren
+        Massen angibt. Kuerzester Weg zur Massnahme: Anleitungswert gegen Messung halten
+        (M-A1, E-2).
+    bestaetigt: true
+
+  - beleg: M1a (Nachbarpruefung ist Luecke) - Review 07 Zeile 8
+    raum: aiact
+    ids: [Art. 13 Abs. 3 lit. b Ziff. iii]
+    setze:
+      befund: luecke
+      gate: []
+      nachbar_gate: [G-DEP-03]
+      befund_grund: >-
+        Kein Element geprueft (M1a). Nachbar: G-DEP-03 prueft, dass known_limitations nicht
+        leer ist. Ungeprueft: die bekannten oder vorhersehbaren Umstaende, die zu Risiken
+        fuehren koennen, in der Anleitung.
+    bestaetigt: true
+
+  - beleg: M1a (Nachbarpruefung ist Luecke) - Review 07 Zeile 10
+    raum: aiact
+    ids: [Art. 13 Abs. 3 lit. b Ziff. v]
+    setze:
+      befund: luecke
+      gate: []
+      nachbar_gate: [G-DEP-05, G-DEP-02]
+      befund_grund: >-
+        Kein Element geprueft (M1a). Nachbarn: G-DEP-05 (Bias-Kennzahlen) und G-DEP-02
+        (subgroup_analysis, warn). Ungeprueft: die Leistung je Personengruppe in der
+        Anleitung.
+    bestaetigt: true
+
+  - beleg: M1a (Nachbarpruefung ist Luecke) - Review 07 Zeile 13
+    raum: aiact
+    ids: [Art. 13 Abs. 3 lit. d]
+    setze:
+      befund: luecke
+      gate: []
+      nachbar_gate: [G-PRE-05, G-OPS-01]
+      befund_grund: >-
+        Kein Element geprueft (M1a). Nachbarn: G-PRE-05 (oversight_model) und G-OPS-01
+        (oversight_roles) pruefen die Aufsicht beim Betreiber. Ungeprueft: die
+        Aufsichtsmassnahmen nach Art. 14 in der Anleitung.
+    bestaetigt: true
+
+  - beleg: M1a (Nachbarpruefung ist Luecke) - Review 07 Zeile 14
+    raum: aiact
+    ids: [Art. 13 Abs. 3 lit. f]
+    setze:
+      befund: luecke
+      gate: []
+      nachbar_gate: [G-DEP-06]
+      befund_grund: >-
+        Kein Element geprueft (M1a). Nachbar: G-DEP-06 prueft, dass die Protokollierung beim
+        Betreiber konfiguriert und aufbewahrbar ist. Ungeprueft: die Beschreibung der
+        Mechanismen zum Erfassen, Speichern und Auswerten der Protokolle in der Anleitung.
+    bestaetigt: true
+
+  - beleg: M1a (Nachbarpruefung ist Luecke) - Review 07 Zeile 17
+    raum: aiact
+    ids: [Art. 14 Abs. 3 lit. b]
+    setze:
+      befund: luecke
+      gate: []
+      nachbar_gate: [G-PRE-05, G-OPS-01]
+      befund_grund: >-
+        Kein Element geprueft (M1a). Nachbarn: G-PRE-05 und G-OPS-01 pruefen, dass beim
+        Betreiber ein Aufsichtsmodell dokumentiert ist. Ungeprueft: dass die vom Anbieter
+        bestimmten Vorkehrungen umgesetzt sind (Nachweiskette Anbieter -> Betreiber).
+    bestaetigt: true
+
+  - beleg: M1a (Nachbarpruefung ist Luecke) - Review 07 Zeile 34
+    raum: aiact
+    ids: [Art. 26 Abs. 1]
+    setze:
+      befund: luecke
+      gate: []
+      nachbar_gate: [G-DEP-04]
+      befund_grund: >-
+        Kein Element geprueft (M1a). Nachbar: G-DEP-04 prueft CE-Kennzeichnung und dass die
+        Anbieterdokumentation eingegangen ist. Ungeprueft: die technischen und
+        organisatorischen Massnahmen, die die Verwendung nach der Betriebsanleitung
+        sicherstellen.
+    bestaetigt: true

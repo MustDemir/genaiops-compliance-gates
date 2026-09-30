@@ -3164,6 +3164,68 @@ def check_omnibus_superseded_units_out() -> dict:
     )
 
 
+def check_coverage_finding_names_checking_gate() -> dict:
+    """Eine Teilabdeckung oder Deckung nennt ein pruefendes Gate; ein Nachbar ist keins.
+
+    M1a (PO 30.09.2026, Review 07 Frage M1, Review 09 Teil 7) mit M2a (29.09.2026):
+    Teilabdeckung nur, wenn eine Regel mindestens ein Element der Pflicht selbst
+    prueft. Ein Gate, das nur etwas Verwandtes prueft, steht in 'nachbar_gate',
+    und die Pflicht ist eine Luecke. Neun Zeilen trugen bis dahin 'teilabdeckung'
+    auf der Grundlage eines Nachbarn - ein verwandter Check 'deckte' eine Pflicht,
+    die er nicht prueft, und der Pruef-Agent (Paket 9) haette daraus 'teilweise
+    geprueft' gemacht.
+
+    Der Check haelt, was die Daten allein sagen koennen:
+      * eine in-Zeile mit Befund 'gedeckt' oder 'teilabdeckung' nennt mindestens
+        ein Gate in 'gate';
+      * kein Gate steht zugleich in 'gate' und 'nachbar_gate';
+      * jedes genannte Gate gibt es in gate-definitions/.
+    Ob ein Gate in 'gate' wirklich ein Element prueft, entscheidet die
+    Element-Matrix am Rego-Code (Review 07; als Daten und Waechter in Paket 7).
+
+    HIGH aus demselben Grund wie OMNIBUS_SUPERSEDED_UNITS_OUT (R-2): der Fehler
+    macht aus einer Luecke eine scheinbare Pruefung. Einstufung als Vorschlag,
+    PO-Frage R-3.
+    """
+    import yaml
+
+    titel = "eine Teilabdeckung oder Deckung nennt ein pruefendes Gate, ein Nachbar ist keins (M1a)"
+    gate_ids = set()
+    for datei in (REPO_ROOT / "gate-definitions").rglob("*.yaml"):
+        if "template" in datei.name:
+            continue
+        doc = yaml.safe_load(datei.read_text(encoding="utf-8")) or {}
+        if isinstance(doc.get("id"), str):
+            gate_ids.add(doc["id"])
+
+    findings: list[str] = []
+    geprueft = 0
+    for name in ("aiact", "omnibus"):
+        pfad = REPO_ROOT / "docs" / "coverage" / f"{name}_pflichtenraum.yaml"
+        if not pfad.exists():
+            continue
+        for e in (yaml.safe_load(pfad.read_text(encoding="utf-8")) or {}).get("einheiten") or []:
+            gates, nachbarn = e.get("gate") or [], e.get("nachbar_gate") or []
+            if e.get("scope") == "in" and e.get("befund") in ("gedeckt", "teilabdeckung"):
+                geprueft += 1
+                if not gates:
+                    findings.append(f"{name}: {e.get('id')} — Befund '{e.get('befund')}' ohne pruefendes Gate "
+                                    f"(Nachbarn: {', '.join(nachbarn) or 'keine'}); nach M1a ist das eine Luecke")
+            for g in sorted(set(gates) & set(nachbarn)):
+                findings.append(f"{name}: {e.get('id')} — {g} steht in gate und nachbar_gate")
+            for g in gates + nachbarn:
+                if g not in gate_ids:
+                    findings.append(f"{name}: {e.get('id')} — Gate {g} gibt es in gate-definitions/ nicht")
+
+    return make_result(
+        "COVERAGE_FINDING_NAMES_CHECKING_GATE", titel, "high", not findings,
+        f"{len(findings)} Befund(e) zu Gate-Angaben im Pflichtenraum." if findings
+        else f"{geprueft} gedeckte oder teilweise gedeckte Zeilen nennen je ein pruefendes Gate; "
+             f"kein Nachbar zugleich als Pruefer, kein unbekanntes Gate.",
+        findings[:12] + ([f"… und {len(findings) - 12} weitere"] if len(findings) > 12 else []),
+    )
+
+
 def check_norm_refs_resolve() -> dict:
     """Jede Normverweisung eines Gates oder Requirements zeigt auf eine Einheit des Pflichtenraums.
 
@@ -3378,6 +3440,7 @@ def collect_results() -> list[dict]:
         check_norm_sentence_units_current,
         check_po_decisions_applied,
         check_omnibus_superseded_units_out,
+        check_coverage_finding_names_checking_gate,
         check_norm_refs_resolve,
         check_po_decisions_registered,
     ]

@@ -191,3 +191,31 @@ andere Branche  special_categories_for_bias: true   → Check meldet: lit. a–f
 **R-2 HIGH:** Vorgeschlagen war MEDIUM, weil kein Zitat falsch wird. Entscheidend ist aber Fall 2 des Wächters: eine unbewertete Neufassung ist eine unbekannte Lücke, und der Prüf-Agent (Paket 9) würde daraus ein falsches „konform“ machen (Plan Teil C1).
 
 **Stand danach:** in bestätigt 64 von 104 · out bestätigt 138 von 1368.
+
+# Teil 7 – Entscheide vom 30.09.2026 (Start Paket 3)
+
+| Punkt | Entscheid | Umsetzung |
+|---|---|---|
+| M1 (Review 07) | **a – streng:** eine Nachbarprüfung prüft das Element nicht | 9 Zeilen Teilabdeckung → Lücke, Nachbar in `nachbar_gate` (`2026-09-30_nachbarpruefung-m1.yaml`) |
+| Reihenfolge Paket 3 | **erst Werkzeug** (A-W1–A-W3, A-W7, M-B2), dann Matrix-Lauf 2 | Der Umbau ändert Kennungen; die Matrix soll auf den endgültigen stehen |
+| PUSH-1 | **pushen** | `review-2c` nach origin |
+
+**M1a – was sich ändert:**
+
+```
+vorher  Art. 13 Abs. 3 lit. b Ziff. ii   teil   gate: G-DEP-03, G-DEP-02
+                                                 (G-DEP-02 misst Genauigkeit – prüft aber nicht die Anleitung)
+jetzt                                     Lücke  gate: –   nachbar_gate: G-DEP-02
+```
+
+- Betroffen: Art. 13 Abs. 1 · Art. 13 Abs. 3 lit. b Ziff. i, ii, iii, v · lit. d · lit. f · Art. 14 Abs. 3 lit. b · Art. 26 Abs. 1.
+- Die Nachbarn kommen aus der Matrix (Review 07 Teil 2), nicht aus dem alten Feld `gate`. Beispiel Ziff. i: Nachbar ist G-PRE-02 (deklarierter Zweck), nicht G-DEP-03.
+- Art. 15 Abs. 3 und Abs. 4 UAbs. 1 Satz 1, 2 folgen, sobald F4 den Anker klärt.
+- **Zählung AI Act:** Lücke 26 → **35**, Teilabdeckung 37 → **28**. Zusammen mit Omnibus: Lücke **39**, Teilabdeckung **32**.
+- Der Nachbar geht nicht verloren: Er ist oft der kürzeste Weg zur Maßnahme in Paket 5 (Beispiel Ziff. ii: Anleitungswert gegen die Messung aus G-DEP-02 halten, E-2).
+
+**Wächter im selben Commit:** `COVERAGE_FINDING_NAMES_CHECKING_GATE` – eine Teilabdeckung oder Deckung nennt mindestens ein prüfendes Gate, kein Gate steht zugleich als Prüfer und Nachbar, jedes Gate existiert.
+
+| # | Frage | Optionen |
+|---|---|---|
+| **R-3** | Severity von `COVERAGE_FINDING_NAMES_CHECKING_GATE` | a) **HIGH** – wie R-2: der Fehler macht aus einer Lücke eine scheinbare Prüfung · b) MEDIUM |
