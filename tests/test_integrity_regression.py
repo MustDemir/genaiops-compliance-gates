@@ -2974,15 +2974,18 @@ def check_norm_sentence_units_current() -> dict:
       * jede Satz-Einheit gehoert zu einer gelisteten — sonst schneidet jemand
         feiner, als der PO entschieden hat, und die Befunde zerfallen ungefragt.
 
-    MEDIUM: der Fehler verschiebt, wo ein Befund steht, verfaelscht aber kein
-    Zitat. Einstufung vom PO bestaetigt (28.09.2026).
+    HIGH (PO R-5, 30.09.2026; bis dahin MEDIUM, bestaetigt am 28.09.2026): fehlt
+    die Satzebene, steht wieder ein Sammelbefund ueber dem Absatz, und eine Pflicht
+    wie das Aussetzen nach Art. 26 Abs. 5 Satz 2 (Luecke) ist nicht zu sehen; traegt
+    ein Satz den Text eines anderen, nennt die Zeile eine Pflicht, die ihr Beleg nicht
+    traegt. Derselbe Schaden wie bei R-4.
     """
     import yaml
 
     titel = "die Satzebene der Pflichtenraeume ist genau die vom PO gelistete (T-14.3)"
     liste_pfad = REPO_ROOT / "docs" / "coverage" / "entscheide" / "satzebene.yaml"
     if not liste_pfad.exists():
-        return make_result("NORM_SENTENCE_UNITS_CURRENT", titel, "medium", True,
+        return make_result("NORM_SENTENCE_UNITS_CURRENT", titel, "high", True,
                            "Keine docs/coverage/entscheide/satzebene.yaml — keine Satzebene deklariert.")
     liste = (yaml.safe_load(liste_pfad.read_text(encoding="utf-8")) or {}).get("quellen") or {}
 
@@ -3035,7 +3038,7 @@ def check_norm_sentence_units_current() -> dict:
                                 f"pflicht-Text - ein Satz beschreibt nur, was sein Beleg sagt (M-B2)")
 
     return make_result(
-        "NORM_SENTENCE_UNITS_CURRENT", titel, "medium", not findings,
+        "NORM_SENTENCE_UNITS_CURRENT", titel, "high", not findings,
         "Pflichtenraum und PO-Liste der Satzebene weichen voneinander ab." if findings
         else f"{geschnitten} gelistete Einheit(en) auf Satzebene, keine Satz-Einheit ohne Listeneintrag.",
         findings,

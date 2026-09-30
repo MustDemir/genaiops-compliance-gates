@@ -2,7 +2,7 @@
 titel: Paket 3a – Werkzeug T-15, Schnittfehler im Extraktor behoben
 stand: 2026-09-30
 basis: Branch review-2c · PO 30.09.2026 „erst Werkzeug, dann Matrix-Lauf 2“ (Review 09 Teil 7) · Befunde A-W1–A-W3 (Review 08), A-W7 (Review 09) · Extraktor tools/legal/extract_norm_units.py, extract_omnibus_units.py
-status: T-15 geliefert (Teil 1 und 2) · PO 30.09.2026: R-3 HIGH, R-4 HIGH, P3-F1 a, P3-F2 a – umgesetzt (Teil 4) · neue Frage R-5 · als Nächstes Element-Matrix Lauf 2
+status: T-15 geliefert (Teil 1 und 2) · PO 30.09.2026: R-3 HIGH, R-4 HIGH, P3-F1 a, P3-F2 a, R-5 HIGH – umgesetzt (Teil 4) · als Nächstes Element-Matrix Lauf 2
 ---
 
 # Kurzfazit
@@ -114,6 +114,7 @@ jetzt   Art. 6 Abs. 3 lit. d   nur lit. d
 | R-4 | **HIGH** (vorgeschlagen war MEDIUM) | `NORM_UNITS_MATCH_EXTRACTOR` auf HIGH |
 | P3-F1 | **a) out** | Art. 9 Abs. 5 UAbs. 3 `out`, bestätigt, HYPOTHESE bleibt – Entscheidungsdatei `2026-09-30_paket-3.yaml` |
 | P3-F2 | **a) Sammelbestätigung** | 17 Pflichttexte in derselben Datei festgehalten |
+| R-5 | **a) HIGH** (Folgefrage aus R-4, gestellt und entschieden am 30.09.2026) | `NORM_SENTENCE_UNITS_CURRENT` auf HIGH |
 
 **R-4 – warum HIGH statt MEDIUM:** Mein Argument für MEDIUM war, dass ein falscher Schnitt kein Zitat fälscht. Das stimmt, trifft aber nicht den Schaden. T-15 hat ihn gezeigt: Die Profiling-Regel (Art. 6 Abs. 3 UAbs. 3) stand im Beleg von lit. d, Art. 9 Abs. 5 UAbs. 3 in dem von lit. c. Eine versteckte Einheit trägt Befund und scope eines anderen Glieds. Die Lage sieht dann vollständiger aus, als sie ist – derselbe Schaden wie bei R-2 und R-3. Der Wächter hält, dass eine Korrektur am Extraktor auch im Raum ankommt.
 
@@ -124,7 +125,7 @@ lit. d | UAbs. 3 getrennt   ≠   lit. d + Profiling-Regel in einer Zeile
 → NORM_UNITS_MATCH_EXTRACTOR rot (HIGH), Neubau erzwungen
 ```
 
-- **Folgefrage R-5:** Beim verwandten Wächter `NORM_SENTENCE_UNITS_CURRENT` gilt dieselbe Logik zum Teil (Tabelle Teil 3). Er bleibt MEDIUM, bis der PO entscheidet.
+- **Folgefrage R-5:** Beim verwandten Wächter `NORM_SENTENCE_UNITS_CURRENT` gilt dieselbe Logik (Tabelle Teil 3). PO: HIGH.
 
 **P3-F1 – wer im Audit was belegt:**
 
