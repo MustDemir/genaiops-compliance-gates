@@ -3199,8 +3199,8 @@ def check_coverage_finding_names_checking_gate() -> dict:
     Element-Matrix am Rego-Code (Review 07; als Daten und Waechter in Paket 7).
 
     HIGH aus demselben Grund wie OMNIBUS_SUPERSEDED_UNITS_OUT (R-2): der Fehler
-    macht aus einer Luecke eine scheinbare Pruefung. Einstufung als Vorschlag,
-    PO-Frage R-3.
+    macht aus einer Luecke eine scheinbare Pruefung. Einstufung vom PO bestaetigt
+    (R-3, 30.09.2026).
     """
     import yaml
 
@@ -3263,8 +3263,12 @@ def check_norm_units_match_extractor() -> dict:
         im Extraktor weg, bleibt die erste Richtung nach einem Neubau gruen, diese
         nicht.
 
-    MEDIUM wie NORM_SENTENCE_UNITS_CURRENT: ein falscher Schnitt verschiebt, wo
-    eine Pflicht steht, und faelscht kein Zitat. Vorschlag, PO-Frage R-4.
+    HIGH (PO R-4, 30.09.2026; vorgeschlagen war MEDIUM, weil kein Zitat gefaelscht
+    wird): ein veralteter Schnitt kann eine Pflicht verstecken. Bis T-15 stand die
+    Profiling-Regel (Art. 6 Abs. 3 UAbs. 3) im Beleg von lit. d und Art. 9 Abs. 5
+    UAbs. 3 in dem von lit. c - die Zeile traegt dann Befund und scope eines anderen
+    Glieds, und die Lage sieht vollstaendiger aus, als sie ist. Derselbe Schaden wie
+    bei R-2 und R-3.
     """
     import sys as _sys
 
@@ -3312,7 +3316,7 @@ def check_norm_units_match_extractor() -> dict:
                 findings.append(f"{pfad.name}: {e['id']} — Beleg traegt die Fusszeile des Amtsblatts")
 
     return make_result(
-        "NORM_UNITS_MATCH_EXTRACTOR", titel, "medium", not findings,
+        "NORM_UNITS_MATCH_EXTRACTOR", titel, "high", not findings,
         f"{len(findings)} Befund(e) zwischen Extraktor und Pflichtenraeumen." if findings
         else f"{geprueft} Einheiten in allen Raeumen sind genau der heutige Schnitt ihrer Quelle; "
              f"kein Beleg traegt Ueberschrift oder Fusszeile.",

@@ -1,0 +1,196 @@
+# PO-Entscheide vom 30.09.2026 — Paket 3a (T-15): P3-F1 und P3-F2
+#
+# Nachweis: docs/coverage/review/10-paket-3-werkzeug.md Teil 3 (Fragen) und Teil 4 (Entscheide).
+#
+# P3-F1 a: Art. 9 Abs. 5 UAbs. 3 ist Risikomanagement des Anbieters. Der Betreiber ist
+# Massstab ("die vom Betreiber erwartet werden koennen"), nicht Empfaenger oder Zweck -
+# kein Durchschlag (a) nach 2b E4, wie A-F1. Im Audit legt der Anbieter den Beleg vor
+# (technische Dokumentation, Anhang IV Nr. 5). Die Betreiberseite - Nutzung nach der
+# Betriebsanleitung, kompetente Aufsichtspersonen, Schulung - tragen Art. 26 Abs. 1, 2 und
+# Art. 9 Abs. 5 lit. c; die Zeilen bleiben, wie sie sind. Rechtspruefung offen (HYPOTHESE).
+#
+# P3-F2 a (Sammelbestaetigung): Der Pflichttext jeder Zeile, deren Text der Neuschnitt in
+# T-15 Teil 2 geaendert hat (M-B2, A-W11), ist bestaetigt. Der Eintrag setzt genau diesen
+# Text; aendert ihn spaeter jemand, meldet PO_DECISIONS_APPLIED das. 'bestaetigt: false',
+# weil der PO den Text bestaetigt hat, nicht Befund und Einordnung der Zeile: wo diese
+# schon bestaetigt sind, bleibt es dabei (ODER-Verknuepfung in po_entscheide.py); wo nicht
+# (Art. 15 Abs. 4, Art. 6 Abs. 3 lit. d), kommen sie mit IN-1 bzw. F4.
+# Umfang: 17 Zeilen. Review 10 nannte "13 Saetze"; tatsaechlich sind es 15 Saetze (Art. 111
+# Abs. 2 Satz 1 und 2 AI Act, beide 'out' und ersetzt, zaehlten nicht mit) und die zwei
+# Glieder Art. 9 Abs. 5 lit. c und Art. 6 Abs. 3 lit. d. Gemessen: Zeilen gleicher uid,
+# deren 'pflicht' sich zwischen 5925160 und 6462364 geaendert hat.
+
+entschieden: '2026-09-30'
+eintraege:
+
+  - beleg: P3-F1 a (Review 10) - Betreiber ist Massstab, nicht Empfaenger; kein Durchschlag
+    raum: aiact
+    ids: [Art. 9 Abs. 5 UAbs. 3]
+    setze:
+      scope: out
+      befund: null
+      befund_grund: null
+      requirement: []
+      gate: []
+      hypothese_grund: >-
+        Durchschlag verneint (PO P3-F1 a, 30.09.2026): der Betreiber ist Massstab der
+        Risikominimierung des Anbieters, nicht Empfaenger oder Zweck; Auslegung wie A-F1.
+        Beleg im Audit legt der Anbieter vor (Anhang IV Nr. 5). Rechtspruefung offen.
+    bestaetigt: true
+
+  - beleg: P3-F2 a (Review 10) - Pflichttext nach dem Neuschnitt bestaetigt
+    raum: aiact
+    ids: [Art. 6 Abs. 3 lit. d]
+    setze:
+      pflicht: >-
+        Ausnahme d): das System fuehrt eine vorbereitende Aufgabe fuer eine
+        Anhang-III-relevante Bewertung durch.
+    bestaetigt: false
+
+  - beleg: P3-F2 a (Review 10) - Pflichttext nach dem Neuschnitt bestaetigt
+    raum: aiact
+    ids: [Art. 9 Abs. 5 lit. c]
+    setze:
+      pflicht: >-
+        Der Anbieter stellt gegebenenfalls die nach Art. 13 erforderlichen Informationen
+        bereit und schult gegebenenfalls die Betreiber.
+    bestaetigt: false
+
+  - beleg: P3-F2 a (Review 10) - Pflichttext nach dem Neuschnitt bestaetigt
+    raum: aiact
+    ids: [Art. 15 Abs. 4 UAbs. 1 Satz 1]
+    setze:
+      pflicht: >-
+        Hochrisiko-KI-Systeme muessen so widerstandsfaehig wie moeglich gegenueber Fehlern,
+        Stoerungen oder Unstimmigkeiten im System oder seiner Umgebung sein.
+    bestaetigt: false
+
+  - beleg: P3-F2 a (Review 10) - Pflichttext nach dem Neuschnitt bestaetigt
+    raum: aiact
+    ids: [Art. 15 Abs. 4 UAbs. 1 Satz 2]
+    setze:
+      pflicht: >-
+        Dazu sind technische und organisatorische Massnahmen zu ergreifen.
+    bestaetigt: false
+
+  - beleg: P3-F2 a (Review 10) - Pflichttext nach dem Neuschnitt bestaetigt
+    raum: aiact
+    ids: [Art. 15 Abs. 4 UAbs. 2 Satz 1]
+    setze:
+      pflicht: >-
+        Robustheit kann durch technische Redundanz erreicht werden, auch durch Sicherungs-
+        oder Stoerungssicherheitsplaene.
+    bestaetigt: false
+
+  - beleg: P3-F2 a (Review 10) - Pflichttext nach dem Neuschnitt bestaetigt
+    raum: aiact
+    ids: [Art. 15 Abs. 4 UAbs. 3 Satz 1]
+    setze:
+      pflicht: >-
+        Weiterlernende Hochrisiko-KI-Systeme sind so zu entwickeln, dass das Risiko
+        verzerrter Ausgaben durch Rueckkopplungsschleifen beseitigt oder minimiert und ihm
+        mit geeigneten Massnahmen begegnet wird.
+    bestaetigt: false
+
+  - beleg: P3-F2 a (Review 10) - Pflichttext nach dem Neuschnitt bestaetigt
+    raum: aiact
+    ids: [Art. 26 Abs. 5 UAbs. 1 Satz 1]
+    setze:
+      pflicht: >-
+        Der Betreiber ueberwacht den Betrieb anhand der Betriebsanleitung und informiert
+        gegebenenfalls den Anbieter nach Art. 72.
+    bestaetigt: false
+
+  - beleg: P3-F2 a (Review 10) - Pflichttext nach dem Neuschnitt bestaetigt
+    raum: aiact
+    ids: [Art. 26 Abs. 5 UAbs. 1 Satz 2]
+    setze:
+      pflicht: >-
+        Hat der Betreiber Grund zur Annahme eines Risikos nach Art. 79 Abs. 1, informiert er
+        unverzueglich Anbieter oder Haendler und die Marktueberwachungsbehoerde und setzt
+        die Verwendung aus.
+    bestaetigt: false
+
+  - beleg: P3-F2 a (Review 10) - Pflichttext nach dem Neuschnitt bestaetigt
+    raum: aiact
+    ids: [Art. 26 Abs. 5 UAbs. 1 Satz 3]
+    setze:
+      pflicht: >-
+        Stellt der Betreiber einen schwerwiegenden Vorfall fest, informiert er unverzueglich
+        zuerst den Anbieter, dann Einfuehrer oder Haendler und die
+        Marktueberwachungsbehoerden.
+    bestaetigt: false
+
+  - beleg: P3-F2 a (Review 10) - Pflichttext nach dem Neuschnitt bestaetigt
+    raum: aiact
+    ids: [Art. 26 Abs. 5 UAbs. 1 Satz 4]
+    setze:
+      pflicht: >-
+        Erreicht der Betreiber den Anbieter nicht, gilt Art. 73 entsprechend.
+    bestaetigt: false
+
+  - beleg: P3-F2 a (Review 10) - Pflichttext nach dem Neuschnitt bestaetigt
+    raum: aiact
+    ids: [Art. 26 Abs. 5 UAbs. 1 Satz 5]
+    setze:
+      pflicht: >-
+        Die Pflicht gilt nicht fuer sensible operative Daten von Betreibern, die
+        Strafverfolgungsbehoerden sind.
+    bestaetigt: false
+
+  - beleg: P3-F2 a (Review 10) - Pflichttext nach dem Neuschnitt bestaetigt
+    raum: aiact
+    ids: [Art. 26 Abs. 5 UAbs. 2 Satz 1]
+    setze:
+      pflicht: >-
+        Fuer Betreiber, die Finanzinstitute sind, gilt die Ueberwachungspflicht als
+        erfuellt, wenn sie die Governance-Vorschriften des Finanzdienstleistungsrechts
+        einhalten.
+    bestaetigt: false
+
+  - beleg: P3-F2 a (Review 10) - Pflichttext nach dem Neuschnitt bestaetigt
+    raum: aiact
+    ids: [Art. 73 Abs. 2 UAbs. 1 Satz 1]
+    setze:
+      pflicht: >-
+        Die Meldung erfolgt unmittelbar nach Feststellung des (wahrscheinlichen)
+        Kausalzusammenhangs, spaetestens 15 Tage nach Kenntnis des Anbieters oder
+        gegebenenfalls des Betreibers.
+    bestaetigt: false
+
+  - beleg: P3-F2 a (Review 10) - Pflichttext nach dem Neuschnitt bestaetigt
+    raum: aiact
+    ids: [Art. 73 Abs. 2 UAbs. 2 Satz 1]
+    setze:
+      pflicht: >-
+        Bei der Meldefrist wird der Schwere des schwerwiegenden Vorfalls Rechnung getragen.
+    bestaetigt: false
+
+  - beleg: P3-F2 a (Review 10) - Pflichttext nach dem Neuschnitt bestaetigt
+    raum: aiact
+    ids: [Art. 111 Abs. 2 Satz 1]
+    setze:
+      pflicht: >-
+        Fuer Hochrisiko-KI-Systeme, die vor dem 2. August 2026 in Verkehr gebracht oder in
+        Betrieb genommen wurden, gilt die Verordnung fuer Betreiber nur nach erheblicher
+        Aenderung der Konzeption (Grundfassung, ersetzt).
+    bestaetigt: false
+
+  - beleg: P3-F2 a (Review 10) - Pflichttext nach dem Neuschnitt bestaetigt
+    raum: aiact
+    ids: [Art. 111 Abs. 2 Satz 2]
+    setze:
+      pflicht: >-
+        Anbieter und Betreiber von Systemen, die von Behoerden verwendet werden sollen,
+        erfuellen die Anforderungen bis zum 2. August 2030 (Grundfassung, ersetzt).
+    bestaetigt: false
+
+  - beleg: P3-F2 a (Review 10) - Pflichttext nach dem Neuschnitt bestaetigt
+    raum: omnibus
+    ids: [Art. 111 Abs. 2 Satz 1 n.F.]
+    setze:
+      pflicht: >-
+        Fuer Hochrisiko-KI-Systeme, die vor Beginn der Anwendung von Kapitel III (Anhang
+        III: 02.12.2027) in Verkehr gebracht oder in Betrieb genommen wurden, gilt die
+        Verordnung fuer ihre Akteure nur nach erheblicher Aenderung der Konzeption.
+    bestaetigt: false

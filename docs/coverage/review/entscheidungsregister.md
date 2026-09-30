@@ -1,6 +1,6 @@
 ---
 titel: Entscheidungsregister – was der PO noch entscheiden muss und welche Schritte ausstehen
-stand: 2026-09-29 (nach Paket 2)
+stand: 2026-09-30 (nach Paket 3a und PO-Entscheiden R-3, R-4, P3-F1, P3-F2)
 basis: Reviews 00–09, Entscheidungsdateien in docs/coverage/entscheide/, Plan Teil C
 status: lebendes Register · der Wächter PO_DECISIONS_REGISTERED hält es vollständig
 ---
@@ -29,11 +29,8 @@ Pakete:  1 Anhänge ✅ · 2 Omnibus · 3 Befunde + Matrix · 4 PO-Runde · 5 Be
 | Q11 | Art. 26 Abs. 11 (Information der betroffenen Personen) | `05-schritt-2d-2e-gedeckt-querbefunde.md` | vertagt | 4 |
 | A-F1 | Anhang IV nennt den Betreiber: Durchschlag? Empfehlung a (nein, out) | `08-paket-1-anhaenge.md` | offen | 4 |
 | IN-1 | Alle `in`-Zeilen bestätigen (nach T-15: 64 von 109 bestätigt – AI Act 61 von 85, Omnibus 3 von 24) | `entscheidungsregister.md` | offen | 4 |
-| OUT-1 | `out`-Zeilen: Stichprobe nach Adressat-Gruppen, dann Sammelbestätigung (nach T-15: 138 von 1407 bestätigt – AI Act 31 von 1147, Omnibus 107 von 260) | `entscheidungsregister.md` | offen | 4 |
-| P3-F1 | Art. 9 Abs. 5 UAbs. 3: Durchschlag auf den Betreiber? Empfehlung a (nein, out, wie A-F1) | `10-paket-3-werkzeug.md` | offen | 4 |
-| P3-F2 | Neue Pflichttexte nach dem Neuschnitt bestätigen (13 Sätze, Art. 9 Abs. 5 lit. c, Art. 6 Abs. 3 lit. d)? Empfehlung a | `10-paket-3-werkzeug.md` | offen | 4 |
-| R-4 | Severity des Wächters `NORM_UNITS_MATCH_EXTRACTOR` (Vorschlag MEDIUM) | `10-paket-3-werkzeug.md` | offen | 4 |
-| R-3 | Severity des Wächters `COVERAGE_FINDING_NAMES_CHECKING_GATE` (Vorschlag HIGH, Begründung wie R-2) | `09-paket-2-omnibus.md` | offen | 4 |
+| OUT-1 | `out`-Zeilen: Stichprobe nach Adressat-Gruppen, dann Sammelbestätigung (30.09.2026: 139 von 1407 bestätigt – AI Act 32 von 1147, Omnibus 107 von 260) | `entscheidungsregister.md` | offen | 4 |
+| R-5 | Severity des Wächters `NORM_SENTENCE_UNITS_CURRENT` (heute MEDIUM): gilt die Begründung von R-4? Empfehlung HIGH | `10-paket-3-werkzeug.md` | offen | 4 |
 | R-1 | Severity des Wächters `PO_DECISIONS_REGISTERED` (Vorschlag LOW: bricht `make verify`, wie `HANDBOOK_ROADMAP_CURRENT`) | `entscheidungsregister.md` | offen | 4 |
 | M-B1 | Welches Requirement trägt Art. 26 Abs. 5 Satz 1: R009 wie heute oder R008/R010 der prüfenden Gates? | `07-element-matrix.md` | offen | 5 |
 | EF | Die vier Ehrlichkeitsfelder je neuem oder geändertem Requirement und Check: Norm↔Pflicht, MUST/SHOULD, `evidence_level`, `implemented`/`design_only` (AGENTS.md 3) | `entscheidungsregister.md` | offen | 5 |
@@ -98,6 +95,10 @@ Pakete:  1 Anhänge ✅ · 2 Omnibus · 3 Befunde + Matrix · 4 PO-Runde · 5 Be
 | P2-F3 | Art. 25 Abs. 2 ganz ersetzt (nicht teilweise) | `09-paket-2-omnibus.md` | umgesetzt 29.09.2026 a | – |
 | P2-F5 | Omnibus Art. 4 (Inkrafttreten) `out` | `09-paket-2-omnibus.md` | umgesetzt 29.09.2026 a | – |
 | R-2 | Severity `OMNIBUS_SUPERSEDED_UNITS_OUT` = HIGH (unbewertete Neufassung = unbekannte Lücke = falsches „konform“) | `09-paket-2-omnibus.md` | umgesetzt 29.09.2026 HIGH | – |
+| R-3 | Severity `COVERAGE_FINDING_NAMES_CHECKING_GATE` = HIGH (wie R-2: eine Nachbarprüfung darf nicht als Prüfung erscheinen) | `09-paket-2-omnibus.md` | umgesetzt 30.09.2026 HIGH | – |
+| R-4 | Severity `NORM_UNITS_MATCH_EXTRACTOR` = HIGH (vorgeschlagen MEDIUM; ein veralteter Schnitt kann eine Pflicht verstecken) | `10-paket-3-werkzeug.md` | umgesetzt 30.09.2026 HIGH | – |
+| P3-F1 | Art. 9 Abs. 5 UAbs. 3 `out`: Betreiber ist Maßstab, nicht Empfänger; Beleg im Audit legt der Anbieter vor (Anhang IV Nr. 5). HYPOTHESE bleibt | `10-paket-3-werkzeug.md` | umgesetzt 30.09.2026 a | – |
+| P3-F2 | Sammelbestätigung der 17 Pflichttexte nach dem Neuschnitt (15 Sätze, Art. 9 Abs. 5 lit. c, Art. 6 Abs. 3 lit. d); bestätigt ist der Text, nicht der Befund | `10-paket-3-werkzeug.md` | umgesetzt 30.09.2026 a | – |
 | PUSH-1 | Branch `review-2c` nach origin gepusht (Stand `45e2eb1`, pre-push `make verify` grün) | `entscheidungsregister.md` | umgesetzt 30.09.2026 | – |
 | A-W1 | Art. 113 (und Art. 85, DSGVO Art. 67, NIS2 Art. 44): unnummerierte Absätze als Abs. 1–n, Kennung „Art. 113 Abs. 3 lit. a“ wie im Gesetz (T-15) | `08-paket-1-anhaenge.md` | umgesetzt 30.09.2026 | – |
 | A-W2 | Anhang I Abschn. B Nr. 13–20 einzeln (T-15) | `08-paket-1-anhaenge.md` | umgesetzt 30.09.2026 | – |

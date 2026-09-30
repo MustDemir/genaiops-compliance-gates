@@ -3598,8 +3598,8 @@ einheiten:
     Pflicht ab: statt ''sicherzustellen, dass ... ueber ein ausreichendes Mass an KI-Kompetenz verfuegen''
     nun ''ergreifen Massnahmen, um die Entwicklung der KI-Kompetenz ... zu unterstuetzen'', ausdruecklich
     ohne Pflicht zu einem bestimmten Niveau. Abs. 2 und 3 neu. Neufassung: Art. 4 n.F. im Omnibus-Pflichtenraum.'
-  requirement: &id029 []
-  gate: &id030 []
+  requirement: &id027 []
+  gate: &id028 []
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -4885,8 +4885,9 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
-  po_entscheid: &id019
+  po_entscheid:
   - 2026-09-23 · 2b E5 (steuernde Norm)
+  - 2026-09-30 · P3-F2 a (Review 10) - Pflichttext nach dem Neuschnitt bestaetigt
 - uid: Art. 6 Abs. 3 UAbs. 3@304151
   id: Art. 6 Abs. 3 UAbs. 3
   artikel: '6'
@@ -4917,7 +4918,8 @@ einheiten:
   befund: nicht_einschlaegig
   befund_grund: Einstufungsregel, begruendet keine eigene pruefbare Pflicht.
   po_bestaetigt: false
-  po_entscheid: *id019
+  po_entscheid:
+  - 2026-09-23 · 2b E5 (steuernde Norm)
   migriert_von: Art. 6 Abs. 3 lit. d@303969
   migration: geerbt
 - id: Art. 6 Abs. 4
@@ -5570,8 +5572,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - Art. 7 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
     nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: &id020 []
-  gate: &id021 []
+  requirement: &id019 []
+  gate: &id020 []
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -5600,8 +5602,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - Art. 7 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
     nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id020
-  gate: *id021
+  requirement: *id019
+  gate: *id020
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -6183,9 +6185,10 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
-  po_entscheid: &id022
+  po_entscheid:
   - 2026-09-23 · 2b E2 (P2 KI-Kompetenz)
   - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, Anker (a) Wortlaut nennt den Betreiber)
+  - 2026-09-30 · P3-F2 a (Review 10) - Pflichttext nach dem Neuschnitt bestaetigt
 - uid: Art. 9 Abs. 5 UAbs. 3@314973
   id: Art. 9 Abs. 5 UAbs. 3
   artikel: '9'
@@ -6213,8 +6216,9 @@ einheiten:
     in Art. 9 Abs. 5 lit. c (in, Luecke), deren Betreiberbezug die Schulung der Betreiber in lit. c selbst
     ist.'
   verifikation: HYPOTHESE
-  hypothese_grund: 'Durchschlag verneint: der Betreiber ist Massstab der Risikominimierung des Anbieters,
-    nicht Empfaenger. Auslegung wie A-F1 - Frage P3-F1.'
+  hypothese_grund: 'Durchschlag verneint (PO P3-F1 a, 30.09.2026): der Betreiber ist Massstab der Risikominimierung
+    des Anbieters, nicht Empfaenger oder Zweck; Auslegung wie A-F1. Beleg im Audit legt der Anbieter vor
+    (Anhang IV Nr. 5). Rechtspruefung offen.'
   omnibus: 'unveraendert - Art. 9 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
     (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf: die Liste geaenderter Artikel geht
     von Nr. 8 [Art. 6] auf Nr. 9 [Art. 10] ueber).'
@@ -6222,8 +6226,9 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
-  po_entscheid: *id022
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-09-30 · P3-F1 a (Review 10) - Betreiber ist Massstab, nicht Empfaenger; kein Durchschlag
   migriert_von: Art. 9 Abs. 5 lit. c@314843
   migration: geerbt
 - id: Art. 9 Abs. 6
@@ -7782,7 +7787,7 @@ einheiten:
     1 und 9 verweisen auf Art. 13.'
   omnibus: unveraendert - Art. 13 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
     (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: &id023
+  requirement: &id021
   - R007
   - R003
   gate: []
@@ -7828,7 +7833,7 @@ einheiten:
     1 und 9 verweisen auf Art. 13.'
   omnibus: unveraendert - Art. 13 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
     (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id023
+  requirement: *id021
   gate: []
   befund: luecke
   befund_grund: 'Kein Element geprueft (M1a). Nachbar: G-DEP-02 misst accuracy und safety_score. Ungeprueft:
@@ -7873,7 +7878,7 @@ einheiten:
     1 und 9 verweisen auf Art. 13.'
   omnibus: unveraendert - Art. 13 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
     (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id023
+  requirement: *id021
   gate: []
   befund: luecke
   befund_grund: 'Kein Element geprueft (M1a). Nachbar: G-DEP-03 prueft, dass known_limitations nicht leer
@@ -7916,7 +7921,7 @@ einheiten:
     1 und 9 verweisen auf Art. 13.'
   omnibus: unveraendert - Art. 13 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
     (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id023
+  requirement: *id021
   gate:
   - G-DEP-03
   - G-DEP-02
@@ -7955,7 +7960,7 @@ einheiten:
     1 und 9 verweisen auf Art. 13.'
   omnibus: unveraendert - Art. 13 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
     (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: &id024
+  requirement: &id022
   - R013
   - R006
   - R007
@@ -8001,7 +8006,7 @@ einheiten:
     1 und 9 verweisen auf Art. 13.'
   omnibus: unveraendert - Art. 13 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
     (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id024
+  requirement: *id022
   gate:
   - G-DEP-01
   befund: teilabdeckung
@@ -8044,7 +8049,7 @@ einheiten:
     1 und 9 verweisen auf Art. 13.'
   omnibus: unveraendert - Art. 13 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
     (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id024
+  requirement: *id022
   gate:
   - G-DEP-05
   befund: luecke
@@ -8853,9 +8858,9 @@ einheiten:
   omnibus: 'unveraendert - Art. 15 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
     (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf: die Liste geaenderter Artikel geht
     von Nr. 10 [Art. 11] direkt auf Nr. 11 [Art. 17] ueber).'
-  requirement: &id025
+  requirement: &id023
   - R003
-  gate: &id026
+  gate: &id024
   - G-DEP-02
   - G-OPS-04
   befund: teilabdeckung
@@ -8869,6 +8874,7 @@ einheiten:
   migration: geerbt
   po_entscheid:
   - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, kein Anker benannt)
+  - 2026-09-30 · P3-F2 a (Review 10) - Pflichttext nach dem Neuschnitt bestaetigt
 - uid: Art. 15 Abs. 4 UAbs. 1 Satz 2@333625
   id: Art. 15 Abs. 4 UAbs. 1 Satz 2
   artikel: '15'
@@ -8894,8 +8900,8 @@ einheiten:
   omnibus: 'unveraendert - Art. 15 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
     (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf: die Liste geaenderter Artikel geht
     von Nr. 10 [Art. 11] direkt auf Nr. 11 [Art. 17] ueber).'
-  requirement: *id025
-  gate: *id026
+  requirement: *id023
+  gate: *id024
   befund: teilabdeckung
   befund_grund: 'Wie Abs. 1: Infrastruktur-Redundanz/-Resilienz teilweise ueber G-OPS-04 pruefbar. Echte
     Luecke: die ''Rueckkopplungsschleifen'' bei weiterlernenden Systemen (Bias-Verstaerkung durch eigene
@@ -8907,6 +8913,7 @@ einheiten:
   migration: geerbt
   po_entscheid:
   - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, kein Anker benannt)
+  - 2026-09-30 · P3-F2 a (Review 10) - Pflichttext nach dem Neuschnitt bestaetigt
 - uid: Art. 15 Abs. 4 UAbs. 2 Satz 1@333710
   id: Art. 15 Abs. 4 UAbs. 2 Satz 1
   artikel: '15'
@@ -8933,8 +8940,8 @@ einheiten:
   omnibus: 'unveraendert - Art. 15 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
     (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf: die Liste geaenderter Artikel geht
     von Nr. 10 [Art. 11] direkt auf Nr. 11 [Art. 17] ueber).'
-  requirement: *id025
-  gate: *id026
+  requirement: *id023
+  gate: *id024
   befund: nicht_einschlaegig
   befund_grund: Mittel ('kann durch technische Redundanz erreicht werden'), keine eigene pruefbare Pflicht.
   po_bestaetigt: false
@@ -8943,6 +8950,7 @@ einheiten:
   po_entscheid:
   - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, kein Anker benannt)
   - 2026-09-28 · 2c F2 (Mittel, keine Pflicht)
+  - 2026-09-30 · P3-F2 a (Review 10) - Pflichttext nach dem Neuschnitt bestaetigt
 - uid: Art. 15 Abs. 4 UAbs. 3 Satz 1@333868
   id: Art. 15 Abs. 4 UAbs. 3 Satz 1
   artikel: '15'
@@ -8974,8 +8982,8 @@ einheiten:
   omnibus: 'unveraendert - Art. 15 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
     (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf: die Liste geaenderter Artikel geht
     von Nr. 10 [Art. 11] direkt auf Nr. 11 [Art. 17] ueber).'
-  requirement: *id025
-  gate: *id026
+  requirement: *id023
+  gate: *id024
   befund: luecke
   befund_grund: Rueckkopplungsschleifen bei Systemen, die im Betrieb weiterlernen, prueft kein Gate; G-OPS-03
     misst Drift allgemein. Ob das System weiterlernt, ist eine Tatsache, die heute nirgends erfasst ist
@@ -8986,6 +8994,7 @@ einheiten:
   po_entscheid:
   - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, kein Anker benannt)
   - 2026-09-28 · 2c F2 (Luecke - kein Gate prueft Rueckkopplungsschleifen, M-C1)
+  - 2026-09-30 · P3-F2 a (Review 10) - Pflichttext nach dem Neuschnitt bestaetigt
 - id: Art. 15 Abs. 5
   artikel: '15'
   artikel_titel: Genauigkeit, Robustheit und Cybersicherheit
@@ -10615,8 +10624,8 @@ einheiten:
   verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: unveraendert (geprueft am verfuegenden Teil).
-  requirement: &id027 []
-  gate: &id028 []
+  requirement: &id025 []
+  gate: &id026 []
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -10649,8 +10658,8 @@ einheiten:
   verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: unveraendert (geprueft am verfuegenden Teil).
-  requirement: *id027
-  gate: *id028
+  requirement: *id025
+  gate: *id026
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -11375,8 +11384,8 @@ einheiten:
     Pflicht zur Zusammenarbeit MIT NEUEN ANBIETERN UND zur Uebergabe der Dokumentation (vorher nur von
     der Uebergabepflicht allein). Beide Fassungen sind inhaltlich in dieselbe Richtung, die neue ist praeziser
     und breiter im Carve-out.'
-  requirement: *id029
-  gate: *id030
+  requirement: *id027
+  gate: *id028
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -11756,7 +11765,7 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - VO (EU) 2026/1744 Art. 1 aendert Art. 25 und Art. 27, Art. 26 ist in der Aenderungsliste
     nicht enthalten (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: &id031
+  requirement: &id029
   - R009
   gate:
   - G-OPS-01
@@ -11774,6 +11783,7 @@ einheiten:
   - 2026-09-23 · 2b E4 (VERIFIZIERT - Betreiber in der Einheit oder ihrem Einleitungssatz genannt)
   - 2026-09-28 · 2c F1 (T-E Art. 26, M-E2 Ueberwachung und Information an den Anbieter)
   - 2026-09-29 · Review 07 M2a (gate nennt nur elementpruefende Gates)
+  - 2026-09-30 · P3-F2 a (Review 10) - Pflichttext nach dem Neuschnitt bestaetigt
 - uid: Art. 26 Abs. 5 UAbs. 1 Satz 2@360127
   id: Art. 26 Abs. 5 UAbs. 1 Satz 2
   artikel: '26'
@@ -11801,8 +11811,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - VO (EU) 2026/1744 Art. 1 aendert Art. 25 und Art. 27, Art. 26 ist in der Aenderungsliste
     nicht enthalten (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id031
-  gate: &id032
+  requirement: *id029
+  gate: &id030
   - G-OPS-02
   befund: luecke
   befund_grund: 'Hat der Betreiber Grund zur Annahme eines Risikos nach Art. 79 Abs. 1, setzt er die Verwendung
@@ -11814,6 +11824,7 @@ einheiten:
   po_entscheid:
   - 2026-09-23 · 2b E2 (P8 Aussetzen bei Risiko, Art. 26 Abs. 5 Satz 2 nach Teilung)
   - 2026-09-23 · 2b E4 (VERIFIZIERT - Betreiber in der Einheit oder ihrem Einleitungssatz genannt)
+  - 2026-09-30 · P3-F2 a (Review 10) - Pflichttext nach dem Neuschnitt bestaetigt
 - uid: Art. 26 Abs. 5 UAbs. 1 Satz 3@360464
   id: Art. 26 Abs. 5 UAbs. 1 Satz 3
   artikel: '26'
@@ -11840,8 +11851,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - VO (EU) 2026/1744 Art. 1 aendert Art. 25 und Art. 27, Art. 26 ist in der Aenderungsliste
     nicht enthalten (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id031
-  gate: *id032
+  requirement: *id029
+  gate: *id030
   befund: teilabdeckung
   befund_grund: G-OPS-02/C-01 prueft, dass ein Incident-Kontakt deklariert ist, nicht die Reihenfolge
     zuerst Anbieter, dann Einfuehrer oder Haendler, dann Behoerde (M-E3, P6).
@@ -11851,6 +11862,7 @@ einheiten:
   po_entscheid:
   - 2026-09-23 · 2b E4 (VERIFIZIERT - Betreiber in der Einheit oder ihrem Einleitungssatz genannt)
   - 2026-09-28 · 2c F1 (T-E Art. 26, M-E3 Reihenfolge der Meldekette, P6)
+  - 2026-09-30 · P3-F2 a (Review 10) - Pflichttext nach dem Neuschnitt bestaetigt
 - uid: Art. 26 Abs. 5 UAbs. 1 Satz 4@360685
   id: Art. 26 Abs. 5 UAbs. 1 Satz 4
   artikel: '26'
@@ -11874,8 +11886,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - VO (EU) 2026/1744 Art. 1 aendert Art. 25 und Art. 27, Art. 26 ist in der Aenderungsliste
     nicht enthalten (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id031
-  gate: *id032
+  requirement: *id029
+  gate: *id030
   befund: teilabdeckung
   befund_grund: G-OPS-02/C-04 fuehrt die Fristen des Art. 73, aber als eigene Betreiberpflicht; der Fall,
     fuer den sie dem Betreiber gelten - Anbieter nicht erreichbar -, ist nicht abgebildet (M-E4, M-F1).
@@ -11885,6 +11897,7 @@ einheiten:
   po_entscheid:
   - 2026-09-23 · 2b E4 (VERIFIZIERT - Betreiber in der Einheit oder ihrem Einleitungssatz genannt)
   - 2026-09-28 · 2c F1 (T-E Art. 26, M-E4 Fallback-Pfad, P6)
+  - 2026-09-30 · P3-F2 a (Review 10) - Pflichttext nach dem Neuschnitt bestaetigt
 - uid: Art. 26 Abs. 5 UAbs. 1 Satz 5@360767
   id: Art. 26 Abs. 5 UAbs. 1 Satz 5
   artikel: '26'
@@ -11911,8 +11924,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - VO (EU) 2026/1744 Art. 1 aendert Art. 25 und Art. 27, Art. 26 ist in der Aenderungsliste
     nicht enthalten (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id031
-  gate: *id032
+  requirement: *id029
+  gate: *id030
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -11921,6 +11934,7 @@ einheiten:
   po_entscheid:
   - 2026-09-23 · 2b E4 (VERIFIZIERT - Betreiber in der Einheit oder ihrem Einleitungssatz genannt)
   - 2026-09-28 · 2c F2 (anderer Betreibertyp, wie 2a Gruppe B)
+  - 2026-09-30 · P3-F2 a (Review 10) - Pflichttext nach dem Neuschnitt bestaetigt
 - uid: Art. 26 Abs. 5 UAbs. 2 Satz 1@360889
   id: Art. 26 Abs. 5 UAbs. 2 Satz 1
   artikel: '26'
@@ -11950,8 +11964,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - VO (EU) 2026/1744 Art. 1 aendert Art. 25 und Art. 27, Art. 26 ist in der Aenderungsliste
     nicht enthalten (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id031
-  gate: *id032
+  requirement: *id029
+  gate: *id030
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -11960,6 +11974,7 @@ einheiten:
   po_entscheid:
   - 2026-09-23 · 2b E4 (VERIFIZIERT - Betreiber in der Einheit oder ihrem Einleitungssatz genannt)
   - 2026-09-28 · 2c F2 (anderer Betreibertyp, wie 2a Gruppe B)
+  - 2026-09-30 · P3-F2 a (Review 10) - Pflichttext nach dem Neuschnitt bestaetigt
 - id: Art. 26 Abs. 6
   artikel: '26'
   artikel_titel: Pflichten der Betreiber von Hochrisiko-KI-Systemen
@@ -14407,8 +14422,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - Art. 36 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
     nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: &id033 []
-  gate: &id034 []
+  requirement: &id031 []
+  gate: &id032 []
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -14443,8 +14458,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - Art. 36 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
     nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id033
-  gate: *id034
+  requirement: *id031
+  gate: *id032
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -14475,8 +14490,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - Art. 36 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
     nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id033
-  gate: *id034
+  requirement: *id031
+  gate: *id032
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -14927,8 +14942,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - Art. 41 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
     nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: &id035 []
-  gate: &id036 []
+  requirement: &id033 []
+  gate: &id034 []
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -14959,8 +14974,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - Art. 41 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
     nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id035
-  gate: *id036
+  requirement: *id033
+  gate: *id034
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -14991,8 +15006,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - Art. 41 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
     nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id035
-  gate: *id036
+  requirement: *id033
+  gate: *id034
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -15022,8 +15037,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - Art. 41 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
     nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id035
-  gate: *id036
+  requirement: *id033
+  gate: *id034
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -15052,8 +15067,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - Art. 41 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
     nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: &id037 []
-  gate: &id038 []
+  requirement: &id035 []
+  gate: &id036 []
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -15086,8 +15101,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - Art. 41 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
     nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id037
-  gate: *id038
+  requirement: *id035
+  gate: *id036
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -15117,8 +15132,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - Art. 41 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
     nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id037
-  gate: *id038
+  requirement: *id035
+  gate: *id036
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -15436,8 +15451,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - Art. 43 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
     nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: &id039 []
-  gate: &id040 []
+  requirement: &id037 []
+  gate: &id038 []
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -15467,8 +15482,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - Art. 43 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
     nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id039
-  gate: *id040
+  requirement: *id037
+  gate: *id038
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -15589,8 +15604,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - Art. 43 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
     nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: &id041 []
-  gate: &id042 []
+  requirement: &id039 []
+  gate: &id040 []
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -15624,8 +15639,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - Art. 43 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
     nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id041
-  gate: *id042
+  requirement: *id039
+  gate: *id040
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -17007,8 +17022,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - Art. 49 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
     nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: &id043 []
-  gate: &id044 []
+  requirement: &id041 []
+  gate: &id042 []
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -17041,8 +17056,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - Art. 49 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
     nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id043
-  gate: *id044
+  requirement: *id041
+  gate: *id042
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -17858,8 +17873,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: &id045 []
-  gate: &id046 []
+  requirement: &id043 []
+  gate: &id044 []
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -17890,8 +17905,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id045
-  gate: *id046
+  requirement: *id043
+  gate: *id044
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -20037,8 +20052,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: &id047 []
-  gate: &id048 []
+  requirement: &id045 []
+  gate: &id046 []
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -20073,8 +20088,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id047
-  gate: *id048
+  requirement: *id045
+  gate: *id046
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -20571,8 +20586,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: &id049 []
-  gate: &id050 []
+  requirement: &id047 []
+  gate: &id048 []
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -20605,8 +20620,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id049
-  gate: *id050
+  requirement: *id047
+  gate: *id048
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -20637,8 +20652,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id049
-  gate: *id050
+  requirement: *id047
+  gate: *id048
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -20670,8 +20685,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id049
-  gate: *id050
+  requirement: *id047
+  gate: *id048
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -23007,8 +23022,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: &id051 []
-  gate: &id052 []
+  requirement: &id049 []
+  gate: &id050 []
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -23043,8 +23058,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id051
-  gate: *id052
+  requirement: *id049
+  gate: *id050
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -23076,8 +23091,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id051
-  gate: *id052
+  requirement: *id049
+  gate: *id050
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -23109,8 +23124,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id051
-  gate: *id052
+  requirement: *id049
+  gate: *id050
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -23142,8 +23157,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: &id053 []
-  gate: &id054 []
+  requirement: &id051 []
+  gate: &id052 []
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -23175,8 +23190,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id053
-  gate: *id054
+  requirement: *id051
+  gate: *id052
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -23209,8 +23224,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id053
-  gate: *id054
+  requirement: *id051
+  gate: *id052
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -23956,8 +23971,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: &id055 []
-  gate: &id056 []
+  requirement: &id053 []
+  gate: &id054 []
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -23993,8 +24008,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id055
-  gate: *id056
+  requirement: *id053
+  gate: *id054
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -24085,8 +24100,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: &id057 []
-  gate: &id058 []
+  requirement: &id055 []
+  gate: &id056 []
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -24117,8 +24132,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id057
-  gate: *id058
+  requirement: *id055
+  gate: *id056
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -24149,8 +24164,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id057
-  gate: *id058
+  requirement: *id055
+  gate: *id056
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -24181,8 +24196,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id057
-  gate: *id058
+  requirement: *id055
+  gate: *id056
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -25217,9 +25232,9 @@ einheiten:
   hypothese_grund: 'Anbieterpflicht, fuer den Betreiber in nach der Durchschlagsregel (2b E4): (b) Art.
     26 Abs. 5 verweist auf Art. 73.'
   omnibus: unveraendert (s. Art. 73 Abs. 1).
-  requirement: &id059
+  requirement: &id057
   - R009
-  gate: &id060
+  gate: &id058
   - G-OPS-02
   befund: teilabdeckung
   befund_grund: Regelfrist (15 Tage = 360h) fuer den Meldefall aus Abs. 1; durchschlagend fuer den Betreiber
@@ -25233,6 +25248,7 @@ einheiten:
   po_entscheid:
   - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, Anker (b))
   - 2026-09-28 · 2c F1 (T-F Art. 73, M-F1 Fallback und M-F3 Fristenuhr)
+  - 2026-09-30 · P3-F2 a (Review 10) - Pflichttext nach dem Neuschnitt bestaetigt
 - uid: Art. 73 Abs. 2 UAbs. 2 Satz 1@505167
   id: Art. 73 Abs. 2 UAbs. 2 Satz 1
   artikel: '73'
@@ -25257,8 +25273,8 @@ einheiten:
   hypothese_grund: 'Anbieterpflicht, fuer den Betreiber in nach der Durchschlagsregel (2b E4): (b) Art.
     26 Abs. 5 verweist auf Art. 73.'
   omnibus: unveraendert (s. Art. 73 Abs. 1).
-  requirement: *id059
-  gate: *id060
+  requirement: *id057
+  gate: *id058
   befund: gedeckt
   befund_grund: Die Frist dieser Einheit ist in governance/incident_thresholds.yaml deklariert und policy_incident_thresholds
     haelt sie gegen das Gesetz (48 h / 240 h / 360 h, je mit Rechtsgrundlage). Nur deklariert (E-0) -
@@ -25271,6 +25287,7 @@ einheiten:
   - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, Anker (b))
   - 2026-09-28 · 2c F1 (T-F Art. 73, M-F3 Fristenuhr)
   - 2026-09-29 · Review 06 H2 (alle Elemente geprueft, nur deklariert - gedeckt mit E-0)
+  - 2026-09-30 · P3-F2 a (Review 10) - Pflichttext nach dem Neuschnitt bestaetigt
 - id: Art. 73 Abs. 3
   artikel: '73'
   artikel_titel: Meldung schwerwiegender Vorfälle
@@ -28319,8 +28336,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: &id061 []
-  gate: &id062 []
+  requirement: &id059 []
+  gate: &id060 []
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -28352,8 +28369,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id061
-  gate: *id062
+  requirement: *id059
+  gate: *id060
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -30089,8 +30106,8 @@ einheiten:
   omnibus: unveraendert - Art. 1 Nr. 36 der VO (EU) 2026/1744 fasst in Art. 96 Abs. 1 nur UAbs. 1 lit.
     a und UAbs. 2 neu und fuegt lit. g an; diese Einheit ist nicht betroffen (geprueft am verfuegenden
     Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
-  requirement: &id063 []
-  gate: &id064 []
+  requirement: &id061 []
+  gate: &id062 []
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -30126,8 +30143,8 @@ einheiten:
   hypothese_grund: null
   omnibus: ersetzt - Art. 1 Nr. 36 lit. c der VO (EU) 2026/1744 fasst UAbs. 2 neu (Art. 96 Abs. 1 UAbs.
     2 n.F.) (geprueft am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
-  requirement: *id063
-  gate: *id064
+  requirement: *id061
+  gate: *id062
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -30164,8 +30181,8 @@ einheiten:
   omnibus: unveraendert - Art. 1 Nr. 36 der VO (EU) 2026/1744 fasst in Art. 96 Abs. 1 nur UAbs. 1 lit.
     a und UAbs. 2 neu und fuegt lit. g an; diese Einheit ist nicht betroffen (geprueft am verfuegenden
     Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
-  requirement: *id063
-  gate: *id064
+  requirement: *id061
+  gate: *id062
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -31836,8 +31853,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: &id065 []
-  gate: &id066 []
+  requirement: &id063 []
+  gate: &id064 []
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -31872,8 +31889,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id065
-  gate: *id066
+  requirement: *id063
+  gate: *id064
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -32246,8 +32263,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: &id067 []
-  gate: &id068 []
+  requirement: &id065 []
+  gate: &id066 []
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -32290,8 +32307,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id067
-  gate: *id068
+  requirement: *id065
+  gate: *id066
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -32325,8 +32342,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id067
-  gate: *id068
+  requirement: *id065
+  gate: *id066
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -32360,8 +32377,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id067
-  gate: *id068
+  requirement: *id065
+  gate: *id066
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -32395,8 +32412,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id067
-  gate: *id068
+  requirement: *id065
+  gate: *id066
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -32430,8 +32447,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id067
-  gate: *id068
+  requirement: *id065
+  gate: *id066
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -32465,8 +32482,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id067
-  gate: *id068
+  requirement: *id065
+  gate: *id066
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -32620,8 +32637,8 @@ einheiten:
     Teil, docs/legal/OJ_L_202601744_DE.pdf). Damit verschiebt sich der in befund_grund beschriebene Bestandsschutz-Stichtag
     inhaltlich auf den 2. Dezember 2027 (statt 2. August 2026) - die zeitliche Anwendbarkeitsfrage wird
     dadurch NOCH bedeutsamer, nicht kleiner.'
-  requirement: *id029
-  gate: *id030
+  requirement: *id027
+  gate: *id028
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -32631,6 +32648,7 @@ einheiten:
   - 2026-09-23 · 2b E1 (steuernd, Massnahme P0)
   - 2026-09-23 · 2b E4 (VERIFIZIERT - Betreiber in der Einheit oder ihrem Einleitungssatz genannt)
   - 2026-09-29 · A-F2a (Review 08 Teil 7) - ersetzt durch n.F., bewertet wird die n.F.-Zeile
+  - 2026-09-30 · P3-F2 a (Review 10) - Pflichttext nach dem Neuschnitt bestaetigt
   neufassung: ersetzt
   fassung_2026_1744:
   - Art. 111 Abs. 2 Satz 1 n.F.@153788
@@ -32672,8 +32690,8 @@ einheiten:
     Teil, docs/legal/OJ_L_202601744_DE.pdf). Damit verschiebt sich der in befund_grund beschriebene Bestandsschutz-Stichtag
     inhaltlich auf den 2. Dezember 2027 (statt 2. August 2026) - die zeitliche Anwendbarkeitsfrage wird
     dadurch NOCH bedeutsamer, nicht kleiner.'
-  requirement: *id029
-  gate: *id030
+  requirement: *id027
+  gate: *id028
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -32682,6 +32700,7 @@ einheiten:
   po_entscheid:
   - 2026-09-23 · 2b E4 (VERIFIZIERT - Betreiber in der Einheit oder ihrem Einleitungssatz genannt)
   - 2026-09-29 · A-F2a (Review 08 Teil 7) - ersetzt durch n.F., bewertet wird die n.F.-Zeile
+  - 2026-09-30 · P3-F2 a (Review 10) - Pflichttext nach dem Neuschnitt bestaetigt
   neufassung: ersetzt
   fassung_2026_1744:
   - Art. 111 Abs. 2 Satz 1 n.F.@153788
@@ -33422,8 +33441,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - VO (EU) 2026/1744 Art. 1 Nr. 40 aendert nur Art. 113 Abs. 3 (lit. a und c neu
     gefasst, lit. d angefuegt) (geprueft am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
-  requirement: &id069 []
-  gate: &id070 []
+  requirement: &id067 []
+  gate: &id068 []
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -33452,8 +33471,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - VO (EU) 2026/1744 Art. 1 Nr. 40 aendert nur Art. 113 Abs. 3 (lit. a und c neu
     gefasst, lit. d angefuegt) (geprueft am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
-  requirement: *id069
-  gate: *id070
+  requirement: *id067
+  gate: *id068
   befund: nicht_einschlaegig
   befund_grund: Stichtag, begruendet keine eigene pruefbare Pflicht.
   po_bestaetigt: false
@@ -33482,8 +33501,8 @@ einheiten:
   hypothese_grund: null
   omnibus: geaendert - VO (EU) 2026/1744 Art. 1 Nr. 40 fasst lit. a und c neu und fuegt lit. d an; die
     Einleitung selbst ist unveraendert (geprueft am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
-  requirement: *id069
-  gate: *id070
+  requirement: *id067
+  gate: *id068
   befund: nicht_einschlaegig
   befund_grund: Einleitung einer Liste von Stichtagen, begruendet keine eigene pruefbare Pflicht.
   po_bestaetigt: false
@@ -33515,8 +33534,8 @@ einheiten:
   hypothese_grund: null
   omnibus: 'geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 40 lit. a - neu gefasst (Ausnahme fuer die neuen
     Verbote, ab 2. Dezember 2026). Neufassung: Art. 113 Abs. 3 lit. a n.F. im Omnibus-Pflichtenraum.'
-  requirement: *id029
-  gate: *id030
+  requirement: *id027
+  gate: *id028
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -33588,8 +33607,8 @@ einheiten:
   hypothese_grund: null
   omnibus: 'geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 40 lit. b - neu gefasst (Ziff. i: Anhang III
     ab 02.12.2027, Ziff. ii: Anhang I ab 02.08.2028). Neufassung: Art. 113 Abs. 3 lit. c n.F. im Omnibus-Pflichtenraum.'
-  requirement: *id029
-  gate: *id030
+  requirement: *id027
+  gate: *id028
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -34055,8 +34074,8 @@ einheiten:
   hypothese_grund: null
   omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 41 lit. b - Nr. 21 (Maschinenverordnung (EU) 2023/1230)
     angefuegt, siehe Anhang I Abschn. B Nr. 21 n.F.
-  requirement: &id071 []
-  gate: &id072 []
+  requirement: &id069 []
+  gate: &id070 []
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -34088,8 +34107,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - Art. 1 Nr. 41 der VO (EU) 2026/1744 fuegt in Abschn. B nur Nr. 21 an (geprueft
     am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
-  requirement: *id071
-  gate: *id072
+  requirement: *id069
+  gate: *id070
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -34123,8 +34142,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - Art. 1 Nr. 41 der VO (EU) 2026/1744 fuegt in Abschn. B nur Nr. 21 an (geprueft
     am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
-  requirement: *id071
-  gate: *id072
+  requirement: *id069
+  gate: *id070
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -34158,8 +34177,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - Art. 1 Nr. 41 der VO (EU) 2026/1744 fuegt in Abschn. B nur Nr. 21 an (geprueft
     am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
-  requirement: *id071
-  gate: *id072
+  requirement: *id069
+  gate: *id070
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -34192,8 +34211,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - Art. 1 Nr. 41 der VO (EU) 2026/1744 fuegt in Abschn. B nur Nr. 21 an (geprueft
     am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
-  requirement: *id071
-  gate: *id072
+  requirement: *id069
+  gate: *id070
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -34227,8 +34246,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - Art. 1 Nr. 41 der VO (EU) 2026/1744 fuegt in Abschn. B nur Nr. 21 an (geprueft
     am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
-  requirement: *id071
-  gate: *id072
+  requirement: *id069
+  gate: *id070
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -34264,8 +34283,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - Art. 1 Nr. 41 der VO (EU) 2026/1744 fuegt in Abschn. B nur Nr. 21 an (geprueft
     am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
-  requirement: *id071
-  gate: *id072
+  requirement: *id069
+  gate: *id070
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -34306,8 +34325,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - Art. 1 Nr. 41 der VO (EU) 2026/1744 fuegt in Abschn. B nur Nr. 21 an (geprueft
     am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
-  requirement: *id071
-  gate: *id072
+  requirement: *id069
+  gate: *id070
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -34347,8 +34366,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - Art. 1 Nr. 41 der VO (EU) 2026/1744 fuegt in Abschn. B nur Nr. 21 an (geprueft
     am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
-  requirement: *id071
-  gate: *id072
+  requirement: *id069
+  gate: *id070
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -39922,8 +39941,8 @@ einheiten:
   omnibus: unveraendert - Anhang XI ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht
     enthalten; Aenderungen an Anhaengen nur durch Art. 1 Nr. 41 (Anhang I), Nr. 42 (Anhang VIII Abschn.
     B Nr. 7 und 9) und Nr. 43 (neuer Anhang XIV) (geprueft am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
-  requirement: &id073 []
-  gate: &id074 []
+  requirement: &id071 []
+  gate: &id072 []
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -39955,8 +39974,8 @@ einheiten:
   omnibus: unveraendert - Anhang XI ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht
     enthalten; Aenderungen an Anhaengen nur durch Art. 1 Nr. 41 (Anhang I), Nr. 42 (Anhang VIII Abschn.
     B Nr. 7 und 9) und Nr. 43 (neuer Anhang XIV) (geprueft am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
-  requirement: *id073
-  gate: *id074
+  requirement: *id071
+  gate: *id072
   befund: null
   befund_grund: null
   po_bestaetigt: false
