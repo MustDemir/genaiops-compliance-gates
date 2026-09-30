@@ -129,7 +129,11 @@ Fehlschlag statt einer unsichtbaren Auslassung.
 
 `gate` nennt nur Gates, deren Rego-Regel ein Element der Pflicht prüft; ein Gate, das
 nur etwas Verwandtes prüft, steht im optionalen Feld `nachbar_gate` (PO 29.09.2026,
-[Review 07](../docs/coverage/review/07-element-matrix.md) M2a).
+[Review 07](../docs/coverage/review/07-element-matrix.md) M2a). Beide Felder werden seit
+Paket 3b nicht mehr von Hand gesetzt, sondern aus der Element-Matrix abgeleitet
+([`element_matrix.yaml`](../docs/coverage/matrix/element_matrix.yaml), `tools/legal/element_matrix.py`,
+[Review 11](../docs/coverage/review/11-paket-3b-element-matrix.md)); `ELEMENT_MATRIX_DERIVES_GATE`
+hält jede Matrix-Angabe gegen den Rego-Code und jede Zeile gegen die Matrix.
 
 `beleg` wird **geschnitten, nie getippt**. Das ist der Unterschied zwischen Auszug und
 Erinnerung, und er ist der Kern der Fälschungssicherheit dieser Analyse.

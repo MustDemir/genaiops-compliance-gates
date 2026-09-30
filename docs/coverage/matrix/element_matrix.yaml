@@ -1,0 +1,652 @@
+# Element-Matrix, Lauf 2 (Paket 3b, Review 11) — jede Pflicht mit Gate-Bezug, Element fuer Element,
+# gegen den Rego-Code gehalten.
+#
+# Regel (Review 07 Teil 1, PO M2a 29.09.2026, M1a 30.09.2026):
+#   Element geprueft  <=>  eine Regel schlaegt an, wenn es fehlt oder falsch ist.
+#   status: geprueft    eine Regel prueft das Element selbst            (Review 07: ✓)
+#           nachbar     eine Regel prueft etwas Verwandtes, nicht das   (≈)
+#                       Element - auch ein Behaelter, der das Element
+#                       enthalten kann, ohne dass eine Regel hineinsieht
+#           ungeprueft  keine Regel                                     (✗)
+#   Jede Regel ist genannt als Gate, Check und gelesenes Input-Feld. Der Waechter
+#   ELEMENT_MATRIX_DERIVES_GATE haelt jede Angabe gegen den OPA-AST (tools/rego_inputs.py):
+#   eine Regel dieses Gates und Checks muss das Feld lesen.
+#
+# Abgeleitet, nicht gesetzt (M2a, Plan Teil C Paket 3):
+#   gate          = Gates der geprueften Elemente
+#   nachbar_gate  = Gates der Nachbar-Elemente, soweit nicht schon in gate
+#   befund        = luecke          kein Element geprueft (M1a)
+#                   gedeckt         alle Elemente geprueft und ein Requirement traegt die Pflicht
+#                   teilabdeckung   sonst (ein Element ungeprueft oder die Kette offen, H3a)
+#                   Zeilen mit befund nicht_einschlaegig: nur gate und nachbar_gate.
+#   Eine in-Zeile ohne Eintrag hier traegt kein gate, kein nachbar_gate und ist weder gedeckt
+#   noch Teilabdeckung. Eine out-Zeile traegt weder gate noch nachbar_gate.
+#   vorbehalt: die Zeile bleibt, wie sie ist, bis die genannte Frage entschieden ist; die Frage
+#   muss im Entscheidungsregister offen stehen.
+#
+# Wie eine Pflicht in Elemente zerfaellt und ob ein Feld ein Element trifft, ist Auslegung des
+# Wortlauts (Review 07 "Ehrlich zur Methode"). Maschinell ist: welches Feld welche Regel liest.
+
+stand: '2026-09-30'
+lauf: 2
+zeilen:
+
+# ── Art. 13 – Transparenz, Betriebsanleitung ─────────────────────────────────────────────
+
+- raum: aiact
+  id: Art. 13 Abs. 1
+  elemente:
+  - element: Betrieb hinreichend transparent, damit der Betreiber die Ausgaben interpretieren und
+      angemessen verwenden kann
+    status: nachbar
+    regeln:
+    - {gate: G-DEP-03, check: C-01, feld: transparency.instructions_for_deployers}
+
+- raum: aiact
+  id: Art. 13 Abs. 2
+  elemente:
+  - element: Betriebsanleitung liegt dem Betreiber vor
+    status: geprueft
+    regeln:
+    - {gate: G-DEP-03, check: C-01, feld: transparency.instructions_for_deployers}
+    - {gate: G-DEP-04, check: C-01, feld: conformity_assessment.provider_documentation_received}
+  - element: Anleitung praezise, vollstaendig, korrekt, eindeutig, relevant, barrierefrei, verstaendlich
+    status: ungeprueft
+
+- raum: aiact
+  id: Art. 13 Abs. 3
+  elemente:
+  - element: Angaben nach lit. a (Name und Kontakt des Anbieters)
+    status: geprueft
+    regeln:
+    - {gate: G-DEP-04, check: C-01, feld: model_info.provider}
+    - {gate: G-DEP-04, check: C-01, feld: conformity_assessment.provider_contact}
+  - element: Angaben nach lit. b (Merkmale, Faehigkeiten, Leistungsgrenzen)
+    status: geprueft
+    regeln:
+    - {gate: G-DEP-03, check: C-01, feld: transparency.model_capabilities}
+    - {gate: G-DEP-03, check: C-01, feld: transparency.known_limitations}
+  - element: Angaben nach lit. c bis f
+    status: ungeprueft
+
+- raum: aiact
+  id: Art. 13 Abs. 3 lit. a
+  elemente:
+  - element: Name des Anbieters
+    status: geprueft
+    regeln:
+    - {gate: G-DEP-04, check: C-01, feld: model_info.provider}
+  - element: Kontaktangaben des Anbieters
+    status: geprueft
+    regeln:
+    - {gate: G-DEP-04, check: C-01, feld: conformity_assessment.provider_contact}
+  - element: gegebenenfalls Name und Kontakt des Bevollmaechtigten (Art. 22)
+    status: ungeprueft
+
+- raum: aiact
+  id: Art. 13 Abs. 3 lit. b
+  elemente:
+  - element: Merkmale und Faehigkeiten
+    status: geprueft
+    regeln:
+    - {gate: G-DEP-03, check: C-01, feld: transparency.model_capabilities}
+  - element: Leistungsgrenzen
+    status: geprueft
+    regeln:
+    - {gate: G-DEP-03, check: C-01, feld: transparency.known_limitations}
+  - element: Einzelangaben nach Ziff. i bis vii
+    status: ungeprueft
+
+- raum: aiact
+  id: Art. 13 Abs. 3 lit. b Ziff. i
+  elemente:
+  - element: Zweckbestimmung in der Betriebsanleitung
+    status: nachbar
+    hinweis: G-PRE-02 prueft den vom Betreiber deklarierten Zweck, nicht die Angabe des Anbieters.
+    regeln:
+    - {gate: G-PRE-02, check: C-01, feld: application.description}
+
+- raum: aiact
+  id: Art. 13 Abs. 3 lit. b Ziff. ii
+  elemente:
+  - element: Mass an Genauigkeit samt Metriken, Robustheit und Cybersicherheit in der Anleitung
+    status: nachbar
+    hinweis: G-DEP-02 misst selbst; ob die Anleitung die Masse nennt, prueft keine Regel.
+    regeln:
+    - {gate: G-DEP-02, check: C-01, feld: quality_metrics.accuracy}
+    - {gate: G-DEP-02, check: C-01, feld: safety_metrics.safety_score}
+  - element: bekannte und vorhersehbare Umstaende, die diese Masse beeinflussen
+    status: ungeprueft
+
+- raum: aiact
+  id: Art. 13 Abs. 3 lit. b Ziff. iii
+  elemente:
+  - element: Umstaende, die zu Risiken nach Art. 9 Abs. 2 fuehren koennen, in der Anleitung
+    status: nachbar
+    regeln:
+    - {gate: G-DEP-03, check: C-01, feld: transparency.known_limitations}
+
+- raum: aiact
+  id: Art. 13 Abs. 3 lit. b Ziff. iv
+  elemente:
+  - element: technische Faehigkeiten und Merkmale zur Erlaeuterung der Ausgaben
+    status: ungeprueft
+    hinweis: Der passende Check G-DEP-03/C-02 ist design_only; ohne Regel ist er weder Pruefer noch
+      Nachbar.
+
+- raum: aiact
+  id: Art. 13 Abs. 3 lit. b Ziff. v
+  elemente:
+  - element: Leistung in Bezug auf Personen oder Personengruppen in der Anleitung
+    status: nachbar
+    regeln:
+    - {gate: G-DEP-05, check: C-01, feld: bias_detection.fairness_results.metrics}
+    - {gate: G-DEP-02, check: C-02, feld: subgroup_analysis.performed}
+
+- raum: aiact
+  id: Art. 13 Abs. 3 lit. b Ziff. vi
+  elemente:
+  - element: Spezifikationen fuer die Eingabedaten
+    status: ungeprueft
+  - element: Informationen ueber Trainings-, Validierungs- und Testdatensaetze
+    status: geprueft
+    regeln:
+    - {gate: G-DEP-01, check: C-01, feld: data_provenance.sources}
+    - {gate: G-DEP-01, check: C-01, feld: data_provenance.collection_methods}
+    - {gate: G-DEP-01, check: C-01, feld: data_provenance.preprocessing_steps}
+    - {gate: G-DEP-01, check: C-01, feld: data_provenance.data_version}
+
+- raum: aiact
+  id: Art. 13 Abs. 3 lit. b Ziff. vii
+  elemente:
+  - element: Informationen, mit denen der Betreiber die Ausgabe interpretieren und das System
+      angemessen nutzen kann
+    status: nachbar
+    hinweis: Behaelter - die Regel verlangt eine nicht leere Anleitung, sieht aber nicht hinein.
+    regeln:
+    - {gate: G-DEP-03, check: C-01, feld: transparency.instructions_for_deployers}
+
+- raum: aiact
+  id: Art. 13 Abs. 3 lit. d
+  elemente:
+  - element: Aufsichtsmassnahmen nach Art. 14 in der Anleitung, einschliesslich technischer Hilfen
+      zur Interpretation
+    status: nachbar
+    regeln:
+    - {gate: G-PRE-05, check: C-01, feld: human_oversight.oversight_model}
+    - {gate: G-OPS-01, check: C-01, feld: human_oversight.oversight_roles}
+
+- raum: aiact
+  id: Art. 13 Abs. 3 lit. f
+  elemente:
+  - element: Beschreibung der Mechanismen zum Erfassen, Speichern und Auswerten der Protokolle
+      in der Anleitung
+    status: nachbar
+    regeln:
+    - {gate: G-DEP-06, check: C-01, feld: logging_configuration.logging_enabled}
+
+# ── Art. 14 – menschliche Aufsicht ───────────────────────────────────────────────────────
+
+- raum: aiact
+  id: Art. 14 Abs. 1
+  elemente:
+  - element: Instrumente, mit denen natuerliche Personen das System beaufsichtigen koennen
+    status: geprueft
+    regeln:
+    - {gate: G-PRE-05, check: C-01, feld: human_oversight.intervention_capability.kill_switch}
+    - {gate: G-OPS-01, check: C-01, feld: human_oversight.intervention_capability.output_override}
+    - {gate: G-OPS-01, check: C-01, feld: human_oversight.intervention_capability.real_time_monitoring}
+  - element: wirksam beaufsichtigbar als Eigenschaft des Systems
+    status: ungeprueft
+
+- raum: aiact
+  id: Art. 14 Abs. 3
+  elemente:
+  - element: Aufsichtsvorkehrungen festgelegt
+    status: geprueft
+    regeln:
+    - {gate: G-PRE-05, check: C-01, feld: human_oversight.oversight_model}
+    - {gate: G-OPS-01, check: C-01, feld: human_oversight.oversight_roles}
+  - element: Vorkehrungen den Risiken, dem Autonomiegrad und dem Nutzungskontext angemessen
+    status: nachbar
+    hinweis: Die Freigabe (approval.approved_by) belegt ein Review, nicht dessen Massstab.
+    regeln:
+    - {gate: G-PRE-05, check: C-01, feld: approval.approved_by}
+
+- raum: aiact
+  id: Art. 14 Abs. 3 lit. b
+  elemente:
+  - element: vom Anbieter bestimmte Vorkehrungen vom Betreiber umgesetzt
+    status: nachbar
+    regeln:
+    - {gate: G-PRE-05, check: C-01, feld: human_oversight.oversight_model}
+    - {gate: G-OPS-01, check: C-01, feld: human_oversight.oversight_roles}
+
+- raum: aiact
+  id: Art. 14 Abs. 4
+  elemente:
+  - element: lit. a - Betrieb ueberwachen
+    status: geprueft
+    regeln:
+    - {gate: G-OPS-01, check: C-01, feld: human_oversight.intervention_capability.real_time_monitoring}
+  - element: lit. d - Ausgabe ausser Kraft setzen
+    status: geprueft
+    regeln:
+    - {gate: G-OPS-01, check: C-01, feld: human_oversight.intervention_capability.output_override}
+  - element: lit. e - Stopptaste
+    status: geprueft
+    regeln:
+    - {gate: G-PRE-05, check: C-01, feld: human_oversight.intervention_capability.kill_switch}
+  - element: lit. b, c und die Befaehigung der Aufsichtspersonen (angemessen und verhaeltnismaessig
+      in der Lage)
+    status: ungeprueft
+
+- raum: aiact
+  id: Art. 14 Abs. 4 lit. a
+  elemente:
+  - element: Betrieb ordnungsgemaess ueberwachen
+    status: geprueft
+    regeln:
+    - {gate: G-OPS-01, check: C-01, feld: human_oversight.intervention_capability.real_time_monitoring}
+  - element: Faehigkeiten und Grenzen verstehen; Anomalien, Fehlfunktionen, unerwartete Leistung
+      erkennen und beheben
+    status: ungeprueft
+
+- raum: aiact
+  id: Art. 14 Abs. 4 lit. d
+  elemente:
+  - element: Ausgabe ausser Acht lassen oder ausser Kraft setzen
+    status: geprueft
+    regeln:
+    - {gate: G-OPS-01, check: C-01, feld: human_oversight.intervention_capability.output_override}
+  - element: beschliessen, das System nicht zu verwenden; Ausgabe rueckgaengig machen
+    status: ungeprueft
+
+- raum: aiact
+  id: Art. 14 Abs. 4 lit. e
+  elemente:
+  - element: Betrieb mit einer Stopptaste unterbrechen
+    status: geprueft
+    regeln:
+    - {gate: G-PRE-05, check: C-01, feld: human_oversight.intervention_capability.kill_switch}
+  - element: in den Betrieb eingreifen
+    status: geprueft
+    regeln:
+    - {gate: G-OPS-01, check: C-01, feld: human_oversight.intervention_capability.output_override}
+  - element: Stillstand in einem sicheren Zustand
+    status: ungeprueft
+
+# ── Art. 15 – Genauigkeit, Robustheit, Cybersicherheit (Anker offen, F4) ─────────────────
+
+- raum: aiact
+  id: Art. 15 Abs. 1
+  elemente:
+  - element: angemessenes Mass an Genauigkeit
+    status: geprueft
+    regeln:
+    - {gate: G-DEP-02, check: C-01, feld: quality_metrics.accuracy}
+  - element: Cybersicherheit der Betriebsumgebung
+    status: geprueft
+    regeln:
+    - {gate: G-PRE-04, check: P1, feld: securityContext.runAsNonRoot}
+    - {gate: G-OPS-04, check: C-01, feld: security.image_scanning_enabled}
+    - {gate: G-OPS-04, check: C-01, feld: security.network_policies_specified}
+  - element: Robustheit
+    status: nachbar
+    hinweis: adversarial_tests ist ein SHOULD-Flag 'durchgefuehrt', kein Robustheitsmass.
+    regeln:
+    - {gate: G-DEP-02, check: C-02, feld: adversarial_tests.performed}
+  - element: bestaendig waehrend des gesamten Lebenszyklus
+    status: nachbar
+    regeln:
+    - {gate: G-OPS-03, check: C-04, feld: drift_measurement.psi_score}
+
+- raum: aiact
+  id: Art. 15 Abs. 3
+  vorbehalt:
+    frage: F4
+    grund: M1-Entscheid (30.09.2026) nimmt die Zeile aus, bis F4 den Anker klaert; abgeleitet waere
+      sie Luecke.
+  elemente:
+  - element: Masse an Genauigkeit und Genauigkeitsmetriken in der Anleitung
+    status: nachbar
+    regeln:
+    - {gate: G-DEP-02, check: C-01, feld: quality_metrics.accuracy}
+
+- raum: aiact
+  id: Art. 15 Abs. 4 UAbs. 1 Satz 1
+  vorbehalt:
+    frage: F4
+    grund: M1-Entscheid (30.09.2026) nimmt die Zeile aus, bis F4 den Anker klaert; abgeleitet waere
+      sie Luecke.
+  elemente:
+  - element: so widerstandsfaehig wie moeglich gegen Fehler, Stoerungen, Unstimmigkeiten
+    status: nachbar
+    hinweis: Ressourcengrenzen je Container begrenzen Folgen, pruefen aber keine Fehlertoleranz.
+    regeln:
+    - {gate: G-PRE-04, check: P2, feld: resources.limits}
+
+- raum: aiact
+  id: Art. 15 Abs. 4 UAbs. 1 Satz 2
+  vorbehalt:
+    frage: F4
+    grund: M1-Entscheid (30.09.2026) nimmt die Zeile aus, bis F4 den Anker klaert; abgeleitet waere
+      sie Luecke.
+  elemente:
+  - element: technische und organisatorische Massnahmen fuer die Widerstandsfaehigkeit
+    status: nachbar
+    hinweis: Die Sicherheitsmassnahmen dienen der Cybersicherheit, nicht der Fehlertoleranz.
+    regeln:
+    - {gate: G-PRE-04, check: P2, feld: resources.limits}
+    - {gate: G-OPS-04, check: C-01, feld: security.network_policies_specified}
+
+- raum: aiact
+  id: Art. 15 Abs. 4 UAbs. 2 Satz 1
+  elemente:
+  - element: Robustheit durch technische Redundanz (Mittel, keine eigene Pflicht)
+    status: ungeprueft
+
+- raum: aiact
+  id: Art. 15 Abs. 4 UAbs. 3 Satz 1
+  elemente:
+  - element: Rueckkopplungsschleifen weiterlernender Systeme beseitigen oder minimieren
+    status: nachbar
+    hinweis: G-OPS-03 misst Drift allgemein, nicht selbstverstaerkende Rueckkopplung (M-C1).
+    regeln:
+    - {gate: G-OPS-03, check: C-04, feld: drift_measurement.psi_score}
+
+- raum: aiact
+  id: Art. 15 Abs. 5
+  elemente:
+  - element: Angriffe auf vertrauliche Daten verhueten
+    status: geprueft
+    regeln:
+    - {gate: G-OPS-04, check: C-01, feld: data_governance.encryption_at_rest}
+    - {gate: G-OPS-04, check: C-01, feld: data_governance.encryption_in_transit}
+    - {gate: G-OPS-04, check: C-01, feld: security.network_policies_specified}
+  - element: adversarial examples und model evasion
+    status: nachbar
+    regeln:
+    - {gate: G-DEP-02, check: C-02, feld: adversarial_tests.performed}
+  - element: data poisoning, model poisoning, Modellmaengel
+    status: ungeprueft
+
+# ── Art. 25 – Rollenwechsel (Kette offen bis R017, H3a) ──────────────────────────────────
+
+- raum: aiact
+  id: Art. 25 Abs. 1
+  elemente:
+  - element: Ausloeser lit. a bis c erkannt
+    status: geprueft
+    regeln:
+    - {gate: G-OPS-06, check: C-25a, feld: change_event.rebranding.own_name_or_trademark_applied}
+    - {gate: G-OPS-06, check: C-25b, feld: change_event.substantial_modification.modified}
+    - {gate: G-OPS-06, check: C-25c, feld: change_event.purpose_change.changed}
+  - element: Folge - Anbieterpflichten nach Art. 16
+    status: ungeprueft
+
+- raum: aiact
+  id: Art. 25 Abs. 1 lit. a
+  elemente:
+  - element: eigener Name oder eigene Marke auf einem bereits in Verkehr gebrachten Hochrisiko-System
+    status: geprueft
+    regeln:
+    - {gate: G-OPS-06, check: C-25a, feld: change_event.system_already_on_market}
+    - {gate: G-OPS-06, check: C-25a, feld: change_event.rebranding.own_name_or_trademark_applied}
+
+- raum: aiact
+  id: Art. 25 Abs. 1 lit. b
+  elemente:
+  - element: wesentliche Veraenderung, System bleibt Hochrisiko
+    status: geprueft
+    regeln:
+    - {gate: G-OPS-06, check: C-25b, feld: change_event.substantial_modification.modified}
+    - {gate: G-OPS-06, check: C-25b, feld: change_event.substantial_modification.remains_high_risk_art6}
+
+- raum: aiact
+  id: Art. 25 Abs. 1 lit. c
+  elemente:
+  - element: Zweckaenderung macht das System zum Hochrisiko-System (Art. 6)
+    status: geprueft
+    regeln:
+    - {gate: G-OPS-06, check: C-25c, feld: change_event.purpose_change.before}
+    - {gate: G-OPS-06, check: C-25c, feld: change_event.purpose_change.after}
+
+# ── Art. 26 – Betreiberpflichten ─────────────────────────────────────────────────────────
+
+- raum: aiact
+  id: Art. 26 Abs. 1
+  elemente:
+  - element: technische und organisatorische Massnahmen, die die Verwendung nach der Anleitung
+      (und nach Abs. 3 und 6) sicherstellen
+    status: nachbar
+    regeln:
+    - {gate: G-DEP-04, check: C-01, feld: conformity_assessment.provider_documentation_received}
+    - {gate: G-DEP-04, check: C-01, feld: conformity_assessment.ce_marking_verified}
+
+- raum: aiact
+  id: Art. 26 Abs. 2
+  elemente:
+  - element: menschliche Aufsicht natuerlichen Personen uebertragen
+    status: geprueft
+    regeln:
+    - {gate: G-OPS-01, check: C-01, feld: human_oversight.oversight_roles}
+    - {gate: G-PRE-05, check: C-01, feld: human_oversight.human_oversight_lead}
+  - element: Eskalationsweg fuer die Aufsichtspersonen (Teil der Unterstuetzung)
+    status: geprueft
+    regeln:
+    - {gate: G-OPS-01, check: C-01, feld: human_oversight.escalation_procedure}
+  - element: Kompetenz, Ausbildung, Befugnis und die uebrige Unterstuetzung
+    status: nachbar
+    hinweis: C-A7 verlangt einen Wirksamkeitsnachweis nur, wenn die Art.-6-Einstufung eine
+      menschliche Kontrolle behauptet (SHOULD).
+    regeln:
+    - {gate: G-PRE-01, check: C-A7, feld: art6_assessment.arm_b_failure_impact.human_control_effectiveness_evidence_ref}
+
+- raum: aiact
+  id: Art. 26 Abs. 4
+  elemente:
+  - element: Eingabedaten entsprechen der Zweckbestimmung und sind ausreichend repraesentativ
+    status: nachbar
+    hinweis: G-DEP-01 prueft Trainingsdaten des Anbieters, nicht Eingabedaten des Betreibers.
+    regeln:
+    - {gate: G-DEP-01, check: C-01, feld: data_provenance.sources}
+
+- raum: aiact
+  id: Art. 26 Abs. 5 UAbs. 1 Satz 1
+  elemente:
+  - element: Betrieb anhand der Betriebsanleitung ueberwachen
+    status: geprueft
+    regeln:
+    - {gate: G-OPS-01, check: C-01, feld: human_oversight.intervention_capability.real_time_monitoring}
+    - {gate: G-OPS-03, check: C-03, feld: drift_measurement.measured_at}
+    - {gate: G-OPS-03, check: C-04, feld: drift_measurement.psi_score}
+  - element: gegebenenfalls die Anbieter nach Art. 72 informieren
+    status: ungeprueft
+
+- raum: aiact
+  id: Art. 26 Abs. 5 UAbs. 1 Satz 2
+  elemente:
+  - element: bei Grund zur Annahme eines Risikos nach Art. 79 Abs. 1 unverzueglich Anbieter oder
+      Haendler und Marktueberwachungsbehoerde informieren
+    status: ungeprueft
+  - element: Verwendung aussetzen
+    status: nachbar
+    hinweis: Die Stopptaste ist dokumentiert; das Aussetzen bei Risiko ist keine Regel.
+    regeln:
+    - {gate: G-PRE-05, check: C-01, feld: human_oversight.intervention_capability.kill_switch}
+
+- raum: aiact
+  id: Art. 26 Abs. 5 UAbs. 1 Satz 3
+  elemente:
+  - element: Meldeprozess fuer schwerwiegende Vorfaelle mit benannter Stelle eingerichtet
+    status: geprueft
+    regeln:
+    - {gate: G-OPS-02, check: C-01, feld: 'annotations[genaiops.io/incident-response-configured]'}
+    - {gate: G-OPS-02, check: C-01, feld: 'annotations[genaiops.io/incident-contact]'}
+  - element: unverzueglich zuerst den Anbieter, dann Einfuehrer oder Haendler und die Behoerden
+      informieren (Reihenfolge)
+    status: ungeprueft
+
+- raum: aiact
+  id: Art. 26 Abs. 5 UAbs. 1 Satz 4
+  elemente:
+  - element: Fristen des Art. 73 deklariert
+    status: geprueft
+    regeln:
+    - {gate: G-OPS-02, check: C-04, feld: 'deadlines[].hours'}
+  - element: Ausloeser - Anbieter nicht erreichbar
+    status: ungeprueft
+
+- raum: aiact
+  id: Art. 26 Abs. 6
+  hinweis: Satz 2 (Betreiber, die Finanzinstitute sind) trifft den Netzbetreiber nicht und ist kein
+    Element dieser Zeile.
+  elemente:
+  - element: automatisch erzeugte Protokolle aufbewahren
+    status: geprueft
+    regeln:
+    - {gate: G-DEP-06, check: C-01, feld: logging_configuration.logging_enabled}
+  - element: mindestens sechs Monate
+    status: geprueft
+    regeln:
+    - {gate: G-DEP-06, check: C-01, feld: logging_configuration.retention_period_days}
+  - element: soweit ihrer Kontrolle unterliegend - zugaenglich
+    status: geprueft
+    regeln:
+    - {gate: G-DEP-06, check: C-01, feld: logging_configuration.log_accessibility}
+
+- raum: aiact
+  id: Art. 26 Abs. 7
+  elemente:
+  - element: Arbeitnehmervertreter und betroffene Arbeitnehmer vor Inbetriebnahme informieren
+    status: ungeprueft
+
+- raum: aiact
+  id: Art. 26 Abs. 11
+  elemente:
+  - element: betroffene natuerliche Personen informieren, dass sie der Verwendung unterliegen
+    status: nachbar
+    hinweis: ai_content_labeling ist Art. 50 - den nimmt Abs. 11 ausdruecklich aus ("unbeschadet").
+      Ob Abs. 11 fuer Redispatch gilt, bleibt Q11.
+    regeln:
+    - {gate: G-DEP-03, check: C-01, feld: transparency.ai_content_labeling.enabled}
+
+# ── Art. 73 – Meldung schwerwiegender Vorfaelle (fuer den Betreiber ueber Art. 26 Abs. 5 Satz 4) ─
+
+- raum: aiact
+  id: Art. 73 Abs. 1
+  elemente:
+  - element: Meldeprozess mit benannter Stelle eingerichtet
+    status: geprueft
+    regeln:
+    - {gate: G-OPS-02, check: C-01, feld: 'annotations[genaiops.io/incident-response-configured]'}
+    - {gate: G-OPS-02, check: C-01, feld: 'annotations[genaiops.io/incident-contact]'}
+  - element: schwerwiegende Vorfaelle der zustaendigen Behoerde melden (Meldung selbst)
+    status: ungeprueft
+  - element: fuer den Betreiber nur, wenn der Anbieter nicht erreichbar ist
+    status: ungeprueft
+
+- raum: aiact
+  id: Art. 73 Abs. 2 UAbs. 1 Satz 1
+  elemente:
+  - element: spaetestens 15 Tage (360 h)
+    status: geprueft
+    regeln:
+    - {gate: G-OPS-02, check: C-04, feld: 'deadlines[].hours'}
+  - element: unmittelbar nach Feststellung des Zusammenhangs; Fristbeginn bei Kenntnis des Betreibers
+    status: ungeprueft
+
+- raum: aiact
+  id: Art. 73 Abs. 2 UAbs. 2 Satz 1
+  elemente:
+  - element: Meldezeitraum nach Schwere gestuft
+    status: geprueft
+    regeln:
+    - {gate: G-OPS-02, check: C-04, feld: 'deadlines[].id'}
+    - {gate: G-OPS-02, check: C-04, feld: 'deadlines[].hours'}
+
+- raum: aiact
+  id: Art. 73 Abs. 3
+  elemente:
+  - element: weitverbreiteter Verstoss oder Vorfall nach Art. 3 Nr. 49 lit. b - spaetestens 2 Tage (48 h)
+    status: geprueft
+    regeln:
+    - {gate: G-OPS-02, check: C-04, feld: 'deadlines[].hours'}
+
+- raum: aiact
+  id: Art. 73 Abs. 4
+  elemente:
+  - element: Tod einer Person - spaetestens 10 Tage (240 h)
+    status: geprueft
+    regeln:
+    - {gate: G-OPS-02, check: C-04, feld: 'deadlines[].hours'}
+
+- raum: aiact
+  id: Art. 73 Abs. 5
+  elemente:
+  - element: unvollstaendiger Erstbericht moeglich (Erlaubnis, keine Pflicht)
+    status: ungeprueft
+
+- raum: aiact
+  id: Art. 73 Abs. 9
+  elemente:
+  - element: Meldung auf Vorfaelle nach Art. 3 Nr. 49 lit. c reduziert
+    status: geprueft
+    regeln:
+    - {gate: G-OPS-02, check: C-02, feld: deployer_context.ai_act_scope_reduced_to}
+  - element: Bedingung - der Anbieter unterliegt gleichwertigen Meldepflichten
+    status: ungeprueft
+
+# ── Omnibus: Art. 25 Abs. 2 n.F. (P2-B1) ─────────────────────────────────────────────────
+
+- raum: omnibus
+  id: Art. 25 Abs. 2 n.F.
+  elemente:
+  - element: Erstanbieter arbeitet eng mit dem neuen Anbieter zusammen (Zusage belegt)
+    status: geprueft
+    regeln:
+    - {gate: G-OPS-06, check: C-25d, feld: change_event.evidence.cooperation_commitment_ref}
+  - element: erforderliche Informationen uebergeben (Uebergabebeleg liegt vor)
+    status: geprueft
+    regeln:
+    - {gate: G-OPS-06, check: C-25d, feld: change_event.evidence.provider_handover_record}
+  - element: technischer Zugang und sonstige Unterstuetzung
+    status: ungeprueft
+
+- raum: omnibus
+  id: Art. 25 Abs. 2 lit. a n.F.
+  elemente:
+  - element: technische Unterlagen, ausreichend fuer die Bewertung nach Art. 16
+    status: nachbar
+    hinweis: Behaelter - C-25d verlangt den Uebergabebeleg, sieht aber nicht hinein (wie Ziff. vii).
+    regeln:
+    - {gate: G-OPS-06, check: C-25d, feld: change_event.evidence.provider_handover_record}
+
+- raum: omnibus
+  id: Art. 25 Abs. 2 lit. b n.F.
+  elemente:
+  - element: Unterrichtung ueber bekannte Einschraenkungen und Fehlerarten
+    status: nachbar
+    hinweis: Behaelter - C-25d verlangt den Uebergabebeleg, sieht aber nicht hinein (wie Ziff. vii).
+    regeln:
+    - {gate: G-OPS-06, check: C-25d, feld: change_event.evidence.provider_handover_record}
+
+- raum: omnibus
+  id: Art. 25 Abs. 2 lit. c n.F.
+  elemente:
+  - element: gezielter technischer Zugang, auch zu Test- und Validierungszwecken
+    status: nachbar
+    hinweis: Behaelter - C-25d verlangt den Uebergabebeleg, sieht aber nicht hinein (wie Ziff. vii).
+    regeln:
+    - {gate: G-OPS-06, check: C-25d, feld: change_event.evidence.provider_handover_record}
+
+- raum: omnibus
+  id: Art. 25 Abs. 2 UAbs. 4 n.F.
+  elemente:
+  - element: Ausnahme belegt - der Erstanbieter hat die Umwandlung in ein Hochrisiko-System
+      eindeutig ausgeschlossen
+    status: geprueft
+    regeln:
+    - {gate: G-OPS-06, check: C-25d, feld: change_event.evidence.initial_provider_excluded_high_risk_conversion}
+    - {gate: G-OPS-06, check: C-25d, feld: change_event.evidence.initial_provider_exclusion_ref}

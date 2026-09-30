@@ -7639,6 +7639,7 @@ einheiten:
   - R007
   gate:
   - G-DEP-03
+  - G-DEP-04
   befund: teilabdeckung
   befund_grund: 'Wie Abs. 1: G-DEP-03/C-01 prueft Existenz der Deployer-Anleitung, nicht die Qualitaetsmerkmale
     (praezise/vollstaendig/korrekt/eindeutig/barrierefrei/verstaendlich), die der Wortlaut ausdruecklich
@@ -7676,6 +7677,7 @@ einheiten:
   - R007
   gate:
   - G-DEP-03
+  - G-DEP-04
   befund: teilabdeckung
   befund_grund: Chapeau-Norm zur Mindestinhalts-Liste lit. a-f; Einzelbefunde je Buchstabe.
   po_bestaetigt: true
@@ -7922,9 +7924,7 @@ einheiten:
   omnibus: unveraendert - Art. 13 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
     (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
   requirement: *id021
-  gate:
-  - G-DEP-03
-  - G-DEP-02
+  gate: []
   befund: luecke
   befund_grund: 'Kein implementierter Check: der einzige passende, G-DEP-03/C-02, ist design_only (P3).'
   po_bestaetigt: true
@@ -8050,8 +8050,7 @@ einheiten:
   omnibus: unveraendert - Art. 13 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
     (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
   requirement: *id022
-  gate:
-  - G-DEP-05
+  gate: []
   befund: luecke
   befund_grund: Kein Gate prueft, ob die Informationen zur Interpretation der Ausgaben in der Betriebsanleitung
     stehen (P3); Bezug zur Kompetenz der Aufsichtsperson (P2).
@@ -8061,6 +8060,8 @@ einheiten:
   po_entscheid:
   - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, Anker (a) und (b))
   - 2026-09-23 · T-14.1 (geerbte Zeile, P3, Bezug P2)
+  nachbar_gate:
+  - G-DEP-03
 - id: Art. 13 Abs. 3 lit. c
   artikel: '13'
   artikel_titel: Transparenz und Bereitstellung von Informationen für die Betreiber
@@ -8459,6 +8460,7 @@ einheiten:
   - R008
   gate:
   - G-OPS-01
+  - G-PRE-05
   befund: teilabdeckung
   befund_grund: Bereitstellungspflicht des Anbieters, direkt auf die vom Betreiber nach Art. 26 Abs. 2
     beauftragten Personen bezogen - definiert die Kompetenzanforderungen, die Art. 26 Abs. 2 voraussetzt.
@@ -8660,6 +8662,7 @@ einheiten:
   - R004
   gate:
   - G-PRE-05
+  - G-OPS-01
   befund: teilabdeckung
   befund_grund: 'G-PRE-05/C-01 prueft explizit ''kill_switch fuer High-Risk'' (Selbstauskunft, E-0) -
     direkter Bezug zur ''Stopptaste''. Nicht geprueft: ob der Stillstand tatsaechlich SICHER erfolgt (sicherer
@@ -8760,6 +8763,8 @@ einheiten:
   ziffer: null
   po_entscheid:
   - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, kein Anker benannt)
+  nachbar_gate:
+  - G-OPS-03
 - id: Art. 15 Abs. 2
   artikel: '15'
   artikel_titel: Genauigkeit, Robustheit und Cybersicherheit
@@ -8941,7 +8946,7 @@ einheiten:
     (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf: die Liste geaenderter Artikel geht
     von Nr. 10 [Art. 11] direkt auf Nr. 11 [Art. 17] ueber).'
   requirement: *id023
-  gate: *id024
+  gate: []
   befund: nicht_einschlaegig
   befund_grund: Mittel ('kann durch technische Redundanz erreicht werden'), keine eigene pruefbare Pflicht.
   po_bestaetigt: false
@@ -8983,7 +8988,7 @@ einheiten:
     (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf: die Liste geaenderter Artikel geht
     von Nr. 10 [Art. 11] direkt auf Nr. 11 [Art. 17] ueber).'
   requirement: *id023
-  gate: *id024
+  gate: []
   befund: luecke
   befund_grund: Rueckkopplungsschleifen bei Systemen, die im Betrieb weiterlernen, prueft kein Gate; G-OPS-03
     misst Drift allgemein. Ob das System weiterlernt, ist eine Tatsache, die heute nirgends erfasst ist
@@ -8995,6 +9000,8 @@ einheiten:
   - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, kein Anker benannt)
   - 2026-09-28 · 2c F2 (Luecke - kein Gate prueft Rueckkopplungsschleifen, M-C1)
   - 2026-09-30 · P3-F2 a (Review 10) - Pflichttext nach dem Neuschnitt bestaetigt
+  nachbar_gate:
+  - G-OPS-03
 - id: Art. 15 Abs. 5
   artikel: '15'
   artikel_titel: Genauigkeit, Robustheit und Cybersicherheit
@@ -9045,6 +9052,8 @@ einheiten:
   ziffer: null
   po_entscheid:
   - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, kein Anker benannt)
+  nachbar_gate:
+  - G-DEP-02
 - id: Art. 16
   artikel: '16'
   artikel_titel: Pflichten der Anbieter von Hochrisiko-KI-Systemen
@@ -11646,7 +11655,7 @@ einheiten:
   - R008
   gate:
   - G-OPS-01
-  - G-PRE-01
+  - G-PRE-05
   befund: teilabdeckung
   befund_grund: 'G-OPS-01/C-01 prueft, dass oversight_roles, escalation_procedure, output_override und
     real_time_monitoring dokumentiert sind (Pod-Annotation, E-0) - das deckt die UEBERTRAGUNG an eine
@@ -11666,6 +11675,8 @@ einheiten:
   po_entscheid:
   - 2026-09-23 · 2b E4 (VERIFIZIERT - Betreiber in der Einheit oder ihrem Einleitungssatz genannt)
   - 2026-09-28 · 2c F1 (T-B Aufsicht, M-B2 = P2 Kompetenz und M-B1 = P5 Wirksamkeit)
+  nachbar_gate:
+  - G-PRE-01
 - id: Art. 26 Abs. 3
   artikel: '26'
   artikel_titel: Pflichten der Betreiber von Hochrisiko-KI-Systemen
@@ -11722,8 +11733,7 @@ einheiten:
     nicht enthalten (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
   requirement:
   - R006
-  gate:
-  - G-DEP-01
+  gate: []
   befund: luecke
   befund_grund: 'R006 selbst fuehrt alle drei acceptance_criteria als ''gap'': G-DEP-01 prueft die Dokumentation
     der TRAININGSdaten des Anbieters (Art. 10/11), nicht die Konformitaet der vom Betreiber kontrollierten
@@ -11740,6 +11750,8 @@ einheiten:
   po_entscheid:
   - 2026-09-23 · 2b E2 (P4 Eingabedaten)
   - 2026-09-23 · 2b E4 (VERIFIZIERT - Betreiber in der Einheit oder ihrem Einleitungssatz genannt)
+  nachbar_gate:
+  - G-DEP-01
 - uid: Art. 26 Abs. 5 UAbs. 1 Satz 1@359973
   id: Art. 26 Abs. 5 UAbs. 1 Satz 1
   artikel: '26'
@@ -11812,8 +11824,7 @@ einheiten:
   omnibus: unveraendert - VO (EU) 2026/1744 Art. 1 aendert Art. 25 und Art. 27, Art. 26 ist in der Aenderungsliste
     nicht enthalten (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
   requirement: *id029
-  gate: &id030
-  - G-OPS-02
+  gate: []
   befund: luecke
   befund_grund: 'Hat der Betreiber Grund zur Annahme eines Risikos nach Art. 79 Abs. 1, setzt er die Verwendung
     aus. Kein Gate hat diese Wirkung: halt_pipeline stoppt das Deployment, nicht den laufenden Betrieb,
@@ -11825,6 +11836,8 @@ einheiten:
   - 2026-09-23 · 2b E2 (P8 Aussetzen bei Risiko, Art. 26 Abs. 5 Satz 2 nach Teilung)
   - 2026-09-23 · 2b E4 (VERIFIZIERT - Betreiber in der Einheit oder ihrem Einleitungssatz genannt)
   - 2026-09-30 · P3-F2 a (Review 10) - Pflichttext nach dem Neuschnitt bestaetigt
+  nachbar_gate:
+  - G-PRE-05
 - uid: Art. 26 Abs. 5 UAbs. 1 Satz 3@360464
   id: Art. 26 Abs. 5 UAbs. 1 Satz 3
   artikel: '26'
@@ -11852,7 +11865,8 @@ einheiten:
   omnibus: unveraendert - VO (EU) 2026/1744 Art. 1 aendert Art. 25 und Art. 27, Art. 26 ist in der Aenderungsliste
     nicht enthalten (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
   requirement: *id029
-  gate: *id030
+  gate: &id030
+  - G-OPS-02
   befund: teilabdeckung
   befund_grund: G-OPS-02/C-01 prueft, dass ein Incident-Kontakt deklariert ist, nicht die Reihenfolge
     zuerst Anbieter, dann Einfuehrer oder Haendler, dann Behoerde (M-E3, P6).
@@ -11925,7 +11939,7 @@ einheiten:
   omnibus: unveraendert - VO (EU) 2026/1744 Art. 1 aendert Art. 25 und Art. 27, Art. 26 ist in der Aenderungsliste
     nicht enthalten (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
   requirement: *id029
-  gate: *id030
+  gate: []
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -11965,7 +11979,7 @@ einheiten:
   omnibus: unveraendert - VO (EU) 2026/1744 Art. 1 aendert Art. 25 und Art. 27, Art. 26 ist in der Aenderungsliste
     nicht enthalten (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
   requirement: *id029
-  gate: *id030
+  gate: []
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -12045,8 +12059,7 @@ einheiten:
     nicht enthalten (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
   requirement:
   - R007
-  gate:
-  - G-DEP-03
+  gate: []
   befund: luecke
   befund_grund: Kein Check prueft die Unterrichtung der Arbeitnehmervertretung und der betroffenen Arbeitnehmer
     vor Inbetriebnahme. G-DEP-03/C-01 nennt sie nicht, R007 fuehrt das Kriterium trotzdem als 'met' (Befund
@@ -12225,19 +12238,13 @@ einheiten:
     nicht enthalten (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
   requirement:
   - R007
-  gate:
-  - G-DEP-03
-  befund: teilabdeckung
-  befund_grund: 'AUSLEGUNGSFRAGE, PO-Entscheidung noetig: die Pflicht gilt fuer Systeme, die ''Entscheidungen
-    ueber natuerliche Personen treffen oder dabei Unterstuetzung leisten''. Der Anwendungsfall Redispatch
-    (Anhang III Nr. 2, kritische Infrastruktur) trifft technische Netzsteuerungsentscheidungen (Erzeugungs-/Lastanpassung);
-    ob dies ''Entscheidungen ueber natuerliche Personen'' im Sinne dieser Vorschrift sind (z.B. mittelbar
-    betroffene Verbraucher bei einer Lastabwurf-Priorisierung), ist am Wortlaut nicht abschliessend zu
-    klaeren und wird hier NICHT einseitig verneint. R007/G-DEP-03 decken die allgemeine Transparenzdokumentation
-    (Art. 13, Art. 26 Abs. 7) ab, aber keine eigene, auf Abs. 11 zugeschnittene Betroffenenunterrichtung;
-    selbst wenn die Anwendbarkeit bejaht wird, waere die Deckung folglich nur teilweise. Fuer den PR-Bericht
-    als offene PO-Frage vorgemerkt: Trifft Redispatch ''Entscheidungen ueber natuerliche Personen'' i.S.d.
-    Art. 26 Abs. 11?'
+  gate: []
+  befund: luecke
+  befund_grund: 'Kein Element geprueft (M1a, Element-Matrix Lauf 2). Nachbar: G-DEP-03 verlangt die Kennzeichnung
+    KI-erzeugter Inhalte (ai_content_labeling, Art. 50) - die nimmt Abs. 11 ausdruecklich aus (''unbeschadet
+    des Artikels 50''). Die Unterrichtung der betroffenen natuerlichen Personen prueft keine Regel. Offen
+    bleibt die Anwendbarkeit (Q11, PO-Runde): Trifft Redispatch ''natuerliche Personen betreffende Entscheidungen''
+    i.S.d. Art. 26 Abs. 11?'
   po_bestaetigt: false
   uid: Art. 26 Abs. 11@366623
   abschnitt: null
@@ -12246,6 +12253,8 @@ einheiten:
   ziffer: null
   po_entscheid:
   - 2026-09-23 · 2b E4 (VERIFIZIERT - Betreiber in der Einheit oder ihrem Einleitungssatz genannt)
+  nachbar_gate:
+  - G-DEP-03
 - id: Art. 26 Abs. 12
   artikel: '26'
   artikel_titel: Pflichten der Betreiber von Hochrisiko-KI-Systemen
@@ -25391,8 +25400,7 @@ einheiten:
   omnibus: unveraendert (s. Art. 73 Abs. 1).
   requirement:
   - R009
-  gate:
-  - G-OPS-02
+  gate: []
   befund: nicht_einschlaegig
   befund_grund: 'Erlaubnis (''kann ... einen unvollstaendigen Erstbericht vorlegen''), keine Pflicht.
     Designvorgabe fuer G-OPS-02: ein Erstbericht muss moeglich sein.'

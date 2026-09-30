@@ -3198,8 +3198,8 @@ def check_coverage_finding_names_checking_gate() -> dict:
         ein Gate in 'gate';
       * kein Gate steht zugleich in 'gate' und 'nachbar_gate';
       * jedes genannte Gate gibt es in gate-definitions/.
-    Ob ein Gate in 'gate' wirklich ein Element prueft, entscheidet die
-    Element-Matrix am Rego-Code (Review 07; als Daten und Waechter in Paket 7).
+    Ob ein Gate in 'gate' wirklich ein Element prueft, haelt seit Paket 3b
+    ELEMENT_MATRIX_DERIVES_GATE am Rego-Code (Review 11).
 
     HIGH aus demselben Grund wie OMNIBUS_SUPERSEDED_UNITS_OUT (R-2): der Fehler
     macht aus einer Luecke eine scheinbare Pruefung. Einstufung vom PO bestaetigt
@@ -3242,6 +3242,61 @@ def check_coverage_finding_names_checking_gate() -> dict:
         else f"{geprueft} gedeckte oder teilweise gedeckte Zeilen nennen je ein pruefendes Gate; "
              f"kein Nachbar zugleich als Pruefer, kein unbekanntes Gate.",
         findings[:12] + ([f"… und {len(findings) - 12} weitere"] if len(findings) > 12 else []),
+    )
+
+
+def check_element_matrix_derives_gate() -> dict:
+    """'gate' und 'nachbar_gate' sind aus der Element-Matrix abgeleitet, und die Matrix aus dem Code.
+
+    Paket 3b (30.09.2026, Review 11): Element-Matrix Lauf 2 als Daten
+    (docs/coverage/matrix/element_matrix.yaml), PO-Entscheide M2a (29.09.) und M1a (30.09.).
+    Bis dahin war 'gate' von Hand gesetzt und nannte Pruefer, Nachbarn und Ziele
+    durcheinander: Art. 26 Abs. 7 trug G-DEP-03, obwohl keine Regel die Unterrichtung
+    der Arbeitnehmer prueft; Art. 25 Abs. 2 lit. a-c n.F. trugen 'teilabdeckung', weil
+    C-25d einen Uebergabebeleg verlangt - hineingesehen hat keine Regel.
+    COVERAGE_FINDING_NAMES_CHECKING_GATE sah beides nicht: ein Gate stand da, und es
+    gab es.
+
+    Drei Richtungen:
+      * Matrix -> Code: jede genannte Regel (Gate, Check, Feld) gibt es - der Check ist
+        implementiert, und eine Regel dieses Gates und Checks liest das Feld (OPA-AST,
+        tools/rego_inputs.py). Liest die Regel das Feld nicht mehr, ist die Matrix falsch.
+      * Matrix -> Pflichtenraum: gate, nachbar_gate und die Befundklasse (M1a: kein
+        Element geprueft = Luecke; alle geprueft und Kette geschlossen = gedeckt; sonst
+        Teilabdeckung) stimmen mit der Zeile ueberein.
+      * Pflichtenraum -> Matrix: eine Zeile ohne Matrix-Eintrag traegt kein gate, kein
+        nachbar_gate und ist weder gedeckt noch Teilabdeckung.
+    Ausgenommen sind Zeilen unter Vorbehalt einer Frage, die im Entscheidungsregister
+    offen steht (F4); sie werden mit dem abgeleiteten Befund gemeldet.
+
+    Braucht opa auf PATH (wie make test-rego). Ohne opa kann die Matrix nicht gegen den
+    Code gehalten werden - das ist ein Befund, kein Uebersprung.
+
+    HIGH als Vorschlag (Frage R-6), aus demselben Grund wie R-3: ein Gate in 'gate', das
+    kein Element prueft, macht aus einer Luecke eine scheinbare Pruefung.
+    """
+    import shutil
+    import sys as _sys
+
+    titel = "gate und nachbar_gate sind aus der Element-Matrix abgeleitet, und die Matrix haelt am Rego-Code (M2a, M1a)"
+    if shutil.which("opa") is None:
+        return make_result(
+            "ELEMENT_MATRIX_DERIVES_GATE", titel, "high", False,
+            "opa ist nicht auf PATH - die Element-Matrix kann nicht gegen den Rego-Code gehalten werden.",
+        )
+    _sys.path.insert(0, str(REPO_ROOT / "tools" / "legal"))
+    import element_matrix as mx  # noqa: E402
+
+    befunde, zahl = mx.pruefen(REPO_ROOT, getrackt=_tracked_files())
+    vorbehalt = zahl["vorbehalt"]
+    return make_result(
+        "ELEMENT_MATRIX_DERIVES_GATE", titel, "high", not befunde,
+        f"{len(befunde)} Befund(e) zwischen Element-Matrix, Rego-Code und Pflichtenraum." if befunde
+        else (f"{zahl['zeilen']} Zeilen, {zahl['elemente']} Elemente, {zahl['regeln']} Regelangaben am "
+              f"OPA-AST bestaetigt; {zahl['abgeleitet']} Zeilen tragen genau ihr abgeleitetes gate, "
+              f"nachbar_gate und ihre Befundklasse, {len(vorbehalt)} unter Vorbehalt."),
+        (befunde[:12] + ([f"… und {len(befunde) - 12} weitere"] if len(befunde) > 12 else []))
+        + [f"Vorbehalt: {v}" for v in vorbehalt],
     )
 
 
@@ -3542,6 +3597,7 @@ def collect_results() -> list[dict]:
         check_po_decisions_applied,
         check_omnibus_superseded_units_out,
         check_coverage_finding_names_checking_gate,
+        check_element_matrix_derives_gate,
         check_norm_units_match_extractor,
         check_norm_refs_resolve,
         check_po_decisions_registered,

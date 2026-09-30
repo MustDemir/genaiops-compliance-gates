@@ -19,6 +19,7 @@ Arbeitsdokumente zur Abnahme von SPEC-06 / T-12: Die Vorschläge der Nachtläufe
 | 08 | [`08-paket-1-anhaenge.md`](08-paket-1-anhaenge.md) | Paket 1: 206 Anhang-Einheiten und Art. 113 eingeordnet (4 in, alle steuernd; 206 out), Omnibus-Änderungen an Anhängen, Fragen A-F1, A-F2 | Vorschlag – Stichprobe in Paket 4 |
 | 09 | [`09-paket-2-omnibus.md`](09-paket-2-omnibus.md) | Paket 2: 259 Omnibus-Einheiten eingeordnet (100 Änderungsanweisungen out; 159 n.F.: 11 in, 148 out), A-F2a umgesetzt (6 AI-Act-Zeilen ersetzt → out), Wächter `OMNIBUS_SUPERSEDED_UNITS_OUT`, Fragen P2-F1–F5, R-2 | **entschieden 29.09.2026** (P2-F1 a, F2 a, F3 a, F4 c, F5 a, R-2 HIGH) |
 | 10 | [`10-paket-3-werkzeug.md`](10-paket-3-werkzeug.md) | Paket 3a, Werkzeug T-15: Art.-113-Kennungen, Anhang I Abschn. B, Fußzeile, Überschriften im Beleg, Omnibus Abs. 1b/Art. 75b, Unterabsätze hinter Aufzählungen, Pflichttexte der Sätze (M-B2); alle Räume neu gebaut; Wächter `NORM_UNITS_MATCH_EXTRACTOR` | geliefert (Teil 1 und 2) · Fragen R-4, P3-F1, P3-F2 |
+| 11 | [`11-paket-3b-element-matrix.md`](11-paket-3b-element-matrix.md) | Paket 3b: Element-Matrix Lauf 2 als Daten (`docs/coverage/matrix/element_matrix.yaml`), `gate` und `nachbar_gate` abgeleitet, P2-B1 (Art. 25 Abs. 2 lit. a–c n.F. → Lücke), Art. 26 Abs. 11 → Lücke; Wächter `ELEMENT_MATRIX_DERIVES_GATE` | geliefert · Fragen P3-F3, P3-F4, R-6 |
 | – | [`entscheidungsregister.md`](entscheidungsregister.md) | **Alle offenen Entscheide des PO und ausstehenden Schritte mit Ziel-Paket** (Wächter `PO_DECISIONS_REGISTERED`) | lebend |
 
 Ticket-Entwurf zu den Werkzeugbefunden: [`../../tickets/T-14-pflichtenraum-werkzeug.md`](../../tickets/T-14-pflichtenraum-werkzeug.md)
@@ -28,7 +29,7 @@ Ticket-Entwurf zu den Werkzeugbefunden: [`../../tickets/T-14-pflichtenraum-werkz
 ```
 1 Verstehen ✅ → 2a ✅ → 2b ✅ → Gegenprüfung ✅ → T-14 ✅ → 2c ✅ → 2d/2e ✅ → 06 ✅ → 07 (M2 ✅, M1 offen)
 
-ab 29.09.2026 (00 Teil C): 1 Anhänge ✅ (Vorschlag, 08) → 2 Omnibus n.F. ✅ (Vorschlag, 09) → 3 Befunde + Matrix-Lauf 2 → 4 PO-Runde
+ab 29.09.2026 (00 Teil C): 1 Anhänge ✅ (Vorschlag, 08) → 2 Omnibus n.F. ✅ (Vorschlag, 09) → 3 Werkzeug ✅ (10) + Matrix-Lauf 2 ✅ (11) → 4 PO-Runde
                            → 5 Bedarfsanalyse → 6 Bauen → 7 known_limits + Wächter → 8 PR → 9 Prüf-Agent
 ```
 
