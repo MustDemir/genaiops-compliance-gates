@@ -1342,11 +1342,11 @@ einheiten:
   buchstabe: null
   ziffer: null
   offset: 194200
-  laenge: 302
-  saetze: 2
+  laenge: 278
+  saetze: 1
   beleg: 26. „internationale Organisation“ eine völkerrechtliche Organisation und ihre nachgeordneten
     Stellen oder jede sonstige Einrichtung, die durch eine zwischen zwei oder mehr Ländern geschlossene
-    Übereinkunft oder auf der Grundlage einer solchen Übereinkunft geschaffen wurde. KAPITEL II Grundsätze
+    Übereinkunft oder auf der Grundlage einer solchen Übereinkunft geschaffen wurde.
   adressat: null
   pflicht: null
   scope: null
@@ -2699,14 +2699,13 @@ einheiten:
   absatz: '2'
   buchstabe: null
   offset: 211151
-  laenge: 556
-  saetze: 3
+  laenge: 470
+  saetze: 2
   beleg: (2)   Kann der Verantwortliche in Fällen gemäß Absatz 1 des vorliegenden Artikels nachweisen,
     dass er nicht in der Lage ist, die betroffene Person zu identifizieren, so unterrichtet er die betroffene
     Person hierüber, sofern möglich. In diesen Fällen finden die Artikel 15 bis 20 keine Anwendung, es
     sei denn, die betroffene Person stellt zur Ausübung ihrer in diesen Artikeln niedergelegten Rechte
-    zusätzliche Informationen bereit, die ihre Identifizierung ermöglichen. KAPITEL III Rechte der betroffenen
-    Person Abschnitt 1 Transparenz und Modalitäten
+    zusätzliche Informationen bereit, die ihre Identifizierung ermöglichen.
   adressat: null
   pflicht: null
   scope: null
@@ -2996,12 +2995,11 @@ einheiten:
   absatz: '8'
   buchstabe: null
   offset: 215511
-  laenge: 332
-  saetze: 2
+  laenge: 248
+  saetze: 1
   beleg: (8)   Der Kommission wird die Befugnis übertragen, gemäß Artikel 92 delegierte Rechtsakte zur
     Bestimmung der Informationen, die durch Bildsymbole darzustellen sind, und der Verfahren für die Bereitstellung
-    standardisierter Bildsymbole zu erlassen. Abschnitt 2 Informationspflicht und Recht auf Auskunft zu
-    personenbezogenen Daten
+    standardisierter Bildsymbole zu erlassen.
   adressat: null
   pflicht: null
   scope: null
@@ -4427,10 +4425,10 @@ einheiten:
   absatz: '4'
   buchstabe: null
   offset: 227108
-  laenge: 166
-  saetze: 2
+  laenge: 126
+  saetze: 1
   beleg: (4)   Das Recht auf Erhalt einer Kopie gemäß Absatz 1b darf die Rechte und Freiheiten anderer
-    Personen nicht beeinträchtigen. Abschnitt 3 Berichtigung und Löschung
+    Personen nicht beeinträchtigen.
   adressat: null
   pflicht: null
   scope: null
@@ -5204,10 +5202,9 @@ einheiten:
   absatz: '4'
   buchstabe: null
   offset: 234404
-  laenge: 188
-  saetze: 2
+  laenge: 102
+  saetze: 1
   beleg: (4)   Das Recht gemäß Absatz 2 darf die Rechte und Freiheiten anderer Personen nicht beeinträchtigen.
-    Abschnitt 4 Widerspruchsrecht und automatisierte Entscheidungsfindung im Einzelfall
   adressat: null
   pflicht: null
   scope: null
@@ -5556,12 +5553,12 @@ einheiten:
   absatz: '4'
   buchstabe: null
   offset: 238094
-  laenge: 354
-  saetze: 2
+  laenge: 325
+  saetze: 1
   beleg: (4)   Entscheidungen nach Absatz 2 dürfen nicht auf besonderen Kategorien personenbezogener Daten
     nach Artikel 9 Absatz 1 beruhen, sofern nicht Artikel 9 Absatz 2 Buchstabe a oder g gilt und angemessene
     Maßnahmen zum Schutz der Rechte und Freiheiten sowie der berechtigten Interessen der betroffenen Person
-    getroffen wurden. Abschnitt 5 Beschränkungen
+    getroffen wurden.
   adressat: null
   pflicht: null
   scope: null
@@ -6072,11 +6069,10 @@ einheiten:
   absatz: '2'
   buchstabe: h
   offset: 241057
-  laenge: 233
-  saetze: 2
+  laenge: 144
+  saetze: 1
   beleg: h) das Recht der betroffenen Personen auf Unterrichtung über die Beschränkung, sofern dies nicht
-    dem Zweck der Beschränkung abträglich ist. KAPITEL IV Verantwortlicher und Auftragsverarbeiter Abschnitt
-    1 Allgemeine Pflichten
+    dem Zweck der Beschränkung abträglich ist.
   adressat: null
   pflicht: null
   scope: null
@@ -7496,11 +7492,10 @@ einheiten:
   absatz: '-'
   buchstabe: null
   offset: 257410
-  laenge: 223
-  saetze: 2
+  laenge: 174
+  saetze: 1
   beleg: Der Verantwortliche und der Auftragsverarbeiter und gegebenenfalls deren Vertreter arbeiten auf
-    Anfrage mit der Aufsichtsbehörde bei der Erfüllung ihrer Aufgaben zusammen. Abschnitt 2 Sicherheit
-    personenbezogener Daten
+    Anfrage mit der Aufsichtsbehörde bei der Erfüllung ihrer Aufgaben zusammen.
   adressat: null
   pflicht: null
   scope: null
@@ -8149,14 +8144,13 @@ einheiten:
   absatz: '4'
   buchstabe: null
   offset: 263722
-  laenge: 549
-  saetze: 2
+  laenge: 478
+  saetze: 1
   beleg: (4)   Wenn der Verantwortliche die betroffene Person nicht bereits über die Verletzung des Schutzes
     personenbezogener Daten benachrichtigt hat, kann die Aufsichtsbehörde unter Berücksichtigung der Wahrscheinlichkeit,
     mit der die Verletzung des Schutzes personenbezogener Daten zu einem hohen Risiko führt, von dem Verantwortlichen
     verlangen, dies nachzuholen, oder sie kann mit einem Beschluss feststellen, dass bestimmte der in
-    Absatz 3 genannten Voraussetzungen erfüllt sind. Abschnitt 3 Datenschutz-Folgenabschätzung und vorherige
-    Konsultation
+    Absatz 3 genannten Voraussetzungen erfüllt sind.
   adressat: null
   pflicht: null
   scope: null
@@ -8936,12 +8930,12 @@ einheiten:
   absatz: '5'
   buchstabe: null
   offset: 271635
-  laenge: 417
-  saetze: 2
+  laenge: 379
+  saetze: 1
   beleg: (5)   Ungeachtet des Absatzes 1 können Verantwortliche durch das Recht der Mitgliedstaaten verpflichtet
     werden, bei der Verarbeitung zur Erfüllung einer im öffentlichen Interesse liegenden Aufgabe, einschließlich
     der Verarbeitung zu Zwecken der sozialen Sicherheit und der öffentlichen Gesundheit, die Aufsichtsbehörde
-    zu konsultieren und deren vorherige Genehmigung einzuholen. Abschnitt 4 Datenschutzbeauftragter
+    zu konsultieren und deren vorherige Genehmigung einzuholen.
   adressat: null
   pflicht: null
   scope: null
@@ -9554,11 +9548,11 @@ einheiten:
   absatz: '2'
   buchstabe: null
   offset: 277642
-  laenge: 288
-  saetze: 2
+  laenge: 238
+  saetze: 1
   beleg: (2)   Der Datenschutzbeauftragte trägt bei der Erfüllung seiner Aufgaben dem mit den Verarbeitungsvorgängen
     verbundenen Risiko gebührend Rechnung, wobei er die Art, den Umfang, die Umstände und die Zwecke der
-    Verarbeitung berücksichtigt. Abschnitt 5 Verhaltensregeln und Zertifizierung
+    Verarbeitung berücksichtigt.
   adressat: null
   pflicht: null
   scope: null
@@ -11082,13 +11076,12 @@ einheiten:
   absatz: '9'
   buchstabe: null
   offset: 294171
-  laenge: 505
-  saetze: 3
+  laenge: 401
+  saetze: 2
   beleg: (9)   Die Kommission kann Durchführungsrechtsakte erlassen, mit denen technische Standards für
     Zertifizierungsverfahren und Datenschutzsiegel und -prüfzeichen sowie Mechanismen zur Förderung und
     Anerkennung dieser Zertifizierungsverfahren und Datenschutzsiegel und -prüfzeichen festgelegt werden.
     Diese Durchführungsrechtsakte werden gemäß dem in Artikel 93 Absatz 2 genannten Prüfverfahren erlassen.
-    KAPITEL V Übermittlungen personenbezogener Daten an Drittländer oder an internationale Organisationen
   adressat: null
   pflicht: null
   scope: null
@@ -12886,11 +12879,10 @@ einheiten:
   absatz: '-'
   buchstabe: d
   offset: 316526
-  laenge: 256
-  saetze: 2
+  laenge: 184
+  saetze: 1
   beleg: d) Förderung des Austauschs und der Dokumentation von Rechtsvorschriften und Praktiken zum Schutz
-    personenbezogener Daten einschließlich Zuständigkeitskonflikten mit Drittländern. KAPITEL VI Unabhängige
-    Aufsichtsbehörden Abschnitt 1 Unabhängigkeit
+    personenbezogener Daten einschließlich Zuständigkeitskonflikten mit Drittländern.
   adressat: null
   pflicht: null
   scope: null
@@ -13475,15 +13467,14 @@ einheiten:
   absatz: '2'
   buchstabe: null
   offset: 321725
-  laenge: 642
-  saetze: 3
+  laenge: 589
+  saetze: 2
   beleg: (2)   Das Mitglied oder die Mitglieder und die Bediensteten jeder Aufsichtsbehörde sind gemäß
     dem Unionsrecht oder dem Recht der Mitgliedstaaten sowohl während ihrer Amts- beziehungsweise Dienstzeit
     als auch nach deren Beendigung verpflichtet, über alle vertraulichen Informationen, die ihnen bei
     der Wahrnehmung ihrer Aufgaben oder der Ausübung ihrer Befugnisse bekannt geworden sind, Verschwiegenheit
     zu wahren. Während dieser Amts- beziehungsweise Dienstzeit gilt diese Verschwiegenheitspflicht insbesondere
-    für die von natürlichen Personen gemeldeten Verstößen gegen diese Verordnung. Abschnitt 2 Zuständigkeit,
-    Aufgaben und Befugnisse
+    für die von natürlichen Personen gemeldeten Verstößen gegen diese Verordnung.
   adressat: null
   pflicht: null
   scope: null
@@ -15268,13 +15259,13 @@ einheiten:
   absatz: '-'
   buchstabe: null
   offset: 335370
-  laenge: 501
-  saetze: 4
+  laenge: 430
+  saetze: 3
   beleg: Jede Aufsichtsbehörde erstellt einen Jahresbericht über ihre Tätigkeit, der eine Liste der Arten
     der gemeldeten Verstöße und der Arten der getroffenen Maßnahmen nach Artikel 58 Absatz 2 enthalten
     kann. Diese Berichte werden dem nationalen Parlament, der Regierung und anderen nach dem Recht der
     Mitgliedstaaten bestimmten Behörden übermittelt. Sie werden der Öffentlichkeit, der Kommission und
-    dem Ausschuss zugänglich gemacht. KAPITEL VII Zusammenarbeit und Kohärenz Abschnitt 1 Zusammenarbeit
+    dem Ausschuss zugänglich gemacht.
   adressat: null
   pflicht: null
   scope: null
@@ -16130,15 +16121,14 @@ einheiten:
   absatz: '7'
   buchstabe: null
   offset: 347266
-  laenge: 623
-  saetze: 3
+  laenge: 600
+  saetze: 2
   beleg: (7)   Ist eine gemeinsame Maßnahme geplant und kommt eine Aufsichtsbehörde binnen eines Monats
     nicht der Verpflichtung nach Absatz 2 Satz 2 des vorliegenden Artikels nach, so können die anderen
     Aufsichtsbehörden eine einstweilige Maßnahme im Hoheitsgebiet ihres Mitgliedstaats gemäß Artikel 55
     ergreifen. In diesem Fall wird von einem dringenden Handlungsbedarf gemäß Artikel 66 Absatz 1 ausgegangen,
     der eine im Dringlichkeitsverfahren angenommene Stellungnahme oder einen im Dringlichkeitsverfahren
     angenommenen verbindlichen Beschluss des Ausschusses gemäß Artikel 66 Absatz 2 erforderlich macht.
-    Abschnitt 2 Kohärenz
   adressat: null
   pflicht: null
   scope: null
@@ -16980,19 +16970,22 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
-- uid: Art. 67@357635
-  id: Art. 67
+- uid: Art. 67 Abs. 1@357637
+  id: Art. 67 Abs. 1
   artikel: '67'
   artikel_titel: Informationsaustausch
-  absatz: '-'
+  abschnitt: null
+  absatz: '1'
+  nummer: null
+  unterabsatz: null
   buchstabe: null
-  offset: 357635
-  laenge: 448
-  saetze: 3
+  ziffer: null
+  offset: 357637
+  laenge: 302
+  saetze: 1
   beleg: Die Kommission kann Durchführungsrechtsakte von allgemeiner Tragweite zur Festlegung der Ausgestaltung
     des elektronischen Informationsaustauschs zwischen den Aufsichtsbehörden sowie zwischen den Aufsichtsbehörden
-    und dem Ausschuss, insbesondere des standardisierten Formats nach Artikel 64, erlassen. Diese Durchführungsrechtsakte
-    werden gemäß dem Prüfverfahren nach Artikel 93 Absatz 2 erlassen. Abschnitt 3 Europäischer Datenschutzausschuss
+    und dem Ausschuss, insbesondere des standardisierten Formats nach Artikel 64, erlassen.
   adressat: null
   pflicht: null
   scope: null
@@ -17000,14 +16993,35 @@ einheiten:
   verifikation: null
   hypothese_grund: null
   omnibus: null
-  requirement: *id001
-  gate: *id002
+  requirement: &id005 []
+  gate: &id006 []
   befund: null
   befund_grund: null
+- uid: Art. 67 Abs. 2@357939
+  id: Art. 67 Abs. 2
+  artikel: '67'
+  artikel_titel: Informationsaustausch
   abschnitt: null
+  absatz: '2'
   nummer: null
   unterabsatz: null
+  buchstabe: null
   ziffer: null
+  offset: 357939
+  laenge: 96
+  saetze: 1
+  beleg: Diese Durchführungsrechtsakte werden gemäß dem Prüfverfahren nach Artikel 93 Absatz 2 erlassen.
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id005
+  gate: *id006
+  befund: null
+  befund_grund: null
 - uid: Art. 68 Abs. 1@358131
   id: Art. 68 Abs. 1
   artikel: '68'
@@ -18651,11 +18665,11 @@ einheiten:
   absatz: '2'
   buchstabe: null
   offset: 370585
-  laenge: 282
-  saetze: 2
+  laenge: 229
+  saetze: 1
   beleg: (2)   Der Zugang zu Dokumenten, die Mitgliedern des Ausschusses, Sachverständigen und Vertretern
     von Dritten vorgelegt werden, wird durch die Verordnung (EG) Nr. 1049/2001 des Europäischen Parlaments
-    und des Rates (21) geregelt. KAPITEL VIII Rechtsbehelfe, Haftung und Sanktionen
+    und des Rates (21) geregelt.
   adressat: null
   pflicht: null
   scope: null
@@ -19983,11 +19997,11 @@ einheiten:
   absatz: '2'
   buchstabe: null
   offset: 384716
-  laenge: 264
-  saetze: 2
+  laenge: 199
+  saetze: 1
   beleg: (2)   Jeder Mitgliedstaat teilt der Kommission bis zum 25. Mai 2018 die Rechtsvorschriften, die
     er aufgrund von Absatz 1 erlässt, sowie unverzüglich alle späteren Änderungen dieser Vorschriften
-    mit. KAPITEL IX Vorschriften für besondere Verarbeitungssituationen
+    mit.
   adressat: null
   pflicht: null
   scope: null
@@ -20455,12 +20469,11 @@ einheiten:
   absatz: '2'
   buchstabe: null
   offset: 392865
-  laenge: 346
-  saetze: 2
+  laenge: 284
+  saetze: 1
   beleg: (2)   Kirchen und religiöse Vereinigungen oder Gemeinschaften, die gemäß Absatz 1 umfassende
     Datenschutzregeln anwenden, unterliegen der Aufsicht durch eine unabhängige Aufsichtsbehörde, die
-    spezifischer Art sein kann, sofern sie die in Kapitel VI niedergelegten Bedingungen erfüllt. KAPITEL
-    X Delegierte Rechtsakte und Durchführungsrechtsakte
+    spezifischer Art sein kann, sofern sie die in Kapitel VI niedergelegten Bedingungen erfüllt.
   adressat: null
   pflicht: null
   scope: null
@@ -20672,10 +20685,10 @@ einheiten:
   absatz: '3'
   buchstabe: null
   offset: 395098
-  laenge: 164
+  laenge: 131
   saetze: 1
   beleg: (3)   Wird auf diesen Absatz Bezug genommen, so gilt Artikel 8 der Verordnung (EU) Nr. 182/2011
-    in Verbindung mit deren Artikel 5. KAPITEL XI Schlussbestimmungen
+    in Verbindung mit deren Artikel 5.
   adressat: null
   pflicht: null
   scope: null

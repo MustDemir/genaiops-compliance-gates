@@ -1526,32 +1526,64 @@ einheiten:
   buchstabe: null
   ziffer: null
   offset: 90273
-  laenge: 611
-  saetze: 3
+  laenge: 310
+  saetze: 1
   beleg: b) Die Verwendung eines KI-Systems, mit dem Material oder Darbietungen im Sinne von Absatz 1
     Unterabsatz 1 Buchstaben ba und bb erzeugt oder manipuliert werden, ist nur verboten, wenn der Betreiber
     das System zum Zwecke der Erzeugung oder der Manipulation solchen Materials oder solcher Darbietungen
-    verwendet. 1b. Für die Zwecke von Absatz 1 Unterabsatz 1 Buchstabe ba gilt ein KI-System, mit dem
-    das Material in einer Weise manipuliert wird, die die Sichtbarkeit der dargestellten intimen Körperteile
-    weder erhöht noch die Art der dargestellten eindeutig sexuellen Handlungen verändert, nicht als manipulativ.
+    verwendet.
   anweisung: Omnibus Art. 1 Nr. 7 lit. b
   ziel: Art. 5 Abs. 1a lit. b
   aenderung: eingefuegt
   adressat: betreiber
-  pflicht: 'Die Verwendung ist nur verboten, wenn der Betreiber das System zur Erzeugung oder Manipulation
-    solchen Materials verwendet; Abs. 1b (in dieser Einheit, A-W7): Manipulation ohne erhoehte Sichtbarkeit
-    gilt nicht als manipulativ.'
+  pflicht: Die Verwendung ist nur verboten, wenn der Betreiber das System zur Erzeugung oder Manipulation
+    solchen Materials verwendet.
   scope: in
   scope_grund: 'Steuernde Norm (T-13 Raster, Ausnahme von Schritt 3): begrenzt das Verwendungsverbot lit.
     ba/bb n.F. fuer den Betreiber; nennt ihn ausdruecklich.'
   verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: null
-  requirement: []
-  gate: []
+  requirement: &id001 []
+  gate: &id002 []
   befund: nicht_einschlaegig
   befund_grund: Begrenzt ein Verbot, begruendet keine eigene Pflicht.
   po_bestaetigt: false
+- uid: Art. 5 Abs. 1b n.F.@90584
+  id: Art. 5 Abs. 1b n.F.
+  artikel: '5'
+  artikel_titel: Änderung der Verordnung (EU) 2024/1689
+  abschnitt: null
+  absatz: null
+  nummer: null
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 90584
+  laenge: 300
+  saetze: 2
+  beleg: 1b. Für die Zwecke von Absatz 1 Unterabsatz 1 Buchstabe ba gilt ein KI-System, mit dem das Material
+    in einer Weise manipuliert wird, die die Sichtbarkeit der dargestellten intimen Körperteile weder
+    erhöht noch die Art der dargestellten eindeutig sexuellen Handlungen verändert, nicht als manipulativ.
+  anweisung: Omnibus Art. 1 Nr. 7 lit. b
+  ziel: Art. 5 Abs. 1b
+  aenderung: eingefuegt
+  adressat: sonstige
+  pflicht: Fuer lit. ba gilt ein System, das die Sichtbarkeit intimer Koerperteile nicht erhoeht und die
+    Art der dargestellten Handlungen nicht veraendert, nicht als manipulativ.
+  scope: in
+  scope_grund: 'Steuernde Norm (T-13 Raster, Ausnahme von Schritt 3): begrenzt das Verbot lit. ba n.F.
+    (in, Luecke P1); eigene Einheit seit T-15 (A-W7), vorher Teil von Abs. 1a lit. b.'
+  verifikation: VERIFIZIERT
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id001
+  gate: *id002
+  befund: nicht_einschlaegig
+  befund_grund: Begrenzt ein Verbot, begruendet keine eigene Pflicht.
+  po_bestaetigt: false
+  migriert_von: Art. 5 Abs. 1a lit. b n.F.@90273
+  migration: geerbt
 - uid: Omnibus Art. 1 Nr. 8@90886
   id: Omnibus Art. 1 Nr. 8
   artikel: '6'
@@ -6112,7 +6144,7 @@ einheiten:
   befund: null
   befund_grund: null
   po_bestaetigt: false
-- uid: Art. 75b n.F.@137060
+- uid: Art. 75b n.F.@137095
   id: Art. 75b n.F.
   artikel: ''
   artikel_titel: Änderung der Verordnung (EU) 2024/1689
@@ -6122,28 +6154,22 @@ einheiten:
   unterabsatz: null
   buchstabe: null
   ziffer: null
-  offset: 137060
-  laenge: 1163
-  saetze: 3
-  beleg: Artikel 75b Verpflichtungszusagen Bietet der betreffende Akteur während des Verfahrens nach Artikel
-    75a Absatz 2 Verpflichtungszusagen an, mit denen die Einhaltung der einschlägigen Bestimmungen dieser
-    Verordnung sichergestellt wird, so kann das Büro für Künstliche Intelligenz diese Verpflichtungszusagen
-    durch einen Beschluss für den Akteur für bindend erklären und feststellen, dass es keinen weiteren
-    Anlass zum Handeln gibt. Das Büro für Künstliche Intelligenz kann das Verfahren auf Antrag oder von
-    Amts wegen wieder aufnehmen, wenn a) sich der Sachverhalt, auf den sich der Beschluss stützte, in
-    einem wesentlichen Punkt geändert hat, b) der Akteur seinen Verpflichtungszusagen zuwiderhandelt oder
-    c) der Beschluss auf unvollständigen, unrichtigen oder irreführenden Angaben des betreffenden Akteurs
-    beruhte. Ist das Büro für Künstliche Intelligenz der Auffassung, dass die von dem betreffenden Akteur
-    angebotenen Verpflichtungszusagen die wirksame Einhaltung der einschlägigen Bestimmungen dieser Verordnung
-    nicht sicherstellen können, so lehnt sie diese Verpflichtungszusagen bei Abschluss des Verfahrens
-    in einem mit Gründen versehenen Beschluss ab.
+  offset: 137095
+  laenge: 506
+  saetze: 2
+  beleg: Bietet der betreffende Akteur während des Verfahrens nach Artikel 75a Absatz 2 Verpflichtungszusagen
+    an, mit denen die Einhaltung der einschlägigen Bestimmungen dieser Verordnung sichergestellt wird,
+    so kann das Büro für Künstliche Intelligenz diese Verpflichtungszusagen durch einen Beschluss für
+    den Akteur für bindend erklären und feststellen, dass es keinen weiteren Anlass zum Handeln gibt.
+    Das Büro für Künstliche Intelligenz kann das Verfahren auf Antrag oder von Amts wegen wieder aufnehmen,
+    wenn
   anweisung: Omnibus Art. 1 Nr. 32
   ziel: Art. 75b
   aenderung: eingefuegt
   adressat: behoerde
-  pflicht: 'Aufsicht und Durchsetzung durch das KI-Buero: Artikel 75b Verpflichtungszusagen Bietet der
-    betreffende Akteur während des Verfahrens nach Artikel 75a Absatz 2 Verpflichtungszusagen an, mit
-    denen …'
+  pflicht: 'Verpflichtungszusagen im Verfahren des KI-Bueros: Bietet der betreffende Akteur während des
+    Verfahrens nach Artikel 75a Absatz 2 Verpflichtungszusagen an, mit denen die Einhaltung der einschlägigen
+    …'
   scope: out
   scope_grund: 'Adressat (T-13 Schritt 1): KI-Buero und Marktueberwachungsbehoerden (Zustaendigkeit, Befugnisse,
     Verfahren, Sanktionen). Gilt nur fuer Systeme in der Zustaendigkeit des KI-Bueros nach Art. 75 Abs.
@@ -6151,11 +6177,121 @@ einheiten:
   verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: null
-  requirement: []
-  gate: []
+  requirement: &id003 []
+  gate: &id004 []
   befund: null
   befund_grund: null
   po_bestaetigt: false
+  migriert_von: Art. 75b n.F.@137060
+  migration: geerbt
+- uid: Art. 75b lit. a n.F.@137601
+  id: Art. 75b lit. a n.F.
+  artikel: ''
+  artikel_titel: Änderung der Verordnung (EU) 2024/1689
+  abschnitt: null
+  absatz: null
+  nummer: null
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 137601
+  laenge: 104
+  saetze: 1
+  beleg: a) sich der Sachverhalt, auf den sich der Beschluss stützte, in einem wesentlichen Punkt geändert
+    hat,
+  anweisung: Omnibus Art. 1 Nr. 32
+  ziel: Art. 75b lit. a
+  aenderung: eingefuegt
+  adressat: behoerde
+  pflicht: 'Verpflichtungszusagen im Verfahren des KI-Bueros: sich der Sachverhalt, auf den sich der Beschluss
+    stützte, in einem wesentlichen Punkt geändert hat.'
+  scope: out
+  scope_grund: 'Adressat (T-13 Schritt 1): KI-Buero und Marktueberwachungsbehoerden (Zustaendigkeit, Befugnisse,
+    Verfahren, Sanktionen). Gilt nur fuer Systeme in der Zustaendigkeit des KI-Bueros nach Art. 75 Abs.
+    1 n.F.; Anhang-III-Nr.-2-Systeme sind nach Abs. 1 lit. a Ziff. ii ausgenommen.'
+  verifikation: VERIFIZIERT
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+  po_bestaetigt: false
+  migriert_von: Art. 75b n.F.@137060
+  migration: geerbt
+- uid: Art. 75b lit. b n.F.@137705
+  id: Art. 75b lit. b n.F.
+  artikel: ''
+  artikel_titel: Änderung der Verordnung (EU) 2024/1689
+  abschnitt: null
+  absatz: null
+  nummer: null
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 137705
+  laenge: 64
+  saetze: 1
+  beleg: b) der Akteur seinen Verpflichtungszusagen zuwiderhandelt oder
+  anweisung: Omnibus Art. 1 Nr. 32
+  ziel: Art. 75b lit. b
+  aenderung: eingefuegt
+  adressat: behoerde
+  pflicht: 'Verpflichtungszusagen im Verfahren des KI-Bueros: der Akteur seinen Verpflichtungszusagen
+    zuwiderhandelt oder.'
+  scope: out
+  scope_grund: 'Adressat (T-13 Schritt 1): KI-Buero und Marktueberwachungsbehoerden (Zustaendigkeit, Befugnisse,
+    Verfahren, Sanktionen). Gilt nur fuer Systeme in der Zustaendigkeit des KI-Bueros nach Art. 75 Abs.
+    1 n.F.; Anhang-III-Nr.-2-Systeme sind nach Abs. 1 lit. a Ziff. ii ausgenommen.'
+  verifikation: VERIFIZIERT
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+  po_bestaetigt: false
+  migriert_von: Art. 75b n.F.@137060
+  migration: geerbt
+- uid: Art. 75b lit. c n.F.@137769
+  id: Art. 75b lit. c n.F.
+  artikel: ''
+  artikel_titel: Änderung der Verordnung (EU) 2024/1689
+  abschnitt: null
+  absatz: null
+  nummer: null
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 137769
+  laenge: 454
+  saetze: 2
+  beleg: c) der Beschluss auf unvollständigen, unrichtigen oder irreführenden Angaben des betreffenden
+    Akteurs beruhte. Ist das Büro für Künstliche Intelligenz der Auffassung, dass die von dem betreffenden
+    Akteur angebotenen Verpflichtungszusagen die wirksame Einhaltung der einschlägigen Bestimmungen dieser
+    Verordnung nicht sicherstellen können, so lehnt sie diese Verpflichtungszusagen bei Abschluss des
+    Verfahrens in einem mit Gründen versehenen Beschluss ab.
+  anweisung: Omnibus Art. 1 Nr. 32
+  ziel: Art. 75b lit. c
+  aenderung: eingefuegt
+  adressat: behoerde
+  pflicht: 'Verpflichtungszusagen im Verfahren des KI-Bueros: der Beschluss auf unvollständigen, unrichtigen
+    oder irreführenden Angaben des betreffenden Akteurs beruhte. Ist das Büro für Künstliche Intelligenz
+    …'
+  scope: out
+  scope_grund: 'Adressat (T-13 Schritt 1): KI-Buero und Marktueberwachungsbehoerden (Zustaendigkeit, Befugnisse,
+    Verfahren, Sanktionen). Gilt nur fuer Systeme in der Zustaendigkeit des KI-Bueros nach Art. 75 Abs.
+    1 n.F.; Anhang-III-Nr.-2-Systeme sind nach Abs. 1 lit. a Ziff. ii ausgenommen.'
+  verifikation: VERIFIZIERT
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id003
+  gate: *id004
+  befund: null
+  befund_grund: null
+  po_bestaetigt: false
+  migriert_von: Art. 75b n.F.@137060
+  migration: geerbt
 - uid: Art. 75c n.F.@138224
   id: Art. 75c n.F.
   artikel: ''

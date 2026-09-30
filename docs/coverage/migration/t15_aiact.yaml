@@ -1,0 +1,33 @@
+anlass: 'T-15 — Extraktor: unnummerierte Absaetze (A-W1), Nummernfolge im Anhangsabschnitt (A-W2), kein
+  Fuss- und Ueberschriftentext im Beleg (A-W3, A-W9), Omnibus Abs. 1b und Art. 75b (A-W7)'
+verwaist: 5
+entfernt: 5
+bleibt_mit_analyse: []
+zuordnung:
+  Art. 113 lit. a@587097:
+  - Art. 113 Abs. 3 lit. a@587097
+  Art. 113 lit. b@587157:
+  - Art. 113 Abs. 3 lit. b@587157
+  Art. 113 lit. c@587307:
+  - Art. 113 Abs. 3 lit. c@587307
+  Art. 113@586936:
+  - Art. 113 Abs. 1@586938
+  - Art. 113 Abs. 2@587055
+  - Art. 113 Abs. 3@587088
+  Art. 85@541011:
+  - Art. 85 Abs. 1@541013
+  - Art. 85 Abs. 2@541299
+geerbt:
+- Anhang I Abschn. B Nr. 13@605935
+- Anhang I Abschn. B Nr. 14@606187
+- Anhang I Abschn. B Nr. 15@606417
+- Anhang I Abschn. B Nr. 16@606637
+- Anhang I Abschn. B Nr. 17@606838
+- Anhang I Abschn. B Nr. 18@607039
+- Anhang I Abschn. B Nr. 19@607465
+- Anhang I Abschn. B Nr. 20@608444
+- Art. 113 Abs. 1@586938
+- Art. 113 Abs. 2@587055
+- Art. 113 Abs. 3@587088
+- Art. 85 Abs. 1@541013
+- Art. 85 Abs. 2@541299

@@ -68,6 +68,23 @@ _SCHLUSSFORMELN = (
 )
 
 
+# T-15 (A-W9, Review 10): Kapitel- und Abschnittsueberschriften stehen zwischen zwei
+# Artikeln auf eigener Zeile. Ohne Grenze hingen sie am letzten Glied des Artikels davor
+# ('Art. 4' endete mit 'KAPITEL II VERBOTENE PRAKTIKEN IM KI-BEREICH') - 53 Belege in
+# AI Act, DSGVO und NIS2 trugen Text, der kein Normtext ist.
+_UEBERSCHRIFT = re.compile(r"\n(?:KAPITEL [IVXLC]+|ABSCHNITT \d+|Abschnitt \d+|TITEL [IVXLC]+)\n")
+
+# T-15 (A-W3): die Fusszeile des Amtsblatts am Dateiende ('ELI: … ISSN …') ist kein
+# Normtext; sie hing am letzten Glied des letzten Anhangs (Anhang XIII lit. g).
+_DOKUMENTFUSS = re.compile(r"\nELI: http")
+
+
+def _ohne_ueberschrift(norm: str, start: int, end: int) -> int:
+    """Ende eines Artikels vor der ersten Kapitel- oder Abschnittsueberschrift danach."""
+    m = _UEBERSCHRIFT.search(norm, start, end)
+    return m.start() if m else end
+
+
 def _ende_des_verfuegenden_teils(norm: str, ab: int) -> int:
     """Wo der letzte Artikel wirklich aufhoert.
 
@@ -107,6 +124,7 @@ def index_articles(norm: str) -> list[dict]:
     out = []
     for i, (num, start) in enumerate(hits):
         end = hits[i + 1][1] - 1 if i + 1 < len(hits) else schluss
+        end = _ohne_ueberschrift(norm, start, end)
         body = norm[start:end]
         lines = [l for l in body.split("\n") if l.strip()]
         title = lines[1].strip() if len(lines) > 1 else ""
@@ -191,6 +209,9 @@ def index_anhaenge(norm: str) -> list[dict]:
     out = []
     for i, (num, start) in enumerate(hits):
         end = hits[i + 1][1] - 1 if i + 1 < len(hits) else len(norm)
+        fuss = _DOKUMENTFUSS.search(norm, start, end)
+        if fuss:
+            end = fuss.start()
         body = norm[start:end]
         lines = [l for l in body.split("\n") if l.strip()]
         title = lines[1].strip() if len(lines) > 1 else ""
@@ -238,7 +259,7 @@ def _marken(seg: str, *, deutsch: bool, anhang: bool) -> list[tuple[int, str, st
     return sorted(out)
 
 
-def _gliedern(marken: list[tuple[int, str, str]]) -> list[dict]:
+def _gliedern(marken: list[tuple[int, str, str]], *, fortsetzung_erlaubt: bool = False) -> list[dict]:
     """Ordnet Marken zu einem Baum: Nummer > Buchstabe > Ziffer.
 
     Eine Marke zaehlt nur, wenn sie die Folge fortsetzt (1, 2, 3 / a, b, c /
@@ -256,7 +277,15 @@ def _gliedern(marken: list[tuple[int, str, str]]) -> list[dict]:
     for i, (pos, art, lab) in enumerate(marken):
         nach = marken[i + 1][2] if i + 1 < len(marken) else None
         if art == "nr":
-            if "." in lab or lab == nr_next or (lab == "1" and cur_nr is None):
+            # T-15 (A-W2): in einem Anhang darf eine Liste mit einer hoeheren Zahl
+            # beginnen, wenn die naechste Nummer sie fortsetzt - Anhang I Abschn. B
+            # zaehlt 13 bis 20 weiter. Nur in Anhaengen: in deutschen Gesetzen haette
+            # dieselbe Regel die Begriffsbestimmungen des § 2 BSIG umgeschnitten, deren
+            # erste Nummer der Extraktor nicht erkennt (Befund A-W10, Sektorstapel).
+            folge = next((m[2] for m in marken[i + 1:] if m[1] == "nr"), None)
+            fortsetzung = (fortsetzung_erlaubt and cur_nr is None and "." not in lab and lab.isdigit()
+                           and folge == str(int(lab) + 1))
+            if "." in lab or lab == nr_next or (lab == "1" and cur_nr is None) or fortsetzung:
                 cur_nr = {"pos": pos, "ebene": "nr", "kennung": lab, "eltern": None}
                 items.append(cur_nr)
                 if "." not in lab:
@@ -336,12 +365,46 @@ def split_absaetze(norm: str, art: dict) -> list[dict]:
         # Unnummerierter Artikel: alles nach der Ueberschriftszeile ist Absatz "-"
         lines = body.split("\n")
         skip = len("\n".join(lines[:3])) if len(lines) > 2 else 0
-        return [{"absatz": "-", "start": body_start + skip, "end": art["end"]}]
+        return _unnummerierte_absaetze(norm, body_start + skip, art["end"])
     out = []
     for i, (num, rel) in enumerate(marks):
         s = body_start + rel + 1
         e = body_start + marks[i + 1][1] + 1 if i + 1 < len(marks) else art["end"]
         out.append({"absatz": num, "start": s, "end": e})
+    return out
+
+
+_LISTENMARKE = re.compile(r"\n(?:[a-z]{1,5}\)|\d+(?:\.\d+)*\.)\n")
+
+
+def _unnummerierte_absaetze(norm: str, start: int, end: int) -> list[dict]:
+    """Absaetze eines Artikels ohne Absatznummern.
+
+    T-15 (A-W1, Review 08/10). Art. 113 AI Act hat drei Absaetze ohne Nummer; der
+    Extraktor fuehrte sie als eine Einheit 'Art. 113' und die Buchstaben als
+    'Art. 113 lit. a'. Das Gesetz selbst zitiert 'Artikel 113 Absatz 3 Buchstabe a'
+    (VO (EU) 2026/1744 Art. 1 Nr. 40 und Art. 111 Abs. 2 n.F.). Deshalb: Bloecke vor
+    der ersten Listenmarke, getrennt durch eine Leerzeile, sind Absaetze 1..n; die
+    Liste gehoert zum letzten. Ein einziger Block bleibt Absatz '-' (Kennung ohne Abs.).
+    Beginnt ein Block mit '„', ist er zitierter Text einer Aenderungsanweisung
+    (Art. 102-110) und kein Absatz.
+    """
+    seg = norm[start:end]
+    liste = _LISTENMARKE.search(seg)
+    kopf = seg[:liste.start()] if liste else seg
+    bloecke = []
+    pos = 0
+    for teil in re.split(r"(\n[ \t]*\n)", kopf):
+        if teil.strip() and not re.fullmatch(r"\n[ \t]*\n", teil):
+            bloecke.append(pos + (len(teil) - len(teil.lstrip())))
+        pos += len(teil)
+    texte = [kopf[b:].lstrip() for b in bloecke]
+    if len(bloecke) < 2 or any(t.startswith("„") for t in texte):
+        return [{"absatz": "-", "start": start, "end": end}]
+    out = []
+    for i, b in enumerate(bloecke):
+        e = start + bloecke[i + 1] if i + 1 < len(bloecke) else end
+        out.append({"absatz": str(i + 1), "start": start + b, "end": e})
     return out
 
 
@@ -520,11 +583,11 @@ def units_for(norm: str, art: dict) -> list[dict]:
     for b in behaelter:
         seg = norm[b["start"]:b["end"]]
         marken = _marken(seg, deutsch=deutsch, anhang=anhang)
-        items = _gliedern(marken)
+        items = _gliedern(marken, fortsetzung_erlaubt=anhang)
         weg = _einzelfolgen(items)
         if weg:
             marken = [m for m in marken if m[0] not in weg]
-            items = _gliedern(marken)
+            items = _gliedern(marken, fortsetzung_erlaubt=anhang)
         # Wie viele Buchstabenlisten hat jedes Elternglied? Nur bei mehr als
         # einer bekommt die Kennung ein 'UAbs.'.
         listen: dict = {}

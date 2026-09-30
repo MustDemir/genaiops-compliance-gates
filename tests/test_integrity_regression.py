@@ -3191,9 +3191,10 @@ def check_coverage_finding_names_checking_gate() -> dict:
 
     titel = "eine Teilabdeckung oder Deckung nennt ein pruefendes Gate, ein Nachbar ist keins (M1a)"
     gate_ids = set()
+    getrackt = _tracked_files()
     for datei in (REPO_ROOT / "gate-definitions").rglob("*.yaml"):
-        if "template" in datei.name:
-            continue
+        if "template" in datei.name or (getrackt and str(datei.relative_to(REPO_ROOT)) not in getrackt):
+            continue  # was ein Klon nicht enthaelt, zaehlt nicht (A-W8)
         doc = yaml.safe_load(datei.read_text(encoding="utf-8")) or {}
         if isinstance(doc.get("id"), str):
             gate_ids.add(doc["id"])
@@ -3222,6 +3223,84 @@ def check_coverage_finding_names_checking_gate() -> dict:
         f"{len(findings)} Befund(e) zu Gate-Angaben im Pflichtenraum." if findings
         else f"{geprueft} gedeckte oder teilweise gedeckte Zeilen nennen je ein pruefendes Gate; "
              f"kein Nachbar zugleich als Pruefer, kein unbekanntes Gate.",
+        findings[:12] + ([f"… und {len(findings) - 12} weitere"] if len(findings) > 12 else []),
+    )
+
+
+def check_norm_units_match_extractor() -> dict:
+    """Jeder Pflichtenraum ist genau das, was der Extraktor heute aus seiner Quelle schneidet.
+
+    T-15 (30.09.2026, Review 10). Vier Schnittfehler waren seit Paket 1 bekannt
+    (A-W1 Art. 113 ohne Absatznummern, A-W2 Anhang I Abschn. B ungeteilt, A-W3
+    Fusszeile im Beleg, A-W7 Omnibus Abs. 1b und Art. 75b), ein fuenfter fiel beim
+    Beheben auf (A-W9: Kapitel- und Abschnittsueberschriften im Beleg des letzten
+    Glieds davor, 53 Einheiten in AI Act, DSGVO und NIS2). Keine Pruefung sah sie:
+    LEGAL_QUOTES_VERBATIM haelt nur, dass der Beleg an seinem Offset steht - auch
+    eine Ueberschrift steht dort.
+
+    Zwei Richtungen:
+      * die Einheiten jedes Raums (uid = Kennung@Offset) sind genau die, die
+        extract_norm_units.py bzw. extract_omnibus_units.py samt Satzebene heute
+        liefern - ein Extraktor, der sich aendert, ohne dass der Raum neu gebaut
+        wird, faellt auf, und ein Raum, der von Hand geschnitten wird, auch;
+      * kein Beleg eines Artikels traegt eine Kapitel- oder Abschnittsueberschrift
+        auf eigener Zeile, keiner die Fusszeile des Amtsblatts - faellt die Grenze
+        im Extraktor weg, bleibt die erste Richtung nach einem Neubau gruen, diese
+        nicht.
+
+    MEDIUM wie NORM_SENTENCE_UNITS_CURRENT: ein falscher Schnitt verschiebt, wo
+    eine Pflicht steht, und faelscht kein Zitat. Vorschlag, PO-Frage R-4.
+    """
+    import sys as _sys
+
+    import yaml
+
+    titel = "jeder Pflichtenraum ist genau das, was der Extraktor heute schneidet (T-15)"
+    _sys.path.insert(0, str(REPO_ROOT / "tools" / "legal"))
+    import extract_norm_units as ex  # noqa: E402
+    from extract_omnibus_units import omnibus_units  # noqa: E402
+
+    satz = REPO_ROOT / "docs" / "coverage" / "entscheide" / "satzebene.yaml"
+    liste = ((yaml.safe_load(satz.read_text(encoding="utf-8")) or {}).get("quellen") or {}) if satz.exists() else {}
+    ueberschrift = re.compile(r"\n(?:KAPITEL [IVXLC]+|ABSCHNITT \d+|Abschnitt \d+|TITEL [IVXLC]+)\n")
+    fuss = re.compile(r"\nELI: http")
+
+    findings: list[str] = []
+    geprueft = 0
+    for pfad in sorted((REPO_ROOT / "docs" / "coverage").glob("*_pflichtenraum.yaml")):
+        doc = yaml.safe_load(pfad.read_text(encoding="utf-8")) or {}
+        quelle = REPO_ROOT / (doc.get("quelle") or {}).get("datei", "")
+        if not quelle.is_file():
+            findings.append(f"{pfad.name}: Quelle {quelle} fehlt")
+            continue
+        _, norm, _ = ex.load(quelle)
+        if pfad.name.startswith("omnibus_"):
+            einheiten, _ = omnibus_units(norm)
+        else:
+            arts = ex.index_articles(norm) + ex.index_paragraphen(norm) + ex.index_anhaenge(norm)
+            einheiten = [u for a in arts for u in ex.units_for(norm, a)]
+        ids = [x["id"] for x in (liste.get(quelle.name) or [])]
+        if ids:
+            einheiten, _ = ex.auf_satzebene(norm, einheiten, ids)
+        soll = {u["uid"] for u in einheiten}
+        ist = {e.get("uid") for e in doc.get("einheiten") or []}
+        for u in sorted(ist - soll)[:5]:
+            findings.append(f"{pfad.name}: {u} steht im Raum, der Extraktor schneidet sie nicht (mehr)")
+        for u in sorted(soll - ist)[:5]:
+            findings.append(f"{pfad.name}: {u} schneidet der Extraktor, im Raum fehlt sie")
+        for e in doc.get("einheiten") or []:
+            geprueft += 1
+            span = norm[e["offset"]:e["offset"] + e["laenge"]]
+            if not str(e.get("id", "")).startswith("Anhang") and ueberschrift.search(span):
+                findings.append(f"{pfad.name}: {e['id']} — Beleg traegt eine Kapitel- oder Abschnittsueberschrift")
+            if fuss.search(span):
+                findings.append(f"{pfad.name}: {e['id']} — Beleg traegt die Fusszeile des Amtsblatts")
+
+    return make_result(
+        "NORM_UNITS_MATCH_EXTRACTOR", titel, "medium", not findings,
+        f"{len(findings)} Befund(e) zwischen Extraktor und Pflichtenraeumen." if findings
+        else f"{geprueft} Einheiten in allen Raeumen sind genau der heutige Schnitt ihrer Quelle; "
+             f"kein Beleg traegt Ueberschrift oder Fusszeile.",
         findings[:12] + ([f"… und {len(findings) - 12} weitere"] if len(findings) > 12 else []),
     )
 
@@ -3441,6 +3520,7 @@ def collect_results() -> list[dict]:
         check_po_decisions_applied,
         check_omnibus_superseded_units_out,
         check_coverage_finding_names_checking_gate,
+        check_norm_units_match_extractor,
         check_norm_refs_resolve,
         check_po_decisions_registered,
     ]

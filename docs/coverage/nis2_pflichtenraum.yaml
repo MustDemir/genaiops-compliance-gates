@@ -2911,12 +2911,11 @@ einheiten:
   buchstabe: null
   ziffer: null
   offset: 173769
-  laenge: 339
-  saetze: 2
+  laenge: 282
+  saetze: 1
   beleg: 41. „Forschungseinrichtung“ eine Einrichtung, deren primäres Ziel es ist, angewandte Forschung
     oder experimentelle Entwicklung im Hinblick auf die Nutzung der Ergebnisse dieser Forschung für kommerzielle
-    Zwecke durchzuführen, die jedoch Bildungseinrichtungen nicht einschließt. KAPITEL II KOORDINIERTE
-    RAHMEN FÜR DIE CYBERSICHERHEIT
+    Zwecke durchzuführen, die jedoch Bildungseinrichtungen nicht einschließt.
   adressat: null
   pflicht: null
   scope: null
@@ -5212,11 +5211,10 @@ einheiten:
   absatz: '6'
   buchstabe: null
   offset: 197252
-  laenge: 213
-  saetze: 2
+  laenge: 146
+  saetze: 1
   beleg: (6)   Die Mitgliedstaaten vereinfachen die Berichterstattung über die in den Artikeln 23 und
-    30 genannten technischen Mittel für Notifizierungen. KAPITEL III ZUSAMMENARBEIT AUF UNIONS- UND INTERNATIONALER
-    EBENE
+    30 genannten technischen Mittel für Notifizierungen.
   adressat: null
   pflicht: null
   scope: null
@@ -7640,16 +7638,15 @@ einheiten:
   absatz: '9'
   buchstabe: null
   offset: 217960
-  laenge: 768
-  saetze: 6
+  laenge: 676
+  saetze: 5
   beleg: (9)   Die an Peer Reviews beteiligten Sachverständigen für Cybersicherheit erstellen Berichte
     über die Ergebnisse und Schlussfolgerungen der Peer Reviews. Die einer Peer Review unterliegenden
     Mitgliedstaaten können zu den sie betreffenden Berichtsentwürfen Stellung nehmen; diese Stellungnahmen
     werden den Berichten beigefügt. Die Berichte enthalten Empfehlungen zur Verbesserung der im Rahmen
     der Peer Review behandelten Aspekte. Die Berichte werden gegebenenfalls der Kooperationsgruppe und
     dem CSIRTs-Netzwerk vorgelegt. Ein einer Peer Review unterliegender Mitgliedstaat kann beschließen,
-    seinen Bericht oder eine redigierte Fassung davon öffentlich zugänglich zu machen. KAPITEL IV RISIKOMANAGEMENTMAẞNAHMEN
-    UND BERICHTSPFLICHTEN IM BEREICH DER CYBERSICHERHEIT
+    seinen Bericht oder eine redigierte Fassung davon öffentlich zugänglich zu machen.
   adressat: null
   pflicht: null
   scope: null
@@ -8955,13 +8952,12 @@ einheiten:
   absatz: '2'
   buchstabe: null
   offset: 237444
-  laenge: 426
-  saetze: 2
+  laenge: 382
+  saetze: 1
   beleg: (2)   In Zusammenarbeit mit den Mitgliedstaaten und gegebenenfalls nach Konsultation einschlägiger
     Interessenträger bietet die ENISA Beratung und erlässt Leitlinien zu den technischen Bereichen, die
     in Bezug auf Absatz 1 in Betracht zu ziehen sind, sowie zu den bereits bestehenden Normen — einschließlich
-    der nationalen Normen —, mit denen diese Bereiche abgedeckt werden könnten. KAPITEL V ZUSTÄNDIGKEIT
-    UND REGISTRIERUNG
+    der nationalen Normen —, mit denen diese Bereiche abgedeckt werden könnten.
   adressat: null
   pflicht: null
   scope: null
@@ -9747,12 +9743,12 @@ einheiten:
   absatz: '6'
   buchstabe: null
   offset: 246095
-  laenge: 378
-  saetze: 3
+  laenge: 343
+  saetze: 2
   beleg: (6)   Die Einhaltung der in den Absätzen 1 bis 5 festgelegten Verpflichtungen darf nicht zu einer
     doppelten Erhebung von Domänennamen-Registrierungsdaten führen. Zu diesem Zweck schreiben die Mitgliedstaaten
     vor, dass die TLD-Namenregister und die Einrichtungen, die Domänennamen-Registrierungsdienste erbringen,
-    miteinander zusammenarbeiten. KAPITEL VI INFORMATIONSAUSTAUSCH
+    miteinander zusammenarbeiten.
   adressat: null
   pflicht: null
   scope: null
@@ -10056,8 +10052,8 @@ einheiten:
   absatz: '2'
   buchstabe: null
   offset: 250413
-  laenge: 894
-  saetze: 5
+  laenge: 854
+  saetze: 4
   beleg: (2)   Die Mitgliedstaaten bearbeiten die in Absatz 1 des vorliegenden Artikels genannten Meldungen
     nach dem in Artikel 23 vorgesehenen Verfahren. Die Mitgliedstaaten können Pflichtmeldungen vorrangig
     vor freiwilligen Meldungen bearbeiten. Erforderlichenfalls übermitteln die CSIRTs und gegebenenfalls
@@ -10066,7 +10062,7 @@ einheiten:
     Einrichtung übermittelten Informationen sicherstellen. Unbeschadet der Verhütung, Ermittlung, Aufdeckung
     und Verfolgung von Straftaten dürfen die freiwilligen Meldungen nicht dazu führen, dass der meldenden
     Einrichtung zusätzliche Verpflichtungen auferlegt werden, die nicht für sie gegolten hätten, wenn
-    sie die Meldung nicht übermittelt hätte. KAPITEL VII AUFSICHT UND DURCHSETZUNG
+    sie die Meldung nicht übermittelt hätte.
   adressat: null
   pflicht: null
   scope: null
@@ -12333,10 +12329,10 @@ einheiten:
   absatz: '2'
   buchstabe: null
   offset: 277964
-  laenge: 227
-  saetze: 2
+  laenge: 162
+  saetze: 1
   beleg: (2)   Die zuständigen Behörden verschiedener Mitgliedstaaten können, wenn angezeigt und im gegenseitigen
-    Einvernehmen, gemeinsame Aufsichtsmaßnahmen durchführen. KAPITEL VIII DELEGIERTE RECHTSAKTE UND DURCHFÜHRUNGSRECHTSAKTE
+    Einvernehmen, gemeinsame Aufsichtsmaßnahmen durchführen.
   adressat: null
   pflicht: null
   scope: null
@@ -12575,11 +12571,11 @@ einheiten:
   absatz: '3'
   buchstabe: null
   offset: 280297
-  laenge: 307
-  saetze: 2
+  laenge: 274
+  saetze: 1
   beleg: (3)   Wird die Stellungnahme des Ausschusses im schriftlichen Verfahren eingeholt, so wird das
     Verfahren ohne Ergebnis abgeschlossen, wenn der Vorsitz des Ausschusses dies innerhalb der Frist zur
-    Abgabe der Stellungnahme beschließt oder ein Ausschussmitglied dies verlangt. KAPITEL IX SCHLUSSBESTIMMUNGEN
+    Abgabe der Stellungnahme beschließt oder ein Ausschussmitglied dies verlangt.
   adressat: null
   pflicht: null
   scope: null
@@ -12732,18 +12728,20 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
-- uid: Art. 44@282310
-  id: Art. 44
+- uid: Art. 44 Abs. 1@282312
+  id: Art. 44 Abs. 1
   artikel: '44'
   artikel_titel: Aufhebung
-  absatz: '-'
+  abschnitt: null
+  absatz: '1'
+  nummer: null
+  unterabsatz: null
   buchstabe: null
-  offset: 282310
-  laenge: 284
-  saetze: 2
-  beleg: Die Richtlinie (EU) 2016/1148 wird mit Wirkung vom 18. Oktober 2024 aufgehoben. Bezugnahmen auf
-    die durch die vorliegende Richtlinie aufgehobene Richtlinie gelten als Bezugnahmen auf die vorliegende
-    Richtlinie und sind nach Maßgabe der Entsprechungstabelle in Anhang III zu lesen.
+  ziffer: null
+  offset: 282312
+  laenge: 81
+  saetze: 1
+  beleg: Die Richtlinie (EU) 2016/1148 wird mit Wirkung vom 18. Oktober 2024 aufgehoben.
   adressat: null
   pflicht: null
   scope: null
@@ -12751,14 +12749,36 @@ einheiten:
   verifikation: null
   hypothese_grund: null
   omnibus: null
-  requirement: *id001
-  gate: *id002
+  requirement: &id005 []
+  gate: &id006 []
   befund: null
   befund_grund: null
+- uid: Art. 44 Abs. 2@282393
+  id: Art. 44 Abs. 2
+  artikel: '44'
+  artikel_titel: Aufhebung
   abschnitt: null
+  absatz: '2'
   nummer: null
   unterabsatz: null
+  buchstabe: null
   ziffer: null
+  offset: 282393
+  laenge: 201
+  saetze: 1
+  beleg: Bezugnahmen auf die durch die vorliegende Richtlinie aufgehobene Richtlinie gelten als Bezugnahmen
+    auf die vorliegende Richtlinie und sind nach Maßgabe der Entsprechungstabelle in Anhang III zu lesen.
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id005
+  gate: *id006
+  befund: null
+  befund_grund: null
 - uid: Art. 45@282620
   id: Art. 45
   artikel: '45'

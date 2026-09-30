@@ -267,9 +267,9 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  neufassung: ersetzt
   fassung_2026_1744:
   - Art. 1 Abs. 2 lit. g n.F.@80284
-  neufassung: ersetzt
 - id: Art. 2 Abs. 1
   artikel: '2'
   artikel_titel: Anwendungsbereich
@@ -531,9 +531,9 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  neufassung: ersetzt
   fassung_2026_1744:
   - Art. 2 Abs. 2 n.F.@80541
-  neufassung: ersetzt
 - id: Art. 2 Abs. 3
   artikel: '2'
   artikel_titel: Anwendungsbereich
@@ -697,9 +697,9 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  neufassung: ersetzt
   fassung_2026_1744:
   - Art. 2 Abs. 7 n.F.@81085
-  neufassung: ersetzt
 - id: Art. 2 Abs. 8
   artikel: '2'
   artikel_titel: Anwendungsbereich
@@ -1375,9 +1375,9 @@ einheiten:
   po_bestaetigt: false
   migriert_von: Art. 3@269531
   migration: geerbt
+  neufassung: ersetzt
   fassung_2026_1744:
   - Art. 3 Nr. 14 n.F.@82670
-  neufassung: ersetzt
 - uid: Art. 3 Nr. 15@273277
   id: Art. 3 Nr. 15
   artikel: '3'
@@ -3576,14 +3576,14 @@ einheiten:
   absatz: '-'
   buchstabe: null
   offset: 288967
-  laenge: 590
-  saetze: 2
+  laenge: 543
+  saetze: 1
   beleg: Die Anbieter und Betreiber von KI-Systemen ergreifen Maßnahmen, um nach besten Kräften sicherzustellen,
     dass ihr Personal und andere Personen, die in ihrem Auftrag mit dem Betrieb und der Nutzung von KI-Systemen
     befasst sind, über ein ausreichendes Maß an KI-Kompetenz verfügen, wobei ihre technischen Kenntnisse,
     ihre Erfahrung, ihre Ausbildung und Schulung und der Kontext, in dem die KI-Systeme eingesetzt werden
     sollen, sowie die Personen oder Personengruppen, bei denen die KI-Systeme eingesetzt werden sollen,
-    zu berücksichtigen sind. KAPITEL II VERBOTENE PRAKTIKEN IM KI-BEREICH
+    zu berücksichtigen sind.
   adressat: betreiber
   pflicht: Anbieter und Betreiber ergreifen Massnahmen, um die Entwicklung der KI-Kompetenz ihres Personals
     und anderer in ihrem Auftrag mit Betrieb und Nutzung befasster Personen zu unterstuetzen (Art. 4 Abs.
@@ -3613,12 +3613,12 @@ einheiten:
   - 2026-09-23 · 2b E4 (VERIFIZIERT - Betreiber in der Einheit oder ihrem Einleitungssatz genannt)
   - 2026-09-23 · 2b E6 (Omnibus-Feld, Art. 4 auf den neuen Wortlaut)
   - 2026-09-29 · A-F2a (Review 08 Teil 7) - ersetzt durch n.F., bewertet wird die n.F.-Zeile
+  neufassung: ersetzt
   fassung_2026_1744:
   - Art. 4 n.F.@83572
   - Art. 4 Abs. 1 n.F.@83595
   - Art. 4 Abs. 2 n.F.@84235
   - Art. 4 Abs. 3 n.F.@84646
-  neufassung: ersetzt
 - id: Art. 5 Abs. 1
   artikel: '5'
   artikel_titel: Verbotene Praktiken im KI-Bereich
@@ -4500,11 +4500,10 @@ einheiten:
   absatz: '8'
   buchstabe: null
   offset: 301832
-  laenge: 234
-  saetze: 2
+  laenge: 131
+  saetze: 1
   beleg: (8)   Dieser Artikel berührt nicht die Verbote, die gelten, wenn KI-Praktiken gegen andere Rechtsvorschriften
-    der Union verstoßen. KAPITEL III HOCHRISIKO-KI-SYSTEME ABSCHNITT 1 Einstufung von KI-Systemen als
-    Hochrisiko-KI-Systeme
+    der Union verstoßen.
   adressat: sonstige
   pflicht: 'Klarstellung: Art. 5 laesst Verbote unberuehrt, die sich aus einem KI-Praktiken-Verstoss gegen
     andere Unionsvorschriften ergeben.'
@@ -5574,10 +5573,10 @@ einheiten:
   absatz: '3'
   buchstabe: b
   offset: 310575
-  laenge: 208
-  saetze: 2
+  laenge: 155
+  saetze: 1
   beleg: b) durch die Streichung wird das allgemeine Schutzniveau in Bezug auf Gesundheit, Sicherheit
-    und Grundrechte im Rahmen des Unionsrechts nicht gesenkt. ABSCHNITT 2 Anforderungen an Hochrisiko-KI-Systeme
+    und Grundrechte im Rahmen des Unionsrechts nicht gesenkt.
   adressat: behoerde
   pflicht: 'Streichungsbedingung b): das allgemeine Schutzniveau nach Unionsrecht wird durch die Streichung
     nicht gesenkt.'
@@ -6292,9 +6291,9 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  neufassung: ersetzt
   fassung_2026_1744:
   - Art. 10 Abs. 1 n.F.@91949
-  neufassung: ersetzt
 - id: Art. 10 Abs. 2
   artikel: '10'
   artikel_titel: Daten und Daten-Governance
@@ -6708,9 +6707,9 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  neufassung: gestrichen
   fassung_2026_1744:
   - Omnibus Art. 1 Nr. 9 lit. b@92301
-  neufassung: gestrichen
 - id: Art. 10 Abs. 5 lit. a
   artikel: '10'
   artikel_titel: Daten und Daten-Governance
@@ -6746,9 +6745,9 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  neufassung: gestrichen
   fassung_2026_1744:
   - Omnibus Art. 1 Nr. 9 lit. b@92301
-  neufassung: gestrichen
 - id: Art. 10 Abs. 5 lit. b
   artikel: '10'
   artikel_titel: Daten und Daten-Governance
@@ -6785,9 +6784,9 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  neufassung: gestrichen
   fassung_2026_1744:
   - Omnibus Art. 1 Nr. 9 lit. b@92301
-  neufassung: gestrichen
 - id: Art. 10 Abs. 5 lit. c
   artikel: '10'
   artikel_titel: Daten und Daten-Governance
@@ -6826,9 +6825,9 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  neufassung: gestrichen
   fassung_2026_1744:
   - Omnibus Art. 1 Nr. 9 lit. b@92301
-  neufassung: gestrichen
 - id: Art. 10 Abs. 5 lit. d
   artikel: '10'
   artikel_titel: Daten und Daten-Governance
@@ -6864,9 +6863,9 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  neufassung: gestrichen
   fassung_2026_1744:
   - Omnibus Art. 1 Nr. 9 lit. b@92301
-  neufassung: gestrichen
 - id: Art. 10 Abs. 5 lit. e
   artikel: '10'
   artikel_titel: Daten und Daten-Governance
@@ -6903,9 +6902,9 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  neufassung: gestrichen
   fassung_2026_1744:
   - Omnibus Art. 1 Nr. 9 lit. b@92301
-  neufassung: gestrichen
 - id: Art. 10 Abs. 5 lit. f
   artikel: '10'
   artikel_titel: Daten und Daten-Governance
@@ -6942,9 +6941,9 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  neufassung: gestrichen
   fassung_2026_1744:
   - Omnibus Art. 1 Nr. 9 lit. b@92301
-  neufassung: gestrichen
 - id: Art. 10 Abs. 6
   artikel: '10'
   artikel_titel: Daten und Daten-Governance
@@ -6987,9 +6986,9 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  neufassung: ersetzt
   fassung_2026_1744:
   - Art. 10 Abs. 6 n.F.@92368
-  neufassung: ersetzt
 - id: Art. 11 Abs. 1
   artikel: '11'
   artikel_titel: Technische Dokumentation
@@ -7045,9 +7044,9 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  neufassung: teilweise
   fassung_2026_1744:
   - Art. 11 Abs. 1 UAbs. 2 n.F.@92663
-  neufassung: teilweise
 - id: Art. 11 Abs. 2
   artikel: '11'
   artikel_titel: Technische Dokumentation
@@ -8861,8 +8860,8 @@ einheiten:
   absatz: '5'
   buchstabe: null
   offset: 334291
-  laenge: 1001
-  saetze: 4
+  laenge: 899
+  saetze: 3
   beleg: (5)   Hochrisiko-KI-Systeme müssen widerstandsfähig gegen Versuche unbefugter Dritter sein, ihre
     Verwendung, Ausgaben oder Leistung durch Ausnutzung von Systemschwachstellen zu verändern. Die technischen
     Lösungen zur Gewährleistung der Cybersicherheit von Hochrisiko-KI-Systemen müssen den jeweiligen Umständen
@@ -8871,8 +8870,7 @@ einheiten:
     („data poisoning“) oder vortrainierter Komponenten, die beim Training verwendet werden („model poisoning“),
     vorzunehmen, Eingabedaten, die das KI-Modell zu Fehlern verleiten sollen („adversarial examples“ oder
     „model evasions“), Angriffe auf vertrauliche Daten oder Modellmängel zu verhüten, zu erkennen, darauf
-    zu reagieren, sie zu beseitigen und zu kontrollieren. ABSCHNITT 3 Pflichten der Anbieter und Betreiber
-    von Hochrisiko-KI-Systemen und anderer Beteiligter
+    zu reagieren, sie zu beseitigen und zu kontrollieren.
   adressat: anbieter
   pflicht: Hochrisiko-KI-Systeme muessen widerstandsfaehig gegen Manipulationsversuche unbefugter Dritter
     sein; die technischen Loesungen umfassen ggf. Massnahmen gegen data poisoning, model poisoning, adversarial
@@ -9726,9 +9724,9 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  neufassung: ersetzt
   fassung_2026_1744:
   - Art. 17 Abs. 2 n.F.@93909
-  neufassung: ersetzt
 - id: Art. 17 Abs. 3
   artikel: '17'
   artikel_titel: Qualitätsmanagementsystem
@@ -11230,12 +11228,12 @@ einheiten:
   - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, kein Anker benannt)
   - 2026-09-28 · 2c F1 (T-D Rollenwechsel, M-D3 Trigger notify)
   - 2026-09-29 · A-F2a (Review 08 Teil 7) - ersetzt durch n.F., bewertet wird die n.F.-Zeile
+  neufassung: ersetzt
   fassung_2026_1744:
   - Art. 25 Abs. 2 n.F.@94460
   - Art. 25 Abs. 2 lit. a n.F.@95227
   - Art. 25 Abs. 2 lit. b n.F.@95361
   - Art. 25 Abs. 2 lit. c n.F.@95448
-  neufassung: ersetzt
 - id: Art. 25 Abs. 3
   artikel: '25'
   artikel_titel: Verantwortlichkeiten entlang der KI-Wertschöpfungskette
@@ -11378,9 +11376,9 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  neufassung: teilweise
   fassung_2026_1744:
   - Art. 25 Abs. 4 UAbs. 1 n.F.@95904
-  neufassung: teilweise
 - id: Art. 25 Abs. 5
   artikel: '25'
   artikel_titel: Verantwortlichkeiten entlang der KI-Wertschöpfungskette
@@ -12479,21 +12477,20 @@ einheiten:
   ziffer: null
   po_entscheid:
   - 2026-09-23 · 2a Gruppe A (Bereichsausnahme Anhang III Nr. 2)
+  neufassung: ersetzt
   fassung_2026_1744:
   - Art. 27 Abs. 4 n.F.@96790
-  neufassung: ersetzt
 - id: Art. 27 Abs. 5
   artikel: '27'
   artikel_titel: Grundrechte-Folgenabschätzung für Hochrisiko-KI-Systeme
   absatz: '5'
   buchstabe: null
   offset: 370325
-  laenge: 320
-  saetze: 2
+  laenge: 257
+  saetze: 1
   beleg: (5)   Das Büro für Künstliche Intelligenz arbeitet ein Muster für einen Fragebogen — auch mithilfe
     eines automatisierten Instruments — aus, um die Betreiber in die Lage zu versetzen, ihren Pflichten
-    gemäß diesem Artikel in vereinfachter Weise nachzukommen. ABSCHNITT 4 Notifizierende Behörden und
-    notifizierte Stellen
+    gemäß diesem Artikel in vereinfachter Weise nachzukommen.
   adressat: behoerde
   pflicht: Das KI-Buero erarbeitet ein Fragebogen-Muster (ggf. mit automatisiertem Instrument), das dem
     Betreiber die vereinfachte Erfuellung seiner Art.-27-Pflichten ermoeglicht.
@@ -12515,9 +12512,9 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  neufassung: ersetzt
   fassung_2026_1744:
   - Art. 27 Abs. 5 n.F.@97338
-  neufassung: ersetzt
 - id: Art. 28 Abs. 1
   artikel: '28'
   artikel_titel: Notifizierende Behörden
@@ -12861,9 +12858,9 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  neufassung: ersetzt
   fassung_2026_1744:
   - Art. 29 Abs. 4 n.F.@100710
-  neufassung: ersetzt
 - id: Art. 30 Abs. 1
   artikel: '30'
   artikel_titel: Notifizierungsverfahren
@@ -12924,9 +12921,9 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  neufassung: ersetzt
   fassung_2026_1744:
   - Art. 30 Abs. 2 n.F.@101751
-  neufassung: ersetzt
 - id: Art. 30 Abs. 3
   artikel: '30'
   artikel_titel: Notifizierungsverfahren
@@ -14513,13 +14510,12 @@ einheiten:
   absatz: '-'
   buchstabe: null
   offset: 394211
-  laenge: 420
-  saetze: 2
+  laenge: 344
+  saetze: 1
   beleg: Konformitätsbewertungsstellen, die nach dem Recht eines Drittlands errichtet wurden, mit dem
     die Union ein Abkommen geschlossen hat, können ermächtigt werden, die Tätigkeiten notifizierter Stellen
     gemäß dieser Verordnung durchzuführen, sofern sie die Anforderungen gemäß Artikel 31 erfüllen oder
-    das gleiche Maß an Konformität gewährleisten. ABSCHNITT 5 Normen, Konformitätsbewertung, Bescheinigungen,
-    Registrierung
+    das gleiche Maß an Konformität gewährleisten.
   adressat: sonstige
   pflicht: Konformitaetsbewertungsstellen aus Drittlaendern mit Unionsabkommen koennen zur Wahrnehmung
     der Taetigkeiten notifizierter Stellen ermaechtigt werden, wenn sie Art. 31 erfuellen oder gleichwertige
@@ -15401,9 +15397,9 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  neufassung: ersetzt
   fassung_2026_1744:
   - Art. 43 Abs. 3 n.F.@104336
-  neufassung: ersetzt
 - id: Art. 43 Abs. 4
   artikel: '43'
   artikel_titel: Konformitätsbewertung
@@ -16719,10 +16715,10 @@ einheiten:
   absatz: '5'
   buchstabe: null
   offset: 420862
-  laenge: 189
-  saetze: 2
+  laenge: 106
+  saetze: 1
   beleg: (5)   Die in Anhang III Nummer 2 genannten Hochrisiko-KI-Systeme werden auf nationaler Ebene
-    registriert. KAPITEL IV TRANSPARENZPFLICHTEN FÜR ANBIETER UND BETREIBER BESTIMMTER KI-SYSTEME
+    registriert.
   adressat: sonstige
   pflicht: Anhang-III-Nr.-2-Systeme (kritische Infrastruktur) werden nicht in der EU-Datenbank, sondern
     auf nationaler Ebene registriert.
@@ -16984,16 +16980,15 @@ einheiten:
   absatz: '7'
   buchstabe: null
   offset: 425464
-  laenge: 760
-  saetze: 4
+  laenge: 666
+  saetze: 3
   beleg: (7)   Das Büro für Künstliche Intelligenz fördert und erleichtert die Ausarbeitung von Praxisleitfäden
     auf Unionsebene, um die wirksame Umsetzung der Pflichten in Bezug auf die Feststellung und Kennzeichnung
     künstlich erzeugter oder manipulierter Inhalte zu erleichtern. Die Kommission kann Durchführungsrechtsakte
     zur Genehmigung dieser Praxisleitfäden nach dem in Artikel 56 Absatz 6 festgelegten Verfahren erlassen.
     Hält sie einen Kodex für nicht angemessen, so kann die Kommission einen Durchführungsrechtsakt gemäß
     dem in Artikel 98 Absatz 2 genannten Prüfverfahren erlassen, in dem gemeinsame Vorschriften für die
-    Umsetzung dieser Pflichten festgelegt werden. KAPITEL V KI-MODELLE MIT ALLGEMEINEM VERWENDUNGSZWECK
-    ABSCHNITT 1 Einstufungsvorschriften
+    Umsetzung dieser Pflichten festgelegt werden.
   adressat: behoerde
   pflicht: Das KI-Buero foerdert/erleichtert Praxisleitfaeden zur wirksamen Umsetzung der Feststellungs-/Kennzeichnungspflichten
     fuer kuenstlich erzeugte/manipulierte Inhalte; die Kommission kann Praxisleitfaeden per Durchfuehrungsrechtsakt
@@ -17017,9 +17012,9 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  neufassung: ersetzt
   fassung_2026_1744:
   - Art. 50 Abs. 7 n.F.@107743
-  neufassung: ersetzt
 - id: Art. 51 Abs. 1
   artikel: '51'
   artikel_titel: Einstufung von KI-Modellen mit allgemeinem Verwendungszweck als KI-Modelle mit allgemeinem
@@ -17375,13 +17370,12 @@ einheiten:
   absatz: '6'
   buchstabe: null
   offset: 430930
-  laenge: 489
-  saetze: 2
+  laenge: 403
+  saetze: 1
   beleg: (6)   Die Kommission stellt sicher, dass eine Liste von KI-Modellen mit allgemeinem Verwendungszweck
     mit systemischem Risiko veröffentlicht wird, und hält diese Liste unbeschadet der Notwendigkeit, Rechte
     des geistigen Eigentums und vertrauliche Geschäftsinformationen oder Geschäftsgeheimnisse im Einklang
-    mit dem Unionsrecht und dem nationalen Recht zu achten und zu schützen, auf dem neuesten Stand. ABSCHNITT
-    2 Pflichten für Anbieter von KI-Modellen mit allgemeinem Verwendungszweck
+    mit dem Unionsrecht und dem nationalen Recht zu achten und zu schützen, auf dem neuesten Stand.
   adressat: behoerde
   pflicht: Die Kommission stellt sicher, dass eine aktuelle Liste der KI-Modelle mit systemischem Risiko
     veroeffentlicht wird, unter Wahrung von Geschaeftsgeheimnissen.
@@ -18120,14 +18114,13 @@ einheiten:
   absatz: '6'
   buchstabe: null
   offset: 438077
-  laenge: 605
-  saetze: 2
+  laenge: 495
+  saetze: 1
   beleg: (6)   Die Pflicht gemäß diesem Artikel gilt nicht für Anbieter von KI-Modellen, die im Rahmen
     einer freien und quelloffenen Lizenz bereitgestellt werden, die den Zugang, die Nutzung, die Änderung
     und die Verbreitung des Modells ermöglicht und deren Parameter, einschließlich Gewichte, Informationen
     über die Modellarchitektur und Informationen über die Modellnutzung, öffentlich zugänglich gemacht
-    werden, es sei denn, die KI-Modelle mit allgemeinem Verwendungszweck bergen systemische Risiken. ABSCHNITT
-    3 Pflichten der Anbieter von KI-Modellen mit allgemeinem Verwendungszweck mit systemischem Risiko
+    werden, es sei denn, die KI-Modelle mit allgemeinem Verwendungszweck bergen systemische Risiken.
   adressat: anbieter
   pflicht: Die Pflicht zur Benennung eines Bevollmaechtigten gilt nicht fuer Anbieter frei und quelloffen
     lizenzierter Modelle, ausser bei systemischem Risiko.
@@ -18353,10 +18346,10 @@ einheiten:
   absatz: '3'
   buchstabe: null
   offset: 440691
-  laenge: 211
-  saetze: 2
+  laenge: 181
+  saetze: 1
   beleg: (3)   Jegliche Informationen oder Dokumentation, die gemäß diesem Artikel erlangt werden, werden
-    im Einklang mit den in Artikel 78 festgelegten Vertraulichkeitspflichten behandelt. ABSCHNITT 4 Praxisleitfäden
+    im Einklang mit den in Artikel 78 festgelegten Vertraulichkeitspflichten behandelt.
   adressat: behoerde
   pflicht: Nach diesem Artikel erlangte Informationen sind gemaess den Vertraulichkeitspflichten des Art.
     78 zu behandeln.
@@ -18713,9 +18706,9 @@ einheiten:
   ziffer: null
   po_entscheid:
   - 2026-09-23 · 2b E6 (Omnibus-Feld)
+  neufassung: ersetzt
   fassung_2026_1744:
   - Art. 56 Abs. 6 n.F.@108619
-  neufassung: ersetzt
 - id: Art. 56 Abs. 7
   artikel: '56'
   artikel_titel: Praxisleitfäden
@@ -18789,8 +18782,8 @@ einheiten:
   absatz: '9'
   buchstabe: null
   offset: 445296
-  laenge: 811
-  saetze: 4
+  laenge: 762
+  saetze: 3
   beleg: (9)   Praxisleitfäden müssen spätestens am 2. Mai 2025 vorliegen. Das Büro für Künstliche Intelligenz
     unternimmt die erforderlichen Schritte, einschließlich des Ersuchens von Anbietern gemäß Absatz 7.
     Kann bis zum 2. August 2025 ein Verhaltenskodex nicht fertiggestellt werden oder erachtet das Büro
@@ -18798,7 +18791,7 @@ einheiten:
     nicht angemessen, kann die Kommission im Wege von Durchführungsrechtsakten gemeinsame Vorschriften
     für die Umsetzung der in den Artikeln 53 und 55 vorgesehenen Pflichten, einschließlich der in Absatz
     2 des vorliegenden Artikels genannten Aspekte, festlegen. Diese Durchführungsrechtsakte werden gemäß
-    dem in Artikel 98 Absatz 2 genannten Prüfverfahren erlassen. KAPITEL VI MASSNAHMEN ZUR INNOVATIONSFÖRDERUNG
+    dem in Artikel 98 Absatz 2 genannten Prüfverfahren erlassen.
   adressat: behoerde
   pflicht: Liegen bis zum 2. Mai 2025 keine Praxisleitfaeden vor bzw. sind sie bis zum 2. August 2025
     nicht fertiggestellt, kann die Kommission per Durchfuehrungsrechtsakt gemeinsame Vorschriften zur
@@ -18858,9 +18851,9 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  neufassung: teilweise
   fassung_2026_1744:
   - Art. 57 Abs. 1 UAbs. 1 n.F.@109270
-  neufassung: teilweise
 - id: Art. 57 Abs. 2
   artikel: '57'
   artikel_titel: KI-Reallabore
@@ -18924,9 +18917,9 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  neufassung: ersetzt
   fassung_2026_1744:
   - Art. 57 Abs. 3 n.F.@109745
-  neufassung: ersetzt
 - id: Art. 57 Abs. 4
   artikel: '57'
   artikel_titel: KI-Reallabore
@@ -18999,9 +18992,9 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  neufassung: ersetzt
   fassung_2026_1744:
   - Art. 57 Abs. 5 n.F.@111027
-  neufassung: ersetzt
 - id: Art. 57 Abs. 6
   artikel: '57'
   artikel_titel: KI-Reallabore
@@ -19296,9 +19289,9 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  neufassung: ersetzt
   fassung_2026_1744:
   - Art. 57 Abs. 9 lit. e n.F.@111824
-  neufassung: ersetzt
 - id: Art. 57 Abs. 10
   artikel: '57'
   artikel_titel: KI-Reallabore
@@ -19334,9 +19327,9 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  neufassung: ersetzt
   fassung_2026_1744:
   - Art. 57 Abs. 10 n.F.@112068
-  neufassung: ersetzt
 - id: Art. 57 Abs. 11
   artikel: '57'
   artikel_titel: KI-Reallabore
@@ -19475,9 +19468,9 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  neufassung: ersetzt
   fassung_2026_1744:
   - Art. 57 Abs. 14 n.F.@112652
-  neufassung: ersetzt
 - id: Art. 57 Abs. 15
   artikel: '57'
   artikel_titel: KI-Reallabore
@@ -19621,9 +19614,9 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  neufassung: ersetzt
   fassung_2026_1744:
   - Art. 58 Abs. 1 UAbs. 1 Einleitung n.F.@113229
-  neufassung: ersetzt
 - id: Art. 58 Abs. 1 lit. a
   artikel: '58'
   artikel_titel: Detaillierte Regelungen für KI-Reallabore und deren Funktionsweise
@@ -20754,9 +20747,9 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  neufassung: teilweise
   fassung_2026_1744:
   - Art. 60 Abs. 1 UAbs. 1 n.F.@114068
-  neufassung: teilweise
 - id: Art. 60 Abs. 2
   artikel: '60'
   artikel_titel: Tests von Hochrisiko-KI-Systemen unter Realbedingungen außerhalb von KI-Reallaboren
@@ -20792,9 +20785,9 @@ einheiten:
   ziffer: null
   po_entscheid:
   - 2026-09-23 · 2b E6 (Omnibus-Feld)
+  neufassung: ersetzt
   fassung_2026_1744:
   - Art. 60 Abs. 2 n.F.@114577
-  neufassung: ersetzt
 - id: Art. 60 Abs. 3
   artikel: '60'
   artikel_titel: Tests von Hochrisiko-KI-Systemen unter Realbedingungen außerhalb von KI-Reallaboren
@@ -21990,21 +21983,20 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  neufassung: ersetzt
   fassung_2026_1744:
   - Art. 63 Abs. 1 n.F.@118435
-  neufassung: ersetzt
 - id: Art. 63 Abs. 2
   artikel: '63'
   artikel_titel: Ausnahmen für bestimmte Akteure
   absatz: '2'
   buchstabe: null
   offset: 478893
-  laenge: 331
-  saetze: 2
+  laenge: 265
+  saetze: 1
   beleg: (2)   Absatz 1 dieses Artikels ist nicht dahin gehend auszulegen, dass diese Akteure auch von
     anderen in dieser Verordnung festgelegten Anforderungen oder Pflichten, einschließlich der nach den
-    Artikeln 9, 10, 11, 12, 13, 14, 15, 72 und 73 geltenden, befreit sind. KAPITEL VII GOVERNANCE ABSCHNITT
-    1 Governance auf Unionsebene
+    Artikeln 9, 10, 11, 12, 13, 14, 15, 72 und 73 geltenden, befreit sind.
   adressat: anbieter
   pflicht: Die Vereinfachung nach Absatz 1 befreit diese Akteure nicht von anderen Pflichten der Verordnung,
     etwa nach Art. 9-15, 72 und 73.
@@ -24048,22 +24040,21 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  neufassung: ersetzt
   fassung_2026_1744:
   - Art. 69 Abs. 2 n.F.@119388
-  neufassung: ersetzt
 - id: Art. 69 Abs. 3
   artikel: '69'
   artikel_titel: Zugang zum Pool von Sachverständigen durch die Mitgliedstaaten
   absatz: '3'
   buchstabe: null
   offset: 494676
-  laenge: 418
-  saetze: 2
+  laenge: 374
+  saetze: 1
   beleg: (3)   Die Kommission ermöglicht den Mitgliedstaaten bei Bedarf einen rechtzeitigen Zugang zu
     den Sachverständigen und sorgt dafür, dass die Kombination aus unterstützenden Tätigkeiten durch die
     Union zur Prüfung von KI gemäß Artikel 84 und durch die Sachverständigen gemäß dem vorliegenden Artikel
-    effizient organisiert ist und den bestmöglichen zusätzlichen Nutzen bringt. ABSCHNITT 2 Zuständige
-    nationale Behörden
+    effizient organisiert ist und den bestmöglichen zusätzlichen Nutzen bringt.
   adressat: behoerde
   pflicht: Die Kommission sorgt fuer einen rechtzeitigen Zugang der Mitgliedstaaten zu den Sachverstaendigen
     und fuer eine effiziente Abstimmung mit den Unionsstrukturen zur Pruefung von KI nach Artikel 84.
@@ -24350,20 +24341,20 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  neufassung: ersetzt
   fassung_2026_1744:
   - Art. 70 Abs. 8 n.F.@119705
-  neufassung: ersetzt
 - id: Art. 70 Abs. 9
   artikel: '70'
   artikel_titel: Benennung von zuständigen nationalen Behörden und zentrale Anlaufstelle
   absatz: '9'
   buchstabe: null
   offset: 498839
-  laenge: 283
-  saetze: 2
+  laenge: 229
+  saetze: 1
   beleg: (9)   Soweit Organe, Einrichtungen und sonstige Stellen der Union in den Anwendungsbereich dieser
     Verordnung fallen, übernimmt der Europäische Datenschutzbeauftragte die Funktion der für ihre Beaufsichtigung
-    zuständigen Behörde. KAPITEL VIII EU-DATENBANK FÜR HOCHRISIKO-KI-SYSTEME
+    zuständigen Behörde.
   adressat: behoerde
   pflicht: Fuer Organe, Einrichtungen und sonstige Stellen der Union im Anwendungsbereich der Verordnung
     uebernimmt der Europaeische Datenschutzbeauftragte die Aufsichtsfunktion.
@@ -24554,12 +24545,11 @@ einheiten:
   absatz: '6'
   buchstabe: null
   offset: 501263
-  laenge: 419
-  saetze: 4
+  laenge: 272
+  saetze: 3
   beleg: (6)   Die Kommission gilt als für die EU-Datenbank Verantwortlicher. Sie stellt Anbietern, zukünftigen
     Anbietern und Betreibern angemessene technische und administrative Unterstützung bereit. Die EU-Datenbank
-    muss den geltenden Barrierefreiheitsanforderungen entsprechen. KAPITEL IX BEOBACHTUNG NACH DEM INVERKEHRBRINGEN,
-    INFORMATIONSAUSTAUSCH UND MARKTÜBERWACHUNG ABSCHNITT 1 Beobachtung nach dem Inverkehrbringen
+    muss den geltenden Barrierefreiheitsanforderungen entsprechen.
   adressat: behoerde
   pflicht: Die Kommission ist Verantwortliche der EU-Datenbank, stellt Anbietern/zukuenftigen Anbietern
     und Betreibern angemessene technische/administrative Unterstuetzung bereit; die Datenbank muss barrierefrei
@@ -24704,9 +24694,9 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  neufassung: ersetzt
   fassung_2026_1744:
   - Art. 72 Abs. 3 n.F.@120337
-  neufassung: ersetzt
 - id: Art. 72 Abs. 4
   artikel: '72'
   artikel_titel: Beobachtung nach dem Inverkehrbringen durch die Anbieter und Plan für die Beobachtung
@@ -24714,8 +24704,8 @@ einheiten:
   absatz: '4'
   buchstabe: null
   offset: 503392
-  laenge: 1136
-  saetze: 3
+  laenge: 1065
+  saetze: 2
   beleg: (4)   Bei Hochrisiko-KI-Systemen, die unter die in Anhang I Abschnitt A aufgeführten Harmonisierungsrechtsvorschriften
     der Union fallen, und für die auf der Grundlage dieser Rechtvorschriften bereits ein System zur Beobachtung
     nach dem Inverkehrbringen sowie ein entsprechender Plan festgelegt wurden, haben die Anbieter zur
@@ -24726,7 +24716,7 @@ einheiten:
     1 dieses Absatzes gilt auch für in Anhang III Nummer 5 genannte Hochrisiko-KI-Systeme, die von Finanzinstituten
     in Verkehr gebracht oder in Betrieb genommen wurden, die bezüglich ihrer internen Unternehmensführung,
     Regelungen oder Verfahren Anforderungen gemäß den Rechtsvorschriften der Union über Finanzdienstleistungen
-    unterliegen. ABSCHNITT 2 Austausch von Informationen über schwerwiegende Vorfälle
+    unterliegen.
   adressat: anbieter
   pflicht: Fuer Hochrisiko-Systeme unter Anhang-I-Abschnitt-A-Vorschriften mit bereits bestehendem PMS/Plan
     koennen Anbieter zur Kohaerenz/Vermeidung von Doppelarbeit die Abs.-1-3-Elemente in die bestehenden
@@ -25193,11 +25183,11 @@ einheiten:
   absatz: '11'
   buchstabe: null
   offset: 508624
-  laenge: 249
-  saetze: 2
+  laenge: 222
+  saetze: 1
   beleg: (11)   Die zuständigen nationalen Behörden melden der Kommission unverzüglich jeden schwerwiegenden
     Vorfall gemäß Artikel 20 der Verordnung (EU) 2019/1020, unabhängig davon, ob sie diesbezüglich Maßnahmen
-    ergriffen haben. ABSCHNITT 3 Durchsetzung
+    ergriffen haben.
   adressat: behoerde
   pflicht: Die zustaendigen nationalen Behoerden melden der Kommission unverzueglich jeden schwerwiegenden
     Vorfall nach Art. 20 VO (EU) 2019/1020, unabhaengig von eigenen Massnahmen.
@@ -25847,6 +25837,7 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  neufassung: ersetzt
   fassung_2026_1744:
   - Art. 75 Abs. 1 n.F.@120996
   - Art. 75 Abs. 1 lit. a n.F.@121181
@@ -25855,7 +25846,6 @@ einheiten:
   - Art. 75 Abs. 1 lit. a Ziff. iii n.F.@121617
   - Art. 75 Abs. 1 lit. a Ziff. iv n.F.@121801
   - Art. 75 Abs. 1 lit. b n.F.@121875
-  neufassung: ersetzt
 - id: Art. 75 Abs. 2
   artikel: '75'
   artikel_titel: Amtshilfe, Marktüberwachung und Kontrolle von KI-Systemen mit allgemeinem Verwendungszweck
@@ -26187,9 +26177,9 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  neufassung: ersetzt
   fassung_2026_1744:
   - Art. 77 Abs. 1 n.F.@146588
-  neufassung: ersetzt
 - id: Art. 77 Abs. 2
   artikel: '77'
   artikel_titel: Befugnisse der für den Schutz der Grundrechte zuständigen Behörden
@@ -27879,11 +27869,11 @@ einheiten:
   absatz: '2'
   buchstabe: null
   offset: 540656
-  laenge: 287
-  saetze: 2
+  laenge: 259
+  saetze: 1
   beleg: (2)   Unbeschadet der in Absatz 1 genannten Aufgaben leisten die Unionsstrukturen zur Unterstützung
     der Prüfung von KI auf Anfrage des KI-Gremiums, der Kommission oder der Marktüberwachungsbehörden
-    auch unabhängige technische oder wissenschaftliche Beratung. ABSCHNITT 4 Rechtsbehelfe
+    auch unabhängige technische oder wissenschaftliche Beratung.
   adressat: behoerde
   pflicht: Diese Unionsstrukturen leisten auf Ersuchen des KI-Gremiums, der Kommission oder der Marktueberwachungsbehoerden
     zusaetzlich unabhaengige technische oder wissenschaftliche Beratung.
@@ -27903,24 +27893,25 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
-- id: Art. 85
+- uid: Art. 85 Abs. 1@541013
+  id: Art. 85 Abs. 1
   artikel: '85'
   artikel_titel: Recht auf Beschwerde bei einer Marktüberwachungsbehörde
-  absatz: '-'
+  abschnitt: null
+  absatz: '1'
+  nummer: null
+  unterabsatz: null
   buchstabe: null
-  offset: 541011
-  laenge: 533
-  saetze: 2
+  ziffer: null
+  offset: 541013
+  laenge: 286
+  saetze: 1
   beleg: Unbeschadet anderer verwaltungsrechtlicher oder gerichtlicher Rechtsbehelfe kann jede natürliche
     oder juristische Person, die Grund zu der Annahme hat, dass gegen die Bestimmungen dieser Verordnung
-    verstoßen wurde, bei der betreffenden Marktüberwachungsbehörde Beschwerden einreichen. Gemäß der Verordnung
-    (EU) 2019/1020 werden solche Beschwerden für die Zwecke der Durchführung von Marktüberwachungstätigkeiten
-    berücksichtigt und nach den einschlägigen von den Marktüberwachungsbehörden dafür eingerichteten Verfahren
-    behandelt.
+    verstoßen wurde, bei der betreffenden Marktüberwachungsbehörde Beschwerden einreichen.
   adressat: sonstige
-  pflicht: Jede natuerliche oder juristische Person mit Grund zur Annahme eines Verstosses gegen die Verordnung
-    kann bei der zustaendigen Marktueberwachungsbehoerde eine Beschwerde einreichen, die im Rahmen der
-    Marktueberwachung zu beruecksichtigen ist.
+  pflicht: Unbeschadet anderer verwaltungsrechtlicher oder gerichtlicher Rechtsbehelfe kann jede natürliche
+    oder juristische Person, die Grund zu der Annahme …
   scope: out
   scope_grund: Gewaehrt ein allgemeines Beschwerderecht bzw. Hinweisgeberschutz fuer natuerliche oder
     juristische Personen; keine spezifische Betreiberpflicht.
@@ -27928,16 +27919,46 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: []
-  gate: []
+  requirement: &id039 []
+  gate: &id040 []
   befund: null
   befund_grund: null
   po_bestaetigt: false
-  uid: Art. 85@541011
+  migriert_von: Art. 85@541011
+  migration: geerbt
+- uid: Art. 85 Abs. 2@541299
+  id: Art. 85 Abs. 2
+  artikel: '85'
+  artikel_titel: Recht auf Beschwerde bei einer Marktüberwachungsbehörde
   abschnitt: null
+  absatz: '2'
   nummer: null
   unterabsatz: null
+  buchstabe: null
   ziffer: null
+  offset: 541299
+  laenge: 245
+  saetze: 1
+  beleg: Gemäß der Verordnung (EU) 2019/1020 werden solche Beschwerden für die Zwecke der Durchführung
+    von Marktüberwachungstätigkeiten berücksichtigt und nach den einschlägigen von den Marktüberwachungsbehörden
+    dafür eingerichteten Verfahren behandelt.
+  adressat: sonstige
+  pflicht: Gemäß der Verordnung (EU) 2019/1020 werden solche Beschwerden für die Zwecke der Durchführung
+    von Marktüberwachungstätigkeiten berücksichtigt und …
+  scope: out
+  scope_grund: Gewaehrt ein allgemeines Beschwerderecht bzw. Hinweisgeberschutz fuer natuerliche oder
+    juristische Personen; keine spezifische Betreiberpflicht.
+  verifikation: VERIFIZIERT
+  hypothese_grund: null
+  omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
+    am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
+  requirement: *id039
+  gate: *id040
+  befund: null
+  befund_grund: null
+  po_bestaetigt: false
+  migriert_von: Art. 85@541011
+  migration: geerbt
 - id: Art. 86 Abs. 1
   artikel: '86'
   artikel_titel: Recht auf Erläuterung der Entscheidungsfindung im Einzelfall
@@ -28044,11 +28065,10 @@ einheiten:
   absatz: '-'
   buchstabe: null
   offset: 542684
-  laenge: 284
-  saetze: 2
+  laenge: 148
+  saetze: 1
   beleg: Für die Meldung von Verstößen gegen diese Verordnung und den Schutz von Personen, die solche
-    Verstöße melden, gilt die Richtlinie (EU) 2019/1937. ABSCHNITT 5 Aufsicht, Ermittlung, Durchsetzung
-    und Überwachung in Bezug auf Anbieter von KI-Modellen mit allgemeinem Verwendungszweck
+    Verstöße melden, gilt die Richtlinie (EU) 2019/1937.
   adressat: sonstige
   pflicht: Fuer die Meldung von Verstoessen gegen die Verordnung und den Schutz meldender Personen gilt
     die Hinweisgeberschutzrichtlinie (EU) 2019/1937.
@@ -29172,11 +29192,11 @@ einheiten:
   absatz: '-'
   buchstabe: null
   offset: 552486
-  laenge: 250
-  saetze: 2
+  laenge: 205
+  saetze: 1
   beleg: Unbeschadet der in dieser Verordnung enthaltenen spezifischeren Verfahrensrechte gilt für die
     Anbieter des KI-Modells mit allgemeinem Verwendungszweck Artikel 18 der Verordnung (EU) 2019/1020
-    sinngemäß. KAPITEL X VERHALTENSKODIZES UND LEITLINIEN
+    sinngemäß.
   adressat: anbieter
   pflicht: Unbeschadet spezifischerer Verfahrensrechte in der Verordnung gilt fuer die Anbieter des KI-Modells
     mit allgemeinem Verwendungszweck Artikel 18 der Verordnung (EU) 2019/1020 sinngemaess.
@@ -29472,9 +29492,9 @@ einheiten:
   ziffer: null
   po_entscheid:
   - 2026-09-23 · 2b E6 (Omnibus-Feld)
+  neufassung: ersetzt
   fassung_2026_1744:
   - Art. 95 Abs. 4 n.F.@148560
-  neufassung: ersetzt
 - id: Art. 96 Abs. 1
   artikel: '96'
   artikel_titel: Leitlinien der Kommission zur Durchführung dieser Verordnung
@@ -29532,9 +29552,9 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  neufassung: ersetzt
   fassung_2026_1744:
   - Art. 96 Abs. 1 UAbs. 1 lit. a n.F.@148931
-  neufassung: ersetzt
 - id: Art. 96 Abs. 1 lit. b
   artikel: '96'
   artikel_titel: Leitlinien der Kommission zur Durchführung dieser Verordnung
@@ -29687,20 +29707,19 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  neufassung: teilweise
   fassung_2026_1744:
   - Art. 96 Abs. 1 UAbs. 2 n.F.@149675
-  neufassung: teilweise
 - id: Art. 96 Abs. 2
   artikel: '96'
   artikel_titel: Leitlinien der Kommission zur Durchführung dieser Verordnung
   absatz: '2'
   buchstabe: null
   offset: 557022
-  laenge: 254
-  saetze: 2
+  laenge: 198
+  saetze: 1
   beleg: (2)   Auf Ersuchen der Mitgliedstaaten oder des Büros für Künstliche Intelligenz oder von sich
     aus aktualisiert die Kommission früher verabschiedete Leitlinien, wenn es als notwendig erachtet wird.
-    KAPITEL XI BEFUGNISÜBERTRAGUNG UND AUSSCHUSSVERFAHREN
   adressat: behoerde
   pflicht: Die Kommission aktualisiert fruehere Leitlinien auf Ersuchen der Mitgliedstaaten/des Buero
     fuer KI oder von sich aus.
@@ -29788,9 +29807,9 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  neufassung: ersetzt
   fassung_2026_1744:
   - Art. 97 Abs. 2 n.F.@150078
-  neufassung: ersetzt
 - id: Art. 97 Abs. 3
   artikel: '97'
   artikel_titel: Ausübung der Befugnisübertragung
@@ -29829,9 +29848,9 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  neufassung: ersetzt
   fassung_2026_1744:
   - Art. 97 Abs. 3 n.F.@150981
-  neufassung: ersetzt
 - id: Art. 97 Abs. 4
   artikel: '97'
   artikel_titel: Ausübung der Befugnisübertragung
@@ -29929,9 +29948,9 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  neufassung: ersetzt
   fassung_2026_1744:
   - Art. 97 Abs. 6 n.F.@151736
-  neufassung: ersetzt
 - id: Art. 98 Abs. 1
   artikel: '98'
   artikel_titel: Ausschussverfahren
@@ -29966,10 +29985,9 @@ einheiten:
   absatz: '2'
   buchstabe: null
   offset: 560163
-  laenge: 122
-  saetze: 2
+  laenge: 97
+  saetze: 1
   beleg: (2)   Wird auf diesen Absatz Bezug genommen, so gilt Artikel 5 der Verordnung (EU) Nr. 182/2011.
-    KAPITEL XII SANKTIONEN
   adressat: behoerde
   pflicht: Bei Verweis auf diesen Absatz gilt Art. 5 der VO (EU) 182/2011 (Pruefverfahren).
   scope: out
@@ -30026,9 +30044,9 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  neufassung: ersetzt
   fassung_2026_1744:
   - Art. 99 Abs. 1 n.F.@152573
-  neufassung: ersetzt
 - id: Art. 99 Abs. 2
   artikel: '99'
   artikel_titel: Sanktionen
@@ -31492,12 +31510,11 @@ einheiten:
   absatz: '6'
   buchstabe: null
   offset: 571562
-  laenge: 348
-  saetze: 3
+  laenge: 313
+  saetze: 2
   beleg: (6)   Die Kommission erlässt Durchführungsrechtsakte mit detaillierten Regelungen und Verfahrensgarantien
     für die Verfahren im Hinblick auf den möglichen Erlass von Beschlüssen gemäß Absatz 1 dieses Artikels.
     Diese Durchführungsrechtsakte werden gemäß dem in Artikel 98 Absatz 2 genannten Prüfverfahren erlassen.
-    KAPITEL XIII SCHLUSSBESTIMMUNGEN
   adressat: behoerde
   pflicht: Die Kommission erlaesst Durchfuehrungsrechtsakte mit Verfahrensregeln/-garantien fuer Art.-101-Beschluesse.
   scope: out
@@ -31738,8 +31755,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: &id039 []
-  gate: &id040 []
+  requirement: &id041 []
+  gate: &id042 []
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -31782,8 +31799,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id039
-  gate: *id040
+  requirement: *id041
+  gate: *id042
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -31817,8 +31834,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id039
-  gate: *id040
+  requirement: *id041
+  gate: *id042
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -31852,8 +31869,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id039
-  gate: *id040
+  requirement: *id041
+  gate: *id042
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -31887,8 +31904,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id039
-  gate: *id040
+  requirement: *id041
+  gate: *id042
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -31922,8 +31939,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id039
-  gate: *id040
+  requirement: *id041
+  gate: *id042
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -31957,8 +31974,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id039
-  gate: *id040
+  requirement: *id041
+  gate: *id042
   befund: null
   befund_grund: null
   po_bestaetigt: false
@@ -32125,10 +32142,10 @@ einheiten:
   - 2026-09-23 · 2b E1 (steuernd, Massnahme P0)
   - 2026-09-23 · 2b E4 (VERIFIZIERT - Betreiber in der Einheit oder ihrem Einleitungssatz genannt)
   - 2026-09-29 · A-F2a (Review 08 Teil 7) - ersetzt durch n.F., bewertet wird die n.F.-Zeile
+  neufassung: ersetzt
   fassung_2026_1744:
   - Art. 111 Abs. 2 Satz 1 n.F.@153788
   - Art. 111 Abs. 2 Satz 2 n.F.@154212
-  neufassung: ersetzt
 - uid: Art. 111 Abs. 2 Satz 2@580304
   id: Art. 111 Abs. 2 Satz 2
   artikel: '111'
@@ -32179,10 +32196,10 @@ einheiten:
   po_entscheid:
   - 2026-09-23 · 2b E4 (VERIFIZIERT - Betreiber in der Einheit oder ihrem Einleitungssatz genannt)
   - 2026-09-29 · A-F2a (Review 08 Teil 7) - ersetzt durch n.F., bewertet wird die n.F.-Zeile
+  neufassung: ersetzt
   fassung_2026_1744:
   - Art. 111 Abs. 2 Satz 1 n.F.@153788
   - Art. 111 Abs. 2 Satz 2 n.F.@154212
-  neufassung: ersetzt
 - id: Art. 111 Abs. 3
   artikel: '111'
   artikel_titel: Bereits in Verkehr gebrachte oder in Betrieb genommene KI-Systeme und bereits in Verkehr
@@ -32894,42 +32911,108 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
-- uid: Art. 113@586936
-  id: Art. 113
+- uid: Art. 113 Abs. 1@586938
+  id: Art. 113 Abs. 1
   artikel: '113'
   artikel_titel: Inkrafttreten und Geltungsbeginn
-  absatz: '-'
-  buchstabe: null
-  offset: 586936
-  laenge: 161
-  saetze: 2
-  beleg: 'Diese Verordnung tritt am zwanzigsten Tag nach ihrer Veröffentlichung im Amtsblatt der Europäischen
-    Union in Kraft. Sie gilt ab dem 2. August 2026. Jedoch:'
-  adressat: sonstige
-  pflicht: Die Verordnung tritt am 20. Tag nach Veroeffentlichung in Kraft und gilt ab 2. August 2026;
-    Abweichungen regelt Abs. 3 lit. a-d.
-  scope: in
-  scope_grund: 'Steuernde Norm (T-13 Raster, Ausnahme von Schritt 3) - Geltungsbeginn; bestimmt, ab wann
-    die Betreiberpflichten gelten (mit Art. 113 Abs. 3 lit. c Ziff. i n.F.: 02.12.2027, P0).'
-  verifikation: VERIFIZIERT
-  hypothese_grund: null
-  omnibus: 'unveraendert in Satz 1 und 2 - VO (EU) 2026/1744 Art. 1 Nr. 40 aendert Art. 113 Abs. 3: lit.
-    a und c neu gefasst, lit. d angefuegt (geprueft am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).'
-  requirement: []
-  gate: []
-  befund: nicht_einschlaegig
-  befund_grund: Stichtag, begruendet keine eigene pruefbare Pflicht.
   abschnitt: null
+  absatz: '1'
   nummer: null
   unterabsatz: null
+  buchstabe: null
   ziffer: null
+  offset: 586938
+  laenge: 117
+  saetze: 1
+  beleg: Diese Verordnung tritt am zwanzigsten Tag nach ihrer Veröffentlichung im Amtsblatt der Europäischen
+    Union in Kraft.
+  adressat: sonstige
+  pflicht: Die Verordnung tritt am zwanzigsten Tag nach ihrer Veroeffentlichung in Kraft (1. August 2024).
+  scope: out
+  scope_grund: 'Kein Lebenszyklusbezug (T-13 Schritt 3): Inkrafttreten, ein abgeschlossenes Datum; die
+    Ausnahme ''steuernde Norm'' greift nicht, weil kein Datum mehr offen ist - wie Omnibus Art. 4 (PO
+    29.09.2026, P2-F5 a). Die Stichtage der Betreiberpflichten setzen Abs. 2 und Abs. 3.'
+  verifikation: VERIFIZIERT
+  hypothese_grund: null
+  omnibus: unveraendert - VO (EU) 2026/1744 Art. 1 Nr. 40 aendert nur Art. 113 Abs. 3 (lit. a und c neu
+    gefasst, lit. d angefuegt) (geprueft am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
+  requirement: &id043 []
+  gate: &id044 []
+  befund: null
+  befund_grund: null
   po_bestaetigt: false
-- uid: Art. 113 lit. a@587097
-  id: Art. 113 lit. a
+  migriert_von: Art. 113@586936
+  migration: geerbt
+- uid: Art. 113 Abs. 2@587055
+  id: Art. 113 Abs. 2
   artikel: '113'
   artikel_titel: Inkrafttreten und Geltungsbeginn
-  absatz: '-'
+  abschnitt: null
+  absatz: '2'
+  nummer: null
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 587055
+  laenge: 33
+  saetze: 1
+  beleg: Sie gilt ab dem 2. August 2026.
+  adressat: sonstige
+  pflicht: Die Verordnung gilt ab dem 2. August 2026, soweit Abs. 3 nichts anderes bestimmt.
+  scope: in
+  scope_grund: Steuernde Norm (T-13 Raster, Ausnahme von Schritt 3) - allgemeiner Geltungsbeginn; gilt
+    fuer alle in-Pflichten, die Abs. 3 nicht abweichend regelt (z. B. Art. 73).
+  verifikation: VERIFIZIERT
+  hypothese_grund: null
+  omnibus: unveraendert - VO (EU) 2026/1744 Art. 1 Nr. 40 aendert nur Art. 113 Abs. 3 (lit. a und c neu
+    gefasst, lit. d angefuegt) (geprueft am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
+  requirement: *id043
+  gate: *id044
+  befund: nicht_einschlaegig
+  befund_grund: Stichtag, begruendet keine eigene pruefbare Pflicht.
+  po_bestaetigt: false
+  migriert_von: Art. 113@586936
+  migration: geerbt
+- uid: Art. 113 Abs. 3@587088
+  id: Art. 113 Abs. 3
+  artikel: '113'
+  artikel_titel: Inkrafttreten und Geltungsbeginn
+  abschnitt: null
+  absatz: '3'
+  nummer: null
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 587088
+  laenge: 9
+  saetze: 1
+  beleg: 'Jedoch:'
+  adressat: sonstige
+  pflicht: Einleitung der Ausnahmen vom Geltungsbeginn nach Abs. 2 (lit. a-d).
+  scope: in
+  scope_grund: Steuernde Norm (T-13 Raster, Ausnahme von Schritt 3) - Einleitung der abweichenden Stichtage;
+    mit lit. c Ziff. i n.F. (02.12.2027) traegt sie den Stichtag der Betreiberpflichten (P0).
+  verifikation: VERIFIZIERT
+  hypothese_grund: null
+  omnibus: geaendert - VO (EU) 2026/1744 Art. 1 Nr. 40 fasst lit. a und c neu und fuegt lit. d an; die
+    Einleitung selbst ist unveraendert (geprueft am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
+  requirement: *id043
+  gate: *id044
+  befund: nicht_einschlaegig
+  befund_grund: Einleitung einer Liste von Stichtagen, begruendet keine eigene pruefbare Pflicht.
+  po_bestaetigt: false
+  migriert_von: Art. 113@586936
+  migration: geerbt
+- uid: Art. 113 Abs. 3 lit. a@587097
+  id: Art. 113 Abs. 3 lit. a
+  artikel: '113'
+  artikel_titel: Inkrafttreten und Geltungsbeginn
+  abschnitt: null
+  absatz: '3'
+  nummer: null
+  unterabsatz: null
   buchstabe: a
+  ziffer: null
   offset: 587097
   laenge: 60
   saetze: 1
@@ -32950,22 +33033,24 @@ einheiten:
   gate: *id022
   befund: null
   befund_grund: null
-  abschnitt: null
-  nummer: null
-  unterabsatz: null
-  ziffer: null
   po_bestaetigt: true
-  fassung_2026_1744:
-  - Art. 113 Abs. 3 lit. a n.F.@154925
   neufassung: ersetzt
   po_entscheid:
   - 2026-09-29 · A-F2a (Review 08 Teil 7) - ersetzt durch n.F., bewertet wird die n.F.-Zeile
-- uid: Art. 113 lit. b@587157
-  id: Art. 113 lit. b
+  migriert_von: Art. 113 lit. a@587097
+  migration: kennung_geaendert
+  fassung_2026_1744:
+  - Art. 113 Abs. 3 lit. a n.F.@154925
+- uid: Art. 113 Abs. 3 lit. b@587157
+  id: Art. 113 Abs. 3 lit. b
   artikel: '113'
   artikel_titel: Inkrafttreten und Geltungsbeginn
-  absatz: '-'
+  abschnitt: null
+  absatz: '3'
+  nummer: null
+  unterabsatz: null
   buchstabe: b
+  ziffer: null
   offset: 587157
   laenge: 150
   saetze: 1
@@ -32987,17 +33072,19 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  abschnitt: null
-  nummer: null
-  unterabsatz: null
-  ziffer: null
   po_bestaetigt: false
-- uid: Art. 113 lit. c@587307
-  id: Art. 113 lit. c
+  migriert_von: Art. 113 lit. b@587157
+  migration: kennung_geaendert
+- uid: Art. 113 Abs. 3 lit. c@587307
+  id: Art. 113 Abs. 3 lit. c
   artikel: '113'
   artikel_titel: Inkrafttreten und Geltungsbeginn
-  absatz: '-'
+  abschnitt: null
+  absatz: '3'
+  nummer: null
+  unterabsatz: null
   buchstabe: c
+  ziffer: null
   offset: 587307
   laenge: 113
   saetze: 1
@@ -33019,18 +33106,16 @@ einheiten:
   gate: *id022
   befund: null
   befund_grund: null
-  abschnitt: null
-  nummer: null
-  unterabsatz: null
-  ziffer: null
   po_bestaetigt: true
+  neufassung: ersetzt
+  po_entscheid:
+  - 2026-09-29 · A-F2a (Review 08 Teil 7) - ersetzt durch n.F., bewertet wird die n.F.-Zeile
+  migriert_von: Art. 113 lit. c@587307
+  migration: kennung_geaendert
   fassung_2026_1744:
   - Art. 113 Abs. 3 lit. c n.F.@155162
   - Art. 113 Abs. 3 lit. c Ziff. i n.F.@155252
   - Art. 113 Abs. 3 lit. c Ziff. ii n.F.@155378
-  neufassung: ersetzt
-  po_entscheid:
-  - 2026-09-29 · A-F2a (Review 08 Teil 7) - ersetzt durch n.F., bewertet wird die n.F.-Zeile
 - uid: Anhang I Abschn. A@602960
   id: Anhang I Abschn. A
   artikel: Anhang I
@@ -33095,9 +33180,9 @@ einheiten:
   befund: null
   befund_grund: null
   po_bestaetigt: false
+  neufassung: gestrichen
   fassung_2026_1744:
   - Omnibus Art. 1 Nr. 41 lit. a@155633
-  neufassung: gestrichen
 - uid: Anhang I Abschn. A Nr. 2@603252
   id: Anhang I Abschn. A Nr. 2
   artikel: Anhang I
@@ -33471,35 +33556,292 @@ einheiten:
   buchstabe: null
   ziffer: null
   offset: 605859
-  laenge: 3456
-  saetze: 9
-  beleg: Abschnitt B — Liste anderer Harmonisierungsrechtsvorschriften der Union 13. Verordnung (EG) Nr.
-    300/2008 des Europäischen Parlaments und des Rates vom 11. März 2008 über gemeinsame Vorschriften
-    für die Sicherheit in der Zivilluftfahrt und zur Aufhebung der Verordnung (EG) Nr. 2320/2002 (ABl.
-    L 97 vom 9.4.2008, S. 72) 14. Verordnung (EU) Nr. 168/2013 des Europäischen Parlaments und des Rates
-    vom 15. Januar 2013 über die Genehmigung und Marktüberwachung von zwei- oder dreirädrigen und vierrädrigen
-    Fahrzeugen (ABl. L 60 vom 2.3.2013, S. 52) 15. Verordnung (EU) Nr. 167/2013 des Europäischen Parlaments
-    und des Rates vom 5. Februar 2013 über die Genehmigung und Marktüberwachung von land- und forstwirtschaftlichen
-    Fahrzeugen (ABl. L 60 vom 2.3.2013, S. 1) 16. Richtlinie 2014/90/EU des Europäischen Parlaments und
-    des Rates vom 23. Juli 2014 über Schiffsausrüstung und zur Aufhebung der Richtlinie 96/98/EG des Rates
-    (ABl. L 257 vom 28.8.2014, S. 146) 17. Richtlinie (EU) 2016/797 des Europäischen Parlaments und des
-    Rates vom 11. Mai 2016 über die Interoperabilität des Eisenbahnsystems in der Europäischen Union (ABl.
-    L 138 vom 26.5.2016, S. 44) 18. Verordnung (EU) 2018/858 des Europäischen Parlaments und des Rates
-    vom 30. Mai 2018 über die Genehmigung und die Marktüberwachung von Kraftfahrzeugen und Kraftfahrzeuganhängern
-    sowie von Systemen, Bauteilen und selbstständigen technischen Einheiten für diese Fahrzeuge, zur Änderung
-    der Verordnungen (EG) Nr. 715/2007 und (EG) Nr. 595/2009 und zur Aufhebung der Richtlinie 2007/46/EG
-    (ABl. L 151 vom 14.6.2018, S. 1) 19. Verordnung (EU) 2019/2144 des Europäischen Parlaments und des
-    Rates vom 27. November 2019 über die Typgenehmigung von Kraftfahrzeugen und Kraftfahrzeuganhängern
-    sowie von Systemen, Bauteilen und selbstständigen technischen Einheiten für diese Fahrzeuge im Hinblick
-    auf ihre allgemeine Sicherheit und den Schutz der Fahrzeuginsassen und von ungeschützten Verkehrsteilnehmern,
-    zur Änderung der Verordnung (EU) 2018/858 des Europäischen Parlaments und des Rates und zur Aufhebung
-    der Verordnungen (EG) Nr. 78/2009, (EG) Nr. 79/2009 und (EG) Nr. 661/2009 des Europäischen Parlaments
-    und des Rates sowie der Verordnungen (EG) Nr. 631/2009, (EU) Nr. 406/2010, (EU) Nr. 672/2010, (EU)
-    Nr. 1003/2010, (EU) Nr. 1005/2010, (EU) Nr. 1008/2010, (EU) Nr. 1009/2010, (EU) Nr. 19/2011, (EU)
-    Nr. 109/2011, (EU) Nr. 458/2011, (EU) Nr. 65/2012, (EU) Nr. 130/2012, (EU) Nr. 347/2012, (EU) Nr.
-    351/2012, (EU) Nr. 1230/2012 und (EU) 2015/166 der Kommission (ABl. L 325 vom 16.12.2019, S. 1) 20.
-    Verordnung (EU) 2018/1139 des Europäischen Parlaments und des Rates vom 4. Juli 2018 zur Festlegung
-    gemeinsamer Vorschriften für die Zivilluftfahrt und zur Errichtung einer Agentur der Europäischen
+  laenge: 76
+  saetze: 1
+  beleg: Abschnitt B — Liste anderer Harmonisierungsrechtsvorschriften der Union
+  adressat: sonstige
+  pflicht: 'Ueberschrift: Abschnitt B - Liste anderer Harmonisierungsrechtsvorschriften der Union.'
+  scope: out
+  scope_grund: 'Systemtyp (T-13 Schritt 2b): Liste fuer Art. 6 Abs. 1 (KI als Sicherheitsbauteil eines
+    Produkts nach Harmonisierungsrecht) und Art. 2 Abs. 2. Das Redispatch-System ist nach Art. 6 Abs.
+    2 i.V.m. Anhang III Nr. 2 eingestuft, nicht als Produkt nach Anhang I; Art. 6 Abs. 1 ist out.'
+  verifikation: VERIFIZIERT
+  hypothese_grund: null
+  omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 41 lit. b - Nr. 21 (Maschinenverordnung (EU) 2023/1230)
+    angefuegt, siehe Anhang I Abschn. B Nr. 21 n.F.
+  requirement: &id045 []
+  gate: &id046 []
+  befund: null
+  befund_grund: null
+  po_bestaetigt: false
+- uid: Anhang I Abschn. B Nr. 13@605935
+  id: Anhang I Abschn. B Nr. 13
+  artikel: Anhang I
+  artikel_titel: Liste der Harmonisierungsrechtsvorschriften der Union
+  abschnitt: B
+  absatz: null
+  nummer: '13'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 605935
+  laenge: 252
+  saetze: 2
+  beleg: 13. Verordnung (EG) Nr. 300/2008 des Europäischen Parlaments und des Rates vom 11. März 2008
+    über gemeinsame Vorschriften für die Sicherheit in der Zivilluftfahrt und zur Aufhebung der Verordnung
+    (EG) Nr. 2320/2002 (ABl. L 97 vom 9.4.2008, S. 72)
+  adressat: sonstige
+  pflicht: 'Liste der Harmonisierungsrechtsvorschriften (Art. 6 Abs. 1, Art. 2 Abs. 2): Verordnung (EG)
+    Nr. 300/2008 des Europäischen Parlaments und des Rates vom 11. März 2008 über gemeinsame Vorschriften
+    für die Sicherheit in der …'
+  scope: out
+  scope_grund: 'Systemtyp (T-13 Schritt 2b): Liste fuer Art. 6 Abs. 1 (KI als Sicherheitsbauteil eines
+    Produkts nach Harmonisierungsrecht) und Art. 2 Abs. 2. Das Redispatch-System ist nach Art. 6 Abs.
+    2 i.V.m. Anhang III Nr. 2 eingestuft, nicht als Produkt nach Anhang I; Art. 6 Abs. 1 ist out.'
+  verifikation: VERIFIZIERT
+  hypothese_grund: null
+  omnibus: unveraendert - Art. 1 Nr. 41 der VO (EU) 2026/1744 fuegt in Abschn. B nur Nr. 21 an (geprueft
+    am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
+  requirement: *id045
+  gate: *id046
+  befund: null
+  befund_grund: null
+  po_bestaetigt: false
+  migriert_von: Anhang I Abschn. B@605859
+  migration: geerbt
+- uid: Anhang I Abschn. B Nr. 14@606187
+  id: Anhang I Abschn. B Nr. 14
+  artikel: Anhang I
+  artikel_titel: Liste der Harmonisierungsrechtsvorschriften der Union
+  abschnitt: B
+  absatz: null
+  nummer: '14'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 606187
+  laenge: 230
+  saetze: 2
+  beleg: 14. Verordnung (EU) Nr. 168/2013 des Europäischen Parlaments und des Rates vom 15. Januar 2013
+    über die Genehmigung und Marktüberwachung von zwei- oder dreirädrigen und vierrädrigen Fahrzeugen
+    (ABl. L 60 vom 2.3.2013, S. 52)
+  adressat: sonstige
+  pflicht: 'Liste der Harmonisierungsrechtsvorschriften (Art. 6 Abs. 1, Art. 2 Abs. 2): Verordnung (EU)
+    Nr. 168/2013 des Europäischen Parlaments und des Rates vom 15. Januar 2013 über die Genehmigung und
+    Marktüberwachung von zwei- oder …'
+  scope: out
+  scope_grund: 'Systemtyp (T-13 Schritt 2b): Liste fuer Art. 6 Abs. 1 (KI als Sicherheitsbauteil eines
+    Produkts nach Harmonisierungsrecht) und Art. 2 Abs. 2. Das Redispatch-System ist nach Art. 6 Abs.
+    2 i.V.m. Anhang III Nr. 2 eingestuft, nicht als Produkt nach Anhang I; Art. 6 Abs. 1 ist out.'
+  verifikation: VERIFIZIERT
+  hypothese_grund: null
+  omnibus: unveraendert - Art. 1 Nr. 41 der VO (EU) 2026/1744 fuegt in Abschn. B nur Nr. 21 an (geprueft
+    am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
+  requirement: *id045
+  gate: *id046
+  befund: null
+  befund_grund: null
+  po_bestaetigt: false
+  migriert_von: Anhang I Abschn. B@605859
+  migration: geerbt
+- uid: Anhang I Abschn. B Nr. 15@606417
+  id: Anhang I Abschn. B Nr. 15
+  artikel: Anhang I
+  artikel_titel: Liste der Harmonisierungsrechtsvorschriften der Union
+  abschnitt: B
+  absatz: null
+  nummer: '15'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 606417
+  laenge: 220
+  saetze: 2
+  beleg: 15. Verordnung (EU) Nr. 167/2013 des Europäischen Parlaments und des Rates vom 5. Februar 2013
+    über die Genehmigung und Marktüberwachung von land- und forstwirtschaftlichen Fahrzeugen (ABl. L 60
+    vom 2.3.2013, S. 1)
+  adressat: sonstige
+  pflicht: 'Liste der Harmonisierungsrechtsvorschriften (Art. 6 Abs. 1, Art. 2 Abs. 2): Verordnung (EU)
+    Nr. 167/2013 des Europäischen Parlaments und des Rates vom 5. Februar 2013 über die Genehmigung und
+    Marktüberwachung von land- und …'
+  scope: out
+  scope_grund: 'Systemtyp (T-13 Schritt 2b): Liste fuer Art. 6 Abs. 1 (KI als Sicherheitsbauteil eines
+    Produkts nach Harmonisierungsrecht) und Art. 2 Abs. 2. Das Redispatch-System ist nach Art. 6 Abs.
+    2 i.V.m. Anhang III Nr. 2 eingestuft, nicht als Produkt nach Anhang I; Art. 6 Abs. 1 ist out.'
+  verifikation: VERIFIZIERT
+  hypothese_grund: null
+  omnibus: unveraendert - Art. 1 Nr. 41 der VO (EU) 2026/1744 fuegt in Abschn. B nur Nr. 21 an (geprueft
+    am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
+  requirement: *id045
+  gate: *id046
+  befund: null
+  befund_grund: null
+  po_bestaetigt: false
+  migriert_von: Anhang I Abschn. B@605859
+  migration: geerbt
+- uid: Anhang I Abschn. B Nr. 16@606637
+  id: Anhang I Abschn. B Nr. 16
+  artikel: Anhang I
+  artikel_titel: Liste der Harmonisierungsrechtsvorschriften der Union
+  abschnitt: B
+  absatz: null
+  nummer: '16'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 606637
+  laenge: 201
+  saetze: 2
+  beleg: 16. Richtlinie 2014/90/EU des Europäischen Parlaments und des Rates vom 23. Juli 2014 über Schiffsausrüstung
+    und zur Aufhebung der Richtlinie 96/98/EG des Rates (ABl. L 257 vom 28.8.2014, S. 146)
+  adressat: sonstige
+  pflicht: 'Liste der Harmonisierungsrechtsvorschriften (Art. 6 Abs. 1, Art. 2 Abs. 2): Richtlinie 2014/90/EU
+    des Europäischen Parlaments und des Rates vom 23. Juli 2014 über Schiffsausrüstung und zur Aufhebung
+    der Richtlinie 96/98/EG …'
+  scope: out
+  scope_grund: 'Systemtyp (T-13 Schritt 2b): Liste fuer Art. 6 Abs. 1 (KI als Sicherheitsbauteil eines
+    Produkts nach Harmonisierungsrecht) und Art. 2 Abs. 2. Das Redispatch-System ist nach Art. 6 Abs.
+    2 i.V.m. Anhang III Nr. 2 eingestuft, nicht als Produkt nach Anhang I; Art. 6 Abs. 1 ist out.'
+  verifikation: VERIFIZIERT
+  hypothese_grund: null
+  omnibus: unveraendert - Art. 1 Nr. 41 der VO (EU) 2026/1744 fuegt in Abschn. B nur Nr. 21 an (geprueft
+    am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
+  requirement: *id045
+  gate: *id046
+  befund: null
+  befund_grund: null
+  po_bestaetigt: false
+  migriert_von: Anhang I Abschn. B@605859
+  migration: geerbt
+- uid: Anhang I Abschn. B Nr. 17@606838
+  id: Anhang I Abschn. B Nr. 17
+  artikel: Anhang I
+  artikel_titel: Liste der Harmonisierungsrechtsvorschriften der Union
+  abschnitt: B
+  absatz: null
+  nummer: '17'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 606838
+  laenge: 201
+  saetze: 2
+  beleg: 17. Richtlinie (EU) 2016/797 des Europäischen Parlaments und des Rates vom 11. Mai 2016 über
+    die Interoperabilität des Eisenbahnsystems in der Europäischen Union (ABl. L 138 vom 26.5.2016, S.
+    44)
+  adressat: sonstige
+  pflicht: 'Liste der Harmonisierungsrechtsvorschriften (Art. 6 Abs. 1, Art. 2 Abs. 2): Richtlinie (EU)
+    2016/797 des Europäischen Parlaments und des Rates vom 11. Mai 2016 über die Interoperabilität des
+    Eisenbahnsystems in der …'
+  scope: out
+  scope_grund: 'Systemtyp (T-13 Schritt 2b): Liste fuer Art. 6 Abs. 1 (KI als Sicherheitsbauteil eines
+    Produkts nach Harmonisierungsrecht) und Art. 2 Abs. 2. Das Redispatch-System ist nach Art. 6 Abs.
+    2 i.V.m. Anhang III Nr. 2 eingestuft, nicht als Produkt nach Anhang I; Art. 6 Abs. 1 ist out.'
+  verifikation: VERIFIZIERT
+  hypothese_grund: null
+  omnibus: unveraendert - Art. 1 Nr. 41 der VO (EU) 2026/1744 fuegt in Abschn. B nur Nr. 21 an (geprueft
+    am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
+  requirement: *id045
+  gate: *id046
+  befund: null
+  befund_grund: null
+  po_bestaetigt: false
+  migriert_von: Anhang I Abschn. B@605859
+  migration: geerbt
+- uid: Anhang I Abschn. B Nr. 18@607039
+  id: Anhang I Abschn. B Nr. 18
+  artikel: Anhang I
+  artikel_titel: Liste der Harmonisierungsrechtsvorschriften der Union
+  abschnitt: B
+  absatz: null
+  nummer: '18'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 607039
+  laenge: 426
+  saetze: 2
+  beleg: 18. Verordnung (EU) 2018/858 des Europäischen Parlaments und des Rates vom 30. Mai 2018 über
+    die Genehmigung und die Marktüberwachung von Kraftfahrzeugen und Kraftfahrzeuganhängern sowie von
+    Systemen, Bauteilen und selbstständigen technischen Einheiten für diese Fahrzeuge, zur Änderung der
+    Verordnungen (EG) Nr. 715/2007 und (EG) Nr. 595/2009 und zur Aufhebung der Richtlinie 2007/46/EG (ABl.
+    L 151 vom 14.6.2018, S. 1)
+  adressat: sonstige
+  pflicht: 'Liste der Harmonisierungsrechtsvorschriften (Art. 6 Abs. 1, Art. 2 Abs. 2): Verordnung (EU)
+    2018/858 des Europäischen Parlaments und des Rates vom 30. Mai 2018 über die Genehmigung und die Marktüberwachung
+    von Kraftfahrzeugen …'
+  scope: out
+  scope_grund: 'Systemtyp (T-13 Schritt 2b): Liste fuer Art. 6 Abs. 1 (KI als Sicherheitsbauteil eines
+    Produkts nach Harmonisierungsrecht) und Art. 2 Abs. 2. Das Redispatch-System ist nach Art. 6 Abs.
+    2 i.V.m. Anhang III Nr. 2 eingestuft, nicht als Produkt nach Anhang I; Art. 6 Abs. 1 ist out.'
+  verifikation: VERIFIZIERT
+  hypothese_grund: null
+  omnibus: unveraendert - Art. 1 Nr. 41 der VO (EU) 2026/1744 fuegt in Abschn. B nur Nr. 21 an (geprueft
+    am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
+  requirement: *id045
+  gate: *id046
+  befund: null
+  befund_grund: null
+  po_bestaetigt: false
+  migriert_von: Anhang I Abschn. B@605859
+  migration: geerbt
+- uid: Anhang I Abschn. B Nr. 19@607465
+  id: Anhang I Abschn. B Nr. 19
+  artikel: Anhang I
+  artikel_titel: Liste der Harmonisierungsrechtsvorschriften der Union
+  abschnitt: B
+  absatz: null
+  nummer: '19'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 607465
+  laenge: 979
+  saetze: 2
+  beleg: 19. Verordnung (EU) 2019/2144 des Europäischen Parlaments und des Rates vom 27. November 2019
+    über die Typgenehmigung von Kraftfahrzeugen und Kraftfahrzeuganhängern sowie von Systemen, Bauteilen
+    und selbstständigen technischen Einheiten für diese Fahrzeuge im Hinblick auf ihre allgemeine Sicherheit
+    und den Schutz der Fahrzeuginsassen und von ungeschützten Verkehrsteilnehmern, zur Änderung der Verordnung
+    (EU) 2018/858 des Europäischen Parlaments und des Rates und zur Aufhebung der Verordnungen (EG) Nr.
+    78/2009, (EG) Nr. 79/2009 und (EG) Nr. 661/2009 des Europäischen Parlaments und des Rates sowie der
+    Verordnungen (EG) Nr. 631/2009, (EU) Nr. 406/2010, (EU) Nr. 672/2010, (EU) Nr. 1003/2010, (EU) Nr.
+    1005/2010, (EU) Nr. 1008/2010, (EU) Nr. 1009/2010, (EU) Nr. 19/2011, (EU) Nr. 109/2011, (EU) Nr. 458/2011,
+    (EU) Nr. 65/2012, (EU) Nr. 130/2012, (EU) Nr. 347/2012, (EU) Nr. 351/2012, (EU) Nr. 1230/2012 und
+    (EU) 2015/166 der Kommission (ABl. L 325 vom 16.12.2019, S. 1)
+  adressat: sonstige
+  pflicht: 'Liste der Harmonisierungsrechtsvorschriften (Art. 6 Abs. 1, Art. 2 Abs. 2): Verordnung (EU)
+    2019/2144 des Europäischen Parlaments und des Rates vom 27. November 2019 über die Typgenehmigung
+    von Kraftfahrzeugen und …'
+  scope: out
+  scope_grund: 'Systemtyp (T-13 Schritt 2b): Liste fuer Art. 6 Abs. 1 (KI als Sicherheitsbauteil eines
+    Produkts nach Harmonisierungsrecht) und Art. 2 Abs. 2. Das Redispatch-System ist nach Art. 6 Abs.
+    2 i.V.m. Anhang III Nr. 2 eingestuft, nicht als Produkt nach Anhang I; Art. 6 Abs. 1 ist out.'
+  verifikation: VERIFIZIERT
+  hypothese_grund: null
+  omnibus: unveraendert - Art. 1 Nr. 41 der VO (EU) 2026/1744 fuegt in Abschn. B nur Nr. 21 an (geprueft
+    am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
+  requirement: *id045
+  gate: *id046
+  befund: null
+  befund_grund: null
+  po_bestaetigt: false
+  migriert_von: Anhang I Abschn. B@605859
+  migration: geerbt
+- uid: Anhang I Abschn. B Nr. 20@608444
+  id: Anhang I Abschn. B Nr. 20
+  artikel: Anhang I
+  artikel_titel: Liste der Harmonisierungsrechtsvorschriften der Union
+  abschnitt: B
+  absatz: null
+  nummer: '20'
+  unterabsatz: null
+  buchstabe: null
+  ziffer: null
+  offset: 608444
+  laenge: 871
+  saetze: 2
+  beleg: 20. Verordnung (EU) 2018/1139 des Europäischen Parlaments und des Rates vom 4. Juli 2018 zur
+    Festlegung gemeinsamer Vorschriften für die Zivilluftfahrt und zur Errichtung einer Agentur der Europäischen
     Union für Flugsicherheit sowie zur Änderung der Verordnungen (EG) Nr. 2111/2005, (EG) Nr. 1008/2008,
     (EU) Nr. 996/2010, (EU) Nr. 376/2014 und der Richtlinien 2014/30/EU und 2014/53/EU des Europäischen
     Parlaments und des Rates, und zur Aufhebung der Verordnungen (EG) Nr. 552/2004 und (EG) Nr. 216/2008
@@ -33508,22 +33850,24 @@ einheiten:
     Artikel 2 Absatz 1 Buchstaben a und b in Bezug auf unbemannte Luftfahrzeuge sowie deren Motoren, Propeller,
     Teile und Ausrüstung zur Fernsteuerung betroffen sind
   adressat: sonstige
-  pflicht: 'Liste der Harmonisierungsrechtsvorschriften (Art. 6 Abs. 1, Art. 2 Abs. 2): Liste anderer
-    Harmonisierungsrechtsvorschriften der Union 13. Verordnung (EG) Nr. 300/2008 des Europäischen Parlaments
-    und des Rates vom 11. März …'
+  pflicht: 'Liste der Harmonisierungsrechtsvorschriften (Art. 6 Abs. 1, Art. 2 Abs. 2): Verordnung (EU)
+    2018/1139 des Europäischen Parlaments und des Rates vom 4. Juli 2018 zur Festlegung gemeinsamer Vorschriften
+    für die Zivilluftfahrt …'
   scope: out
   scope_grund: 'Systemtyp (T-13 Schritt 2b): Liste fuer Art. 6 Abs. 1 (KI als Sicherheitsbauteil eines
     Produkts nach Harmonisierungsrecht) und Art. 2 Abs. 2. Das Redispatch-System ist nach Art. 6 Abs.
     2 i.V.m. Anhang III Nr. 2 eingestuft, nicht als Produkt nach Anhang I; Art. 6 Abs. 1 ist out.'
   verifikation: VERIFIZIERT
   hypothese_grund: null
-  omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 41 lit. b - Nr. 21 (Maschinenverordnung (EU) 2023/1230)
-    angefuegt, siehe Anhang I Abschn. B Nr. 21 n.F.; Nr. 13-20 unveraendert.
-  requirement: []
-  gate: []
+  omnibus: unveraendert - Art. 1 Nr. 41 der VO (EU) 2026/1744 fuegt in Abschn. B nur Nr. 21 an (geprueft
+    am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
+  requirement: *id045
+  gate: *id046
   befund: null
   befund_grund: null
   po_bestaetigt: false
+  migriert_von: Anhang I Abschn. B@605859
+  migration: geerbt
 - uid: Anhang II@609409
   id: Anhang II
   artikel: Anhang II
@@ -37620,9 +37964,9 @@ einheiten:
   befund: null
   befund_grund: null
   po_bestaetigt: false
+  neufassung: gestrichen
   fassung_2026_1744:
   - Omnibus Art. 1 Nr. 42@156047
-  neufassung: gestrichen
 - uid: Anhang VIII Abschn. B Nr. 8@639519
   id: Anhang VIII Abschn. B Nr. 8
   artikel: Anhang VIII
@@ -37682,9 +38026,9 @@ einheiten:
   befund: null
   befund_grund: null
   po_bestaetigt: false
+  neufassung: gestrichen
   fassung_2026_1744:
   - Omnibus Art. 1 Nr. 42@156047
-  neufassung: gestrichen
 - uid: Anhang VIII Abschn. C@639760
   id: Anhang VIII Abschn. C
   artikel: Anhang VIII
@@ -39939,10 +40283,9 @@ einheiten:
   absatz: null
   buchstabe: g
   offset: 654347
-  laenge: 130
-  saetze: 2
-  beleg: 'g) die Zahl der registrierten Endnutzer. ELI: http://data.europa.eu/eli/reg/2024/1689/oj ISSN
-    1977-0642 (electronic edition)'
+  laenge: 45
+  saetze: 1
+  beleg: g) die Zahl der registrierten Endnutzer.
   adressat: behoerde
   pflicht: 'Kriterium der Kommission fuer die Einstufung eines KI-Modells mit allgemeinem Verwendungszweck
     mit systemischem Risiko (Art. 51): die Zahl der registrierten Endnutzer. ELI: http://data.europa.eu/eli/reg/2024/1689/oj

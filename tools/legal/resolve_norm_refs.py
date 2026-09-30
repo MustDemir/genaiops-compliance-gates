@@ -56,6 +56,23 @@ def _zerlegen(ref: str) -> list[str]:
     return out
 
 
+def _getrackt(repo_root: Path, ordner: str) -> list[Path]:
+    """YAML-Dateien eines Ordners, die git verfolgt.
+
+    T-15 (A-W8): auf dem Mac zaehlte NORM_REFS_RESOLVE 162 statt 155 Verweisungen -
+    der ignorierte Ordner gate-definitions/legacy/ lag dort und wurde mitgelesen. Was ein
+    Klon nicht enthaelt, darf das Ergebnis nicht aendern. Ohne git (etwa im entpackten
+    Archiv) bleibt es beim Lesen des Ordners.
+    """
+    import subprocess
+    try:
+        r = subprocess.run(["git", "-C", str(repo_root), "ls-files", "--", ordner],
+                           capture_output=True, text=True, timeout=30, check=True)
+        return sorted(repo_root / z for z in r.stdout.splitlines() if z.endswith(".yaml"))
+    except (OSError, subprocess.SubprocessError):
+        return sorted((repo_root / ordner).rglob("*.yaml"))
+
+
 def verweisungen(repo_root: Path = REPO_ROOT) -> list[dict]:
     """Jede Verweisung mit Fundort: Datei, Gate/Requirement, Check."""
     out: list[dict] = []
@@ -75,8 +92,7 @@ def verweisungen(repo_root: Path = REPO_ROOT) -> list[dict]:
             for x in o:
                 gehen(x, datei, traeger, check)
 
-    dateien = sorted((repo_root / "gate-definitions").rglob("*.yaml")) + \
-        sorted((repo_root / "requirements").rglob("*.yaml"))
+    dateien = _getrackt(repo_root, "gate-definitions") + _getrackt(repo_root, "requirements")
     for datei in dateien:
         if "template" in datei.name:
             continue

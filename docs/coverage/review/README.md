@@ -18,6 +18,7 @@ Arbeitsdokumente zur Abnahme von SPEC-06 / T-12: Die Vorschläge der Nachtläufe
 | 07 | [`07-element-matrix.md`](07-element-matrix.md) | Alle 50 Pflichten mit Gate-Bezug gegen die 196 Regeln aus dem Code; Korrekturen, Methodenfrage Nachbarprüfung | M2a entschieden 29.09.2026 · M1 offen (Paket 4) |
 | 08 | [`08-paket-1-anhaenge.md`](08-paket-1-anhaenge.md) | Paket 1: 206 Anhang-Einheiten und Art. 113 eingeordnet (4 in, alle steuernd; 206 out), Omnibus-Änderungen an Anhängen, Fragen A-F1, A-F2 | Vorschlag – Stichprobe in Paket 4 |
 | 09 | [`09-paket-2-omnibus.md`](09-paket-2-omnibus.md) | Paket 2: 259 Omnibus-Einheiten eingeordnet (100 Änderungsanweisungen out; 159 n.F.: 11 in, 148 out), A-F2a umgesetzt (6 AI-Act-Zeilen ersetzt → out), Wächter `OMNIBUS_SUPERSEDED_UNITS_OUT`, Fragen P2-F1–F5, R-2 | **entschieden 29.09.2026** (P2-F1 a, F2 a, F3 a, F4 c, F5 a, R-2 HIGH) |
+| 10 | [`10-paket-3-werkzeug.md`](10-paket-3-werkzeug.md) | Paket 3a, Werkzeug T-15: Art.-113-Kennungen, Anhang I Abschn. B, Fußzeile, Überschriften im Beleg, Omnibus Abs. 1b/Art. 75b; alle Räume neu gebaut; Wächter `NORM_UNITS_MATCH_EXTRACTOR` | Teil 1 geliefert · Teil 2 (Unterabsätze nach Listen) offen |
 | – | [`entscheidungsregister.md`](entscheidungsregister.md) | **Alle offenen Entscheide des PO und ausstehenden Schritte mit Ziel-Paket** (Wächter `PO_DECISIONS_REGISTERED`) | lebend |
 
 Ticket-Entwurf zu den Werkzeugbefunden: [`../../tickets/T-14-pflichtenraum-werkzeug.md`](../../tickets/T-14-pflichtenraum-werkzeug.md)

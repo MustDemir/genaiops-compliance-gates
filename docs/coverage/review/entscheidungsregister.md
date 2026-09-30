@@ -30,6 +30,7 @@ Pakete:  1 Anhänge ✅ · 2 Omnibus · 3 Befunde + Matrix · 4 PO-Runde · 5 Be
 | A-F1 | Anhang IV nennt den Betreiber: Durchschlag? Empfehlung a (nein, out) | `08-paket-1-anhaenge.md` | offen | 4 |
 | IN-1 | Alle `in`-Zeilen bestätigen (nach Paket 2 und P2-F2: 64 von 104 bestätigt – AI Act 61 von 83, Omnibus 3 von 21) | `entscheidungsregister.md` | offen | 4 |
 | OUT-1 | `out`-Zeilen: Stichprobe nach Adressat-Gruppen, dann Sammelbestätigung (nach Paket 2 und P2-F1/F4/F5: 138 von 1368 bestätigt – AI Act 31 von 1120, Omnibus 107 von 248) | `entscheidungsregister.md` | offen | 4 |
+| R-4 | Severity des Wächters `NORM_UNITS_MATCH_EXTRACTOR` (Vorschlag MEDIUM) | `10-paket-3-werkzeug.md` | offen | 4 |
 | R-3 | Severity des Wächters `COVERAGE_FINDING_NAMES_CHECKING_GATE` (Vorschlag HIGH, Begründung wie R-2) | `09-paket-2-omnibus.md` | offen | 4 |
 | R-1 | Severity des Wächters `PO_DECISIONS_REGISTERED` (Vorschlag LOW: bricht `make verify`, wie `HANDBOOK_ROADMAP_CURRENT`) | `entscheidungsregister.md` | offen | 4 |
 | M-B1 | Welches Requirement trägt Art. 26 Abs. 5 Satz 1: R009 wie heute oder R008/R010 der prüfenden Gates? | `07-element-matrix.md` | offen | 5 |
@@ -37,7 +38,6 @@ Pakete:  1 Anhänge ✅ · 2 Omnibus · 3 Befunde + Matrix · 4 PO-Runde · 5 Be
 | P9-1 | Use Cases des Prüf-Agenten | `00-systembild-und-plan.md` | offen | 9 |
 | P9-2 | Einordnung des Agenten selbst nach AI Act (HYPOTHESE: kein Hochrisiko; Art. 4, ggf. Art. 50) | `00-systembild-und-plan.md` | offen | 9 |
 | P9-3 | Architektur des Agenten | `00-systembild-und-plan.md` | offen | 9 |
-| PUSH-1 | Branch `review-2c` pushen (liegt lokal und auf dem Mac, nicht auf origin) | `entscheidungsregister.md` | offen | jederzeit |
 | PUSH-2 | Commit 47c9833 auf `claude/scrum-solo-developer-6xyy9k` pushen (Whitepaper-PDFs in `.gitignore`) | `entscheidungsregister.md` | offen | jederzeit |
 | WP-1 | Benennung des Whitepapers; Änderungen liegen in `stash@{0}` | `entscheidungsregister.md` | offen | jederzeit |
 
@@ -62,11 +62,10 @@ Pakete:  1 Anhänge ✅ · 2 Omnibus · 3 Befunde + Matrix · 4 PO-Runde · 5 Be
 
 | ID | Gegenstand | Quelle | Stand | Paket |
 |---|---|---|---|---|
-| A-W1 | Art. 113: Kennungen weichen von der amtlichen Zitierweise ab („Abs. 3 lit. a“). Aus Paket 2 verschoben: Extraktor-Umbau über alle Räume, eigenes Werkzeug-Ticket mit M-B2, A-W7 | `08-paket-1-anhaenge.md` | offen | 3 |
-| A-W2 | Anhang I Abschn. B: Nr. 13–20 in einer Einheit (Werkzeug-Ticket wie A-W1) | `08-paket-1-anhaenge.md` | offen | 3 |
-| A-W3 | Anhang XIII lit. g: Fußzeile der Quelldatei im Beleg (Werkzeug-Ticket wie A-W1) | `08-paket-1-anhaenge.md` | offen | 3 |
 | M-B2 | 14 Satz-Einheiten tragen den Pflichttext des ganzen Absatzes | `07-element-matrix.md` | offen | 3 |
-| A-W7 | Omnibus-Extraktor: Einheiten mit zwei Stellen (Art. 5 Abs. 1b in Abs. 1a lit. b, Art. 75b, Folgesätze am letzten Buchstaben) | `09-paket-2-omnibus.md` | offen | 3 |
+| A-W7 | Omnibus-Extraktor: Abs. 1b und Art. 75b behoben (T-15); offen: Folgesätze am letzten Buchstaben, aufgegangen in A-W11 | `09-paket-2-omnibus.md` | offen | 3 |
+| A-W11 | Unterabsätze nach einer Liste hängen am letzten Buchstaben (AI Act 26, DSGVO 5, NIS2 10; in: Art. 6 Abs. 3 lit. d, Art. 9 Abs. 5 lit. c) | `10-paket-3-werkzeug.md` | offen | 3 |
+| A-W10 | Sektorstapel: § 2 BSIG / § 2 KRITIS-DachG – erste Nummer der Begriffsbestimmungen nicht erkannt | `10-paket-3-werkzeug.md` | offen | T-13 |
 | P2-B1 | Art. 25 Abs. 2 lit. a–c n.F.: Teilabdeckung vorläufig, C-25d prüft den Übergabebeleg nicht je Element | `09-paket-2-omnibus.md` | offen | 3 |
 | AN-1 | Wächter Requirement-Anker ↔ Pflichtenraum: ein Requirement, dessen Normverweise nur auf `out`-Einheiten zeigen, muss `anker: offen` tragen. Gemessen am 29.09.2026: R002 (markiert), dazu R010 (F3) und R012 (Q1) ohne `in`-Anker. Kommt mit F3/F4 | `entscheidungsregister.md` | offen | 5 |
 | MX-1 | Element-Matrix als Daten, `gate` daraus abgeleitet, Wächter in `make verify` | `entscheidungsregister.md` | offen | 7 |
@@ -98,6 +97,10 @@ Pakete:  1 Anhänge ✅ · 2 Omnibus · 3 Befunde + Matrix · 4 PO-Runde · 5 Be
 | P2-F3 | Art. 25 Abs. 2 ganz ersetzt (nicht teilweise) | `09-paket-2-omnibus.md` | umgesetzt 29.09.2026 a | – |
 | P2-F5 | Omnibus Art. 4 (Inkrafttreten) `out` | `09-paket-2-omnibus.md` | umgesetzt 29.09.2026 a | – |
 | R-2 | Severity `OMNIBUS_SUPERSEDED_UNITS_OUT` = HIGH (unbewertete Neufassung = unbekannte Lücke = falsches „konform“) | `09-paket-2-omnibus.md` | umgesetzt 29.09.2026 HIGH | – |
+| PUSH-1 | Branch `review-2c` nach origin gepusht (Stand `45e2eb1`, pre-push `make verify` grün) | `entscheidungsregister.md` | umgesetzt 30.09.2026 | – |
+| A-W1 | Art. 113 (und Art. 85, DSGVO Art. 67, NIS2 Art. 44): unnummerierte Absätze als Abs. 1–n, Kennung „Art. 113 Abs. 3 lit. a“ wie im Gesetz (T-15) | `08-paket-1-anhaenge.md` | umgesetzt 30.09.2026 | – |
+| A-W2 | Anhang I Abschn. B Nr. 13–20 einzeln (T-15) | `08-paket-1-anhaenge.md` | umgesetzt 30.09.2026 | – |
+| A-W3 | Fußzeile „ELI … ISSN“ nicht mehr im Beleg von Anhang XIII lit. g (T-15) | `08-paket-1-anhaenge.md` | umgesetzt 30.09.2026 | – |
 | A-W5 | Verknüpfer verlor nach der Satzebene den Verweis Art. 111 Abs. 2 → n.F. | `09-paket-2-omnibus.md` | umgesetzt 29.09.2026 | – |
 | A-W6 | Verknüpfer verband Art. 96 Abs. 1 UAbs. 2 n.F. mit allen Buchstaben | `09-paket-2-omnibus.md` | umgesetzt 29.09.2026 | – |
 | Q2 | Nr.-2-Ausnahmen (Art. 27, 43 Abs. 2, 49, 75, 86) für einen Fachbeitrag | `05-schritt-2d-2e-gedeckt-querbefunde.md` | außerhalb | – |

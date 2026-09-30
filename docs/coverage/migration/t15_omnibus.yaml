@@ -1,0 +1,17 @@
+anlass: 'T-15 — Extraktor: unnummerierte Absaetze (A-W1), Nummernfolge im Anhangsabschnitt (A-W2), kein
+  Fuss- und Ueberschriftentext im Beleg (A-W3, A-W9), Omnibus Abs. 1b und Art. 75b (A-W7)'
+verwaist: 1
+entfernt: 1
+bleibt_mit_analyse: []
+zuordnung:
+  Art. 75b n.F.@137060:
+  - Art. 75b n.F.@137095
+  - Art. 75b lit. a n.F.@137601
+  - Art. 75b lit. b n.F.@137705
+  - Art. 75b lit. c n.F.@137769
+geerbt:
+- Art. 5 Abs. 1b n.F.@90584
+- Art. 75b lit. a n.F.@137601
+- Art. 75b lit. b n.F.@137705
+- Art. 75b lit. c n.F.@137769
+- Art. 75b n.F.@137095

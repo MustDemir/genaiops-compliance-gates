@@ -249,8 +249,20 @@ def _neuer_text(norm, s, e, z: dict, meta) -> list[dict]:
 
 def _absaetze(norm, s, e, z, meta, kopf: bool) -> list[dict]:
     block = norm[s:e]
-    marken = [(m.group(1), m.start()) for m in re.finditer(r"(?:^|\n)\((\d+[a-z]?)\)\s", block)]
+    # T-15 (A-W7): im Amtsblatt steht Art. 5 Abs. 1b als '1b.' auf eigener Zeile statt
+    # '(1b)'; ohne diese Form hing der Absatz an Abs. 1a lit. b.
+    marken = [(m.group(1) or m.group(2), m.start())
+              for m in re.finditer(r"(?:^|\n)(?:\((\d+[a-z]?)\)\s|(\d+[a-z])\.\n)", block)]
     out = []
+    if kopf and not marken:
+        # T-15 (A-W7): ein eingefuegter Artikel ohne Absatznummern (Art. 75b). Wie im
+        # Extraktor der Grundfassung ist die Ueberschrift keine Einheit; der Text wird
+        # nach Buchstaben geschnitten, statt mit der Ueberschrift eine Einheit zu sein.
+        zeilen = block.split("\n")
+        skip = len("\n".join(zeilen[:2])) + 1 if len(zeilen) > 2 else 0
+        while skip < len(block) and block[skip] in "\n \t":
+            skip += 1
+        return _buchstaben(norm, s + skip, e, {"artikel": z["artikel"]}, meta)
     erste = marken[0][1] if marken else len(block)
     if kopf and block[:erste].strip():
         k = _kennung({"artikel": z["artikel"]})

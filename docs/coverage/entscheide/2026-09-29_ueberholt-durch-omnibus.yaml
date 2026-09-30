@@ -10,7 +10,9 @@
 #
 # Diese Datei traegt nur die sechs Zeilen, die bis dahin 'in' waren. Review 08 Teil 7
 # nennt sie als Umfang des Entscheids (Art. 4, Art. 25 Abs. 2, Art. 111 Abs. 2 Satz 1
-# und 2, Art. 113 lit. a und c). Welche Zeile ganz und welche nur teilweise ersetzt ist,
+# und 2, Art. 113 lit. a und c). Seit T-15 (A-W1, 30.09.2026) tragen die beiden letzten die
+# amtliche Kennung 'Art. 113 Abs. 3 lit. a' und 'lit. c' - dieselbe Textstelle, derselbe
+# Offset; der Entscheid nennt sie unter der neuen Kennung. Welche Zeile ganz und welche nur teilweise ersetzt ist,
 # steht im Feld 'neufassung' jeder Zeile mit Verweis 'fassung_2026_1744';
 # OMNIBUS_SUPERSEDED_UNITS_OUT haelt das.
 #
@@ -28,7 +30,7 @@ eintraege:
   - beleg: A-F2a (Review 08 Teil 7) - ersetzt durch n.F., bewertet wird die n.F.-Zeile
     raum: aiact
     ids: [Art. 4, Art. 25 Abs. 2, Art. 111 Abs. 2 Satz 1, Art. 111 Abs. 2 Satz 2,
-          Art. 113 lit. a, Art. 113 lit. c]
+          Art. 113 Abs. 3 lit. a, Art. 113 Abs. 3 lit. c]
     setze:
       scope: out
       scope_grund: >-
