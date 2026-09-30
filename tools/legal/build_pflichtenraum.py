@@ -32,7 +32,8 @@ from pathlib import Path
 import yaml
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from extract_norm_units import index_articles, load, units_for  # noqa: E402
+from extract_norm_units import (index_anhaenge, index_articles,
+                                 index_paragraphen, load, units_for)  # noqa: E402
 
 LEER = {
     "adressat": None,        # betreiber | anbieter | behoerde | sonstige
@@ -54,12 +55,15 @@ def main() -> int:
     ap.add_argument("--quelle", type=Path, required=True)
     ap.add_argument("--ziel", type=Path, required=True)
     ap.add_argument("--artikel", nargs="*")
+    ap.add_argument("--verwaiste-entfernen", action="store_true",
+                    help="Eintraege loeschen, die in der Quelle keine Entsprechung mehr "
+                         "haben. Nur bewusst benutzen: sie koennen Analyse tragen.")
     ap.add_argument("--url", default="")
     ap.add_argument("--fassung", default="")
     a = ap.parse_args()
 
     raw, norm, digest = load(a.quelle)
-    arts = index_articles(norm)
+    arts = index_articles(norm) + index_paragraphen(norm) + index_anhaenge(norm)
     want = set(a.artikel) if a.artikel else {x["artikel"] for x in arts}
 
     neu = []
@@ -67,6 +71,7 @@ def main() -> int:
         if art["artikel"] in want:
             for u in units_for(norm, art):
                 neu.append({
+                    "uid": u["uid"],
                     "id": u["id"],
                     "artikel": u["artikel"],
                     "artikel_titel": u["artikel_titel"],
@@ -81,14 +86,21 @@ def main() -> int:
 
     if a.ziel.exists():
         doc = yaml.safe_load(a.ziel.read_text(encoding="utf-8")) or {}
-        alt = {e["id"]: e for e in (doc.get("einheiten") or [])}
+        # Auf uid zusammenfuehren, nicht auf id: die lesbare Kennung ist nicht
+        # eindeutig. Bestandszeilen ohne uid bekommen sie aus ihrem Offset —
+        # dieselbe Bildungsregel wie im Extraktor.
+        alt = {}
+        for e in (doc.get("einheiten") or []):
+            key = e.get("uid") or f"{e['id']}@{e.get('offset')}"
+            e.setdefault("uid", key)
+            alt[key] = e
     else:
         doc, alt = {}, {}
 
     zusammen, unveraendert, ergaenzt = [], 0, 0
     for e in neu:
-        if e["id"] in alt:
-            vorhanden = alt[e["id"]]
+        if e["uid"] in alt:
+            vorhanden = alt[e["uid"]]
             # Quelle gewinnt bei Beleg und Offsets, Analyse bleibt erhalten
             vorhanden.update({k: e[k] for k in
                               ("offset", "laenge", "saetze", "beleg",
@@ -99,7 +111,11 @@ def main() -> int:
             zusammen.append(e)
             ergaenzt += 1
 
-    verwaist = sorted(set(alt) - {e["id"] for e in neu})
+    verwaist = sorted(set(alt) - {e["uid"] for e in neu})
+    if verwaist and not a.verwaiste_entfernen:
+        # Nicht stillschweigend wegwerfen: eine verwaiste Zeile kann Analyse
+        # tragen, die jemand geschrieben hat. Sie bleibt, bis es jemand sagt.
+        zusammen.extend(alt[k] for k in verwaist)
 
     doc["quelle"] = {
         "datei": str(a.quelle),

@@ -1,0 +1,484 @@
+quelle:
+  datei: docs/legal/wortlaut/enwg_DE.txt
+  sha256: 67831563416d5d58104b6889c1b45aa7b2ed3eb6bce40e9e5807196b38242833
+  url: https://www.gesetze-im-internet.de/
+  fassung: ABGELEITETE ZUSAMMENSTELLUNG aus Einzelparagraphen-Seiten von gesetze-im-internet.de, abgerufen
+    07.09.2026 — kein amtliches Einzeldokument. Rechtsaussagen sind vor Veroeffentlichung gegen das Bundesgesetzblatt
+    zu pruefen.
+  abgerufen: '2026-09-07'
+  artikel_im_text: 2
+einheiten:
+- uid: § 5d Abs. 1@7351
+  id: § 5d Abs. 1
+  artikel: § 5d
+  artikel_titel: Dokumentations-, Melde-, Registrierungspflicht
+  absatz: '1'
+  buchstabe: null
+  offset: 7351
+  laenge: 1475
+  saetze: 7
+  beleg: (1) Der Betreiber nach § 5c Absatz 1 Satz 1 Nummer 1 bis 3 hat die Einhaltung der Anforderungen
+    des IT-Sicherheitskatalogs zu dokumentieren. Der Betreiber nach § 5c Absatz 1 Satz 1 Nummer 1 und
+    der Betreiber nach § 5c Absatz 1 Satz 1 Nummer 2 und 3, der jeweils eine besonders wichtige Einrichtung
+    nach § 28 Absatz 1 des BSI-Gesetzes ist, hat die Dokumentation nach Satz 1 der Bundesnetzagentur unverzüglich
+    nach der Erstellung zu übermitteln. Auf Verlangen der Bundesnetzagentur hat der Betreiber nach § 5c
+    Absatz 1 Satz 1 Nummer 1 bis 3 einen Mängelbeseitigungsplan vorzulegen. Ergeben sich aus dem Mängelbeseitigungsplan
+    Sicherheitsmängel, so kann die Bundesnetzagentur von dem Betreiber die Beseitigung dieser Mängel innerhalb
+    einer gesetzten Frist verlangen. Der Betreiber hat der Bundesnetzagentur und den in deren Auftrag
+    handelnden Personen zum Zweck der Überprüfung der Einhaltung des IT-Sicherheitskatalogs das Betreten
+    der Geschäfts- und Betriebsräume während der üblichen Betriebszeiten zu gestatten und auf Verlangen
+    die in Betracht kommenden Aufzeichnungen, Schriftstücke und sonstigen Unterlagen in geeigneter Weise
+    vorzulegen. Er hat Auskunft zu erteilen und die erforderliche Unterstützung zu gewähren. Für die Überprüfung
+    erhebt die Bundesnetzagentur nur dann Gebühren und Auslagen, wenn die Bundesnetzagentur auf Grund
+    von Anhaltspunkten tätig geworden ist, die berechtigte Zweifel an der Einhaltung der Anforderungen
+    des IT-Sicherheitskatalogs begründen.
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: &id001 []
+  gate: &id002 []
+  befund: null
+  befund_grund: null
+- uid: § 5d Abs. 2@8826
+  id: § 5d Abs. 2
+  artikel: § 5d
+  artikel_titel: Dokumentations-, Melde-, Registrierungspflicht
+  absatz: '2'
+  buchstabe: null
+  offset: 8826
+  laenge: 384
+  saetze: 2
+  beleg: (2) Erlangt die Bundesnetzagentur Kenntnis über Hinweise oder Informationen, wonach ein Betreiber
+    nach § 5c Absatz 1 Satz 1 Nummer 1 bis 3 die Anforderungen des IT-Sicherheitskatalogs nicht oder nicht
+    richtig umsetzt, so kann sie von dem Betreiber Informationen anfordern, um die Einhaltung des IT-Sicherheitskatalogs
+    zu überprüfen. Absatz 1 Satz 3 bis 7 ist entsprechend anzuwenden.
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id001
+  gate: *id002
+  befund: null
+  befund_grund: null
+- uid: § 5d Abs. 3@9210
+  id: § 5d Abs. 3
+  artikel: § 5d
+  artikel_titel: Dokumentations-, Melde-, Registrierungspflicht
+  absatz: '3'
+  buchstabe: null
+  offset: 9210
+  laenge: 1555
+  saetze: 1
+  beleg: '(3) Der Betreiber nach § 5c Absatz 1 Satz 1 Nummer 1 bis 3 ist verpflichtet, der Meldestelle
+    nach § 32 des BSI-Gesetzes folgende Informationen zu melden: 1. unverzüglich, spätestens jedoch innerhalb
+    von 24 Stunden nach Kenntniserlangung von einem erheblichen Sicherheitsvorfall nach § 2 Nummer 11
+    des BSI-Gesetzes: eine frühe Erstmeldung, in der angegeben wird, ob der Verdacht besteht, dass der
+    erhebliche Sicherheitsvorfall auf eine rechtswidrige oder eine böswillige Handlung zurückzuführen
+    ist oder dass er grenzüberschreitende Auswirkungen haben könnte, 2. unverzüglich, spätestens jedoch
+    innerhalb von 72 Stunden nach Kenntniserlangung von einem erheblichen Sicherheitsvorfall nach § 2
+    Nummer 11 des BSI-Gesetzes: eine Meldung über den erheblichen Sicherheitsvorfall, in der die in Nummer
+    1 genannten Informationen bestätigt oder aktualisiert werden und in der eine erste Bewertung des erheblichen
+    Sicherheitsvorfalls vorgenommen wird, einschließlich der Bewertung seines Schweregrads und seiner
+    Auswirkungen und einschließlich der Angabe der Kompromittierungsfaktoren, 3. auf Ersuchen des Bundesamtes
+    für Sicherheit in der Informationstechnik eine Zwischenmeldung über relevante Statusaktualisierungen,
+    4. spätestens einen Monat nach Übermittlung der Meldung des erheblichen Sicherheitsvorfalls nach §
+    2 Nummer 11 des BSI-Gesetzes eine Abschlussmeldung, die Folgendes enthält: a) eine ausführliche Beschreibung
+    des erheblichen Sicherheitsvorfalls nach § 2 Nummer 11 des BSI-Gesetzes, einschließlich seines Schweregrads
+    und seiner Auswirkungen,'
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id001
+  gate: *id002
+  befund: null
+  befund_grund: null
+- uid: § 5d Abs. 3 lit. b@10765
+  id: § 5d Abs. 3 lit. b
+  artikel: § 5d
+  artikel_titel: Dokumentations-, Melde-, Registrierungspflicht
+  absatz: '3'
+  buchstabe: b
+  offset: 10765
+  laenge: 168
+  saetze: 1
+  beleg: b) Angaben zur Art der Bedrohung beziehungsweise zur Ursache, die wahrscheinlich den erheblichen
+    Sicherheitsvorfall nach § 2 Nummer 11 des BSI-Gesetzes ausgelöst hat,
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id001
+  gate: *id002
+  befund: null
+  befund_grund: null
+- uid: § 5d Abs. 3 lit. c@10933
+  id: § 5d Abs. 3 lit. c
+  artikel: § 5d
+  artikel_titel: Dokumentations-, Melde-, Registrierungspflicht
+  absatz: '3'
+  buchstabe: c
+  offset: 10933
+  laenge: 131
+  saetze: 1
+  beleg: c) Angaben zu den getroffenen und den laufenden Abhilfemaßnahmen zur Abwendung oder Behebung
+    des erheblichen Sicherheitsvorfalls,
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id001
+  gate: *id002
+  befund: null
+  befund_grund: null
+- uid: § 5d Abs. 3 lit. d@11064
+  id: § 5d Abs. 3 lit. d
+  artikel: § 5d
+  artikel_titel: Dokumentations-, Melde-, Registrierungspflicht
+  absatz: '3'
+  buchstabe: d
+  offset: 11064
+  laenge: 130
+  saetze: 1
+  beleg: d) gegebenenfalls die grenzüberschreitenden Auswirkungen des erheblichen Sicherheitsvorfalls
+    nach § 2 Nummer 11 des BSI-Gesetzes.
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id001
+  gate: *id002
+  befund: null
+  befund_grund: null
+- uid: § 32 Abs. 4@11443
+  id: § 32 Abs. 4
+  artikel: § 32
+  artikel_titel: Absatz 2 bis 5 und § 36 des BSI-Gesetzes sind entsprechend anzuwenden. Bei Meldungen
+    nach diesem Absatz trifft das Bundesamt für Sicherheit in der Informationstechnik Maßnahmen nach §
+    36 des BSI-Gesetzes im Benehmen mit der Bundesnetzagentur.
+  absatz: '4'
+  buchstabe: null
+  offset: 11443
+  laenge: 1964
+  saetze: 7
+  beleg: (4) Der Betreiber eines Energieversorgungsnetzes, der keine besonders wichtige Einrichtung nach
+    § 28 Absatz 1 des BSI-Gesetzes oder keine wichtige Einrichtung nach § 28 Absatz 2 des BSI-Gesetzes
+    ist, ist verpflichtet, spätestens bis zum Ablauf des 6. März 2026 dem Bundesamt für Sicherheit in
+    der Informationstechnik die Angaben nach § 33 Absatz 1 Nummer 1 bis 4 des BSI-Gesetzes zur Registrierung
+    zu übermitteln. § 33 Absatz 2 bis 5 des BSI-Gesetzes ist für den in Satz 1 genannten Betreiber entsprechend
+    anzuwenden mit der Maßgabe, dass das Bundesamt für Sicherheit in der Informationstechnik die Registrierung
+    auch selbst vornehmen und eine Kontaktstelle benennen kann, wenn der Betreiber seine Pflicht zur Registrierung
+    nicht erfüllt. Nimmt das Bundesamt für Sicherheit in der Informationstechnik eine solche Registrierung
+    selbst vor, so informiert es sowohl den betreffenden Betreiber als auch die Bundesnetzagentur darüber
+    und übermittelt die damit verbundenen Kontaktdaten. Jeder Betreiber hat sicherzustellen, dass er über
+    die von ihm benannte oder durch die durch das Bundesamt für Sicherheit in der Informationstechnik
+    festgelegte Kontaktstelle jederzeit erreichbar ist. Für den Betreiber eines Energieversorgungsnetzes,
+    der eine besonders wichtige Einrichtung nach § 28 Absatz 1 des BSI-Gesetzes oder eine wichtige Einrichtung
+    nach § 28 Absatz 2 des BSI-Gesetzes ist und für Betreiber nach § 5c Absatz 1 Satz 1 Nummer 2 und 3
+    ist § 33 des BSI-Gesetzes auch mit den in den Sätzen 2 bis 4 enthaltenen Maßgaben anzuwenden. Das
+    Bundesamt für Sicherheit in der Informationstechnik übermittelt die durch die Registrierung der Betreiber
+    nach § 5c Absatz 1 Satz 1 Nummer 1 bis 3 erhaltenen Daten sowie jede Änderung der Registrierungen
+    unverzüglich an die Bundesnetzagentur. Die Übermittlung von Informationen durch das Bundesamt für
+    Sicherheit in der Informationstechnik nach § 40 Absatz 3 Nummer 4 Buchstabe a des BSI-Gesetzes erfolgt
+    an diese Kontaktstelle.
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id001
+  gate: *id002
+  befund: null
+  befund_grund: null
+- uid: § 32 Abs. 5@13407
+  id: § 32 Abs. 5
+  artikel: § 32
+  artikel_titel: Absatz 2 bis 5 und § 36 des BSI-Gesetzes sind entsprechend anzuwenden. Bei Meldungen
+    nach diesem Absatz trifft das Bundesamt für Sicherheit in der Informationstechnik Maßnahmen nach §
+    36 des BSI-Gesetzes im Benehmen mit der Bundesnetzagentur.
+  absatz: '5'
+  buchstabe: null
+  offset: 13407
+  laenge: 2836
+  saetze: 13
+  beleg: (5) Das Bundesamt für Sicherheit in der Informationstechnik hat die Hinweise oder Informationen
+    nach Absatz 2 und solche Meldungen über Sicherheitsvorfälle nach § 32 des BSI-Gesetzes, bei denen
+    das Bundesamt für Sicherheit in der Informationstechnik Kenntnis von einer Relevanz für die Energieversorgungssicherheit
+    und die Erfüllung der Zwecke und Ziele nach § 1 erlangt, unverzüglich an die Bundesnetzagentur weiterzuleiten.
+    Die Bundesnetzagentur führt unverzüglich eine Bewertung der Auswirkungen des nach Satz 1 übermittelten
+    Sicherheitsvorfalls auf die Energieversorgungssicherheit durch und übermittelt ihre Ergebnisse an
+    das Bundesamt für Sicherheit in der Informationstechnik. Die Bundesnetzagentur kann von dem betroffenen
+    Unternehmen die Herausgabe der zur Bewertung der Auswirkungen des Sicherheitsvorfalls auf die Energieversorgungssicherheit
+    notwendigen Informationen, einschließlich personenbezogener Daten, verlangen. Sie ist befugt, zur
+    Bewertung der Auswirkungen des Sicherheitsvorfalls auf die Energieversorgungssicherheit erforderliche
+    personenbezogene Daten zu erheben, zu speichern und zu verwenden. Das betroffene Unternehmen hat der
+    Bundesnetzagentur die zur Bewertung der Auswirkungen des Sicherheitsvorfalls auf die Energieversorgungssicherheit
+    notwendigen Informationen, einschließlich personenbezogener Daten, zu übermitteln. Die Bundesnetzagentur
+    kann bei der Durchführung der Bewertung nach Satz 2 die Betreiber von Übertragungs-, von Fernleitungs-
+    sowie von Verteilernetzen einbeziehen und ist befugt, ihnen die hierzu erforderlichen personenbezogenen
+    Daten zu übermitteln. Die Betreiber von Übertragungs-, von Fernleitungs- sowie von Verteilernetzen
+    sind befugt, die ihnen nach Satz 5 zum dort genannten Zweck übermittelten personenbezogenen Daten
+    zu erheben, zu speichern und zu verwenden. Nach Erstellung der Bewertung sind die hierzu gespeicherten
+    und verwendeten personenbezogenen Daten von der Bundesnetzagentur und den Betreibern von Übertragungs-,
+    von Fernleitungs- sowie von Verteilernetzen unverzüglich zu löschen. Das Bundesamt für Sicherheit
+    in der Informationstechnik berücksichtigt die Bewertung der Bundesnetzagentur bei der Erfüllung der
+    Aufgaben nach § 40 Absatz 3 Nummer 2 des BSI-Gesetzes. Das Bundesamt für Sicherheit in der Informationstechnik
+    und die Bundesnetzagentur haben jeweils sicherzustellen, dass die unbefugte Offenbarung der ihnen
+    nach Satz 1 zur Kenntnis gelangten Hinweise und Meldungen ausgeschlossen wird. Zugang zu den Akten
+    des Bundesamtes für Sicherheit in der Informationstechnik sowie zu den Akten der Bundesnetzagentur
+    in Angelegenheiten nach § 5c Absatz 1 bis 5 und den Absätzen 1 bis 4 sowie dieses Absatzes wird nicht
+    gewährt. § 29 des Verwaltungsverfahrensgesetzes bleibt unberührt. § 5e Umsetzungs-, Überwachungs-
+    und Schulungspflicht für Geschäftsleitungen
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id001
+  gate: *id002
+  befund: null
+  befund_grund: null
+- uid: § 32 Abs. 1@16243
+  id: § 32 Abs. 1
+  artikel: § 32
+  artikel_titel: Absatz 2 bis 5 und § 36 des BSI-Gesetzes sind entsprechend anzuwenden. Bei Meldungen
+    nach diesem Absatz trifft das Bundesamt für Sicherheit in der Informationstechnik Maßnahmen nach §
+    36 des BSI-Gesetzes im Benehmen mit der Bundesnetzagentur.
+  absatz: '1'
+  buchstabe: null
+  offset: 16243
+  laenge: 190
+  saetze: 1
+  beleg: (1) Die Geschäftsleitung eines Betreibers nach § 5c Absatz 1 Satz 1 Nummer 1 bis 3 ist verpflichtet,
+    die Anforderungen des IT-Sicherheitskatalogs umzusetzen und die Umsetzung zu überwachen.
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id001
+  gate: *id002
+  befund: null
+  befund_grund: null
+- uid: § 32 Abs. 2@16433
+  id: § 32 Abs. 2
+  artikel: § 32
+  artikel_titel: Absatz 2 bis 5 und § 36 des BSI-Gesetzes sind entsprechend anzuwenden. Bei Meldungen
+    nach diesem Absatz trifft das Bundesamt für Sicherheit in der Informationstechnik Maßnahmen nach §
+    36 des BSI-Gesetzes im Benehmen mit der Bundesnetzagentur.
+  absatz: '2'
+  buchstabe: null
+  offset: 16433
+  laenge: 444
+  saetze: 2
+  beleg: (2) Eine Geschäftsleitung eines Betreibers nach § 5c Absatz 1 Satz 1 Nummer 1 bis 3, die ihre
+    Pflichten nach Absatz 1 verletzt, haftet ihrer Einrichtung für einen schuldhaft verursachten Schaden
+    nach den auf die Rechtsform der Einrichtung anwendbaren Regeln des Gesellschaftsrechts. Nach diesem
+    Gesetz haften sie nur, wenn die für die Einrichtung maßgeblichen gesellschaftsrechtlichen Bestimmungen
+    keine Haftungsregelung nach Satz 1 enthalten.
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id001
+  gate: *id002
+  befund: null
+  befund_grund: null
+- uid: § 32 Abs. 3@16877
+  id: § 32 Abs. 3
+  artikel: § 32
+  artikel_titel: Absatz 2 bis 5 und § 36 des BSI-Gesetzes sind entsprechend anzuwenden. Bei Meldungen
+    nach diesem Absatz trifft das Bundesamt für Sicherheit in der Informationstechnik Maßnahmen nach §
+    36 des BSI-Gesetzes im Benehmen mit der Bundesnetzagentur.
+  absatz: '3'
+  buchstabe: null
+  offset: 16877
+  laenge: 515
+  saetze: 2
+  beleg: (3) Die Geschäftsleitung eines Betreibers nach § 5c Absatz 1 Satz 1 Nummer 1 bis 3 muss regelmäßig
+    an Schulungen teilnehmen, um ausreichende Kenntnisse und Fähigkeiten zur Erkennung und Bewertung von
+    Risiken und von Risikomanagementpraktiken im Bereich der Sicherheit in der Informationstechnik zu
+    erlangen sowie um die Auswirkungen von Risiken sowie Risikomanagementpraktiken auf die von der Einrichtung
+    erbrachten Dienste beurteilen zu können. § 11 Betrieb von Energieversorgungsnetzen; Verordnungsermächtigung
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id001
+  gate: *id002
+  befund: null
+  befund_grund: null
+- uid: § 32 Abs. 1@17392
+  id: § 32 Abs. 1
+  artikel: § 32
+  artikel_titel: Absatz 2 bis 5 und § 36 des BSI-Gesetzes sind entsprechend anzuwenden. Bei Meldungen
+    nach diesem Absatz trifft das Bundesamt für Sicherheit in der Informationstechnik Maßnahmen nach §
+    36 des BSI-Gesetzes im Benehmen mit der Bundesnetzagentur.
+  absatz: '1'
+  buchstabe: null
+  offset: 17392
+  laenge: 1297
+  saetze: 5
+  beleg: (1) Betreiber von Energieversorgungsnetzen sind verpflichtet, ein sicheres, zuverlässiges und
+    leistungsfähiges Energieversorgungsnetz diskriminierungsfrei zu betreiben, zu warten und bedarfsgerecht
+    zu optimieren, zu verstärken und auszubauen, soweit es wirtschaftlich zumutbar ist; dabei sind die
+    Erfordernisse im Verkehrs-, Wärme-, Industrie- und Strombereich zu beachten, die sich ergeben, um
+    Treibhausgasneutralität zu ermöglichen. Betreiber von Energieversorgungsnetzen haben insbesondere
+    die Aufgaben nach den §§ 12 bis 16a zu erfüllen. Sie nehmen diese Aufgaben für ihr Energieversorgungsnetz
+    in eigener Verantwortung wahr. Sie kooperieren und unterstützen sich bei der Wahrnehmung dieser Aufgaben;
+    dies ist insbesondere für Maßnahmen anzuwenden, die sich auf das Netz eines anderen Betreibers von
+    Energieversorgungsnetzen auswirken können. Die Verpflichtungen sind auch anzuwenden im Rahmen der
+    Wahrnehmung der wirtschaftlichen Befugnisse der Leitung des vertikal integrierten Unternehmens und
+    seiner Aufsichtsrechte nach § 7a Absatz 4 Satz 3. Der Ausbau eines L-Gasversorgungsnetzes ist nicht
+    bedarfsgerecht im Sinne von Satz 1, wenn er auf Grund von Netzanschlüssen erfolgen muss, zu deren
+    Einräumung der Betreiber des L-Gasversorgungsnetzes nicht nach den §§ 17 und 18 verpflichtet war.
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id001
+  gate: *id002
+  befund: null
+  befund_grund: null
+- uid: § 32 Abs. 2@18689
+  id: § 32 Abs. 2
+  artikel: § 32
+  artikel_titel: Absatz 2 bis 5 und § 36 des BSI-Gesetzes sind entsprechend anzuwenden. Bei Meldungen
+    nach diesem Absatz trifft das Bundesamt für Sicherheit in der Informationstechnik Maßnahmen nach §
+    36 des BSI-Gesetzes im Benehmen mit der Bundesnetzagentur.
+  absatz: '2'
+  buchstabe: null
+  offset: 18689
+  laenge: 2771
+  saetze: 9
+  beleg: (2) Für einen bedarfsgerechten, wirtschaftlich zumutbaren Ausbau der Elektrizitätsversorgungsnetze
+    nach Absatz 1 Satz 1 können Betreiber von Elektrizitätsversorgungsnetzen den Berechnungen für ihre
+    Netzplanung die Annahme zugrunde legen, dass die prognostizierte jährliche Stromerzeugung je unmittelbar
+    an ihr Netz angeschlossener Anlage zur Erzeugung von elektrischer Energie aus Windenergie an Land
+    oder solarer Strahlungsenergie um bis zu 3 Prozent reduziert werden darf (Spitzenkappung). Betreiber
+    von Elektrizitätsversorgungsnetzen, die für ihre Netzplanung eine Spitzenkappung zugrunde gelegt haben,
+    müssen dies 1. auf ihrer Internetseite veröffentlichen, 2. dem Betreiber des vorgelagerten Elektrizitätsversorgungsnetzes,
+    dem Betreiber des Übertragungsnetzes, der Bundesnetzagentur sowie der zuständigen Landesregulierungsbehörde
+    unverzüglich mitteilen und 3. im Rahmen der Netzplanung für einen sachkundigen Dritten nachvollziehbar
+    dokumentieren. Die Dokumentation nach Satz 2 Nummer 3 muss der Bundesnetzagentur, der zuständigen
+    Landesregulierungsbehörde, dem Betreiber des vorgelagerten Elektrizitätsversorgungsnetzes, dem Betreiber
+    des Übertragungsnetzes, einem Einspeisewilligen sowie einem an das Netz angeschlossenen Anlagenbetreiber
+    auf Verlangen unverzüglich vorgelegt werden. Die §§ 13 und 14 und § 11 des Erneuerbare-Energien-Gesetzes
+    bleiben unberührt. Ein Betreiber des Elektrizitätsversorgungsnetzes, der Kosten für die Reduzierung
+    der Einspeisung von mehr als 3 Prozent der jährlichen Stromerzeugung einer Anlage zur Erzeugung von
+    Strom aus erneuerbaren Energien, Grubengas oder Kraft-Wärme-Kopplung bei der Ermittlung seiner Netzentgelte
+    in Ansatz bringt, muss der Bundesnetzagentur sowie der zuständigen Landesregulierungsbehörde den Umfang
+    der und die Ursachen für die Reduzierung der Einspeisung mitteilen und im Fall einer Spitzenkappung
+    die Dokumentation nach Satz 2 Nummer 3 vorlegen. (2a) Die Betreiber von Übertragungsnetzen sind verpflichtet,
+    Handelstransaktionen innerhalb des Gebiets der Bundesrepublik Deutschland ohne Kapazitätsvergabe in
+    der Weise zu ermöglichen, dass das Gebiet der Bundesrepublik Deutschland eine einheitliche Stromgebotszone
+    bildet. Sie dürfen insbesondere nicht einseitig eine Kapazitätsvergabe einführen, die zu einer einseitigen
+    Aufteilung der einheitlichen deutschen Stromgebotszone führen würde. Sobald für einen Betreiber eines
+    Übertragungsnetzes erkennbar wird, dass die Erfüllung der Pflicht nach Satz 1 und die Einhaltung des
+    Verbots nach Satz 2 unmöglich zu werden drohen, hat er dies der Bundesnetzagentur unverzüglich in
+    Textform anzuzeigen. § 20 Absatz 2 sowie die Artikel 14 bis 17 der Verordnung (EU) 2019/943 in der
+    Fassung vom 13. Juni 2024 und die Verordnung (EU) 2015/1222 bleiben unberührt.
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id001
+  gate: *id002
+  befund: null
+  befund_grund: null
+- uid: § 32 Abs. 3@21460
+  id: § 32 Abs. 3
+  artikel: § 32
+  artikel_titel: Absatz 2 bis 5 und § 36 des BSI-Gesetzes sind entsprechend anzuwenden. Bei Meldungen
+    nach diesem Absatz trifft das Bundesamt für Sicherheit in der Informationstechnik Maßnahmen nach §
+    36 des BSI-Gesetzes im Benehmen mit der Bundesnetzagentur.
+  absatz: '3'
+  buchstabe: null
+  offset: 21460
+  laenge: 1219
+  saetze: 4
+  beleg: (3) In Rechtsverordnungen über die Regelung von Vertrags- und sonstigen Rechtsverhältnissen nach
+    § 17 Absatz 3 oder nach § 18 Absatz 3 können auch Regelungen zur Haftung der Betreiber von Energieversorgungsnetzen
+    aus Vertrag und unerlaubter Handlung für Sach- und Vermögensschäden, die ein Kunde durch Unterbrechung
+    der Energieversorgung oder durch Unregelmäßigkeiten in der Energieversorgung erleidet, getroffen werden.
+    Die Bundesregierung wird ermächtigt, durch Rechtsverordnung mit Zustimmung des Bundesrates die Haftung
+    der Betreiber von Energieversorgungsnetzen aus Vertrag und unerlaubter Handlung für Sach- oder Vermögensschäden,
+    die ein Netznutzer durch Störungen der Netznutzung erleidet, zu regeln. In Rechtsverordnungen nach
+    Satz 1 oder 2 kann die Haftung insbesondere auf vorsätzliche oder grob fahrlässige Verursachung beschränkt
+    und der Höhe nach begrenzt werden. Soweit es zur Vermeidung unzumutbarer wirtschaftlicher Risiken
+    des Netzbetriebs im Zusammenhang mit Verpflichtungen nach § 13 Absatz 2, § 13b Absatz 5 und § 13f
+    Absatz 1, auch in Verbindung mit § 14, und § 16 Absatz 2 und 2a, auch in Verbindung mit § 16a, erforderlich
+    ist, kann die Haftung darüber hinaus vollständig ausgeschlossen werden.
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id001
+  gate: *id002
+  befund: null
+  befund_grund: null
+- uid: § 32 Abs. 4@22679
+  id: § 32 Abs. 4
+  artikel: § 32
+  artikel_titel: Absatz 2 bis 5 und § 36 des BSI-Gesetzes sind entsprechend anzuwenden. Bei Meldungen
+    nach diesem Absatz trifft das Bundesamt für Sicherheit in der Informationstechnik Maßnahmen nach §
+    36 des BSI-Gesetzes im Benehmen mit der Bundesnetzagentur.
+  absatz: '4'
+  buchstabe: null
+  offset: 22679
+  laenge: 274
+  saetze: 1
+  beleg: (4) Um dem Ziel einer preisgünstigen Energieversorgung nach § 1 Absatz 1 dieses Gesetzes Rechnung
+    zu tragen, ist für zertifizierte Betreiber von Übertragungsnetzen im Sinne des § 4a auf die Anforderung
+    von Sicherheitsleistungen oder anderer Sicherungsmittel zu verzichten.
+  adressat: null
+  pflicht: null
+  scope: null
+  scope_grund: null
+  verifikation: null
+  hypothese_grund: null
+  omnibus: null
+  requirement: *id001
+  gate: *id002
+  befund: null
+  befund_grund: null
