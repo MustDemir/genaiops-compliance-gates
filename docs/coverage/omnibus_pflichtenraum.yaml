@@ -367,7 +367,7 @@ einheiten:
   adressat: sonstige
   pflicht: 'Beschraenkung der Anforderungen fuer Art.-6-Abs.-1-Systeme bei gleichwertigem Schutz im Anhang-I-Abschn.-A-Recht:
     eine solche Beschränkung nicht zu einer Verringerung des in dieser Verordnung vorgesehenen allgemeinen
-    Schutzniveaus führt. Die Kommission erlässt …'
+    Schutzniveaus führt.'
   scope: out
   scope_grund: 'Systemtyp (T-13 Schritt 2b): gilt nur fuer Hochrisiko-KI-Systeme nach Art. 6 Abs. 1 (Anhang
     I Abschn. A). Das Redispatch-System ist nach Anhang III Nr. 2 eingestuft. Satz 2 ermaechtigt die Kommission
@@ -1231,8 +1231,7 @@ einheiten:
   aenderung: eingefuegt
   adressat: betreiber
   pflicht: 'Bedingung der Erlaubnis nach Art. 4a Abs. 2 n.F.: alle in Absatz 1 genannten Bedingungen und
-    Vorkehrungen Anwendung finden. Dieser Absatz begründet keine Verpflichtung, eine solche Erkennung
-    und …'
+    Vorkehrungen Anwendung finden.'
   scope: in
   scope_grund: 'Wie Art. 4a Abs. 2 n.F. (2b E5, in): Untergliederung der Erlaubnis an Betreiber von Hochrisiko-KI-Systemen
     (S3-2, Paket 4).'
@@ -2337,8 +2336,7 @@ einheiten:
   aenderung: neu_gefasst
   adressat: anbieter
   pflicht: 'Kooperationspflicht des Erstanbieters, Element: Bereitstellung eines gezielten technischen
-    Zugangs für die neuen Anbieter, auch zu Test- und Validierungszwekken. Dieser Absatz gilt nicht in
-    Fällen …'
+    Zugangs für die neuen Anbieter, auch zu Test- und Validierungszwecken.'
   scope: in
   scope_grund: 'Wie Art. 25 Abs. 2 n.F. (Durchschlag 2b E4): Untergliederung der Kooperationspflicht,
     neu ausdruecklich aufgezaehlt.'
@@ -5630,8 +5628,7 @@ einheiten:
   ziel: Art. 75 Abs. 2a lit. c
   aenderung: eingefuegt
   adressat: behoerde
-  pflicht: 'Aufsicht und Durchsetzung durch das KI-Buero: die ersuchende Marktüberwachungsbehörde. Das
-    Büro für Künstliche Intelligenz trägt dem Ersuchen mit größter Sorgfalt Rechnung, und die …'
+  pflicht: 'Aufsicht und Durchsetzung durch das KI-Buero: die ersuchende Marktüberwachungsbehörde.'
   scope: out
   scope_grund: 'Adressat (T-13 Schritt 1): KI-Buero und Marktueberwachungsbehoerden (Zustaendigkeit, Befugnisse,
     Verfahren, Sanktionen). Gilt nur fuer Systeme in der Zustaendigkeit des KI-Bueros nach Art. 75 Abs.
@@ -6551,8 +6548,7 @@ einheiten:
   aenderung: eingefuegt
   adressat: behoerde
   pflicht: 'Verpflichtungszusagen im Verfahren des KI-Bueros: der Beschluss auf unvollständigen, unrichtigen
-    oder irreführenden Angaben des betreffenden Akteurs beruhte. Ist das Büro für Künstliche Intelligenz
-    …'
+    oder irreführenden Angaben des betreffenden Akteurs beruhte.'
   scope: out
   scope_grund: 'Adressat (T-13 Schritt 1): KI-Buero und Marktueberwachungsbehoerden (Zustaendigkeit, Befugnisse,
     Verfahren, Sanktionen). Gilt nur fuer Systeme in der Zustaendigkeit des KI-Bueros nach Art. 75 Abs.
@@ -6868,8 +6864,7 @@ einheiten:
   aenderung: eingefuegt
   adressat: behoerde
   pflicht: 'Aufsicht und Durchsetzung durch das KI-Buero: die Nichteinhaltung einer Verpflichtungszusage,
-    die durch einen Beschluss gemäß Artikel 75b für bindend erklärt wurde. Die Übermittlung unrichtiger
-    …'
+    die durch einen Beschluss gemäß Artikel 75b für bindend erklärt wurde.'
   scope: out
   scope_grund: 'Adressat (T-13 Schritt 1): KI-Buero und Marktueberwachungsbehoerden (Zustaendigkeit, Befugnisse,
     Verfahren, Sanktionen). Gilt nur fuer Systeme in der Zustaendigkeit des KI-Bueros nach Art. 75 Abs.
@@ -7163,8 +7158,7 @@ einheiten:
   aenderung: eingefuegt
   adressat: behoerde
   pflicht: 'Aufsicht und Durchsetzung durch das KI-Buero: einem Beschluss nach Absatz 1 dieses Artikels
-    nachzukommen. Diese Zwangsgelder müssen wirksam und verhältnismäßig sein und dürfen gegebenenfalls
-    5 % …'
+    nachzukommen.'
   scope: out
   scope_grund: 'Adressat (T-13 Schritt 1): KI-Buero und Marktueberwachungsbehoerden (Zustaendigkeit, Befugnisse,
     Verfahren, Sanktionen). Gilt nur fuer Systeme in der Zustaendigkeit des KI-Bueros nach Art. 75 Abs.

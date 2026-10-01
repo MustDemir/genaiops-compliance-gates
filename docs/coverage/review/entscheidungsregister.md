@@ -1,6 +1,6 @@
 ---
 titel: Entscheidungsregister – was der PO noch entscheiden muss und welche Schritte ausstehen
-stand: 2026-10-01 (nach Paket 3b und PO-Entscheiden P3-F4, R-6; P3-F3 offen)
+stand: 2026-10-01 (nach Paket 3b, PO-Entscheiden P3-F4, R-6 und A-W13; P3-F3, P3-F5 offen)
 basis: Reviews 00–09, Entscheidungsdateien in docs/coverage/entscheide/, Plan Teil C
 status: lebendes Register · der Wächter PO_DECISIONS_REGISTERED hält es vollständig
 ---
@@ -32,6 +32,7 @@ Pakete:  1 Anhänge ✅ · 2 Omnibus · 3 Befunde + Matrix · 4 PO-Runde · 5 Be
 | OUT-1 | `out`-Zeilen: Stichprobe nach Adressat-Gruppen, dann Sammelbestätigung (30.09.2026: 139 von 1407 bestätigt – AI Act 32 von 1147, Omnibus 107 von 260) | `entscheidungsregister.md` | offen | 4 |
 | R-1 | Severity des Wächters `PO_DECISIONS_REGISTERED` (Vorschlag LOW: bricht `make verify`, wie `HANDBOOK_ROADMAP_CURRENT`) | `entscheidungsregister.md` | offen | 4 |
 | P3-F3 | P2-B1: Art. 25 Abs. 2 lit. a–c n.F. Lücke statt Teilabdeckung – der Übergabebeleg ist ein Behälter (Nachbar), wie Ziff. vii. Empfehlung a (Lücke). 01.10.2026: b gewählt und zurückgenommen, der PO sieht es sich genauer an; bis dahin gilt der Vorschlag Lücke | `11-paket-3b-element-matrix.md` | offen | 3 |
+| P3-F5 | Sammelbestätigung der 19 neuen Pflichttexte aus A-W13 (wie P3-F2: bestätigt ist der Text, nicht der Befund) | `11-paket-3b-element-matrix.md` | offen | 3 |
 | M-B1 | Welches Requirement trägt Art. 26 Abs. 5 Satz 1: R009 wie heute oder R008/R010 der prüfenden Gates? | `07-element-matrix.md` | offen | 5 |
 | EF | Die vier Ehrlichkeitsfelder je neuem oder geändertem Requirement und Check: Norm↔Pflicht, MUST/SHOULD, `evidence_level`, `implemented`/`design_only` (AGENTS.md 3) | `entscheidungsregister.md` | offen | 5 |
 | P9-1 | Use Cases des Prüf-Agenten | `00-systembild-und-plan.md` | offen | 9 |
@@ -62,7 +63,6 @@ Pakete:  1 Anhänge ✅ · 2 Omnibus · 3 Befunde + Matrix · 4 PO-Runde · 5 Be
 |---|---|---|---|---|
 | A-W12 | Omnibus-Unterabsätze aus dem Zeilenfall gezählt; Art. 75 Abs. 2a, 75a Abs. 4, 75c Abs. 4 ungeprüft (alle out) | `10-paket-3-werkzeug.md` | offen | 4 |
 | A-W10 | Sektorstapel: § 2 BSIG / § 2 KRITIS-DachG – erste Nummer der Begriffsbestimmungen nicht erkannt | `10-paket-3-werkzeug.md` | offen | T-13 |
-| A-W13 | Pflichttexte hinter Aufzählungen: 19 Zeilen (AI Act 12, Omnibus 7; davon 2 `in`) nennen noch den Unterabsatz, den T-15 Teil 2 aus ihnen geschnitten hat | `11-paket-3b-element-matrix.md` | offen | 3 |
 | P3-B1 | Art. 73 Abs. 2 UAbs. 1 Satz 1 (Teilabdeckung) und Abs. 3, 4 (gedeckt) bei gleichem Aufbau ungleich zerlegt; Empfehlung: Abs. 3, 4 wie Abs. 2 | `11-paket-3b-element-matrix.md` | offen | 4 |
 | AN-1 | Wächter Requirement-Anker ↔ Pflichtenraum: ein Requirement, dessen Normverweise nur auf `out`-Einheiten zeigen, muss `anker: offen` tragen. Gemessen am 29.09.2026: R002 (markiert), dazu R010 (F3) und R012 (Q1) ohne `in`-Anker. Kommt mit F3/F4 | `entscheidungsregister.md` | offen | 5 |
 | PR-1 | Paket 8: Der PR muss von `review-2c` kommen, nicht von `spec06-aiact-stufe0` (Plan Teil C). `review-2c` enthält `spec06-aiact-stufe0` und `t14-pflichtenraum-werkzeug` vollständig und liegt 38 Commits darüber (gemessen 30.09.2026); ein PR von `spec06-aiact-stufe0` ließe T-14 und alle Pakete aus | `entscheidungsregister.md` | offen | 8 |
@@ -101,6 +101,7 @@ Pakete:  1 Anhänge ✅ · 2 Omnibus · 3 Befunde + Matrix · 4 PO-Runde · 5 Be
 | M2 | `gate` nennt nur elementprüfende Gates, Nachbarn in `nachbar_gate` – für alle Zeilen aus der Element-Matrix abgeleitet (Paket 3b) | `07-element-matrix.md` | umgesetzt 30.09.2026 a | – |
 | MX-1 | Element-Matrix als Daten (`docs/coverage/matrix/element_matrix.yaml`), `gate` daraus abgeleitet, Wächter `ELEMENT_MATRIX_DERIVES_GATE` in `make verify` – aus Paket 7 vorgezogen | `entscheidungsregister.md` | umgesetzt 30.09.2026 (Paket 3b) | – |
 | P2-B1 | Art. 25 Abs. 2 lit. a–c n.F.: C-25d prüft den Übergabebeleg nicht je Element → Lücke als Vorschlag, Bestätigung P3-F3 | `09-paket-2-omnibus.md` | umgesetzt 30.09.2026 (Review 11) | – |
+| A-W13 | Pflichttexte hinter Aufzählungen: 19 Zeilen (AI Act 12, Omnibus 7; davon 2 `in`) nannten noch den Unterabsatz, den T-15 Teil 2 aus ihnen geschnitten hat – Texte neu, `NORM_UNITS_MATCH_EXTRACTOR` prüft den wörtlichen Rest (Bestätigung P3-F5) | `11-paket-3b-element-matrix.md` | umgesetzt 01.10.2026 | – |
 | P3-F4 | Art. 26 Abs. 11: Vorbehalt bis Q11 – bleibt Teilabdeckung mit G-DEP-03; die Element-Matrix meldet, dass sie abgeleitet Lücke wäre | `11-paket-3b-element-matrix.md` | umgesetzt 01.10.2026 b | – |
 | R-6 | Severity `ELEMENT_MATRIX_DERIVES_GATE` = HIGH (wie R-3) | `11-paket-3b-element-matrix.md` | umgesetzt 01.10.2026 HIGH | – |
 | R-5 | Severity `NORM_SENTENCE_UNITS_CURRENT` = HIGH (vorher MEDIUM; fehlende Satzebene versteckt eine Pflicht wie Art. 26 Abs. 5 Satz 2) | `10-paket-3-werkzeug.md` | umgesetzt 30.09.2026 HIGH | – |

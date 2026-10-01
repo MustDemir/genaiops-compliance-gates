@@ -3321,6 +3321,16 @@ def check_norm_units_match_extractor() -> dict:
         im Extraktor weg, bleibt die erste Richtung nach einem Neubau gruen, diese
         nicht.
 
+    Dritte Richtung (A-W13, Review 11, 01.10.2026): der Schnitt kommt auch in der Aussage
+    an. T-15 Teil 2 (A-W11) schnitt Unterabsaetze aus dem letzten Glied einer Aufzaehlung,
+    zog dessen Pflichttext aber nicht nach - M-B2 galt nur fuer Saetze. 19 Glieder nannten
+    weiter den Unterabsatz, der jetzt eine eigene Zeile ist, darunter Art. 25 Abs. 2 lit. c
+    n.F. ("Dieser Absatz gilt nicht in Faellen ..." - die Ausnahme von UAbs. 4). Maschinell
+    pruefbar ist der woertliche Rest: der Pflichttext der Einheit direkt vor einem
+    Unterabsatz nennt nicht dessen erste drei Woerter, wenn ihr eigener Beleg sie nicht
+    enthaelt. Umschriebene Reste haelt das nicht; die Texte haelt PO_DECISIONS_APPLIED,
+    sobald der PO sie bestaetigt hat.
+
     HIGH (PO R-4, 30.09.2026; vorgeschlagen war MEDIUM, weil kein Zitat gefaelscht
     wird): ein veralteter Schnitt kann eine Pflicht verstecken. Bis T-15 stand die
     Profiling-Regel (Art. 6 Abs. 3 UAbs. 3) im Beleg von lit. d und Art. 9 Abs. 5
@@ -3332,7 +3342,7 @@ def check_norm_units_match_extractor() -> dict:
 
     import yaml
 
-    titel = "jeder Pflichtenraum ist genau das, was der Extraktor heute schneidet (T-15)"
+    titel = "jeder Pflichtenraum ist genau das, was der Extraktor heute schneidet (T-15, A-W13)"
     _sys.path.insert(0, str(REPO_ROOT / "tools" / "legal"))
     import extract_norm_units as ex  # noqa: E402
     from extract_omnibus_units import omnibus_units  # noqa: E402
@@ -3341,6 +3351,10 @@ def check_norm_units_match_extractor() -> dict:
     liste = ((yaml.safe_load(satz.read_text(encoding="utf-8")) or {}).get("quellen") or {}) if satz.exists() else {}
     ueberschrift = re.compile(r"\n(?:KAPITEL [IVXLC]+|ABSCHNITT \d+|Abschnitt \d+|TITEL [IVXLC]+)\n")
     fuss = re.compile(r"\nELI: http")
+    aufzaehlung = re.compile(r"^(?:\(\d+[a-z]?\)|\d+[a-z]?\.|[a-z]{1,2}\)|\([a-z]{1,2}\)|[ivx]+\))\s*")
+
+    def _woerter(text: str) -> list[str]:
+        return re.findall(r"[\wÄÖÜäöüß%-]+", text or "")
 
     findings: list[str] = []
     geprueft = 0
@@ -3372,12 +3386,21 @@ def check_norm_units_match_extractor() -> dict:
                 findings.append(f"{pfad.name}: {e['id']} — Beleg traegt eine Kapitel- oder Abschnittsueberschrift")
             if fuss.search(span):
                 findings.append(f"{pfad.name}: {e['id']} — Beleg traegt die Fusszeile des Amtsblatts")
+        folge = sorted(doc.get("einheiten") or [], key=lambda x: x["offset"])
+        for vor, nach in zip(folge, folge[1:]):
+            if "UAbs." not in str(nach.get("id", "")):
+                continue
+            kopf = " ".join(_woerter(aufzaehlung.sub("", nach.get("beleg") or ""))[:3])
+            if kopf and kopf in " ".join(_woerter(vor.get("pflicht") or "")) \
+                    and kopf not in " ".join(_woerter(vor.get("beleg") or "")):
+                findings.append(f"{pfad.name}: {vor['id']} — Pflichttext nennt den Unterabsatz "
+                                f"{nach['id']} ('{kopf} …'), der eine eigene Einheit ist (A-W13)")
 
     return make_result(
         "NORM_UNITS_MATCH_EXTRACTOR", titel, "high", not findings,
         f"{len(findings)} Befund(e) zwischen Extraktor und Pflichtenraeumen." if findings
         else f"{geprueft} Einheiten in allen Raeumen sind genau der heutige Schnitt ihrer Quelle; "
-             f"kein Beleg traegt Ueberschrift oder Fusszeile.",
+             f"kein Beleg traegt Ueberschrift oder Fusszeile, kein Pflichttext den Unterabsatz danach.",
         findings[:12] + ([f"… und {len(findings) - 12} weitere"] if len(findings) > 12 else []),
     )
 

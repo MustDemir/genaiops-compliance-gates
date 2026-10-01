@@ -4156,8 +4156,9 @@ einheiten:
     nach dessen Recht mit einer Freiheitsstrafe oder einer freiheitsentziehenden Maßregel der Sicherung
     im Höchstmaß von mindestens vier Jahren bedroht ist.
   adressat: behoerde
-  pflicht: Nennt die drei zulaessigen Strafverfolgungsziele (i-iii) fuer die Ausnahme in lit. h und stellt
-    klar, dass die Regel Art. 9 DSGVO fuer andere Zwecke unberuehrt laesst.
+  pflicht: 'Zulaessiges Ziel iii) der Ausnahme in lit. h: Aufspueren oder Identifizieren einer Person,
+    die einer in Anhang II aufgefuehrten Straftat verdaechtigt wird (Hoechststrafe mindestens vier Jahre),
+    zur Ermittlung, Strafverfolgung oder Strafvollstreckung.'
   scope: out
   scope_grund: Teil derselben Strafverfolgungs-Ausnahme wie lit. h, adressiert Strafverfolgungsbehoerden,
     nicht den Netzbetreiber.
@@ -4294,9 +4295,8 @@ einheiten:
   beleg: b) die Folgen der Verwendung des Systems für die Rechte und Freiheiten aller betroffenen Personen,
     insbesondere die Schwere, die Wahrscheinlichkeit und das Ausmaß solcher Folgen.
   adressat: behoerde
-  pflicht: 'Abwaegungskriterium b): Folgen der Systemverwendung fuer Rechte/Freiheiten Betroffener; verlangt
-    zusaetzlich Grundrechte-Folgenabschaetzung (Art. 27) und EU-Datenbank-Registrierung (Art. 49) vor
-    RBI-Einsatz.'
+  pflicht: 'Abwaegungskriterium b): Folgen der Systemverwendung fuer die Rechte und Freiheiten aller Betroffenen,
+    insbesondere Schwere, Wahrscheinlichkeit und Ausmass.'
   scope: out
   scope_grund: Teil der RBI-Abwaegungskriterien und Verfahrensvoraussetzungen fuer Strafverfolgungsbehoerden,
     nicht Betreiber-adressiert.
@@ -10626,8 +10626,9 @@ einheiten:
     falls die Registrierung vom Anbieter selbst vorgenommen wird, Sicherstellung der Richtigkeit der in
     Anhang VIII Abschnitt A Nummer 3 aufgeführten Informationen.
   adressat: sonstige
-  pflicht: 'lit. e: Einhaltung/Sicherstellung der Registrierungspflichten nach Art. 49 Abs. 1 bzw. Anhang
-    VIII Abschnitt A Nr. 3; kann als Ansprechpartner fuer Behoerden dienen.'
+  pflicht: 'lit. e: gegebenenfalls Einhaltung der Registrierungspflichten nach Art. 49 Abs. 1 oder, wenn
+    der Anbieter selbst registriert, Sicherstellung der Richtigkeit der Angaben nach Anhang VIII Abschnitt
+    A Nr. 3.'
   scope: out
   scope_grund: Regelt die Beziehung Anbieter/Bevollmaechtigter (Art. 22) - keine Betreiber-Handlungspflicht.
   verifikation: VERIFIZIERT
@@ -14428,10 +14429,8 @@ einheiten:
     für diese KI-Systeme übernehmen und deren Bewertung innerhalb von 12 Monaten ab dem Widerruf der Benennung
     abgeschlossen haben wird.
   adressat: behoerde
-  pflicht: Eine andere notifizierte Stelle hat schriftlich die unmittelbare Verantwortung uebernommen
-    und schliesst die Bewertung binnen 12 Monaten ab; die zustaendige nationale Behoerde kann die vorlaeufige
-    Gueltigkeit um bis zu insgesamt 12 Monate verlaengern und informiert unverzueglich Kommission, Mitgliedstaaten
-    und andere notifizierte Stellen.
+  pflicht: 'Umstand b): eine andere notifizierte Stelle hat schriftlich bestaetigt, die unmittelbare Verantwortung
+    zu uebernehmen und die Bewertung binnen 12 Monaten ab dem Widerruf der Benennung abzuschliessen.'
   scope: out
   scope_grund: Verfahrenspflicht von Behoerde und uebernehmender notifizierter Stelle, keine Betreiberpflicht.
   verifikation: VERIFIZIERT
@@ -15074,9 +15073,9 @@ einheiten:
     und es ist nicht zu erwarten, dass eine solche Fundstelle innerhalb eines angemessenen Zeitraums veröffentlicht
     wird.
   adressat: behoerde
-  pflicht: 'Weitere Voraussetzung: keine entsprechende harmonisierte Norm ist veroeffentlicht und auch
-    nicht absehbar; die Kommission konsultiert das Beratungsforum und erlaesst den Durchfuehrungsrechtsakt
-    im Pruefverfahren nach Art. 98 Abs. 2.'
+  pflicht: 'Weitere Voraussetzung: im Amtsblatt ist keine Fundstelle einer harmonisierten Norm veroeffentlicht,
+    die den Anforderungen bzw. Pflichten genuegt, und eine Veroeffentlichung ist in angemessener Zeit
+    nicht zu erwarten.'
   scope: out
   scope_grund: Voraussetzung und Verfahrenspflicht der Kommission, keine Betreiberpflicht.
   verifikation: VERIFIZIERT
@@ -15459,8 +15458,7 @@ einheiten:
     unter Beteiligung einer notifizierten Stelle gemäß Anhang VII.
   adressat: anbieter
   pflicht: 'Option b): Bewertung des Qualitaetsmanagementsystems und der technischen Dokumentation unter
-    Beteiligung einer notifizierten Stelle gemaess Anhang VII; dieses Verfahren ist zwingend, wenn bestimmte
-    Voraussetzungen vorliegen (Chapeau zu lit. a-d).'
+    Beteiligung einer notifizierten Stelle gemaess Anhang VII.'
   scope: out
   scope_grund: Verfahrenspflicht des Anbieters, keine Betreiberpflicht.
   verifikation: VERIFIZIERT
@@ -15610,10 +15608,8 @@ einheiten:
   beleg: d) eine oder mehrere der unter Buchstabe a genannten harmonisierten Normen mit einer Einschränkung
     und nur für den eingeschränkten Teil der Norm veröffentlicht wurden.
   adressat: anbieter
-  pflicht: 'Voraussetzung: eine oder mehrere harmonisierte Normen wurden nur eingeschraenkt veroeffentlicht;
-    fuer das Anhang-VII-Verfahren kann der Anbieter eine notifizierte Stelle waehlen, ausser bei Systemen
-    fuer Strafverfolgung/Einwanderung/Asyl oder EU-Organe, wo die zustaendige Marktueberwachungsbehoerde
-    deren Funktion uebernimmt.'
+  pflicht: 'Voraussetzung d): eine oder mehrere der unter lit. a genannten harmonisierten Normen wurden
+    nur mit Einschraenkung und nur fuer den eingeschraenkten Teil veroeffentlicht.'
   scope: out
   scope_grund: Verfahrenspflicht/-wahlrecht des Anbieters mit Behoerdenausnahme, keine Betreiberpflicht.
   verifikation: VERIFIZIERT
@@ -17030,8 +17026,8 @@ einheiten:
   saetze: 1
   beleg: d) Anhang IX Nummern 1, 2, 3 und Nummer 5.
   adressat: behoerde
-  pflicht: Verweist auf Anhang IX Nr. 1, 2, 3 und 5; nur Kommission und die nach Art. 74 Abs. 8 genannten
-    nationalen Behoerden haben Zugang zu den beschraenkten Datenbankteilen.
+  pflicht: 'Inhalt d) der Registrierung im nicht oeffentlichen Datenbankteil: Angaben nach Anhang IX Nr.
+    1, 2, 3 und 5.'
   scope: out
   scope_grund: Zugangsbeschraenkung auf Kommission/nationale Behoerden, keine Betreiberpflicht.
   verifikation: VERIFIZIERT
@@ -23978,8 +23974,8 @@ einheiten:
   saetze: 1
   beleg: c) es ist in der Lage, Tätigkeiten sorgfältig, präzise und objektiv auszuführen.
   adressat: behoerde
-  pflicht: Die Mitglieder muessen ihre Taetigkeit sorgfaeltig, praezise und objektiv ausueben koennen,
-    wobei die Kommission fuer eine ausgewogene Geschlechter- und geografische Vertretung sorgt.
+  pflicht: 'Bedingung c) fuer die Sachverstaendigen: in der Lage, Taetigkeiten sorgfaeltig, praezise und
+    objektiv auszufuehren.'
   scope: out
   scope_grund: Betrifft Einrichtung und Aufgaben des wissenschaftlichen Gremiums unabhaengiger Sachverstaendiger;
     keine Betreiberpflicht.
@@ -30112,8 +30108,7 @@ einheiten:
   saetze: 1
   beleg: f) die Anwendung der Definition eines KI-Systems gemäß Artikel 3 Nummer 1.
   adressat: behoerde
-  pflicht: 'Leitlinien-Gegenstand f): Anwendung der KI-System-Definition (Art. 3 Nr. 1); Leitlinien beruecksichtigen
-    KMU/lokale Behoerden/betroffene Sektoren sowie Stand der Technik und harmonisierte Normen.'
+  pflicht: 'Leitlinien-Gegenstand f): Anwendung der KI-System-Definition (Art. 3 Nr. 1).'
   scope: out
   scope_grund: Adressiert behoerde, keine Betreiber-Handlungspflicht.
   verifikation: VERIFIZIERT
@@ -31860,8 +31855,8 @@ einheiten:
     mit allgemeinem Verwendungszweck mit systemischem Risiko gewährt hat, um eine Bewertung gemäß Artikel
     92 durchzuführen.
   adressat: anbieter
-  pflicht: 'Sanktionstatbestand d): kein Zugang zum Modell fuer eine Art.-92-Bewertung; Bemessung nach
-    Verhaeltnismaessigkeit unter Beruecksichtigung von Art.-93-Zusagen/Praxisleitfaeden.'
+  pflicht: 'Sanktionstatbestand d): der Kommission keinen Zugang zum KI-Modell mit allgemeinem Verwendungszweck
+    (auch mit systemischem Risiko) fuer eine Bewertung nach Art. 92 gewaehrt.'
   scope: out
   scope_grund: Sanktionsnorm gegen GPAI-Modell-Anbieter, keine Betreiberpflicht.
   verifikation: VERIFIZIERT
@@ -39946,8 +39941,7 @@ einheiten:
   beleg: e) bekannter oder geschätzter Energieverbrauch des Modells.
   adressat: anbieter
   pflicht: 'Pflichtinhalt der technischen Dokumentation des Anbieters eines KI-Modells mit allgemeinem
-    Verwendungszweck (Art. 53 Abs. 1 lit. a): bekannter oder geschätzter Energieverbrauch des Modells.
-    Wenn der Energieverbrauch des Modells nicht bekannt ist, kann für Buchstabe e der …'
+    Verwendungszweck (Art. 53 Abs. 1 lit. a): bekannter oder geschätzter Energieverbrauch des Modells.'
   scope: out
   scope_grund: 'Adressat (T-13 Schritt 1): Anbieter von KI-Modellen mit allgemeinem Verwendungszweck (Art.
     53, Abschn. 2 zusaetzlich Art. 55); Art. 53 ist out.'
