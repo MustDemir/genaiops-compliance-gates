@@ -3272,8 +3272,8 @@ def check_element_matrix_derives_gate() -> dict:
     Braucht opa auf PATH (wie make test-rego). Ohne opa kann die Matrix nicht gegen den
     Code gehalten werden - das ist ein Befund, kein Uebersprung.
 
-    HIGH als Vorschlag (Frage R-6), aus demselben Grund wie R-3: ein Gate in 'gate', das
-    kein Element prueft, macht aus einer Luecke eine scheinbare Pruefung.
+    HIGH (PO R-6, 01.10.2026), aus demselben Grund wie R-3: ein Gate in 'gate', das kein
+    Element prueft, macht aus einer Luecke eine scheinbare Pruefung.
     """
     import shutil
     import sys as _sys

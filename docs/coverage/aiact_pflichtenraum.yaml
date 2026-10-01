@@ -12238,13 +12238,21 @@ einheiten:
     nicht enthalten (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
   requirement:
   - R007
-  gate: []
-  befund: luecke
-  befund_grund: 'Kein Element geprueft (M1a, Element-Matrix Lauf 2). Nachbar: G-DEP-03 verlangt die Kennzeichnung
-    KI-erzeugter Inhalte (ai_content_labeling, Art. 50) - die nimmt Abs. 11 ausdruecklich aus (''unbeschadet
-    des Artikels 50''). Die Unterrichtung der betroffenen natuerlichen Personen prueft keine Regel. Offen
-    bleibt die Anwendbarkeit (Q11, PO-Runde): Trifft Redispatch ''natuerliche Personen betreffende Entscheidungen''
-    i.S.d. Art. 26 Abs. 11?'
+  gate:
+  - G-DEP-03
+  befund: teilabdeckung
+  befund_grund: 'AUSLEGUNGSFRAGE, PO-Entscheidung noetig: die Pflicht gilt fuer Systeme, die ''Entscheidungen
+    ueber natuerliche Personen treffen oder dabei Unterstuetzung leisten''. Der Anwendungsfall Redispatch
+    (Anhang III Nr. 2, kritische Infrastruktur) trifft technische Netzsteuerungsentscheidungen (Erzeugungs-/Lastanpassung);
+    ob dies ''Entscheidungen ueber natuerliche Personen'' im Sinne dieser Vorschrift sind (z.B. mittelbar
+    betroffene Verbraucher bei einer Lastabwurf-Priorisierung), ist am Wortlaut nicht abschliessend zu
+    klaeren und wird hier NICHT einseitig verneint. R007/G-DEP-03 decken die allgemeine Transparenzdokumentation
+    (Art. 13, Art. 26 Abs. 7) ab, aber keine eigene, auf Abs. 11 zugeschnittene Betroffenenunterrichtung;
+    selbst wenn die Anwendbarkeit bejaht wird, waere die Deckung folglich nur teilweise. Fuer den PR-Bericht
+    als offene PO-Frage vorgemerkt: Trifft Redispatch ''Entscheidungen ueber natuerliche Personen'' i.S.d.
+    Art. 26 Abs. 11? Element-Matrix Lauf 2: unter Vorbehalt Q11 (PO P3-F4 b, 01.10.2026); abgeleitet waere
+    die Zeile Luecke - die einzige verwandte Regel (ai_content_labeling) betrifft Art. 50, den Abs. 11
+    ausnimmt.'
   po_bestaetigt: false
   uid: Art. 26 Abs. 11@366623
   abschnitt: null
@@ -12253,8 +12261,7 @@ einheiten:
   ziffer: null
   po_entscheid:
   - 2026-09-23 · 2b E4 (VERIFIZIERT - Betreiber in der Einheit oder ihrem Einleitungssatz genannt)
-  nachbar_gate:
-  - G-DEP-03
+  - 2026-10-01 · P3-F4 b (Review 11) - Vorbehalt bis Q11
 - id: Art. 26 Abs. 12
   artikel: '26'
   artikel_titel: Pflichten der Betreiber von Hochrisiko-KI-Systemen

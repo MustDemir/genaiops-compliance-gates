@@ -1,0 +1,38 @@
+# PO-Entscheide vom 01.10.2026 — Paket 3b (Element-Matrix Lauf 2): P3-F4, R-6
+#
+# Nachweis: docs/coverage/review/11-paket-3b-element-matrix.md Teil 7 (Fragen) und Teil 8
+# (Entscheide).
+#
+# P3-F3 (P2-B1, Art. 25 Abs. 2 lit. a-c n.F.) ist offen: der PO hat b gewaehlt und am selben
+#   Tag zurueckgenommen, um die Frage genauer anzusehen. Bis dahin gilt der Vorschlag aus
+#   Review 11 (Luecke nach M1a, nicht bestaetigt).
+# P3-F4 b: Art. 26 Abs. 11 bleibt Teilabdeckung mit G-DEP-03, bis Q11 entschieden ist. Die
+#   Element-Matrix fuehrt die Zeile unter Vorbehalt Q11; ELEMENT_MATRIX_DERIVES_GATE meldet bei
+#   jedem Lauf, dass sie abgeleitet Luecke waere. Nicht bestaetigt: der PO hat vertagt, nicht
+#   eingeordnet.
+# R-6 a: ELEMENT_MATRIX_DERIVES_GATE ist HIGH (stand schon so; Docstring nennt den Entscheid).
+
+entschieden: '2026-10-01'
+eintraege:
+
+  - beleg: P3-F4 b (Review 11) - Vorbehalt bis Q11
+    raum: aiact
+    ids: [Art. 26 Abs. 11]
+    setze:
+      befund: teilabdeckung
+      befund_grund: >-
+        AUSLEGUNGSFRAGE, PO-Entscheidung noetig: die Pflicht gilt fuer Systeme, die
+        'Entscheidungen ueber natuerliche Personen treffen oder dabei Unterstuetzung leisten'.
+        Der Anwendungsfall Redispatch (Anhang III Nr. 2, kritische Infrastruktur) trifft
+        technische Netzsteuerungsentscheidungen (Erzeugungs-/Lastanpassung); ob dies
+        'Entscheidungen ueber natuerliche Personen' im Sinne dieser Vorschrift sind (z.B.
+        mittelbar betroffene Verbraucher bei einer Lastabwurf-Priorisierung), ist am Wortlaut
+        nicht abschliessend zu klaeren und wird hier NICHT einseitig verneint. R007/G-DEP-03
+        decken die allgemeine Transparenzdokumentation (Art. 13, Art. 26 Abs. 7) ab, aber keine
+        eigene, auf Abs. 11 zugeschnittene Betroffenenunterrichtung; selbst wenn die
+        Anwendbarkeit bejaht wird, waere die Deckung folglich nur teilweise. Fuer den PR-Bericht
+        als offene PO-Frage vorgemerkt: Trifft Redispatch 'Entscheidungen ueber natuerliche
+        Personen' i.S.d. Art. 26 Abs. 11? Element-Matrix Lauf 2: unter Vorbehalt Q11 (PO P3-F4 b,
+        01.10.2026); abgeleitet waere die Zeile Luecke - die einzige verwandte Regel
+        (ai_content_labeling) betrifft Art. 50, den Abs. 11 ausnimmt.
+    bestaetigt: false

@@ -27,7 +27,7 @@
 # Wie eine Pflicht in Elemente zerfaellt und ob ein Feld ein Element trifft, ist Auslegung des
 # Wortlauts (Review 07 "Ehrlich zur Methode"). Maschinell ist: welches Feld welche Regel liest.
 
-stand: '2026-09-30'
+stand: '2026-10-01'
 lauf: 2
 zeilen:
 
@@ -524,6 +524,10 @@ zeilen:
 
 - raum: aiact
   id: Art. 26 Abs. 11
+  vorbehalt:
+    frage: Q11
+    grund: PO P3-F4 b (01.10.2026) - die Zeile bleibt Teilabdeckung mit G-DEP-03, bis Q11 klaert,
+      ob Abs. 11 fuer Redispatch gilt; abgeleitet waere sie Luecke.
   elemente:
   - element: betroffene natuerliche Personen informieren, dass sie der Verwendung unterliegen
     status: nachbar

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """element_matrix.py — die Element-Matrix als Daten; 'gate' und 'nachbar_gate' daraus abgeleitet.
 
-Paket 3b (30.09.2026, Review 11), PO-Entscheide M2a (29.09.2026) und M1a (30.09.2026).
+Paket 3b (30.09.2026, Review 11), PO-Entscheide M2a (29.09.2026), M1a (30.09.2026), R-6 (01.10.2026).
 Bis hierhin stand die Matrix nur als Tabelle in Review 07, und das Feld 'gate' im
 Pflichtenraum war von Hand gesetzt. Es nannte Pruefer, Nachbarn und Ziele durcheinander:
 Art. 26 Abs. 7 trug G-DEP-03, obwohl keine Regel die Unterrichtung der Arbeitnehmer

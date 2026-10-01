@@ -1,6 +1,6 @@
 ---
 titel: Entscheidungsregister – was der PO noch entscheiden muss und welche Schritte ausstehen
-stand: 2026-09-30 (nach Paket 3b: Element-Matrix Lauf 2 als Daten)
+stand: 2026-10-01 (nach Paket 3b und PO-Entscheiden P3-F4, R-6; P3-F3 offen)
 basis: Reviews 00–09, Entscheidungsdateien in docs/coverage/entscheide/, Plan Teil C
 status: lebendes Register · der Wächter PO_DECISIONS_REGISTERED hält es vollständig
 ---
@@ -26,14 +26,12 @@ Pakete:  1 Anhänge ✅ · 2 Omnibus · 3 Befunde + Matrix · 4 PO-Runde · 5 Be
 | S3-3 | Verifikationsstufe der Zeilen ohne Stufe (12 AI Act, 10 Omnibus) | `00-systembild-und-plan.md` | vertagt | 4 |
 | S3-4 | Hypothesen gegen Sekundärquellen prüfen (43 in-Zeilen, dazu 4 aus Paket 1) | `00-systembild-und-plan.md` | vertagt | 4 |
 | Q1 | FRIA: R012, G-PRE-02 und G-PRE-05/C-01 verlangen eine Folgenabschätzung als MUST, Art. 27 nimmt Anhang III Nr. 2 aber aus | `05-schritt-2d-2e-gedeckt-querbefunde.md` | vertagt | 4 |
-| Q11 | Art. 26 Abs. 11 (Information der betroffenen Personen) | `05-schritt-2d-2e-gedeckt-querbefunde.md` | vertagt | 4 |
+| Q11 | Art. 26 Abs. 11 (Information der betroffenen Personen); die Zeile steht bis dahin unter Vorbehalt Q11 in der Element-Matrix (P3-F4 b) | `05-schritt-2d-2e-gedeckt-querbefunde.md` | vertagt | 4 |
 | A-F1 | Anhang IV nennt den Betreiber: Durchschlag? Empfehlung a (nein, out) | `08-paket-1-anhaenge.md` | offen | 4 |
 | IN-1 | Alle `in`-Zeilen bestätigen (nach Paket 3b: 64 von 109 bestätigt – AI Act 61 von 85, Omnibus 3 von 24) | `entscheidungsregister.md` | offen | 4 |
 | OUT-1 | `out`-Zeilen: Stichprobe nach Adressat-Gruppen, dann Sammelbestätigung (30.09.2026: 139 von 1407 bestätigt – AI Act 32 von 1147, Omnibus 107 von 260) | `entscheidungsregister.md` | offen | 4 |
 | R-1 | Severity des Wächters `PO_DECISIONS_REGISTERED` (Vorschlag LOW: bricht `make verify`, wie `HANDBOOK_ROADMAP_CURRENT`) | `entscheidungsregister.md` | offen | 4 |
-| P3-F3 | P2-B1: Art. 25 Abs. 2 lit. a–c n.F. Lücke statt Teilabdeckung – der Übergabebeleg ist ein Behälter (Nachbar), wie Ziff. vii. Empfehlung a (Lücke) | `11-paket-3b-element-matrix.md` | offen | 3 |
-| P3-F4 | Art. 26 Abs. 11 nach M1a Lücke jetzt (Empfehlung a) oder Vorbehalt bis Q11 | `11-paket-3b-element-matrix.md` | offen | 3 |
-| R-6 | Severity des Wächters `ELEMENT_MATRIX_DERIVES_GATE` (Vorschlag HIGH, wie R-3) | `11-paket-3b-element-matrix.md` | offen | 3 |
+| P3-F3 | P2-B1: Art. 25 Abs. 2 lit. a–c n.F. Lücke statt Teilabdeckung – der Übergabebeleg ist ein Behälter (Nachbar), wie Ziff. vii. Empfehlung a (Lücke). 01.10.2026: b gewählt und zurückgenommen, der PO sieht es sich genauer an; bis dahin gilt der Vorschlag Lücke | `11-paket-3b-element-matrix.md` | offen | 3 |
 | M-B1 | Welches Requirement trägt Art. 26 Abs. 5 Satz 1: R009 wie heute oder R008/R010 der prüfenden Gates? | `07-element-matrix.md` | offen | 5 |
 | EF | Die vier Ehrlichkeitsfelder je neuem oder geändertem Requirement und Check: Norm↔Pflicht, MUST/SHOULD, `evidence_level`, `implemented`/`design_only` (AGENTS.md 3) | `entscheidungsregister.md` | offen | 5 |
 | P9-1 | Use Cases des Prüf-Agenten | `00-systembild-und-plan.md` | offen | 9 |
@@ -103,6 +101,8 @@ Pakete:  1 Anhänge ✅ · 2 Omnibus · 3 Befunde + Matrix · 4 PO-Runde · 5 Be
 | M2 | `gate` nennt nur elementprüfende Gates, Nachbarn in `nachbar_gate` – für alle Zeilen aus der Element-Matrix abgeleitet (Paket 3b) | `07-element-matrix.md` | umgesetzt 30.09.2026 a | – |
 | MX-1 | Element-Matrix als Daten (`docs/coverage/matrix/element_matrix.yaml`), `gate` daraus abgeleitet, Wächter `ELEMENT_MATRIX_DERIVES_GATE` in `make verify` – aus Paket 7 vorgezogen | `entscheidungsregister.md` | umgesetzt 30.09.2026 (Paket 3b) | – |
 | P2-B1 | Art. 25 Abs. 2 lit. a–c n.F.: C-25d prüft den Übergabebeleg nicht je Element → Lücke als Vorschlag, Bestätigung P3-F3 | `09-paket-2-omnibus.md` | umgesetzt 30.09.2026 (Review 11) | – |
+| P3-F4 | Art. 26 Abs. 11: Vorbehalt bis Q11 – bleibt Teilabdeckung mit G-DEP-03; die Element-Matrix meldet, dass sie abgeleitet Lücke wäre | `11-paket-3b-element-matrix.md` | umgesetzt 01.10.2026 b | – |
+| R-6 | Severity `ELEMENT_MATRIX_DERIVES_GATE` = HIGH (wie R-3) | `11-paket-3b-element-matrix.md` | umgesetzt 01.10.2026 HIGH | – |
 | R-5 | Severity `NORM_SENTENCE_UNITS_CURRENT` = HIGH (vorher MEDIUM; fehlende Satzebene versteckt eine Pflicht wie Art. 26 Abs. 5 Satz 2) | `10-paket-3-werkzeug.md` | umgesetzt 30.09.2026 HIGH | – |
 | PUSH-1 | Branch `review-2c` nach origin gepusht (Stand `45e2eb1`, pre-push `make verify` grün) | `entscheidungsregister.md` | umgesetzt 30.09.2026 | – |
 | A-W1 | Art. 113 (und Art. 85, DSGVO Art. 67, NIS2 Art. 44): unnummerierte Absätze als Abs. 1–n, Kennung „Art. 113 Abs. 3 lit. a“ wie im Gesetz (T-15) | `08-paket-1-anhaenge.md` | umgesetzt 30.09.2026 | – |
