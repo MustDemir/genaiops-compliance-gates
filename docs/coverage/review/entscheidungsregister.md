@@ -1,6 +1,6 @@
 ---
 titel: Entscheidungsregister – was der PO noch entscheiden muss und welche Schritte ausstehen
-stand: 2026-10-01 (nach Paket 3b, PO-Entscheiden P3-F4, R-6 und A-W13; P3-F3, P3-F5 offen)
+stand: 2026-10-01 (nach Paket 3b, PO-Entscheiden P3-F3, P3-F4, R-6 und A-W13; P3-F5 offen)
 basis: Reviews 00–09, Entscheidungsdateien in docs/coverage/entscheide/, Plan Teil C
 status: lebendes Register · der Wächter PO_DECISIONS_REGISTERED hält es vollständig
 ---
@@ -28,16 +28,16 @@ Pakete:  1 Anhänge ✅ · 2 Omnibus · 3 Befunde + Matrix · 4 PO-Runde · 5 Be
 | Q1 | FRIA: R012, G-PRE-02 und G-PRE-05/C-01 verlangen eine Folgenabschätzung als MUST, Art. 27 nimmt Anhang III Nr. 2 aber aus | `05-schritt-2d-2e-gedeckt-querbefunde.md` | vertagt | 4 |
 | Q11 | Art. 26 Abs. 11 (Information der betroffenen Personen); die Zeile steht bis dahin unter Vorbehalt Q11 in der Element-Matrix (P3-F4 b) | `05-schritt-2d-2e-gedeckt-querbefunde.md` | vertagt | 4 |
 | A-F1 | Anhang IV nennt den Betreiber: Durchschlag? Empfehlung a (nein, out) | `08-paket-1-anhaenge.md` | offen | 4 |
-| IN-1 | Alle `in`-Zeilen bestätigen (nach Paket 3b: 64 von 109 bestätigt – AI Act 61 von 85, Omnibus 3 von 24) | `entscheidungsregister.md` | offen | 4 |
+| IN-1 | Alle `in`-Zeilen bestätigen (nach P3-F3: 67 von 109 bestätigt – AI Act 61 von 85, Omnibus 6 von 24) | `entscheidungsregister.md` | offen | 4 |
 | OUT-1 | `out`-Zeilen: Stichprobe nach Adressat-Gruppen, dann Sammelbestätigung (30.09.2026: 139 von 1407 bestätigt – AI Act 32 von 1147, Omnibus 107 von 260) | `entscheidungsregister.md` | offen | 4 |
 | R-1 | Severity des Wächters `PO_DECISIONS_REGISTERED` (Vorschlag LOW: bricht `make verify`, wie `HANDBOOK_ROADMAP_CURRENT`) | `entscheidungsregister.md` | offen | 4 |
-| P3-F3 | P2-B1: Art. 25 Abs. 2 lit. a–c n.F. Lücke statt Teilabdeckung – der Übergabebeleg ist ein Behälter (Nachbar), wie Ziff. vii. Empfehlung a (Lücke). 01.10.2026: b gewählt und zurückgenommen, der PO sieht es sich genauer an; bis dahin gilt der Vorschlag Lücke | `11-paket-3b-element-matrix.md` | offen | 3 |
 | P3-F5 | Sammelbestätigung der 19 neuen Pflichttexte aus A-W13 (wie P3-F2: bestätigt ist der Text, nicht der Befund) | `11-paket-3b-element-matrix.md` | offen | 3 |
 | M-B1 | Welches Requirement trägt Art. 26 Abs. 5 Satz 1: R009 wie heute oder R008/R010 der prüfenden Gates? | `07-element-matrix.md` | offen | 5 |
 | EF | Die vier Ehrlichkeitsfelder je neuem oder geändertem Requirement und Check: Norm↔Pflicht, MUST/SHOULD, `evidence_level`, `implemented`/`design_only` (AGENTS.md 3) | `entscheidungsregister.md` | offen | 5 |
 | P9-1 | Use Cases des Prüf-Agenten | `00-systembild-und-plan.md` | offen | 9 |
 | P9-2 | Einordnung des Agenten selbst nach AI Act (HYPOTHESE: kein Hochrisiko; Art. 4, ggf. Art. 50) | `00-systembild-und-plan.md` | offen | 9 |
 | P9-3 | Architektur des Agenten | `00-systembild-und-plan.md` | offen | 9 |
+| PUSH-3 | `review-2c` 876c1b1..HEAD nach origin; die offenen Commits sind vor dem Push mit dem SSH-Schlüssel des PO neu zu signieren (die Cloud signiert mit ihrem Sitzungsschlüssel, GitHub: „Unverified“), und der Schlüssel gehört als Signing Key ins GitHub-Konto | `entscheidungsregister.md` | offen | jederzeit |
 | PUSH-2 | Commit 47c9833 auf `claude/scrum-solo-developer-6xyy9k` pushen (Whitepaper-PDFs in `.gitignore`) | `entscheidungsregister.md` | offen | jederzeit |
 | WP-1 | Benennung des Whitepapers; Änderungen liegen in `stash@{0}` | `entscheidungsregister.md` | offen | jederzeit |
 
@@ -53,6 +53,7 @@ Pakete:  1 Anhänge ✅ · 2 Omnibus · 3 Befunde + Matrix · 4 PO-Runde · 5 Be
 | F6 | Neues Requirement R017 Rollenwechsel (Art. 25), MUST/SHOULD in Paket 5 | `04-schritt-2c-teilabdeckungen.md` | entschieden 28.09.2026 a | 5 |
 | E2 | Rego-Meldungen mit Check-ID (130 von 195 ohne), Wächter `REGO_MESSAGES_CARRY_CHECK_ID` im selben Commit | `05-schritt-2d-2e-gedeckt-querbefunde.md` | entschieden 29.09.2026 a | 5 |
 | P2-F4 | Art. 4a Abs. 1 lit. a–f bleiben out (bedingte Pflicht); Wiedervorlage maschinell: Manifest-Feld `special_categories_for_bias` + Check, der die Zeilen meldet, sobald `true` (Bedingungsparameter je Anwendungsfall, wie SPEC-03) | `09-paket-2-omnibus.md` | entschieden 29.09.2026 c | 5 |
+| P3-F3 | Art. 25 Abs. 2 lit. a–c n.F. sind Lücken (Übergabebeleg = Behälter, wie Ziff. vii) – eingetragen und bestätigt. Aus steht die Maßnahme, mit der Vorgabe des PO: Wird der Betreiber zum Anbieter (C-25a eigene Marke, C-25c Zweckänderung), **nennt G-OPS-06 die Belege, die bereitgestellt werden müssen** – lit. a technische Unterlagen für Art. 16, lit. b Einschränkungen und Fehlerarten, lit. c gezielter technischer Zugang auch für Test und Validierung, dazu Kooperationszusage und schriftliche Vereinbarung (Abs. 4) –, und C-25d prüft je Beleg ein Feld und sagt, welcher fehlt. MUST/SHOULD und Beweisstufe: EF | `11-paket-3b-element-matrix.md` | entschieden 01.10.2026 a | 5 |
 | E7 | Meldekaskade: planen ja, bauen erst in der Umsetzung | `02-schritt-2b-luecken.md` | entschieden 23.09.2026 | 6 |
 | F4 | R001, R002, R003, R005, R011 ohne Betreiber-Anker: `anker: offen`, Anker-Suche im Sektorstapel. Zwischenschritt `anker: offen` am 29.09.2026 nachgeholt. **Folge aus Teil C:** Der Sektorstapel kommt nach dem Agenten, der Anker bleibt so lange offen, und der Agent muss „Anker offen“ melden | `04-schritt-2c-teilabdeckungen.md` | entschieden 28.09.2026 a | 7 |
 | H4 | `known_limits` je Gate, Hinweis in jedem Lauf, Urteil unverändert, Wächter `GATE_LIMITS_DECLARED` | `06-grenzen-statt-teilabdeckung.md` | entschieden 29.09.2026 Option 1 | 7 |

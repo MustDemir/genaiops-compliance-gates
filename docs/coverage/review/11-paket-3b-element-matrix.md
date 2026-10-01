@@ -2,7 +2,7 @@
 titel: Paket 3b – Element-Matrix Lauf 2 als Daten, gate daraus abgeleitet
 stand: 2026-10-01
 basis: Branch review-2c · PO-Entscheide M2a (29.09.2026) und M1a (30.09.2026) · Review 07 (Lauf 1) · Befund P2-B1 (Review 09) · alle 19 Policies, 196 Regeln aus dem OPA-AST
-status: geliefert · PO 01.10.2026: P3-F4 b, R-6 HIGH (Teil 8) · A-W13 umgesetzt (Teil 9) · offen: P3-F3, P3-F5 · Befund P3-B1
+status: geliefert · PO 01.10.2026: P3-F3 a, P3-F4 b, R-6 HIGH (Teil 8) · A-W13 umgesetzt (Teil 9) · offen: P3-F5 · Befund P3-B1
 ---
 
 # Kurzfazit
@@ -10,7 +10,7 @@ status: geliefert · PO 01.10.2026: P3-F4 b, R-6 HIGH (Teil 8) · A-W13 umgesetz
 - **Die Matrix ist jetzt Daten:** `docs/coverage/matrix/element_matrix.yaml` – 54 Zeilen, 92 Elemente, 97 Regelangaben (Gate, Check, gelesenes Feld).
 - **Jede Regelangabe ist am Code bestätigt.** Der Wächter hält sie gegen den OPA-AST: Liest die Regel das Feld nicht mehr, wird `make verify` rot.
 - **`gate` und `nachbar_gate` sind abgeleitet, nicht mehr gesetzt** (M2a für alle Zeilen). 21 Zeilen berichtigt – 19 in, 2 out.
-- **P2-B1 (zuerst):** Art. 25 Abs. 2 lit. a–c n.F. werden **Lücke** (Vorschlag, Frage P3-F3). C-25d verlangt den Übergabebeleg, sieht aber nicht hinein.
+- **P2-B1 (zuerst):** Art. 25 Abs. 2 lit. a–c n.F. werden **Lücke** – vom PO bestätigt (P3-F3 a). C-25d verlangt den Übergabebeleg, sieht aber nicht hinein.
 - **Art. 26 Abs. 11:** vorgeschlagen war Lücke (Frage P3-F4). **PO: Vorbehalt bis Q11** – die Zeile bleibt Teilabdeckung, der Wächter meldet, dass sie abgeleitet Lücke wäre (Teil 8).
 - **Neuer Wächter `ELEMENT_MATRIX_DERIVES_GATE`** – **HIGH** (PO R-6).
 - **Werkzeug:** `tools/rego_inputs.py` liest jetzt durch Aliase, `object.get`, Schleifen und Annotationen. Regeln ohne erkanntes Feld: **24 → 0**.
@@ -176,7 +176,7 @@ Gegen den committeten Stand, je eine Richtung gebrochen, danach zurückgenommen 
 
 | Frage | Entscheid | Umsetzung |
 |---|---|---|
-| P3-F3 | **offen** – b gewählt und am selben Tag zurückgenommen: der PO sieht sich den Fall genauer an | bis dahin gilt der Vorschlag: lit. a–c n.F. Lücke, Nachbar G-OPS-06, nicht bestätigt |
+| P3-F3 | **a – Lücke** (zuerst b gewählt und zurückgenommen, nach Durchsicht der Folgen a) | lit. a–c n.F. Lücke, Nachbar G-OPS-06, bestätigt (`2026-10-01_paket-3b.yaml`); Maßnahme für Paket 5: C-25d liest je Element ein Feld des Übergabebelegs |
 | P3-F4 | **b – Vorbehalt Q11** (vorgeschlagen war a) | Art. 26 Abs. 11 bleibt Teilabdeckung mit G-DEP-03; Matrix-Zeile mit `vorbehalt: Q11`; Entscheidungsdatei `2026-10-01_paket-3b.yaml` (nicht bestätigt – vertagt, nicht eingeordnet) |
 | R-6 | **a – HIGH** | `ELEMENT_MATRIX_DERIVES_GATE` war schon HIGH, Docstring nennt den Entscheid |
 
@@ -187,7 +187,23 @@ Art. 26 Abs. 11   heute:     in, Teilabdeckung, gate G-DEP-03
 ```
 
 - **Der Vorbehalt läuft nicht still ab:** Steht Q11 im Register nicht mehr offen, wird der Wächter rot, bis die Zeile abgeleitet ist.
-- **Zu P3-F3, zum Nachsehen:** Der Unterschied zwischen a und b ist genau eine Frage – zählt „der Beleg liegt vor“ als Prüfung dessen, was drinstehen muss?
+- **Vorgabe des PO zur Maßnahme (01.10.2026):** Wird der Betreiber zum Anbieter, muss die Architektur sagen, welche Belege bereitzustellen sind – nicht nur, dass „ein Übergabebeleg“ fehlt.
+
+```
+C-25a (eigene Marke) / C-25c (Zweckänderung) schlägt an  →  Betreiber ist jetzt Anbieter
+G-OPS-06 meldet die geschuldeten Belege:
+   [ ] lit. a  technische Unterlagen, ausreichend für Art. 16
+   [ ] lit. b  bekannte Einschränkungen und Fehlerarten
+   [ ] lit. c  gezielter technischer Zugang, auch für Test und Validierung
+   [ ] Kooperationszusage des Erstanbieters (Abs. 2)
+   [ ] schriftliche Vereinbarung (Abs. 4 UAbs. 1)
+C-25d prüft je Beleg ein Feld → „fehlt: lit. a, lit. c“ statt „provider_handover_record fehlt“
+Ausnahme belegt (UAbs. 4) → keine Liste
+```
+
+  - Heute: `notify` ist nur deklariert, die Meldung von C-25d nennt die drei Inhalte, schlägt aber nur an, wenn der ganze Beleg fehlt.
+  - Bau in Paket 5/6; MUST/SHOULD und Beweisstufe entscheidest du dort (EF).
+- **Zu P3-F3 – was den Ausschlag gab:** Der Unterschied zwischen a und b ist genau eine Frage – zählt „der Beleg liegt vor“ als Prüfung dessen, was drinstehen muss?
   - Für b spricht: Der Übergabebeleg hat keinen anderen Zweck als lit. a–c; die Meldung von C-25d nennt alle drei.
   - Für a spricht: Ein Beleg mit nur lit. b lässt C-25d grün; Ziff. vii (Anleitung ist da, Inhalt ungeprüft) hast du als Lücke bestätigt.
   - Wählst du b, gehört die Abgrenzung zu Ziff. vii mit in den Entscheid („Beleg mit einzigem Zweck“ vs. „Dokument mit vielen Inhalten“), sonst ist die Regel nicht mehr eine.

@@ -1,11 +1,14 @@
-# PO-Entscheide vom 01.10.2026 — Paket 3b (Element-Matrix Lauf 2): P3-F4, R-6
+# PO-Entscheide vom 01.10.2026 — Paket 3b (Element-Matrix Lauf 2): P3-F3, P3-F4, R-6
 #
 # Nachweis: docs/coverage/review/11-paket-3b-element-matrix.md Teil 7 (Fragen) und Teil 8
 # (Entscheide).
 #
-# P3-F3 (P2-B1, Art. 25 Abs. 2 lit. a-c n.F.) ist offen: der PO hat b gewaehlt und am selben
-#   Tag zurueckgenommen, um die Frage genauer anzusehen. Bis dahin gilt der Vorschlag aus
-#   Review 11 (Luecke nach M1a, nicht bestaetigt).
+# P3-F3 a (P2-B1): Art. 25 Abs. 2 lit. a-c n.F. sind Luecken. G-OPS-06/C-25d verlangt den
+#   Uebergabebeleg, sieht aber nicht hinein - ein Behaelter ist ein Nachbar, wie bei Art. 13
+#   Abs. 3 lit. b Ziff. vii (M1a). Der PO hatte zuerst b gewaehlt und am selben Tag
+#   zurueckgenommen; entschieden nach Durchsicht der Folgen (a: Massnahme C-25d liest je Element
+#   ein Feld des Uebergabebelegs, Paket 5; b: nur ein Hinweis am Gate und eine Ausnahme von der
+#   Behaelter-Regel). Bestaetigt sind Befund und Einordnung der drei Zeilen.
 # P3-F4 b: Art. 26 Abs. 11 bleibt Teilabdeckung mit G-DEP-03, bis Q11 entschieden ist. Die
 #   Element-Matrix fuehrt die Zeile unter Vorbehalt Q11; ELEMENT_MATRIX_DERIVES_GATE meldet bei
 #   jedem Lauf, dass sie abgeleitet Luecke waere. Nicht bestaetigt: der PO hat vertagt, nicht
@@ -14,6 +17,49 @@
 
 entschieden: '2026-10-01'
 eintraege:
+
+  - beleg: P3-F3 a (Review 11) - Uebergabebeleg ist ein Behaelter, kein Pruefer des Elements
+    raum: omnibus
+    ids: [Art. 25 Abs. 2 lit. a n.F.]
+    setze:
+      befund: luecke
+      befund_grund: >-
+        Kein Element geprueft (M1a, Element-Matrix Lauf 2, P2-B1). Nachbar: G-OPS-06/C-25d
+        verlangt nach einem bindenden Ausloeser den Uebergabebeleg
+        (provider_handover_record), sieht aber nicht hinein - ob er technische Unterlagen
+        enthaelt, die fuer die Bewertung nach Art. 16 ausreichen, prueft keine Regel
+        (Behaelter, wie Art. 13 Abs. 3 lit. b Ziff. vii). Kuerzester Weg: C-25d liest je
+        Element ein Feld des Uebergabebelegs (Paket 5). Bestaetigt: PO P3-F3 a (01.10.2026).
+    bestaetigt: true
+
+  - beleg: P3-F3 a (Review 11) - Uebergabebeleg ist ein Behaelter, kein Pruefer des Elements
+    raum: omnibus
+    ids: [Art. 25 Abs. 2 lit. b n.F.]
+    setze:
+      befund: luecke
+      befund_grund: >-
+        Kein Element geprueft (M1a, Element-Matrix Lauf 2, P2-B1). Nachbar: G-OPS-06/C-25d
+        verlangt nach einem bindenden Ausloeser den Uebergabebeleg
+        (provider_handover_record), sieht aber nicht hinein - ob er bekannte
+        Einschraenkungen und Fehlerarten nennt, prueft keine Regel (Behaelter, wie Art. 13
+        Abs. 3 lit. b Ziff. vii). Kuerzester Weg: C-25d liest je Element ein Feld des
+        Uebergabebelegs (Paket 5). Bestaetigt: PO P3-F3 a (01.10.2026).
+    bestaetigt: true
+
+  - beleg: P3-F3 a (Review 11) - Uebergabebeleg ist ein Behaelter, kein Pruefer des Elements
+    raum: omnibus
+    ids: [Art. 25 Abs. 2 lit. c n.F.]
+    setze:
+      befund: luecke
+      befund_grund: >-
+        Kein Element geprueft (M1a, Element-Matrix Lauf 2, P2-B1). Nachbar: G-OPS-06/C-25d
+        verlangt nach einem bindenden Ausloeser den Uebergabebeleg
+        (provider_handover_record), sieht aber nicht hinein - ob er einen gezielten
+        technischen Zugang, auch zu Test- und Validierungszwecken, belegt, prueft keine
+        Regel (Behaelter, wie Art. 13 Abs. 3 lit. b Ziff. vii). Kuerzester Weg: C-25d liest
+        je Element ein Feld des Uebergabebelegs (Paket 5). Bestaetigt: PO P3-F3 a
+        (01.10.2026).
+    bestaetigt: true
 
   - beleg: P3-F4 b (Review 11) - Vorbehalt bis Q11
     raum: aiact

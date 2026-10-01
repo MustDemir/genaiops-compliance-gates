@@ -2274,10 +2274,12 @@ einheiten:
     nach einem bindenden Ausloeser den Uebergabebeleg (provider_handover_record), sieht aber nicht hinein
     - ob er technische Unterlagen enthaelt, die fuer die Bewertung nach Art. 16 ausreichen, prueft keine
     Regel (Behaelter, wie Art. 13 Abs. 3 lit. b Ziff. vii). Kuerzester Weg: C-25d liest je Element ein
-    Feld des Uebergabebelegs (Paket 5).'
-  po_bestaetigt: false
+    Feld des Uebergabebelegs (Paket 5). Bestaetigt: PO P3-F3 a (01.10.2026).'
+  po_bestaetigt: true
   nachbar_gate:
   - G-OPS-06
+  po_entscheid:
+  - 2026-10-01 · P3-F3 a (Review 11) - Uebergabebeleg ist ein Behaelter, kein Pruefer des Elements
 - uid: Art. 25 Abs. 2 lit. b n.F.@95361
   id: Art. 25 Abs. 2 lit. b n.F.
   artikel: '25'
@@ -2312,10 +2314,12 @@ einheiten:
     nach einem bindenden Ausloeser den Uebergabebeleg (provider_handover_record), sieht aber nicht hinein
     - ob er bekannte Einschraenkungen und Fehlerarten nennt, prueft keine Regel (Behaelter, wie Art. 13
     Abs. 3 lit. b Ziff. vii). Kuerzester Weg: C-25d liest je Element ein Feld des Uebergabebelegs (Paket
-    5).'
-  po_bestaetigt: false
+    5). Bestaetigt: PO P3-F3 a (01.10.2026).'
+  po_bestaetigt: true
   nachbar_gate:
   - G-OPS-06
+  po_entscheid:
+  - 2026-10-01 · P3-F3 a (Review 11) - Uebergabebeleg ist ein Behaelter, kein Pruefer des Elements
 - uid: Art. 25 Abs. 2 lit. c n.F.@95448
   id: Art. 25 Abs. 2 lit. c n.F.
   artikel: '25'
@@ -2351,10 +2355,12 @@ einheiten:
     nach einem bindenden Ausloeser den Uebergabebeleg (provider_handover_record), sieht aber nicht hinein
     - ob er einen gezielten technischen Zugang, auch zu Test- und Validierungszwecken, belegt, prueft
     keine Regel (Behaelter, wie Art. 13 Abs. 3 lit. b Ziff. vii). Kuerzester Weg: C-25d liest je Element
-    ein Feld des Uebergabebelegs (Paket 5).'
-  po_bestaetigt: false
+    ein Feld des Uebergabebelegs (Paket 5). Bestaetigt: PO P3-F3 a (01.10.2026).'
+  po_bestaetigt: true
   nachbar_gate:
   - G-OPS-06
+  po_entscheid:
+  - 2026-10-01 · P3-F3 a (Review 11) - Uebergabebeleg ist ein Behaelter, kein Pruefer des Elements
 - uid: Art. 25 Abs. 2 UAbs. 4 n.F.@95566
   id: Art. 25 Abs. 2 UAbs. 4 n.F.
   artikel: '25'

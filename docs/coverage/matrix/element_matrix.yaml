@@ -623,7 +623,8 @@ zeilen:
   elemente:
   - element: technische Unterlagen, ausreichend fuer die Bewertung nach Art. 16
     status: nachbar
-    hinweis: Behaelter - C-25d verlangt den Uebergabebeleg, sieht aber nicht hinein (wie Ziff. vii).
+    hinweis: Behaelter - C-25d verlangt den Uebergabebeleg, sieht aber nicht hinein (wie Ziff. vii;
+      PO P3-F3 a, 01.10.2026).
     regeln:
     - {gate: G-OPS-06, check: C-25d, feld: change_event.evidence.provider_handover_record}
 
@@ -632,7 +633,8 @@ zeilen:
   elemente:
   - element: Unterrichtung ueber bekannte Einschraenkungen und Fehlerarten
     status: nachbar
-    hinweis: Behaelter - C-25d verlangt den Uebergabebeleg, sieht aber nicht hinein (wie Ziff. vii).
+    hinweis: Behaelter - C-25d verlangt den Uebergabebeleg, sieht aber nicht hinein (wie Ziff. vii;
+      PO P3-F3 a, 01.10.2026).
     regeln:
     - {gate: G-OPS-06, check: C-25d, feld: change_event.evidence.provider_handover_record}
 
@@ -641,7 +643,8 @@ zeilen:
   elemente:
   - element: gezielter technischer Zugang, auch zu Test- und Validierungszwecken
     status: nachbar
-    hinweis: Behaelter - C-25d verlangt den Uebergabebeleg, sieht aber nicht hinein (wie Ziff. vii).
+    hinweis: Behaelter - C-25d verlangt den Uebergabebeleg, sieht aber nicht hinein (wie Ziff. vii;
+      PO P3-F3 a, 01.10.2026).
     regeln:
     - {gate: G-OPS-06, check: C-25d, feld: change_event.evidence.provider_handover_record}
 
