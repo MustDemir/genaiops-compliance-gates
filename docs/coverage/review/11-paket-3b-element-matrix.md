@@ -2,7 +2,7 @@
 titel: Paket 3b – Element-Matrix Lauf 2 als Daten, gate daraus abgeleitet
 stand: 2026-10-01
 basis: Branch review-2c · PO-Entscheide M2a (29.09.2026) und M1a (30.09.2026) · Review 07 (Lauf 1) · Befund P2-B1 (Review 09) · alle 19 Policies, 196 Regeln aus dem OPA-AST
-status: geliefert · PO 01.10.2026: P3-F3 a, P3-F4 b, R-6 HIGH (Teil 8) · A-W13 umgesetzt (Teil 9) · offen: P3-F5 · Befund P3-B1
+status: geliefert · PO 01.10.2026: P3-F3 a, P3-F4 b, R-6 HIGH (Teil 8) · A-W13 umgesetzt (Teil 9), P3-F5 a 02.10.2026 (Teil 10) · Befund P3-B1
 ---
 
 # Kurzfazit
@@ -247,3 +247,9 @@ jetzt   Art. 25 Abs. 2 lit. c n.F.   „… technischer Zugang …, auch zu Test
 | # | Frage | Optionen |
 |---|---|---|
 | **P3-F5** | Die 19 neuen Pflichttexte (Tabelle oben) bestätigen? | a) **ja, Sammelbestätigung** wie P3-F2 – bestätigt ist der Text, nicht Befund und Einordnung; die Texte werden in einer Entscheidungsdatei festgehalten · b) Einzeldurchsicht in der PO-Runde |
+
+# Teil 10 – Entscheid des PO (02.10.2026)
+
+| Frage | Entscheid | Umsetzung |
+|---|---|---|
+| P3-F5 | **a – Sammelbestätigung** der 19 Pflichttexte | Texte wörtlich in `2026-10-02_p3-f5-pflichttexte.yaml`; `bestaetigt: false` wie P3-F2 – bestätigt ist der Text, nicht Befund und Einordnung. Ändert jemand einen Text, meldet `PO_DECISIONS_APPLIED` das; damit sind auch die 11 umschriebenen Reste gehalten, die `NORM_UNITS_MATCH_EXTRACTOR` nicht sieht |

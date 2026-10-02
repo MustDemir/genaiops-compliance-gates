@@ -1,6 +1,6 @@
 ---
 titel: Entscheidungsregister – was der PO noch entscheiden muss und welche Schritte ausstehen
-stand: 2026-10-01 (nach Paket 3b, PO-Entscheiden P3-F3, P3-F4, R-6 und A-W13; P3-F5 offen)
+stand: 2026-10-02 (nach Paket 3b, P3-F5 und Review 12 Evidence Store; neues Paket T-16)
 basis: Reviews 00–09, Entscheidungsdateien in docs/coverage/entscheide/, Plan Teil C
 status: lebendes Register · der Wächter PO_DECISIONS_REGISTERED hält es vollständig
 ---
@@ -10,7 +10,7 @@ status: lebendes Register · der Wächter PO_DECISIONS_REGISTERED hält es volls
 - **Eine Stelle für alles, was offen ist:** jede Entscheidung des PO und jeder beschlossene Schritt, der noch nicht umgesetzt ist, mit Ziel-Paket aus dem Plan (00 Teil C).
 - **Vollständig durch einen Wächter, nicht durch Sorgfalt.** `PO_DECISIONS_REGISTERED` liest jede Entscheidungs- und Befundtabelle der Reviews (`| # | Entscheidung | …`, `| # | Frage | Optionen |`, `| # | Befund | Wohin |`). Jede Zeile dort muss hier stehen. Jeder offene Punkt hier braucht ein Paket.
 - **Stand** ist eins von: `offen` · `vertagt` · `entschieden` (Umsetzung steht aus, wenn ein Paket genannt ist) · `umgesetzt` · `außerhalb` (nicht in diesem Repo).
-- **Paket:** 1–9 aus Plan Teil C · `T-13` Sektorstapel · `jederzeit` · `–`.
+- **Paket:** 1–9 aus Plan Teil C · `T-13` Sektorstapel · `T-16` Evidence Store beweisfest · `jederzeit` · `–`.
 
 ```
 Pakete:  1 Anhänge ✅ · 2 Omnibus · 3 Befunde + Matrix · 4 PO-Runde · 5 Bedarfsanalyse
@@ -31,7 +31,8 @@ Pakete:  1 Anhänge ✅ · 2 Omnibus · 3 Befunde + Matrix · 4 PO-Runde · 5 Be
 | IN-1 | Alle `in`-Zeilen bestätigen (nach P3-F3: 67 von 109 bestätigt – AI Act 61 von 85, Omnibus 6 von 24) | `entscheidungsregister.md` | offen | 4 |
 | OUT-1 | `out`-Zeilen: Stichprobe nach Adressat-Gruppen, dann Sammelbestätigung (30.09.2026: 139 von 1407 bestätigt – AI Act 32 von 1147, Omnibus 107 von 260) | `entscheidungsregister.md` | offen | 4 |
 | R-1 | Severity des Wächters `PO_DECISIONS_REGISTERED` (Vorschlag LOW: bricht `make verify`, wie `HANDBOOK_ROADMAP_CURRENT`) | `entscheidungsregister.md` | offen | 4 |
-| P3-F5 | Sammelbestätigung der 19 neuen Pflichttexte aus A-W13 (wie P3-F2: bestätigt ist der Text, nicht der Befund) | `11-paket-3b-element-matrix.md` | offen | 3 |
+| ES-F1 | Wirkung der menschlichen Entscheidung: MANUAL FAIL → block und HYBRID-Gate ohne Freigabe → hält an (Empfehlung a) oder nur MANUAL FAIL hält an | `12-evidence-store-beweis.md` | offen | T-16 |
+| ES-F2 | Zeitpunkt von T-16: jetzt, parallel zu Paket 4, ES-1/ES-2 zuerst (Empfehlung a) oder nach Paket 5 | `12-evidence-store-beweis.md` | offen | T-16 |
 | M-B1 | Welches Requirement trägt Art. 26 Abs. 5 Satz 1: R009 wie heute oder R008/R010 der prüfenden Gates? | `07-element-matrix.md` | offen | 5 |
 | EF | Die vier Ehrlichkeitsfelder je neuem oder geändertem Requirement und Check: Norm↔Pflicht, MUST/SHOULD, `evidence_level`, `implemented`/`design_only` (AGENTS.md 3) | `entscheidungsregister.md` | offen | 5 |
 | P9-1 | Use Cases des Prüf-Agenten | `00-systembild-und-plan.md` | offen | 9 |
@@ -66,6 +67,12 @@ Pakete:  1 Anhänge ✅ · 2 Omnibus · 3 Befunde + Matrix · 4 PO-Runde · 5 Be
 | A-W10 | Sektorstapel: § 2 BSIG / § 2 KRITIS-DachG – erste Nummer der Begriffsbestimmungen nicht erkannt | `10-paket-3-werkzeug.md` | offen | T-13 |
 | P3-B1 | Art. 73 Abs. 2 UAbs. 1 Satz 1 (Teilabdeckung) und Abs. 3, 4 (gedeckt) bei gleichem Aufbau ungleich zerlegt; Empfehlung: Abs. 3, 4 wie Abs. 2 | `11-paket-3b-element-matrix.md` | offen | 4 |
 | AN-1 | Wächter Requirement-Anker ↔ Pflichtenraum: ein Requirement, dessen Normverweise nur auf `out`-Einheiten zeigen, muss `anker: offen` tragen. Gemessen am 29.09.2026: R002 (markiert), dazu R010 (F3) und R012 (Q1) ohne `in`-Anker. Kommt mit F3/F4 | `entscheidungsregister.md` | offen | 5 |
+| ES-1 | Ablehnung wirkt nicht: ein MANUAL FAIL wird aufgezeichnet, hält die Pipeline aber nicht an (Testlauf 02.10.2026, G-PRE-05) | `12-evidence-store-beweis.md` | offen | T-16 |
+| ES-2 | Fehlende Freigabe wirkt nicht: ein HYBRID-Gate ohne menschliche Entscheidung läuft durch, `manual_review` ist nur ein Vermerk | `12-evidence-store-beweis.md` | offen | T-16 |
+| ES-3 | Belege nicht gebunden: gelesene Inputs werden nicht gehasht, `payload_id` ist eine Zufalls-UUID | `12-evidence-store-beweis.md` | offen | T-16 |
+| ES-4 | Begründung nicht hash-gedeckt: MUST-Meldungen fehlen in der DB, Warnungen nur im ungehashten `notes`, Manifest-Digest nur `Gate:Urteil` | `12-evidence-store-beweis.md` | offen | T-16 |
+| ES-5 | Freigabe-Eintrag unvollständig: Begründung ungehasht; geprüfte Belege, Datum, Rolle, Auflagen verworfen; keine Signatur des Prüfers | `12-evidence-store-beweis.md` | offen | T-16 |
+| ES-6 | Belegverzeichnis beim Rollenwechsel (Soll/Ist je geschuldetem Beleg, P3-F3) fehlt im Store | `12-evidence-store-beweis.md` | offen | T-16 |
 | PR-1 | Paket 8: Der PR muss von `review-2c` kommen, nicht von `spec06-aiact-stufe0` (Plan Teil C). `review-2c` enthält `spec06-aiact-stufe0` und `t14-pflichtenraum-werkzeug` vollständig und liegt 38 Commits darüber (gemessen 30.09.2026); ein PR von `spec06-aiact-stufe0` ließe T-14 und alle Pakete aus | `entscheidungsregister.md` | offen | 8 |
 | W-1 | Wiedervorlage Anhang XI/XII (GPAI) beim Prüf-Agenten selbst | `entscheidungsregister.md` | offen | 9 |
 | W-2 | Wiedervorlage Anhang IX, sobald der Betreiber an einem Test unter Realbedingungen teilnimmt | `entscheidungsregister.md` | offen | jederzeit |
@@ -103,6 +110,7 @@ Pakete:  1 Anhänge ✅ · 2 Omnibus · 3 Befunde + Matrix · 4 PO-Runde · 5 Be
 | MX-1 | Element-Matrix als Daten (`docs/coverage/matrix/element_matrix.yaml`), `gate` daraus abgeleitet, Wächter `ELEMENT_MATRIX_DERIVES_GATE` in `make verify` – aus Paket 7 vorgezogen | `entscheidungsregister.md` | umgesetzt 30.09.2026 (Paket 3b) | – |
 | P2-B1 | Art. 25 Abs. 2 lit. a–c n.F.: C-25d prüft den Übergabebeleg nicht je Element → Lücke als Vorschlag, Bestätigung P3-F3 | `09-paket-2-omnibus.md` | umgesetzt 30.09.2026 (Review 11) | – |
 | A-W13 | Pflichttexte hinter Aufzählungen: 19 Zeilen (AI Act 12, Omnibus 7; davon 2 `in`) nannten noch den Unterabsatz, den T-15 Teil 2 aus ihnen geschnitten hat – Texte neu, `NORM_UNITS_MATCH_EXTRACTOR` prüft den wörtlichen Rest (Bestätigung P3-F5) | `11-paket-3b-element-matrix.md` | umgesetzt 01.10.2026 | – |
+| P3-F5 | Sammelbestätigung der 19 Pflichttexte aus A-W13 – bestätigt ist der Text, nicht der Befund; festgehalten in `2026-10-02_p3-f5-pflichttexte.yaml` | `11-paket-3b-element-matrix.md` | umgesetzt 02.10.2026 a | – |
 | P3-F4 | Art. 26 Abs. 11: Vorbehalt bis Q11 – bleibt Teilabdeckung mit G-DEP-03; die Element-Matrix meldet, dass sie abgeleitet Lücke wäre | `11-paket-3b-element-matrix.md` | umgesetzt 01.10.2026 b | – |
 | R-6 | Severity `ELEMENT_MATRIX_DERIVES_GATE` = HIGH (wie R-3) | `11-paket-3b-element-matrix.md` | umgesetzt 01.10.2026 HIGH | – |
 | R-5 | Severity `NORM_SENTENCE_UNITS_CURRENT` = HIGH (vorher MEDIUM; fehlende Satzebene versteckt eine Pflicht wie Art. 26 Abs. 5 Satz 2) | `10-paket-3-werkzeug.md` | umgesetzt 30.09.2026 HIGH | – |

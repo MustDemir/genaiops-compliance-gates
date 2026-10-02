@@ -160,6 +160,7 @@ AI Act + Omnibus (Pakete 1–8) ──► Prüf-Agent (Paket 9) ──► Sektor
 | Lücken (28) und Teilabdeckungen (38) | benannt | je gebaut **oder** `declared_gap` mit Begründung |
 | Gate nennt, was es nicht prüft | nein | `known_limits` je Gate, Hinweis in jedem Lauf (H4) |
 | Element-Matrix Pflicht ↔ Rego-Regel | einmal von Hand (Review 07) | als Daten, Wächter in `make verify` |
+| Evidence Store: Urteil, Grundlage, Begründung und Freigabe beweisfest (Review 12) | nur das Urteil (02.10.2026) | alle vier hash-gedeckt, Ablehnung wirkt (T-16) |
 | PR `spec06-aiact-stufe0` → `domain_netzbetrieb` | offen | gemergt |
 
 - Ist-Zahlen gemessen am Pflichtenraum auf Branch `review-2c`, Stand 29.09.2026.
@@ -184,6 +185,7 @@ A VOLLSTÄNDIGKEIT          B ABGLEICH                C BAUEN
 | 6 | Checks + Rego bauen, nach MUST + Stichtag | 5a | **L** | Abnahme |
 | 7 | `known_limits` + Hinweis-Stufe (H4), Element-Matrix als Wächter | 5 | M | – |
 | 8 | PR mergen | 5d | S | Freigabe |
+| T-16 | **Evidence Store beweisfest** (PO 02.10.2026, Review 12): Ablehnung und fehlende Freigabe wirken (ES-1, ES-2), Belege, Begründung und Freigabe hash-gedeckt (ES-3–ES-5), Belegverzeichnis beim Rollenwechsel (ES-6). Neben 4–6, spätestens vor 8 – der Agent urteilt auf diesem Store | neu | M | ja (ES-F1, ES-F2, EF) |
 | 9 | Prüf-Agent: Use Cases (P9-1) → Einordnung des Agenten selbst nach AI Act (P9-2) → Architektur (P9-3) → Betrieb | 5f | offen | ja |
 
 - Paket 6 wird kleiner als 66 Zeilen: Laufzeitpflichten sind oft nur als `declared_gap` führbar (B-14: 8 von 9).

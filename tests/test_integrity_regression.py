@@ -3464,7 +3464,7 @@ _DECISION_HEADERS = {
 }
 _REGISTER_HEADER = ("ID", "Gegenstand", "Quelle", "Stand", "Paket")
 _REGISTER_STAENDE = ("offen", "vertagt", "entschieden", "umgesetzt", "außerhalb")
-_REGISTER_PAKETE = {str(n) for n in range(1, 10)} | {"T-13", "jederzeit"}
+_REGISTER_PAKETE = {str(n) for n in range(1, 10)} | {"T-13", "T-16", "jederzeit"}  # T-16: Review 12, PO 02.10.2026
 
 
 def _md_tables(text: str) -> list[tuple[tuple[str, ...], list[list[str]]]]:

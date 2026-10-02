@@ -4177,6 +4177,8 @@ einheiten:
   po_bestaetigt: false
   migriert_von: Art. 5 Abs. 1 lit. i@294219
   migration: geerbt
+  po_entscheid:
+  - 2026-10-02 · P3-F5 a (Review 11) - Pflichttext nach A-W13 bestaetigt
 - uid: Art. 5 Abs. 1 UAbs. 2@295079
   id: Art. 5 Abs. 1 UAbs. 2
   artikel: '5'
@@ -4318,6 +4320,8 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  po_entscheid:
+  - 2026-10-02 · P3-F5 a (Review 11) - Pflichttext nach A-W13 bestaetigt
 - uid: Art. 5 Abs. 2 UAbs. 2@296032
   id: Art. 5 Abs. 2 UAbs. 2
   artikel: '5'
@@ -10644,6 +10648,8 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  po_entscheid:
+  - 2026-10-02 · P3-F5 a (Review 11) - Pflichttext nach A-W13 bestaetigt
 - uid: Art. 22 Abs. 3 UAbs. 2@348324
   id: Art. 22 Abs. 3 UAbs. 2
   artikel: '22'
@@ -14447,6 +14453,8 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  po_entscheid:
+  - 2026-10-02 · P3-F5 a (Review 11) - Pflichttext nach A-W13 bestaetigt
 - uid: Art. 36 Abs. 9 UAbs. 2@391442
   id: Art. 36 Abs. 9 UAbs. 2
   artikel: '36'
@@ -15092,6 +15100,8 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  po_entscheid:
+  - 2026-10-02 · P3-F5 a (Review 11) - Pflichttext nach A-W13 bestaetigt
 - uid: Art. 41 Abs. 1 UAbs. 2@399280
   id: Art. 41 Abs. 1 UAbs. 2
   artikel: '41'
@@ -15472,6 +15482,8 @@ einheiten:
   po_bestaetigt: false
   migriert_von: Art. 43 Abs. 1 lit. b@403312
   migration: kennung_geaendert
+  po_entscheid:
+  - 2026-10-02 · P3-F5 a (Review 11) - Pflichttext nach A-W13 bestaetigt
 - uid: Art. 43 Abs. 1 UAbs. 2@403476
   id: Art. 43 Abs. 1 UAbs. 2
   artikel: '43'
@@ -15623,6 +15635,8 @@ einheiten:
   po_bestaetigt: false
   migriert_von: Art. 43 Abs. 1 lit. d@403996
   migration: kennung_geaendert
+  po_entscheid:
+  - 2026-10-02 · P3-F5 a (Review 11) - Pflichttext nach A-W13 bestaetigt
 - uid: Art. 43 Abs. 1 UAbs. 3@404169
   id: Art. 43 Abs. 1 UAbs. 3
   artikel: '43'
@@ -17044,6 +17058,8 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  po_entscheid:
+  - 2026-10-02 · P3-F5 a (Review 11) - Pflichttext nach A-W13 bestaetigt
 - uid: Art. 49 Abs. 4 UAbs. 2@420676
   id: Art. 49 Abs. 4 UAbs. 2
   artikel: '49'
@@ -23993,6 +24009,8 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  po_entscheid:
+  - 2026-10-02 · P3-F5 a (Review 11) - Pflichttext nach A-W13 bestaetigt
 - uid: Art. 68 Abs. 2 UAbs. 2@491225
   id: Art. 68 Abs. 2 UAbs. 2
   artikel: '68'
@@ -30126,6 +30144,8 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  po_entscheid:
+  - 2026-10-02 · P3-F5 a (Review 11) - Pflichttext nach A-W13 bestaetigt
 - uid: Art. 96 Abs. 1 UAbs. 2@556361
   id: Art. 96 Abs. 1 UAbs. 2
   artikel: '96'
@@ -31873,6 +31893,8 @@ einheiten:
   nummer: null
   unterabsatz: null
   ziffer: null
+  po_entscheid:
+  - 2026-10-02 · P3-F5 a (Review 11) - Pflichttext nach A-W13 bestaetigt
 - uid: Art. 101 Abs. 1 UAbs. 2@570494
   id: Art. 101 Abs. 1 UAbs. 2
   artikel: '101'
@@ -39955,6 +39977,8 @@ einheiten:
   befund: null
   befund_grund: null
   po_bestaetigt: false
+  po_entscheid:
+  - 2026-10-02 · P3-F5 a (Review 11) - Pflichttext nach A-W13 bestaetigt
 - uid: Anhang XI Abschn. 1 Nr. 2 UAbs. 2@649814
   id: Anhang XI Abschn. 1 Nr. 2 UAbs. 2
   artikel: Anhang XI
