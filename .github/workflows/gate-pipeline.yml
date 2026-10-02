@@ -616,10 +616,17 @@ jobs:
           fi
           echo "runtime_mode for all records: $RUNTIME_MODE"
 
+          # T-16.1 (ES-F1 a): every gate's human half is evaluated into one
+          # ledger by pipeline/human_decision.py — the same module the local
+          # orchestrator uses. The next step reads the ledger; a rejection or
+          # a missing approval halts the run there.
+          HUMAN_LEDGER=/tmp/human_decisions.tsv
+          : > "$HUMAN_LEDGER"
+
           for gate_info in \
             "G-PRE-01:R001:${{ steps.g-pre-01.outputs.result }}:HYBRID:decision_log_gpre01_manual.json" \
-            "G-PRE-02:R012:${{ steps.g-pre-02.outputs.result }}:HYBRID:" \
-            "G-PRE-03:R001:${{ steps.g-pre-03.outputs.result }}:HYBRID:" \
+            "G-PRE-02:R012:${{ steps.g-pre-02.outputs.result }}:HYBRID:decision_log_gpre02_manual.json" \
+            "G-PRE-03:R001:${{ steps.g-pre-03.outputs.result }}:HYBRID:decision_log_gpre03_manual.json" \
             "G-PRE-04:R003:${{ steps.g-pre-04.outputs.result }}:AUTO:" \
             "G-PRE-05:R004:${{ steps.g-pre-05.outputs.result }}:HYBRID:decision_log_gpre05_manual.json" \
             "G-DEP-01:R002:${{ steps.g-dep-01.outputs.result }}:AUTO:" \
@@ -628,11 +635,11 @@ jobs:
             "G-DEP-04:R011:${{ steps.g-dep-04.outputs.result }}:AUTO:" \
             "G-DEP-05:R013:${{ steps.g-dep-05.outputs.result }}:AUTO:" \
             "G-DEP-06:R014:${{ steps.g-dep-06.outputs.result }}:AUTO:" \
-            "G-OPS-01:R008:${{ steps.g-ops-01.outputs.result }}:HYBRID:" \
+            "G-OPS-01:R008:${{ steps.g-ops-01.outputs.result }}:HYBRID:decision_log_gops01_manual.json" \
             "G-OPS-02:R009:${{ steps.g-ops-02.outputs.result }}:AUTO:" \
             "G-OPS-03:R010:${{ steps.g-ops-03.outputs.result }}:AUTO:" \
             "G-OPS-04:R003:${{ steps.g-ops-04.outputs.result }}:AUTO:" \
-            "G-OPS-06:R001:${{ steps.g-ops-06.outputs.result }}:HYBRID:"
+            "G-OPS-06:R001:${{ steps.g-ops-06.outputs.result }}:HYBRID:decision_log_gops06_manual.json"
           do
             IFS=':' read -r GATE_ID REQ_ID DECISION METHOD DECISION_LOG <<< "$gate_info"
             RESULT_FILE="/tmp/${GATE_ID,,}-result.json"
@@ -679,7 +686,50 @@ jobs:
               --source "$EVIDENCE_SOURCE" \
               && echo "  ✅ $GATE_ID ($DECISION) [$METHOD] → Evidence recorded" \
               || { echo "::error::$GATE_ID — Evidence recording FAILED"; exit 1; }
+
+            # The human decision as its own MANUAL record, as the local
+            # orchestrator writes it: reviewer and verdict hash-covered.
+            if [ "$METHOD" = "HYBRID" ] && [ -n "$DECISION_LOG_PATH" ]; then
+              python3 evidence-store/scripts/record_evidence.py \
+                --sqlite "$EVIDENCE_DB" \
+                --gate "$GATE_ID" \
+                --method MANUAL \
+                --runtime-mode "$RUNTIME_MODE" \
+                --source "$DECISION_LOG_PATH" \
+                && echo "  ✅ $GATE_ID human decision [MANUAL] → Evidence recorded" \
+                || { echo "::error::$GATE_ID — recording the human decision FAILED"; exit 1; }
+            fi
+
+            # Exit 2 = this list contradicts the gate catalogue (a HYBRID
+            # gate declared AUTO) or the decision log is unreadable.
+            python3 pipeline/human_decision.py gate \
+              --gate "$GATE_ID" --method "$METHOD" --auto-decision "$DECISION" \
+              --decision-log "$DECISION_LOG_PATH" --ledger "$HUMAN_LEDGER" \
+              || { echo "::error::$GATE_ID — human decision could not be evaluated"; exit 1; }
           done
+          echo "::endgroup::"
+
+      # ── Human decisions take effect (T-16.1, ES-F1 a) ──
+      #
+      # Until 02.10.2026 the human half of a HYBRID gate went into the
+      # evidence and nothing followed from it: the Pipeline Decision below
+      # read only the automatic results. A rejection by the reviewer, or no
+      # decision at all, still authorized the deploy (Review 12, ES-1/ES-2).
+      # The verdict also fails when a HYBRID gate of the catalogue is not
+      # in the ledger — a gate dropped from the list above cannot pass unseen.
+      - name: "Human decisions — a rejection or a missing approval halts"
+        id: human
+        run: |
+          echo "::group::Human decisions on HYBRID gates"
+          set +e
+          python3 pipeline/human_decision.py verdict --ledger /tmp/human_decisions.tsv
+          RC=$?
+          set -e
+          case "$RC" in
+            0) echo "result=PASS" >> "$GITHUB_OUTPUT" ;;
+            1) echo "result=FAIL" >> "$GITHUB_OUTPUT" ;;
+            *) echo "::error::human decisions could not be evaluated (exit $RC)"; exit 1 ;;
+          esac
           echo "::endgroup::"
 
       # ── Hash Chain Verification (S4 + DP5) ──
@@ -823,6 +873,16 @@ jobs:
           TOTAL=${#GATES[@]}
           echo "gates_pass=$PASSED" >> "$GITHUB_OUTPUT"
           echo "gates_total=$TOTAL" >> "$GITHUB_OUTPUT"
+
+          # T-16.1: the human half of the HYBRID gates. Not counted as a
+          # gate — it is the second half of seven of them — but it decides.
+          HUMAN="${{ steps.human.outputs.result }}"
+          if [ "$HUMAN" != "PASS" ]; then
+            echo "║  HUMAN DECISIONS: ⛔ rejected or awaiting approval (${HUMAN:-not evaluated})"
+            ALL_PASS=false
+          else
+            echo "║  HUMAN DECISIONS: ✅ every HYBRID gate approved"
+          fi
 
           if [ "$ALL_PASS" = true ]; then
             echo "║  DECISION: ✅ $PASSED/$TOTAL GATES PASSED — Deploy authorized"
@@ -1428,6 +1488,19 @@ jobs:
           echo "✅ counter-check: a CI declaration passes the same assertion"
           echo "::endgroup::"
 
+      # ── Fall 10: die menschliche Entscheidung wirkt (T-16.1, ES-F1 a) ──
+      #
+      # Review 12 zeigte im Lauf: G-PRE-05 vom Pruefer abgelehnt, die
+      # Ablehnung aufgezeichnet, die Pipeline lief weiter. Und ein HYBRID-
+      # Gate ohne Freigabe lief durch. Der Test faehrt beides mit dem
+      # Orchestrator und mit dem CI-Ledger (pipeline/human_decision.py),
+      # jeweils mit Gegenprobe (beide Freigaben vorhanden -> Exit 0).
+      - name: "Case 10: a human rejection and a missing approval halt the run"
+        run: |
+          echo "::group::rejected / awaiting approval / relabelled vs. approved"
+          python3 pipeline/test_human_decision.py
+          echo "::endgroup::"
+
       - name: "Negative Cases — summary"
         run: |
           echo "╔══════════════════════════════════════════════════════════╗"
@@ -1442,6 +1515,7 @@ jobs:
           echo "║  7  foreign chain head    → C-06 blocks                  ║"
           echo "║  8  unchecked tlog        → C-07 blocks                  ║"
           echo "║  9  local claim in CI     → the run is refused           ║"
+          echo "║ 10  rejection / no approval → the run halts (T-16.1)     ║"
           echo "╚══════════════════════════════════════════════════════════╝"
           echo "Each case carries its counter-check: a case that is red for the"
           echo "wrong reason looks exactly like one that is red for the right one."

@@ -1,0 +1,16 @@
+{
+  "gate_id": "G-OPS-01",
+  "decision": "PASS",
+  "decision_method": "MANUAL",
+  "reviewed_by": "Prof. Dr. Weber (AI Governance Lead)",
+  "review_date": "2026-10-02T09:00:00Z",
+  "review_outcome": "Human oversight arrangement accepted for operation",
+  "rationale": "The documented oversight model (assigned oversight persons, intervention and stop procedure) was reviewed for whether the assigned persons can in fact intervene during operation.",
+  "evidence_refs": [
+    "scenarios/healthcare-ambient-ai-scribe/fixtures/app_documentation.json"
+  ],
+  "payload_id": "cc1d6364-f113-4360-a06e-902e86db9f34",
+  "reviewer_role": "AI Governance Lead",
+  "review_type": "human_oversight_review",
+  "fixture_note": "Scenario fixture: a fictional approval for the Healthcare vignette, evidence level E-0 (an unsigned file). Not a real review. Added for T-16.1 so that the CI run, in which a HYBRID gate without an approval now halts, has one for every HYBRID gate (PO decision 02.10.2026, option a). A real approval mechanism is T-16.4."
+}

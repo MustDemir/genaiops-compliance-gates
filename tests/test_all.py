@@ -316,6 +316,13 @@ if orchestrator.exists():
         run_test("Pipeline", "Evidence path is fail-closed (B-16)",
                  [sys.executable, str(fail_closed)])
 
+    # T-16.1 (ES-F1 a): a rejection by the reviewer and a missing approval
+    # halt the run — verified by running it, each with its counter-check.
+    human_test = REPO_ROOT / "pipeline" / "test_human_decision.py"
+    if human_test.exists():
+        run_test("Pipeline", "Human decision takes effect (T-16.1)",
+                 [sys.executable, str(human_test)])
+
     # Tamper Detection
     tamper_test = REPO_ROOT / "pipeline" / "test_tamper_detection.py"
     if tamper_test.exists():

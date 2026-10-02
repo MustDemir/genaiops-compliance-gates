@@ -1,0 +1,16 @@
+{
+  "gate_id": "G-OPS-06",
+  "decision": "PASS",
+  "decision_method": "MANUAL",
+  "reviewed_by": "Dr. Sarah Chen (Compliance Officer)",
+  "review_date": "2026-10-02T09:00:00Z",
+  "review_outcome": "No change of role: the deployer remains deployer",
+  "rationale": "The change event was reviewed against Art. 25(1): no own name or trademark, no substantial modification, no change of intended purpose. No provider obligations arise from this change.",
+  "evidence_refs": [
+    "scenarios/healthcare-ambient-ai-scribe/fixtures/art25_benign_change.json"
+  ],
+  "payload_id": "1e491344-8a74-4450-ba4a-844c9baa4b91",
+  "reviewer_role": "Compliance Officer",
+  "review_type": "role_change_review",
+  "fixture_note": "Scenario fixture: a fictional approval for the Healthcare vignette, evidence level E-0 (an unsigned file). Not a real review. Added for T-16.1 so that the CI run, in which a HYBRID gate without an approval now halts, has one for every HYBRID gate (PO decision 02.10.2026, option a). A real approval mechanism is T-16.4."
+}

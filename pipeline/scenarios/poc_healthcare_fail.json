@@ -35,7 +35,8 @@
       "phase": "pre-deployment",
       "method": "HYBRID",
       "fixture": "scenarios/healthcare-ambient-ai-scribe/fixtures/app_documentation.json",
-      "policy": "policies/pre-deployment/policy_governance_approval.rego"
+      "policy": "policies/pre-deployment/policy_governance_approval.rego",
+      "manual_source": "scenarios/healthcare-ambient-ai-scribe/fixtures/decision_log_gpre05_manual.json"
     },
     {
       "gate_id": "G-DEP-02",
@@ -98,7 +99,7 @@
       "gate_id": "G-DEP-03",
       "gate_name": "Transparency Docs Present",
       "phase": "deployment",
-      "method": "AUTO",
+      "method": "HYBRID",
       "fixture": "scenarios/healthcare-ambient-ai-scribe/fixtures/app_documentation_transparency_fail.json",
       "policy": "policies/deployment/policy_transparency_docs_present.rego",
       "expect_fail": true,

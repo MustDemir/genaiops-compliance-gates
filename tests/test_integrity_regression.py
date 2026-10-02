@@ -2609,6 +2609,137 @@ def check_evidence_fail_closed() -> dict:
     )
 
 
+def check_human_decision_takes_effect() -> dict:
+    """T-16.1 (ES-1, ES-2), PO ES-F1 a of 02.10.2026: the human half of a
+    HYBRID gate has an effect. Severity HIGH (PO 02.10.2026).
+
+    Review 12 showed in a run that a rejection by the reviewer was recorded
+    and the pipeline carried on, and that a HYBRID gate without any decision
+    passed. The rule now lives in pipeline/human_decision.py, called by both
+    runners. pipeline/test_human_decision.py proves the end-to-end effect by
+    running it; this check holds the parts a later edit could quietly undo:
+
+      1. the rule itself: no approval -> halt, rejection -> halt, an approval
+         for another gate -> halt, an approval -> proceed (counter-check);
+      2. the local orchestrator halts on it;
+      3. no pipeline scenario runs a HYBRID gate as anything else — the
+         relabelling bypass (poc_healthcare_pass ran G-DEP-03 as AUTO);
+      4. the CI lists every HYBRID gate as HYBRID with an approval that
+         exists, belongs to that gate and approves, records it, evaluates it
+         into the ledger, and lets the verdict decide the Pipeline Decision;
+      5. the behavioural test runs in make test and in negative-cases.
+    """
+    import importlib.util
+
+    findings = []
+    spec = importlib.util.spec_from_file_location(
+        "human_decision", REPO_ROOT / "pipeline" / "human_decision.py")
+    hd = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(hd)
+    automation = hd.load_gate_automation()
+    hybrid = sorted(g for g, a in automation.items() if a == "HYBRID")
+
+    # 1. The rule.
+    approval = {"gate_id": "G-PRE-05", "decision": "PASS", "reviewed_by": "R"}
+    cases = [
+        ("no approval", None, True, hd.AWAITING),
+        ("rejection", dict(approval, decision="FAIL"), True, hd.REJECTED),
+        ("approval for another gate", dict(approval, gate_id="G-PRE-01"), True, hd.INVALID),
+        ("approval without a reviewer", dict(approval, reviewed_by=""), True, hd.INVALID),
+        ("approval (counter-check)", approval, False, None),
+    ]
+    for label, log, halt, reason in cases:
+        got = hd.approval_effect("G-PRE-05", "HYBRID", "PASS", log)
+        if got["halt"] != halt or got["reason"] != reason:
+            findings.append(
+                f"pipeline/human_decision.py: {label} gives halt={got['halt']}, "
+                f"reason={got['reason']} — expected halt={halt}, reason={reason}")
+
+    # 2. The orchestrator halts on it.
+    orch = read_text(REPO_ROOT / "pipeline" / "gate_orchestrator.py")
+    if "human_decision.approval_effect(" not in orch:
+        findings.append("pipeline/gate_orchestrator.py: does not evaluate the human "
+                        "decision (human_decision.approval_effect)")
+    if not re.search(r'elif human\["halt"\]:\s*\n(?:\s*#.*\n)*\s*pipeline_halted = True', orch):
+        findings.append("pipeline/gate_orchestrator.py: no branch halts the run on the "
+                        "human decision (elif human[\"halt\"]: pipeline_halted = True)")
+    if "human_decision.catalogue_method(" not in orch:
+        findings.append("pipeline/gate_orchestrator.py: takes a gate's method from the "
+                        "scenario instead of the catalogue (human_decision.catalogue_method)")
+
+    # 3. Scenarios: a HYBRID gate stays HYBRID.
+    for f in sorted((REPO_ROOT / "pipeline" / "scenarios").glob("*.json")):
+        for g in json.loads(read_text(f)).get("gates", []):
+            want = automation.get(g.get("gate_id"))
+            if want and str(g.get("method", "")).upper() != want:
+                findings.append(
+                    f"{f.relative_to(REPO_ROOT)}: {g.get('gate_id')} runs as "
+                    f"{g.get('method')}, the gate definition says {want}")
+
+    # 4. CI.
+    wf_path = REPO_ROOT / ".github" / "workflows" / "gate-pipeline.yml"
+    wf = read_text(wf_path)
+    listed = {m.group(1): (m.group(2), m.group(3)) for m in re.finditer(
+        r'"(G-[A-Z]+-\d+):R\d+:\$\{\{ steps\.[a-z0-9-]+\.outputs\.result \}\}:'
+        r'(AUTO|HYBRID|MANUAL):([^"]*)"', wf)}
+    fixtures = REPO_ROOT / "scenarios" / "healthcare-ambient-ai-scribe" / "fixtures"
+    for gate, (method, log) in sorted(listed.items()):
+        if automation.get(gate) and method != automation[gate]:
+            findings.append(f"{wf_path.relative_to(REPO_ROOT)}: {gate} listed as {method}, "
+                            f"the gate definition says {automation[gate]}")
+    for gate in hybrid:
+        if gate not in listed:
+            findings.append(f"{wf_path.relative_to(REPO_ROOT)}: HYBRID gate {gate} is not "
+                            f"in the evidence list — its human half is never evaluated")
+            continue
+        log = listed[gate][1]
+        if not log:
+            findings.append(f"{wf_path.relative_to(REPO_ROOT)}: {gate} has no approval — "
+                            f"the CI run halts there (ES-F1 a)")
+            continue
+        path = fixtures / log
+        if not path.is_file():
+            findings.append(f"{wf_path.relative_to(REPO_ROOT)}: {gate} names {log}, "
+                            f"which does not exist")
+            continue
+        body = json.loads(read_text(path))
+        if body.get("gate_id") != gate or body.get("decision") != "PASS" \
+                or not str(body.get("reviewed_by") or "").strip():
+            findings.append(f"{path.relative_to(REPO_ROOT)}: not an approval of {gate} "
+                            f"(gate_id {body.get('gate_id')!r}, decision "
+                            f"{body.get('decision')!r}, reviewer {body.get('reviewed_by')!r})")
+    for needle, what in [
+        ("--method MANUAL", "the CI does not record the human decision as a MANUAL record"),
+        ("pipeline/human_decision.py gate", "the CI does not evaluate the human decisions"),
+        ("pipeline/human_decision.py verdict", "the CI has no verdict over the human decisions"),
+        ('HUMAN="${{ steps.human.outputs.result }}"',
+         "the Pipeline Decision does not read the human verdict"),
+        ("pipeline/test_human_decision.py", "negative-cases does not run the behavioural test"),
+    ]:
+        if needle not in wf:
+            findings.append(f"{wf_path.relative_to(REPO_ROOT)}: {what}")
+    decision_block = wf.split('HUMAN="${{ steps.human.outputs.result }}"', 1)[-1][:400]
+    if "ALL_PASS=false" not in decision_block:
+        findings.append(f"{wf_path.relative_to(REPO_ROOT)}: the human verdict does not "
+                        f"block the Pipeline Decision (ALL_PASS=false)")
+
+    # 5. make test.
+    if "test_human_decision.py" not in read_text(REPO_ROOT / "tests" / "test_all.py"):
+        findings.append("tests/test_all.py: does not run pipeline/test_human_decision.py")
+
+    return make_result(
+        "HUMAN_DECISION_TAKES_EFFECT",
+        "a rejection by the reviewer and a missing approval halt the run (T-16.1, ES-F1 a)",
+        "high",
+        not findings,
+        "A human decision on a HYBRID gate can be bypassed or has no effect — a "
+        "rejected or unapproved gate would read as passed." if findings
+        else f"{len(hybrid)} HYBRID gates: both runners halt on a rejection or a "
+             f"missing approval; CI lists all {len(hybrid)} with their approval.",
+        findings,
+    )
+
+
 VALID_EFFECTS = ("halt_pipeline", "record_only", "open_incident",
                  "start_deadline", "notify")
 
@@ -3612,6 +3743,7 @@ def collect_results() -> list[dict]:
         check_trigger_matches_requirement,
         check_acceptance_criteria_traced,
         check_evidence_fail_closed,
+        check_human_decision_takes_effect,
         check_gate_declares_effect,
         check_handbook_roadmap_is_current,
         check_legal_quotes_verbatim,

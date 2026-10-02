@@ -111,11 +111,12 @@
       "gate_id": "G-DEP-03",
       "gate_name": "Transparency Docs Present",
       "phase": "deployment",
-      "method": "AUTO",
+      "method": "HYBRID",
       "fixture": "scenarios/healthcare-ambient-ai-scribe/fixtures/app_documentation_transparency_pass.json",
       "policy": "policies/deployment/policy_transparency_docs_present.rego",
       "description_de": "Prüft ob Deployer-Instruktionen, Modell-Fähigkeiten, bekannte Limitationen und KI-Inhalte-Kennzeichnung dokumentiert sind.",
-      "description_kolloquium": "Art. 13 EU AI Act verlangt Transparenz: Nutzer müssen wissen, was das System kann und was nicht. Dieses Gate prüft ob Deployer-Anweisungen, Fähigkeiten, Limitationen und die KI-Kennzeichnung nach Art. 50 vorhanden sind."
+      "description_kolloquium": "Art. 13 EU AI Act verlangt Transparenz: Nutzer müssen wissen, was das System kann und was nicht. Dieses Gate prüft ob Deployer-Anweisungen, Fähigkeiten, Limitationen und die KI-Kennzeichnung nach Art. 50 vorhanden sind.",
+      "manual_source": "scenarios/healthcare-ambient-ai-scribe/fixtures/decision_log_gdep03_manual.json"
     },
     {
       "gate_id": "G-OPS-02",

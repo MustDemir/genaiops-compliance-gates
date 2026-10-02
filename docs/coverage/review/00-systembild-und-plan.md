@@ -160,7 +160,7 @@ AI Act + Omnibus (Pakete 1–8) ──► Prüf-Agent (Paket 9) ──► Sektor
 | Lücken (28) und Teilabdeckungen (38) | benannt | je gebaut **oder** `declared_gap` mit Begründung |
 | Gate nennt, was es nicht prüft | nein | `known_limits` je Gate, Hinweis in jedem Lauf (H4) |
 | Element-Matrix Pflicht ↔ Rego-Regel | einmal von Hand (Review 07) | als Daten, Wächter in `make verify` |
-| Evidence Store: Urteil, Grundlage, Begründung und Freigabe beweisfest (Review 12) | nur das Urteil (02.10.2026) | alle vier hash-gedeckt, Ablehnung wirkt (T-16) |
+| Evidence Store: Urteil, Grundlage, Begründung und Freigabe beweisfest (Review 12) | nur das Urteil (02.10.2026); Ablehnung und fehlende Freigabe halten an (T-16.1, 02.10.2026) | alle vier hash-gedeckt, Ablehnung wirkt (T-16) |
 | PR `spec06-aiact-stufe0` → `domain_netzbetrieb` | offen | gemergt |
 
 - Ist-Zahlen gemessen am Pflichtenraum auf Branch `review-2c`, Stand 29.09.2026.

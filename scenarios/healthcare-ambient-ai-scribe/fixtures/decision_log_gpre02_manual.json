@@ -1,0 +1,16 @@
+{
+  "gate_id": "G-PRE-02",
+  "decision": "PASS",
+  "decision_method": "MANUAL",
+  "reviewed_by": "Prof. Dr. Weber (AI Governance Lead)",
+  "review_date": "2026-10-02T09:00:00Z",
+  "review_outcome": "Intended purpose confirmed as declared",
+  "rationale": "The declared intended purpose of the Ambient AI Scribe (documentation support during consultations, no autonomous clinical decision) was read against the application documentation and matches the use in this deployment.",
+  "evidence_refs": [
+    "scenarios/healthcare-ambient-ai-scribe/fixtures/app_documentation.json"
+  ],
+  "payload_id": "d36f82bd-cf9c-4043-8a73-e32a8864a5fd",
+  "reviewer_role": "AI Governance Lead",
+  "review_type": "intended_purpose_confirmation",
+  "fixture_note": "Scenario fixture: a fictional approval for the Healthcare vignette, evidence level E-0 (an unsigned file). Not a real review. Added for T-16.1 so that the CI run, in which a HYBRID gate without an approval now halts, has one for every HYBRID gate (PO decision 02.10.2026, option a). A real approval mechanism is T-16.4."
+}

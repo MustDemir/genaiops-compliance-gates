@@ -1,6 +1,6 @@
 ---
 titel: Entscheidungsregister – was der PO noch entscheiden muss und welche Schritte ausstehen
-stand: 2026-10-02 (nach Paket 3b, P3-F5 und Review 12 Evidence Store; T-16 entschieden: ES-F1 a, ES-F2 a)
+stand: 2026-10-02 (nach Paket 3b, P3-F5 und Review 12 Evidence Store; T-16.1 gebaut: ES-1, ES-2)
 basis: Reviews 00–09, Entscheidungsdateien in docs/coverage/entscheide/, Plan Teil C
 status: lebendes Register · der Wächter PO_DECISIONS_REGISTERED hält es vollständig
 ---
@@ -31,6 +31,7 @@ Pakete:  1 Anhänge ✅ · 2 Omnibus · 3 Befunde + Matrix · 4 PO-Runde · 5 Be
 | IN-1 | Alle `in`-Zeilen bestätigen (nach P3-F3: 67 von 109 bestätigt – AI Act 61 von 85, Omnibus 6 von 24) | `entscheidungsregister.md` | offen | 4 |
 | OUT-1 | `out`-Zeilen: Stichprobe nach Adressat-Gruppen, dann Sammelbestätigung (30.09.2026: 139 von 1407 bestätigt – AI Act 32 von 1147, Omnibus 107 von 260) | `entscheidungsregister.md` | offen | 4 |
 | R-1 | Severity des Wächters `PO_DECISIONS_REGISTERED` (Vorschlag LOW: bricht `make verify`, wie `HANDBOOK_ROADMAP_CURRENT`) | `entscheidungsregister.md` | offen | 4 |
+| ES-F3 | Trigger `halt_pipeline` bei fehlender Freigabe an den sieben HYBRID-Gates: `implemented` (Empfehlung a) oder `declared_only` bis T-16.4 (Ehrlichkeitsfeld 4) | `12-evidence-store-beweis.md` | offen | T-16 |
 | M-B1 | Welches Requirement trägt Art. 26 Abs. 5 Satz 1: R009 wie heute oder R008/R010 der prüfenden Gates? | `07-element-matrix.md` | offen | 5 |
 | EF | Die vier Ehrlichkeitsfelder je neuem oder geändertem Requirement und Check: Norm↔Pflicht, MUST/SHOULD, `evidence_level`, `implemented`/`design_only` (AGENTS.md 3) | `entscheidungsregister.md` | offen | 5 |
 | P9-1 | Use Cases des Prüf-Agenten | `00-systembild-und-plan.md` | offen | 9 |
@@ -66,12 +67,11 @@ Pakete:  1 Anhänge ✅ · 2 Omnibus · 3 Befunde + Matrix · 4 PO-Runde · 5 Be
 | A-W10 | Sektorstapel: § 2 BSIG / § 2 KRITIS-DachG – erste Nummer der Begriffsbestimmungen nicht erkannt | `10-paket-3-werkzeug.md` | offen | T-13 |
 | P3-B1 | Art. 73 Abs. 2 UAbs. 1 Satz 1 (Teilabdeckung) und Abs. 3, 4 (gedeckt) bei gleichem Aufbau ungleich zerlegt; Empfehlung: Abs. 3, 4 wie Abs. 2 | `11-paket-3b-element-matrix.md` | offen | 4 |
 | AN-1 | Wächter Requirement-Anker ↔ Pflichtenraum: ein Requirement, dessen Normverweise nur auf `out`-Einheiten zeigen, muss `anker: offen` tragen. Gemessen am 29.09.2026: R002 (markiert), dazu R010 (F3) und R012 (Q1) ohne `in`-Anker. Kommt mit F3/F4 | `entscheidungsregister.md` | offen | 5 |
-| ES-1 | Ablehnung wirkt nicht: ein MANUAL FAIL wird aufgezeichnet, hält die Pipeline aber nicht an (Testlauf 02.10.2026, G-PRE-05) | `12-evidence-store-beweis.md` | offen | T-16 |
-| ES-2 | Fehlende Freigabe wirkt nicht: ein HYBRID-Gate ohne menschliche Entscheidung läuft durch, `manual_review` ist nur ein Vermerk | `12-evidence-store-beweis.md` | offen | T-16 |
 | ES-3 | Belege nicht gebunden: gelesene Inputs werden nicht gehasht, `payload_id` ist eine Zufalls-UUID | `12-evidence-store-beweis.md` | offen | T-16 |
 | ES-4 | Begründung nicht hash-gedeckt: MUST-Meldungen fehlen in der DB, Warnungen nur im ungehashten `notes`, Manifest-Digest nur `Gate:Urteil` | `12-evidence-store-beweis.md` | offen | T-16 |
 | ES-5 | Freigabe-Eintrag unvollständig: Begründung ungehasht; geprüfte Belege, Datum, Rolle, Auflagen verworfen; keine Signatur des Prüfers | `12-evidence-store-beweis.md` | offen | T-16 |
 | ES-6 | Belegverzeichnis beim Rollenwechsel (Soll/Ist je geschuldetem Beleg, P3-F3) fehlt im Store | `12-evidence-store-beweis.md` | offen | T-16 |
+| ES-7 | Dritter Läufer `pipeline/test_pipeline_local.sh` (nicht in `make verify`, nicht in der CI) kennt die menschliche Entscheidung nicht: G-PRE-01/G-PRE-05 ohne Freigabe, G-DEP-03 als AUTO, meldet „Deploy authorized“ – angleichen oder entfernen | `12-evidence-store-beweis.md` | offen | T-16 |
 | PR-1 | Paket 8: Der PR muss von `review-2c` kommen, nicht von `spec06-aiact-stufe0` (Plan Teil C). `review-2c` enthält `spec06-aiact-stufe0` und `t14-pflichtenraum-werkzeug` vollständig und liegt 38 Commits darüber (gemessen 30.09.2026); ein PR von `spec06-aiact-stufe0` ließe T-14 und alle Pakete aus | `entscheidungsregister.md` | offen | 8 |
 | W-1 | Wiedervorlage Anhang XI/XII (GPAI) beim Prüf-Agenten selbst | `entscheidungsregister.md` | offen | 9 |
 | W-2 | Wiedervorlage Anhang IX, sobald der Betreiber an einem Test unter Realbedingungen teilnimmt | `entscheidungsregister.md` | offen | jederzeit |
@@ -114,6 +114,8 @@ Pakete:  1 Anhänge ✅ · 2 Omnibus · 3 Befunde + Matrix · 4 PO-Runde · 5 Be
 | R-6 | Severity `ELEMENT_MATRIX_DERIVES_GATE` = HIGH (wie R-3) | `11-paket-3b-element-matrix.md` | umgesetzt 01.10.2026 HIGH | – |
 | R-5 | Severity `NORM_SENTENCE_UNITS_CURRENT` = HIGH (vorher MEDIUM; fehlende Satzebene versteckt eine Pflicht wie Art. 26 Abs. 5 Satz 2) | `10-paket-3-werkzeug.md` | umgesetzt 30.09.2026 HIGH | – |
 | PUSH-1 | Branch `review-2c` nach origin gepusht (Stand `45e2eb1`, pre-push `make verify` grün) | `entscheidungsregister.md` | umgesetzt 30.09.2026 | – |
+| ES-1 | Ablehnung wirkt: MANUAL FAIL → block, in Orchestrator und CI aus einem Modul (`pipeline/human_decision.py`); Wächter `HUMAN_DECISION_TAKES_EFFECT` (HIGH), Verhalten `pipeline/test_human_decision.py`, CI negative-cases Fall 10 | `12-evidence-store-beweis.md` | umgesetzt 02.10.2026 (T-16.1) | – |
+| ES-2 | Fehlende Freigabe wirkt: ein HYBRID-Gate ohne Freigabe hält an (`awaiting_approval`); HYBRID kommt aus der Gate-Definition, ein Szenario mit AUTO wird abgewiesen (G-DEP-03 lief so); CI: vier Fixture-Freigaben (PO Option a), ein fehlendes HYBRID-Gate blockiert | `12-evidence-store-beweis.md` | umgesetzt 02.10.2026 (T-16.1) | – |
 | PUSH-3 | `review-2c` 876c1b1..7ca98ce nach origin: Commits auf dem Mac mit dem SSH-Schlüssel des PO neu signiert, Schlüssel als Signing Key im GitHub-Konto, pre-push `make verify` grün, alle fünf Commits auf GitHub „Verified“ | `entscheidungsregister.md` | umgesetzt 02.10.2026 | – |
 | A-W1 | Art. 113 (und Art. 85, DSGVO Art. 67, NIS2 Art. 44): unnummerierte Absätze als Abs. 1–n, Kennung „Art. 113 Abs. 3 lit. a“ wie im Gesetz (T-15) | `08-paket-1-anhaenge.md` | umgesetzt 30.09.2026 | – |
 | A-W2 | Anhang I Abschn. B Nr. 13–20 einzeln (T-15) | `08-paket-1-anhaenge.md` | umgesetzt 30.09.2026 | – |

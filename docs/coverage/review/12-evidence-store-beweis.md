@@ -2,7 +2,7 @@
 titel: Evidence Store – hält er, was ein Auditor sehen will?
 stand: 2026-10-02
 basis: Branch review-2c · Frage des PO 01.10.2026 („werden alle Gate-Entscheidungen, Belege und Freigaben mit Hash im Audit festgehalten?“) · Code pipeline/gate_orchestrator.py, evidence-store/scripts/*, POC_SQL_SCHEMA_SPEC.md · Testlauf poc_healthcare_pass mit abgelehnter Freigabe
-status: Befunde ES-1–ES-6 · ES-F1 a, ES-F2 a entschieden (PO 02.10.2026) · Paket T-16 läuft, zuerst T-16.1
+status: Befunde ES-1–ES-7 · ES-F1 a, ES-F2 a entschieden (PO 02.10.2026) · T-16.1 gebaut (ES-1, ES-2), Abnahme und ES-F3 offen
 ---
 
 # Kurzfazit
@@ -97,3 +97,40 @@ audit 5  G-PRE-05  FAIL  MANUAL  –              Prof. Dr. Weber (AI Governance
 **Ehrlich zur Methode:**
 - Geprüft am Code und mit einem SQLite-Lauf. Der PostgreSQL-Pfad (Trigger, RLS) ist gelesen, nicht gelaufen.
 - `notes` ist absichtlich ungehasht (Docstring in `record_evidence.py`): dort sollte nur Erläuterung stehen. Für die Begründung einer Freigabe trägt diese Absicht nicht.
+
+# Teil 7 – T-16.1 gebaut (02.10.2026)
+
+**Bei der Messung kam mehr heraus als in Teil 2:**
+- **Zwei Läufer, nicht einer.** Die CI (Job `quality-gates`), die das signierte Manifest erzeugt, wertet die Gates selbst aus. Ihr „Pipeline Decision“ las nur die automatischen Urteile – die Freigabe stand ungehasht in der Quelle und hatte keine Wirkung.
+- **CI: 7 HYBRID-Gates, nur 3 mit Freigabe** (G-PRE-01, G-PRE-05, G-DEP-03). G-PRE-02, G-PRE-03, G-OPS-01, G-OPS-06 liefen ohne jede menschliche Entscheidung durch.
+- **Umetikettieren:** `poc_healthcare_pass.json` führte G-DEP-03 als AUTO, die Gate-Definition sagt HYBRID. Der Orchestrator glaubte dem Szenario – die menschliche Hälfte fiel weg, ohne dass es jemand sah.
+
+**Gebaut:**
+```
+                     pipeline/human_decision.py  (eine Regel, zwei Läufer)
+                                  │
+        ┌─────────────────────────┴─────────────────────────┐
+  gate_orchestrator.py (lokal)                   gate-pipeline.yml (CI)
+  · HYBRID aus der Gate-Definition,              · je Gate: Freigabe als MANUAL-Zeile,
+    Widerspruch im Szenario → Exit 2               Wirkung ins Ledger (AUTO statt HYBRID → Exit 2)
+  · Ablehnung → hält, rejected_by_reviewer       · Urteil über das Ledger: fehlt ein HYBRID-Gate
+  · keine Freigabe → hält, awaiting_approval       oder hält eines an → Pipeline Decision blockiert
+  · fremde Freigabe → hält, invalid_approval     · negative-cases Fall 10
+```
+- **Regel** (ES-F1 a): Ablehnung → block · keine Freigabe → hält an · Freigabe eines anderen Gates oder ohne Prüfer → keine Freigabe · Freigabe → weiter. Ein automatisches FAIL hebt keine Freigabe auf (kein Waiver).
+- **CI-Freigaben** (PO 02.10.2026, Option a): vier Fixture-Freigaben für G-PRE-02, G-PRE-03, G-OPS-01, G-OPS-06 – fiktiv, E-0, im Feld `fixture_note` als Szenario-Fixture markiert. Ein echter Freigabe-Mechanismus kommt mit T-16.4.
+- **Szenarien:** G-DEP-03 läuft als HYBRID mit seiner vorhandenen Freigabe; `poc_healthcare_fail.json` bekommt die vorhandene Freigabe von G-PRE-05, damit es weiter an G-DEP-02 hält.
+- **Wächter** `HUMAN_DECISION_TAKES_EFFECT` (HIGH, PO 02.10.2026). **Verhalten:** `pipeline/test_human_decision.py` (in `make test` und `negative-cases`).
+- **Beweisstufe** der Freigabe bleibt E-0 (PO 02.10.2026).
+
+**Was T-16.1 nicht liefert:**
+- Der Halt selbst steht nicht im Store: das Manifest zeigt bei „wartet auf Freigabe“ nur `G-PRE-05:PASS` der automatischen Hälfte; den Grund nennt der Bericht (`halt_reason`). Das schließt T-16.3 (ES-4).
+- Der Inhalt der Freigabe (Belege, Datum, Rolle, Auflagen) ist weiter nicht hash-gedeckt – T-16.4 (ES-5).
+
+| # | Befund | Wohin |
+|---|---|---|
+| ES-7 | **Dritter Läufer:** `pipeline/test_pipeline_local.sh` (weder in `make verify` noch in der CI) kennt die menschliche Entscheidung nicht – G-PRE-01/G-PRE-05 ohne Freigabe, G-DEP-03 als AUTO, und meldet „Deploy authorized“. Angleichen oder entfernen; der Orchestrator deckt den lokalen Lauf | T-16 |
+
+| # | Frage | Optionen |
+|---|---|---|
+| **ES-F3** | Die sieben HYBRID-Gates deklarieren ihre Wirkung (`triggers`, Frage 5) bisher nur für `block`. Neu wäre: `halt_pipeline` bei `manual_review` ohne Freigabe. Ist diese Wirkung `implemented`? (Ehrlichkeitsfeld 4) | a) **`implemented`** – in beiden Läufern gebaut, Negativfall in der CI · b) `declared_only`, bis T-16.4 einen echten Freigabe-Mechanismus bringt |

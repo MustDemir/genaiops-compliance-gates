@@ -48,6 +48,12 @@ RECORD_EVIDENCE = EVIDENCE_SCRIPTS / "record_evidence.py"
 VERIFY_HASH_CHAIN = EVIDENCE_SCRIPTS / "verify_hash_chain.py"
 BUILD_MANIFEST = EVIDENCE_SCRIPTS / "build_manifest.py"
 
+# T-16.1: the effect of a human decision on a HYBRID gate lives in one module
+# that the CI calls as well. Loaded from this file's directory so the import
+# also works when the orchestrator itself is loaded by path (tests).
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import human_decision  # noqa: E402
+
 # ANSI colors for terminal output
 GREEN = "\033[92m"
 RED = "\033[91m"
@@ -1195,7 +1201,17 @@ def print_gate_result(gate: dict, result: dict, evidence: dict, index: int, tota
     print()
 
 
-def print_summary(results: list, pipeline_halted: bool, halt_gate: str, verification: dict) -> None:
+HALT_REASON_TEXT = {
+    "gate_failed": "Gate returned FAIL — downstream gates skipped",
+    "evidence_unrecorded": "Evidence could not be recorded — no verdict from this run is recorded",
+    human_decision.REJECTED: "Rejected by the human reviewer (MANUAL FAIL -> block, ES-F1 a)",
+    human_decision.AWAITING: "HYBRID gate awaits a human approval — resume with an approval (ES-F1 a)",
+    human_decision.INVALID: "The approval is not valid for this gate — treated as no approval",
+}
+
+
+def print_summary(results: list, pipeline_halted: bool, halt_gate: str, verification: dict,
+                  halt_reason: str = "gate_failed") -> None:
     """Print the pipeline execution summary."""
     passed = sum(1 for r in results if r["decision"] == "PASS")
     failed = sum(1 for r in results if r["decision"] == "FAIL")
@@ -1210,7 +1226,7 @@ def print_summary(results: list, pipeline_halted: bool, halt_gate: str, verifica
 
     if pipeline_halted:
         print(f"\n  {RED}{BOLD}⚠ Pipeline HALTED at {halt_gate}{RESET}")
-        print(f"  {RED}  Reason: Gate returned FAIL — downstream gates skipped{RESET}")
+        print(f"  {RED}  Reason: {HALT_REASON_TEXT.get(halt_reason, halt_reason)}{RESET}")
         print(f"  {BLUE}  Note: FAIL evidence was recorded for audit traceability{RESET}")
 
     if verification:
@@ -1323,12 +1339,27 @@ def run_pipeline(scenario_path: str, use_conftest: bool = False, dry_run: bool =
             "see SPEC-03 Abschnitt 6.", YELLOW)
         return 0
 
+    # ── Which gate is HYBRID: the catalogue decides (T-16.1, ES-2) ──
+    # A scenario that ran a HYBRID gate as AUTO skipped its human half
+    # unseen (poc_healthcare_pass did so for G-DEP-03 until 02.10.2026).
+    # A contradiction is a configuration error, raised before anything is
+    # recorded, not a silent correction.
+    try:
+        gate_automation = human_decision.load_gate_automation()
+        for g in gates:
+            g["method"] = human_decision.catalogue_method(
+                g["gate_id"], g.get("method", ""), gate_automation)
+    except human_decision.ConfigError as exc:
+        log(f"Scenario contradicts the gate catalogue — {exc}", RED)
+        return 2
+
     print()
 
     # ── Execute gates sequentially ──
     results = []
     pipeline_halted = False
     halt_gate = ""
+    halt_reason = ""
     evidence_broken = False
 
     for i, gate in enumerate(gates, 1):
@@ -1474,6 +1505,20 @@ def run_pipeline(scenario_path: str, use_conftest: bool = False, dry_run: bool =
                 _evidence_problem(gate_id, "MANUAL", manual_result)
             )
 
+        # Step 2a: the human half of a HYBRID gate takes effect (T-16.1,
+        # ES-F1 a). Until 02.10.2026 it was recorded and nothing followed:
+        # a rejection by the reviewer let the run carry on, and a HYBRID
+        # gate without any decision passed. Evaluated in a dry run as well —
+        # the decision log is read, only the recording is skipped.
+        try:
+            decision_log = human_decision.load_decision_log(
+                str(REPO_ROOT / gate["manual_source"]) if gate.get("manual_source") else None)
+            human = human_decision.approval_effect(gate_id, method, decision, decision_log)
+        except human_decision.ConfigError as exc:
+            hybrid = method == "HYBRID"
+            human = {"halt": hybrid, "reason": human_decision.INVALID if hybrid else None,
+                     "manual_decision": None, "message": f"{gate_id}: {exc}"}
+
         # Step 2b: Evidence recording is FAIL-CLOSED (B-16).
         #
         # Until 2026-08-27 the return value of record_to_evidence_store()
@@ -1506,6 +1551,9 @@ def run_pipeline(scenario_path: str, use_conftest: bool = False, dry_run: bool =
             "derived_decision": derived_decision,
             "method": method,
             "failures": eval_result.get("failures", []),
+            # T-16.1: what the human said, and whether it stopped the run.
+            "human_decision": human["manual_decision"],
+            "human_effect": human["reason"],
         })
 
         # Step 3: Check if pipeline should halt
@@ -1516,11 +1564,23 @@ def run_pipeline(scenario_path: str, use_conftest: bool = False, dry_run: bool =
                 f"result is UNRECORDED and must not be read as a verdict.", RED)
             pipeline_halted = True
             halt_gate = gate_id
+            halt_reason = "evidence_unrecorded"
             evidence_broken = True
         elif decision == "FAIL":
             pipeline_halted = True
             halt_gate = gate_id
+            halt_reason = "gate_failed"
             log(f"{gate_id} FAILED — pipeline will halt after recording evidence", RED)
+            if human["manual_decision"]:
+                log(f"  {human['message']}", YELLOW)
+        elif human["halt"]:
+            # MANUAL FAIL -> block; no approval -> wait for one (ES-F1 a).
+            pipeline_halted = True
+            halt_gate = gate_id
+            halt_reason = human["reason"]
+            log(f"{human['message']} — pipeline halts", RED)
+        elif human["manual_decision"]:
+            log(f"  {human['message']}", GREEN)
 
     # ── Step 4: Verify hash chain ──
     print(f"\n{BOLD}{'─' * 70}{RESET}")
@@ -1534,7 +1594,7 @@ def run_pipeline(scenario_path: str, use_conftest: bool = False, dry_run: bool =
         log("DRY-RUN: Skipping hash-chain verification", YELLOW)
 
     # ── Step 5: Print summary ──
-    print_summary(results, pipeline_halted, halt_gate, verification)
+    print_summary(results, pipeline_halted, halt_gate, verification, halt_reason)
 
     # ── Step 6: Evidence manifest (SPEC-05 Teil 2) ──
     #
@@ -1584,6 +1644,9 @@ def run_pipeline(scenario_path: str, use_conftest: bool = False, dry_run: bool =
         "gates": results,
         "pipeline_halted": pipeline_halted,
         "halt_gate": halt_gate if pipeline_halted else None,
+        # T-16.1: why the run halted — a blocked gate, a rejection by the
+        # reviewer, a missing approval, or an unrecorded verdict.
+        "halt_reason": halt_reason if pipeline_halted else None,
         "hash_chain_valid": verification["is_valid"] if verification else None,
         "overall_result": "PASS" if not pipeline_halted else "FAIL",
         # B-16: distinguishes "a gate blocked" from "the record is missing".

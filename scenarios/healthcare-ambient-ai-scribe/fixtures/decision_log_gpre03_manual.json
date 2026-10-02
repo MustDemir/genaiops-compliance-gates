@@ -1,0 +1,16 @@
+{
+  "gate_id": "G-PRE-03",
+  "decision": "PASS",
+  "decision_method": "MANUAL",
+  "reviewed_by": "Prof. Dr. Weber (AI Governance Lead)",
+  "review_date": "2026-10-02T09:00:00Z",
+  "review_outcome": "Risk management documentation accepted as complete for this release",
+  "rationale": "The risk management section of the application documentation was reviewed for completeness of identified risks and their mitigation; the automated check covered the structure, this review the substance.",
+  "evidence_refs": [
+    "scenarios/healthcare-ambient-ai-scribe/fixtures/app_documentation.json"
+  ],
+  "payload_id": "8a255989-d668-445b-ac05-4a20f0e878ac",
+  "reviewer_role": "AI Governance Lead",
+  "review_type": "risk_management_review",
+  "fixture_note": "Scenario fixture: a fictional approval for the Healthcare vignette, evidence level E-0 (an unsigned file). Not a real review. Added for T-16.1 so that the CI run, in which a HYBRID gate without an approval now halts, has one for every HYBRID gate (PO decision 02.10.2026, option a). A real approval mechanism is T-16.4."
+}

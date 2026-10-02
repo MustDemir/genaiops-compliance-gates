@@ -1,6 +1,6 @@
 # T-16 — Evidence Store beweisfest: Grundlage, Begründung und Freigabe jedes Urteils
 
-Ticket T-16. Angelegt 02.10.2026 auf Auftrag des PO („Lücken als Befund ins Register, dann ein Paket für die Lücken, um sie zu schließen“). Befunde und Testlauf: [Review 12](../coverage/review/12-evidence-store-beweis.md). **Status:** ES-F1 a, ES-F2 a entschieden (02.10.2026). Bereit ist ein Teilschritt, wenn seine Ehrlichkeitsfelder gesetzt sind – DoR unten.
+Ticket T-16. Angelegt 02.10.2026 auf Auftrag des PO („Lücken als Befund ins Register, dann ein Paket für die Lücken, um sie zu schließen“). Befunde und Testlauf: [Review 12](../coverage/review/12-evidence-store-beweis.md). **Status:** ES-F1 a, ES-F2 a entschieden (02.10.2026). **T-16.1 gebaut** (02.10.2026, Abnahme durch den PO offen; ES-F3 offen). Bereit ist ein Teilschritt, wenn seine Ehrlichkeitsfelder gesetzt sind – DoR unten.
 
 ## WARUM
 
@@ -14,6 +14,7 @@ Der Evidence Store hält jedes Gate-Urteil hash-verkettet und unveränderbar, un
 | ES-4 | Begründung nicht hash-gedeckt | `failures` nicht in der DB; `warnings` nur in `notes` (ungehasht); Digest nur `Gate:Urteil` |
 | ES-5 | Freigabe-Eintrag unvollständig | `rationale` → `notes`; `evidence_refs`, `review_date`, `reviewer_role`, `approval_conditions` verworfen |
 | ES-6 | Belegverzeichnis beim Rollenwechsel fehlt | Vorgabe P3-F3: geschuldete Belege Soll/Ist je Beleg |
+| ES-7 | Dritter Läufer `test_pipeline_local.sh` ohne menschliche Entscheidung | gefunden bei T-16.1 (Review 12 Teil 7) |
 
 ## RECHTSBEZUG
 
@@ -24,10 +25,13 @@ Vom PO zu bestätigen (EF, AGENTS.md 3). Stand im Katalog: G-OPS-05 trägt R005 
 - **ES-F1 a** (02.10.2026): MANUAL FAIL → block; HYBRID-Gate ohne Freigabe → hält an („wartet auf Freigabe“), Wiederaufnahme mit Freigabe.
 - **ES-F2 a** (02.10.2026): jetzt, parallel zu Paket 4; T-16.1 (ES-1, ES-2) zuerst.
 - Je neuem Check und Wächter: **Severity MUST/SHOULD**, **evidence_level** (die Freigabe als Datei ist E-0; vom Prüfer signiert wäre sie E-1), **implemented/design_only**.
+- **T-16.1** (02.10.2026): Wächter `HUMAN_DECISION_TAKES_EFFECT` = **HIGH**; Freigabe bleibt **E-0**; kein neuer Gate-Check (die Wirkung sitzt in den Läufern); CI-Freigaben der vier Gates ohne Freigabe als Fixtures (**Option a**).
+- **ES-F3** offen: Trigger `halt_pipeline` bei fehlender Freigabe an den HYBRID-Gates `implemented` oder `declared_only`.
 
 ## SCOPE IN
 
-- `pipeline/gate_orchestrator.py` (Halt-Logik, Input-Digest, Übergabe an den Store)
+- `pipeline/gate_orchestrator.py` (Halt-Logik, Input-Digest, Übergabe an den Store), `pipeline/human_decision.py` (Regel für beide Läufer)
+- `.github/workflows/gate-pipeline.yml` – der CI-Läufer (`quality-gates`) erzeugt das signierte Manifest und braucht dieselbe Wirkung (gefunden bei T-16.1)
 - `evidence-store/scripts/` (`record_evidence.py`, `verify_hash_chain.py`, `build_manifest.py`), neue Migration v06→v07 mit Cutoff, `POC_SQL_SCHEMA_SPEC.md`, `evidence-store/docs/SCHEMA_EVOLUTION.md`
 - `tests/` (Hash-Parität, Manipulationsnachweis, Integritätssuite), Szenarien und Fixtures der Freigaben
 - Review 12, Register, HANDBUCH Teil 7
@@ -52,11 +56,12 @@ T-16.5  Belege        ES-6         Belegverzeichnis je Rollenwechsel: Soll/Ist/H
 ## DEFINITION OF READY
 
 - ES-F1 und ES-F2 entschieden. ✓ 02.10.2026
+- T-16.1: Severity und Beweisstufe gesetzt. ✓ 02.10.2026
 - Je Teilschritt: Severity und evidence_level der neuen Checks vom PO gesetzt.
 
 ## DEFINITION OF DONE — maschinell
 
-- **T-16.1:** Szenario mit MANUAL FAIL → Exit 1, `halt_gate` = das Gate; HYBRID-Gate ohne Freigabe → Exit 1 mit eigenem Grund. Beide Negativfälle in der CI (`negative-cases`).
+- **T-16.1:** Szenario mit MANUAL FAIL → Exit 1, `halt_gate` = das Gate; HYBRID-Gate ohne Freigabe → Exit 1 mit eigenem Grund. Beide Negativfälle in der CI (`negative-cases`). **✓ 02.10.2026:** `pipeline/test_human_decision.py` 19/19 (Fälle A–I), CI Fall 10.
 - **T-16.2:** Ein geänderter Input bei gleichem Urteil ergibt einen anderen `payload_id`; `verify_hash_chain.py` meldet eine nachträglich getauschte Belegdatei, deren Hash nicht mehr passt.
 - **T-16.3/16.4:** Eine nachträglich geänderte Begründung oder Belegliste macht `verify_hash_chain.py` rot.
 - `make verify` grün; Hash-Parität (`test_hash_parity.py`) über Python und SQL-Trigger.
