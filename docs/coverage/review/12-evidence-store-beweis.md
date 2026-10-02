@@ -2,7 +2,7 @@
 titel: Evidence Store – hält er, was ein Auditor sehen will?
 stand: 2026-10-02
 basis: Branch review-2c · Frage des PO 01.10.2026 („werden alle Gate-Entscheidungen, Belege und Freigaben mit Hash im Audit festgehalten?“) · Code pipeline/gate_orchestrator.py, evidence-store/scripts/*, POC_SQL_SCHEMA_SPEC.md · Testlauf poc_healthcare_pass mit abgelehnter Freigabe
-status: Befunde ES-1–ES-6 · Fragen ES-F1, ES-F2 · Paket T-16 angelegt (PO 02.10.2026)
+status: Befunde ES-1–ES-6 · ES-F1 a, ES-F2 a entschieden (PO 02.10.2026) · Paket T-16 läuft, zuerst T-16.1
 ---
 
 # Kurzfazit
@@ -86,6 +86,8 @@ audit 5  G-PRE-05  FAIL  MANUAL  –              Prof. Dr. Weber (AI Governance
 |---|---|---|
 | **ES-F1** | Wirkung der menschlichen Entscheidung | a) **beides hält an:** MANUAL FAIL → block; HYBRID-Gate ohne Freigabe → hält an („wartet auf Freigabe“), Wiederaufnahme mit Freigabe · b) nur MANUAL FAIL hält an, fehlende Freigabe ist `warn` |
 | **ES-F2** | Wann kommt T-16? | a) **jetzt, parallel zu Paket 4**; zuerst ES-1/ES-2 (klein, größtes Risiko), dann ES-3–ES-5; ES-6 mit der P3-F3-Maßnahme in Paket 6 · b) nach Paket 5, mit den übrigen Bauten |
+
+**Entschieden 02.10.2026:** ES-F1 **a** (Ablehnung und fehlende Freigabe halten an) · ES-F2 **a** (T-16 jetzt, parallel zu Paket 4, T-16.1 zuerst).
 
 # Teil 6 – Paket T-16
 

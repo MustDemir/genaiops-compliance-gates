@@ -1,6 +1,6 @@
 # T-16 — Evidence Store beweisfest: Grundlage, Begründung und Freigabe jedes Urteils
 
-Ticket T-16. Angelegt 02.10.2026 auf Auftrag des PO („Lücken als Befund ins Register, dann ein Paket für die Lücken, um sie zu schließen“). Befunde und Testlauf: [Review 12](../coverage/review/12-evidence-store-beweis.md). **Status: nicht bereit** – DoR unten.
+Ticket T-16. Angelegt 02.10.2026 auf Auftrag des PO („Lücken als Befund ins Register, dann ein Paket für die Lücken, um sie zu schließen“). Befunde und Testlauf: [Review 12](../coverage/review/12-evidence-store-beweis.md). **Status:** ES-F1 a, ES-F2 a entschieden (02.10.2026). Bereit ist ein Teilschritt, wenn seine Ehrlichkeitsfelder gesetzt sind – DoR unten.
 
 ## WARUM
 
@@ -21,8 +21,8 @@ Vom PO zu bestätigen (EF, AGENTS.md 3). Stand im Katalog: G-OPS-05 trägt R005 
 
 ## PO-ENTSCHEIDUNGEN
 
-- **ES-F1** Wirkung der menschlichen Entscheidung (Empfehlung a: MANUAL FAIL → block, HYBRID ohne Freigabe → hält an).
-- **ES-F2** Zeitpunkt (Empfehlung a: jetzt, parallel zu Paket 4; ES-1/ES-2 zuerst).
+- **ES-F1 a** (02.10.2026): MANUAL FAIL → block; HYBRID-Gate ohne Freigabe → hält an („wartet auf Freigabe“), Wiederaufnahme mit Freigabe.
+- **ES-F2 a** (02.10.2026): jetzt, parallel zu Paket 4; T-16.1 (ES-1, ES-2) zuerst.
 - Je neuem Check und Wächter: **Severity MUST/SHOULD**, **evidence_level** (die Freigabe als Datei ist E-0; vom Prüfer signiert wäre sie E-1), **implemented/design_only**.
 
 ## SCOPE IN
@@ -51,7 +51,7 @@ T-16.5  Belege        ES-6         Belegverzeichnis je Rollenwechsel: Soll/Ist/H
 
 ## DEFINITION OF READY
 
-- ES-F1 und ES-F2 entschieden.
+- ES-F1 und ES-F2 entschieden. ✓ 02.10.2026
 - Je Teilschritt: Severity und evidence_level der neuen Checks vom PO gesetzt.
 
 ## DEFINITION OF DONE — maschinell
