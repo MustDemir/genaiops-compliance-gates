@@ -7,6 +7,8 @@ status: lebendes Register · der Wächter PO_DECISIONS_REGISTERED hält es volls
 
 # Wozu
 
+- **Arbeitsblatt der PO-Runde (Paket 4):** [`13-po-runde-paket-4.md`](13-po-runde-paket-4.md) – je Punkt Frage, Optionen, Empfehlung und die Zeilenlisten. Das Register bleibt die eine Stelle für den Stand.
+
 - **Eine Stelle für alles, was offen ist:** jede Entscheidung des PO und jeder beschlossene Schritt, der noch nicht umgesetzt ist, mit Ziel-Paket aus dem Plan (00 Teil C).
 - **Vollständig durch einen Wächter, nicht durch Sorgfalt.** `PO_DECISIONS_REGISTERED` liest jede Entscheidungs- und Befundtabelle der Reviews (`| # | Entscheidung | …`, `| # | Frage | Optionen |`, `| # | Befund | Wohin |`). Jede Zeile dort muss hier stehen. Jeder offene Punkt hier braucht ein Paket.
 - **Stand** ist eins von: `offen` · `vertagt` · `entschieden` (Umsetzung steht aus, wenn ein Paket genannt ist) · `umgesetzt` · `außerhalb` (nicht in diesem Repo).
@@ -64,6 +66,7 @@ Pakete:  1 Anhänge ✅ · 2 Omnibus · 3 Befunde + Matrix · 4 PO-Runde · 5 Be
 | ID | Gegenstand | Quelle | Stand | Paket |
 |---|---|---|---|---|
 | A-W12 | Omnibus-Unterabsätze aus dem Zeilenfall gezählt; Art. 75 Abs. 2a, 75a Abs. 4, 75c Abs. 4 ungeprüft (alle out) | `10-paket-3-werkzeug.md` | offen | 4 |
+| P4-B1 | `in`-Zeilen ohne eigenen Pflichttext: 11 ohne Text, 12 mit Sammeltext in vier Gruppen – vor IN-1 neu schreiben, Wächter, Sammelbestätigung der Texte wie P3-F5 | `13-po-runde-paket-4.md` | offen | 4 |
 | A-W10 | Sektorstapel: § 2 BSIG / § 2 KRITIS-DachG – erste Nummer der Begriffsbestimmungen nicht erkannt | `10-paket-3-werkzeug.md` | offen | T-13 |
 | P3-B1 | Art. 73 Abs. 2 UAbs. 1 Satz 1 (Teilabdeckung) und Abs. 3, 4 (gedeckt) bei gleichem Aufbau ungleich zerlegt; Empfehlung: Abs. 3, 4 wie Abs. 2 | `11-paket-3b-element-matrix.md` | offen | 4 |
 | AN-1 | Wächter Requirement-Anker ↔ Pflichtenraum: ein Requirement, dessen Normverweise nur auf `out`-Einheiten zeigen, muss `anker: offen` tragen. Gemessen am 29.09.2026: R002 (markiert), dazu R010 (F3) und R012 (Q1) ohne `in`-Anker. Kommt mit F3/F4 | `entscheidungsregister.md` | offen | 5 |
