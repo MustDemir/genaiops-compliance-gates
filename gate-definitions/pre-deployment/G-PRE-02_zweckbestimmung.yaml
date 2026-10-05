@@ -26,6 +26,10 @@ triggers:
   when: block
   implementation: implemented
   by: pipeline/gate_orchestrator.py — pipeline_halted
+- effect: halt_pipeline
+  when: "awaiting_approval | rejected_by_reviewer | invalid_approval"
+  implementation: implemented
+  by: pipeline/human_decision.py — Orchestrator (pipeline_halted) und CI (Ledger-Urteil, Pipeline Decision)
 
 evidence_required:
   - "purpose_declaration_document"

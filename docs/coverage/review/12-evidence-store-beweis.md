@@ -2,7 +2,7 @@
 titel: Evidence Store – hält er, was ein Auditor sehen will?
 stand: 2026-10-02
 basis: Branch review-2c · Frage des PO 01.10.2026 („werden alle Gate-Entscheidungen, Belege und Freigaben mit Hash im Audit festgehalten?“) · Code pipeline/gate_orchestrator.py, evidence-store/scripts/*, POC_SQL_SCHEMA_SPEC.md · Testlauf poc_healthcare_pass mit abgelehnter Freigabe
-status: Befunde ES-1–ES-7 · ES-F1 a, ES-F2 a entschieden (PO 02.10.2026) · T-16.1 gebaut (ES-1, ES-2), Abnahme und ES-F3 offen
+status: Befunde ES-1–ES-7 · ES-F1 a, ES-F2 a entschieden (PO 02.10.2026) · T-16.1 gebaut (ES-1, ES-2), abgenommen 05.10.2026 · ES-F3 a
 ---
 
 # Kurzfazit
@@ -134,3 +134,42 @@ audit 5  G-PRE-05  FAIL  MANUAL  –              Prof. Dr. Weber (AI Governance
 | # | Frage | Optionen |
 |---|---|---|
 | **ES-F3** | Die sieben HYBRID-Gates deklarieren ihre Wirkung (`triggers`, Frage 5) bisher nur für `block`. Neu wäre: `halt_pipeline` bei `manual_review` ohne Freigabe. Ist diese Wirkung `implemented`? (Ehrlichkeitsfeld 4) | a) **`implemented`** – in beiden Läufern gebaut, Negativfall in der CI · b) `declared_only`, bis T-16.4 einen echten Freigabe-Mechanismus bringt |
+
+**Entschieden 05.10.2026:** ES-F3 **a** (`implemented`).
+
+# Teil 8 – Abnahme T-16.1 und ES-F3 (05.10.2026)
+
+**Abnahme durch den PO 05.10.2026.** Roter Lauf je Fall, gegen den committeten Stand `c685573`, Cloud, SQLite, Conftest 0.56.0:
+
+```
+Orchestrator, volles Szenario poc_healthcare_pass
+  A0 alle Freigaben (Gegenprobe)        exit 0   10/10 Gates, DEPLOYMENT APPROVED
+  B  G-PRE-05 abgelehnt (= Teil 3)      exit 1   halt G-PRE-05 rejected_by_reviewer, 7 Gates übersprungen,
+                                                 Store: G-PRE-05 FAIL MANUAL Prof. Dr. Weber
+  C  G-DEP-03 ohne Freigabe             exit 1   halt G-DEP-03 awaiting_approval
+  D  G-DEP-03 als AUTO                  exit 2   keine Store-Zeile, Widerspruch benannt
+  E  G-PRE-05 mit Freigabe von G-PRE-01 exit 1   halt invalid_approval
+  E2 G-DEP-03 Freigabe ohne Prüfer      exit 1   halt invalid_approval
+CI-Ledger, Liste aus gate-pipeline.yml (16 Gates, 7 HYBRID)
+  F  wie committet (Gegenprobe)         verdict 0   7 von 7 bewertet, 0 Halt
+  G  G-OPS-06 abgelehnt                 verdict 1
+  H  G-OPS-06 ohne Freigabe             verdict 1
+  I  G-OPS-06 aus der Liste gestrichen  verdict 1
+  J  G-DEP-03 als AUTO                  gate exit 2 → CI-Schritt bricht ab
+```
+
+- Fall B ist der Testlauf aus Teil 3: damals lief die Pipeline nach der Ablehnung weiter, jetzt hält sie an G-PRE-05.
+- Nebenbefund ohne Bezug zu T-16.1: `make verify` hinterlässt `monitoring/drift_measurement.json` aus dem Drift-Negativtest (gitignored). Ein folgender Orchestrator-Lauf hält dann an G-OPS-03 (so auch Teil 3). Mit frischer Messung (`drift_detector.py --source monitoring/fixtures/current_normal.json --baseline monitoring/fixtures/baseline_normal.json`) grün.
+
+**ES-F3 a gebaut:** Die sieben HYBRID-Gates deklarieren einen zweiten Trigger.
+
+```yaml
+- effect: halt_pipeline
+  when: "awaiting_approval | rejected_by_reviewer | invalid_approval"
+  implementation: implemented
+  by: pipeline/human_decision.py — Orchestrator (pipeline_halted) und CI (Ledger-Urteil, Pipeline Decision)
+```
+
+- Feld 4 gilt der **Wirkung** (die Pipeline hält, gezeigt oben), nicht der Fälschungssicherheit der Freigabe. Die bleibt E-0, offen in ES-5 / T-16.4.
+- **Wächter** `HUMAN_DECISION_TAKES_EFFECT` Teil 6: jedes HYBRID-Gate trägt genau diesen Trigger, `when` nennt genau die Haltgründe des Moduls, `by` das Modul; kein Gate ohne menschliche Hälfte trägt einen.
+- **README** „4 of 29 declared gate effects are not built“ (vorher 22) – die Zahl hält jetzt `README_COUNTS_CURRENT`; vorher stand sie ungeprüft.

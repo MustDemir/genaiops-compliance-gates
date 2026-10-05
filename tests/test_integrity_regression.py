@@ -1064,6 +1064,9 @@ def check_readme_counts_current() -> dict:
     requirements = len(list((REPO_ROOT / "requirements").glob("R0*.yaml")))
     design_only = sum(1 for c in checks if c.get("implementation") == "design_only")
     implemented = sum(1 for c in checks if c.get("implementation") == "implemented")
+    effects = [t for _, g in gates for t in (g.get("triggers") or [])]
+    effects_total = len(effects)
+    effects_declared_only = sum(1 for t in effects if t.get("implementation") == "declared_only")
 
     # (claimed-substring, computed value, what it is) — the substring must
     # appear verbatim, so a stale number cannot survive by sitting next to
@@ -1077,6 +1080,10 @@ def check_readme_counts_current() -> dict:
         (f"{requirements} requirements", requirements, "requirement count"),
         (f"{implemented} enforced, {design_only} design-only", implemented, "check implementation split"),
         (f"{design_only} of {len(checks)} checks are design-only", design_only, "design-only statement"),
+        # Declared gate effects (Frage 5). ES-F3 added seven triggers; the
+        # README said "4 of 22" and nothing would have noticed it go stale.
+        (f"{effects_declared_only} of {effects_total} declared gate effects are not built",
+         effects_declared_only, "gate-effect split"),
         # This suite's own size. It grew 28 -> 29 while the README kept
         # saying 28 in two places, and nothing noticed — the front page
         # understating the controls is the same error class as overstating
@@ -2627,7 +2634,13 @@ def check_human_decision_takes_effect() -> dict:
       4. the CI lists every HYBRID gate as HYBRID with an approval that
          exists, belongs to that gate and approves, records it, evaluates it
          into the ledger, and lets the verdict decide the Pipeline Decision;
-      5. the behavioural test runs in make test and in negative-cases.
+      5. the behavioural test runs in make test and in negative-cases;
+      6. the catalogue says so (ES-F3 a, PO 05.10.2026): every HYBRID gate
+         declares the halt on its human decision as an implemented trigger,
+         `when` names exactly the halt reasons of human_decision.py, `by`
+         names the module — and no gate without a human half declares one.
+         Built but undeclared understates the gate; declared on an AUTO gate
+         claims a stop that never comes.
     """
     import importlib.util
 
@@ -2727,6 +2740,32 @@ def check_human_decision_takes_effect() -> dict:
     if "test_human_decision.py" not in read_text(REPO_ROOT / "tests" / "test_all.py"):
         findings.append("tests/test_all.py: does not run pipeline/test_human_decision.py")
 
+    # 6. The catalogue declares the effect (ES-F3 a).
+    reasons = set(hd.HALT_REASONS)
+    for f, gate in _load_gate_files():
+        gate_id = gate.get("id", f.stem)
+        human = [t for t in (gate.get("triggers") or [])
+                 if reasons & {w.strip() for w in str(t.get("when", "")).split("|")}]
+        rel = f.relative_to(REPO_ROOT)
+        if automation.get(gate_id) != "HYBRID":
+            if human:
+                findings.append(f"{rel}: {gate_id} is {automation.get(gate_id)} but declares "
+                                f"a halt on a human decision — it has no human half")
+            continue
+        if len(human) != 1:
+            findings.append(f"{rel}: HYBRID gate {gate_id} declares {len(human)} triggers on "
+                            f"its human decision, expected one (ES-F3 a)")
+            continue
+        t = human[0]
+        when = {w.strip() for w in str(t.get("when", "")).split("|")}
+        if t.get("effect") != "halt_pipeline" or t.get("implementation") != "implemented" \
+                or when != reasons or "pipeline/human_decision.py" not in str(t.get("by", "")):
+            findings.append(
+                f"{rel}: {gate_id} trigger on the human decision is effect="
+                f"{t.get('effect')!r}, implementation={t.get('implementation')!r}, "
+                f"when={sorted(when)}, by={t.get('by')!r} — expected halt_pipeline, "
+                f"implemented, when={sorted(reasons)}, by pipeline/human_decision.py")
+
     return make_result(
         "HUMAN_DECISION_TAKES_EFFECT",
         "a rejection by the reviewer and a missing approval halt the run (T-16.1, ES-F1 a)",
@@ -2735,7 +2774,8 @@ def check_human_decision_takes_effect() -> dict:
         "A human decision on a HYBRID gate can be bypassed or has no effect — a "
         "rejected or unapproved gate would read as passed." if findings
         else f"{len(hybrid)} HYBRID gates: both runners halt on a rejection or a "
-             f"missing approval; CI lists all {len(hybrid)} with their approval.",
+             f"missing approval; CI lists all {len(hybrid)} with their approval; "
+             f"all {len(hybrid)} declare the halt as implemented (ES-F3 a).",
         findings,
     )
 

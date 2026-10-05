@@ -1,6 +1,6 @@
 # T-16 — Evidence Store beweisfest: Grundlage, Begründung und Freigabe jedes Urteils
 
-Ticket T-16. Angelegt 02.10.2026 auf Auftrag des PO („Lücken als Befund ins Register, dann ein Paket für die Lücken, um sie zu schließen“). Befunde und Testlauf: [Review 12](../coverage/review/12-evidence-store-beweis.md). **Status:** ES-F1 a, ES-F2 a entschieden (02.10.2026). **T-16.1 gebaut** (02.10.2026, Abnahme durch den PO offen; ES-F3 offen). Bereit ist ein Teilschritt, wenn seine Ehrlichkeitsfelder gesetzt sind – DoR unten.
+Ticket T-16. Angelegt 02.10.2026 auf Auftrag des PO („Lücken als Befund ins Register, dann ein Paket für die Lücken, um sie zu schließen“). Befunde und Testlauf: [Review 12](../coverage/review/12-evidence-store-beweis.md). **Status:** ES-F1 a, ES-F2 a entschieden (02.10.2026). **T-16.1 abgenommen** (gebaut 02.10.2026, Abnahme durch den PO 05.10.2026; ES-F3 a). Als Nächstes T-16.2. Bereit ist ein Teilschritt, wenn seine Ehrlichkeitsfelder gesetzt sind – DoR unten.
 
 ## WARUM
 
@@ -26,7 +26,7 @@ Vom PO zu bestätigen (EF, AGENTS.md 3). Stand im Katalog: G-OPS-05 trägt R005 
 - **ES-F2 a** (02.10.2026): jetzt, parallel zu Paket 4; T-16.1 (ES-1, ES-2) zuerst.
 - Je neuem Check und Wächter: **Severity MUST/SHOULD**, **evidence_level** (die Freigabe als Datei ist E-0; vom Prüfer signiert wäre sie E-1), **implemented/design_only**.
 - **T-16.1** (02.10.2026): Wächter `HUMAN_DECISION_TAKES_EFFECT` = **HIGH**; Freigabe bleibt **E-0**; kein neuer Gate-Check (die Wirkung sitzt in den Läufern); CI-Freigaben der vier Gates ohne Freigabe als Fixtures (**Option a**).
-- **ES-F3** offen: Trigger `halt_pipeline` bei fehlender Freigabe an den HYBRID-Gates `implemented` oder `declared_only`.
+- **ES-F3 a** (05.10.2026): Die sieben HYBRID-Gates deklarieren den Halt auf ihre menschliche Entscheidung als `implemented` (`when: awaiting_approval | rejected_by_reviewer | invalid_approval`, `by: pipeline/human_decision.py`). Feld 4 gilt der Wirkung – die Pipeline hält –, nicht der Fälschungssicherheit der Freigabe; die bleibt E-0 bis T-16.4. `HUMAN_DECISION_TAKES_EFFECT` hält die Deklaration gegen das Modul.
 
 ## SCOPE IN
 
@@ -69,6 +69,8 @@ T-16.5  Belege        ES-6         Belegverzeichnis je Rollenwechsel: Soll/Ist/H
 ## ABNAHME DURCH DEN PO
 
 Je Teilschritt der rote Lauf: die Manipulation bzw. Ablehnung, die vorher durchging, und jetzt hält.
+
+- **T-16.1 ✓ 05.10.2026** (Review 12 Teil 8): volles Szenario `poc_healthcare_pass` mit Conftest – Gegenprobe grün (10/10), Ablehnung G-PRE-05 hält dort (`rejected_by_reviewer`, MANUAL FAIL im Store), G-DEP-03 ohne Freigabe hält (`awaiting_approval`), als AUTO umetikettiert → Exit 2 ohne Store-Zeile, fremde und prüferlose Freigabe halten (`invalid_approval`); CI-Ledger mit der echten Liste (16 Gates, 7 HYBRID): wie committet grün, G-OPS-06 abgelehnt, ohne Freigabe oder gestrichen → rot, G-DEP-03 als AUTO → Exit 2.
 
 ## COMMIT
 
