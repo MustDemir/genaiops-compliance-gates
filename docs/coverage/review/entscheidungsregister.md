@@ -1,6 +1,6 @@
 ---
 titel: Entscheidungsregister – was der PO noch entscheiden muss und welche Schritte ausstehen
-stand: 2026-10-05 (nach Paket 3b, P3-F5 und Review 12 Evidence Store; T-16.1 gebaut und abgenommen: ES-1, ES-2, ES-F3 a)
+stand: 2026-10-05 (nach Paket 3b, P3-F5 und Review 12 Evidence Store; T-16.1 gebaut und abgenommen: ES-1, ES-2, ES-F3 a; P4-B1 umgesetzt)
 basis: Reviews 00–09, Entscheidungsdateien in docs/coverage/entscheide/, Plan Teil C
 status: lebendes Register · der Wächter PO_DECISIONS_REGISTERED hält es vollständig
 ---
@@ -33,6 +33,8 @@ Pakete:  1 Anhänge ✅ · 2 Omnibus · 3 Befunde + Matrix · 4 PO-Runde · 5 Be
 | IN-1 | Alle `in`-Zeilen bestätigen (nach P3-F3: 67 von 109 bestätigt – AI Act 61 von 85, Omnibus 6 von 24) | `entscheidungsregister.md` | offen | 4 |
 | OUT-1 | `out`-Zeilen: Stichprobe nach Adressat-Gruppen, dann Sammelbestätigung (30.09.2026: 139 von 1407 bestätigt – AI Act 32 von 1147, Omnibus 107 von 260) | `entscheidungsregister.md` | offen | 4 |
 | R-1 | Severity des Wächters `PO_DECISIONS_REGISTERED` (Vorschlag LOW: bricht `make verify`, wie `HANDBOOK_ROADMAP_CURRENT`) | `entscheidungsregister.md` | offen | 4 |
+| P4-F1 | Sammelbestätigung der 28 Pflichttexte aus P4-B1 – bestätigt ist der Text, nicht Befund und Einordnung (wie P3-F2, P3-F5) | `13-po-runde-paket-4.md` | offen | 4 |
+| R-7 | Severity des Wächters `IN_UNITS_OWN_DUTY_TEXT` (Vorschlag MEDIUM) | `13-po-runde-paket-4.md` | offen | 4 |
 | M-B1 | Welches Requirement trägt Art. 26 Abs. 5 Satz 1: R009 wie heute oder R008/R010 der prüfenden Gates? | `07-element-matrix.md` | offen | 5 |
 | EF | Die vier Ehrlichkeitsfelder je neuem oder geändertem Requirement und Check: Norm↔Pflicht, MUST/SHOULD, `evidence_level`, `implemented`/`design_only` (AGENTS.md 3) | `entscheidungsregister.md` | offen | 5 |
 | P9-1 | Use Cases des Prüf-Agenten | `00-systembild-und-plan.md` | offen | 9 |
@@ -64,7 +66,6 @@ Pakete:  1 Anhänge ✅ · 2 Omnibus · 3 Befunde + Matrix · 4 PO-Runde · 5 Be
 | ID | Gegenstand | Quelle | Stand | Paket |
 |---|---|---|---|---|
 | A-W12 | Omnibus-Unterabsätze aus dem Zeilenfall gezählt; Art. 75 Abs. 2a, 75a Abs. 4, 75c Abs. 4 ungeprüft (alle out) | `10-paket-3-werkzeug.md` | offen | 4 |
-| P4-B1 | `in`-Zeilen ohne eigenen Pflichttext: 11 ohne Text, 12 mit Sammeltext in vier Gruppen – vor IN-1 neu schreiben, Wächter, Sammelbestätigung der Texte wie P3-F5 | `13-po-runde-paket-4.md` | offen | 4 |
 | A-W10 | Sektorstapel: § 2 BSIG / § 2 KRITIS-DachG – erste Nummer der Begriffsbestimmungen nicht erkannt | `10-paket-3-werkzeug.md` | offen | T-13 |
 | P3-B1 | Art. 73 Abs. 2 UAbs. 1 Satz 1 (Teilabdeckung) und Abs. 3, 4 (gedeckt) bei gleichem Aufbau ungleich zerlegt; Empfehlung: Abs. 3, 4 wie Abs. 2 | `11-paket-3b-element-matrix.md` | offen | 4 |
 | AN-1 | Wächter Requirement-Anker ↔ Pflichtenraum: ein Requirement, dessen Normverweise nur auf `out`-Einheiten zeigen, muss `anker: offen` tragen. Gemessen am 29.09.2026: R002 (markiert), dazu R010 (F3) und R012 (Q1) ohne `in`-Anker. Kommt mit F3/F4 | `entscheidungsregister.md` | offen | 5 |
@@ -119,7 +120,9 @@ Pakete:  1 Anhänge ✅ · 2 Omnibus · 3 Befunde + Matrix · 4 PO-Runde · 5 Be
 | ES-2 | Fehlende Freigabe wirkt: ein HYBRID-Gate ohne Freigabe hält an (`awaiting_approval`); HYBRID kommt aus der Gate-Definition, ein Szenario mit AUTO wird abgewiesen (G-DEP-03 lief so); CI: vier Fixture-Freigaben (PO Option a), ein fehlendes HYBRID-Gate blockiert | `12-evidence-store-beweis.md` | umgesetzt 02.10.2026 (T-16.1), abgenommen 05.10.2026 | – |
 | ES-F1 | Wirkung der menschlichen Entscheidung: MANUAL FAIL → block, HYBRID-Gate ohne Freigabe → hält an („wartet auf Freigabe“), Wiederaufnahme mit Freigabe | `12-evidence-store-beweis.md` | umgesetzt 02.10.2026 a (T-16.1), abgenommen 05.10.2026 | – |
 | ES-F3 | Trigger `halt_pipeline` bei fehlender, abgelehnter oder ungültiger Freigabe an den sieben HYBRID-Gates `implemented` (Feld 4 gilt der Wirkung; die Freigabe bleibt E-0 bis T-16.4); `HUMAN_DECISION_TAKES_EFFECT` Teil 6 hält die Deklaration gegen das Modul | `12-evidence-store-beweis.md` | umgesetzt 05.10.2026 a | – |
+| P4-B1 | `in`-Zeilen ohne eigenen Pflichttext: 28 Texte neu (11 ohne Text, 12 Sammeltext, Art. 3 Nr. 49 mit fremdem Text, ein abgebrochener, drei mit dem Inhalt eines anderen Glieds); Wächter `IN_UNITS_OWN_DUTY_TEXT`; Bestätigung der Texte P4-F1 | `13-po-runde-paket-4.md` | umgesetzt 05.10.2026 | – |
 | PUSH-3 | `review-2c` 876c1b1..7ca98ce nach origin: Commits auf dem Mac mit dem SSH-Schlüssel des PO neu signiert, Schlüssel als Signing Key im GitHub-Konto, pre-push `make verify` grün, alle fünf Commits auf GitHub „Verified“ | `entscheidungsregister.md` | umgesetzt 02.10.2026 | – |
+| PUSH-4 | `review-2c` 7ca98ce..555f137 nach origin (T-16.1, Review 13, ES-F3): auf dem Mac mit dem SSH-Schlüssel des PO neu signiert, pre-push `make verify` grün, alle vier Commits auf GitHub „Verified“ | `entscheidungsregister.md` | umgesetzt 05.10.2026 | – |
 | A-W1 | Art. 113 (und Art. 85, DSGVO Art. 67, NIS2 Art. 44): unnummerierte Absätze als Abs. 1–n, Kennung „Art. 113 Abs. 3 lit. a“ wie im Gesetz (T-15) | `08-paket-1-anhaenge.md` | umgesetzt 30.09.2026 | – |
 | A-W2 | Anhang I Abschn. B Nr. 13–20 einzeln (T-15) | `08-paket-1-anhaenge.md` | umgesetzt 30.09.2026 | – |
 | A-W3 | Fußzeile „ELI … ISSN“ nicht mehr im Beleg von Anhang XIII lit. g (T-15) | `08-paket-1-anhaenge.md` | umgesetzt 30.09.2026 | – |

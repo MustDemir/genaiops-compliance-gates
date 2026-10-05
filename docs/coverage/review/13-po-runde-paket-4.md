@@ -2,7 +2,7 @@
 titel: PO-Runde (Paket 4) – Arbeitsliste
 stand: 2026-10-02
 basis: Entscheidungsregister Teil 1 und 3 (alle Punkte mit Paket 4) · Pflichtenräume AI Act und Omnibus, Stand Commit 6a074ed · Stichprobe mit festem Seed 20261002
-status: Arbeitsliste – nichts entschieden · Befund P4-B1
+status: Arbeitsliste – nichts entschieden · Befund P4-B1 umgesetzt (05.10.2026), Texte zur Bestätigung (P4-F1, R-7)
 ---
 
 # Kurzfazit
@@ -10,7 +10,7 @@ status: Arbeitsliste – nichts entschieden · Befund P4-B1
 - **Was du tust:** 12 Punkte aus dem Register, drei Arten – **A** Einzelfragen (7), **B** Zeilen bestätigen (4), **C** `out`-Stichprobe (1).
 - **Wie:** je Punkt eine Antwort im Chat („Q1 a“, „IN-1 Gruppe 1 ja“). Ich schreibe Entscheidungsdatei, Register und Wächter und committe. YAML fasst du nicht an.
 - **Eine Stelle bleibt das Register.** Diese Liste ist das Arbeitsblatt dazu; ihre Tabellen haben eigene Köpfe, damit nichts doppelt registriert wird.
-- **Neuer Befund P4-B1:** 11 `in`-Zeilen haben keinen Pflichttext, 12 teilen sich einen Sammeltext. Bestätigen kannst du nur, was dasteht – die Texte schreibe ich vor IN-1 neu (Teil 4).
+- **Befund P4-B1, umgesetzt 05.10.2026:** 28 `in`-Zeilen hatten keinen eigenen oder einen falschen Pflichttext – darunter Art. 3 Nr. 49 („schwerwiegender Vorfall“) mit dem Text einer anderen Norm. Texte neu, Wächter `IN_UNITS_OWN_DUTY_TEXT`; du bestätigst die Texte gesammelt (P4-F1, Teil 5).
 - **a ist jeweils meine Empfehlung**, außer wo „keine Empfehlung“ steht.
 
 ```
@@ -41,12 +41,12 @@ Reihenfolge:  P4-B1 (ich, Texte) ──► A Einzelfragen ──► B Bestätige
 | Raum | Kennung | Befund | Gate | Pflicht (kurz) |
 |---|---|---|---|---|
 | AI Act | Art. 2 Abs. 1 lit. b | n.e. | – | Erfasst Betreiber von KI-Systemen mit Sitz oder Standort in der Union. |
-| AI Act | Art. 3 Nr. 4 | n.e. | – | Definiert Kernbegriffe Nr. 1-44 der Verordnung (u.a. KI-System, Risiko, Anbieter, Betreiber, Bevollmaechtigte… |
-| AI Act | Art. 3 Nr. 8 | n.e. | – | Definiert Kernbegriffe Nr. 1-44 der Verordnung (u.a. KI-System, Risiko, Anbieter, Betreiber, Bevollmaechtigte… |
-| AI Act | Art. 3 Nr. 23 | n.e. | – | Definiert Kernbegriffe Nr. 1-44 der Verordnung (u.a. KI-System, Risiko, Anbieter, Betreiber, Bevollmaechtigte… |
-| AI Act | Art. 3 Nr. 49 | n.e. | – | Teil der Definition 'Strafverfolgungsbehoerde', Variante b) (sonstige mit hoheitlichen Befugnissen betraute S… |
+| AI Act | Art. 3 Nr. 4 | n.e. | – | Begriff 'Betreiber': natuerliche oder juristische Person, Behoerde, Einrichtung oder sonstige Stelle, die ein … |
+| AI Act | Art. 3 Nr. 8 | n.e. | – | Begriff 'Akteur': Anbieter, Produkthersteller, Betreiber, Bevollmaechtigter, Einfuehrer oder Haendler. |
+| AI Act | Art. 3 Nr. 23 | n.e. | – | Begriff 'wesentliche Veraenderung': Veraenderung eines KI-Systems nach Inverkehrbringen oder Inbetriebnahme, d… |
+| AI Act | Art. 3 Nr. 49 | n.e. | – | Begriff 'schwerwiegender Vorfall' (Einleitung): Vorfall oder Fehlfunktion eines KI-Systems, der bzw. die direk… |
 | AI Act | Art. 6 Abs. 2 | n.e. | – | Zusaetzlich zu Abs. 1 gelten auch die in Anhang III genannten KI-Systeme als hochriskant (Grundlage der Einst… |
-| AI Act | Art. 6 Abs. 3 | n.e. | – | Ein in Anhang III genanntes System gilt abweichend NICHT als hochriskant, wenn es kein erhebliches Risiko bir… |
+| AI Act | Art. 6 Abs. 3 | n.e. | – | Abweichend von Abs. 2 gilt ein in Anhang III genanntes KI-System nicht als hochriskant, wenn es kein erheblich… |
 | AI Act | Art. 6 Abs. 3 lit. a | n.e. | – | Ausnahme a): das System fuehrt eine eng gefasste Verfahrensaufgabe durch. |
 | AI Act | Art. 6 Abs. 3 lit. b | n.e. | – | Ausnahme b): das System verbessert das Ergebnis einer bereits abgeschlossenen menschlichen Taetigkeit. |
 | AI Act | Art. 6 Abs. 3 lit. c | n.e. | – | Ausnahme c): das System erkennt Entscheidungsmuster/Abweichungen, ohne die menschliche Bewertung ohne Ueberpr… |
@@ -56,22 +56,22 @@ Reihenfolge:  P4-B1 (ich, Texte) ──► A Einzelfragen ──► B Bestätige
 | AI Act | Art. 113 Abs. 2 | n.e. | – | Die Verordnung gilt ab dem 2. August 2026, soweit Abs. 3 nichts anderes bestimmt. |
 | AI Act | Art. 113 Abs. 3 | n.e. | – | Einleitung der Ausnahmen vom Geltungsbeginn nach Abs. 2 (lit. a-d). |
 | AI Act | Anhang III | n.e. | – | Einleitung der Liste: Als Hochrisiko-KI-Systeme nach Art. 6 Abs. 2 gelten die in den folgenden Bereichen aufg… |
-| AI Act | Anhang III Nr. 2 | n.e. | – | ⚠ kein Pflichttext (P4-B1) |
-| Omnibus | Art. 3 Nr. 14 n.F. | n.e. | – | ⚠ kein Pflichttext (P4-B1) |
-| Omnibus | Art. 4a Abs. 2 n.F. | n.e. | – | ⚠ kein Pflichttext (P4-B1) |
-| Omnibus | Art. 4a Abs. 2 lit. a n.F. | n.e. | – | Bedingung der Erlaubnis nach Art. 4a Abs. 2 n.F.: eine solche Verarbeitung zur Erkennung und Korrektur von Ve… |
+| AI Act | Anhang III Nr. 2 | n.e. | – | Hochrisiko-Bereich nach Art. 6 Abs. 2 (Anhang III Nr. 2, kritische Infrastruktur): KI-Systeme, die bestimmungs… |
+| Omnibus | Art. 3 Nr. 14 n.F. | n.e. | – | Begriff 'Sicherheitsbauteil' (Neufassung): Bestandteil eines Produkts oder KI-Systems, der eine Sicherheitsfun… |
+| Omnibus | Art. 4a Abs. 2 n.F. | n.e. | – | Einleitung: Anbieter und Betreiber anderer KI-Systeme und KI-Modelle sowie Betreiber von Hochrisiko-KI-Systeme… |
+| Omnibus | Art. 4a Abs. 2 lit. a n.F. | n.e. | – | Bedingung a) der Erlaubnis nach Art. 4a Abs. 2 n.F.: die Verarbeitung ist zur Erkennung und Korrektur von Verz… |
 | Omnibus | Art. 4a Abs. 2 lit. b n.F. | n.e. | – | Bedingung der Erlaubnis nach Art. 4a Abs. 2 n.F.: alle in Absatz 1 genannten Bedingungen und Vorkehrungen Anw… |
 | Omnibus | Art. 4a Abs. 2 UAbs. 2 n.F. | n.e. | – | Art. 4a Abs. 2 begruendet keine Verpflichtung, Verzerrungen zu erkennen und zu korrigieren. |
 | Omnibus | Art. 5 Abs. 1a n.F. | n.e. | – | Einleitung: Konkretisierung der Verbote Art. 5 Abs. 1 UAbs. 1 lit. ba und bb n.F. |
 | Omnibus | Art. 5 Abs. 1a lit. b n.F. | n.e. | – | Die Verwendung ist nur verboten, wenn der Betreiber das System zur Erzeugung oder Manipulation solchen Materi… |
 | Omnibus | Art. 5 Abs. 1b n.F. | n.e. | – | Fuer lit. ba gilt ein System, das die Sichtbarkeit intimer Koerperteile nicht erhoeht und die Art der dargest… |
-| Omnibus | Art. 6 Abs. 1a n.F. | n.e. | – | ⚠ kein Pflichttext (P4-B1) |
-| Omnibus | Art. 6 Abs. 1b n.F. | n.e. | – | ⚠ kein Pflichttext (P4-B1) |
-| Omnibus | Art. 6 Abs. 1c n.F. | n.e. | – | ⚠ kein Pflichttext (P4-B1) |
+| Omnibus | Art. 6 Abs. 1a n.F. | n.e. | – | KI-Systeme, die ausschliesslich fuer nicht sicherheitsrelevante Aspekte der Nutzerunterstuetzung, Leistungsopt… |
+| Omnibus | Art. 6 Abs. 1b n.F. | n.e. | – | Unbeschadet Abs. 1a gelten KI-Systeme, deren Ausfall oder Fehlfunktion Gesundheit und Sicherheit gefaehrden wu… |
+| Omnibus | Art. 6 Abs. 1c n.F. | n.e. | – | Ein Produkt, das ausschliesslich wegen anderer Risiken als fuer Gesundheit und Sicherheit (insbesondere Funkfr… |
 | Omnibus | Art. 25 Abs. 2 UAbs. 4 n.F. | n.e. | G-OPS-06 | Ausnahme: Die Kooperations- und Uebergabepflicht entfaellt, wenn der Erstanbieter eindeutig festgelegt hat, d… |
-| Omnibus | Art. 113 Abs. 3 lit. a n.F. | n.e. | – | ⚠ kein Pflichttext (P4-B1) |
-| Omnibus | Art. 113 Abs. 3 lit. c n.F. | n.e. | – | ⚠ kein Pflichttext (P4-B1) |
-| Omnibus | Art. 113 Abs. 3 lit. c Ziff. i n.F. | n.e. | – | ⚠ kein Pflichttext (P4-B1) |
+| Omnibus | Art. 113 Abs. 3 lit. a n.F. | n.e. | – | Kapitel I und II gelten ab dem 2. Februar 2025, ausgenommen Art. 5 Abs. 1 UAbs. 1 lit. ba und bb sowie Art. 5 … |
+| Omnibus | Art. 113 Abs. 3 lit. c n.F. | n.e. | – | Einleitung: Kapitel III Abschnitte 1, 2 und 3, ausser Art. 6 Abs. 5, gelten ab den in Ziff. i und ii genannten… |
+| Omnibus | Art. 113 Abs. 3 lit. c Ziff. i n.F. | n.e. | – | Fuer KI-Systeme, die nach Art. 6 Abs. 2 und Anhang III als hochriskant eingestuft sind, gelten Kapitel III Abs… |
 
 **Gruppe 2 – Teilabdeckung und Lücke (10):** einzeln. Art. 26 Abs. 11 hängt an Q11, Art. 111 Abs. 2 Satz 2 n.F. an S3-1; Art. 15 Abs. 3 und Abs. 4 UAbs. 1 stehen in der Element-Matrix unter Vorbehalt F4.
 
@@ -84,8 +84,8 @@ Reihenfolge:  P4-B1 (ich, Texte) ──► A Einzelfragen ──► B Bestätige
 | AI Act | Art. 15 Abs. 4 UAbs. 3 Satz 1 | Lücke | – | Weiterlernende Hochrisiko-KI-Systeme sind so zu entwickeln, dass das Risiko verzerrter Ausgaben durch Rueckko… |
 | AI Act | Art. 15 Abs. 5 | Teil | G-OPS-04 | Hochrisiko-KI-Systeme muessen widerstandsfaehig gegen Manipulationsversuche unbefugter Dritter sein; die tech… |
 | AI Act | Art. 26 Abs. 11 | Teil | G-DEP-03 | Unbeschadet Art. 50 informieren Betreiber der in Anhang III aufgefuehrten Hochrisiko-KI-Systeme, die Entschei… |
-| Omnibus | Art. 5 Abs. 1 UAbs. 1 lit. ba n.F. | Lücke | – | ⚠ kein Pflichttext (P4-B1) |
-| Omnibus | Art. 5 Abs. 1 UAbs. 1 lit. bb n.F. | Lücke | – | ⚠ kein Pflichttext (P4-B1) |
+| Omnibus | Art. 5 Abs. 1 UAbs. 1 lit. ba n.F. | Lücke | – | Verboten: Inverkehrbringen, Inbetriebnahme oder Verwendung eines KI-Systems, das realistische Bild-, Video-, T… |
+| Omnibus | Art. 5 Abs. 1 UAbs. 1 lit. bb n.F. | Lücke | – | Verboten: Inverkehrbringen, Inbetriebnahme oder Verwendung eines KI-Systems, das Material oder Darbietungen im… |
 | Omnibus | Art. 111 Abs. 2 Satz 2 n.F. | Lücke | – | Anbieter und Betreiber von Hochrisiko-KI-Systemen, die bestimmungsgemaess von Behoerden verwendet werden soll… |
 
 | ID | Frage | Optionen | Antwort |
@@ -202,3 +202,49 @@ Reihenfolge:  P4-B1 (ich, Texte) ──► A Einzelfragen ──► B Bestätige
 | # | Befund | Wohin |
 |---|---|---|
 | P4-B1 | **`in`-Zeilen ohne eigenen Pflichttext:** 11 ohne Text (Anhang III Nr. 2; Omnibus Art. 3 Nr. 14, Art. 4a Abs. 2, Art. 5 Abs. 1 UAbs. 1 lit. ba/bb, Art. 6 Abs. 1a–1c, Art. 113 Abs. 3 lit. a, lit. c, lit. c Ziff. i n.F.), 12 mit Sammeltext in vier Gruppen (Art. 3 Nr. 4/8/23 · Art. 5 Abs. 1 lit. c Ziff. i/ii · Art. 13 Abs. 3 lit. b Ziff. i–iv · Ziff. v–vii). Bestätigt werden kann nur, was dasteht. Vorschlag: Texte neu, Wächter „jede `in`-Zeile hat einen eigenen Pflichttext“, Sammelbestätigung der Texte wie P3-F5 | 4 |
+
+**Umgesetzt 05.10.2026** – Teil 5.
+
+# Teil 5 – P4-B1 umgesetzt: die Texte zur Bestätigung (05.10.2026)
+
+- **28 Texte neu**, je Zeile nur, was ihr eigener Beleg sagt (Regel aus A-W13). Befund, `scope`, Verifikation unverändert.
+- **Mehr als gemeldet:** Der Wächter fand 25 (11 ohne Text, 12 Sammeltext, dazu Art. 3 Nr. 49 mit einem **fremden** Text und Art. 4a Abs. 2 lit. a n.F., der mit „…“ abbrach). Beim Lesen aller 109 `in`-Texte gegen ihren Beleg fielen drei weitere auf, die kein Wächter sieht: Art. 6 Abs. 3 und Art. 25 Abs. 2 n.F. trugen den Inhalt eines späteren Unterabsatzes (wie A-W13, aber umschrieben und nicht direkt davor), Art. 13 Abs. 3 lit. b verwies auf „lit. i und lit. v“.
+- **Art. 3 Nr. 49 ist die Definition „schwerwiegender Vorfall“** – auf sie stützt G-OPS-02 seine Meldeschwelle. Ihr Text beschrieb bis heute die Strafverfolgungsbehörde.
+- **Wächter** `IN_UNITS_OWN_DUTY_TEXT`: jede `in`-Zeile hat einen Text, keinen, den eine andere Zeile desselben Raums trägt, und keinen, der mit „…“ abbricht. Gegen den Stand vorher: 25 Befunde. Ob der Text stimmt, prüft er nicht – das ist P4-F1, danach hält `PO_DECISIONS_APPLIED` die Texte.
+- **Beobachtet, kein Befund:** 240 `out`-Zeilen (AI Act 128, Omnibus 112) tragen einen Text, der mit „…“ abbricht. Für `out` bestätigst du den Grund (OUT-1), nicht den Text; der Wächter gilt deshalb nur für `in`.
+
+| Raum | Kennung | vorher | neu |
+|---|---|---|---|
+| AI Act | Art. 3 Nr. 4 | Sammeltext „Definiert Kernbegriffe Nr. 1-44 …“ | Begriff 'Betreiber': natuerliche oder juristische Person, Behoerde, Einrichtung oder sonstige Stelle, die ein KI-System in eigener Verantwortung verwendet, ausser im Rahmen einer persoenlichen und nicht beruflichen Taetigkeit. |
+| AI Act | Art. 3 Nr. 8 | Sammeltext „Definiert Kernbegriffe Nr. 1-44 …“ | Begriff 'Akteur': Anbieter, Produkthersteller, Betreiber, Bevollmaechtigter, Einfuehrer oder Haendler. |
+| AI Act | Art. 3 Nr. 23 | Sammeltext „Definiert Kernbegriffe Nr. 1-44 …“ | Begriff 'wesentliche Veraenderung': Veraenderung eines KI-Systems nach Inverkehrbringen oder Inbetriebnahme, die in der urspruenglichen Konformitaetsbewertung des Anbieters nicht vorgesehen oder geplant war und die Konformitaet mit Kapitel III Abschnitt 2 beeintraechtigt oder die bewertete Zweckbestimmung aendert. |
+| AI Act | Art. 3 Nr. 49 | **fremder Text:** beschrieb Nr. 45 lit. b bis Nr. 48 („Strafverfolgungsbehörde …“) | Begriff 'schwerwiegender Vorfall' (Einleitung): Vorfall oder Fehlfunktion eines KI-Systems, der bzw. die direkt oder indirekt eine der Folgen nach lit. a-d hat. |
+| AI Act | Art. 5 Abs. 1 lit. c Ziff. i | Sammeltext mit Ziff. ii | Ergebnis i) der sozialen Bewertung nach lit. c: Schlechterstellung oder Benachteiligung bestimmter natuerlicher Personen oder Gruppen in sozialen Zusammenhaengen, die mit den Umstaenden der urspruenglichen Erzeugung oder Erhebung der Daten nicht zusammenhaengen. |
+| AI Act | Art. 5 Abs. 1 lit. c Ziff. ii | Sammeltext mit Ziff. i | Ergebnis ii) der sozialen Bewertung nach lit. c: Schlechterstellung oder Benachteiligung bestimmter natuerlicher Personen oder Gruppen, die im Hinblick auf ihr soziales Verhalten oder dessen Tragweite ungerechtfertigt oder unverhaeltnismaessig ist. |
+| AI Act | Art. 6 Abs. 3 | **trug UAbs. 3** (Profiling), eigene Zeile – wie A-W13 | Abweichend von Abs. 2 gilt ein in Anhang III genanntes KI-System nicht als hochriskant, wenn es kein erhebliches Risiko fuer Gesundheit, Sicherheit oder Grundrechte natuerlicher Personen birgt, u. a. weil es das Ergebnis der Entscheidungsfindung nicht wesentlich beeinflusst; das gilt, wenn eine der Bedingungen lit. a-d erfuellt ist. |
+| AI Act | Art. 13 Abs. 3 lit. b | **falscher Verweis** „einzeln in lit. i und lit. v erfasst“ | Angabe b) der Betriebsanleitung: Merkmale, Faehigkeiten und Leistungsgrenzen des Hochrisiko-KI-Systems, einschliesslich der Angaben in Ziff. i-vii (je eigene Zeile). |
+| AI Act | Art. 13 Abs. 3 lit. b Ziff. i | Sammeltext Ziff. i–iv | Angabe nach lit. b, Ziff. i): die Zweckbestimmung des Hochrisiko-KI-Systems. |
+| AI Act | Art. 13 Abs. 3 lit. b Ziff. ii | Sammeltext Ziff. i–iv | Angabe nach lit. b, Ziff. ii): Mass an Genauigkeit (einschliesslich Metriken), Robustheit und Cybersicherheit nach Art. 15, fuer das das System getestet und validiert wurde und das zu erwarten ist, sowie alle bekannten und vorhersehbaren Umstaende, die sich darauf auswirken koennen. |
+| AI Act | Art. 13 Abs. 3 lit. b Ziff. iii | Sammeltext Ziff. i–iv | Angabe nach lit. b, Ziff. iii): alle bekannten oder vorhersehbaren Umstaende der bestimmungsgemaessen Verwendung oder einer vernuenftigerweise vorhersehbaren Fehlanwendung, die zu Risiken nach Art. 9 Abs. 2 fuer Gesundheit, Sicherheit oder Grundrechte fuehren koennen. |
+| AI Act | Art. 13 Abs. 3 lit. b Ziff. iv | Sammeltext Ziff. i–iv | Angabe nach lit. b, Ziff. iv): gegebenenfalls die technischen Faehigkeiten und Merkmale des Systems, Informationen bereitzustellen, die zur Erlaeuterung seiner Ausgaben relevant sind. |
+| AI Act | Art. 13 Abs. 3 lit. b Ziff. v | Sammeltext Ziff. v–vii | Angabe nach lit. b, Ziff. v): gegebenenfalls die Leistung des Systems in Bezug auf bestimmte Personen oder Personengruppen, auf die es bestimmungsgemaess angewandt werden soll. |
+| AI Act | Art. 13 Abs. 3 lit. b Ziff. vi | Sammeltext Ziff. v–vii | Angabe nach lit. b, Ziff. vi): gegebenenfalls Spezifikationen fuer die Eingabedaten oder sonstige relevante Informationen ueber die verwendeten Trainings-, Validierungs- und Testdatensaetze, unter Beruecksichtigung der Zweckbestimmung. |
+| AI Act | Art. 13 Abs. 3 lit. b Ziff. vii | Sammeltext Ziff. v–vii | Angabe nach lit. b, Ziff. vii): gegebenenfalls Informationen, die es den Betreibern ermoeglichen, die Ausgabe des Systems zu interpretieren und es angemessen zu nutzen. |
+| AI Act | Anhang III Nr. 2 | kein Text (dazu Vermerk `omnibus` wie Anhang III Nr. 1) | Hochrisiko-Bereich nach Art. 6 Abs. 2 (Anhang III Nr. 2, kritische Infrastruktur): KI-Systeme, die bestimmungsgemaess als Sicherheitsbauteile in der Verwaltung und im Betrieb kritischer digitaler Infrastruktur, des Strassenverkehrs oder der Wasser-, Gas-, Waerme- oder Stromversorgung verwendet werden sollen. |
+| Omnibus | Art. 3 Nr. 14 n.F. | kein Text | Begriff 'Sicherheitsbauteil' (Neufassung): Bestandteil eines Produkts oder KI-Systems, der eine Sicherheitsfunktion fuer dieses Produkt oder KI-System erfuellt oder dessen Ausfall oder Stoerung die Gesundheit und Sicherheit von Personen oder Eigentum gefaehrdet; eine Sicherheitsfunktion erfuellt ein Bauteil, dessen Zweckbestimmung es ist, solche Risiken abzuwenden oder zu mindern. |
+| Omnibus | Art. 4a Abs. 2 n.F. | kein Text | Einleitung: Anbieter und Betreiber anderer KI-Systeme und KI-Modelle sowie Betreiber von Hochrisiko-KI-Systemen duerfen ausnahmsweise besondere Kategorien personenbezogener Daten verarbeiten, sofern die Bedingungen lit. a und b erfuellt sind. |
+| Omnibus | Art. 4a Abs. 2 lit. a n.F. | **brach ab** („… die die …“) | Bedingung a) der Erlaubnis nach Art. 4a Abs. 2 n.F.: die Verarbeitung ist zur Erkennung und Korrektur von Verzerrungen unbedingt erforderlich, die Gesundheit und Sicherheit von Personen beeintraechtigen, negative Auswirkungen auf die Grundrechte haben oder zu einer unionsrechtlich verbotenen Diskriminierung fuehren, insbesondere wenn die Datenausgaben die Eingaben kuenftiger Operationen beeinflussen. |
+| Omnibus | Art. 5 Abs. 1 UAbs. 1 lit. ba n.F. | kein Text | Verboten: Inverkehrbringen, Inbetriebnahme oder Verwendung eines KI-Systems, das realistische Bild-, Video-, Ton- oder aehnliche Inhalte erzeugt oder manipuliert, in denen intime Koerperteile einer bestimmbaren natuerlichen Person oder eine an eindeutig sexuellen Handlungen beteiligte bestimmbare Person dargestellt werden, ohne deren freie, spezifische, aufgeklaerte, eindeutige und ausdrueckliche Zustimmung zu dieser Erzeugung oder Manipulation. |
+| Omnibus | Art. 5 Abs. 1 UAbs. 1 lit. bb n.F. | kein Text | Verboten: Inverkehrbringen, Inbetriebnahme oder Verwendung eines KI-Systems, das Material oder Darbietungen im Sinne von Art. 2 lit. c und e der Richtlinie 2011/93/EU erzeugt oder manipuliert, es sei denn, das 'unrechtmaessige' Verhalten gilt nach nationalem Recht als gerechtfertigt. |
+| Omnibus | Art. 6 Abs. 1a n.F. | kein Text | KI-Systeme, die ausschliesslich fuer nicht sicherheitsrelevante Aspekte der Nutzerunterstuetzung, Leistungsoptimierung, Leistungseffizienz, Automatisierung, Benutzerfreundlichkeit oder Qualitaetskontrolle verwendet werden, gelten fuer die Zwecke der Verordnung, auch des Abs. 1, nicht als Sicherheitsbauteile. |
+| Omnibus | Art. 6 Abs. 1b n.F. | kein Text | Unbeschadet Abs. 1a gelten KI-Systeme, deren Ausfall oder Fehlfunktion Gesundheit und Sicherheit gefaehrden wuerde, als Sicherheitsbauteile. |
+| Omnibus | Art. 6 Abs. 1c n.F. | kein Text | Ein Produkt, das ausschliesslich wegen anderer Risiken als fuer Gesundheit und Sicherheit (insbesondere Funkfrequenzen oder elektromagnetische Interferenzen) einer Konformitaetsbewertung durch Dritte unterzogen werden muss, erfuellt nicht die Bedingung des Abs. 1 lit. b. |
+| Omnibus | Art. 25 Abs. 2 n.F. | **trug UAbs. 4** (Ausnahme), eigene Zeile – wie A-W13 | Unter den Umstaenden des Abs. 1 gilt der Erstanbieter nicht mehr als Anbieter dieses KI-Systems; er arbeitet eng mit den neuen Anbietern zusammen, stellt die erforderlichen Informationen bereit und sorgt fuer den nach vernuenftigem Ermessen zu erwartenden technischen Zugang und sonstige Unterstuetzung zur Erfuellung ihrer Pflichten, insbesondere fuer die Konformitaetsbewertung; was das insbesondere umfasst, nennen lit. a-c. |
+| Omnibus | Art. 113 Abs. 3 lit. a n.F. | kein Text | Kapitel I und II gelten ab dem 2. Februar 2025, ausgenommen Art. 5 Abs. 1 UAbs. 1 lit. ba und bb sowie Art. 5 Abs. 1a und 1b, die ab dem 2. Dezember 2026 gelten. |
+| Omnibus | Art. 113 Abs. 3 lit. c n.F. | kein Text | Einleitung: Kapitel III Abschnitte 1, 2 und 3, ausser Art. 6 Abs. 5, gelten ab den in Ziff. i und ii genannten Daten. |
+| Omnibus | Art. 113 Abs. 3 lit. c Ziff. i n.F. | kein Text | Fuer KI-Systeme, die nach Art. 6 Abs. 2 und Anhang III als hochriskant eingestuft sind, gelten Kapitel III Abschnitte 1-3 ab dem 2. Dezember 2027. |
+
+| # | Frage | Optionen |
+|---|---|---|
+| P4-F1 | Sammelbestätigung der 28 Pflichttexte aus P4-B1 (Tabelle oben) – bestätigt ist der Text, nicht Befund und Einordnung (wie P3-F2, P3-F5) | a) **alle 28 bestätigen**; ich schreibe sie in `entscheide/` und `PO_DECISIONS_APPLIED` hält sie · b) einzelne Texte ändern (Kennung + Wunsch) |
+| R-7 | Severity des Wächters `IN_UNITS_OWN_DUTY_TEXT` | a) **MEDIUM:** eine Zeile ohne eigenen Text versteckt keine Pflicht – `scope` und Befund stehen –, aber ihre Bestätigung bestätigt nichts · b) HIGH (wie R-4: ein fremder Text wie bei Art. 3 Nr. 49 lässt eine Zeile anders aussehen, als sie ist) · c) LOW |

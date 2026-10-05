@@ -3576,6 +3576,60 @@ def check_norm_units_match_extractor() -> dict:
     )
 
 
+def check_in_units_own_duty_text() -> dict:
+    """Jede `in`-Zeile traegt einen eigenen, vollstaendigen Pflichttext (P4-B1, Review 13).
+
+    Der PO bestaetigt in Paket 4 die `in`-Zeilen (IN-1) und ihre Texte (wie P3-F2,
+    P3-F5). Bestaetigen kann er nur, was dasteht. Gemessen am 05.10.2026 standen
+    24 `in`-Zeilen ohne eigenen Text da: 11 ohne jeden Text (Anhang III Nr. 2,
+    zehn Omnibus-Neufassungen), 12 mit einem Sammeltext, den sich mehrere Zeilen
+    teilten (Art. 3 Nr. 4/8/23 'Definiert Kernbegriffe Nr. 1-44 ...', Art. 13 Abs. 3
+    lit. b Ziff. i-iv und v-vii je ein Text), und Art. 3 Nr. 49 mit dem Text der
+    Nummern 45 lit. b bis 48 ('Strafverfolgungsbehoerde ...') - ausgerechnet die
+    Definition, auf die G-OPS-02 seine Meldeschwelle stuetzt. Dazu ein Text, der
+    mit '…' abbrach (Art. 4a Abs. 2 lit. a n.F.).
+
+    Geprueft wird je Raum, maschinell:
+      * der Pflichttext einer `in`-Zeile ist nicht leer,
+      * keine andere Zeile desselben Raums (`in` oder `out`) traegt denselben Text,
+      * er endet nicht mit einem Auslassungszeichen.
+    Ob der Text sagt, was sein Beleg sagt, prueft das nicht - das ist die
+    Sammelbestaetigung des PO, danach haelt PO_DECISIONS_APPLIED den Text.
+
+    MEDIUM (Vorschlag, R-7 offen): eine Zeile ohne eigenen Text versteckt keine
+    Pflicht - scope und Befund stehen -, aber ihre Bestaetigung bestaetigt nichts.
+    """
+    import yaml
+    from collections import Counter
+
+    titel = "jede in-Zeile traegt einen eigenen, vollstaendigen Pflichttext (P4-B1)"
+    findings: list[str] = []
+    gezaehlt = 0
+    for pfad in sorted((REPO_ROOT / "docs" / "coverage").glob("*_pflichtenraum.yaml")):
+        einheiten = (yaml.safe_load(pfad.read_text(encoding="utf-8")) or {}).get("einheiten") or []
+        texte = Counter(str(e.get("pflicht") or "").strip() for e in einheiten)
+        for e in einheiten:
+            if e.get("scope") != "in":
+                continue
+            gezaehlt += 1
+            text = str(e.get("pflicht") or "").strip()
+            if not text:
+                findings.append(f"{pfad.name}: {e['id']} — kein Pflichttext")
+            elif texte[text] > 1:
+                findings.append(f"{pfad.name}: {e['id']} — Pflichttext teilt sich die Zeile mit "
+                                f"{texte[text] - 1} anderen ('{text[:50]} …')")
+            elif text.endswith(("…", "...")):
+                findings.append(f"{pfad.name}: {e['id']} — Pflichttext bricht ab ('… {text[-40:]}')")
+
+    return make_result(
+        "IN_UNITS_OWN_DUTY_TEXT", titel, "medium", not findings,
+        f"{len(findings)} in-Zeile(n) ohne eigenen, vollstaendigen Pflichttext - bestaetigen "
+        f"kann der PO nur, was dasteht." if findings
+        else f"{gezaehlt} in-Zeilen in allen Raeumen, jede mit eigenem, vollstaendigem Pflichttext.",
+        findings[:12] + ([f"… und {len(findings) - 12} weitere"] if len(findings) > 12 else []),
+    )
+
+
 def check_norm_refs_resolve() -> dict:
     """Jede Normverweisung eines Gates oder Requirements zeigt auf eine Einheit des Pflichtenraums.
 
@@ -3794,6 +3848,7 @@ def collect_results() -> list[dict]:
         check_coverage_finding_names_checking_gate,
         check_element_matrix_derives_gate,
         check_norm_units_match_extractor,
+        check_in_units_own_duty_text,
         check_norm_refs_resolve,
         check_po_decisions_registered,
     ]

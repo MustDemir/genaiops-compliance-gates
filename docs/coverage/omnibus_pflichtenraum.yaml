@@ -506,7 +506,10 @@ einheiten:
   ziel: Art. 3 Nr. 14
   aenderung: geaendert
   adressat: null
-  pflicht: null
+  pflicht: 'Begriff ''Sicherheitsbauteil'' (Neufassung): Bestandteil eines Produkts oder KI-Systems, der
+    eine Sicherheitsfunktion fuer dieses Produkt oder KI-System erfuellt oder dessen Ausfall oder Stoerung
+    die Gesundheit und Sicherheit von Personen oder Eigentum gefaehrdet; eine Sicherheitsfunktion erfuellt
+    ein Bauteil, dessen Zweckbestimmung es ist, solche Risiken abzuwenden oder zu mindern.'
   scope: in
   scope_grund: Steuernde Norm (T-13 Raster, Ausnahme von Schritt 3) - Sicherheitsbauteil und seine Klarstellung,
     geprueft von G-PRE-01/C-A3 bis C-A6.
@@ -1164,7 +1167,9 @@ einheiten:
   ziel: Art. 4a Abs. 2
   aenderung: eingefuegt
   adressat: null
-  pflicht: null
+  pflicht: 'Einleitung: Anbieter und Betreiber anderer KI-Systeme und KI-Modelle sowie Betreiber von Hochrisiko-KI-Systemen
+    duerfen ausnahmsweise besondere Kategorien personenbezogener Daten verarbeiten, sofern die Bedingungen
+    lit. a und b erfuellt sind.'
   scope: in
   scope_grund: Richtet sich an Betreiber von Hochrisiko-KI-Systemen; R013 stuetzt sich darauf.
   verifikation: null
@@ -1199,9 +1204,10 @@ einheiten:
   ziel: Art. 4a Abs. 2 lit. a
   aenderung: eingefuegt
   adressat: betreiber
-  pflicht: 'Bedingung der Erlaubnis nach Art. 4a Abs. 2 n.F.: eine solche Verarbeitung zur Erkennung und
-    Korrektur von Verzerrungen im Hinblick auf mögliche Verzerrungen unbedingt erforderlich ist, die die
-    …'
+  pflicht: 'Bedingung a) der Erlaubnis nach Art. 4a Abs. 2 n.F.: die Verarbeitung ist zur Erkennung und
+    Korrektur von Verzerrungen unbedingt erforderlich, die Gesundheit und Sicherheit von Personen beeintraechtigen,
+    negative Auswirkungen auf die Grundrechte haben oder zu einer unionsrechtlich verbotenen Diskriminierung
+    fuehren, insbesondere wenn die Datenausgaben die Eingaben kuenftiger Operationen beeinflussen.'
   scope: in
   scope_grund: 'Wie Art. 4a Abs. 2 n.F. (2b E5, in): Untergliederung der Erlaubnis an Betreiber von Hochrisiko-KI-Systemen
     (S3-2, Paket 4).'
@@ -1370,7 +1376,11 @@ einheiten:
   ziel: Art. 5 Abs. 1 UAbs. 1 lit. ba
   aenderung: eingefuegt
   adressat: null
-  pflicht: null
+  pflicht: 'Verboten: Inverkehrbringen, Inbetriebnahme oder Verwendung eines KI-Systems, das realistische
+    Bild-, Video-, Ton- oder aehnliche Inhalte erzeugt oder manipuliert, in denen intime Koerperteile
+    einer bestimmbaren natuerlichen Person oder eine an eindeutig sexuellen Handlungen beteiligte bestimmbare
+    Person dargestellt werden, ohne deren freie, spezifische, aufgeklaerte, eindeutige und ausdrueckliche
+    Zustimmung zu dieser Erzeugung oder Manipulation.'
   scope: in
   scope_grund: Verbot der Verwendung - trifft auch den Betreiber; gilt ab 2. Dezember 2026 (Art. 113 Abs.
     3 lit. a n.F.).
@@ -1403,7 +1413,9 @@ einheiten:
   ziel: Art. 5 Abs. 1 UAbs. 1 lit. bb
   aenderung: eingefuegt
   adressat: null
-  pflicht: null
+  pflicht: 'Verboten: Inverkehrbringen, Inbetriebnahme oder Verwendung eines KI-Systems, das Material
+    oder Darbietungen im Sinne von Art. 2 lit. c und e der Richtlinie 2011/93/EU erzeugt oder manipuliert,
+    es sei denn, das ''unrechtmaessige'' Verhalten gilt nach nationalem Recht als gerechtfertigt.'
   scope: in
   scope_grund: Verbot der Verwendung - trifft auch den Betreiber; gilt ab 2. Dezember 2026 (Art. 113 Abs.
     3 lit. a n.F.).
@@ -1705,7 +1717,9 @@ einheiten:
   ziel: Art. 6 Abs. 1a
   aenderung: eingefuegt
   adressat: null
-  pflicht: null
+  pflicht: KI-Systeme, die ausschliesslich fuer nicht sicherheitsrelevante Aspekte der Nutzerunterstuetzung,
+    Leistungsoptimierung, Leistungseffizienz, Automatisierung, Benutzerfreundlichkeit oder Qualitaetskontrolle
+    verwendet werden, gelten fuer die Zwecke der Verordnung, auch des Abs. 1, nicht als Sicherheitsbauteile.
   scope: in
   scope_grund: Steuernde Norm (T-13 Raster, Ausnahme von Schritt 3) - Sicherheitsbauteil und seine Klarstellung,
     geprueft von G-PRE-01/C-A3 bis C-A6.
@@ -1737,7 +1751,8 @@ einheiten:
   ziel: Art. 6 Abs. 1b
   aenderung: eingefuegt
   adressat: null
-  pflicht: null
+  pflicht: Unbeschadet Abs. 1a gelten KI-Systeme, deren Ausfall oder Fehlfunktion Gesundheit und Sicherheit
+    gefaehrden wuerde, als Sicherheitsbauteile.
   scope: in
   scope_grund: Steuernde Norm (T-13 Raster, Ausnahme von Schritt 3) - Sicherheitsbauteil und seine Klarstellung,
     geprueft von G-PRE-01/C-A3 bis C-A6.
@@ -1772,7 +1787,9 @@ einheiten:
   ziel: Art. 6 Abs. 1c
   aenderung: eingefuegt
   adressat: null
-  pflicht: null
+  pflicht: Ein Produkt, das ausschliesslich wegen anderer Risiken als fuer Gesundheit und Sicherheit (insbesondere
+    Funkfrequenzen oder elektromagnetische Interferenzen) einer Konformitaetsbewertung durch Dritte unterzogen
+    werden muss, erfuellt nicht die Bedingung des Abs. 1 lit. b.
   scope: in
   scope_grund: Steuernde Norm (T-13 Raster, Ausnahme von Schritt 3) - Sicherheitsbauteil und seine Klarstellung,
     geprueft von G-PRE-01/C-A3 bis C-A6.
@@ -2219,9 +2236,11 @@ einheiten:
   ziel: Art. 25 Abs. 2
   aenderung: neu_gefasst
   adressat: anbieter
-  pflicht: Wird der Betreiber durch lit. a-c zum neuen Anbieter, muss der urspruengliche Anbieter (Erstanbieter)
-    mit ihm kooperieren, Informationen, technischen Zugang und Unterstuetzung fuer die Konformitaetsbewertung
-    bereitstellen - ausser der Erstanbieter hat den Uebergang zum Hochrisiko-System ausdruecklich ausgeschlossen.
+  pflicht: Unter den Umstaenden des Abs. 1 gilt der Erstanbieter nicht mehr als Anbieter dieses KI-Systems;
+    er arbeitet eng mit den neuen Anbietern zusammen, stellt die erforderlichen Informationen bereit und
+    sorgt fuer den nach vernuenftigem Ermessen zu erwartenden technischen Zugang und sonstige Unterstuetzung
+    zur Erfuellung ihrer Pflichten, insbesondere fuer die Konformitaetsbewertung; was das insbesondere
+    umfasst, nennen lit. a-c.
   scope: in
   scope_grund: 'Anbieterpflicht mit Durchschlag (2b E4): trifft den Betreiber, wenn er nach Art. 25 Abs.
     1 zum neuen Anbieter wird. Uebernimmt nach A-F2a die Einordnung von Art. 25 Abs. 2 der Grundfassung
@@ -8942,7 +8961,8 @@ einheiten:
   ziel: Art. 113 Abs. 3 lit. a
   aenderung: neu_gefasst
   adressat: null
-  pflicht: null
+  pflicht: Kapitel I und II gelten ab dem 2. Februar 2025, ausgenommen Art. 5 Abs. 1 UAbs. 1 lit. ba und
+    bb sowie Art. 5 Abs. 1a und 1b, die ab dem 2. Dezember 2026 gelten.
   scope: in
   scope_grund: Steuernde Norm (T-13 Raster, Ausnahme von Schritt 3) - Geltungsbeginn; lit. c Ziff. i setzt
     den 2. Dezember 2027 fuer Anhang III (P0).
@@ -9007,7 +9027,8 @@ einheiten:
   ziel: Art. 113 Abs. 3 lit. c
   aenderung: neu_gefasst
   adressat: null
-  pflicht: null
+  pflicht: 'Einleitung: Kapitel III Abschnitte 1, 2 und 3, ausser Art. 6 Abs. 5, gelten ab den in Ziff.
+    i und ii genannten Daten.'
   scope: in
   scope_grund: Steuernde Norm (T-13 Raster, Ausnahme von Schritt 3) - Geltungsbeginn; lit. c Ziff. i setzt
     den 2. Dezember 2027 fuer Anhang III (P0).
@@ -9039,7 +9060,8 @@ einheiten:
   ziel: Art. 113 Abs. 3 lit. c Ziff. i
   aenderung: neu_gefasst
   adressat: null
-  pflicht: null
+  pflicht: Fuer KI-Systeme, die nach Art. 6 Abs. 2 und Anhang III als hochriskant eingestuft sind, gelten
+    Kapitel III Abschnitte 1-3 ab dem 2. Dezember 2027.
   scope: in
   scope_grund: Steuernde Norm (T-13 Raster, Ausnahme von Schritt 3) - Geltungsbeginn; lit. c Ziff. i setzt
     den 2. Dezember 2027 fuer Anhang III (P0).

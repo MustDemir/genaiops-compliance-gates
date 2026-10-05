@@ -1005,9 +1005,9 @@ einheiten:
     die ein KI-System in eigener Verantwortung verwendet, es sei denn, das KI-System wird im Rahmen einer
     persönlichen und nicht beruflichen Tätigkeit verwendet;
   adressat: sonstige
-  pflicht: Definiert Kernbegriffe Nr. 1-44 der Verordnung (u.a. KI-System, Risiko, Anbieter, Betreiber,
-    Bevollmaechtigter, Einfuehrer, Haendler, Akteur, Inverkehrbringen, Zweckbestimmung, Sicherheitsbauteil,
-    Betriebsanleitungen).
+  pflicht: 'Begriff ''Betreiber'': natuerliche oder juristische Person, Behoerde, Einrichtung oder sonstige
+    Stelle, die ein KI-System in eigener Verantwortung verwendet, ausser im Rahmen einer persoenlichen
+    und nicht beruflichen Taetigkeit.'
   scope: in
   scope_grund: Steuernde Begriffsbestimmung (T-13 Raster, Ausnahme von Schritt 3) - Betreiber, Akteur,
     wesentliche Veraenderung, schwerwiegender Vorfall; genutzt von G-PRE-01, G-OPS-02 und G-OPS-06.
@@ -1145,9 +1145,8 @@ einheiten:
   saetze: 1
   beleg: 8. „Akteur“ einen Anbieter, Produkthersteller, Betreiber, Bevollmächtigten, Einführer oder Händler;
   adressat: sonstige
-  pflicht: Definiert Kernbegriffe Nr. 1-44 der Verordnung (u.a. KI-System, Risiko, Anbieter, Betreiber,
-    Bevollmaechtigter, Einfuehrer, Haendler, Akteur, Inverkehrbringen, Zweckbestimmung, Sicherheitsbauteil,
-    Betriebsanleitungen).
+  pflicht: 'Begriff ''Akteur'': Anbieter, Produkthersteller, Betreiber, Bevollmaechtigter, Einfuehrer
+    oder Haendler.'
   scope: in
   scope_grund: Steuernde Begriffsbestimmung (T-13 Raster, Ausnahme von Schritt 3) - Betreiber, Akteur,
     wesentliche Veraenderung, schwerwiegender Vorfall; genutzt von G-PRE-01, G-OPS-02 und G-OPS-06.
@@ -1670,9 +1669,10 @@ einheiten:
     Kapitel III Abschnitt 2 beeinträchtigt wird oder die zu einer Änderung der Zweckbestimmung führt,
     für die das KI-System bewertet wurde;
   adressat: sonstige
-  pflicht: Definiert Kernbegriffe Nr. 1-44 der Verordnung (u.a. KI-System, Risiko, Anbieter, Betreiber,
-    Bevollmaechtigter, Einfuehrer, Haendler, Akteur, Inverkehrbringen, Zweckbestimmung, Sicherheitsbauteil,
-    Betriebsanleitungen).
+  pflicht: 'Begriff ''wesentliche Veraenderung'': Veraenderung eines KI-Systems nach Inverkehrbringen
+    oder Inbetriebnahme, die in der urspruenglichen Konformitaetsbewertung des Anbieters nicht vorgesehen
+    oder geplant war und die Konformitaet mit Kapitel III Abschnitt 2 beeintraechtigt oder die bewertete
+    Zweckbestimmung aendert.'
   scope: in
   scope_grund: Steuernde Begriffsbestimmung (T-13 Raster, Ausnahme von Schritt 3) - Betreiber, Akteur,
     wesentliche Veraenderung, schwerwiegender Vorfall; genutzt von G-PRE-01, G-OPS-02 und G-OPS-06.
@@ -2638,9 +2638,8 @@ einheiten:
   beleg: '49. „schwerwiegender Vorfall“ einen Vorfall oder eine Fehlfunktion bezüglich eines KI-Systems,
     das bzw. die direkt oder indirekt eine der nachstehenden Folgen hat:'
   adressat: behoerde
-  pflicht: Teil der Definition 'Strafverfolgungsbehoerde', Variante b) (sonstige mit hoheitlichen Befugnissen
-    betraute Stelle), sowie Definitionen Nr. 46-48 (Strafverfolgung, Buero fuer Kuenstliche Intelligenz,
-    zustaendige nationale Behoerde).
+  pflicht: 'Begriff ''schwerwiegender Vorfall'' (Einleitung): Vorfall oder Fehlfunktion eines KI-Systems,
+    der bzw. die direkt oder indirekt eine der Folgen nach lit. a-d hat.'
   scope: in
   scope_grund: Steuernde Begriffsbestimmung (T-13 Raster, Ausnahme von Schritt 3) - Betreiber, Akteur,
     wesentliche Veraenderung, schwerwiegender Vorfall; genutzt von G-PRE-01, G-OPS-02 und G-OPS-06.
@@ -3797,8 +3796,9 @@ einheiten:
     in sozialen Zusammenhängen, die in keinem Zusammenhang zu den Umständen stehen, unter denen die Daten
     ursprünglich erzeugt oder erhoben wurden;
   adressat: betreiber
-  pflicht: 'Konkretisiert lit. c (Social Scoring): erfasst sowohl kontextfremde Schlechterstellung als
-    auch unverhaeltnismaessige Schlechterstellung im Verhaeltnis zum bewerteten Sozialverhalten.'
+  pflicht: 'Ergebnis i) der sozialen Bewertung nach lit. c: Schlechterstellung oder Benachteiligung bestimmter
+    natuerlicher Personen oder Gruppen in sozialen Zusammenhaengen, die mit den Umstaenden der urspruenglichen
+    Erzeugung oder Erhebung der Daten nicht zusammenhaengen.'
   scope: in
   scope_grund: null
   verifikation: VERIFIZIERT
@@ -3837,8 +3837,9 @@ einheiten:
     Personen in einer Weise, die im Hinblick auf ihr soziales Verhalten oder dessen Tragweite ungerechtfertigt
     oder unverhältnismäßig ist;
   adressat: betreiber
-  pflicht: 'Konkretisiert lit. c (Social Scoring): erfasst sowohl kontextfremde Schlechterstellung als
-    auch unverhaeltnismaessige Schlechterstellung im Verhaeltnis zum bewerteten Sozialverhalten.'
+  pflicht: 'Ergebnis ii) der sozialen Bewertung nach lit. c: Schlechterstellung oder Benachteiligung bestimmter
+    natuerlicher Personen oder Gruppen, die im Hinblick auf ihr soziales Verhalten oder dessen Tragweite
+    ungerechtfertigt oder unverhaeltnismaessig ist.'
   scope: in
   scope_grund: null
   verifikation: VERIFIZIERT
@@ -4742,9 +4743,10 @@ einheiten:
     Grundrechte natürlicher Personen birgt, indem es unter anderem nicht das Ergebnis der Entscheidungsfindung
     wesentlich beeinflusst. Unterabsatz 1 gilt, wenn eine der folgenden Bedingungen erfüllt ist:'
   adressat: anbieter
-  pflicht: Ein in Anhang III genanntes System gilt abweichend NICHT als hochriskant, wenn es kein erhebliches
-    Risiko birgt (Ausnahmetatbestaende in lit. a-d), es sei denn, es fuehrt Profiling natuerlicher Personen
-    durch.
+  pflicht: Abweichend von Abs. 2 gilt ein in Anhang III genanntes KI-System nicht als hochriskant, wenn
+    es kein erhebliches Risiko fuer Gesundheit, Sicherheit oder Grundrechte natuerlicher Personen birgt,
+    u. a. weil es das Ergebnis der Entscheidungsfindung nicht wesentlich beeinflusst; das gilt, wenn eine
+    der Bedingungen lit. a-d erfuellt ist.
   scope: in
   scope_grund: Steuernde Norm (T-13 Raster, Ausnahme von Schritt 3) - Hochrisiko-Einstufung, die G-PRE-01
     prueft.
@@ -7740,8 +7742,8 @@ einheiten:
   saetze: 1
   beleg: b) die Merkmale, Fähigkeiten und Leistungsgrenzen des Hochrisiko-KI-Systems, einschließlich
   adressat: anbieter
-  pflicht: Merkmale, Faehigkeiten und Leistungsgrenzen des Systems (Chapeau zu Ziff. i-vii, einzeln in
-    Art. 13 Abs. 3 lit. i und lit. v erfasst).
+  pflicht: 'Angabe b) der Betriebsanleitung: Merkmale, Faehigkeiten und Leistungsgrenzen des Hochrisiko-KI-Systems,
+    einschliesslich der Angaben in Ziff. i-vii (je eigene Zeile).'
   scope: in
   scope_grund: null
   verifikation: HYPOTHESE
@@ -7781,10 +7783,7 @@ einheiten:
   saetze: 1
   beleg: i) seiner Zweckbestimmung,
   adressat: anbieter
-  pflicht: Zweckbestimmung; Mass an Genauigkeit/Robustheit/Cybersicherheit (Art. 15) samt Metriken und
-    bekannten/vorhersehbaren Umstaenden, die dieses Mass beeinflussen; bekannte/vorhersehbare Umstaende
-    bei zweckbestimmungsgemaesser Verwendung oder vorhersehbarer Fehlanwendung, die zu Art.-9-Abs.-2-Risiken
-    fuehren koennen; ggf. technische Faehigkeiten zur Erlaeuterung der Ausgaben.
+  pflicht: 'Angabe nach lit. b, Ziff. i): die Zweckbestimmung des Hochrisiko-KI-Systems.'
   scope: in
   scope_grund: null
   verifikation: HYPOTHESE
@@ -7827,10 +7826,9 @@ einheiten:
     ist, sowie aller bekannten und vorhersehbaren Umstände, die sich auf das erwartete Maß an Genauigkeit,
     Robustheit und Cybersicherheit auswirken können;
   adressat: anbieter
-  pflicht: Zweckbestimmung; Mass an Genauigkeit/Robustheit/Cybersicherheit (Art. 15) samt Metriken und
-    bekannten/vorhersehbaren Umstaenden, die dieses Mass beeinflussen; bekannte/vorhersehbare Umstaende
-    bei zweckbestimmungsgemaesser Verwendung oder vorhersehbarer Fehlanwendung, die zu Art.-9-Abs.-2-Risiken
-    fuehren koennen; ggf. technische Faehigkeiten zur Erlaeuterung der Ausgaben.
+  pflicht: 'Angabe nach lit. b, Ziff. ii): Mass an Genauigkeit (einschliesslich Metriken), Robustheit
+    und Cybersicherheit nach Art. 15, fuer das das System getestet und validiert wurde und das zu erwarten
+    ist, sowie alle bekannten und vorhersehbaren Umstaende, die sich darauf auswirken koennen.'
   scope: in
   scope_grund: null
   verifikation: HYPOTHESE
@@ -7872,10 +7870,9 @@ einheiten:
     die zu den in Artikel 9 Absatz 2 genannten Risiken für die Gesundheit und Sicherheit oder die Grundrechte
     führen können,
   adressat: anbieter
-  pflicht: Zweckbestimmung; Mass an Genauigkeit/Robustheit/Cybersicherheit (Art. 15) samt Metriken und
-    bekannten/vorhersehbaren Umstaenden, die dieses Mass beeinflussen; bekannte/vorhersehbare Umstaende
-    bei zweckbestimmungsgemaesser Verwendung oder vorhersehbarer Fehlanwendung, die zu Art.-9-Abs.-2-Risiken
-    fuehren koennen; ggf. technische Faehigkeiten zur Erlaeuterung der Ausgaben.
+  pflicht: 'Angabe nach lit. b, Ziff. iii): alle bekannten oder vorhersehbaren Umstaende der bestimmungsgemaessen
+    Verwendung oder einer vernuenftigerweise vorhersehbaren Fehlanwendung, die zu Risiken nach Art. 9
+    Abs. 2 fuer Gesundheit, Sicherheit oder Grundrechte fuehren koennen.'
   scope: in
   scope_grund: null
   verifikation: HYPOTHESE
@@ -7915,10 +7912,8 @@ einheiten:
   beleg: iv) gegebenenfalls der technischen Fähigkeiten und Merkmale des Hochrisiko-KI-Systems, um Informationen
     bereitzustellen, die zur Erläuterung seiner Ausgaben relevant sind;
   adressat: anbieter
-  pflicht: Zweckbestimmung; Mass an Genauigkeit/Robustheit/Cybersicherheit (Art. 15) samt Metriken und
-    bekannten/vorhersehbaren Umstaenden, die dieses Mass beeinflussen; bekannte/vorhersehbare Umstaende
-    bei zweckbestimmungsgemaesser Verwendung oder vorhersehbarer Fehlanwendung, die zu Art.-9-Abs.-2-Risiken
-    fuehren koennen; ggf. technische Faehigkeiten zur Erlaeuterung der Ausgaben.
+  pflicht: 'Angabe nach lit. b, Ziff. iv): gegebenenfalls die technischen Faehigkeiten und Merkmale des
+    Systems, Informationen bereitzustellen, die zur Erlaeuterung seiner Ausgaben relevant sind.'
   scope: in
   scope_grund: null
   verifikation: HYPOTHESE
@@ -7953,9 +7948,8 @@ einheiten:
   beleg: v) gegebenenfalls seiner Leistung in Bezug auf bestimmte Personen oder Personengruppen, auf die
     das System bestimmungsgemäß angewandt werden soll;
   adressat: anbieter
-  pflicht: Ggf. Leistung bzgl. bestimmter Personen(-gruppen); ggf. Spezifikationen der Eingabedaten oder
-    relevante Informationen zu Trainings-/Validierungs-/Testdatensaetzen; ggf. Informationen zur Interpretation
-    und angemessenen Nutzung der Ausgabe durch Betreiber.
+  pflicht: 'Angabe nach lit. b, Ziff. v): gegebenenfalls die Leistung des Systems in Bezug auf bestimmte
+    Personen oder Personengruppen, auf die es bestimmungsgemaess angewandt werden soll.'
   scope: in
   scope_grund: null
   verifikation: HYPOTHESE
@@ -7999,9 +7993,9 @@ einheiten:
     über die verwendeten Trainings-, Validierungs- und Testdatensätze, unter Berücksichtigung der Zweckbestimmung
     des Hochrisiko-KI-Systems;
   adressat: anbieter
-  pflicht: Ggf. Leistung bzgl. bestimmter Personen(-gruppen); ggf. Spezifikationen der Eingabedaten oder
-    relevante Informationen zu Trainings-/Validierungs-/Testdatensaetzen; ggf. Informationen zur Interpretation
-    und angemessenen Nutzung der Ausgabe durch Betreiber.
+  pflicht: 'Angabe nach lit. b, Ziff. vi): gegebenenfalls Spezifikationen fuer die Eingabedaten oder sonstige
+    relevante Informationen ueber die verwendeten Trainings-, Validierungs- und Testdatensaetze, unter
+    Beruecksichtigung der Zweckbestimmung.'
   scope: in
   scope_grund: null
   verifikation: HYPOTHESE
@@ -8042,9 +8036,8 @@ einheiten:
   beleg: vii) gegebenenfalls Informationen, die es den Betreibern ermöglichen, die Ausgabe des Hochrisiko-KI-Systems
     zu interpretieren und es angemessen zu nutzen;
   adressat: anbieter
-  pflicht: Ggf. Leistung bzgl. bestimmter Personen(-gruppen); ggf. Spezifikationen der Eingabedaten oder
-    relevante Informationen zu Trainings-/Validierungs-/Testdatensaetzen; ggf. Informationen zur Interpretation
-    und angemessenen Nutzung der Ausgabe durch Betreiber.
+  pflicht: 'Angabe nach lit. b, Ziff. vii): gegebenenfalls Informationen, die es den Betreibern ermoeglichen,
+    die Ausgabe des Systems zu interpretieren und es angemessen zu nutzen.'
   scope: in
   scope_grund: null
   verifikation: HYPOTHESE
@@ -34619,13 +34612,18 @@ einheiten:
     der Verwaltung und des Betriebs kritischer digitaler Infrastruktur, des Straßenverkehrs oder der Wasser-,
     Gas-, Wärme- oder Stromversorgung verwendet werden sollen'
   adressat: null
-  pflicht: null
+  pflicht: 'Hochrisiko-Bereich nach Art. 6 Abs. 2 (Anhang III Nr. 2, kritische Infrastruktur): KI-Systeme,
+    die bestimmungsgemaess als Sicherheitsbauteile in der Verwaltung und im Betrieb kritischer digitaler
+    Infrastruktur, des Strassenverkehrs oder der Wasser-, Gas-, Waerme- oder Stromversorgung verwendet
+    werden sollen.'
   scope: in
   scope_grund: Steuernde Norm (T-13 Raster, Ausnahme von Schritt 3) - Einstufung kritische Infrastruktur,
     auf der das Vorhaben ruht (G-PRE-01).
   verifikation: null
   hypothese_grund: null
-  omnibus: null
+  omnibus: unveraendert - Anhang III ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht
+    enthalten; Aenderungen an Anhaengen nur durch Art. 1 Nr. 41 (Anhang I), Nr. 42 (Anhang VIII Abschn.
+    B Nr. 7 und 9) und Nr. 43 (neuer Anhang XIV) (geprueft am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
   requirement: []
   gate: []
   befund: nicht_einschlaegig
