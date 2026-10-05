@@ -29,6 +29,11 @@ Pakete:  1 Anhänge ✅ · 2 Omnibus · 3 Befunde + Matrix · 4 PO-Runde · 5 Be
 | OUT-1 | `out`-Zeilen: Stichprobe nach Adressat-Gruppen, dann Sammelbestätigung (05.10.2026: 144 von 1403 bestätigt – AI Act 36 von 1143, Omnibus 108 von 260) | `entscheidungsregister.md` | offen | 4 |
 | P4-F1 | Sammelbestätigung der 29 Pflichttexte aus P4-B1 (28 + Art. 3 Nr. 49 lit. d aus S3-2 a) – bestätigt ist der Text, nicht Befund und Einordnung (wie P3-F2, P3-F5) | `13-po-runde-paket-4.md` | offen | 4 |
 | R-8 | Severity des Wächters `REQUIREMENT_ANCHOR_DECLARED` (Vorschlag MEDIUM) | `13-po-runde-paket-4.md` | offen | 4 |
+| FR-1 | Art. 26 Abs. 11 (Q11 a) als Bedingungsparameter: Manifest-Feld „natürliche Personen unter den betroffenen Anlagenbetreibern“, bei `true` Lücke (wie P2-F4) | `14-fachreview-business-ready.md` | offen | 4 |
+| FR-2 | Redispatch-Referenzszenario (Fixtures + End-to-End-Lauf) und Use Cases des Agenten (P9-1) parallel zu Paket 5 vorziehen | `14-fachreview-business-ready.md` | offen | jederzeit |
+| FR-3 | Kriterium für neue Wächter: nur, wenn der Fehler ein Agent-Urteil verfälschen kann | `14-fachreview-business-ready.md` | offen | jederzeit |
+| FR-4 | Souveräner Betriebspfad (selbst betriebene CI, eigene PKI/privates Sigstore, Kubernetes bei EU-Anbieter oder on-prem) als eigenes Paket | `14-fachreview-business-ready.md` | offen | jederzeit |
+| FR-5 | Juristische Zweitprüfung der Auslegungsentscheide (Q1, Q11, A-F1, F4, HYPOTHESE-Zeilen mit Befund) vor Paket 8 | `14-fachreview-business-ready.md` | offen | 8 |
 | M-B1 | Welches Requirement trägt Art. 26 Abs. 5 Satz 1: R009 wie heute oder R008/R010 der prüfenden Gates? | `07-element-matrix.md` | offen | 5 |
 | EF | Die vier Ehrlichkeitsfelder je neuem oder geändertem Requirement und Check: Norm↔Pflicht, MUST/SHOULD, `evidence_level`, `implemented`/`design_only` (AGENTS.md 3) | `entscheidungsregister.md` | offen | 5 |
 | P9-1 | Use Cases des Prüf-Agenten | `00-systembild-und-plan.md` | offen | 9 |
