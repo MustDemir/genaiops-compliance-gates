@@ -2,7 +2,7 @@
 titel: PO-Runde (Paket 4) – Arbeitsliste
 stand: 2026-10-02
 basis: Entscheidungsregister Teil 1 und 3 (alle Punkte mit Paket 4) · Pflichtenräume AI Act und Omnibus, Stand Commit 6a074ed · Stichprobe mit festem Seed 20261002
-status: Arbeitsliste – nichts entschieden · Befund P4-B1 umgesetzt (05.10.2026), Texte zur Bestätigung (P4-F1, R-7)
+status: Arbeitsliste – Teil 1 entschieden 05.10.2026 (Teil 6) · P4-B1 umgesetzt · offen: P4-F1, IN-1 Gruppe 1, S3-3, S3-4, OUT-1, R-8
 ---
 
 # Kurzfazit
@@ -24,13 +24,13 @@ Reihenfolge:  P4-B1 (ich, Texte) ──► A Einzelfragen ──► B Bestätige
 
 | ID | Frage | Optionen | Antwort |
 |---|---|---|---|
-| Q1 | **FRIA:** R012, G-PRE-02 und G-PRE-05/C-01 verlangen eine Grundrechte-Folgenabschätzung als MUST. Art. 27 Abs. 1 nimmt Hochrisiko-Systeme aus Anhang III Nr. 2 aus (Review 05); Redispatch ist Anhang III Nr. 2. Omnibus Art. 27 Abs. 4 n.F. steht deshalb schon als `out` im Vorschlag (OUT-1) | a) **bedingt:** FRIA nur, wenn das System nicht unter Anhang III Nr. 2 fällt – Bedingungsparameter im Manifest wie P2-F4; für Redispatch kein MUST · b) MUST behalten, aber als interne Vorgabe ohne Art.-27-Anker kennzeichnen · c) unverändert (MUST mit Art. 27 – widerspricht dem Wortlaut). MUST/SHOULD ist dein Feld | |
-| Q11 | **Art. 26 Abs. 11:** Trifft Redispatch „Entscheidungen über natürliche Personen“? Heute Teilabdeckung mit G-DEP-03 unter Vorbehalt (P3-F4 b); abgeleitet wäre es eine Lücke | a) nein: Redispatch steuert Anlagen, nicht Personen → nicht einschlägig · b) ja, soweit Anlagenbetreiber natürliche Personen sind → Lücke, Unterrichtung bauen (Paket 5). **Keine Empfehlung** – Auslegungsfrage. HYPOTHESE, nicht geprüft: Redispatch 2.0 bezieht kleinere Anlagen ein, deren Betreiber natürliche Personen sein können; das spräche für b | |
-| S3-1 | **Art. 111 Abs. 2 Satz 2 n.F.** (`in`, Lücke): Frist für Hochrisiko-Systeme, die bestimmungsgemäß von Behörden verwendet werden. Trifft das einen Netzbetreiber, der Behörde ist (z. B. kommunaler Eigenbetrieb)? | a) **dritte Bedingung im P0-Check:** Manifest-Feld „Betreiber ist Behörde“, die Zeile bleibt Lücke, bis es gebaut ist (Paket 5) · b) nicht einschlägig für privatrechtliche Netzbetreiber – Vermerk, Zeile n.e. | |
-| A-F1 | **Anhang IV** nennt an vier Stellen den Betreiber (Nr. 1 lit. g, lit. h, Nr. 2 lit. e, Nr. 3). Schlägt die Dokumentationspflicht des Anbieters auf ihn durch? | a) **nein, `out`:** der Betreiber ist Gegenstand der Dokumentation, nicht ihr Empfänger; was er braucht, verlangt Art. 13 (`in`) · b) ja, `in`: Befund je Zeile | |
-| R-1 | **Severity** des Wächters `PO_DECISIONS_REGISTERED` | a) **LOW:** Pflegesignal, bricht `make verify` trotzdem (`--fail-on low`) · b) MEDIUM · c) HIGH | |
-| P3-B1 | **Art. 73 ungleich zerlegt:** Abs. 2 UAbs. 1 Satz 1 ist Teilabdeckung („unmittelbar“, Fristbeginn bei Kenntnis ungeprüft). Abs. 3 und 4 haben denselben Aufbau und sind gedeckt | a) **Abs. 3, 4 wie Abs. 2 zerlegen** → Teilabdeckung (strenger) · b) Abs. 2 wie Abs. 3, 4 → gedeckt · c) so lassen | |
-| A-W12 | **Omnibus-Unterabsätze:** nach der Aufzählung zählt Art. 75 Abs. 2a mit „UAbs. 2“ weiter, Art. 75a Abs. 4 und Art. 75c Abs. 4 springen auf „UAbs. 3“. Ob dort ein UAbs. 2 fehlt oder die Zählung falsch ist, ist offen. Alle Zeilen `out` – es geht um Kennungen, nicht um Befunde | a) **ich prüfe am amtlichen Text und berichtige**, du bestätigst die Kennungen · b) so lassen | |
+| Q1 | **FRIA:** R012, G-PRE-02 und G-PRE-05/C-01 verlangen eine Grundrechte-Folgenabschätzung als MUST. Art. 27 Abs. 1 nimmt Hochrisiko-Systeme aus Anhang III Nr. 2 aus (Review 05); Redispatch ist Anhang III Nr. 2. Omnibus Art. 27 Abs. 4 n.F. steht deshalb schon als `out` im Vorschlag (OUT-1) | a) **bedingt:** FRIA nur, wenn das System nicht unter Anhang III Nr. 2 fällt – Bedingungsparameter im Manifest wie P2-F4; für Redispatch kein MUST · b) MUST behalten, aber als interne Vorgabe ohne Art.-27-Anker kennzeichnen · c) unverändert (MUST mit Art. 27 – widerspricht dem Wortlaut). MUST/SHOULD ist dein Feld || **b** (05.10.2026) |
+| Q11 | **Art. 26 Abs. 11:** Trifft Redispatch „Entscheidungen über natürliche Personen“? Heute Teilabdeckung mit G-DEP-03 unter Vorbehalt (P3-F4 b); abgeleitet wäre es eine Lücke | a) nein: Redispatch steuert Anlagen, nicht Personen → nicht einschlägig · b) ja, soweit Anlagenbetreiber natürliche Personen sind → Lücke, Unterrichtung bauen (Paket 5). **Keine Empfehlung** – Auslegungsfrage. HYPOTHESE, nicht geprüft: Redispatch 2.0 bezieht kleinere Anlagen ein, deren Betreiber natürliche Personen sein können; das spräche für b || **a** (05.10.2026) |
+| S3-1 | **Art. 111 Abs. 2 Satz 2 n.F.** (`in`, Lücke): Frist für Hochrisiko-Systeme, die bestimmungsgemäß von Behörden verwendet werden. Trifft das einen Netzbetreiber, der Behörde ist (z. B. kommunaler Eigenbetrieb)? | a) **dritte Bedingung im P0-Check:** Manifest-Feld „Betreiber ist Behörde“, die Zeile bleibt Lücke, bis es gebaut ist (Paket 5) · b) nicht einschlägig für privatrechtliche Netzbetreiber – Vermerk, Zeile n.e. || **a** (05.10.2026) |
+| A-F1 | **Anhang IV** nennt an vier Stellen den Betreiber (Nr. 1 lit. g, lit. h, Nr. 2 lit. e, Nr. 3). Schlägt die Dokumentationspflicht des Anbieters auf ihn durch? | a) **nein, `out`:** der Betreiber ist Gegenstand der Dokumentation, nicht ihr Empfänger; was er braucht, verlangt Art. 13 (`in`) · b) ja, `in`: Befund je Zeile || **a** (05.10.2026) |
+| R-1 | **Severity** des Wächters `PO_DECISIONS_REGISTERED` | a) **LOW:** Pflegesignal, bricht `make verify` trotzdem (`--fail-on low`) · b) MEDIUM · c) HIGH || **a** LOW (05.10.2026) |
+| P3-B1 | **Art. 73 ungleich zerlegt:** Abs. 2 UAbs. 1 Satz 1 ist Teilabdeckung („unmittelbar“, Fristbeginn bei Kenntnis ungeprüft). Abs. 3 und 4 haben denselben Aufbau und sind gedeckt | a) **Abs. 3, 4 wie Abs. 2 zerlegen** → Teilabdeckung (strenger) · b) Abs. 2 wie Abs. 3, 4 → gedeckt · c) so lassen || **a** (05.10.2026) |
+| A-W12 | **Omnibus-Unterabsätze:** nach der Aufzählung zählt Art. 75 Abs. 2a mit „UAbs. 2“ weiter, Art. 75a Abs. 4 und Art. 75c Abs. 4 springen auf „UAbs. 3“. Ob dort ein UAbs. 2 fehlt oder die Zählung falsch ist, ist offen. Alle Zeilen `out` – es geht um Kennungen, nicht um Befunde | a) **ich prüfe am amtlichen Text und berichtige**, du bestätigst die Kennungen · b) so lassen || **a** (05.10.2026) – geprüft, nichts zu berichtigen (Teil 6) |
 
 # Teil 2 – B: Zeilen bestätigen
 
@@ -57,6 +57,7 @@ Reihenfolge:  P4-B1 (ich, Texte) ──► A Einzelfragen ──► B Bestätige
 | AI Act | Art. 113 Abs. 3 | n.e. | – | Einleitung der Ausnahmen vom Geltungsbeginn nach Abs. 2 (lit. a-d). |
 | AI Act | Anhang III | n.e. | – | Einleitung der Liste: Als Hochrisiko-KI-Systeme nach Art. 6 Abs. 2 gelten die in den folgenden Bereichen aufg… |
 | AI Act | Anhang III Nr. 2 | n.e. | – | Hochrisiko-Bereich nach Art. 6 Abs. 2 (Anhang III Nr. 2, kritische Infrastruktur): KI-Systeme, die bestimmungs… |
+| AI Act | Art. 3 Nr. 49 lit. d | **trug Nr. 50–61** („sowie Definitionen Nr. 50-61 …“); seit S3-2 a `in` (05.10.2026) | Teil der Definition 'schwerwiegender Vorfall', Variante d): schwere Sach- oder Umweltschaeden. |
 | Omnibus | Art. 3 Nr. 14 n.F. | n.e. | – | Begriff 'Sicherheitsbauteil' (Neufassung): Bestandteil eines Produkts oder KI-Systems, der eine Sicherheitsfun… |
 | Omnibus | Art. 4a Abs. 2 n.F. | n.e. | – | Einleitung: Anbieter und Betreiber anderer KI-Systeme und KI-Modelle sowie Betreiber von Hochrisiko-KI-Systeme… |
 | Omnibus | Art. 4a Abs. 2 lit. a n.F. | n.e. | – | Bedingung a) der Erlaubnis nach Art. 4a Abs. 2 n.F.: die Verarbeitung ist zur Erkennung und Korrektur von Verz… |
@@ -90,7 +91,7 @@ Reihenfolge:  P4-B1 (ich, Texte) ──► A Einzelfragen ──► B Bestätige
 
 | ID | Frage | Optionen | Antwort |
 |---|---|---|---|
-| IN-1 | Bestätigen? | a) **Gruppe 1 gesammelt** (nach den neuen Texten aus P4-B1), Gruppe 2 einzeln mit Q11 und S3-1 · b) alle 42 einzeln | |
+| IN-1 | Bestätigen? | a) **Gruppe 1 gesammelt** (nach den neuen Texten aus P4-B1), Gruppe 2 einzeln mit Q11 und S3-1 · b) alle 42 einzeln || Gruppe 2 **a**; Gruppe 1 **b** einzeln (05.10.2026, Prüfliste) |
 
 ## S3-2 – Unterglieder entschiedener Normen
 
@@ -109,7 +110,7 @@ Reihenfolge:  P4-B1 (ich, Texte) ──► A Einzelfragen ──► B Bestätige
 
 | ID | Frage | Optionen | Antwort |
 |---|---|---|---|
-| S3-2 | Folgen die Unterglieder ihrer Norm? | a) **Art. 3 Nr. 49 lit. a–d wie Nr. 49** (`in`, n.e.). Gemessen: G-OPS-02 (C-02, C-03) stützt seine Meldeschwelle auf **lit. c** (Grundrechte), weil Art. 73 Abs. 9 die Meldepflicht für Anhang-III-Nr.-2-Systeme darauf reduziert – das Gate zitiert also eine Zeile, die heute `out` ist. Lit. b (Störung kritischer Infrastruktur) läuft nach dieser Lesart über CER und NIS2 (HYPOTHESE, gestützt auf den Leitlinien-Entwurf zu Art. 73) · Art. 4a Abs. 2 lit. a/b n.F. bestätigen wie sie stehen · Art. 113 Abs. 3 lit. c Ziff. ii n.F. bleibt `out` (Anhang-I-Systeme, nicht Redispatch) · b) alles bleibt, wie es steht | |
+| S3-2 | Folgen die Unterglieder ihrer Norm? | a) **Art. 3 Nr. 49 lit. a–d wie Nr. 49** (`in`, n.e.). Gemessen: G-OPS-02 (C-02, C-03) stützt seine Meldeschwelle auf **lit. c** (Grundrechte), weil Art. 73 Abs. 9 die Meldepflicht für Anhang-III-Nr.-2-Systeme darauf reduziert – das Gate zitiert also eine Zeile, die heute `out` ist. Lit. b (Störung kritischer Infrastruktur) läuft nach dieser Lesart über CER und NIS2 (HYPOTHESE, gestützt auf den Leitlinien-Entwurf zu Art. 73) · Art. 4a Abs. 2 lit. a/b n.F. bestätigen wie sie stehen · Art. 113 Abs. 3 lit. c Ziff. ii n.F. bleibt `out` (Anhang-I-Systeme, nicht Redispatch) · b) alles bleibt, wie es steht || **a** (05.10.2026) |
 
 ## S3-3 – Verifikationsstufe fehlt (23 `in`-Zeilen, gemessen; Register sagte 12 + 10)
 
@@ -246,5 +247,28 @@ Reihenfolge:  P4-B1 (ich, Texte) ──► A Einzelfragen ──► B Bestätige
 
 | # | Frage | Optionen |
 |---|---|---|
-| P4-F1 | Sammelbestätigung der 28 Pflichttexte aus P4-B1 (Tabelle oben) – bestätigt ist der Text, nicht Befund und Einordnung (wie P3-F2, P3-F5) | a) **alle 28 bestätigen**; ich schreibe sie in `entscheide/` und `PO_DECISIONS_APPLIED` hält sie · b) einzelne Texte ändern (Kennung + Wunsch) |
+| P4-F1 | Sammelbestätigung der 29 Pflichttexte aus P4-B1 (Tabelle oben; der 29. kam mit S3-2 a, Teil 6) – bestätigt ist der Text, nicht Befund und Einordnung (wie P3-F2, P3-F5) | a) **alle 28 bestätigen**; ich schreibe sie in `entscheide/` und `PO_DECISIONS_APPLIED` hält sie · b) einzelne Texte ändern (Kennung + Wunsch) |
 | R-7 | Severity des Wächters `IN_UNITS_OWN_DUTY_TEXT` | a) **MEDIUM:** eine Zeile ohne eigenen Text versteckt keine Pflicht – `scope` und Befund stehen –, aber ihre Bestätigung bestätigt nichts · b) HIGH (wie R-4: ein fremder Text wie bei Art. 3 Nr. 49 lässt eine Zeile anders aussehen, als sie ist) · c) LOW |
+
+# Teil 6 – Entscheide 05.10.2026 und Umsetzung
+
+| Punkt | Entscheid | Umgesetzt |
+|---|---|---|
+| Q1 | **b** – FRIA bleibt MUST, als interne Vorgabe ohne Art.-27-Anker | R012 `anker: intern`, `eu_ai_act_refs: []`, Beschreibung und Quelle („Vorbild, kein Anker“); G-PRE-02/C-01 und G-PRE-02 ohne Normverweis; G-PRE-05/C-01 vermerkt; Rego-Kopf; README „Legal status“ |
+| Q11 | **a** – Art. 26 Abs. 11 nicht einschlägig | Befund n.e., bestätigt; Element-Matrix ohne Eintrag (Vorbehalt Q11 weg), G-DEP-03 kein Nachbar mehr. Gegenargument (Anlagen ab 100 kW mit privaten Betreibern) im `befund_grund` festgehalten |
+| S3-1 | **a** – dritte Bedingung im P0-Check | Zeile bleibt Lücke, bestätigt; Bau (Manifest-Feld „Betreiber ist Behörde“) im Register Teil 2, Paket 5 |
+| A-F1 | **a** – Anhang IV `out` | 4 Zeilen bestätigt |
+| R-1 / R-7 | LOW / MEDIUM | Docstrings der Wächter |
+| P3-B1 | **a** – Abs. 3, 4 wie Abs. 2 | Element-Matrix je ein Element „unverzüglich; Fristbeginn bei Kenntnis“ ungeprüft → Teilabdeckung, bestätigt. H2 (gedeckt mit E-0, 29.09.) ist für diese zwei Zeilen überholt |
+| A-W12 | **a** – prüfen, berichtigen | Amtsblatt S. 28, 29, 31 gelesen: Art. 75a Abs. 4 und Art. 75c Abs. 4 haben vor der Liste zwei Unterabsätze, die Liste steht in UAbs. 2 – „UAbs. 3“ danach ist richtig. Art. 75 Abs. 2a: Kopf und Liste sind UAbs. 1, danach UAbs. 2, 3 – richtig. **Nichts zu berichtigen**; der Kopf-Baustein „Abs. 4 n.F.“ trägt UAbs. 1 und den Listenkopf von UAbs. 2, wie Art. 25 Abs. 2 n.F. |
+| IN-1 Gruppe 2 | **a** | 10 Zeilen bestätigt (Art. 26 Abs. 11 nach Q11 als n.e.); F4-Vorbehalte bleiben in der Element-Matrix sichtbar |
+| IN-1 Gruppe 1 | **b** – einzeln | Prüfliste im Project (`claude/p4-f1-in1-pruefliste.md`, Teil B); wartet auf den PO |
+| S3-2 | **a** | Art. 3 Nr. 49 lit. a–d `in`, n.e., bestätigt; Art. 4a Abs. 2 lit. a/b n.F. und Art. 113 Abs. 3 lit. c Ziff. ii n.F. bestätigt |
+
+- **Beim Umsetzen gefunden:** Art. 3 Nr. 49 lit. d trug zusätzlich die Definitionen Nr. 50–61 im Pflichttext. Mit S3-2 a ist die Zeile `in`; der Text ist neu (Teil 5, P4-F1 jetzt 29 Texte).
+- **Wächter** `REQUIREMENT_ANCHOR_DECLARED` (neu, Vorschlag MEDIUM): ein Requirement nennt seinen Anker oder sagt, warum es keinen hat (`anker: offen` F4, `anker: intern` Q1 b); eine interne Vorgabe zitiert kein Gesetz, auch nicht über ein Gate, das nur sie trägt. Gegenproben: R012 mit Art. 27 → rot; G-PRE-02/C-01 mit Art. 27 → rot; R012 ohne `anker_grund` → rot.
+- **Zahlen nach Teil 1:** `in` 83 von 113 bestätigt (AI Act 72 von 89, Omnibus 11 von 24) · `out` 144 von 1403.
+
+| # | Frage | Optionen |
+|---|---|---|
+| R-8 | Severity des Wächters `REQUIREMENT_ANCHOR_DECLARED` | a) **MEDIUM:** eine interne Vorgabe mit Gesetzeszitat erzeugt kein falsches „konform“, aber eine falsche Rechtsbehauptung nach außen · b) HIGH · c) LOW |

@@ -3596,7 +3596,7 @@ def check_in_units_own_duty_text() -> dict:
     Ob der Text sagt, was sein Beleg sagt, prueft das nicht - das ist die
     Sammelbestaetigung des PO, danach haelt PO_DECISIONS_APPLIED den Text.
 
-    MEDIUM (Vorschlag, R-7 offen): eine Zeile ohne eigenen Text versteckt keine
+    MEDIUM (PO R-7, 05.10.2026): eine Zeile ohne eigenen Text versteckt keine
     Pflicht - scope und Befund stehen -, aber ihre Bestaetigung bestaetigt nichts.
     """
     import yaml
@@ -3627,6 +3627,74 @@ def check_in_units_own_duty_text() -> dict:
         f"kann der PO nur, was dasteht." if findings
         else f"{gezaehlt} in-Zeilen in allen Raeumen, jede mit eigenem, vollstaendigem Pflichttext.",
         findings[:12] + ([f"… und {len(findings) - 12} weitere"] if len(findings) > 12 else []),
+    )
+
+
+def check_requirement_anchor_declared() -> dict:
+    """Ein Requirement nennt seinen gesetzlichen Anker - oder sagt, warum es keinen hat (Q1 b, F4).
+
+    Review 05 (Q1) fand R012 mit dem Anker Art. 27, obwohl Art. 27 Abs. 1 Systeme aus
+    Anhang III Nr. 2 ausnimmt - der Referenzfall Redispatch schuldet keine FRIA. Der PO hat
+    am 05.10.2026 entschieden (Q1 b): MUST bleibt, als interne Vorgabe ohne Art.-27-Anker.
+    Eine interne Vorgabe, die einen Artikel zitiert, sieht aus wie Gesetz; ein Pruef-Agent,
+    der eu_ai_act_refs liest, wuerde daraus eine gesetzliche Pflicht machen.
+
+    Geprueft:
+      * `anker` ist leer, `offen` (F4: Betreiber-Anker gesucht) oder `intern` (Q1 b), und
+        ein gesetzter `anker` hat einen `anker_grund`;
+      * ein Requirement ohne eu_ai_act_refs traegt `anker` - wer keine Norm nennt, sagt warum;
+      * `anker: intern` hat keine eu_ai_act_refs, und ein Gate, das nur interne Requirements
+        traegt, zitiert weder in links.eu_ai_act_refs noch in legal_refs eines Checks eine Norm.
+    Ob ein genannter Anker traegt, prueft das nicht - das ist AN-1 (Paket 5).
+
+    MEDIUM (Vorschlag, R-8 offen): eine interne Vorgabe mit Gesetzeszitat erzeugt kein
+    falsches 'konform', aber eine falsche Rechtsbehauptung nach aussen.
+    """
+    import yaml
+
+    titel = "ein Requirement nennt seinen Anker oder sagt, warum es keinen hat (Q1 b)"
+    findings: list[str] = []
+    reqs: dict[str, dict] = {}
+    for f in sorted((REPO_ROOT / "requirements").glob("R0*.yaml")):
+        r = yaml.safe_load(f.read_text(encoding="utf-8")) or {}
+        rid = r.get("id", f.stem)
+        reqs[rid] = r
+        anker = r.get("anker")
+        refs = r.get("eu_ai_act_refs") or []
+        rel = f.relative_to(REPO_ROOT)
+        if anker not in (None, "offen", "intern"):
+            findings.append(f"{rel}: anker '{anker}' ist weder offen noch intern")
+        if anker and not str(r.get("anker_grund") or "").strip():
+            findings.append(f"{rel}: anker '{anker}' ohne anker_grund")
+        if not refs and not anker:
+            findings.append(f"{rel}: keine eu_ai_act_refs und kein anker - ohne Norm und ohne Grund")
+        if anker == "intern" and refs:
+            findings.append(f"{rel}: anker intern, nennt aber eu_ai_act_refs {refs} - eine interne "
+                            f"Vorgabe mit Gesetzeszitat sieht aus wie Gesetz")
+    intern = {rid for rid, r in reqs.items() if r.get("anker") == "intern"}
+    gates_intern = 0
+    for f, gate in _load_gate_files():
+        traeger = (gate.get("links") or {}).get("requirements") or []
+        if not traeger or not set(traeger) <= intern:
+            continue
+        gates_intern += 1
+        rel = f.relative_to(REPO_ROOT)
+        if (gate.get("links") or {}).get("eu_ai_act_refs"):
+            findings.append(f"{rel}: traegt nur interne Requirements {traeger}, zitiert aber "
+                            f"links.eu_ai_act_refs {gate['links']['eu_ai_act_refs']}")
+        for c in gate.get("policy_checks") or []:
+            if c.get("legal_refs"):
+                findings.append(f"{rel}: {c.get('id')} zitiert legal_refs {c['legal_refs']}, das Gate "
+                                f"traegt nur interne Requirements {traeger}")
+
+    return make_result(
+        "REQUIREMENT_ANCHOR_DECLARED", titel, "medium", not findings,
+        f"{len(findings)} Befund(e): ein Requirement oder Gate behauptet einen Anker, den es nicht hat, "
+        f"oder verschweigt, dass es keinen hat." if findings
+        else f"{len(reqs)} Requirements: {sum(1 for r in reqs.values() if not r.get('anker'))} mit Anker, "
+             f"{sum(1 for r in reqs.values() if r.get('anker') == 'offen')} Anker offen, "
+             f"{len(intern)} intern ohne Gesetzeszitat; {gates_intern} Gate(s) nur intern, ohne Normverweis.",
+        findings,
     )
 
 
@@ -3737,7 +3805,7 @@ def check_po_decisions_registered() -> dict:
 
     LOW wie HANDBOOK_ROADMAP_CURRENT: ein Pflegesignal, keine falsche
     Aussage — aber `make verify` laeuft mit --fail-on low, der Build haelt
-    also an. Einstufung als Vorschlag, PO-Entscheid R-1 im Register.
+    also an. LOW ist entschieden (PO R-1, 05.10.2026).
     """
     titel = "jede Frage an den PO und jeder Befund mit Ziel steht im Entscheidungsregister"
     findings: list[str] = []
@@ -3849,6 +3917,7 @@ def collect_results() -> list[dict]:
         check_element_matrix_derives_gate,
         check_norm_units_match_extractor,
         check_in_units_own_duty_text,
+        check_requirement_anchor_declared,
         check_norm_refs_resolve,
         check_po_decisions_registered,
     ]

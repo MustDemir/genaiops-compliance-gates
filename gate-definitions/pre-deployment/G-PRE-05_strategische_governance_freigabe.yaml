@@ -13,7 +13,7 @@ evidence_level:
 policy_checks:
   - id: "C-01"
     policy: "policy_governance_approval"
-    description: "FRIA abgeschlossen mit affected_rights, human_oversight_model + oversight_lead definiert, kill_switch fuer High-Risk, Konformitaetserklaerung verfuegbar, Governance-Approval-Nachweis (approved_by, approved_at)"
+    description: "FRIA abgeschlossen mit affected_rights (interne Vorgabe R012, kein Art.-27-Anker, PO Q1 b), human_oversight_model + oversight_lead definiert, kill_switch fuer High-Risk, Konformitaetserklaerung verfuegbar, Governance-Approval-Nachweis (approved_by, approved_at)"
     severity: "MUST"
     legal_refs: ["Art. 14"]
     evidence_level: null

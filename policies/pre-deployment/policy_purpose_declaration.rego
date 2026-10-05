@@ -2,7 +2,8 @@
 # G-PRE-02: Purpose Declaration Completeness
 # ================================================================
 # Gate:        G-PRE-02 (Zweckbestimmung)
-# Requirement: R012 — EU AI Act Art. 27 (FRIA)
+# Requirement: R012 — FRIA als interne Vorgabe (PO Q1 b, 05.10.2026); Art. 27 ist
+#              Vorbild, nicht Anker: Abs. 1 nimmt Anhang III Nr. 2 aus
 # Automation:  HYBRID (Conftest checks completeness, manual review assesses FRIA substance)
 # Input:       app_documentation.json (TechOps Application Template)
 # Entrypoint:  deny[msg] (Conftest convention)

@@ -1219,7 +1219,9 @@ einheiten:
   befund: nicht_einschlaegig
   befund_grund: 'Bedingung einer Erlaubnis, begruendet keine eigene Pflicht; lit. b Satz 2: ''Dieser Absatz
     begruendet keine Verpflichtung, eine solche Erkennung und Korrektur von Verzerrungen vorzunehmen.'''
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-10-05 · S3-2 a (Review 13) - bestaetigt, wie die Zeile steht
 - uid: Art. 4a Abs. 2 lit. b n.F.@88098
   id: Art. 4a Abs. 2 lit. b n.F.
   artikel: ''
@@ -1250,9 +1252,10 @@ einheiten:
   gate: &id004 []
   befund: nicht_einschlaegig
   befund_grund: Bedingung einer Erlaubnis, begruendet keine eigene Pflicht.
-  po_bestaetigt: false
+  po_bestaetigt: true
   po_entscheid:
   - 2026-10-02 · P3-F5 a (Review 11) - Pflichttext nach A-W13 bestaetigt
+  - 2026-10-05 · S3-2 a (Review 13) - bestaetigt, wie die Zeile steht
 - uid: Art. 4a Abs. 2 UAbs. 2 n.F.@88176
   id: Art. 4a Abs. 2 UAbs. 2 n.F.
   artikel: ''
@@ -1393,6 +1396,8 @@ einheiten:
   befund_grund: Kein Gate prueft die neuen Verbote; Teil des Art.-5-Screenings (P1).
   po_entscheid:
   - 2026-09-23 · 2b E2 (P1 Verbote, neu ab 02.12.2026)
+  - 2026-10-05 · IN-1 Gruppe 2 a (Review 13) - bestaetigt, wie die Zeile steht
+  po_bestaetigt: true
 - uid: Art. 5 Abs. 1 UAbs. 1 lit. bb n.F.@88927
   id: Art. 5 Abs. 1 UAbs. 1 lit. bb n.F.
   artikel: '5'
@@ -1428,6 +1433,8 @@ einheiten:
   befund_grund: Kein Gate prueft die neuen Verbote; Teil des Art.-5-Screenings (P1).
   po_entscheid:
   - 2026-09-23 · 2b E2 (P1 Verbote, neu ab 02.12.2026)
+  - 2026-10-05 · IN-1 Gruppe 2 a (Review 13) - bestaetigt, wie die Zeile steht
+  po_bestaetigt: true
 - uid: Omnibus Art. 1 Nr. 7 lit. b@89226
   id: Omnibus Art. 1 Nr. 7 lit. b
   artikel: '5'
@@ -8807,7 +8814,10 @@ einheiten:
     im Katalog prueft das Inverkehrbringungsdatum, die Aenderungshistorie oder die Rechtsnatur des Betreibers
     - die zeitliche Anwendbarkeit der gesamten uebrigen Deckungsanalyse (Art. 26 ff.) auf DIESES Projekt
     ist damit eine ungeklaerte Tatsachenfrage, die der PO vorab klaeren sollte.'
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-10-05 · S3-1 a (Review 13) - Luecke bleibt; Manifest-Feld 'Betreiber ist Behoerde' als dritte
+    Bedingung im P0-Check (Paket 5)
 - uid: Omnibus Art. 1 Nr. 39 lit. b@154482
   id: Omnibus Art. 1 Nr. 39 lit. b
   artikel: '111'
@@ -9105,7 +9115,9 @@ einheiten:
   gate: []
   befund: null
   befund_grund: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-10-05 · S3-2 a (Review 13) - bestaetigt, wie die Zeile steht
 - uid: Omnibus Art. 1 Nr. 40 lit. c@155498
   id: Omnibus Art. 1 Nr. 40 lit. c
   artikel: '113'

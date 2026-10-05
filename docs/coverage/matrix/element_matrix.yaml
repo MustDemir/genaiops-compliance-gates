@@ -27,7 +27,7 @@
 # Wie eine Pflicht in Elemente zerfaellt und ob ein Feld ein Element trifft, ist Auslegung des
 # Wortlauts (Review 07 "Ehrlich zur Methode"). Maschinell ist: welches Feld welche Regel liest.
 
-stand: '2026-10-01'
+stand: '2026-10-05'
 lauf: 2
 zeilen:
 
@@ -522,19 +522,9 @@ zeilen:
   - element: Arbeitnehmervertreter und betroffene Arbeitnehmer vor Inbetriebnahme informieren
     status: ungeprueft
 
-- raum: aiact
-  id: Art. 26 Abs. 11
-  vorbehalt:
-    frage: Q11
-    grund: PO P3-F4 b (01.10.2026) - die Zeile bleibt Teilabdeckung mit G-DEP-03, bis Q11 klaert,
-      ob Abs. 11 fuer Redispatch gilt; abgeleitet waere sie Luecke.
-  elemente:
-  - element: betroffene natuerliche Personen informieren, dass sie der Verwendung unterliegen
-    status: nachbar
-    hinweis: ai_content_labeling ist Art. 50 - den nimmt Abs. 11 ausdruecklich aus ("unbeschadet").
-      Ob Abs. 11 fuer Redispatch gilt, bleibt Q11.
-    regeln:
-    - {gate: G-DEP-03, check: C-01, feld: transparency.ai_content_labeling.enabled}
+# Art. 26 Abs. 11: kein Eintrag. PO Q11 a (05.10.2026): nicht einschlaegig - Redispatch steuert
+# Anlagen, es trifft keine Entscheidungen ueber natuerliche Personen. Bis dahin stand die Zeile hier
+# unter Vorbehalt Q11 (P3-F4 b) mit G-DEP-03/C-01 als Nachbar.
 
 # ── Art. 73 – Meldung schwerwiegender Vorfaelle (fuer den Betreiber ueber Art. 26 Abs. 5 Satz 4) ─
 
@@ -577,6 +567,10 @@ zeilen:
     status: geprueft
     regeln:
     - {gate: G-OPS-02, check: C-04, feld: 'deadlines[].hours'}
+  - element: unverzueglich; Fristbeginn bei Kenntnis des Anbieters oder gegebenenfalls des Betreibers
+    status: ungeprueft
+    hinweis: wie Abs. 2 UAbs. 1 Satz 1 zerlegt (PO P3-B1 a, 05.10.2026) - G-OPS-02 haelt die
+      Fristdauer, nicht wann sie beginnt und ob sie laeuft (Fristenuhr fehlt, M-F3).
 
 - raum: aiact
   id: Art. 73 Abs. 4
@@ -585,6 +579,11 @@ zeilen:
     status: geprueft
     regeln:
     - {gate: G-OPS-02, check: C-04, feld: 'deadlines[].hours'}
+  - element: unverzueglich nach Feststellung oder Vermutung des Kausalzusammenhangs; Fristbeginn bei
+      Kenntnis des Anbieters oder gegebenenfalls des Betreibers
+    status: ungeprueft
+    hinweis: wie Abs. 2 UAbs. 1 Satz 1 zerlegt (PO P3-B1 a, 05.10.2026) - G-OPS-02 haelt die
+      Fristdauer, nicht wann sie beginnt und ob sie laeuft (Fristenuhr fehlt, M-F3).
 
 - raum: aiact
   id: Art. 73 Abs. 5

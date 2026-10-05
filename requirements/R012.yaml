@@ -3,10 +3,12 @@ title: "Grundrechte-Folgenabschaetzung muss vor Einsatz durchgefuehrt und dokume
 kontrollmechanismus: "Pre-Deployment Gate-Pruefung auf abgeschlossene FRIA-Dokumentation"
 lifecycle_phase: "pre-deployment"
 governance_dimension: "strategisch"
-eu_ai_act_refs:
-  - "Art. 27"
+eu_ai_act_refs: []
+# Interne Vorgabe, kein gesetzlicher Anker (PO Q1 b, 05.10.2026).
+anker: intern
+anker_grund: "Art. 27 Abs. 1 nimmt Hochrisiko-KI-Systeme aus Anhang III Nr. 2 (kritische Infrastruktur) aus; fuer den Referenzfall Redispatch schuldet der Betreiber keine FRIA. Sie bleibt MUST als interne Vorgabe; Art. 27 ist Vorbild fuer den Inhalt, nicht Rechtsgrundlage."
 must_should: "MUST"
-description: "Deployer, die oeffentliche Stellen sind oder im oeffentlichen Auftrag handeln, muessen vor Erstverwendung eine Grundrechte-Folgenabschaetzung (FRIA) durchfuehren. Fuer private Deployer von High-Risk-Systemen empfohlen als Best Practice."
+description: "Interne Vorgabe (PO Q1 b): Der Betreiber fuehrt vor Erstverwendung eine Grundrechte-Folgenabschaetzung (FRIA) durch und dokumentiert sie. Gesetzlich schulden sie nach Art. 27 Abs. 1 Einrichtungen des oeffentlichen Rechts, private Erbringer oeffentlicher Dienste und Betreiber nach Anhang III Nr. 5 lit. b, c - ausgenommen Anhang III Nr. 2, also der Referenzfall Redispatch."
 evidence_expected:
   - "fria_document"
   - "stakeholder_impact_assessment"
@@ -32,8 +34,8 @@ deployer_implication: "Zweckbestimmung und Einsatzgrenzen schriftlich dokumentie
 provider_implication: ""
 audit_trigger: "Pre-Deployment (einmalig pro Use-Case)"
 sources:
-  - "EU AI Act (VO 2024/1689) Art. 27"
+  - "EU AI Act (VO 2024/1689) Art. 27 - Vorbild fuer den Inhalt, kein Anker (Abs. 1 nimmt Anhang III Nr. 2 aus)"
   - "Huwyler (2025) [UE5LVI97] — Phase 4 Action 4.3: FRIA als Pre-Deployment-Pflicht, Stakeholder-Impact-Bewertung"
   - "Finch & Butt (2025) [HU5B664Q] — FRIA-Ontologie-Referenz (Pandit 2024), Fundamental Rights im AI Act Kontext"
   - "Burns et al. (2025) Dynamo [2GGF93BE] — Governance-Prozess inkl. Grundrechte-Bewertung"
-notes: "v0.4 - Art. 27 Pflicht nur fuer bestimmte Deployer-Kategorien. Fuer Enterprise-Kontext als Best Practice aufgenommen. Huwyler ordnet FRIA in Phase 4 seines 6-Phasen-Frameworks ein."
+notes: "v0.4 - Art. 27 Pflicht nur fuer bestimmte Deployer-Kategorien. Fuer Enterprise-Kontext als Best Practice aufgenommen. Huwyler ordnet FRIA in Phase 4 seines 6-Phasen-Frameworks ein. 05.10.2026 (Review 05 Q1, Review 13): der Anker Art. 27 widersprach dem Wortlaut - Abs. 1 nimmt Anhang III Nr. 2 aus. PO Q1 b: MUST bleibt, als interne Vorgabe ohne Art.-27-Anker (anker: intern)."

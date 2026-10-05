@@ -91,7 +91,7 @@ The third source had sat unused in this repository since the thesis: 14 of 14 re
 |---|---|
 | Gates / requirements | 17 gates · 14 requirements · 55 checks (48 enforced, 7 design-only) |
 | Policies | 19 Rego policies · 196 deny/warn/violation rules |
-| Tests | 215 Rego unit tests · 37 integration tests · 48 integrity checks · hash-chain verification per run |
+| Tests | 215 Rego unit tests · 37 integration tests · 49 integrity checks · hash-chain verification per run |
 | Evidence schema | v06 (`ai_act_role`, `derived_decision`, `runtime_mode` sealed into the payload) |
 | Evidence signing | Keyless `cosign` per CI run, verified against the workflow identity, the repository and the commit · manifest, bundle and verification document retained as run artefacts |
 | Deployment verified | Local (Minikube, Docker) and Azure AKS, Sweden Central |
@@ -212,7 +212,7 @@ Maintained against the **consolidated** EU AI Act: Regulation (EU) 2024/1689 **a
 | **Art. 6(1a)/(1b)** inserted — 1a narrows the purpose arm, 1b shields the failure-impact arm from that narrowing | checks C-A1 … C-A7 |
 | **Art. 10(5)** deleted, legal basis moved to the new **Art. 4a** (extended to deployers) | R006 / G-DEP-01 |
 | **Art. 25(2)/(4)** replaced — the role transfer became a two-sided, documented act | G-OPS-06 handover artefacts |
-| **Art. 27(4)/(5)** eased — deployers may cross-reference an existing DPIA | R012 |
+| **Art. 27(4)/(5)** eased — deployers may cross-reference an existing DPIA | none for the reference case: Art. 27(1) exempts Annex III No. 2, so R012 keeps the FRIA as an internal MUST without an Art. 27 anchor |
 | **Art. 72(3)** — the post-market monitoring plan is now part of the Annex IV technical documentation | R010 |
 
 Both binding language versions were reconciled against the Official Journal; the German text is archived under [`docs/legal/`](docs/legal/). Where they diverge — official German *Sicherheitsbauteil*, not *Sicherheitskomponente* — the finding is recorded in the policy header.

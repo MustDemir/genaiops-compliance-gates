@@ -1,0 +1,112 @@
+# PO-Entscheide vom 05.10.2026 — Paket 4 (PO-Runde), erster Teil
+#
+# Nachweis: docs/coverage/review/13-po-runde-paket-4.md Teil 1 und 2 (Fragen, Spalte Antwort)
+# und Teil 6 (Entscheide).
+#
+# Q11 a: Art. 26 Abs. 11 ist fuer Redispatch nicht einschlaegig - Redispatch steuert Anlagen,
+#   es trifft keine Entscheidungen ueber natuerliche Personen. Der Vorbehalt Q11 (P3-F4 b) in
+#   der Element-Matrix entfaellt mit dem Eintrag.
+# P3-B1 a: Art. 73 Abs. 3 und 4 sind zerlegt wie Abs. 2 UAbs. 1 Satz 1 - die Fristdauer prueft
+#   G-OPS-02, 'unverzueglich' und den Fristbeginn nicht. Teilabdeckung statt gedeckt (H2 vom
+#   29.09.2026 fuer diese zwei Zeilen damit ueberholt).
+# S3-1 a: Art. 111 Abs. 2 Satz 2 n.F. bleibt Luecke; Massnahme in Paket 5: Manifest-Feld
+#   'Betreiber ist Behoerde' als dritte Bedingung im P0-Check.
+# A-F1 a: Anhang IV bleibt out - der Betreiber ist Gegenstand der Dokumentation des Anbieters,
+#   nicht ihr Empfaenger; was er braucht, verlangt Art. 13.
+# IN-1 Gruppe 2 a: die zehn Zeilen mit Teilabdeckung oder Luecke sind bestaetigt, wie sie stehen
+#   (Art. 15 mit Vorbehalt F4 in der Element-Matrix; Art. 26 Abs. 11 nach Q11 nicht einschlaegig).
+# S3-2 a: Art. 3 Nr. 49 lit. a-d folgen Nr. 49 (in, nicht einschlaegig); Art. 4a Abs. 2 lit. a, b
+#   n.F. bestaetigt, wie sie stehen; Art. 113 Abs. 3 lit. c Ziff. ii n.F. bleibt out.
+#
+# Bestaetigt sind Einordnung und Befund, nicht die Pflichttexte - die bestaetigt P4-F1.
+# Ausserhalb dieser Datei (keine Pflichtenraum-Zeilen): Q1 b (R012 als interne Vorgabe),
+# R-1 LOW, R-7 MEDIUM, A-W12 a (Kennungen geprueft, richtig).
+
+entschieden: '2026-10-05'
+eintraege:
+
+  - beleg: Q11 a (Review 13) - Redispatch trifft keine Entscheidungen ueber natuerliche Personen
+    raum: aiact
+    ids: [Art. 26 Abs. 11]
+    setze:
+      befund: nicht_einschlaegig
+      befund_grund: >-
+        PO Q11 a (05.10.2026): Redispatch steuert Erzeugungs- und Lastanlagen; das System trifft
+        keine Entscheidungen ueber natuerliche Personen und unterstuetzt keine. Die Pflicht, die
+        Betroffenen zu unterrichten, greift deshalb nicht. Gegenargument, nicht gefolgt
+        (HYPOTHESE, Branchenquellen): Redispatch 2.0 bezieht Anlagen ab 100 kW ein, deren
+        Betreiber natuerliche Personen sein koennen. Wiedervorlage, sobald ein Anwendungsfall
+        Entscheidungen ueber Personen trifft oder unterstuetzt. Bis 05.10.2026 Teilabdeckung mit
+        G-DEP-03 unter Vorbehalt Q11 (P3-F4 b).
+    bestaetigt: true
+
+  - beleg: P3-B1 a (Review 13) - Art. 73 Abs. 3 zerlegt wie Abs. 2
+    raum: aiact
+    ids: [Art. 73 Abs. 3]
+    setze:
+      befund: teilabdeckung
+      befund_grund: >-
+        Zerlegt wie Abs. 2 UAbs. 1 Satz 1 (PO P3-B1 a, 05.10.2026). Geprueft: die Frist von 48 h -
+        governance/incident_thresholds.yaml deklariert sie, policy_incident_thresholds haelt sie
+        gegen das Gesetz (G-OPS-02/C-04). Ungeprueft: 'unverzueglich' und der Fristbeginn bei
+        Kenntnis des Anbieters oder gegebenenfalls des Betreibers; eine laufende Fristenuhr fehlt
+        (M-F3). Fuer den Betreiber gilt Art. 73 nur ueber Art. 26 Abs. 5 Satz 4 (Befund B2c-1).
+        Bis 05.10.2026 gedeckt mit E-0 (H2).
+    bestaetigt: true
+
+  - beleg: P3-B1 a (Review 13) - Art. 73 Abs. 4 zerlegt wie Abs. 2
+    raum: aiact
+    ids: [Art. 73 Abs. 4]
+    setze:
+      befund: teilabdeckung
+      befund_grund: >-
+        Zerlegt wie Abs. 2 UAbs. 1 Satz 1 (PO P3-B1 a, 05.10.2026). Geprueft: die Frist von 240 h -
+        governance/incident_thresholds.yaml deklariert sie, policy_incident_thresholds haelt sie
+        gegen das Gesetz (G-OPS-02/C-04). Ungeprueft: 'unverzueglich nach Feststellung oder
+        Vermutung des Kausalzusammenhangs' und der Fristbeginn bei Kenntnis des Anbieters oder
+        gegebenenfalls des Betreibers; eine laufende Fristenuhr fehlt (M-F3). Fuer den Betreiber
+        gilt Art. 73 nur ueber Art. 26 Abs. 5 Satz 4 (Befund B2c-1). Bis 05.10.2026 gedeckt mit
+        E-0 (H2).
+    bestaetigt: true
+
+  - beleg: S3-1 a (Review 13) - Luecke bleibt; Manifest-Feld 'Betreiber ist Behoerde' als dritte
+      Bedingung im P0-Check (Paket 5)
+    raum: omnibus
+    ids: [Art. 111 Abs. 2 Satz 2 n.F.]
+    bestaetigt: true
+
+  - beleg: A-F1 a (Review 13) - Anhang IV bleibt out, der Betreiber ist Gegenstand der
+      Dokumentation, nicht ihr Empfaenger
+    raum: aiact
+    ids: [Anhang IV Nr. 1 lit. g, Anhang IV Nr. 1 lit. h, Anhang IV Nr. 2 lit. e, Anhang IV Nr. 3]
+    bestaetigt: true
+
+  - beleg: IN-1 Gruppe 2 a (Review 13) - bestaetigt, wie die Zeile steht
+    raum: aiact
+    ids: [Art. 15 Abs. 1, Art. 15 Abs. 3, Art. 15 Abs. 4 UAbs. 1 Satz 1, Art. 15 Abs. 4 UAbs. 1 Satz 2,
+          Art. 15 Abs. 4 UAbs. 3 Satz 1, Art. 15 Abs. 5]
+    bestaetigt: true
+
+  - beleg: IN-1 Gruppe 2 a (Review 13) - bestaetigt, wie die Zeile steht
+    raum: omnibus
+    ids: [Art. 5 Abs. 1 UAbs. 1 lit. ba n.F., Art. 5 Abs. 1 UAbs. 1 lit. bb n.F.]
+    bestaetigt: true
+
+  - beleg: S3-2 a (Review 13) - die Folgen lit. a-d teilen Scope und Befund der Definition
+    raum: aiact
+    ids: [Art. 3 Nr. 49 lit. a, Art. 3 Nr. 49 lit. b, Art. 3 Nr. 49 lit. c, Art. 3 Nr. 49 lit. d]
+    setze:
+      scope: in
+      scope_grund: >-
+        Wie Art. 3 Nr. 49 (PO S3-2 a, 05.10.2026): die Folgen lit. a-d bestimmen, was ein
+        schwerwiegender Vorfall ist, und damit, wann der Betreiber nach Art. 26 Abs. 5 UAbs. 1
+        Satz 3 meldet. G-OPS-02 stuetzt seine Meldeschwelle auf lit. c (Art. 73 Abs. 9), Art. 73
+        Abs. 3 die 48-h-Frist auf lit. b.
+      befund: nicht_einschlaegig
+      befund_grund: Begriffsbestimmung, begruendet keine eigene pruefbare Pflicht.
+    bestaetigt: true
+
+  - beleg: S3-2 a (Review 13) - bestaetigt, wie die Zeile steht
+    raum: omnibus
+    ids: [Art. 4a Abs. 2 lit. a n.F., Art. 4a Abs. 2 lit. b n.F., Art. 113 Abs. 3 lit. c Ziff. ii n.F.]
+    bestaetigt: true

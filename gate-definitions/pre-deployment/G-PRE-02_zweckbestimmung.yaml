@@ -15,7 +15,8 @@ policy_checks:
     policy: "policy_purpose_declaration"
     description: "application.description und application.domain deklariert; FRIA-Vervollstaendigung: stakeholder_groups und mitigation_documented (die Felder, die G-PRE-05 nicht abdeckt)"
     severity: "MUST"
-    legal_refs: ["Art. 27"]
+    # Kein gesetzlicher Anker: die FRIA ist interne Vorgabe (R012, PO Q1 b, 05.10.2026).
+    legal_refs: []
     evidence_level: null
     implementation: "implemented"
 
@@ -48,8 +49,7 @@ waiver:
 links:
   requirements:
     - "R012"
-  eu_ai_act_refs:
-    - "Art. 27"
+  eu_ai_act_refs: []
 sources:
   - "requirements/R012.yaml"
 notes: "HYBRID: Conftest prueft Pflichtfelder (application.description, application.domain, FRIA stakeholder_groups, FRIA mitigation_documented); manueller Review bewertet inhaltliche Vollstaendigkeit der FRIA. Redundanz-Hinweis (Anhang M/H, aus dem Rego-Kommentar uebernommen): fria_completed und affected_rights werden von G-PRE-05 geprueft, dieses Gate deckt die davon nicht erfassten FRIA-Vollstaendigkeitsfelder ab. UPDATE (2026-08-14, schema_version 2 / SPEC-01): policy_checks auf Objektform migriert, Severity aus R012 (MUST) uebernommen. KORREKTUR EINER STALEN NOTIZ: die alte Notiz 'DESIGN-ONLY — Rego-Implementierung als Future Work' war veraltet/falsch — policies/pre-deployment/policy_purpose_declaration.rego existiert bereits mit 6 deny-Rules (die alten Policy-Namen 'policy_purpose_declaration_complete'/'policy_model_description_complete'/'policy_intended_use_boundaries' waren nie eingeloeste Platzhalter-Namen, die tatsaechliche Implementierung heisst policy_purpose_declaration und ist zu einem Check C-01 konsolidiert). WAIVER ABGESCHAFFT (2026-08-17, Audit F-2): der bisherige Ausnahmepfad lautete \"Governance Lead Approval, befristet auf 30 Tage\" — als Governance-Absicht hier bewahrt, falls Waiver spaeter wirklich implementiert werden. Bis dahin gilt: keine Ausnahme."

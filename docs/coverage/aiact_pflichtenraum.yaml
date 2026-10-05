@@ -2672,19 +2672,22 @@ einheiten:
   adressat: sonstige
   pflicht: 'Teil der Definition ''schwerwiegender Vorfall'' (Nr. 49), Variante a): Tod oder schwere Gesundheitsschaedigung
     einer Person.'
-  scope: out
-  scope_grund: Begriffsbestimmung (Art. 3) - definiert Rechtsbegriffe der Verordnung, begruendet selbst
-    keine Handlungspflicht fuer einen Akteur.
+  scope: in
+  scope_grund: 'Wie Art. 3 Nr. 49 (PO S3-2 a, 05.10.2026): die Folgen lit. a-d bestimmen, was ein schwerwiegender
+    Vorfall ist, und damit, wann der Betreiber nach Art. 26 Abs. 5 UAbs. 1 Satz 3 meldet. G-OPS-02 stuetzt
+    seine Meldeschwelle auf lit. c (Art. 73 Abs. 9), Art. 73 Abs. 3 die 48-h-Frist auf lit. b.'
   verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: unveraendert (geprueft am verfuegenden Teil).
   requirement: []
   gate: []
-  befund: null
-  befund_grund: null
-  po_bestaetigt: false
+  befund: nicht_einschlaegig
+  befund_grund: Begriffsbestimmung, begruendet keine eigene pruefbare Pflicht.
+  po_bestaetigt: true
   migriert_von: Art. 3 lit. a@282190
   migration: kennung_geaendert
+  po_entscheid:
+  - 2026-10-05 · S3-2 a (Review 13) - die Folgen lit. a-d teilen Scope und Befund der Definition
 - uid: Art. 3 Nr. 49 lit. b@282264
   id: Art. 3 Nr. 49 lit. b
   artikel: '3'
@@ -2702,19 +2705,22 @@ einheiten:
   adressat: sonstige
   pflicht: 'Teil der Definition ''schwerwiegender Vorfall'', Variante b): schwere und unumkehrbare Stoerung
     der Verwaltung oder des Betriebs kritischer Infrastrukturen.'
-  scope: out
-  scope_grund: Begriffsbestimmung (Art. 3) - definiert Rechtsbegriffe der Verordnung, begruendet selbst
-    keine Handlungspflicht fuer einen Akteur.
+  scope: in
+  scope_grund: 'Wie Art. 3 Nr. 49 (PO S3-2 a, 05.10.2026): die Folgen lit. a-d bestimmen, was ein schwerwiegender
+    Vorfall ist, und damit, wann der Betreiber nach Art. 26 Abs. 5 UAbs. 1 Satz 3 meldet. G-OPS-02 stuetzt
+    seine Meldeschwelle auf lit. c (Art. 73 Abs. 9), Art. 73 Abs. 3 die 48-h-Frist auf lit. b.'
   verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: unveraendert (geprueft am verfuegenden Teil).
   requirement: []
   gate: []
-  befund: null
-  befund_grund: null
-  po_bestaetigt: false
+  befund: nicht_einschlaegig
+  befund_grund: Begriffsbestimmung, begruendet keine eigene pruefbare Pflicht.
+  po_bestaetigt: true
   migriert_von: Art. 3 lit. b@282264
   migration: kennung_geaendert
+  po_entscheid:
+  - 2026-10-05 · S3-2 a (Review 13) - die Folgen lit. a-d teilen Scope und Befund der Definition
 - uid: Art. 3 Nr. 49 lit. c@282371
   id: Art. 3 Nr. 49 lit. c
   artikel: '3'
@@ -2732,19 +2738,22 @@ einheiten:
   adressat: sonstige
   pflicht: 'Teil der Definition ''schwerwiegender Vorfall'', Variante c): Verletzung von Pflichten aus
     Unionsrecht zum Schutz der Grundrechte.'
-  scope: out
-  scope_grund: Begriffsbestimmung (Art. 3) - definiert Rechtsbegriffe der Verordnung, begruendet selbst
-    keine Handlungspflicht fuer einen Akteur.
+  scope: in
+  scope_grund: 'Wie Art. 3 Nr. 49 (PO S3-2 a, 05.10.2026): die Folgen lit. a-d bestimmen, was ein schwerwiegender
+    Vorfall ist, und damit, wann der Betreiber nach Art. 26 Abs. 5 UAbs. 1 Satz 3 meldet. G-OPS-02 stuetzt
+    seine Meldeschwelle auf lit. c (Art. 73 Abs. 9), Art. 73 Abs. 3 die 48-h-Frist auf lit. b.'
   verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: unveraendert (geprueft am verfuegenden Teil).
   requirement: []
   gate: []
-  befund: null
-  befund_grund: null
-  po_bestaetigt: false
+  befund: nicht_einschlaegig
+  befund_grund: Begriffsbestimmung, begruendet keine eigene pruefbare Pflicht.
+  po_bestaetigt: true
   migriert_von: Art. 3 lit. c@282371
   migration: kennung_geaendert
+  po_entscheid:
+  - 2026-10-05 · S3-2 a (Review 13) - die Folgen lit. a-d teilen Scope und Befund der Definition
 - uid: Art. 3 Nr. 49 lit. d@282469
   id: Art. 3 Nr. 49 lit. d
   artikel: '3'
@@ -2760,22 +2769,23 @@ einheiten:
   saetze: 1
   beleg: d) schwere Sach- oder Umweltschäden;
   adressat: sonstige
-  pflicht: 'Teil der Definition ''schwerwiegender Vorfall'', Variante d): schwere Sach- oder Umweltschaeden,
-    sowie Definitionen Nr. 50-61 (u.a. personenbezogene Daten, Profiling, Plan fuer Test unter Realbedingungen,
-    KI-Reallabor, KI-Kompetenz, Deepfake, weitverbreiteter Verstoss).'
-  scope: out
-  scope_grund: Begriffsbestimmung (Art. 3) - definiert Rechtsbegriffe der Verordnung, begruendet selbst
-    keine Handlungspflicht fuer einen Akteur.
+  pflicht: 'Teil der Definition ''schwerwiegender Vorfall'', Variante d): schwere Sach- oder Umweltschaeden.'
+  scope: in
+  scope_grund: 'Wie Art. 3 Nr. 49 (PO S3-2 a, 05.10.2026): die Folgen lit. a-d bestimmen, was ein schwerwiegender
+    Vorfall ist, und damit, wann der Betreiber nach Art. 26 Abs. 5 UAbs. 1 Satz 3 meldet. G-OPS-02 stuetzt
+    seine Meldeschwelle auf lit. c (Art. 73 Abs. 9), Art. 73 Abs. 3 die 48-h-Frist auf lit. b.'
   verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: unveraendert (geprueft am verfuegenden Teil).
   requirement: &id005 []
   gate: &id006 []
-  befund: null
-  befund_grund: null
-  po_bestaetigt: false
+  befund: nicht_einschlaegig
+  befund_grund: Begriffsbestimmung, begruendet keine eigene pruefbare Pflicht.
+  po_bestaetigt: true
   migriert_von: Art. 3 lit. d@282469
   migration: kennung_geaendert
+  po_entscheid:
+  - 2026-10-05 · S3-2 a (Review 13) - die Folgen lit. a-d teilen Scope und Befund der Definition
 - uid: Art. 3 Nr. 50@282511
   id: Art. 3 Nr. 50
   artikel: '3'
@@ -8752,7 +8762,7 @@ einheiten:
     dagegen laut G-DEP-02s eigener rationale durchgehend E-0/deklariert - ''ohne Ground Truth ist Genauigkeit
     im Betrieb nicht messbar''. Ergebnis: Infrastruktur-Cybersicherheit ist real getestet, Modell-Genauigkeit/-Robustheit
     bleibt Selbstauskunft.'
-  po_bestaetigt: false
+  po_bestaetigt: true
   uid: Art. 15 Abs. 1@332532
   abschnitt: null
   nummer: null
@@ -8760,6 +8770,7 @@ einheiten:
   ziffer: null
   po_entscheid:
   - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, kein Anker benannt)
+  - 2026-10-05 · IN-1 Gruppe 2 a (Review 13) - bestaetigt, wie die Zeile steht
   nachbar_gate:
   - G-OPS-03
 - id: Art. 15 Abs. 2
@@ -8824,7 +8835,7 @@ einheiten:
   befund_grund: Ueberschneidet sich mit Art. 13 Abs. 3 lit. b Ziff. ii (Genauigkeitsmass in der Betriebsanleitung).
     G-DEP-03/C-01 prueft die Existenz von Anleitungs-/Model-Dokumentation allgemein, nicht spezifisch
     das Vorhandensein von Genauigkeitsmetriken darin.
-  po_bestaetigt: false
+  po_bestaetigt: true
   uid: Art. 15 Abs. 3@333158
   abschnitt: null
   nummer: null
@@ -8832,6 +8843,7 @@ einheiten:
   ziffer: null
   po_entscheid:
   - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, kein Anker benannt)
+  - 2026-10-05 · IN-1 Gruppe 2 a (Review 13) - bestaetigt, wie die Zeile steht
 - uid: Art. 15 Abs. 4 UAbs. 1 Satz 1@333325
   id: Art. 15 Abs. 4 UAbs. 1 Satz 1
   artikel: '15'
@@ -8871,12 +8883,13 @@ einheiten:
     Ausgaben als kuenftige Eingaben) wird von keinem Gate erfasst - G-OPS-03 misst Drift (PSI/JSD) allgemein,
     nicht spezifisch selbstverstaerkende Rueckkopplungseffekte; G-DEP-05 (Bias) prueft einmalig vor Freigabe,
     nicht die Feedback-Loop-Dynamik im Betrieb.'
-  po_bestaetigt: false
+  po_bestaetigt: true
   migriert_von: Art. 15 Abs. 4@333319
   migration: geerbt
   po_entscheid:
   - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, kein Anker benannt)
   - 2026-09-30 · P3-F2 a (Review 10) - Pflichttext nach dem Neuschnitt bestaetigt
+  - 2026-10-05 · IN-1 Gruppe 2 a (Review 13) - bestaetigt, wie die Zeile steht
 - uid: Art. 15 Abs. 4 UAbs. 1 Satz 2@333625
   id: Art. 15 Abs. 4 UAbs. 1 Satz 2
   artikel: '15'
@@ -8910,12 +8923,13 @@ einheiten:
     Ausgaben als kuenftige Eingaben) wird von keinem Gate erfasst - G-OPS-03 misst Drift (PSI/JSD) allgemein,
     nicht spezifisch selbstverstaerkende Rueckkopplungseffekte; G-DEP-05 (Bias) prueft einmalig vor Freigabe,
     nicht die Feedback-Loop-Dynamik im Betrieb.'
-  po_bestaetigt: false
+  po_bestaetigt: true
   migriert_von: Art. 15 Abs. 4@333319
   migration: geerbt
   po_entscheid:
   - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, kein Anker benannt)
   - 2026-09-30 · P3-F2 a (Review 10) - Pflichttext nach dem Neuschnitt bestaetigt
+  - 2026-10-05 · IN-1 Gruppe 2 a (Review 13) - bestaetigt, wie die Zeile steht
 - uid: Art. 15 Abs. 4 UAbs. 2 Satz 1@333710
   id: Art. 15 Abs. 4 UAbs. 2 Satz 1
   artikel: '15'
@@ -8990,13 +9004,14 @@ einheiten:
   befund_grund: Rueckkopplungsschleifen bei Systemen, die im Betrieb weiterlernen, prueft kein Gate; G-OPS-03
     misst Drift allgemein. Ob das System weiterlernt, ist eine Tatsache, die heute nirgends erfasst ist
     (M-C1).
-  po_bestaetigt: false
+  po_bestaetigt: true
   migriert_von: Art. 15 Abs. 4@333319
   migration: geerbt
   po_entscheid:
   - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, kein Anker benannt)
   - 2026-09-28 · 2c F2 (Luecke - kein Gate prueft Rueckkopplungsschleifen, M-C1)
   - 2026-09-30 · P3-F2 a (Review 10) - Pflichttext nach dem Neuschnitt bestaetigt
+  - 2026-10-05 · IN-1 Gruppe 2 a (Review 13) - bestaetigt, wie die Zeile steht
   nachbar_gate:
   - G-OPS-03
 - id: Art. 15 Abs. 5
@@ -9041,7 +9056,7 @@ einheiten:
     Robustheit im engeren Sinn (adversarial_tests wird in G-DEP-02/C-02 zwar als Feld erwaehnt, aber als
     SHOULD und nur ''durchgefuehrt''-Flag, keine inhaltliche Pruefung). Substantielle, nicht nur formale
     Luecke.'
-  po_bestaetigt: false
+  po_bestaetigt: true
   uid: Art. 15 Abs. 5@334291
   abschnitt: null
   nummer: null
@@ -9049,6 +9064,7 @@ einheiten:
   ziffer: null
   po_entscheid:
   - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, kein Anker benannt)
+  - 2026-10-05 · IN-1 Gruppe 2 a (Review 13) - bestaetigt, wie die Zeile steht
   nachbar_gate:
   - G-DEP-02
 - id: Art. 16
@@ -12238,22 +12254,15 @@ einheiten:
     nicht enthalten (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
   requirement:
   - R007
-  gate:
-  - G-DEP-03
-  befund: teilabdeckung
-  befund_grund: 'AUSLEGUNGSFRAGE, PO-Entscheidung noetig: die Pflicht gilt fuer Systeme, die ''Entscheidungen
-    ueber natuerliche Personen treffen oder dabei Unterstuetzung leisten''. Der Anwendungsfall Redispatch
-    (Anhang III Nr. 2, kritische Infrastruktur) trifft technische Netzsteuerungsentscheidungen (Erzeugungs-/Lastanpassung);
-    ob dies ''Entscheidungen ueber natuerliche Personen'' im Sinne dieser Vorschrift sind (z.B. mittelbar
-    betroffene Verbraucher bei einer Lastabwurf-Priorisierung), ist am Wortlaut nicht abschliessend zu
-    klaeren und wird hier NICHT einseitig verneint. R007/G-DEP-03 decken die allgemeine Transparenzdokumentation
-    (Art. 13, Art. 26 Abs. 7) ab, aber keine eigene, auf Abs. 11 zugeschnittene Betroffenenunterrichtung;
-    selbst wenn die Anwendbarkeit bejaht wird, waere die Deckung folglich nur teilweise. Fuer den PR-Bericht
-    als offene PO-Frage vorgemerkt: Trifft Redispatch ''Entscheidungen ueber natuerliche Personen'' i.S.d.
-    Art. 26 Abs. 11? Element-Matrix Lauf 2: unter Vorbehalt Q11 (PO P3-F4 b, 01.10.2026); abgeleitet waere
-    die Zeile Luecke - die einzige verwandte Regel (ai_content_labeling) betrifft Art. 50, den Abs. 11
-    ausnimmt.'
-  po_bestaetigt: false
+  gate: []
+  befund: nicht_einschlaegig
+  befund_grund: 'PO Q11 a (05.10.2026): Redispatch steuert Erzeugungs- und Lastanlagen; das System trifft
+    keine Entscheidungen ueber natuerliche Personen und unterstuetzt keine. Die Pflicht, die Betroffenen
+    zu unterrichten, greift deshalb nicht. Gegenargument, nicht gefolgt (HYPOTHESE, Branchenquellen):
+    Redispatch 2.0 bezieht Anlagen ab 100 kW ein, deren Betreiber natuerliche Personen sein koennen. Wiedervorlage,
+    sobald ein Anwendungsfall Entscheidungen ueber Personen trifft oder unterstuetzt. Bis 05.10.2026 Teilabdeckung
+    mit G-DEP-03 unter Vorbehalt Q11 (P3-F4 b).'
+  po_bestaetigt: true
   uid: Art. 26 Abs. 11@366623
   abschnitt: null
   nummer: null
@@ -12262,6 +12271,7 @@ einheiten:
   po_entscheid:
   - 2026-09-23 · 2b E4 (VERIFIZIERT - Betreiber in der Einheit oder ihrem Einleitungssatz genannt)
   - 2026-10-01 · P3-F4 b (Review 11) - Vorbehalt bis Q11
+  - 2026-10-05 · Q11 a (Review 13) - Redispatch trifft keine Entscheidungen ueber natuerliche Personen
 - id: Art. 26 Abs. 12
   artikel: '26'
   artikel_titel: Pflichten der Betreiber von Hochrisiko-KI-Systemen
@@ -25337,11 +25347,12 @@ einheiten:
   - R009
   gate:
   - G-OPS-02
-  befund: gedeckt
-  befund_grund: Die Frist dieser Einheit ist in governance/incident_thresholds.yaml deklariert und policy_incident_thresholds
-    haelt sie gegen das Gesetz (48 h / 240 h / 360 h, je mit Rechtsgrundlage). Nur deklariert (E-0) -
-    eine laufende Fristenuhr fehlt (M-F3). Fuer den Betreiber gilt Art. 73 nur ueber Art. 26 Abs. 5 Satz
-    4 (Befund B2c-1).
+  befund: teilabdeckung
+  befund_grund: 'Zerlegt wie Abs. 2 UAbs. 1 Satz 1 (PO P3-B1 a, 05.10.2026). Geprueft: die Frist von 48
+    h - governance/incident_thresholds.yaml deklariert sie, policy_incident_thresholds haelt sie gegen
+    das Gesetz (G-OPS-02/C-04). Ungeprueft: ''unverzueglich'' und der Fristbeginn bei Kenntnis des Anbieters
+    oder gegebenenfalls des Betreibers; eine laufende Fristenuhr fehlt (M-F3). Fuer den Betreiber gilt
+    Art. 73 nur ueber Art. 26 Abs. 5 Satz 4 (Befund B2c-1). Bis 05.10.2026 gedeckt mit E-0 (H2).'
   po_bestaetigt: true
   uid: Art. 73 Abs. 3@505289
   abschnitt: null
@@ -25352,6 +25363,7 @@ einheiten:
   - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, Anker (b))
   - 2026-09-28 · 2c F1 (T-F Art. 73, M-F3 Fristenuhr)
   - 2026-09-29 · Review 06 H2 (alle Elemente geprueft, nur deklariert - gedeckt mit E-0)
+  - 2026-10-05 · P3-B1 a (Review 13) - Art. 73 Abs. 3 zerlegt wie Abs. 2
 - id: Art. 73 Abs. 4
   artikel: '73'
   artikel_titel: Meldung schwerwiegender Vorfälle
@@ -25378,11 +25390,13 @@ einheiten:
   - R009
   gate:
   - G-OPS-02
-  befund: gedeckt
-  befund_grund: Die Frist dieser Einheit ist in governance/incident_thresholds.yaml deklariert und policy_incident_thresholds
-    haelt sie gegen das Gesetz (48 h / 240 h / 360 h, je mit Rechtsgrundlage). Nur deklariert (E-0) -
-    eine laufende Fristenuhr fehlt (M-F3). Fuer den Betreiber gilt Art. 73 nur ueber Art. 26 Abs. 5 Satz
-    4 (Befund B2c-1).
+  befund: teilabdeckung
+  befund_grund: 'Zerlegt wie Abs. 2 UAbs. 1 Satz 1 (PO P3-B1 a, 05.10.2026). Geprueft: die Frist von 240
+    h - governance/incident_thresholds.yaml deklariert sie, policy_incident_thresholds haelt sie gegen
+    das Gesetz (G-OPS-02/C-04). Ungeprueft: ''unverzueglich nach Feststellung oder Vermutung des Kausalzusammenhangs''
+    und der Fristbeginn bei Kenntnis des Anbieters oder gegebenenfalls des Betreibers; eine laufende Fristenuhr
+    fehlt (M-F3). Fuer den Betreiber gilt Art. 73 nur ueber Art. 26 Abs. 5 Satz 4 (Befund B2c-1). Bis
+    05.10.2026 gedeckt mit E-0 (H2).'
   po_bestaetigt: true
   uid: Art. 73 Abs. 4@505657
   abschnitt: null
@@ -25393,6 +25407,7 @@ einheiten:
   - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, Anker (b))
   - 2026-09-28 · 2c F1 (T-F Art. 73, M-F3 Fristenuhr)
   - 2026-09-29 · Review 06 H2 (alle Elemente geprueft, nur deklariert - gedeckt mit E-0)
+  - 2026-10-05 · P3-B1 a (Review 13) - Art. 73 Abs. 4 zerlegt wie Abs. 2
 - id: Art. 73 Abs. 5
   artikel: '73'
   artikel_titel: Meldung schwerwiegender Vorfälle
@@ -35850,7 +35865,10 @@ einheiten:
   nummer: '1'
   unterabsatz: null
   ziffer: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-10-05 · A-F1 a (Review 13) - Anhang IV bleibt out, der Betreiber ist Gegenstand der Dokumentation,
+    nicht ihr Empfaenger
 - uid: Anhang IV Nr. 1 lit. h@620504
   id: Anhang IV Nr. 1 lit. h
   artikel: Anhang IV
@@ -35887,7 +35905,10 @@ einheiten:
   nummer: '1'
   unterabsatz: null
   ziffer: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-10-05 · A-F1 a (Review 13) - Anhang IV bleibt out, der Betreiber ist Gegenstand der Dokumentation,
+    nicht ihr Empfaenger
 - uid: Anhang IV Nr. 2@620666
   id: Anhang IV Nr. 2
   artikel: Anhang IV
@@ -36100,7 +36121,10 @@ einheiten:
   nummer: '2'
   unterabsatz: null
   ziffer: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-10-05 · A-F1 a (Review 13) - Anhang IV bleibt out, der Betreiber ist Gegenstand der Dokumentation,
+    nicht ihr Empfaenger
 - uid: Anhang IV Nr. 2 lit. f@622793
   id: Anhang IV Nr. 2 lit. f
   artikel: Anhang IV
@@ -36246,7 +36270,10 @@ einheiten:
   nummer: '3'
   unterabsatz: null
   ziffer: null
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-10-05 · A-F1 a (Review 13) - Anhang IV bleibt out, der Betreiber ist Gegenstand der Dokumentation,
+    nicht ihr Empfaenger
 - uid: Anhang IV Nr. 4@624569
   id: Anhang IV Nr. 4
   artikel: Anhang IV
