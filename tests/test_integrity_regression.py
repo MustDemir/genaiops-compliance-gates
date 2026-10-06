@@ -3630,6 +3630,48 @@ def check_in_units_own_duty_text() -> dict:
     )
 
 
+def check_in_units_verification_declared() -> dict:
+    """Jede `in`-Zeile traegt ihre Verifikationsstufe; HYPOTHESE nennt ihren Grund (S3-3).
+
+    SPEC-06 (Regel 4): "Jede Zeile traegt eine Verifikationsstufe, und HYPOTHESE ohne
+    Begruendung ist ein Fehlschlag." Gehalten hat das niemand: am 06.10.2026 standen 23
+    `in`-Zeilen ohne Stufe (12 steuernde Normen des AI Act, 10 Omnibus-Neufassungen, Anhang
+    III Nr. 2). Der PO hat die Stufen gesetzt (S3-3 a); darunter Anhang III Nr. 2 als
+    HYPOTHESE - die Hochrisiko-Einstufung des Referenzfalls. Ein Pruef-Agent, der eine Zeile
+    ohne Stufe liest, kann Auslegung nicht von Wortlaut unterscheiden.
+
+    Geprueft je Raum: `verifikation` ist VERIFIZIERT, SEKUNDAERQUELLE oder HYPOTHESE; bei
+    HYPOTHESE ist `hypothese_grund` nicht leer.
+
+    MEDIUM (Vorschlag, R-9 offen) wie IN_UNITS_OWN_DUTY_TEXT: eine fehlende Stufe versteckt
+    keine Pflicht, aber sie verwischt, was belegt und was ausgelegt ist.
+    """
+    import yaml
+    from collections import Counter
+
+    titel = "jede in-Zeile traegt ihre Verifikationsstufe, HYPOTHESE mit Grund (S3-3)"
+    findings: list[str] = []
+    stufen: Counter = Counter()
+    for pfad in sorted((REPO_ROOT / "docs" / "coverage").glob("*_pflichtenraum.yaml")):
+        for e in (yaml.safe_load(pfad.read_text(encoding="utf-8")) or {}).get("einheiten") or []:
+            if e.get("scope") != "in":
+                continue
+            v = e.get("verifikation")
+            stufen[v] += 1
+            if v not in ("VERIFIZIERT", "SEKUNDAERQUELLE", "HYPOTHESE"):
+                findings.append(f"{pfad.name}: {e['id']} — keine Verifikationsstufe ({v!r})")
+            elif v == "HYPOTHESE" and not str(e.get("hypothese_grund") or "").strip():
+                findings.append(f"{pfad.name}: {e['id']} — HYPOTHESE ohne hypothese_grund")
+
+    return make_result(
+        "IN_UNITS_VERIFICATION_DECLARED", titel, "medium", not findings,
+        f"{len(findings)} in-Zeile(n) ohne Stufe oder HYPOTHESE ohne Grund." if findings
+        else f"{sum(stufen.values())} in-Zeilen: VERIFIZIERT {stufen['VERIFIZIERT']} · "
+             f"HYPOTHESE {stufen['HYPOTHESE']} (je mit Grund) · SEKUNDAERQUELLE {stufen['SEKUNDAERQUELLE']}.",
+        findings[:12] + ([f"… und {len(findings) - 12} weitere"] if len(findings) > 12 else []),
+    )
+
+
 def check_requirement_anchor_declared() -> dict:
     """Ein Requirement nennt seinen gesetzlichen Anker - oder sagt, warum es keinen hat (Q1 b, F4).
 
@@ -3917,6 +3959,7 @@ def collect_results() -> list[dict]:
         check_element_matrix_derives_gate,
         check_norm_units_match_extractor,
         check_in_units_own_duty_text,
+        check_in_units_verification_declared,
         check_requirement_anchor_declared,
         check_norm_refs_resolve,
         check_po_decisions_registered,

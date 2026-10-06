@@ -342,7 +342,7 @@ einheiten:
   scope: in
   scope_grund: Steuernde Norm (T-13 Raster, Ausnahme von Schritt 3) - entscheidet, dass Betreiber ueberhaupt
     erfasst sind.
-  verifikation: null
+  verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: unveraendert (geprueft am verfuegenden Teil).
   requirement: []
@@ -358,6 +358,8 @@ einheiten:
   po_entscheid:
   - 2026-09-23 · 2b E5 (steuernde Norm)
   - 2026-10-06 · IN-1 Gruppe 1 (Review 13) - einzeln geprueft, in und nicht einschlaegig bestaetigt
+  - '2026-10-06 · S3-3 a (Review 13) - VERIFIZIERT: Der Wortlaut nennt den Betreiber (''Betreiber von
+    KI-Systemen, die ihren Sitz in der Union haben'').'
 - id: Art. 2 Abs. 1 lit. c
   artikel: '2'
   artikel_titel: Anwendungsbereich
@@ -1012,7 +1014,7 @@ einheiten:
   scope: in
   scope_grund: Steuernde Begriffsbestimmung (T-13 Raster, Ausnahme von Schritt 3) - Betreiber, Akteur,
     wesentliche Veraenderung, schwerwiegender Vorfall; genutzt von G-PRE-01, G-OPS-02 und G-OPS-06.
-  verifikation: null
+  verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: unveraendert - Art. 1 Nr. 4 der VO (EU) 2026/1744 aendert in Art. 3 nur Nr. 14 (neu gefasst,
     Art. 3 Nr. 14 n.F.) und fuegt Nr. 14a und 14b ein; diese Nummer ist nicht betroffen (A-W4, geprueft
@@ -1028,6 +1030,8 @@ einheiten:
   - 2026-09-23 · 2b E5 (steuernde Norm)
   - 2026-10-06 · P4-F1 a (Review 13) - Pflichttext bestaetigt
   - 2026-10-06 · IN-1 Gruppe 1 (Review 13) - einzeln geprueft, in und nicht einschlaegig bestaetigt
+  - '2026-10-06 · S3-3 a (Review 13) - VERIFIZIERT: Definiert den Betreiber selbst; dass der Verteilnetzbetreiber
+    das System beruflich in eigener Verantwortung verwendet, ist Praemisse des Referenzfalls (Leitsatz).'
 - uid: Art. 3 Nr. 5@270807
   id: Art. 3 Nr. 5
   artikel: '3'
@@ -1153,7 +1157,7 @@ einheiten:
   scope: in
   scope_grund: Steuernde Begriffsbestimmung (T-13 Raster, Ausnahme von Schritt 3) - Betreiber, Akteur,
     wesentliche Veraenderung, schwerwiegender Vorfall; genutzt von G-PRE-01, G-OPS-02 und G-OPS-06.
-  verifikation: null
+  verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: unveraendert - Art. 1 Nr. 4 der VO (EU) 2026/1744 aendert in Art. 3 nur Nr. 14 (neu gefasst,
     Art. 3 Nr. 14 n.F.) und fuegt Nr. 14a und 14b ein; diese Nummer ist nicht betroffen (A-W4, geprueft
@@ -1169,6 +1173,7 @@ einheiten:
   - 2026-09-23 · 2b E5 (steuernde Norm)
   - 2026-10-06 · P4-F1 a (Review 13) - Pflichttext bestaetigt
   - 2026-10-06 · IN-1 Gruppe 1 (Review 13) - einzeln geprueft, in und nicht einschlaegig bestaetigt
+  - '2026-10-06 · S3-3 a (Review 13) - VERIFIZIERT: Der Wortlaut nennt den Betreiber als Akteur.'
 - uid: Art. 3 Nr. 9@271742
   id: Art. 3 Nr. 9
   artikel: '3'
@@ -1681,7 +1686,7 @@ einheiten:
   scope: in
   scope_grund: Steuernde Begriffsbestimmung (T-13 Raster, Ausnahme von Schritt 3) - Betreiber, Akteur,
     wesentliche Veraenderung, schwerwiegender Vorfall; genutzt von G-PRE-01, G-OPS-02 und G-OPS-06.
-  verifikation: null
+  verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: unveraendert - Art. 1 Nr. 4 der VO (EU) 2026/1744 aendert in Art. 3 nur Nr. 14 (neu gefasst,
     Art. 3 Nr. 14 n.F.) und fuegt Nr. 14a und 14b ein; diese Nummer ist nicht betroffen (A-W4, geprueft
@@ -1697,6 +1702,8 @@ einheiten:
   - 2026-09-23 · 2b E5 (steuernde Norm)
   - 2026-10-06 · P4-F1 a (Review 13) - Pflichttext bestaetigt
   - 2026-10-06 · IN-1 Gruppe 1 (Review 13) - einzeln geprueft, in und nicht einschlaegig bestaetigt
+  - '2026-10-06 · S3-3 a (Review 13) - VERIFIZIERT: Art. 25 Abs. 1 lit. b (Betreiber wird Anbieter, VERIFIZIERT)
+    verwendet den Begriff woertlich.'
 - uid: Art. 3 Nr. 24@275200
   id: Art. 3 Nr. 24
   artikel: '3'
@@ -2650,7 +2657,7 @@ einheiten:
   scope: in
   scope_grund: Steuernde Begriffsbestimmung (T-13 Raster, Ausnahme von Schritt 3) - Betreiber, Akteur,
     wesentliche Veraenderung, schwerwiegender Vorfall; genutzt von G-PRE-01, G-OPS-02 und G-OPS-06.
-  verifikation: null
+  verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: unveraendert (geprueft am verfuegenden Teil).
   requirement: *id003
@@ -2664,6 +2671,8 @@ einheiten:
   - 2026-09-23 · 2b E5 (steuernde Norm)
   - 2026-10-06 · P4-F1 a (Review 13) - Pflichttext bestaetigt
   - 2026-10-06 · IN-1 Gruppe 1 (Review 13) - einzeln geprueft, in und nicht einschlaegig bestaetigt
+  - '2026-10-06 · S3-3 a (Review 13) - VERIFIZIERT: Art. 26 Abs. 5 UAbs. 1 Satz 3 (Betreiber meldet, VERIFIZIERT)
+    verwendet den Begriff woertlich.'
 - uid: Art. 3 Nr. 49 lit. a@282190
   id: Art. 3 Nr. 49 lit. a
   artikel: '3'
@@ -4736,7 +4745,7 @@ einheiten:
   scope: in
   scope_grund: Steuernde Norm (T-13 Raster, Ausnahme von Schritt 3) - Hochrisiko-Einstufung, die G-PRE-01
     prueft.
-  verifikation: null
+  verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: unveraendert - VO (EU) 2026/1744 Art. 1 Nr. 8 fuegt lediglich neue Absaetze 1a-1c ein (Klarstellungen
     zu Sicherheitsbauteilen), aendert Abs. 1-8 selbst nicht (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
@@ -4753,6 +4762,9 @@ einheiten:
   po_entscheid:
   - 2026-09-23 · 2b E5 (steuernde Norm)
   - 2026-10-06 · IN-1 Gruppe 1 (Review 13) - einzeln geprueft, in und nicht einschlaegig bestaetigt
+  - '2026-10-06 · S3-3 a (Review 13) - VERIFIZIERT: Art. 26 gilt fuer ''Betreiber von Hochrisiko-KI-Systemen'';
+    Abs. 2 bestimmt, welche Systeme das nach Anhang III sind - Verweis am Wortlaut. Ob Redispatch darunter
+    faellt, steht bei Anhang III Nr. 2.'
 - id: Art. 6 Abs. 3
   artikel: '6'
   artikel_titel: Einstufungsvorschriften für Hochrisiko-KI-Systeme
@@ -4773,7 +4785,7 @@ einheiten:
   scope: in
   scope_grund: Steuernde Norm (T-13 Raster, Ausnahme von Schritt 3) - Hochrisiko-Einstufung, die G-PRE-01
     prueft.
-  verifikation: null
+  verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: unveraendert - VO (EU) 2026/1744 Art. 1 Nr. 8 fuegt lediglich neue Absaetze 1a-1c ein (Klarstellungen
     zu Sicherheitsbauteilen), aendert Abs. 1-8 selbst nicht (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
@@ -4791,6 +4803,8 @@ einheiten:
   - 2026-09-23 · 2b E5 (steuernde Norm)
   - 2026-10-06 · P4-F1 a (Review 13) - Pflichttext bestaetigt
   - 2026-10-06 · IN-1 Gruppe 1 (Review 13) - einzeln geprueft, in und nicht einschlaegig bestaetigt
+  - '2026-10-06 · S3-3 a (Review 13) - VERIFIZIERT: Ausnahme von Abs. 2 (''Abweichend von Absatz 2'')
+    - steuert, ob Art. 26 greift; Verweis am Wortlaut.'
 - id: Art. 6 Abs. 3 lit. a
   artikel: '6'
   artikel_titel: Einstufungsvorschriften für Hochrisiko-KI-Systeme
@@ -4805,7 +4819,7 @@ einheiten:
   scope: in
   scope_grund: Steuernde Norm (T-13 Raster, Ausnahme von Schritt 3) - Hochrisiko-Einstufung, die G-PRE-01
     prueft.
-  verifikation: null
+  verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: unveraendert - VO (EU) 2026/1744 Art. 1 Nr. 8 fuegt lediglich neue Absaetze 1a-1c ein (Klarstellungen
     zu Sicherheitsbauteilen), aendert Abs. 1-8 selbst nicht (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
@@ -4822,6 +4836,8 @@ einheiten:
   po_entscheid:
   - 2026-09-23 · 2b E5 (steuernde Norm)
   - 2026-10-06 · IN-1 Gruppe 1 (Review 13) - einzeln geprueft, in und nicht einschlaegig bestaetigt
+  - '2026-10-06 · S3-3 a (Review 13) - VERIFIZIERT: Bedingung der Ausnahme nach Abs. 3 UAbs. 1 - Verweis
+    am Wortlaut.'
 - id: Art. 6 Abs. 3 lit. b
   artikel: '6'
   artikel_titel: Einstufungsvorschriften für Hochrisiko-KI-Systeme
@@ -4838,7 +4854,7 @@ einheiten:
   scope: in
   scope_grund: Steuernde Norm (T-13 Raster, Ausnahme von Schritt 3) - Hochrisiko-Einstufung, die G-PRE-01
     prueft.
-  verifikation: null
+  verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: unveraendert - VO (EU) 2026/1744 Art. 1 Nr. 8 fuegt lediglich neue Absaetze 1a-1c ein (Klarstellungen
     zu Sicherheitsbauteilen), aendert Abs. 1-8 selbst nicht (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
@@ -4855,6 +4871,8 @@ einheiten:
   po_entscheid:
   - 2026-09-23 · 2b E5 (steuernde Norm)
   - 2026-10-06 · IN-1 Gruppe 1 (Review 13) - einzeln geprueft, in und nicht einschlaegig bestaetigt
+  - '2026-10-06 · S3-3 a (Review 13) - VERIFIZIERT: Bedingung der Ausnahme nach Abs. 3 UAbs. 1 - Verweis
+    am Wortlaut.'
 - id: Art. 6 Abs. 3 lit. c
   artikel: '6'
   artikel_titel: Einstufungsvorschriften für Hochrisiko-KI-Systeme
@@ -4872,7 +4890,7 @@ einheiten:
   scope: in
   scope_grund: Steuernde Norm (T-13 Raster, Ausnahme von Schritt 3) - Hochrisiko-Einstufung, die G-PRE-01
     prueft.
-  verifikation: null
+  verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: unveraendert - VO (EU) 2026/1744 Art. 1 Nr. 8 fuegt lediglich neue Absaetze 1a-1c ein (Klarstellungen
     zu Sicherheitsbauteilen), aendert Abs. 1-8 selbst nicht (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
@@ -4889,6 +4907,8 @@ einheiten:
   po_entscheid:
   - 2026-09-23 · 2b E5 (steuernde Norm)
   - 2026-10-06 · IN-1 Gruppe 1 (Review 13) - einzeln geprueft, in und nicht einschlaegig bestaetigt
+  - '2026-10-06 · S3-3 a (Review 13) - VERIFIZIERT: Bedingung der Ausnahme nach Abs. 3 UAbs. 1 - Verweis
+    am Wortlaut.'
 - id: Art. 6 Abs. 3 lit. d
   artikel: '6'
   artikel_titel: Einstufungsvorschriften für Hochrisiko-KI-Systeme
@@ -4905,7 +4925,7 @@ einheiten:
   scope: in
   scope_grund: Steuernde Norm (T-13 Raster, Ausnahme von Schritt 3) - Hochrisiko-Einstufung, die G-PRE-01
     prueft.
-  verifikation: null
+  verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: unveraendert - VO (EU) 2026/1744 Art. 1 Nr. 8 fuegt lediglich neue Absaetze 1a-1c ein (Klarstellungen
     zu Sicherheitsbauteilen), aendert Abs. 1-8 selbst nicht (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
@@ -4923,6 +4943,8 @@ einheiten:
   - 2026-09-23 · 2b E5 (steuernde Norm)
   - 2026-09-30 · P3-F2 a (Review 10) - Pflichttext nach dem Neuschnitt bestaetigt
   - 2026-10-06 · IN-1 Gruppe 1 (Review 13) - einzeln geprueft, in und nicht einschlaegig bestaetigt
+  - '2026-10-06 · S3-3 a (Review 13) - VERIFIZIERT: Bedingung der Ausnahme nach Abs. 3 UAbs. 1 - Verweis
+    am Wortlaut.'
 - uid: Art. 6 Abs. 3 UAbs. 3@304151
   id: Art. 6 Abs. 3 UAbs. 3
   artikel: '6'
@@ -4944,7 +4966,7 @@ einheiten:
   scope: in
   scope_grund: Steuernde Norm (T-13 Raster, Ausnahme von Schritt 3) - Hochrisiko-Einstufung, die G-PRE-01
     prueft; eigene Einheit seit T-15 Teil 2 (A-W11), vorher Teil von Art. 6 Abs. 3 lit. d.
-  verifikation: null
+  verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: unveraendert - VO (EU) 2026/1744 Art. 1 Nr. 8 fuegt lediglich neue Absaetze 1a-1c ein (Klarstellungen
     zu Sicherheitsbauteilen), aendert Abs. 1-8 selbst nicht (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
@@ -4956,6 +4978,8 @@ einheiten:
   po_entscheid:
   - 2026-09-23 · 2b E5 (steuernde Norm)
   - 2026-10-06 · IN-1 Gruppe 1 (Review 13) - einzeln geprueft, in und nicht einschlaegig bestaetigt
+  - '2026-10-06 · S3-3 a (Review 13) - VERIFIZIERT: Gegenausnahme (''Ungeachtet des Unterabsatzes 1'')
+    - Verweis am Wortlaut.'
   migriert_von: Art. 6 Abs. 3 lit. d@303969
   migration: geerbt
 - id: Art. 6 Abs. 4
@@ -34672,8 +34696,11 @@ einheiten:
   scope: in
   scope_grund: Steuernde Norm (T-13 Raster, Ausnahme von Schritt 3) - Einstufung kritische Infrastruktur,
     auf der das Vorhaben ruht (G-PRE-01).
-  verifikation: null
-  hypothese_grund: null
+  verifikation: HYPOTHESE
+  hypothese_grund: 'Dass die Redispatch-KI ein Sicherheitsbauteil im Betrieb der Stromversorgung ist,
+    ist Einordnung des Anwendungsfalls: sie stuetzt sich auf Art. 3 Nr. 14 n.F. und Art. 6 Abs. 1a, 1b
+    n.F., fuer die es weder Leitlinien noch Rechtsprechung gibt (README, Legal status). Folge: die Hochrisiko-Einstufung
+    des Referenzfalls ist HYPOTHESE.'
   omnibus: unveraendert - Anhang III ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht
     enthalten; Aenderungen an Anhaengen nur durch Art. 1 Nr. 41 (Anhang I), Nr. 42 (Anhang VIII Abschn.
     B Nr. 7 und 9) und Nr. 43 (neuer Anhang XIV) (geprueft am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
@@ -34689,6 +34716,7 @@ einheiten:
   - 2026-09-23 · 2b E5 (steuernde Norm)
   - 2026-10-06 · P4-F1 a (Review 13) - Pflichttext bestaetigt
   - 2026-10-06 · IN-1 Gruppe 1 (Review 13) - einzeln geprueft, in und nicht einschlaegig bestaetigt
+  - 2026-10-06 · S3-3 a (Review 13) - HYPOTHESE mit Grund
   po_bestaetigt: true
 - uid: Anhang III Nr. 3@611479
   id: Anhang III Nr. 3

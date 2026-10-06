@@ -300,3 +300,15 @@ Reihenfolge:  P4-B1 (ich, Texte) ──► A Einzelfragen ──► B Bestätige
 - **behoerde** (20): AI Act Art. 51 Abs. 2 · AI Act Art. 49 Abs. 4 lit. c · Omnibus Art. 75a Abs. 8 n.F. · AI Act Art. 78 Abs. 1 lit. b · AI Act Art. 89 Abs. 1 · AI Act Art. 74 Abs. 8 · AI Act Art. 36 Abs. 7 lit. d · Omnibus Art. 60a Abs. 5 lit. a n.F. · AI Act Art. 7 Abs. 2 lit. k · AI Act Art. 66 lit. o · Omnibus Art. 27 Abs. 5 n.F. · AI Act Art. 66 lit. j · AI Act Art. 100 Abs. 1 lit. d · AI Act Art. 99 Abs. 10 · AI Act Art. 58 Abs. 2 lit. a · AI Act Art. 68 Abs. 2 lit. a · AI Act Art. 79 Abs. 1 · Omnibus Art. 75 Abs. 1c n.F. · AI Act Art. 35 Abs. 1 · Omnibus Art. 75 Abs. 1 lit. a n.F.
 - **anbieter** (20): AI Act Anhang VIII Abschn. B Nr. 5 · Omnibus Art. 5 Abs. 1a lit. a Ziff. ii n.F. · AI Act Anhang VIII Abschn. A Nr. 5 · AI Act Art. 60 Abs. 8 · AI Act Art. 17 Abs. 4 · AI Act Art. 25 Abs. 3 lit. b · AI Act Art. 17 Abs. 1 lit. g · AI Act Anhang VII Nr. 3.1 lit. c · AI Act Art. 93 Abs. 1 lit. a · AI Act Art. 55 Abs. 1 lit. d · AI Act Art. 16 lit. b · AI Act Art. 10 Abs. 6 · AI Act Art. 53 Abs. 1 lit. d · AI Act Art. 89 Abs. 2 lit. a · AI Act Art. 89 Abs. 2 lit. c · AI Act Art. 10 Abs. 5 lit. d · AI Act Anhang IV Nr. 1 lit. e · Omnibus Art. 60 Abs. 1 UAbs. 1 n.F. · AI Act Art. 48 Abs. 5 · AI Act Anhang XII
 - **sonstige** (20): AI Act Art. 1 Abs. 2 lit. f · AI Act Anhang X Nr. 7 · Omnibus Anhang XIV Nr. 2 n.F. · AI Act Art. 3 Nr. 61 lit. a Ziff. i · AI Act Art. 31 Abs. 2 · AI Act Art. 3 Nr. 55 · AI Act Anhang III Nr. 7 lit. b · AI Act Art. 59 Abs. 1 lit. a Ziff. v · AI Act Art. 3 Nr. 34 · AI Act Art. 3 Nr. 12 · AI Act Art. 54 Abs. 3 lit. b · AI Act Art. 3 Nr. 1 · AI Act Anhang I Abschn. A Nr. 3 · AI Act Art. 45 Abs. 1 lit. a · AI Act Art. 22 Abs. 3 UAbs. 2 · AI Act Art. 3 Nr. 19 · AI Act Art. 3 Nr. 62 · AI Act Art. 85 Abs. 1 · AI Act Anhang III Nr. 6 lit. c · AI Act Art. 59 Abs. 3
+
+# Teil 9 – S3-3 umgesetzt (06.10.2026)
+
+- **PO:** „A alles“ – die 23 Vorschläge aus der Prüfliste Teil A sind bestätigt (`entscheide/2026-10-06_s3-3-verifikation.yaml`).
+- **Stand `in`:** 113 Zeilen, VERIFIZIERT 64 · HYPOTHESE 49, jede HYPOTHESE mit Grund.
+- **Neu HYPOTHESE:** Anhang III Nr. 2 – die Hochrisiko-Einstufung des Referenzfalls hängt an „Redispatch-KI = Sicherheitsbauteil“ (Art. 3 Nr. 14 n.F., Art. 6 Abs. 1a/1b n.F.); Omnibus Art. 6 Abs. 1c n.F. – steuert nur den Anhang-I-Weg. Beide gehen in S3-4 (Quellen) und FR-5 (juristische Zweitprüfung).
+- **Wächter** `IN_UNITS_VERIFICATION_DECLARED` (neu, Vorschlag MEDIUM): jede `in`-Zeile trägt eine Stufe, HYPOTHESE mit Grund – SPEC-06 Regel 4 stand bis heute ohne Wächter. Gegen den Stand vorher: 23 Befunde.
+- **OUT-1 (Teil B der Prüfliste):** offen, wartet auf den PO.
+
+| # | Frage | Optionen |
+|---|---|---|
+| R-9 | Severity des Wächters `IN_UNITS_VERIFICATION_DECLARED` | a) **MEDIUM** wie `IN_UNITS_OWN_DUTY_TEXT`: verwischt, was belegt und was ausgelegt ist, versteckt aber keine Pflicht · b) HIGH · c) LOW |
