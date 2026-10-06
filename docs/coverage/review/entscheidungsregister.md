@@ -23,7 +23,6 @@ Pakete:  1 Anhänge ✅ · 2 Omnibus · 3 Befunde + Matrix · 4 PO-Runde · 5 Be
 
 | ID | Gegenstand | Quelle | Stand | Paket |
 |---|---|---|---|---|
-| P4-F2 | Pflichttexte (12) und Verifikationsstufen (12; 6 VERIFIZIERT, 6 HYPOTHESE für Nr. 61 mit Untergliedern) der neuen `in`-Zeilen aus OUT-1 bestätigen | `13-po-runde-paket-4.md` | offen | 4 |
 | FR-4 | Souveräner Betriebspfad (selbst betriebene CI, eigene PKI/privates Sigstore, Kubernetes bei EU-Anbieter oder on-prem) als eigenes Paket – später, bei konkreter Kundenanfrage | `14-fachreview-business-ready.md` | vertagt 06.10.2026 b | jederzeit |
 | M-B1 | Welches Requirement trägt Art. 26 Abs. 5 Satz 1: R009 wie heute oder R008/R010 der prüfenden Gates? | `07-element-matrix.md` | offen | 5 |
 | EF | Die vier Ehrlichkeitsfelder je neuem oder geändertem Requirement und Check: Norm↔Pflicht, MUST/SHOULD, `evidence_level`, `implemented`/`design_only` (AGENTS.md 3) | `entscheidungsregister.md` | offen | 5 |
@@ -129,6 +128,7 @@ Pakete:  1 Anhänge ✅ · 2 Omnibus · 3 Befunde + Matrix · 4 PO-Runde · 5 Be
 | R-9 | Severity `IN_UNITS_VERIFICATION_DECLARED` = MEDIUM | `13-po-runde-paket-4.md` | umgesetzt 06.10.2026 MEDIUM | – |
 | OUT-1 | `out`-Stichprobe (Seed 20261002): Betreiber 9, Behörde/Anbieter je 20 ohne Fehler → gesammelt bestätigt; Sonstige: Art. 3 Nr. 62 falsch `out` → Gruppe ganz durchgesehen, Art. 3 Nr. 3, 12, 15, 20, 33, 61 (+5 Unterglieder), 62 `in`/n.e. (PO „stark + mittel“), Rest bestätigt. Alle 1516 Zeilen bestätigt: `in` 125, `out` 1391 | `entscheidungsregister.md` | umgesetzt 06.10.2026 b | – |
 | P4-F1 | 29 Pflichttexte aus P4-B1 und S3-2 a vom PO gegen den Wortlaut geprüft und bestätigt (Prüfliste); `PO_DECISIONS_APPLIED` hält sie | `13-po-runde-paket-4.md` | umgesetzt 06.10.2026 a | – |
+| P4-F2 | Pflichttexte und Verifikationsstufen der 12 neuen `in`-Zeilen aus OUT-1 bestätigt (6 VERIFIZIERT, 6 HYPOTHESE für Art. 3 Nr. 61 mit Untergliedern); `PO_DECISIONS_APPLIED` hält sie | `13-po-runde-paket-4.md` | umgesetzt 06.10.2026 a | – |
 | IN-1 | Alle `in`-Zeilen bestätigt: 113 von 113 (AI Act 89, Omnibus 24); Gruppe 1 (32) einzeln nach Prüfliste, Gruppe 2 (10) am 05.10. | `entscheidungsregister.md` | umgesetzt 06.10.2026 | – |
 | R-8 | Severity `REQUIREMENT_ANCHOR_DECLARED` = MEDIUM | `13-po-runde-paket-4.md` | umgesetzt 06.10.2026 MEDIUM | – |
 | FR-3 | Kriterium für neue Wächter: bleibt wie bisher – jede Korrektur mit ihrem Wächter | `14-fachreview-business-ready.md` | entschieden 06.10.2026 b (keine Änderung) | – |

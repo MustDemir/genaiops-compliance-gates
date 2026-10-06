@@ -2,7 +2,7 @@
 titel: PO-Runde (Paket 4) – Arbeitsliste
 stand: 2026-10-02
 basis: Entscheidungsregister Teil 1 und 3 (alle Punkte mit Paket 4) · Pflichtenräume AI Act und Omnibus, Stand Commit 6a074ed · Stichprobe mit festem Seed 20261002
-status: Arbeitsliste – alle Zeilen bestätigt (1516) · offen: P4-F2 (12 Texte + Stufen), S3-4 Quellenprüfung
+status: Arbeitsliste – alle Zeilen bestätigt (1516), Texte und Stufen bestätigt · offen: S3-4 Quellenprüfung
 ---
 
 # Kurzfazit
@@ -325,3 +325,8 @@ Reihenfolge:  P4-B1 (ich, Texte) ──► A Einzelfragen ──► B Bestätige
 | # | Frage | Optionen |
 |---|---|---|
 | P4-F2 | Pflichttexte und Verifikationsstufen der 12 neuen `in`-Zeilen aus OUT-1 (Art. 3 Nr. 3, 12, 15, 20, 33, 61 + 5 Unterglieder, 62) bestätigen | a) **bestätigen** – Texte gepinnt wie P4-F1, Stufen wie S3-3 · b) einzelne ändern |
+
+# Teil 11 – P4-F2 bestätigt (06.10.2026)
+
+- **PO:** a – die 12 Texte und Stufen sind bestätigt (`entscheide/2026-10-06_p4-f2.yaml`), `PO_DECISIONS_APPLIED` hält sie.
+- **Paket 4 damit bis auf S3-4 abgeschlossen:** 1516 Zeilen bestätigt, jede `in`-Zeile mit eigenem, bestätigtem Text und Stufe.

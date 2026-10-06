@@ -1,0 +1,116 @@
+# PO-Entscheid vom 06.10.2026 — P4-F2 a: Pflichttexte und Verifikationsstufen der 12 neuen in-Zeilen aus OUT-1
+#
+# Nachweis: docs/coverage/review/13-po-runde-paket-4.md Teil 10 und 11.
+# Wie P4-F1 (Text) und S3-3 (Stufe): bestaetigt sind Text und Stufe, nicht Einordnung und Befund -
+# die hat OUT-1 b entschieden. Deshalb 'bestaetigt: false'.
+
+entschieden: '2026-10-06'
+eintraege:
+
+  - beleg: P4-F2 a (Review 13) - Pflichttext und Verifikationsstufe bestaetigt
+    raum: aiact
+    ids: [Art. 3 Nr. 3]
+    setze:
+      pflicht: 'Begriff ''Anbieter'': natuerliche oder juristische Person, Behoerde, Einrichtung oder sonstige Stelle, die ein KI-System oder ein KI-Modell mit allgemeinem Verwendungszweck entwickelt oder entwickeln laesst und es unter eigenem Namen oder eigener Handelsmarke in Verkehr bringt oder das KI-System so in Betrieb nimmt, entgeltlich oder unentgeltlich.'
+      verifikation: VERIFIZIERT
+      hypothese_grund: null
+    bestaetigt: false
+
+  - beleg: P4-F2 a (Review 13) - Pflichttext und Verifikationsstufe bestaetigt
+    raum: aiact
+    ids: [Art. 3 Nr. 12]
+    setze:
+      pflicht: 'Begriff ''Zweckbestimmung'': die Verwendung, fuer die ein KI-System laut Anbieter bestimmt ist, einschliesslich der besonderen Umstaende und Bedingungen, wie sie Betriebsanleitungen, Werbe- und Verkaufsmaterial, Erklaerungen und technische Dokumentation des Anbieters angeben.'
+      verifikation: VERIFIZIERT
+      hypothese_grund: null
+    bestaetigt: false
+
+  - beleg: P4-F2 a (Review 13) - Pflichttext und Verifikationsstufe bestaetigt
+    raum: aiact
+    ids: [Art. 3 Nr. 15]
+    setze:
+      pflicht: 'Begriff ''Betriebsanleitungen'': die Informationen, die der Anbieter bereitstellt, um den Betreiber insbesondere ueber die Zweckbestimmung und die ordnungsgemaesse Verwendung des KI-Systems zu informieren.'
+      verifikation: VERIFIZIERT
+      hypothese_grund: null
+    bestaetigt: false
+
+  - beleg: P4-F2 a (Review 13) - Pflichttext und Verifikationsstufe bestaetigt
+    raum: aiact
+    ids: [Art. 3 Nr. 20]
+    setze:
+      pflicht: 'Begriff ''Konformitaetsbewertung'': Verfahren, mit dem bewertet wird, ob die Anforderungen an ein Hochrisiko-KI-System nach Titel III Abschnitt 2 erfuellt sind.'
+      verifikation: VERIFIZIERT
+      hypothese_grund: null
+    bestaetigt: false
+
+  - beleg: P4-F2 a (Review 13) - Pflichttext und Verifikationsstufe bestaetigt
+    raum: aiact
+    ids: [Art. 3 Nr. 33]
+    setze:
+      pflicht: 'Begriff ''Eingabedaten'': die in ein KI-System eingespeisten oder von ihm direkt erfassten Daten, auf deren Grundlage es eine Ausgabe hervorbringt.'
+      verifikation: VERIFIZIERT
+      hypothese_grund: null
+    bestaetigt: false
+
+  - beleg: P4-F2 a (Review 13) - Pflichttext und Verifikationsstufe bestaetigt
+    raum: aiact
+    ids: [Art. 3 Nr. 61]
+    setze:
+      pflicht: 'Begriff ''weitverbreiteter Verstoss'' (Einleitung): Handlung oder Unterlassung gegen Unionsrecht, das die Interessen von Einzelpersonen schuetzt, mit einer der Wirkungen nach lit. a oder b.'
+      verifikation: HYPOTHESE
+      hypothese_grund: 'Relevant ueber Art. 73 Abs. 3, der fuer den Betreiber nur ueber Art. 26 Abs. 5 UAbs. 1 Satz 4 gilt (Durchschlag, HYPOTHESE wie Art. 73 Abs. 3).'
+    bestaetigt: false
+
+  - beleg: P4-F2 a (Review 13) - Pflichttext und Verifikationsstufe bestaetigt
+    raum: aiact
+    ids: [Art. 3 Nr. 61 lit. a]
+    setze:
+      pflicht: 'Teil der Definition ''weitverbreiteter Verstoss'' (Nr. 61), Variante a): schaedigt kollektive Interessen von Einzelpersonen in mindestens zwei anderen Mitgliedstaaten als dem nach Ziff. i-iii massgeblichen, oder droht sie dort zu schaedigen.'
+      verifikation: HYPOTHESE
+      hypothese_grund: 'Relevant ueber Art. 73 Abs. 3, der fuer den Betreiber nur ueber Art. 26 Abs. 5 UAbs. 1 Satz 4 gilt (Durchschlag, HYPOTHESE wie Art. 73 Abs. 3).'
+    bestaetigt: false
+
+  - beleg: P4-F2 a (Review 13) - Pflichttext und Verifikationsstufe bestaetigt
+    raum: aiact
+    ids: [Art. 3 Nr. 61 lit. a Ziff. i]
+    setze:
+      pflicht: 'Anknuepfungspunkt i) fuer lit. a: der Mitgliedstaat, in dem die Handlung oder Unterlassung ihren Ursprung hatte oder stattfand.'
+      verifikation: HYPOTHESE
+      hypothese_grund: 'Relevant ueber Art. 73 Abs. 3, der fuer den Betreiber nur ueber Art. 26 Abs. 5 UAbs. 1 Satz 4 gilt (Durchschlag, HYPOTHESE wie Art. 73 Abs. 3).'
+    bestaetigt: false
+
+  - beleg: P4-F2 a (Review 13) - Pflichttext und Verifikationsstufe bestaetigt
+    raum: aiact
+    ids: [Art. 3 Nr. 61 lit. a Ziff. ii]
+    setze:
+      pflicht: 'Anknuepfungspunkt ii) fuer lit. a: der Mitgliedstaat, in dem sich der betreffende Anbieter oder gegebenenfalls sein Bevollmaechtigter befindet oder niedergelassen ist.'
+      verifikation: HYPOTHESE
+      hypothese_grund: 'Relevant ueber Art. 73 Abs. 3, der fuer den Betreiber nur ueber Art. 26 Abs. 5 UAbs. 1 Satz 4 gilt (Durchschlag, HYPOTHESE wie Art. 73 Abs. 3).'
+    bestaetigt: false
+
+  - beleg: P4-F2 a (Review 13) - Pflichttext und Verifikationsstufe bestaetigt
+    raum: aiact
+    ids: [Art. 3 Nr. 61 lit. a Ziff. iii]
+    setze:
+      pflicht: 'Anknuepfungspunkt iii) fuer lit. a: der Mitgliedstaat, in dem der Betreiber niedergelassen ist, sofern er den Verstoss begangen hat.'
+      verifikation: HYPOTHESE
+      hypothese_grund: 'Relevant ueber Art. 73 Abs. 3, der fuer den Betreiber nur ueber Art. 26 Abs. 5 UAbs. 1 Satz 4 gilt (Durchschlag, HYPOTHESE wie Art. 73 Abs. 3).'
+    bestaetigt: false
+
+  - beleg: P4-F2 a (Review 13) - Pflichttext und Verifikationsstufe bestaetigt
+    raum: aiact
+    ids: [Art. 3 Nr. 61 lit. b]
+    setze:
+      pflicht: 'Teil der Definition ''weitverbreiteter Verstoss'', Variante b): schaedigt kollektive Interessen von Einzelpersonen (oder koennte sie schaedigen), weist gemeinsame Merkmale auf, etwa dieselbe rechtswidrige Praxis oder dasselbe verletzte Interesse, tritt gleichzeitig auf und wird von demselben Akteur in mindestens drei Mitgliedstaaten begangen.'
+      verifikation: HYPOTHESE
+      hypothese_grund: 'Relevant ueber Art. 73 Abs. 3, der fuer den Betreiber nur ueber Art. 26 Abs. 5 UAbs. 1 Satz 4 gilt (Durchschlag, HYPOTHESE wie Art. 73 Abs. 3).'
+    bestaetigt: false
+
+  - beleg: P4-F2 a (Review 13) - Pflichttext und Verifikationsstufe bestaetigt
+    raum: aiact
+    ids: [Art. 3 Nr. 62]
+    setze:
+      pflicht: 'Begriff ''kritische Infrastrukturen'': kritische Infrastrukturen im Sinne von Art. 2 Nr. 4 der Richtlinie (EU) 2022/2557.'
+      verifikation: VERIFIZIERT
+      hypothese_grund: null
+    bestaetigt: false
