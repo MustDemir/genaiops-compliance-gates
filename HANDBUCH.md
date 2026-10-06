@@ -43,7 +43,7 @@ Keine Empfehlung, sondern Auslöser. In diesen Fällen ist Weiterarbeiten ohne d
 
 ## 1.1 In fünf Sätzen
 
-Aus einer abgeschlossenen Masterarbeit existiert eine lauffähige Referenzarchitektur, die regulatorische Anforderungen als Quality Gates in CI/CD-Pipelines durchsetzt und die Nachweise in einem manipulationserkennbaren Evidence Store ablegt. Diese Architektur wird über den akademischen Stand hinaus zu einem business-ready Artefakt weiterentwickelt und auf eine konkrete Branche angewandt: **Netzbetreiber in der Energieversorgung**. Der Zweck des Kontrollsystems ist, **Konformität nachweisbar statt behauptbar** zu machen: jede regulatorische Anforderung wird auf einen Check abgebildet, jeder Check erzeugt einen Nachweis, und jeder Nachweis sagt, wie beweiskräftig er ist. Der inhaltliche Hebel ist eine Unterscheidung, die im Markt regelmäßig falsch gemacht wird: **wer schuldet welche Pflicht — der Anbieter oder der Betreiber**. Der methodische Hebel ist eine zweite Klassifikationsachse, die bislang niemand explizit führt: **wie beweiskräftig ist die Evidenz, die ein Gate erzeugt**.
+Aus einer abgeschlossenen Masterarbeit existiert eine lauffähige Referenzarchitektur, die regulatorische Anforderungen als Quality Gates in CI/CD-Pipelines durchsetzt und die Nachweise in einem manipulationserkennbaren Evidence Store ablegt. Diese Architektur wird über den akademischen Stand hinaus zu einem business-ready Artefakt weiterentwickelt und ist **branchenoffen** angelegt: gebaut für Betreiber von Hochrisiko-KI-Systemen jeder Branche, die Pflichten eines Anwendungsfalls schalten Parameter im Manifest. **Leitfall** sind **Netzbetreiber in der Energieversorgung**, zweiter Referenzfall ein **Diagnose-Assistent im Krankenhaus** (Medizinprodukt, Art. 6 Abs. 1) – PO FR-6, FR-8, 06.10.2026. Der Zweck des Kontrollsystems ist, **Konformität nachweisbar statt behauptbar** zu machen: jede regulatorische Anforderung wird auf einen Check abgebildet, jeder Check erzeugt einen Nachweis, und jeder Nachweis sagt, wie beweiskräftig er ist. Der inhaltliche Hebel ist eine Unterscheidung, die im Markt regelmäßig falsch gemacht wird: **wer schuldet welche Pflicht — der Anbieter oder der Betreiber**. Der methodische Hebel ist eine zweite Klassifikationsachse, die bislang niemand explizit führt: **wie beweiskräftig ist die Evidenz, die ein Gate erzeugt**.
 
 ## 1.2 Verwertungsform (D-05)
 
@@ -53,7 +53,7 @@ Das Artefakt wird **nicht als Produkt** betrieben: kein SaaS, kein Abonnement, k
 
 ## 1.3 Was es ausdrücklich nicht ist
 
-Kein Produktunternehmen · nicht der Finanzsektor mit DORA · nicht der Maschinenbau (erzwänge die Anbieterperspektive) · **nicht Modellanbieter als Zielgruppe** (D-25). Der Adressat ist der **Betreiber** eines KI-Systems in der Energieversorgung; jede Zielgruppe, die das Artefakt in die Anbieterrolle zwingen würde, ist damit ausgeschlossen.
+Kein Produktunternehmen · nicht der Finanzsektor mit DORA · nicht der Maschinenbau (erzwänge die Anbieterperspektive) · **nicht Modellanbieter als Zielgruppe** (D-25). Der Adressat ist der **Betreiber** eines Hochrisiko-KI-Systems – im Leitfall in der Energieversorgung, im zweiten Referenzfall im Krankenhaus; jede Zielgruppe, die das Artefakt in die Anbieterrolle zwingen würde, ist damit ausgeschlossen. Branchenoffen heißt nicht, dass jede Branche Referenzfall ist: die Ausschlüsse oben bleiben (FR-6, 06.10.2026).
 
 ## 1.4 Der rote Faden
 
@@ -61,8 +61,9 @@ Kein Produktunternehmen · nicht der Finanzsektor mit DORA · nicht der Maschine
 Masterarbeit (Artefakt)
    -> normagnostisches Gate-Kontrollsystem
       -> Normenpackungen (EU AI Act, NIS2, EnWG § 11 ...)
-         -> Adressat Netzbetreiber
-            -> Anwendungsfall Redispatch
+         -> Adressat Betreiber eines Hochrisiko-KI-Systems (branchenoffen, FR-6)
+            -> Leitfall Netzbetreiber, Anwendungsfall Redispatch (Einstufung offen bis S3-4)
+            -> Referenzfall Krankenhaus, Diagnose-Assistent (FR-8)
 ```
 
 ---
@@ -408,7 +409,7 @@ Ausformuliert nach den fünf Fragen aus 3.4, weil dieses Gate die Lücke am deut
 | Aufsichtsmetriken, Output-Drift, Fairness im Betrieb, Fristenuhr Art. 73 (B-08) | offen |
 | Tag- und Versionierungsfrage (D-24) — Release-Tags und Zenodo-Pushes bleiben blockiert | vertagt, nicht erledigt |
 | Drift-CronJob im Cluster nicht lauffähig — braucht conftest und Policies im Image, kein Dockerfile vorhanden | dokumentiert |
-| Redispatch-Vignette bauen, inkl. Negativfall | offen — macht die Branchenwahl erst sichtbar |
+| Referenzfälle bauen, inkl. Negativfall — Netzbetrieb (Leitfall) und Diagnose-Assistent | offen — nach Paket 5 (FR-2, FR-8, FR-9); macht die Branchenoffenheit erst sichtbar |
 | Ersten Fachbeitrag zur Rollenabgrenzung schreiben | braucht EUR-Lex-Abgleich |
 | **Kettenkontinuität über Läufe hinweg** (D-32) — der Nachweis eines Laufs ist signiert und verlässt den Runner; ob zwischen zwei Läufen etwas fehlt, prüft nichts | offen, eigene SPEC. In SPEC-05 Abschnitt 13 benannt statt beantwortet |
 | **`make verify` ohne Cluster lauffähig** | ✅ T-09, 04.09. — sechs Suiten in rund 6,5 s, `verify-cluster` für den Smoke-Test, `PYTHON` aus `Makefile.local`. Der `pre-push`-Hook fährt es bei jedem Push |
@@ -444,7 +445,7 @@ Ausformuliert nach den fünf Fragen aus 3.4, weil dieses Gate die Lücke am deut
 
 12. Art. 13 im Wortlaut — Grundlage für Richtung B1
 13. NIS2 und EnWG § 11 als Primärquellen
-14. **Redispatch-Vignette inkl. Negativfall** — hängt an keinem Recherchepunkt und macht die Branchenwahl sichtbar
+14. **Referenzfälle inkl. Negativfall** — Leitfall Netzbetrieb (Redispatch, wenn S3-4 die Hochrisiko-Einstufung trägt, sonst ein eindeutiger Fall nach Anhang III Nr. 2) und Diagnose-Assistent im Krankenhaus (Art. 6 Abs. 1 + Anhang I Nr. 11); nach Paket 5 (Review 14 Teil 8: FR-2, FR-8, FR-9). Zeigt die Branchenoffenheit: gleiche Gates, anderer Einstufungspfad, andere Pflichten
 15. Ersten Fachbeitrag zur Rollenabgrenzung
 
 **Mittelfristig:**

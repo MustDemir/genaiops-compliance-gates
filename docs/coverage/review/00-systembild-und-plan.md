@@ -1,6 +1,6 @@
 ---
 titel: Systembild + Plan – Regulariendurchlauf abschließen
-stand: 2026-09-29 (Teil C Ziellinie und Reihenfolge; Teil A/B unverändert seit 2026-09-23)
+stand: 2026-10-06 (Leitsatz branchenoffen, FR-6; C2 Reihenfolge FR-9) · 2026-09-29 (Teil C Ziellinie und Reihenfolge; Teil A/B unverändert seit 2026-09-23)
 basis: Branch spec06-aiact-stufe0 (30 Commits vor domain_netzbetrieb, nicht gemergt)
 status: Systembild vom PO bestätigt 23.09.2026 · Leitsatz ergänzt 28.09.2026 · Teil C vom PO bestätigt 29.09.2026
 ---
@@ -10,11 +10,13 @@ status: Systembild vom PO bestätigt 23.09.2026 · Leitsatz ergänzt 28.09.2026 
 
 # Leitsatz – unser Ziel
 
-> **EU-AI-Act-Konformität für einen Verteilnetzbetreiber nachweisbar statt behauptbar machen – lückenlos von der Norm bis zum Beleg.**
+> **EU-AI-Act-Konformität für Betreiber von Hochrisiko-KI-Systemen nachweisbar statt behauptbar machen – Leitfall Verteilnetzbetreiber –, lückenlos von der Norm bis zum Beleg.**
+>
+> Bis 06.10.2026: „für einen Verteilnetzbetreiber“. Seit PO FR-6 a branchenoffen (Review 14 Teil 8).
 
-- **Wer:** Betreiber (Verteilnetzbetreiber), nicht Anbieter
-- **Was:** KI im Redispatch, Einstufung Anhang III Nr. 2 (kritische Infrastruktur)
-- **Bis wann:** Stichtag 02.12.2027 (Omnibus)
+- **Wer:** Betreiber, nicht Anbieter – Leitfall Verteilnetzbetreiber, zweiter Referenzfall Krankenhaus (FR-8)
+- **Was:** Leitfall KI im Redispatch, Einstufung Anhang III Nr. 2 (kritische Infrastruktur) – HYPOTHESE bis S3-4 (Leitlinien-Entwurf 19.05.2026, FR-B1); Referenzfall Diagnose-Assistent, Art. 6 Abs. 1 + Anhang I Abschn. A Nr. 11 (MDR)
+- **Bis wann:** Stichtag 02.12.2027 für Anhang III, 02.08.2028 für Anhang I (Omnibus)
 - **Form:** Referenzarchitektur, kein Produkt (D-05)
 
 **Fertig heißt:**
@@ -37,7 +39,7 @@ AI Act + Omnibus fertig ──► EU-AI-Act-Prüf-Agent ──► Sektorstapel (
 
 ## A1 Zweck in einem Satz
 - Konformität **nachweisbar statt behauptbar**: Pflicht → Requirement → Gate/Check → Rego → Evidence-Record, jeder Nachweis mit Beweisstärke (E-0…E-3)
-- Adressat: **Betreiber** (Verteilnetzbetreiber), Anwendungsfall **Redispatch**, Anhang III Nr. 2, Stichtag 02.12.2027
+- Adressat: **Betreiber** eines Hochrisiko-KI-Systems, branchenoffen (FR-6); Leitfall Verteilnetzbetreiber, Anwendungsfall **Redispatch**, Anhang III Nr. 2, Stichtag 02.12.2027; Referenzfall Diagnose-Assistent (FR-8)
 - Referenzarchitektur, kein Produkt (D-05)
 
 ## A2 Die Kette
@@ -143,7 +145,8 @@ Norm (Wortlaut, gehasht)
 AI Act + Omnibus (Pakete 1–8) ──► Prüf-Agent (Paket 9) ──► Sektorstapel (T-13)
 ```
 
-- **Parallel zu Paket 5 (PO FR-2 a, 06.10.2026):** ein Redispatch-Referenzszenario (Fixtures + End-to-End-Lauf) und die Use Cases des Agenten (P9-1) mit Netzbetreibern – der Kunde soll seinen Fall laufen sehen, und die Use Cases steuern, was in Paket 6 zuerst gebaut wird (Review 14).
+- **Nach Paket 5 (PO FR-2 a, neu gefasst FR-9 a, 06.10.2026):** Referenzszenarien (Fixtures + End-to-End-Lauf) für den Leitfall Netzbetrieb – Redispatch, wenn S3-4 die Hochrisiko-Einstufung trägt, sonst ein eindeutiger Fall nach Anhang III Nr. 2 – und für den Diagnose-Assistenten (FR-8), dazu die Use Cases des Agenten (P9-1). Der Kunde soll seinen Fall laufen sehen; die Use Cases steuern, was in Paket 6 zuerst gebaut wird (Review 14 Teil 8).
+- **Reihenfolge ab 06.10.2026:** S3-4 → T-16.2 → Paket 5 → FR-2.
 - **Sektorstapel nach dem Agenten:** zulässig, weil der Agent seine Grenze offen nennt. Er prüft den AI Act, nicht NIS2, BSIG, DSGVO, KRITIS-DachG oder EnWG.
 - Das ist dieselbe Logik wie H4 (PASS mit Hinweis): Der Agent urteilt nur über das, was er prüft, und sagt, was er nicht prüft.
 - **Anhänge und Omnibus vor der Bedarfsanalyse:** Sonst planen wir Requirements und Gates, bevor alle Pflichten bekannt sind.

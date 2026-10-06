@@ -2,7 +2,7 @@
 titel: Fachreview – trägt die Kette das Ziel „EU-AI-Act-Prüf-Agent business-ready“?
 stand: 2026-10-05
 basis: Branch review-2c, Stand f56e69b (gemessen) · Leitsatz und Teil C aus 00-systembild-und-plan.md · Auftrag des PO 05.10.2026 („aus Sicht eines geeigneten Fachspezialisten prüfen, ob unsere Kette das Ziel erreicht“)
-status: Einschätzung und Vorschläge · FR-1 bis FR-5 entschieden 06.10.2026
+status: Einschätzung und Vorschläge · FR-1 bis FR-5 entschieden 06.10.2026 · Nachtrag Teil 8: FR-6 bis FR-9 entschieden 06.10.2026
 ---
 
 # Kurzurteil
@@ -106,10 +106,56 @@ vor Paket 8/9: juristische Zweitprüfung der Auslegungsentscheide (FR-5)
 | FR-4 | Souveräner Betriebspfad (selbst betriebene CI, eigene PKI oder privates Sigstore, Kubernetes bei EU-Anbieter oder on-prem) als eigenes Paket | a) **ja, als Paket nach 8, vor dem ersten Kunden** · b) später · c) nicht im Repo |
 | FR-5 | Juristische Zweitprüfung der Auslegungsentscheide (Q1, Q11, A-F1, F4 und der HYPOTHESE-Zeilen mit Befund) vor Paket 8 | a) **ja** · b) erst vor dem ersten Kunden · c) nein |
 
-**Entschieden 06.10.2026:** FR-1 **a** (Parameter, Bau Paket 5) · FR-2 **a** (Redispatch-Szenario und P9-1 parallel zu Paket 5) · FR-3 **b** (Wächter wie bisher) · FR-4 **b** (vertagt, bei konkreter Kundenanfrage) · FR-5 **b** (Zweitprüfung vor dem ersten Kunden).
+**Entschieden 06.10.2026:** FR-1 **a** (Parameter, Bau Paket 5) · FR-2 **a** (Redispatch-Szenario und P9-1 parallel zu Paket 5; Zeitpunkt und Fälle neu gefasst in Teil 8) · FR-3 **b** (Wächter wie bisher) · FR-4 **b** (vertagt, bei konkreter Kundenanfrage) · FR-5 **b** (Zweitprüfung vor dem ersten Kunden).
+
+# Teil 8 – Nachtrag 06.10.2026: branchenoffen, Referenzfälle, Reihenfolge
+
+**Anlass (PO, 06.10.2026):** FR-2 zuletzt. Ist Redispatch nicht klar Hochrisiko, einen Fall nehmen, der es klar ist. Die Referenzarchitektur soll für viele Hochrisiko-KI-Systeme in verschiedenen Branchen gebaut sein, nicht nur für Netzbetreiber.
+
+**Was die Dokumente dazu sagten:** Die Gates sind generisch (G-PRE-01 nimmt die Anhang-III-Kategorie als Parameter; P2-F4 c: „eine andere Branche setzt einen Schalter“). HANDBUCH 1.1/1.3 und der Leitsatz in 00 nannten dagegen eine Branche: „Adressat ist der Betreiber … in der Energieversorgung“.
+
+## Befunde
+
+| # | Befund | Wohin |
+|---|---|---|
+| FR-B1 | Leitlinien-Entwurf der Kommission zur Hochrisiko-Einstufung (19.05.2026, Konsultation bis 23.06.2026; SEKUNDÄRQUELLE: Fach- und Kanzleibeiträge, Original nicht gelesen): Anhang III Nr. 2 verlangt eine **direkte Schutzfunktion** für die physische Unversehrtheit der Infrastruktur und einen Betreiber, den ein Mitgliedstaat nach der CER-Richtlinie als **kritische Einrichtung** bestimmt hat. Redispatch als Planungs- und Optimierungswerkzeug mit menschlicher Freigabe ist damit nicht eindeutig Hochrisiko | S3-4 (Paket 4): Entwurf im Original lesen; Anhang III Nr. 2 bleibt bis dahin HYPOTHESE |
+| FR-B2 | Der Pflichtenraum ist auf den Leitfall zugeschnitten: 121 Zeilen sind nur wegen Anhang III Nr. 2 `out` – 103 nach Systemtyp (T-13 Schritt 2b), 18 nach der Bereichsausnahme für Nr. 2 (Art. 27, Art. 49 Abs. 3, Art. 86 Abs. 1, Anhang VIII Abschn. C) | je Referenzfall Einzelschalter (FR-7 b), Bau mit Paket 5 und FR-2 |
+| FR-B3 | Das Healthcare-Szenario ist widersprüchlich eingestuft: README auf `domain_Healthcare` Art. 6 Abs. 1 + Anhang I Nr. 11 (MDR), die Fixtures Anhang III Nr. 5 lit. a (Behörden prüfen Leistungsansprüche). Ein reiner Mitschreib- und Zusammenfassungsassistent ist eher kein Medizinprodukt (HYPOTHESE) | FR-2: der Medizin-Fall wird ein Diagnose-Assistent (FR-8) |
+| FR-B4 | G-PRE-01 prüft inhaltlich nur den Nr.-2-Pfad (C-A1–C-A7 bei `annex_iii_candidate: no2_critical_infrastructure`); den Pfad Art. 6 Abs. 1 + Anhang I nimmt C-01 als Selbstauskunft (`risk_class`, Begründung, `annex_reference`) | Paket 5 (Bedarfsanalyse), vor FR-2 |
+
+## Fragen
+
+| # | Frage | Optionen |
+|---|---|---|
+| FR-6 | Zielbild der Referenzarchitektur (HANDBUCH 1.1/1.3, Leitsatz) | a) **branchenoffen + Leitfall Netzbetrieb** – gebaut für Betreiber von Hochrisiko-KI-Systemen jeder Branche, Pflichten je Anwendungsfall über Parameter · b) branchenoffen ohne Leitfall · c) nur Netzbetrieb (wie bisher) |
+| FR-7 | Wie werden die 121 Zeilen aus FR-B2 branchenfähig? | a) **Profil-Mechanismus:** die Zeilen werden `bedingt`, ein Check meldet sie, sobald ein Profil sie aktiviert; ersetzt die drei Einzelschalter · b) Einzelschalter wie bisher (P2-F4 c, FR-1 a, S3-1 a), je Referenzfall nachziehen |
+| FR-8 | Zweiter Referenzfall (Medizin, aus `domain_Healthcare`) | a) **Triage in der Notaufnahme** (Anhang III Nr. 5 lit. d) · b) Diagnose-Assistent (Art. 6 Abs. 1 + Anhang I Abschn. A Nr. 11, MDR Klasse IIa+) · c) Ambient Scribe wie im alten Branch |
+| FR-9 | Wann kommt FR-2? | a) **nach Paket 5** · b) nach S3-4 und T-16.2, vor Paket 5 · c) nach Paket 6 |
+
+**Entschieden 06.10.2026:** FR-6 **a** · FR-7 **b** · FR-8 **b** · FR-9 **a**. Vorgeschlagen war zuerst ein Kontrastpaar mit Recruiting (Anhang III Nr. 4 lit. a); der PO wollte einen Fall aus seinem alten Branch zur Medizin, daraus FR-8.
+
+## Was daraus folgt
+
+```
+                          ┌─ Leitfall Netzbetrieb ── Anhang III Nr. 2 ─────────────── ab 02.12.2027
+Gates (17, generisch)     │    Redispatch, wenn S3-4 die Einstufung trägt – sonst ein eindeutiger Nr.-2-Fall
+  + Schalter im Manifest ─┤
+                          └─ Referenzfall Medizin ── Art. 6 Abs. 1 + Anhang I Nr. 11 ── ab 02.08.2028
+                               Diagnose-Assistent im Krankenhaus, Betreiber ist die Klinik
+
+Reihenfolge:  S3-4 ──► T-16.2 ──► Paket 5 ──► FR-2 (beide Referenzfälle, P9-1)
+```
+
+- **Der Kontrast:** gleiche Gates, anderer Einstufungspfad, anderer Stichtag.
+- **Nicht im Medizin-Fall:** Pflichten, die an Anhang III oder Art. 6 Abs. 2 hängen – Art. 26 Abs. 11 („Betreiber der in Anhang III aufgeführten …“), Art. 27 („Hochrisiko-KI-Systems gemäß Artikel 6 Absatz 2“), Art. 86 Abs. 1, Art. 49 Abs. 3. Art. 26 gilt im Übrigen für Betreiber jedes Hochrisiko-KI-Systems.
+- **Neu im Medizin-Fall:** Art. 6 Abs. 1, Anhang I Abschn. A Nr. 11, Stichtag Art. 113 Abs. 3 lit. c Ziff. ii n.F., Zusammenspiel mit der MDR. G-PRE-01 braucht dafür eine inhaltliche Prüfung (FR-B4).
+- **Schalter (FR-7 b):** für den Medizin-Fall mindestens einer – „Hochrisiko über Anhang I (Produkt nach Harmonisierungsrecht)“. Welche Zeilen er meldet, legt FR-2 fest; Bau mit Paket 5 wie P2-F4 c.
+- **Wiederverwendung:** App-Attrappe, Kubernetes und Fixtures aus `healthcare-ambient-ai-scribe`. Ob das Szenario umgebaut oder neu angelegt wird, entscheidet der Bau von FR-2.
+- **Nachgezogen (FR-6, FR-9):** HANDBUCH 1.1, 1.3, 1.4 und Teil 7, Leitsatz und C2 in `00-systembild-und-plan.md`.
 
 # Ehrlich zur Methode
 
 - Zahlen am Repo gemessen (Stand `f56e69b`); Einschätzungen zu Markt, Zeit und Rechtsrisiko sind Einschätzungen, kein Rechtsrat.
 - Nicht geprüft: Rego-Qualität jenseits der Element-Matrix, Kubernetes-Pfad im Cluster, PostgreSQL-Pfad des Stores.
 - Q11-Gegenargument (Anlagen ab 100 kW, private Betreiber) stützt sich auf Branchenquellen, nicht auf eine amtliche Auslegung.
+- FR-B1 stützt sich auf Zusammenfassungen des Leitlinien-Entwurfs (Jones Day 06/2026, Praxikon), nicht auf den Entwurf selbst; ein Entwurf ist keine amtliche Auslegung. Zählungen in FR-B2 am Pflichtenraum auf `6787b60` gemessen (Begründungstexte „Systemtyp“ bzw. „Bereichsausnahme … Nr. 2“).
