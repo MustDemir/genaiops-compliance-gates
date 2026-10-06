@@ -2,7 +2,7 @@
 titel: PO-Runde (Paket 4) – Arbeitsliste
 stand: 2026-10-02
 basis: Entscheidungsregister Teil 1 und 3 (alle Punkte mit Paket 4) · Pflichtenräume AI Act und Omnibus, Stand Commit 6a074ed · Stichprobe mit festem Seed 20261002
-status: Arbeitsliste – alle Fragen entschieden (Teil 6, 7) · alle `in`-Zeilen bestätigt · S3-3 und OUT-1 zur Prüfung vorbereitet (Teil 8) · zu tun: S3-4 Quellenprüfung
+status: Arbeitsliste – alle Zeilen bestätigt (1516) · offen: P4-F2 (12 Texte + Stufen), S3-4 Quellenprüfung
 ---
 
 # Kurzfazit
@@ -312,3 +312,16 @@ Reihenfolge:  P4-B1 (ich, Texte) ──► A Einzelfragen ──► B Bestätige
 | # | Frage | Optionen |
 |---|---|---|
 | R-9 | Severity des Wächters `IN_UNITS_VERIFICATION_DECLARED` | a) **MEDIUM** wie `IN_UNITS_OWN_DUTY_TEXT`: verwischt, was belegt und was ausgelegt ist, versteckt aber keine Pflicht · b) HIGH · c) LOW |
+
+# Teil 10 – OUT-1 umgesetzt (06.10.2026)
+
+- **PO:** Teil B in Ordnung; Art. 3 Nr. 62 → `in`. Nach der Regel (ein Fehler → Gruppe ganz durchsehen) habe ich „Sonstige“ (299) ganz gelesen. Kriterium wie bei Nr. 62 und 2b E5: eine Begriffsbestimmung ist `in` (n.e.), wenn ein Gate oder Check genau diesen Begriff auswertet.
+- **PO-Wahl „stark + mittel“:** `in`, n.e. werden Art. 3 Nr. 3 (Anbieter – G-OPS-06), Nr. 12 (Zweckbestimmung – G-PRE-02, G-PRE-01), Nr. 15 (Betriebsanleitungen – Art. 26 Abs. 1/5, Rollenwechsel-Policy), Nr. 20 (Konformitätsbewertung – G-DEP-Policy, G-PRE-05), Nr. 33 (Eingabedaten – G-DEP-01), Nr. 61 mit lit. a, a i–iii, b (weitverbreiteter Verstoß – Art. 73 Abs. 3) und Nr. 62 (kritische Infrastrukturen – G-OPS-02/C-04). Schwache Kandidaten ohne Gate (Nr. 1 KI-System, Nr. 11 Inbetriebnahme, Nr. 13 Fehlanwendung, Nr. 52 Profiling …) bleiben `out`.
+- **Ergebnis:** alle 1516 Zeilen bestätigt – `in` 125 (AI Act 101, Omnibus 24), `out` 1391 (AI Act 1131, Omnibus 260) (`entscheide/2026-10-06_out-1.yaml`).
+- **Beim Umsetzen gefunden:** wie bei Nr. 49 lit. d trugen Nr. 61 und Nr. 62 fremde Texte (Nr. 61 den von Nr. 49 lit. d, Nr. 62 den von Nr. 61 lit. b), Nr. 61 lit. b zusätzlich „sowie Definitionen Nr. 62-68“, Ziff. i–iii einen Sammeltext. Die 12 neuen `in`-Zeilen haben neue Texte und eine Stufe – **Vorschlag**, Bestätigung P4-F2.
+- **Stufen-Vorschlag:** VERIFIZIERT für Nr. 3, 12, 15, 20, 33, 62 (eine Betreiber-Norm verwendet den Begriff wörtlich); HYPOTHESE für Nr. 61 mit Untergliedern (relevant nur über Art. 73 Abs. 3, der für den Betreiber über Art. 26 Abs. 5 UAbs. 1 Satz 4 durchschlägt).
+- **R-9:** MEDIUM.
+
+| # | Frage | Optionen |
+|---|---|---|
+| P4-F2 | Pflichttexte und Verifikationsstufen der 12 neuen `in`-Zeilen aus OUT-1 (Art. 3 Nr. 3, 12, 15, 20, 33, 61 + 5 Unterglieder, 62) bestätigen | a) **bestätigen** – Texte gepinnt wie P4-F1, Stufen wie S3-3 · b) einzelne ändern |

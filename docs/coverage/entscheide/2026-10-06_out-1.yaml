@@ -1,0 +1,175 @@
+# PO-Entscheid vom 06.10.2026 — OUT-1 b: out-Stichprobe und Sammelbestaetigung
+#
+# Nachweis: docs/coverage/review/13-po-runde-paket-4.md Teil 8 und 10, Pruefliste
+# claude/s3-3-out-1-pruefliste.md Teil B (Project).
+#
+# Stichprobe (Seed 20261002): Betreiber 9 einzeln, Behoerde/Anbieter/Sonstige je 20. Ergebnis des PO:
+# Betreiber, Behoerde, Anbieter ohne Fehler -> gesammelt bestaetigt. Sonstige: Art. 3 Nr. 62 war
+# falsch out (ein Fehler) -> die Gruppe wurde ganz durchgesehen (Claude, Kriterium: ein Gate
+# wertet den definierten Begriff aus, wie 2b E5); der PO hat 'stark + mittel' gewaehlt: Art. 3
+# Nr. 3, 12, 15, 20, 33, 61 (mit lit. a, a i-iii, b) und 62 werden in, nicht einschlaegig. Der
+# Rest der Gruppe ist bestaetigt out.
+# Pflichttexte und Verifikationsstufen der 12 neuen in-Zeilen sind Vorschlag (P4-F2).
+
+entschieden: '2026-10-06'
+eintraege:
+
+  - beleg: OUT-1 b (Review 13) - Gruppe anbieter, Stichprobe ohne Fehler bzw. ganz durchgesehen; out bestaetigt
+    raum: aiact
+    ids: [Art. 2 Abs. 1 lit. a, Art. 6 Abs. 1, Art. 6 Abs. 1 lit. a, Art. 6 Abs. 1 lit. b, Art. 6 Abs. 4, Art. 8 Abs. 1, Art. 8 Abs. 2, Art. 9 Abs. 1, Art. 9 Abs. 2, Art. 9 Abs. 2 lit. a, Art. 9 Abs. 2 lit. b, Art. 9 Abs. 2 lit. c, Art. 9 Abs. 2 lit. d, Art. 9 Abs. 3, Art. 9 Abs. 4, Art. 9 Abs. 5, Art. 9 Abs. 5 lit. a, Art. 9 Abs. 5 lit. b, Art. 9 Abs. 6, Art. 9 Abs. 7, Art. 9 Abs. 8, Art. 9 Abs. 9, Art. 9 Abs. 10, Art. 10 Abs. 1, Art. 10 Abs. 2, Art. 10 Abs. 2 lit. a, Art. 10 Abs. 2 lit. b, Art. 10 Abs. 2 lit. c, Art. 10 Abs. 2 lit. d, Art. 10 Abs. 2 lit. e, Art. 10 Abs. 2 lit. f, Art. 10 Abs. 2 lit. g, Art. 10 Abs. 2 lit. h, Art. 10 Abs. 3, Art. 10 Abs. 4, Art. 10 Abs. 5, Art. 10 Abs. 5 lit. a, Art. 10 Abs. 5 lit. b, Art. 10 Abs. 5 lit. c, Art. 10 Abs. 5 lit. d, Art. 10 Abs. 5 lit. e, Art. 10 Abs. 5 lit. f, Art. 10 Abs. 6, Art. 11 Abs. 1, Art. 11 Abs. 2, Art. 12 Abs. 1, Art. 12 Abs. 2, Art. 12 Abs. 2 lit. a, Art. 12 Abs. 2 lit. b, Art. 12 Abs. 2 lit. c, Art. 12 Abs. 3, Art. 12 Abs. 3 lit. a, Art. 12 Abs. 3 lit. b, Art. 12 Abs. 3 lit. c, Art. 12 Abs. 3 lit. d, Art. 16, Art. 16 lit. a, Art. 16 lit. b, Art. 16 lit. c, Art. 16 lit. d, Art. 16 lit. e, Art. 16 lit. f, Art. 16 lit. g, Art. 16 lit. h, Art. 16 lit. i, Art. 16 lit. j, Art. 16 lit. k, Art. 16 lit. l, Art. 17 Abs. 1, Art. 17 Abs. 1 lit. a, Art. 17 Abs. 1 lit. b, Art. 17 Abs. 1 lit. c, Art. 17 Abs. 1 lit. d, Art. 17 Abs. 1 lit. e, Art. 17 Abs. 1 lit. f, Art. 17 Abs. 1 lit. g, Art. 17 Abs. 1 lit. h, Art. 17 Abs. 1 lit. i, Art. 17 Abs. 1 lit. j, Art. 17 Abs. 1 lit. k, Art. 17 Abs. 1 lit. l, Art. 17 Abs. 1 lit. m, Art. 17 Abs. 2, Art. 17 Abs. 3, Art. 17 Abs. 4, Art. 18 Abs. 1, Art. 18 Abs. 1 lit. a, Art. 18 Abs. 1 lit. b, Art. 18 Abs. 1 lit. c, Art. 18 Abs. 1 lit. d, Art. 18 Abs. 1 lit. e, Art. 18 Abs. 3, Art. 19 Abs. 1, Art. 19 Abs. 2, Art. 20 Abs. 1, Art. 21 Abs. 1, Art. 21 Abs. 2, Art. 22 Abs. 1, Art. 22 Abs. 2, Art. 25 Abs. 3, Art. 25 Abs. 3 lit. a, Art. 25 Abs. 3 lit. b, Art. 25 Abs. 4, Art. 41 Abs. 5, Art. 43 Abs. 1, Art. 43 Abs. 1 UAbs. 1 lit. a, Art. 43 Abs. 1 UAbs. 1 lit. b, Art. 43 Abs. 1 UAbs. 2, Art. 43 Abs. 1 UAbs. 2 lit. a, Art. 43 Abs. 1 UAbs. 2 lit. b, Art. 43 Abs. 1 UAbs. 2 lit. c, Art. 43 Abs. 1 UAbs. 2 lit. d, Art. 43 Abs. 1 UAbs. 3, Art. 43 Abs. 2, Art. 43 Abs. 3, Art. 43 Abs. 4, Art. 47 Abs. 1, Art. 47 Abs. 2, Art. 47 Abs. 3, Art. 47 Abs. 4, Art. 48 Abs. 1, Art. 48 Abs. 2, Art. 48 Abs. 3, Art. 48 Abs. 4, Art. 48 Abs. 5, Art. 49 Abs. 1, Art. 49 Abs. 2, Art. 50 Abs. 1, Art. 50 Abs. 2, Art. 52 Abs. 1, Art. 52 Abs. 2, Art. 52 Abs. 5, Art. 53 Abs. 1, Art. 53 Abs. 1 lit. a, Art. 53 Abs. 1 lit. b, Art. 53 Abs. 1 lit. b Ziff. i, Art. 53 Abs. 1 lit. b Ziff. ii, Art. 53 Abs. 1 lit. c, Art. 53 Abs. 1 lit. d, Art. 53 Abs. 2, Art. 53 Abs. 3, Art. 53 Abs. 4, Art. 54 Abs. 1, Art. 54 Abs. 2, Art. 54 Abs. 6, Art. 55 Abs. 1, Art. 55 Abs. 1 lit. a, Art. 55 Abs. 1 lit. b, Art. 55 Abs. 1 lit. c, Art. 55 Abs. 1 lit. d, Art. 55 Abs. 2, Art. 57 Abs. 12, Art. 59 Abs. 1 lit. d, Art. 59 Abs. 1 lit. e, Art. 60 Abs. 1, Art. 60 Abs. 2, Art. 60 Abs. 3, Art. 60 Abs. 4, Art. 60 Abs. 4 lit. a, Art. 60 Abs. 4 lit. c, Art. 60 Abs. 4 lit. d, Art. 60 Abs. 4 lit. e, Art. 60 Abs. 4 lit. f, Art. 60 Abs. 4 lit. g, Art. 60 Abs. 4 lit. i, Art. 60 Abs. 4 lit. k, Art. 60 Abs. 7, Art. 60 Abs. 8, Art. 60 Abs. 9, Art. 61 Abs. 1, Art. 61 Abs. 1 lit. a, Art. 61 Abs. 1 lit. b, Art. 61 Abs. 1 lit. c, Art. 61 Abs. 1 lit. d, Art. 61 Abs. 1 lit. e, Art. 61 Abs. 2, Art. 63 Abs. 1, Art. 63 Abs. 2, Art. 71 Abs. 2, Art. 72 Abs. 1, Art. 72 Abs. 2, Art. 72 Abs. 3, Art. 72 Abs. 4, Art. 73 Abs. 6, Art. 74 Abs. 12, Art. 79 Abs. 4, Art. 80 Abs. 4, Art. 80 Abs. 5, Art. 80 Abs. 7, Art. 82 Abs. 2, Art. 83 Abs. 1, Art. 83 Abs. 1 lit. a, Art. 83 Abs. 1 lit. b, Art. 83 Abs. 1 lit. c, Art. 83 Abs. 1 lit. d, Art. 83 Abs. 1 lit. e, Art. 83 Abs. 1 lit. f, Art. 83 Abs. 1 lit. g, Art. 89 Abs. 2, Art. 89 Abs. 2 lit. a, Art. 89 Abs. 2 lit. b, Art. 89 Abs. 2 lit. c, Art. 91 Abs. 5, Art. 92 Abs. 5, Art. 93 Abs. 1, Art. 93 Abs. 1 lit. a, Art. 93 Abs. 1 lit. b, Art. 93 Abs. 1 lit. c, Art. 94, Art. 101 Abs. 1, Art. 101 Abs. 1 lit. a, Art. 101 Abs. 1 lit. b, Art. 101 Abs. 1 lit. c, Art. 101 Abs. 1 lit. d, Art. 101 Abs. 1 UAbs. 2, Art. 101 Abs. 2, Art. 111 Abs. 3, Anhang IV, Anhang IV Nr. 1, Anhang IV Nr. 1 lit. a, Anhang IV Nr. 1 lit. b, Anhang IV Nr. 1 lit. c, Anhang IV Nr. 1 lit. d, Anhang IV Nr. 1 lit. e, Anhang IV Nr. 1 lit. f, Anhang IV Nr. 2, Anhang IV Nr. 2 lit. a, Anhang IV Nr. 2 lit. b, Anhang IV Nr. 2 lit. c, Anhang IV Nr. 2 lit. d, Anhang IV Nr. 2 lit. f, Anhang IV Nr. 2 lit. g, Anhang IV Nr. 2 lit. h, Anhang IV Nr. 4, Anhang IV Nr. 5, Anhang IV Nr. 6, Anhang IV Nr. 7, Anhang IV Nr. 8, Anhang IV Nr. 9, Anhang V, Anhang V Nr. 1, Anhang V Nr. 2, Anhang V Nr. 3, Anhang V Nr. 4, Anhang V Nr. 5, Anhang V Nr. 6, Anhang V Nr. 7, Anhang V Nr. 8, Anhang VI Nr. 1, Anhang VI Nr. 2, Anhang VI Nr. 3, Anhang VI Nr. 4, Anhang VII Nr. 1, Anhang VII Nr. 2, Anhang VII Nr. 3, Anhang VII Nr. 3.1, Anhang VII Nr. 3.1 lit. a, Anhang VII Nr. 3.1 lit. b, Anhang VII Nr. 3.1 lit. c, Anhang VII Nr. 3.1 lit. d, Anhang VII Nr. 3.1 lit. e, Anhang VII Nr. 3.1 lit. f, Anhang VII Nr. 3.3, Anhang VII Nr. 3.4, Anhang VII Nr. 4, Anhang VII Nr. 4.1, Anhang VII Nr. 4.2, Anhang VII Nr. 4.2 lit. a, Anhang VII Nr. 4.2 lit. b, Anhang VII Nr. 4.2 lit. c, Anhang VII Nr. 4.5, Anhang VII Nr. 4.7, Anhang VII Nr. 5, Anhang VII Nr. 5.2, Anhang VIII Abschn. A, Anhang VIII Abschn. A Nr. 1, Anhang VIII Abschn. A Nr. 2, Anhang VIII Abschn. A Nr. 3, Anhang VIII Abschn. A Nr. 4, Anhang VIII Abschn. A Nr. 5, Anhang VIII Abschn. A Nr. 6, Anhang VIII Abschn. A Nr. 7, Anhang VIII Abschn. A Nr. 8, Anhang VIII Abschn. A Nr. 9, Anhang VIII Abschn. A Nr. 10, Anhang VIII Abschn. A Nr. 11, Anhang VIII Abschn. A Nr. 12, Anhang VIII Abschn. A Nr. 13, Anhang VIII Abschn. B, Anhang VIII Abschn. B Nr. 1, Anhang VIII Abschn. B Nr. 2, Anhang VIII Abschn. B Nr. 3, Anhang VIII Abschn. B Nr. 4, Anhang VIII Abschn. B Nr. 5, Anhang VIII Abschn. B Nr. 6, Anhang VIII Abschn. B Nr. 7, Anhang VIII Abschn. B Nr. 8, Anhang VIII Abschn. B Nr. 9, Anhang IX, Anhang IX Nr. 1, Anhang IX Nr. 2, Anhang IX Nr. 3, Anhang IX Nr. 4, Anhang IX Nr. 5, Anhang XI Abschn. 1, Anhang XI Abschn. 1 Nr. 1, Anhang XI Abschn. 1 Nr. 1 lit. a, Anhang XI Abschn. 1 Nr. 1 lit. b, Anhang XI Abschn. 1 Nr. 1 lit. c, Anhang XI Abschn. 1 Nr. 1 lit. d, Anhang XI Abschn. 1 Nr. 1 lit. e, Anhang XI Abschn. 1 Nr. 1 lit. f, Anhang XI Abschn. 1 Nr. 2, Anhang XI Abschn. 1 Nr. 2 lit. a, Anhang XI Abschn. 1 Nr. 2 lit. b, Anhang XI Abschn. 1 Nr. 2 lit. c, Anhang XI Abschn. 1 Nr. 2 lit. d, Anhang XI Abschn. 1 Nr. 2 lit. e, Anhang XI Abschn. 1 Nr. 2 UAbs. 2, Anhang XI Abschn. 2, Anhang XI Abschn. 2 Nr. 1, Anhang XI Abschn. 2 Nr. 2, Anhang XI Abschn. 2 Nr. 3, Anhang XII, Anhang XII Nr. 1, Anhang XII Nr. 1 lit. a, Anhang XII Nr. 1 lit. b, Anhang XII Nr. 1 lit. c, Anhang XII Nr. 1 lit. d, Anhang XII Nr. 1 lit. e, Anhang XII Nr. 1 lit. f, Anhang XII Nr. 1 lit. g, Anhang XII Nr. 1 lit. h, Anhang XII Nr. 2, Anhang XII Nr. 2 lit. a, Anhang XII Nr. 2 lit. b, Anhang XII Nr. 2 lit. c]
+    bestaetigt: true
+
+  - beleg: OUT-1 b (Review 13) - Gruppe anbieter, Stichprobe ohne Fehler bzw. ganz durchgesehen; out bestaetigt
+    raum: omnibus
+    ids: [Art. 5 Abs. 1a lit. a n.F., Art. 5 Abs. 1a lit. a Ziff. i n.F., Art. 5 Abs. 1a lit. a Ziff. ii n.F., Art. 10 Abs. 1 n.F., Art. 10 Abs. 6 n.F., Art. 11 Abs. 1 UAbs. 2 n.F., Art. 17 Abs. 2 n.F., Art. 25 Abs. 4 UAbs. 1 n.F., Art. 42 Abs. 3 n.F., Art. 43 Abs. 3 n.F., Art. 60 Abs. 1 UAbs. 1 n.F., Art. 60 Abs. 2 n.F., Art. 63 Abs. 1 n.F., Art. 72 Abs. 3 n.F., Art. 111 Abs. 4 n.F.]
+    bestaetigt: true
+
+  - beleg: OUT-1 b (Review 13) - Gruppe behoerde, Stichprobe ohne Fehler bzw. ganz durchgesehen; out bestaetigt
+    raum: aiact
+    ids: [Art. 3 Nr. 45 lit. a, Art. 3 Nr. 45 lit. b, Art. 3 Nr. 46, Art. 3 Nr. 47, Art. 3 Nr. 48, Art. 5 Abs. 1 lit. h, Art. 5 Abs. 1 lit. h Ziff. i, Art. 5 Abs. 1 lit. h Ziff. ii, Art. 5 Abs. 1 lit. h Ziff. iii, Art. 5 Abs. 1 UAbs. 2, Art. 5 Abs. 2, Art. 5 Abs. 2 lit. a, Art. 5 Abs. 2 lit. b, Art. 5 Abs. 2 UAbs. 2, Art. 5 Abs. 3, Art. 5 Abs. 4, Art. 5 Abs. 5, Art. 5 Abs. 6, Art. 5 Abs. 7, Art. 6 Abs. 5, Art. 6 Abs. 6, Art. 6 Abs. 7, Art. 6 Abs. 8, Art. 7 Abs. 1, Art. 7 Abs. 1 lit. a, Art. 7 Abs. 1 lit. b, Art. 7 Abs. 2, Art. 7 Abs. 2 lit. a, Art. 7 Abs. 2 lit. b, Art. 7 Abs. 2 lit. c, Art. 7 Abs. 2 lit. d, Art. 7 Abs. 2 lit. e, Art. 7 Abs. 2 lit. f, Art. 7 Abs. 2 lit. g, Art. 7 Abs. 2 lit. h, Art. 7 Abs. 2 lit. i, Art. 7 Abs. 2 lit. j, Art. 7 Abs. 2 lit. k, Art. 7 Abs. 2 lit. k Ziff. i, Art. 7 Abs. 2 lit. k Ziff. ii, Art. 7 Abs. 3, Art. 7 Abs. 3 lit. a, Art. 7 Abs. 3 lit. b, Art. 18 Abs. 2, Art. 21 Abs. 3, Art. 27 Abs. 5, Art. 28 Abs. 1, Art. 28 Abs. 2, Art. 28 Abs. 3, Art. 28 Abs. 4, Art. 28 Abs. 5, Art. 28 Abs. 6, Art. 28 Abs. 7, Art. 30 Abs. 1, Art. 30 Abs. 2, Art. 30 Abs. 3, Art. 30 Abs. 5, Art. 31 Abs. 8, Art. 35 Abs. 1, Art. 35 Abs. 2, Art. 36 Abs. 1, Art. 36 Abs. 2, Art. 36 Abs. 4, Art. 36 Abs. 6, Art. 36 Abs. 7, Art. 36 Abs. 7 lit. a, Art. 36 Abs. 7 lit. b, Art. 36 Abs. 7 lit. c, Art. 36 Abs. 7 lit. d, Art. 36 Abs. 7 lit. e, Art. 36 Abs. 8, Art. 36 Abs. 8 lit. a, Art. 36 Abs. 8 lit. b, Art. 36 Abs. 9, Art. 36 Abs. 9 lit. a, Art. 36 Abs. 9 lit. b, Art. 36 Abs. 9 UAbs. 2, Art. 36 Abs. 9 UAbs. 3, Art. 37 Abs. 1, Art. 37 Abs. 2, Art. 37 Abs. 3, Art. 37 Abs. 4, Art. 38 Abs. 1, Art. 38 Abs. 2, Art. 38 Abs. 3, Art. 40 Abs. 1, Art. 40 Abs. 2, Art. 41 Abs. 1, Art. 41 Abs. 1 lit. a, Art. 41 Abs. 1 lit. a Ziff. i, Art. 41 Abs. 1 lit. a Ziff. ii, Art. 41 Abs. 1 lit. a Ziff. iii, Art. 41 Abs. 1 lit. a Ziff. iv, Art. 41 Abs. 1 lit. b, Art. 41 Abs. 1 UAbs. 2, Art. 41 Abs. 1 UAbs. 3, Art. 41 Abs. 2, Art. 41 Abs. 3, Art. 41 Abs. 4, Art. 41 Abs. 6, Art. 42 Abs. 1, Art. 42 Abs. 2, Art. 43 Abs. 5, Art. 43 Abs. 6, Art. 45 Abs. 4, Art. 46 Abs. 1, Art. 46 Abs. 2, Art. 46 Abs. 3, Art. 46 Abs. 4, Art. 46 Abs. 5, Art. 46 Abs. 6, Art. 46 Abs. 7, Art. 47 Abs. 5, Art. 49 Abs. 4, Art. 49 Abs. 4 lit. a, Art. 49 Abs. 4 lit. b, Art. 49 Abs. 4 lit. c, Art. 49 Abs. 4 lit. d, Art. 49 Abs. 4 UAbs. 2, Art. 50 Abs. 7, Art. 51 Abs. 1, Art. 51 Abs. 1 lit. a, Art. 51 Abs. 1 lit. b, Art. 51 Abs. 2, Art. 51 Abs. 3, Art. 52 Abs. 3, Art. 52 Abs. 4, Art. 52 Abs. 6, Art. 53 Abs. 5, Art. 53 Abs. 6, Art. 53 Abs. 7, Art. 55 Abs. 3, Art. 56 Abs. 1, Art. 56 Abs. 2, Art. 56 Abs. 2 lit. a, Art. 56 Abs. 2 lit. b, Art. 56 Abs. 2 lit. c, Art. 56 Abs. 2 lit. d, Art. 56 Abs. 3, Art. 56 Abs. 4, Art. 56 Abs. 5, Art. 56 Abs. 6, Art. 56 Abs. 7, Art. 56 Abs. 8, Art. 56 Abs. 9, Art. 57 Abs. 1, Art. 57 Abs. 2, Art. 57 Abs. 3, Art. 57 Abs. 4, Art. 57 Abs. 5, Art. 57 Abs. 6, Art. 57 Abs. 7, Art. 57 Abs. 8, Art. 57 Abs. 9, Art. 57 Abs. 9 lit. a, Art. 57 Abs. 9 lit. b, Art. 57 Abs. 9 lit. c, Art. 57 Abs. 9 lit. d, Art. 57 Abs. 9 lit. e, Art. 57 Abs. 10, Art. 57 Abs. 11, Art. 57 Abs. 13, Art. 57 Abs. 14, Art. 57 Abs. 15, Art. 57 Abs. 16, Art. 57 Abs. 17, Art. 58 Abs. 1, Art. 58 Abs. 1 lit. a, Art. 58 Abs. 1 lit. b, Art. 58 Abs. 1 lit. c, Art. 58 Abs. 1 UAbs. 2, Art. 58 Abs. 2, Art. 58 Abs. 2 lit. a, Art. 58 Abs. 2 lit. b, Art. 58 Abs. 2 lit. c, Art. 58 Abs. 2 lit. d, Art. 58 Abs. 2 lit. e, Art. 58 Abs. 2 lit. f, Art. 58 Abs. 2 lit. g, Art. 58 Abs. 2 lit. h, Art. 58 Abs. 2 lit. i, Art. 58 Abs. 3, Art. 58 Abs. 4, Art. 59 Abs. 1 lit. j, Art. 59 Abs. 2, Art. 60 Abs. 4 lit. b, Art. 60 Abs. 6, Art. 62 Abs. 1, Art. 62 Abs. 1 lit. a, Art. 62 Abs. 1 lit. b, Art. 62 Abs. 1 lit. c, Art. 62 Abs. 1 lit. d, Art. 62 Abs. 2, Art. 62 Abs. 3, Art. 62 Abs. 3 lit. a, Art. 62 Abs. 3 lit. b, Art. 62 Abs. 3 lit. c, Art. 62 Abs. 3 lit. d, Art. 64 Abs. 1, Art. 64 Abs. 2, Art. 65 Abs. 1, Art. 65 Abs. 2, Art. 65 Abs. 3, Art. 65 Abs. 4, Art. 65 Abs. 4 lit. a, Art. 65 Abs. 4 lit. b, Art. 65 Abs. 4 lit. c, Art. 65 Abs. 5, Art. 65 Abs. 6, Art. 65 Abs. 7, Art. 65 Abs. 8, Art. 66, Art. 66 lit. a, Art. 66 lit. b, Art. 66 lit. c, Art. 66 lit. d, Art. 66 lit. e, Art. 66 lit. e Ziff. i, Art. 66 lit. e Ziff. ii, Art. 66 lit. e Ziff. iii, Art. 66 lit. e Ziff. iv, Art. 66 lit. e Ziff. v, Art. 66 lit. e Ziff. vi, Art. 66 lit. e Ziff. vii, Art. 66 lit. f, Art. 66 lit. g, Art. 66 lit. h, Art. 66 lit. i, Art. 66 lit. j, Art. 66 lit. k, Art. 66 lit. l, Art. 66 lit. m, Art. 66 lit. n, Art. 66 lit. o, Art. 67 Abs. 1, Art. 67 Abs. 2, Art. 67 Abs. 3, Art. 67 Abs. 4, Art. 67 Abs. 5, Art. 67 Abs. 6, Art. 67 Abs. 7, Art. 67 Abs. 8, Art. 67 Abs. 9, Art. 67 Abs. 10, Art. 68 Abs. 1, Art. 68 Abs. 2, Art. 68 Abs. 2 lit. a, Art. 68 Abs. 2 lit. b, Art. 68 Abs. 2 lit. c, Art. 68 Abs. 2 UAbs. 2, Art. 68 Abs. 3, Art. 68 Abs. 3 lit. a, Art. 68 Abs. 3 lit. a Ziff. i, Art. 68 Abs. 3 lit. a Ziff. ii, Art. 68 Abs. 3 lit. a Ziff. iii, Art. 68 Abs. 3 lit. a Ziff. iv, Art. 68 Abs. 3 lit. a Ziff. v, Art. 68 Abs. 3 lit. b, Art. 68 Abs. 3 lit. c, Art. 68 Abs. 3 lit. d, Art. 68 Abs. 4, Art. 68 Abs. 5, Art. 69 Abs. 1, Art. 69 Abs. 2, Art. 69 Abs. 3, Art. 70 Abs. 1, Art. 70 Abs. 2, Art. 70 Abs. 3, Art. 70 Abs. 4, Art. 70 Abs. 5, Art. 70 Abs. 6, Art. 70 Abs. 7, Art. 70 Abs. 8, Art. 70 Abs. 9, Art. 71 Abs. 1, Art. 71 Abs. 4, Art. 71 Abs. 5, Art. 71 Abs. 6, Art. 73 Abs. 7, Art. 73 Abs. 8, Art. 73 Abs. 11, Art. 74 Abs. 1, Art. 74 Abs. 1 lit. a, Art. 74 Abs. 1 lit. b, Art. 74 Abs. 2, Art. 74 Abs. 3, Art. 74 Abs. 4, Art. 74 Abs. 5, Art. 74 Abs. 6, Art. 74 Abs. 7, Art. 74 Abs. 8, Art. 74 Abs. 9, Art. 74 Abs. 10, Art. 74 Abs. 11, Art. 74 Abs. 13, Art. 74 Abs. 13 lit. a, Art. 74 Abs. 13 lit. b, Art. 74 Abs. 14, Art. 75 Abs. 1, Art. 75 Abs. 2, Art. 75 Abs. 3, Art. 76 Abs. 1, Art. 76 Abs. 2, Art. 76 Abs. 3, Art. 76 Abs. 3 lit. a, Art. 76 Abs. 3 lit. b, Art. 76 Abs. 4, Art. 76 Abs. 5, Art. 77 Abs. 1, Art. 77 Abs. 2, Art. 77 Abs. 3, Art. 77 Abs. 4, Art. 78 Abs. 1, Art. 78 Abs. 1 lit. a, Art. 78 Abs. 1 lit. b, Art. 78 Abs. 1 lit. c, Art. 78 Abs. 1 lit. d, Art. 78 Abs. 1 lit. e, Art. 78 Abs. 2, Art. 78 Abs. 3, Art. 78 Abs. 4, Art. 78 Abs. 5, Art. 79 Abs. 1, Art. 79 Abs. 3, Art. 79 Abs. 5, Art. 79 Abs. 6, Art. 79 Abs. 6 lit. a, Art. 79 Abs. 6 lit. b, Art. 79 Abs. 6 lit. c, Art. 79 Abs. 6 lit. d, Art. 79 Abs. 7, Art. 79 Abs. 8, Art. 79 Abs. 9, Art. 80 Abs. 1, Art. 80 Abs. 2, Art. 80 Abs. 3, Art. 80 Abs. 6, Art. 80 Abs. 8, Art. 81 Abs. 1, Art. 81 Abs. 2, Art. 81 Abs. 3, Art. 82 Abs. 1, Art. 82 Abs. 3, Art. 82 Abs. 4, Art. 82 Abs. 5, Art. 83 Abs. 2, Art. 84 Abs. 1, Art. 84 Abs. 2, Art. 88 Abs. 1, Art. 88 Abs. 2, Art. 89 Abs. 1, Art. 90 Abs. 1, Art. 90 Abs. 1 lit. a, Art. 90 Abs. 1 lit. b, Art. 90 Abs. 2, Art. 90 Abs. 3, Art. 90 Abs. 3 lit. a, Art. 90 Abs. 3 lit. b, Art. 90 Abs. 3 lit. c, Art. 91 Abs. 1, Art. 91 Abs. 2, Art. 91 Abs. 3, Art. 91 Abs. 4, Art. 92 Abs. 1, Art. 92 Abs. 1 lit. a, Art. 92 Abs. 1 lit. b, Art. 92 Abs. 2, Art. 92 Abs. 3, Art. 92 Abs. 4, Art. 92 Abs. 6, Art. 92 Abs. 7, Art. 93 Abs. 2, Art. 93 Abs. 3, Art. 95 Abs. 1, Art. 95 Abs. 2, Art. 95 Abs. 4, Art. 96 Abs. 1, Art. 96 Abs. 1 lit. a, Art. 96 Abs. 1 lit. b, Art. 96 Abs. 1 lit. c, Art. 96 Abs. 1 lit. d, Art. 96 Abs. 1 lit. e, Art. 96 Abs. 1 lit. f, Art. 96 Abs. 1 UAbs. 2, Art. 96 Abs. 1 UAbs. 3, Art. 96 Abs. 2, Art. 97 Abs. 1, Art. 97 Abs. 2, Art. 97 Abs. 3, Art. 97 Abs. 4, Art. 97 Abs. 5, Art. 97 Abs. 6, Art. 98 Abs. 1, Art. 98 Abs. 2, Art. 99 Abs. 1, Art. 99 Abs. 2, Art. 99 Abs. 3, Art. 99 Abs. 4, Art. 99 Abs. 4 lit. a, Art. 99 Abs. 4 lit. b, Art. 99 Abs. 4 lit. c, Art. 99 Abs. 4 lit. d, Art. 99 Abs. 4 lit. e, Art. 99 Abs. 4 lit. f, Art. 99 Abs. 4 lit. g, Art. 99 Abs. 5, Art. 99 Abs. 6, Art. 99 Abs. 7, Art. 99 Abs. 7 lit. a, Art. 99 Abs. 7 lit. b, Art. 99 Abs. 7 lit. c, Art. 99 Abs. 7 lit. d, Art. 99 Abs. 7 lit. e, Art. 99 Abs. 7 lit. f, Art. 99 Abs. 7 lit. g, Art. 99 Abs. 7 lit. h, Art. 99 Abs. 7 lit. i, Art. 99 Abs. 7 lit. j, Art. 99 Abs. 8, Art. 99 Abs. 9, Art. 99 Abs. 10, Art. 99 Abs. 11, Art. 100 Abs. 1, Art. 100 Abs. 1 lit. a, Art. 100 Abs. 1 lit. b, Art. 100 Abs. 1 lit. c, Art. 100 Abs. 1 lit. d, Art. 100 Abs. 1 lit. e, Art. 100 Abs. 1 lit. f, Art. 100 Abs. 1 lit. g, Art. 100 Abs. 2, Art. 100 Abs. 3, Art. 100 Abs. 4, Art. 100 Abs. 5, Art. 100 Abs. 6, Art. 100 Abs. 7, Art. 101 Abs. 3, Art. 101 Abs. 4, Art. 101 Abs. 5, Art. 101 Abs. 6, Art. 102, Art. 103, Art. 104, Art. 105, Art. 106, Art. 107, Art. 108, Art. 108 Nr. 1, Art. 108 Nr. 2, Art. 108 Nr. 3, Art. 108 Nr. 4, Art. 108 Nr. 5, Art. 108 Nr. 6, Art. 109, Art. 110, Art. 112 Abs. 1, Art. 112 Abs. 2, Art. 112 Abs. 2 lit. a, Art. 112 Abs. 2 lit. b, Art. 112 Abs. 2 lit. c, Art. 112 Abs. 3, Art. 112 Abs. 4, Art. 112 Abs. 4 lit. a, Art. 112 Abs. 4 lit. b, Art. 112 Abs. 4 lit. c, Art. 112 Abs. 4 lit. d, Art. 112 Abs. 5, Art. 112 Abs. 6, Art. 112 Abs. 7, Art. 112 Abs. 8, Art. 112 Abs. 9, Art. 112 Abs. 10, Art. 112 Abs. 11, Art. 112 Abs. 11 lit. a, Art. 112 Abs. 11 lit. b, Art. 112 Abs. 11 lit. c, Art. 112 Abs. 12, Art. 112 Abs. 13, Anhang II, Anhang XIII, Anhang XIII lit. a, Anhang XIII lit. b, Anhang XIII lit. c, Anhang XIII lit. d, Anhang XIII lit. e, Anhang XIII lit. f, Anhang XIII lit. g]
+    bestaetigt: true
+
+  - beleg: OUT-1 b (Review 13) - Gruppe behoerde, Stichprobe ohne Fehler bzw. ganz durchgesehen; out bestaetigt
+    raum: omnibus
+    ids: [Art. 2 Abs. 13 UAbs. 2 n.F., Art. 4 Abs. 2 n.F., Art. 4 Abs. 3 n.F., Art. 27 Abs. 5 n.F., Art. 28 Abs. 8 n.F., Art. 28 Abs. 9 n.F., Art. 30 Abs. 2 n.F., Art. 40 Abs. 2 (angefügt) n.F., Art. 50 Abs. 7 n.F., Art. 56 Abs. 6 n.F., Art. 57 Abs. 1 UAbs. 1 n.F., Art. 57 Abs. 3 n.F., Art. 57 Abs. 3a n.F., Art. 57 Abs. 5 n.F., Art. 57 Abs. 9 lit. e n.F., Art. 57 Abs. 10 n.F., Art. 57 Abs. 14 n.F., Art. 58 Abs. 1 UAbs. 1 Einleitung n.F., Art. 58 Abs. 1 UAbs. 1 lit. d n.F., Art. 60a Abs. 1 n.F., Art. 60a Abs. 2 n.F., Art. 60a Abs. 3 n.F., Art. 60a Abs. 4 n.F., Art. 60a Abs. 5 n.F., Art. 60a Abs. 5 lit. a n.F., Art. 60a Abs. 5 lit. b n.F., Art. 60a Abs. 5 lit. c n.F., Art. 60a Abs. 5 lit. d n.F., Art. 60a Abs. 6 n.F., Art. 64 Abs. 3 n.F., Art. 69 Abs. 2 n.F., Art. 70 Abs. 8 n.F., Art. 75 Abs. 1 n.F., Art. 75 Abs. 1 lit. a n.F., Art. 75 Abs. 1 lit. a Ziff. i n.F., Art. 75 Abs. 1 lit. a Ziff. ii n.F., Art. 75 Abs. 1 lit. a Ziff. iii n.F., Art. 75 Abs. 1 lit. a Ziff. iv n.F., Art. 75 Abs. 1 lit. b n.F., Art. 75 Abs. 1 UAbs. 2 n.F., Art. 75 Abs. 1a n.F., Art. 75 Abs. 1b n.F., Art. 75 Abs. 1c n.F., Art. 75 Abs. 1d n.F., Art. 75 Abs. 1e n.F., Art. 75 Abs. 2a n.F., Art. 75 Abs. 2a lit. a n.F., Art. 75 Abs. 2a lit. b n.F., Art. 75 Abs. 2a lit. c n.F., Art. 75 Abs. 2a UAbs. 2 n.F., Art. 75 Abs. 2a UAbs. 3 n.F., Art. 75a Abs. 1 n.F., Art. 75a Abs. 2 n.F., Art. 75a Abs. 3 n.F., Art. 75a Abs. 4 n.F., Art. 75a Abs. 4 lit. a n.F., Art. 75a Abs. 4 lit. b n.F., Art. 75a Abs. 4 lit. c n.F., Art. 75a Abs. 4 lit. d n.F., Art. 75a Abs. 4 lit. e n.F., Art. 75a Abs. 4 UAbs. 3 n.F., Art. 75a Abs. 4 UAbs. 4 n.F., Art. 75a Abs. 5 n.F., Art. 75a Abs. 6 n.F., Art. 75a Abs. 6 lit. a n.F., Art. 75a Abs. 6 lit. b n.F., Art. 75a Abs. 7 n.F., Art. 75a Abs. 8 n.F., Art. 75b n.F., Art. 75b lit. a n.F., Art. 75b lit. b n.F., Art. 75b lit. c n.F., Art. 75b UAbs. 2 n.F., Art. 75c Abs. 1 n.F., Art. 75c Abs. 2 n.F., Art. 75c Abs. 3 n.F., Art. 75c Abs. 4 n.F., Art. 75c Abs. 4 lit. a n.F., Art. 75c Abs. 4 lit. b n.F., Art. 75c Abs. 4 lit. c n.F., Art. 75c Abs. 4 UAbs. 3 n.F., Art. 75c Abs. 5 n.F., Art. 75c Abs. 5 lit. a n.F., Art. 75c Abs. 5 lit. b n.F., Art. 75c Abs. 5 lit. c n.F., Art. 75c Abs. 5 lit. d n.F., Art. 75c Abs. 5 lit. e n.F., Art. 75c Abs. 5 lit. f n.F., Art. 75c Abs. 5 lit. g n.F., Art. 75c Abs. 5 UAbs. 2 n.F., Art. 75c Abs. 6 n.F., Art. 75c Abs. 7 n.F., Art. 75c Abs. 8 n.F., Art. 75c Abs. 9 n.F., Art. 75d Abs. 1 n.F., Art. 75d Abs. 2 n.F., Art. 75d Abs. 3 n.F., Art. 75d Abs. 4 n.F., Art. 76 Abs. 1 (angefügt) n.F., Art. 77 Abs. 1 n.F., Art. 77 Abs. 1a n.F., Art. 77 Abs. 1b n.F., Art. 95 Abs. 4 n.F., Art. 96 Abs. 1 UAbs. 1 lit. a n.F., Art. 96 Abs. 1 UAbs. 1 lit. g n.F., Art. 96 Abs. 1 UAbs. 2 n.F., Art. 97 Abs. 2 n.F., Art. 97 Abs. 3 n.F., Art. 97 Abs. 6 n.F., Art. 99 Abs. 1 n.F., Art. 99 Abs. 4 lit. da n.F., Art. 99 Abs. 6a n.F.]
+    bestaetigt: true
+
+  - beleg: OUT-1 b (Review 13) - Gruppe betreiber, Stichprobe ohne Fehler bzw. ganz durchgesehen; out bestaetigt
+    raum: aiact
+    ids: [Art. 2 Abs. 10, Art. 26 Abs. 3, Anhang VIII Abschn. C, Anhang VIII Abschn. C Nr. 1, Anhang VIII Abschn. C Nr. 2, Anhang VIII Abschn. C Nr. 3, Anhang VIII Abschn. C Nr. 4, Anhang VIII Abschn. C Nr. 5]
+    bestaetigt: true
+
+  - beleg: OUT-1 b (Review 13) - Gruppe betreiber, Stichprobe ohne Fehler bzw. ganz durchgesehen; out bestaetigt
+    raum: omnibus
+    ids: [Art. 27 Abs. 4 n.F.]
+    bestaetigt: true
+
+  - beleg: OUT-1 b (Review 13) - Gruppe sonstige, Stichprobe ohne Fehler bzw. ganz durchgesehen; out bestaetigt
+    raum: aiact
+    ids: [Art. 1 Abs. 1, Art. 1 Abs. 2, Art. 1 Abs. 2 lit. a, Art. 1 Abs. 2 lit. b, Art. 1 Abs. 2 lit. c, Art. 1 Abs. 2 lit. d, Art. 1 Abs. 2 lit. e, Art. 1 Abs. 2 lit. f, Art. 1 Abs. 2 lit. g, Art. 2 Abs. 1, Art. 2 Abs. 1 lit. c, Art. 2 Abs. 1 lit. d, Art. 2 Abs. 1 lit. e, Art. 2 Abs. 1 lit. f, Art. 2 Abs. 1 lit. g, Art. 2 Abs. 2, Art. 2 Abs. 3, Art. 2 Abs. 4, Art. 2 Abs. 5, Art. 2 Abs. 6, Art. 2 Abs. 7, Art. 2 Abs. 8, Art. 2 Abs. 9, Art. 2 Abs. 11, Art. 2 Abs. 12, Art. 3, Art. 3 Nr. 1, Art. 3 Nr. 2, Art. 3 Nr. 5, Art. 3 Nr. 6, Art. 3 Nr. 7, Art. 3 Nr. 9, Art. 3 Nr. 10, Art. 3 Nr. 11, Art. 3 Nr. 13, Art. 3 Nr. 14, Art. 3 Nr. 16, Art. 3 Nr. 17, Art. 3 Nr. 18, Art. 3 Nr. 19, Art. 3 Nr. 21, Art. 3 Nr. 22, Art. 3 Nr. 24, Art. 3 Nr. 25, Art. 3 Nr. 26, Art. 3 Nr. 27, Art. 3 Nr. 28, Art. 3 Nr. 29, Art. 3 Nr. 30, Art. 3 Nr. 31, Art. 3 Nr. 32, Art. 3 Nr. 34, Art. 3 Nr. 35, Art. 3 Nr. 36, Art. 3 Nr. 37, Art. 3 Nr. 38, Art. 3 Nr. 39, Art. 3 Nr. 40, Art. 3 Nr. 41, Art. 3 Nr. 42, Art. 3 Nr. 43, Art. 3 Nr. 44, Art. 3 Nr. 45, Art. 3 Nr. 50, Art. 3 Nr. 51, Art. 3 Nr. 52, Art. 3 Nr. 53, Art. 3 Nr. 54, Art. 3 Nr. 55, Art. 3 Nr. 56, Art. 3 Nr. 57, Art. 3 Nr. 58, Art. 3 Nr. 59, Art. 3 Nr. 60, Art. 3 Nr. 63, Art. 3 Nr. 64, Art. 3 Nr. 65, Art. 3 Nr. 66, Art. 3 Nr. 67, Art. 3 Nr. 68, Art. 5 Abs. 1, Art. 5 Abs. 8, Art. 11 Abs. 3, Art. 15 Abs. 2, Art. 22 Abs. 3, Art. 22 Abs. 3 lit. a, Art. 22 Abs. 3 lit. b, Art. 22 Abs. 3 lit. c, Art. 22 Abs. 3 lit. d, Art. 22 Abs. 3 lit. e, Art. 22 Abs. 3 UAbs. 2, Art. 22 Abs. 4, Art. 23 Abs. 1, Art. 23 Abs. 1 lit. a, Art. 23 Abs. 1 lit. b, Art. 23 Abs. 1 lit. c, Art. 23 Abs. 1 lit. d, Art. 23 Abs. 2, Art. 23 Abs. 3, Art. 23 Abs. 4, Art. 23 Abs. 5, Art. 23 Abs. 6, Art. 23 Abs. 7, Art. 24 Abs. 1, Art. 24 Abs. 2, Art. 24 Abs. 3, Art. 24 Abs. 4, Art. 24 Abs. 5, Art. 24 Abs. 6, Art. 25 Abs. 5, Art. 29 Abs. 1, Art. 29 Abs. 2, Art. 29 Abs. 3, Art. 29 Abs. 4, Art. 30 Abs. 4, Art. 31 Abs. 1, Art. 31 Abs. 2, Art. 31 Abs. 3, Art. 31 Abs. 4, Art. 31 Abs. 5, Art. 31 Abs. 6, Art. 31 Abs. 7, Art. 31 Abs. 9, Art. 31 Abs. 10, Art. 31 Abs. 11, Art. 31 Abs. 12, Art. 32, Art. 33 Abs. 1, Art. 33 Abs. 2, Art. 33 Abs. 3, Art. 33 Abs. 4, Art. 34 Abs. 1, Art. 34 Abs. 2, Art. 34 Abs. 3, Art. 36 Abs. 3, Art. 36 Abs. 5, Art. 39, Art. 40 Abs. 3, Art. 44 Abs. 1, Art. 44 Abs. 2, Art. 44 Abs. 3, Art. 45 Abs. 1, Art. 45 Abs. 1 lit. a, Art. 45 Abs. 1 lit. b, Art. 45 Abs. 1 lit. c, Art. 45 Abs. 1 lit. d, Art. 45 Abs. 1 lit. e, Art. 45 Abs. 2, Art. 45 Abs. 2 lit. a, Art. 45 Abs. 2 lit. b, Art. 45 Abs. 3, Art. 50 Abs. 6, Art. 54 Abs. 3, Art. 54 Abs. 3 lit. a, Art. 54 Abs. 3 lit. b, Art. 54 Abs. 3 lit. c, Art. 54 Abs. 3 lit. d, Art. 54 Abs. 4, Art. 54 Abs. 5, Art. 59 Abs. 1, Art. 59 Abs. 1 lit. a, Art. 59 Abs. 1 lit. a Ziff. i, Art. 59 Abs. 1 lit. a Ziff. ii, Art. 59 Abs. 1 lit. a Ziff. iii, Art. 59 Abs. 1 lit. a Ziff. iv, Art. 59 Abs. 1 lit. a Ziff. v, Art. 59 Abs. 1 lit. b, Art. 59 Abs. 1 lit. c, Art. 59 Abs. 1 lit. f, Art. 59 Abs. 1 lit. g, Art. 59 Abs. 1 lit. h, Art. 59 Abs. 1 lit. i, Art. 59 Abs. 3, Art. 60 Abs. 5, Art. 85 Abs. 1, Art. 85 Abs. 2, Art. 86 Abs. 2, Art. 86 Abs. 3, Art. 87, Art. 95 Abs. 2 lit. a, Art. 95 Abs. 2 lit. b, Art. 95 Abs. 2 lit. c, Art. 95 Abs. 2 lit. d, Art. 95 Abs. 2 lit. e, Art. 95 Abs. 3, Art. 111 Abs. 1, Art. 113 Abs. 1, Art. 113 Abs. 3 lit. b, Anhang I Abschn. A, Anhang I Abschn. A Nr. 1, Anhang I Abschn. A Nr. 2, Anhang I Abschn. A Nr. 3, Anhang I Abschn. A Nr. 4, Anhang I Abschn. A Nr. 5, Anhang I Abschn. A Nr. 6, Anhang I Abschn. A Nr. 7, Anhang I Abschn. A Nr. 8, Anhang I Abschn. A Nr. 9, Anhang I Abschn. A Nr. 10, Anhang I Abschn. A Nr. 11, Anhang I Abschn. A Nr. 12, Anhang I Abschn. B, Anhang I Abschn. B Nr. 13, Anhang I Abschn. B Nr. 14, Anhang I Abschn. B Nr. 15, Anhang I Abschn. B Nr. 16, Anhang I Abschn. B Nr. 17, Anhang I Abschn. B Nr. 18, Anhang I Abschn. B Nr. 19, Anhang I Abschn. B Nr. 20, Anhang III Nr. 1, Anhang III Nr. 1 lit. a, Anhang III Nr. 1 lit. b, Anhang III Nr. 1 lit. c, Anhang III Nr. 3, Anhang III Nr. 3 lit. a, Anhang III Nr. 3 lit. b, Anhang III Nr. 3 lit. c, Anhang III Nr. 3 lit. d, Anhang III Nr. 4, Anhang III Nr. 4 lit. a, Anhang III Nr. 4 lit. b, Anhang III Nr. 5, Anhang III Nr. 5 lit. a, Anhang III Nr. 5 lit. b, Anhang III Nr. 5 lit. c, Anhang III Nr. 5 lit. d, Anhang III Nr. 6, Anhang III Nr. 6 lit. a, Anhang III Nr. 6 lit. b, Anhang III Nr. 6 lit. c, Anhang III Nr. 6 lit. d, Anhang III Nr. 6 lit. e, Anhang III Nr. 7, Anhang III Nr. 7 lit. a, Anhang III Nr. 7 lit. b, Anhang III Nr. 7 lit. c, Anhang III Nr. 7 lit. d, Anhang III Nr. 8, Anhang III Nr. 8 lit. a, Anhang III Nr. 8 lit. b, Anhang VII Nr. 3.2, Anhang VII Nr. 4.3, Anhang VII Nr. 4.4, Anhang VII Nr. 4.6, Anhang VII Nr. 5.1, Anhang VII Nr. 5.3, Anhang X Nr. 1, Anhang X Nr. 1 lit. a, Anhang X Nr. 1 lit. b, Anhang X Nr. 1 lit. c, Anhang X Nr. 2, Anhang X Nr. 2 lit. a, Anhang X Nr. 2 lit. b, Anhang X Nr. 3, Anhang X Nr. 4, Anhang X Nr. 5, Anhang X Nr. 5 lit. a, Anhang X Nr. 5 lit. b, Anhang X Nr. 6, Anhang X Nr. 7, Anhang X Nr. 7 lit. a, Anhang X Nr. 7 lit. b]
+    bestaetigt: true
+
+  - beleg: OUT-1 b (Review 13) - Gruppe sonstige, Stichprobe ohne Fehler bzw. ganz durchgesehen; out bestaetigt
+    raum: omnibus
+    ids: [Art. 1 Abs. 2 lit. g n.F., Art. 2 Abs. 2 n.F., Art. 2 Abs. 7 n.F., Art. 2 Abs. 13 n.F., Art. 2 Abs. 13 lit. a n.F., Art. 2 Abs. 13 lit. b n.F., Art. 3 Nr. 14a n.F., Art. 3 Nr. 14b n.F., Art. 4 n.F., Art. 4a n.F., Art. 29 Abs. 4 n.F., Art. 60a n.F., Art. 75 Überschrift n.F., Art. 75a n.F., Art. 75c n.F., Art. 75d n.F., Art. 77 Überschrift n.F., Art. 113 Abs. 3 lit. d n.F., Anhang I Abschn. B Nr. 21 n.F., Anhang XIV n.F., Anhang XIV Nr. 1 n.F., Anhang XIV Nr. 2 n.F., Anhang XIV Nr. 3 n.F., Anhang XIV Nr. 4 n.F.]
+    bestaetigt: true
+
+  - beleg: OUT-1 b (Review 13) - steuernde Begriffsbestimmung, die ein Gate auswertet (wie 2b E5)
+    raum: aiact
+    ids: [Art. 3 Nr. 3]
+    setze:
+      scope: in
+      scope_grund: 'Steuernde Begriffsbestimmung (wie 2b E5, PO OUT-1 06.10.2026): G-OPS-06 prueft, wann der Betreiber als Anbieter gilt (Art. 25 Abs. 1).'
+      befund: nicht_einschlaegig
+      befund_grund: Begriffsbestimmung, begruendet keine eigene pruefbare Pflicht.
+    bestaetigt: true
+
+  - beleg: OUT-1 b (Review 13) - steuernde Begriffsbestimmung, die ein Gate auswertet (wie 2b E5)
+    raum: aiact
+    ids: [Art. 3 Nr. 12]
+    setze:
+      scope: in
+      scope_grund: 'Steuernde Begriffsbestimmung (wie 2b E5, PO OUT-1 06.10.2026): G-PRE-02 (Zweckbestimmung) und die Risiko-Einstufung von G-PRE-01 werten sie aus; Art. 26 Abs. 4, Art. 25 Abs. 1 lit. c.'
+      befund: nicht_einschlaegig
+      befund_grund: Begriffsbestimmung, begruendet keine eigene pruefbare Pflicht.
+    bestaetigt: true
+
+  - beleg: OUT-1 b (Review 13) - steuernde Begriffsbestimmung, die ein Gate auswertet (wie 2b E5)
+    raum: aiact
+    ids: [Art. 3 Nr. 15]
+    setze:
+      scope: in
+      scope_grund: 'Steuernde Begriffsbestimmung (wie 2b E5, PO OUT-1 06.10.2026): Art. 26 Abs. 1 und 5 (Verwendung und Ueberwachung anhand der Betriebsanleitung); die Rollenwechsel-Policy von G-OPS-06 wertet sie aus.'
+      befund: nicht_einschlaegig
+      befund_grund: Begriffsbestimmung, begruendet keine eigene pruefbare Pflicht.
+    bestaetigt: true
+
+  - beleg: OUT-1 b (Review 13) - steuernde Begriffsbestimmung, die ein Gate auswertet (wie 2b E5)
+    raum: aiact
+    ids: [Art. 3 Nr. 20]
+    setze:
+      scope: in
+      scope_grund: 'Steuernde Begriffsbestimmung (wie 2b E5, PO OUT-1 06.10.2026): Die Policies von G-DEP (Konformitaet geprueft) und G-PRE-05 werten sie aus; Art. 3 Nr. 23 (wesentliche Veraenderung) verweist darauf.'
+      befund: nicht_einschlaegig
+      befund_grund: Begriffsbestimmung, begruendet keine eigene pruefbare Pflicht.
+    bestaetigt: true
+
+  - beleg: OUT-1 b (Review 13) - steuernde Begriffsbestimmung, die ein Gate auswertet (wie 2b E5)
+    raum: aiact
+    ids: [Art. 3 Nr. 33]
+    setze:
+      scope: in
+      scope_grund: 'Steuernde Begriffsbestimmung (wie 2b E5, PO OUT-1 06.10.2026): G-DEP-01 prueft die Eingabedaten nach Art. 26 Abs. 4.'
+      befund: nicht_einschlaegig
+      befund_grund: Begriffsbestimmung, begruendet keine eigene pruefbare Pflicht.
+    bestaetigt: true
+
+  - beleg: OUT-1 b (Review 13) - steuernde Begriffsbestimmung, die ein Gate auswertet (wie 2b E5)
+    raum: aiact
+    ids: [Art. 3 Nr. 61]
+    setze:
+      scope: in
+      scope_grund: 'Steuernde Begriffsbestimmung (wie 2b E5, PO OUT-1 06.10.2026): Art. 73 Abs. 3: 48-h-Frist auch bei einem weitverbreiteten Verstoss; G-OPS-02/C-04 haelt die Frist.'
+      befund: nicht_einschlaegig
+      befund_grund: Begriffsbestimmung, begruendet keine eigene pruefbare Pflicht.
+    bestaetigt: true
+
+  - beleg: OUT-1 b (Review 13) - steuernde Begriffsbestimmung, die ein Gate auswertet (wie 2b E5)
+    raum: aiact
+    ids: [Art. 3 Nr. 61 lit. a]
+    setze:
+      scope: in
+      scope_grund: 'Steuernde Begriffsbestimmung (wie 2b E5, PO OUT-1 06.10.2026): Wie Art. 3 Nr. 61.'
+      befund: nicht_einschlaegig
+      befund_grund: Begriffsbestimmung, begruendet keine eigene pruefbare Pflicht.
+    bestaetigt: true
+
+  - beleg: OUT-1 b (Review 13) - steuernde Begriffsbestimmung, die ein Gate auswertet (wie 2b E5)
+    raum: aiact
+    ids: [Art. 3 Nr. 61 lit. a Ziff. i]
+    setze:
+      scope: in
+      scope_grund: 'Steuernde Begriffsbestimmung (wie 2b E5, PO OUT-1 06.10.2026): Wie Art. 3 Nr. 61.'
+      befund: nicht_einschlaegig
+      befund_grund: Begriffsbestimmung, begruendet keine eigene pruefbare Pflicht.
+    bestaetigt: true
+
+  - beleg: OUT-1 b (Review 13) - steuernde Begriffsbestimmung, die ein Gate auswertet (wie 2b E5)
+    raum: aiact
+    ids: [Art. 3 Nr. 61 lit. a Ziff. ii]
+    setze:
+      scope: in
+      scope_grund: 'Steuernde Begriffsbestimmung (wie 2b E5, PO OUT-1 06.10.2026): Wie Art. 3 Nr. 61.'
+      befund: nicht_einschlaegig
+      befund_grund: Begriffsbestimmung, begruendet keine eigene pruefbare Pflicht.
+    bestaetigt: true
+
+  - beleg: OUT-1 b (Review 13) - steuernde Begriffsbestimmung, die ein Gate auswertet (wie 2b E5)
+    raum: aiact
+    ids: [Art. 3 Nr. 61 lit. a Ziff. iii]
+    setze:
+      scope: in
+      scope_grund: 'Steuernde Begriffsbestimmung (wie 2b E5, PO OUT-1 06.10.2026): Wie Art. 3 Nr. 61.'
+      befund: nicht_einschlaegig
+      befund_grund: Begriffsbestimmung, begruendet keine eigene pruefbare Pflicht.
+    bestaetigt: true
+
+  - beleg: OUT-1 b (Review 13) - steuernde Begriffsbestimmung, die ein Gate auswertet (wie 2b E5)
+    raum: aiact
+    ids: [Art. 3 Nr. 61 lit. b]
+    setze:
+      scope: in
+      scope_grund: 'Steuernde Begriffsbestimmung (wie 2b E5, PO OUT-1 06.10.2026): Wie Art. 3 Nr. 61.'
+      befund: nicht_einschlaegig
+      befund_grund: Begriffsbestimmung, begruendet keine eigene pruefbare Pflicht.
+    bestaetigt: true
+
+  - beleg: OUT-1 b (Review 13) - steuernde Begriffsbestimmung, die ein Gate auswertet (wie 2b E5)
+    raum: aiact
+    ids: [Art. 3 Nr. 62]
+    setze:
+      scope: in
+      scope_grund: 'Steuernde Begriffsbestimmung (wie 2b E5, PO OUT-1 06.10.2026): G-OPS-02/C-04 prueft die 48-h-Frist fuer kritische Infrastruktur (Art. 73 Abs. 3 ueber Art. 3 Nr. 49 lit. b).'
+      befund: nicht_einschlaegig
+      befund_grund: Begriffsbestimmung, begruendet keine eigene pruefbare Pflicht.
+    bestaetigt: true

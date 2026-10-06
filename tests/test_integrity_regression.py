@@ -3643,7 +3643,7 @@ def check_in_units_verification_declared() -> dict:
     Geprueft je Raum: `verifikation` ist VERIFIZIERT, SEKUNDAERQUELLE oder HYPOTHESE; bei
     HYPOTHESE ist `hypothese_grund` nicht leer.
 
-    MEDIUM (Vorschlag, R-9 offen) wie IN_UNITS_OWN_DUTY_TEXT: eine fehlende Stufe versteckt
+    MEDIUM (PO R-9, 06.10.2026) wie IN_UNITS_OWN_DUTY_TEXT: eine fehlende Stufe versteckt
     keine Pflicht, aber sie verwischt, was belegt und was ausgelegt ist.
     """
     import yaml

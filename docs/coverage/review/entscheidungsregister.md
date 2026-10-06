@@ -23,7 +23,7 @@ Pakete:  1 Anhänge ✅ · 2 Omnibus · 3 Befunde + Matrix · 4 PO-Runde · 5 Be
 
 | ID | Gegenstand | Quelle | Stand | Paket |
 |---|---|---|---|---|
-| R-9 | Severity des Wächters `IN_UNITS_VERIFICATION_DECLARED` (Vorschlag MEDIUM) | `13-po-runde-paket-4.md` | offen | 4 |
+| P4-F2 | Pflichttexte (12) und Verifikationsstufen (12; 6 VERIFIZIERT, 6 HYPOTHESE für Nr. 61 mit Untergliedern) der neuen `in`-Zeilen aus OUT-1 bestätigen | `13-po-runde-paket-4.md` | offen | 4 |
 | FR-4 | Souveräner Betriebspfad (selbst betriebene CI, eigene PKI/privates Sigstore, Kubernetes bei EU-Anbieter oder on-prem) als eigenes Paket – später, bei konkreter Kundenanfrage | `14-fachreview-business-ready.md` | vertagt 06.10.2026 b | jederzeit |
 | M-B1 | Welches Requirement trägt Art. 26 Abs. 5 Satz 1: R009 wie heute oder R008/R010 der prüfenden Gates? | `07-element-matrix.md` | offen | 5 |
 | EF | Die vier Ehrlichkeitsfelder je neuem oder geändertem Requirement und Check: Norm↔Pflicht, MUST/SHOULD, `evidence_level`, `implemented`/`design_only` (AGENTS.md 3) | `entscheidungsregister.md` | offen | 5 |
@@ -45,7 +45,6 @@ Pakete:  1 Anhänge ✅ · 2 Omnibus · 3 Befunde + Matrix · 4 PO-Runde · 5 Be
 | F6 | Neues Requirement R017 Rollenwechsel (Art. 25), MUST/SHOULD in Paket 5 | `04-schritt-2c-teilabdeckungen.md` | entschieden 28.09.2026 a | 5 |
 | S3-1 | Art. 111 Abs. 2 Satz 2 n.F. (Frist 2.8.2030 für Systeme, die Behörden verwenden): Zeile bleibt Lücke; Manifest-Feld „Betreiber ist Behörde“ als dritte Bedingung im P0-Check | `00-systembild-und-plan.md` | entschieden 05.10.2026 a | 5 |
 | S3-4 | 47 HYPOTHESE-Zeilen gegen Leitlinien der Kommission und die Zotero-Bibliothek des PO prüfen; je Zeile „verifiziert“ oder „bleibt HYPOTHESE“ mit Fundstelle | `00-systembild-und-plan.md` | entschieden 06.10.2026 a | 4 |
-| OUT-1 | `out`-Stichprobe: Betreiber (9) einzeln, übrige Gruppen je 20 zufällig (fester Seed); ohne Fehler Sammelbestätigung, ein Fehler → Gruppe ganz durchsehen | `entscheidungsregister.md` | entschieden 06.10.2026 b | 4 |
 | FR-1 | Art. 26 Abs. 11 als Bedingungsparameter: Manifest-Feld „natürliche Personen unter den betroffenen Anlagenbetreibern“, bei `true` meldet ein Check Lücke (wie P2-F4); bis dahin n.e. | `14-fachreview-business-ready.md` | entschieden 06.10.2026 a | 5 |
 | FR-2 | Redispatch-Referenzszenario (Fixtures + End-to-End-Lauf) und Use Cases des Agenten (P9-1) parallel zu Paket 5 | `14-fachreview-business-ready.md` | entschieden 06.10.2026 a | jederzeit |
 | FR-5 | Juristische Zweitprüfung der Auslegungsentscheide (Q1, Q11, A-F1, F4, HYPOTHESE-Zeilen mit Befund) vor dem ersten Kunden | `14-fachreview-business-ready.md` | entschieden 06.10.2026 b | 9 |
@@ -127,6 +126,8 @@ Pakete:  1 Anhänge ✅ · 2 Omnibus · 3 Befunde + Matrix · 4 PO-Runde · 5 Be
 | P3-B1 | Art. 73 Abs. 3, 4 wie Abs. 2 zerlegt: Fristdauer geprüft, „unverzüglich“ und Fristbeginn nicht → Teilabdeckung (H2 für diese Zeilen überholt) | `11-paket-3b-element-matrix.md` | umgesetzt 05.10.2026 a | – |
 | A-W12 | Omnibus-Unterabsätze am Amtsblatt geprüft (S. 28, 29, 31): Art. 75a Abs. 4 und 75c Abs. 4 haben die Liste in UAbs. 2, die Zählung UAbs. 3/4 ist richtig; Art. 75 Abs. 2a ebenso – nichts zu berichtigen | `10-paket-3-werkzeug.md` | umgesetzt 05.10.2026 a | – |
 | S3-3 | Verifikationsstufe der 23 `in`-Zeilen ohne Stufe: 21 VERIFIZIERT, 2 HYPOTHESE (Anhang III Nr. 2 – Hochrisiko-Einstufung des Referenzfalls; Omnibus Art. 6 Abs. 1c n.F.); Wächter `IN_UNITS_VERIFICATION_DECLARED` | `00-systembild-und-plan.md` | umgesetzt 06.10.2026 a | – |
+| R-9 | Severity `IN_UNITS_VERIFICATION_DECLARED` = MEDIUM | `13-po-runde-paket-4.md` | umgesetzt 06.10.2026 MEDIUM | – |
+| OUT-1 | `out`-Stichprobe (Seed 20261002): Betreiber 9, Behörde/Anbieter je 20 ohne Fehler → gesammelt bestätigt; Sonstige: Art. 3 Nr. 62 falsch `out` → Gruppe ganz durchgesehen, Art. 3 Nr. 3, 12, 15, 20, 33, 61 (+5 Unterglieder), 62 `in`/n.e. (PO „stark + mittel“), Rest bestätigt. Alle 1516 Zeilen bestätigt: `in` 125, `out` 1391 | `entscheidungsregister.md` | umgesetzt 06.10.2026 b | – |
 | P4-F1 | 29 Pflichttexte aus P4-B1 und S3-2 a vom PO gegen den Wortlaut geprüft und bestätigt (Prüfliste); `PO_DECISIONS_APPLIED` hält sie | `13-po-runde-paket-4.md` | umgesetzt 06.10.2026 a | – |
 | IN-1 | Alle `in`-Zeilen bestätigt: 113 von 113 (AI Act 89, Omnibus 24); Gruppe 1 (32) einzeln nach Prüfliste, Gruppe 2 (10) am 05.10. | `entscheidungsregister.md` | umgesetzt 06.10.2026 | – |
 | R-8 | Severity `REQUIREMENT_ANCHOR_DECLARED` = MEDIUM | `13-po-runde-paket-4.md` | umgesetzt 06.10.2026 MEDIUM | – |
