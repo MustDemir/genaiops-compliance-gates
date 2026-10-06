@@ -2,7 +2,7 @@
 titel: PO-Runde (Paket 4) – Arbeitsliste
 stand: 2026-10-02
 basis: Entscheidungsregister Teil 1 und 3 (alle Punkte mit Paket 4) · Pflichtenräume AI Act und Omnibus, Stand Commit 6a074ed · Stichprobe mit festem Seed 20261002
-status: Arbeitsliste – alle Fragen entschieden (Teil 6, 7) · alle `in`-Zeilen bestätigt · zu tun: S3-3 Vorschläge, S3-4 Quellenprüfung, OUT-1 Stichprobe (20 je Gruppe)
+status: Arbeitsliste – alle Fragen entschieden (Teil 6, 7) · alle `in`-Zeilen bestätigt · S3-3 und OUT-1 zur Prüfung vorbereitet (Teil 8) · zu tun: S3-4 Quellenprüfung
 ---
 
 # Kurzfazit
@@ -286,3 +286,17 @@ Reihenfolge:  P4-B1 (ich, Texte) ──► A Einzelfragen ──► B Bestätige
 | FR-1 … FR-5 | a · a · b · b (vertagt) · b | siehe Review 14, Register |
 
 - **Korrektur:** Die Zeile zu Art. 3 Nr. 49 lit. d war am 05.10. in die Gruppe-1-Tabelle von IN-1 gerutscht statt in die Tabelle von Teil 5; verschoben.
+
+# Teil 8 – S3-3 und OUT-1: vorbereitet zur Prüfung (06.10.2026)
+
+- **Prüfliste** im Project: `claude/s3-3-out-1-pruefliste.md` (Teil A S3-3, Teil B OUT-1).
+- **S3-3:** 23 Vorschläge – 21 `VERIFIZIERT`, 2 `HYPOTHESE`: **Anhang III Nr. 2** (die Hochrisiko-Einstufung des Referenzfalls hängt an „Redispatch-KI = Sicherheitsbauteil“, Art. 3 Nr. 14 n.F., Art. 6 Abs. 1a/1b n.F. ohne Leitlinien) und **Omnibus Art. 6 Abs. 1c n.F.** (steuert nur den Anhang-I-Weg, Art. 6 Abs. 1 ist `out`). Die Stufe gilt der Einordnung der Zeile, nicht der Einstufung von Redispatch.
+- **OUT-1** (PO b, 20 je Gruppe): offen 1259 `out`-Zeilen – Behörde 599 · Anbieter 352 · Sonstige 299 · Betreiber 9. Gezogen je Gruppe aus allen unbestätigten `out`-Zeilen, sortiert nach (Raum, Kennung): `random.Random(20261002).sample(pool, 20)`.
+- **Vorprüfung (Claude):** Art. 3 Nr. 62 „kritische Infrastrukturen“ ist vermutlich falsch `out` – G-OPS-02/C-04 prüft die 48-h-Frist für kritische Infrastruktur (Art. 73 Abs. 3 über Art. 3 Nr. 49 lit. b). Nach E5 wäre sie `in`, n.e.; bestätigt der PO das, wird „Sonstige“ ganz durchgesehen. Grenzfälle Art. 3 Nr. 1, Nr. 12: inhaltlich steuernd, kein Gate zitiert sie – nach E5 `out`.
+
+**Gezogene Kennungen:**
+
+- **betreiber** (9): AI Act Art. 2 Abs. 10 · AI Act Art. 26 Abs. 3 · AI Act Anhang VIII Abschn. C · AI Act Anhang VIII Abschn. C Nr. 1 · AI Act Anhang VIII Abschn. C Nr. 2 · AI Act Anhang VIII Abschn. C Nr. 3 · AI Act Anhang VIII Abschn. C Nr. 4 · AI Act Anhang VIII Abschn. C Nr. 5 · Omnibus Art. 27 Abs. 4 n.F.
+- **behoerde** (20): AI Act Art. 51 Abs. 2 · AI Act Art. 49 Abs. 4 lit. c · Omnibus Art. 75a Abs. 8 n.F. · AI Act Art. 78 Abs. 1 lit. b · AI Act Art. 89 Abs. 1 · AI Act Art. 74 Abs. 8 · AI Act Art. 36 Abs. 7 lit. d · Omnibus Art. 60a Abs. 5 lit. a n.F. · AI Act Art. 7 Abs. 2 lit. k · AI Act Art. 66 lit. o · Omnibus Art. 27 Abs. 5 n.F. · AI Act Art. 66 lit. j · AI Act Art. 100 Abs. 1 lit. d · AI Act Art. 99 Abs. 10 · AI Act Art. 58 Abs. 2 lit. a · AI Act Art. 68 Abs. 2 lit. a · AI Act Art. 79 Abs. 1 · Omnibus Art. 75 Abs. 1c n.F. · AI Act Art. 35 Abs. 1 · Omnibus Art. 75 Abs. 1 lit. a n.F.
+- **anbieter** (20): AI Act Anhang VIII Abschn. B Nr. 5 · Omnibus Art. 5 Abs. 1a lit. a Ziff. ii n.F. · AI Act Anhang VIII Abschn. A Nr. 5 · AI Act Art. 60 Abs. 8 · AI Act Art. 17 Abs. 4 · AI Act Art. 25 Abs. 3 lit. b · AI Act Art. 17 Abs. 1 lit. g · AI Act Anhang VII Nr. 3.1 lit. c · AI Act Art. 93 Abs. 1 lit. a · AI Act Art. 55 Abs. 1 lit. d · AI Act Art. 16 lit. b · AI Act Art. 10 Abs. 6 · AI Act Art. 53 Abs. 1 lit. d · AI Act Art. 89 Abs. 2 lit. a · AI Act Art. 89 Abs. 2 lit. c · AI Act Art. 10 Abs. 5 lit. d · AI Act Anhang IV Nr. 1 lit. e · Omnibus Art. 60 Abs. 1 UAbs. 1 n.F. · AI Act Art. 48 Abs. 5 · AI Act Anhang XII
+- **sonstige** (20): AI Act Art. 1 Abs. 2 lit. f · AI Act Anhang X Nr. 7 · Omnibus Anhang XIV Nr. 2 n.F. · AI Act Art. 3 Nr. 61 lit. a Ziff. i · AI Act Art. 31 Abs. 2 · AI Act Art. 3 Nr. 55 · AI Act Anhang III Nr. 7 lit. b · AI Act Art. 59 Abs. 1 lit. a Ziff. v · AI Act Art. 3 Nr. 34 · AI Act Art. 3 Nr. 12 · AI Act Art. 54 Abs. 3 lit. b · AI Act Art. 3 Nr. 1 · AI Act Anhang I Abschn. A Nr. 3 · AI Act Art. 45 Abs. 1 lit. a · AI Act Art. 22 Abs. 3 UAbs. 2 · AI Act Art. 3 Nr. 19 · AI Act Art. 3 Nr. 62 · AI Act Art. 85 Abs. 1 · AI Act Anhang III Nr. 6 lit. c · AI Act Art. 59 Abs. 3
