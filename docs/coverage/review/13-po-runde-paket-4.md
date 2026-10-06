@@ -2,7 +2,7 @@
 titel: PO-Runde (Paket 4) – Arbeitsliste
 stand: 2026-10-02
 basis: Entscheidungsregister Teil 1 und 3 (alle Punkte mit Paket 4) · Pflichtenräume AI Act und Omnibus, Stand Commit 6a074ed · Stichprobe mit festem Seed 20261002
-status: Arbeitsliste – Teil 1 entschieden 05.10.2026 (Teil 6) · P4-B1 umgesetzt · offen: P4-F1, IN-1 Gruppe 1, S3-3, S3-4, OUT-1, R-8
+status: Arbeitsliste – alle Fragen entschieden (Teil 6, 7) · alle `in`-Zeilen bestätigt · zu tun: S3-3 Vorschläge, S3-4 Quellenprüfung, OUT-1 Stichprobe (20 je Gruppe)
 ---
 
 # Kurzfazit
@@ -57,7 +57,6 @@ Reihenfolge:  P4-B1 (ich, Texte) ──► A Einzelfragen ──► B Bestätige
 | AI Act | Art. 113 Abs. 3 | n.e. | – | Einleitung der Ausnahmen vom Geltungsbeginn nach Abs. 2 (lit. a-d). |
 | AI Act | Anhang III | n.e. | – | Einleitung der Liste: Als Hochrisiko-KI-Systeme nach Art. 6 Abs. 2 gelten die in den folgenden Bereichen aufg… |
 | AI Act | Anhang III Nr. 2 | n.e. | – | Hochrisiko-Bereich nach Art. 6 Abs. 2 (Anhang III Nr. 2, kritische Infrastruktur): KI-Systeme, die bestimmungs… |
-| AI Act | Art. 3 Nr. 49 lit. d | **trug Nr. 50–61** („sowie Definitionen Nr. 50-61 …“); seit S3-2 a `in` (05.10.2026) | Teil der Definition 'schwerwiegender Vorfall', Variante d): schwere Sach- oder Umweltschaeden. |
 | Omnibus | Art. 3 Nr. 14 n.F. | n.e. | – | Begriff 'Sicherheitsbauteil' (Neufassung): Bestandteil eines Produkts oder KI-Systems, der eine Sicherheitsfun… |
 | Omnibus | Art. 4a Abs. 2 n.F. | n.e. | – | Einleitung: Anbieter und Betreiber anderer KI-Systeme und KI-Modelle sowie Betreiber von Hochrisiko-KI-Systeme… |
 | Omnibus | Art. 4a Abs. 2 lit. a n.F. | n.e. | – | Bedingung a) der Erlaubnis nach Art. 4a Abs. 2 n.F.: die Verarbeitung ist zur Erkennung und Korrektur von Verz… |
@@ -91,7 +90,7 @@ Reihenfolge:  P4-B1 (ich, Texte) ──► A Einzelfragen ──► B Bestätige
 
 | ID | Frage | Optionen | Antwort |
 |---|---|---|---|
-| IN-1 | Bestätigen? | a) **Gruppe 1 gesammelt** (nach den neuen Texten aus P4-B1), Gruppe 2 einzeln mit Q11 und S3-1 · b) alle 42 einzeln || Gruppe 2 **a**; Gruppe 1 **b** einzeln (05.10.2026, Prüfliste) |
+| IN-1 | Bestätigen? | a) **Gruppe 1 gesammelt** (nach den neuen Texten aus P4-B1), Gruppe 2 einzeln mit Q11 und S3-1 · b) alle 42 einzeln || Gruppe 2 **a**; Gruppe 1 **b** einzeln – nach Prüfliste bestätigt (06.10.2026) |
 
 ## S3-2 – Unterglieder entschiedener Normen
 
@@ -119,7 +118,7 @@ Reihenfolge:  P4-B1 (ich, Texte) ──► A Einzelfragen ──► B Bestätige
 
 | ID | Frage | Optionen | Antwort |
 |---|---|---|---|
-| S3-3 | Wer setzt die Stufe? | a) **ich schlage je Zeile VERIFIZIERT oder HYPOTHESE vor, mit Begründung am Wortlaut**; du bestätigst gesammelt · b) du setzt je Zeile | |
+| S3-3 | Wer setzt die Stufe? | a) **ich schlage je Zeile VERIFIZIERT oder HYPOTHESE vor, mit Begründung am Wortlaut**; du bestätigst gesammelt · b) du setzt je Zeile || **a** (06.10.2026) |
 
 ## S3-4 – Hypothesen gegen Sekundärquellen (47 `in`-Zeilen)
 
@@ -128,7 +127,7 @@ Reihenfolge:  P4-B1 (ich, Texte) ──► A Einzelfragen ──► B Bestätige
 
 | ID | Frage | Optionen | Antwort |
 |---|---|---|---|
-| S3-4 | Gegen welche Quellen? | a) **Leitlinien der Kommission und deine Zotero-Bibliothek;** ich schlage je Zeile „verifiziert“ oder „bleibt HYPOTHESE“ mit Fundstelle vor, du bestätigst · b) nur Leitlinien der Kommission | |
+| S3-4 | Gegen welche Quellen? | a) **Leitlinien der Kommission und deine Zotero-Bibliothek;** ich schlage je Zeile „verifiziert“ oder „bleibt HYPOTHESE“ mit Fundstelle vor, du bestätigst · b) nur Leitlinien der Kommission || **a** (06.10.2026) |
 
 # Teil 3 – C: `out`-Stichprobe (OUT-1)
 
@@ -196,7 +195,7 @@ Reihenfolge:  P4-B1 (ich, Texte) ──► A Einzelfragen ──► B Bestätige
 
 | ID | Frage | Optionen | Antwort |
 |---|---|---|---|
-| OUT-1 | Stichprobe so? | a) **10 je Gruppe**, Betreiber vollständig · b) 20 je Gruppe | |
+| OUT-1 | Stichprobe so? | a) **10 je Gruppe**, Betreiber vollständig · b) 20 je Gruppe || **b** – 20 je Gruppe (06.10.2026) |
 
 # Teil 4 – Befund
 
@@ -232,6 +231,7 @@ Reihenfolge:  P4-B1 (ich, Texte) ──► A Einzelfragen ──► B Bestätige
 | AI Act | Art. 13 Abs. 3 lit. b Ziff. vi | Sammeltext Ziff. v–vii | Angabe nach lit. b, Ziff. vi): gegebenenfalls Spezifikationen fuer die Eingabedaten oder sonstige relevante Informationen ueber die verwendeten Trainings-, Validierungs- und Testdatensaetze, unter Beruecksichtigung der Zweckbestimmung. |
 | AI Act | Art. 13 Abs. 3 lit. b Ziff. vii | Sammeltext Ziff. v–vii | Angabe nach lit. b, Ziff. vii): gegebenenfalls Informationen, die es den Betreibern ermoeglichen, die Ausgabe des Systems zu interpretieren und es angemessen zu nutzen. |
 | AI Act | Anhang III Nr. 2 | kein Text (dazu Vermerk `omnibus` wie Anhang III Nr. 1) | Hochrisiko-Bereich nach Art. 6 Abs. 2 (Anhang III Nr. 2, kritische Infrastruktur): KI-Systeme, die bestimmungsgemaess als Sicherheitsbauteile in der Verwaltung und im Betrieb kritischer digitaler Infrastruktur, des Strassenverkehrs oder der Wasser-, Gas-, Waerme- oder Stromversorgung verwendet werden sollen. |
+| AI Act | Art. 3 Nr. 49 lit. d | **trug Nr. 50–61** („sowie Definitionen Nr. 50-61 …“); seit S3-2 a `in` (05.10.2026) | Teil der Definition 'schwerwiegender Vorfall', Variante d): schwere Sach- oder Umweltschaeden. |
 | Omnibus | Art. 3 Nr. 14 n.F. | kein Text | Begriff 'Sicherheitsbauteil' (Neufassung): Bestandteil eines Produkts oder KI-Systems, der eine Sicherheitsfunktion fuer dieses Produkt oder KI-System erfuellt oder dessen Ausfall oder Stoerung die Gesundheit und Sicherheit von Personen oder Eigentum gefaehrdet; eine Sicherheitsfunktion erfuellt ein Bauteil, dessen Zweckbestimmung es ist, solche Risiken abzuwenden oder zu mindern. |
 | Omnibus | Art. 4a Abs. 2 n.F. | kein Text | Einleitung: Anbieter und Betreiber anderer KI-Systeme und KI-Modelle sowie Betreiber von Hochrisiko-KI-Systemen duerfen ausnahmsweise besondere Kategorien personenbezogener Daten verarbeiten, sofern die Bedingungen lit. a und b erfuellt sind. |
 | Omnibus | Art. 4a Abs. 2 lit. a n.F. | **brach ab** („… die die …“) | Bedingung a) der Erlaubnis nach Art. 4a Abs. 2 n.F.: die Verarbeitung ist zur Erkennung und Korrektur von Verzerrungen unbedingt erforderlich, die Gesundheit und Sicherheit von Personen beeintraechtigen, negative Auswirkungen auf die Grundrechte haben oder zu einer unionsrechtlich verbotenen Diskriminierung fuehren, insbesondere wenn die Datenausgaben die Eingaben kuenftiger Operationen beeinflussen. |
@@ -272,3 +272,17 @@ Reihenfolge:  P4-B1 (ich, Texte) ──► A Einzelfragen ──► B Bestätige
 | # | Frage | Optionen |
 |---|---|---|
 | R-8 | Severity des Wächters `REQUIREMENT_ANCHOR_DECLARED` | a) **MEDIUM:** eine interne Vorgabe mit Gesetzeszitat erzeugt kein falsches „konform“, aber eine falsche Rechtsbehauptung nach außen · b) HIGH · c) LOW |
+
+# Teil 7 – Entscheide 06.10.2026
+
+| Punkt | Entscheid | Umgesetzt / nächster Schritt |
+|---|---|---|
+| P4-F1 | **a** – 29 Texte bestätigt (PO hat die Prüfliste gegen den Wortlaut gelesen) | `entscheide/2026-10-06_paket-4-teil-2.yaml` setzt jeden Text wörtlich, `PO_DECISIONS_APPLIED` hält ihn |
+| IN-1 Gruppe 1 | einzeln geprüft, **bestätigt** | 30 offene Zeilen bestätigt (2 schon mit S3-2 a) → **alle 113 `in`-Zeilen bestätigt** |
+| R-8 | MEDIUM | Docstring des Wächters |
+| S3-3 | **a** | Claude schlägt je Zeile die Stufe vor (Prüfliste), PO bestätigt gesammelt |
+| S3-4 | **a** – Leitlinien + Zotero | Quellenprüfung der 47 HYPOTHESE-Zeilen |
+| OUT-1 | **b** – 20 je Gruppe | Betreiber 9 einzeln, Behörde/Anbieter/Sonstige je 20 (Seed 20261002) |
+| FR-1 … FR-5 | a · a · b · b (vertagt) · b | siehe Review 14, Register |
+
+- **Korrektur:** Die Zeile zu Art. 3 Nr. 49 lit. d war am 05.10. in die Gruppe-1-Tabelle von IN-1 gerutscht statt in die Tabelle von Teil 5; verschoben.

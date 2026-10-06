@@ -1,6 +1,6 @@
 ---
 titel: Entscheidungsregister – was der PO noch entscheiden muss und welche Schritte ausstehen
-stand: 2026-10-05 (nach Paket 3b, P3-F5 und Review 12 Evidence Store; T-16.1 gebaut und abgenommen: ES-1, ES-2, ES-F3 a; P4-B1 umgesetzt; PO-Runde Teil 1: Q1, Q11, S3-1, S3-2, A-F1, R-1, R-7, P3-B1, A-W12)
+stand: 2026-10-06 (nach Paket 3b, P3-F5 und Review 12 Evidence Store; T-16.1 gebaut und abgenommen: ES-1, ES-2, ES-F3 a; P4-B1 umgesetzt; PO-Runde Teil 1: Q1, Q11, S3-1, S3-2, A-F1, R-1, R-7, P3-B1, A-W12; Teil 2 06.10.2026: P4-F1, IN-1, R-8, FR-1–FR-5, S3-3, S3-4, OUT-1)
 basis: Reviews 00–09, Entscheidungsdateien in docs/coverage/entscheide/, Plan Teil C
 status: lebendes Register · der Wächter PO_DECISIONS_REGISTERED hält es vollständig
 ---
@@ -23,17 +23,7 @@ Pakete:  1 Anhänge ✅ · 2 Omnibus · 3 Befunde + Matrix · 4 PO-Runde · 5 Be
 
 | ID | Gegenstand | Quelle | Stand | Paket |
 |---|---|---|---|---|
-| S3-3 | Verifikationsstufe der Zeilen ohne Stufe (12 AI Act, 10 Omnibus) | `00-systembild-und-plan.md` | vertagt | 4 |
-| S3-4 | Hypothesen gegen Sekundärquellen prüfen (43 in-Zeilen, dazu 4 aus Paket 1) | `00-systembild-und-plan.md` | vertagt | 4 |
-| IN-1 | Alle `in`-Zeilen bestätigen (05.10.2026: 83 von 113 bestätigt – AI Act 72 von 89, Omnibus 11 von 24; Gruppe 2 bestätigt, Gruppe 1 prüft der PO einzeln nach der Prüfliste) | `entscheidungsregister.md` | offen | 4 |
-| OUT-1 | `out`-Zeilen: Stichprobe nach Adressat-Gruppen, dann Sammelbestätigung (05.10.2026: 144 von 1403 bestätigt – AI Act 36 von 1143, Omnibus 108 von 260) | `entscheidungsregister.md` | offen | 4 |
-| P4-F1 | Sammelbestätigung der 29 Pflichttexte aus P4-B1 (28 + Art. 3 Nr. 49 lit. d aus S3-2 a) – bestätigt ist der Text, nicht Befund und Einordnung (wie P3-F2, P3-F5) | `13-po-runde-paket-4.md` | offen | 4 |
-| R-8 | Severity des Wächters `REQUIREMENT_ANCHOR_DECLARED` (Vorschlag MEDIUM) | `13-po-runde-paket-4.md` | offen | 4 |
-| FR-1 | Art. 26 Abs. 11 (Q11 a) als Bedingungsparameter: Manifest-Feld „natürliche Personen unter den betroffenen Anlagenbetreibern“, bei `true` Lücke (wie P2-F4) | `14-fachreview-business-ready.md` | offen | 4 |
-| FR-2 | Redispatch-Referenzszenario (Fixtures + End-to-End-Lauf) und Use Cases des Agenten (P9-1) parallel zu Paket 5 vorziehen | `14-fachreview-business-ready.md` | offen | jederzeit |
-| FR-3 | Kriterium für neue Wächter: nur, wenn der Fehler ein Agent-Urteil verfälschen kann | `14-fachreview-business-ready.md` | offen | jederzeit |
-| FR-4 | Souveräner Betriebspfad (selbst betriebene CI, eigene PKI/privates Sigstore, Kubernetes bei EU-Anbieter oder on-prem) als eigenes Paket | `14-fachreview-business-ready.md` | offen | jederzeit |
-| FR-5 | Juristische Zweitprüfung der Auslegungsentscheide (Q1, Q11, A-F1, F4, HYPOTHESE-Zeilen mit Befund) vor Paket 8 | `14-fachreview-business-ready.md` | offen | 8 |
+| FR-4 | Souveräner Betriebspfad (selbst betriebene CI, eigene PKI/privates Sigstore, Kubernetes bei EU-Anbieter oder on-prem) als eigenes Paket – später, bei konkreter Kundenanfrage | `14-fachreview-business-ready.md` | vertagt 06.10.2026 b | jederzeit |
 | M-B1 | Welches Requirement trägt Art. 26 Abs. 5 Satz 1: R009 wie heute oder R008/R010 der prüfenden Gates? | `07-element-matrix.md` | offen | 5 |
 | EF | Die vier Ehrlichkeitsfelder je neuem oder geändertem Requirement und Check: Norm↔Pflicht, MUST/SHOULD, `evidence_level`, `implemented`/`design_only` (AGENTS.md 3) | `entscheidungsregister.md` | offen | 5 |
 | P9-1 | Use Cases des Prüf-Agenten | `00-systembild-und-plan.md` | offen | 9 |
@@ -53,6 +43,12 @@ Pakete:  1 Anhänge ✅ · 2 Omnibus · 3 Befunde + Matrix · 4 PO-Runde · 5 Be
 | F5 | G-OPS-02 umbauen: Art.-73-Fristen nur als Auffangregel, Reduktion nach Abs. 9 am Status des Anbieters. Zwischenschritt „Vermerk HYPOTHESE im Gate“ am 29.09.2026 nachgeholt | `04-schritt-2c-teilabdeckungen.md` | entschieden 28.09.2026 a | 5 |
 | F6 | Neues Requirement R017 Rollenwechsel (Art. 25), MUST/SHOULD in Paket 5 | `04-schritt-2c-teilabdeckungen.md` | entschieden 28.09.2026 a | 5 |
 | S3-1 | Art. 111 Abs. 2 Satz 2 n.F. (Frist 2.8.2030 für Systeme, die Behörden verwenden): Zeile bleibt Lücke; Manifest-Feld „Betreiber ist Behörde“ als dritte Bedingung im P0-Check | `00-systembild-und-plan.md` | entschieden 05.10.2026 a | 5 |
+| S3-3 | Verifikationsstufe der 23 `in`-Zeilen ohne Stufe: Claude schlägt je Zeile VERIFIZIERT oder HYPOTHESE mit Begründung am Wortlaut vor, PO bestätigt gesammelt | `00-systembild-und-plan.md` | entschieden 06.10.2026 a | 4 |
+| S3-4 | 47 HYPOTHESE-Zeilen gegen Leitlinien der Kommission und die Zotero-Bibliothek des PO prüfen; je Zeile „verifiziert“ oder „bleibt HYPOTHESE“ mit Fundstelle | `00-systembild-und-plan.md` | entschieden 06.10.2026 a | 4 |
+| OUT-1 | `out`-Stichprobe: Betreiber (9) einzeln, übrige Gruppen je 20 zufällig (fester Seed); ohne Fehler Sammelbestätigung, ein Fehler → Gruppe ganz durchsehen | `entscheidungsregister.md` | entschieden 06.10.2026 b | 4 |
+| FR-1 | Art. 26 Abs. 11 als Bedingungsparameter: Manifest-Feld „natürliche Personen unter den betroffenen Anlagenbetreibern“, bei `true` meldet ein Check Lücke (wie P2-F4); bis dahin n.e. | `14-fachreview-business-ready.md` | entschieden 06.10.2026 a | 5 |
+| FR-2 | Redispatch-Referenzszenario (Fixtures + End-to-End-Lauf) und Use Cases des Agenten (P9-1) parallel zu Paket 5 | `14-fachreview-business-ready.md` | entschieden 06.10.2026 a | jederzeit |
+| FR-5 | Juristische Zweitprüfung der Auslegungsentscheide (Q1, Q11, A-F1, F4, HYPOTHESE-Zeilen mit Befund) vor dem ersten Kunden | `14-fachreview-business-ready.md` | entschieden 06.10.2026 b | 9 |
 | E2 | Rego-Meldungen mit Check-ID (130 von 195 ohne), Wächter `REGO_MESSAGES_CARRY_CHECK_ID` im selben Commit | `05-schritt-2d-2e-gedeckt-querbefunde.md` | entschieden 29.09.2026 a | 5 |
 | P2-F4 | Art. 4a Abs. 1 lit. a–f bleiben out (bedingte Pflicht); Wiedervorlage maschinell: Manifest-Feld `special_categories_for_bias` + Check, der die Zeilen meldet, sobald `true` (Bedingungsparameter je Anwendungsfall, wie SPEC-03) | `09-paket-2-omnibus.md` | entschieden 29.09.2026 c | 5 |
 | P3-F3 | Art. 25 Abs. 2 lit. a–c n.F. sind Lücken (Übergabebeleg = Behälter, wie Ziff. vii) – eingetragen und bestätigt. Aus steht die Maßnahme, mit der Vorgabe des PO: Wird der Betreiber zum Anbieter (C-25a eigene Marke, C-25c Zweckänderung), **nennt G-OPS-06 die Belege, die bereitgestellt werden müssen** – lit. a technische Unterlagen für Art. 16, lit. b Einschränkungen und Fehlerarten, lit. c gezielter technischer Zugang auch für Test und Validierung, dazu Kooperationszusage und schriftliche Vereinbarung (Abs. 4) –, und C-25d prüft je Beleg ein Feld und sagt, welcher fehlt. MUST/SHOULD und Beweisstufe: EF | `11-paket-3b-element-matrix.md` | entschieden 01.10.2026 a | 5 |
@@ -129,6 +125,10 @@ Pakete:  1 Anhänge ✅ · 2 Omnibus · 3 Befunde + Matrix · 4 PO-Runde · 5 Be
 | R-7 | Severity `IN_UNITS_OWN_DUTY_TEXT` = MEDIUM | `13-po-runde-paket-4.md` | umgesetzt 05.10.2026 MEDIUM | – |
 | P3-B1 | Art. 73 Abs. 3, 4 wie Abs. 2 zerlegt: Fristdauer geprüft, „unverzüglich“ und Fristbeginn nicht → Teilabdeckung (H2 für diese Zeilen überholt) | `11-paket-3b-element-matrix.md` | umgesetzt 05.10.2026 a | – |
 | A-W12 | Omnibus-Unterabsätze am Amtsblatt geprüft (S. 28, 29, 31): Art. 75a Abs. 4 und 75c Abs. 4 haben die Liste in UAbs. 2, die Zählung UAbs. 3/4 ist richtig; Art. 75 Abs. 2a ebenso – nichts zu berichtigen | `10-paket-3-werkzeug.md` | umgesetzt 05.10.2026 a | – |
+| P4-F1 | 29 Pflichttexte aus P4-B1 und S3-2 a vom PO gegen den Wortlaut geprüft und bestätigt (Prüfliste); `PO_DECISIONS_APPLIED` hält sie | `13-po-runde-paket-4.md` | umgesetzt 06.10.2026 a | – |
+| IN-1 | Alle `in`-Zeilen bestätigt: 113 von 113 (AI Act 89, Omnibus 24); Gruppe 1 (32) einzeln nach Prüfliste, Gruppe 2 (10) am 05.10. | `entscheidungsregister.md` | umgesetzt 06.10.2026 | – |
+| R-8 | Severity `REQUIREMENT_ANCHOR_DECLARED` = MEDIUM | `13-po-runde-paket-4.md` | umgesetzt 06.10.2026 MEDIUM | – |
+| FR-3 | Kriterium für neue Wächter: bleibt wie bisher – jede Korrektur mit ihrem Wächter | `14-fachreview-business-ready.md` | entschieden 06.10.2026 b (keine Änderung) | – |
 | A-W1 | Art. 113 (und Art. 85, DSGVO Art. 67, NIS2 Art. 44): unnummerierte Absätze als Abs. 1–n, Kennung „Art. 113 Abs. 3 lit. a“ wie im Gesetz (T-15) | `08-paket-1-anhaenge.md` | umgesetzt 30.09.2026 | – |
 | A-W2 | Anhang I Abschn. B Nr. 13–20 einzeln (T-15) | `08-paket-1-anhaenge.md` | umgesetzt 30.09.2026 | – |
 | A-W3 | Fußzeile „ELI … ISSN“ nicht mehr im Beleg von Anhang XIII lit. g (T-15) | `08-paket-1-anhaenge.md` | umgesetzt 30.09.2026 | – |

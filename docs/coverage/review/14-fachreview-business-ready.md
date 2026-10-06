@@ -2,7 +2,7 @@
 titel: Fachreview – trägt die Kette das Ziel „EU-AI-Act-Prüf-Agent business-ready“?
 stand: 2026-10-05
 basis: Branch review-2c, Stand f56e69b (gemessen) · Leitsatz und Teil C aus 00-systembild-und-plan.md · Auftrag des PO 05.10.2026 („aus Sicht eines geeigneten Fachspezialisten prüfen, ob unsere Kette das Ziel erreicht“)
-status: Einschätzung und Vorschläge · nichts entschieden · Fragen FR-1 bis FR-5
+status: Einschätzung und Vorschläge · FR-1 bis FR-5 entschieden 06.10.2026
 ---
 
 # Kurzurteil
@@ -105,6 +105,8 @@ vor Paket 8/9: juristische Zweitprüfung der Auslegungsentscheide (FR-5)
 | FR-3 | Kriterium für neue Wächter: nur, wenn der Fehler ein Agent-Urteil verfälschen kann; Pflege-Wächter nur noch auf Antrag des PO | a) **ja** · b) nein, wie bisher |
 | FR-4 | Souveräner Betriebspfad (selbst betriebene CI, eigene PKI oder privates Sigstore, Kubernetes bei EU-Anbieter oder on-prem) als eigenes Paket | a) **ja, als Paket nach 8, vor dem ersten Kunden** · b) später · c) nicht im Repo |
 | FR-5 | Juristische Zweitprüfung der Auslegungsentscheide (Q1, Q11, A-F1, F4 und der HYPOTHESE-Zeilen mit Befund) vor Paket 8 | a) **ja** · b) erst vor dem ersten Kunden · c) nein |
+
+**Entschieden 06.10.2026:** FR-1 **a** (Parameter, Bau Paket 5) · FR-2 **a** (Redispatch-Szenario und P9-1 parallel zu Paket 5) · FR-3 **b** (Wächter wie bisher) · FR-4 **b** (vertagt, bei konkreter Kundenanfrage) · FR-5 **b** (Zweitprüfung vor dem ersten Kunden).
 
 # Ehrlich zur Methode
 

@@ -522,6 +522,9 @@ einheiten:
   befund_grund: Begriffsbestimmung bzw. Klarstellung, begruendet keine eigene pruefbare Pflicht.
   po_entscheid:
   - 2026-09-23 · 2b E5 (steuernde Norm)
+  - 2026-10-06 · P4-F1 a (Review 13) - Pflichttext bestaetigt
+  - 2026-10-06 · IN-1 Gruppe 1 (Review 13) - einzeln geprueft, in und nicht einschlaegig bestaetigt
+  po_bestaetigt: true
 - uid: Omnibus Art. 1 Nr. 4 lit. b@83149
   id: Omnibus Art. 1 Nr. 4 lit. b
   artikel: '3'
@@ -1182,6 +1185,9 @@ einheiten:
     verarbeiten; keine Pflicht.
   po_entscheid:
   - 2026-09-23 · 2b E5 (Erlaubnis)
+  - 2026-10-06 · P4-F1 a (Review 13) - Pflichttext bestaetigt
+  - 2026-10-06 · IN-1 Gruppe 1 (Review 13) - einzeln geprueft, in und nicht einschlaegig bestaetigt
+  po_bestaetigt: true
 - uid: Art. 4a Abs. 2 lit. a n.F.@87657
   id: Art. 4a Abs. 2 lit. a n.F.
   artikel: ''
@@ -1222,6 +1228,7 @@ einheiten:
   po_bestaetigt: true
   po_entscheid:
   - 2026-10-05 · S3-2 a (Review 13) - bestaetigt, wie die Zeile steht
+  - 2026-10-06 · P4-F1 a (Review 13) - Pflichttext bestaetigt
 - uid: Art. 4a Abs. 2 lit. b n.F.@88098
   id: Art. 4a Abs. 2 lit. b n.F.
   artikel: ''
@@ -1286,9 +1293,11 @@ einheiten:
   gate: *id004
   befund: nicht_einschlaegig
   befund_grund: Klarstellung, begruendet keine Pflicht.
-  po_bestaetigt: false
+  po_bestaetigt: true
   migriert_von: Art. 4a Abs. 2 lit. b n.F.@88098
   migration: geerbt
+  po_entscheid:
+  - 2026-10-06 · IN-1 Gruppe 1 (Review 13) - einzeln geprueft, in und nicht einschlaegig bestaetigt
 - uid: Omnibus Art. 1 Nr. 7@88289
   id: Omnibus Art. 1 Nr. 7
   artikel: '5'
@@ -1397,6 +1406,7 @@ einheiten:
   po_entscheid:
   - 2026-09-23 · 2b E2 (P1 Verbote, neu ab 02.12.2026)
   - 2026-10-05 · IN-1 Gruppe 2 a (Review 13) - bestaetigt, wie die Zeile steht
+  - 2026-10-06 · P4-F1 a (Review 13) - Pflichttext bestaetigt
   po_bestaetigt: true
 - uid: Art. 5 Abs. 1 UAbs. 1 lit. bb n.F.@88927
   id: Art. 5 Abs. 1 UAbs. 1 lit. bb n.F.
@@ -1434,6 +1444,7 @@ einheiten:
   po_entscheid:
   - 2026-09-23 · 2b E2 (P1 Verbote, neu ab 02.12.2026)
   - 2026-10-05 · IN-1 Gruppe 2 a (Review 13) - bestaetigt, wie die Zeile steht
+  - 2026-10-06 · P4-F1 a (Review 13) - Pflichttext bestaetigt
   po_bestaetigt: true
 - uid: Omnibus Art. 1 Nr. 7 lit. b@89226
   id: Omnibus Art. 1 Nr. 7 lit. b
@@ -1497,7 +1508,9 @@ einheiten:
   gate: []
   befund: nicht_einschlaegig
   befund_grund: Steuernde Konkretisierung, keine eigene Pflicht.
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-10-06 · IN-1 Gruppe 1 (Review 13) - einzeln geprueft, in und nicht einschlaegig bestaetigt
 - uid: Art. 5 Abs. 1a lit. a n.F.@89336
   id: Art. 5 Abs. 1a lit. a n.F.
   artikel: '5'
@@ -1634,7 +1647,9 @@ einheiten:
   gate: &id006 []
   befund: nicht_einschlaegig
   befund_grund: Begrenzt ein Verbot, begruendet keine eigene Pflicht.
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-10-06 · IN-1 Gruppe 1 (Review 13) - einzeln geprueft, in und nicht einschlaegig bestaetigt
 - uid: Art. 5 Abs. 1b n.F.@90584
   id: Art. 5 Abs. 1b n.F.
   artikel: '5'
@@ -1667,9 +1682,11 @@ einheiten:
   gate: *id006
   befund: nicht_einschlaegig
   befund_grund: Begrenzt ein Verbot, begruendet keine eigene Pflicht.
-  po_bestaetigt: false
+  po_bestaetigt: true
   migriert_von: Art. 5 Abs. 1a lit. b n.F.@90273
   migration: geerbt
+  po_entscheid:
+  - 2026-10-06 · IN-1 Gruppe 1 (Review 13) - einzeln geprueft, in und nicht einschlaegig bestaetigt
 - uid: Omnibus Art. 1 Nr. 8@90886
   id: Omnibus Art. 1 Nr. 8
   artikel: '6'
@@ -1739,6 +1756,9 @@ einheiten:
   befund_grund: Begriffsbestimmung bzw. Klarstellung, begruendet keine eigene pruefbare Pflicht.
   po_entscheid:
   - 2026-09-23 · 2b E5 (steuernde Norm)
+  - 2026-10-06 · P4-F1 a (Review 13) - Pflichttext bestaetigt
+  - 2026-10-06 · IN-1 Gruppe 1 (Review 13) - einzeln geprueft, in und nicht einschlaegig bestaetigt
+  po_bestaetigt: true
 - uid: Art. 6 Abs. 1b n.F.@91291
   id: Art. 6 Abs. 1b n.F.
   artikel: '6'
@@ -1772,6 +1792,9 @@ einheiten:
   befund_grund: Begriffsbestimmung bzw. Klarstellung, begruendet keine eigene pruefbare Pflicht.
   po_entscheid:
   - 2026-09-23 · 2b E5 (steuernde Norm)
+  - 2026-10-06 · P4-F1 a (Review 13) - Pflichttext bestaetigt
+  - 2026-10-06 · IN-1 Gruppe 1 (Review 13) - einzeln geprueft, in und nicht einschlaegig bestaetigt
+  po_bestaetigt: true
 - uid: Art. 6 Abs. 1c n.F.@91443
   id: Art. 6 Abs. 1c n.F.
   artikel: '6'
@@ -1809,6 +1832,9 @@ einheiten:
   befund_grund: Begriffsbestimmung bzw. Klarstellung, begruendet keine eigene pruefbare Pflicht.
   po_entscheid:
   - 2026-09-23 · 2b E5 (steuernde Norm)
+  - 2026-10-06 · P4-F1 a (Review 13) - Pflichttext bestaetigt
+  - 2026-10-06 · IN-1 Gruppe 1 (Review 13) - einzeln geprueft, in und nicht einschlaegig bestaetigt
+  po_bestaetigt: true
 - uid: Omnibus Art. 1 Nr. 9@91871
   id: Omnibus Art. 1 Nr. 9
   artikel: '10'
@@ -2269,6 +2295,7 @@ einheiten:
   po_bestaetigt: true
   po_entscheid:
   - 2026-09-29 · P2-F2 a (bestaetigte Einordnung gilt fuer die Neufassung weiter)
+  - 2026-10-06 · P4-F1 a (Review 13) - Pflichttext bestaetigt
 - uid: Art. 25 Abs. 2 lit. a n.F.@95227
   id: Art. 25 Abs. 2 lit. a n.F.
   artikel: '25'
@@ -2427,9 +2454,11 @@ einheiten:
   befund: nicht_einschlaegig
   befund_grund: Ausnahme, begruendet keine eigene Pflicht. G-OPS-06/C-25d verlangt den Beleg der Ausnahme
     (initial_provider_exclusion_ref), eine blosse Behauptung genuegt nicht.
-  po_bestaetigt: false
+  po_bestaetigt: true
   migriert_von: Art. 25 Abs. 2 lit. c n.F.@95448
   migration: geerbt
+  po_entscheid:
+  - 2026-10-06 · IN-1 Gruppe 1 (Review 13) - einzeln geprueft, in und nicht einschlaegig bestaetigt
 - uid: Omnibus Art. 1 Nr. 12 lit. b@95848
   id: Omnibus Art. 1 Nr. 12 lit. b
   artikel: '25'
@@ -8985,6 +9014,9 @@ einheiten:
   befund_grund: Stichtag, begruendet keine eigene pruefbare Pflicht.
   po_entscheid:
   - 2026-09-23 · 2b E5 (steuernde Norm, Stichtage P0)
+  - 2026-10-06 · P4-F1 a (Review 13) - Pflichttext bestaetigt
+  - 2026-10-06 · IN-1 Gruppe 1 (Review 13) - einzeln geprueft, in und nicht einschlaegig bestaetigt
+  po_bestaetigt: true
 - uid: Omnibus Art. 1 Nr. 40 lit. b@155121
   id: Omnibus Art. 1 Nr. 40 lit. b
   artikel: '113'
@@ -9051,6 +9083,9 @@ einheiten:
   befund_grund: Stichtag, begruendet keine eigene pruefbare Pflicht.
   po_entscheid:
   - 2026-09-23 · 2b E5 (steuernde Norm, Stichtage P0)
+  - 2026-10-06 · P4-F1 a (Review 13) - Pflichttext bestaetigt
+  - 2026-10-06 · IN-1 Gruppe 1 (Review 13) - einzeln geprueft, in und nicht einschlaegig bestaetigt
+  po_bestaetigt: true
 - uid: Art. 113 Abs. 3 lit. c Ziff. i n.F.@155252
   id: Art. 113 Abs. 3 lit. c Ziff. i n.F.
   artikel: '113'
@@ -9084,6 +9119,9 @@ einheiten:
   befund_grund: Stichtag, begruendet keine eigene pruefbare Pflicht.
   po_entscheid:
   - 2026-09-23 · 2b E5 (steuernde Norm, Stichtage P0)
+  - 2026-10-06 · P4-F1 a (Review 13) - Pflichttext bestaetigt
+  - 2026-10-06 · IN-1 Gruppe 1 (Review 13) - einzeln geprueft, in und nicht einschlaegig bestaetigt
+  po_bestaetigt: true
 - uid: Art. 113 Abs. 3 lit. c Ziff. ii n.F.@155378
   id: Art. 113 Abs. 3 lit. c Ziff. ii n.F.
   artikel: '113'

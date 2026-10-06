@@ -3647,7 +3647,7 @@ def check_requirement_anchor_declared() -> dict:
         traegt, zitiert weder in links.eu_ai_act_refs noch in legal_refs eines Checks eine Norm.
     Ob ein genannter Anker traegt, prueft das nicht - das ist AN-1 (Paket 5).
 
-    MEDIUM (Vorschlag, R-8 offen): eine interne Vorgabe mit Gesetzeszitat erzeugt kein
+    MEDIUM (PO R-8, 06.10.2026): eine interne Vorgabe mit Gesetzeszitat erzeugt kein
     falsches 'konform', aber eine falsche Rechtsbehauptung nach aussen.
     """
     import yaml

@@ -1,0 +1,210 @@
+# PO-Entscheide vom 06.10.2026 — Paket 4 (PO-Runde), zweiter Teil
+#
+# Nachweis: docs/coverage/review/13-po-runde-paket-4.md Teil 7, Pruefliste
+# claude/p4-f1-in1-pruefliste.md (Project), Review 14 Teil 7.
+#
+# P4-F1 a: Sammelbestaetigung der 29 Pflichttexte aus P4-B1 (28) und S3-2 a (Art. 3 Nr. 49
+#   lit. d). Der PO hat die Pruefliste gegen den Wortlaut gelesen und GO gegeben. Wie P3-F2,
+#   P3-F5: bestaetigt ist der TEXT, nicht Befund und Einordnung - deshalb 'bestaetigt: false'.
+#   Jeder Eintrag setzt den Text woertlich; aendert ihn spaeter jemand, meldet
+#   PO_DECISIONS_APPLIED das.
+# IN-1 Gruppe 1: die 32 in-Zeilen 'nicht einschlaegig' einzeln geprueft (Pruefliste Teil B) und
+#   bestaetigt; 30 davon offen, Art. 4a Abs. 2 lit. a, b n.F. waren mit S3-2 a schon bestaetigt.
+#   Damit sind alle in-Zeilen bestaetigt.
+# FR-1 a: Art. 26 Abs. 11 wird ein Bedingungsparameter (wie P2-F4); bis zum Bau in Paket 5
+#   bleibt die Zeile nicht einschlaegig, der befund_grund nennt die Wiedervorlage.
+# Ausserhalb dieser Datei: R-8 MEDIUM, FR-2 a, FR-3 b, FR-4 b (vertagt), FR-5 b, S3-3 a,
+#   S3-4 a, OUT-1 b (20 je Gruppe).
+
+entschieden: '2026-10-06'
+eintraege:
+
+  - beleg: P4-F1 a (Review 13) - Pflichttext bestaetigt
+    raum: aiact
+    ids: [Art. 3 Nr. 4]
+    setze: {pflicht: 'Begriff ''Betreiber'': natuerliche oder juristische Person, Behoerde, Einrichtung oder sonstige Stelle, die ein KI-System in eigener Verantwortung verwendet, ausser im Rahmen einer persoenlichen und nicht beruflichen Taetigkeit.'}
+    bestaetigt: false
+
+  - beleg: P4-F1 a (Review 13) - Pflichttext bestaetigt
+    raum: aiact
+    ids: [Art. 3 Nr. 8]
+    setze: {pflicht: 'Begriff ''Akteur'': Anbieter, Produkthersteller, Betreiber, Bevollmaechtigter, Einfuehrer oder Haendler.'}
+    bestaetigt: false
+
+  - beleg: P4-F1 a (Review 13) - Pflichttext bestaetigt
+    raum: aiact
+    ids: [Art. 3 Nr. 23]
+    setze: {pflicht: 'Begriff ''wesentliche Veraenderung'': Veraenderung eines KI-Systems nach Inverkehrbringen oder Inbetriebnahme, die in der urspruenglichen Konformitaetsbewertung des Anbieters nicht vorgesehen oder geplant war und die Konformitaet mit Kapitel III Abschnitt 2 beeintraechtigt oder die bewertete Zweckbestimmung aendert.'}
+    bestaetigt: false
+
+  - beleg: P4-F1 a (Review 13) - Pflichttext bestaetigt
+    raum: aiact
+    ids: [Art. 3 Nr. 49]
+    setze: {pflicht: 'Begriff ''schwerwiegender Vorfall'' (Einleitung): Vorfall oder Fehlfunktion eines KI-Systems, der bzw. die direkt oder indirekt eine der Folgen nach lit. a-d hat.'}
+    bestaetigt: false
+
+  - beleg: P4-F1 a (Review 13) - Pflichttext bestaetigt
+    raum: aiact
+    ids: [Art. 5 Abs. 1 lit. c Ziff. i]
+    setze: {pflicht: 'Ergebnis i) der sozialen Bewertung nach lit. c: Schlechterstellung oder Benachteiligung bestimmter natuerlicher Personen oder Gruppen in sozialen Zusammenhaengen, die mit den Umstaenden der urspruenglichen Erzeugung oder Erhebung der Daten nicht zusammenhaengen.'}
+    bestaetigt: false
+
+  - beleg: P4-F1 a (Review 13) - Pflichttext bestaetigt
+    raum: aiact
+    ids: [Art. 5 Abs. 1 lit. c Ziff. ii]
+    setze: {pflicht: 'Ergebnis ii) der sozialen Bewertung nach lit. c: Schlechterstellung oder Benachteiligung bestimmter natuerlicher Personen oder Gruppen, die im Hinblick auf ihr soziales Verhalten oder dessen Tragweite ungerechtfertigt oder unverhaeltnismaessig ist.'}
+    bestaetigt: false
+
+  - beleg: P4-F1 a (Review 13) - Pflichttext bestaetigt
+    raum: aiact
+    ids: [Art. 6 Abs. 3]
+    setze: {pflicht: 'Abweichend von Abs. 2 gilt ein in Anhang III genanntes KI-System nicht als hochriskant, wenn es kein erhebliches Risiko fuer Gesundheit, Sicherheit oder Grundrechte natuerlicher Personen birgt, u. a. weil es das Ergebnis der Entscheidungsfindung nicht wesentlich beeinflusst; das gilt, wenn eine der Bedingungen lit. a-d erfuellt ist.'}
+    bestaetigt: false
+
+  - beleg: P4-F1 a (Review 13) - Pflichttext bestaetigt
+    raum: aiact
+    ids: [Art. 13 Abs. 3 lit. b]
+    setze: {pflicht: 'Angabe b) der Betriebsanleitung: Merkmale, Faehigkeiten und Leistungsgrenzen des Hochrisiko-KI-Systems, einschliesslich der Angaben in Ziff. i-vii (je eigene Zeile).'}
+    bestaetigt: false
+
+  - beleg: P4-F1 a (Review 13) - Pflichttext bestaetigt
+    raum: aiact
+    ids: [Art. 13 Abs. 3 lit. b Ziff. i]
+    setze: {pflicht: 'Angabe nach lit. b, Ziff. i): die Zweckbestimmung des Hochrisiko-KI-Systems.'}
+    bestaetigt: false
+
+  - beleg: P4-F1 a (Review 13) - Pflichttext bestaetigt
+    raum: aiact
+    ids: [Art. 13 Abs. 3 lit. b Ziff. ii]
+    setze: {pflicht: 'Angabe nach lit. b, Ziff. ii): Mass an Genauigkeit (einschliesslich Metriken), Robustheit und Cybersicherheit nach Art. 15, fuer das das System getestet und validiert wurde und das zu erwarten ist, sowie alle bekannten und vorhersehbaren Umstaende, die sich darauf auswirken koennen.'}
+    bestaetigt: false
+
+  - beleg: P4-F1 a (Review 13) - Pflichttext bestaetigt
+    raum: aiact
+    ids: [Art. 13 Abs. 3 lit. b Ziff. iii]
+    setze: {pflicht: 'Angabe nach lit. b, Ziff. iii): alle bekannten oder vorhersehbaren Umstaende der bestimmungsgemaessen Verwendung oder einer vernuenftigerweise vorhersehbaren Fehlanwendung, die zu Risiken nach Art. 9 Abs. 2 fuer Gesundheit, Sicherheit oder Grundrechte fuehren koennen.'}
+    bestaetigt: false
+
+  - beleg: P4-F1 a (Review 13) - Pflichttext bestaetigt
+    raum: aiact
+    ids: [Art. 13 Abs. 3 lit. b Ziff. iv]
+    setze: {pflicht: 'Angabe nach lit. b, Ziff. iv): gegebenenfalls die technischen Faehigkeiten und Merkmale des Systems, Informationen bereitzustellen, die zur Erlaeuterung seiner Ausgaben relevant sind.'}
+    bestaetigt: false
+
+  - beleg: P4-F1 a (Review 13) - Pflichttext bestaetigt
+    raum: aiact
+    ids: [Art. 13 Abs. 3 lit. b Ziff. v]
+    setze: {pflicht: 'Angabe nach lit. b, Ziff. v): gegebenenfalls die Leistung des Systems in Bezug auf bestimmte Personen oder Personengruppen, auf die es bestimmungsgemaess angewandt werden soll.'}
+    bestaetigt: false
+
+  - beleg: P4-F1 a (Review 13) - Pflichttext bestaetigt
+    raum: aiact
+    ids: [Art. 13 Abs. 3 lit. b Ziff. vi]
+    setze: {pflicht: 'Angabe nach lit. b, Ziff. vi): gegebenenfalls Spezifikationen fuer die Eingabedaten oder sonstige relevante Informationen ueber die verwendeten Trainings-, Validierungs- und Testdatensaetze, unter Beruecksichtigung der Zweckbestimmung.'}
+    bestaetigt: false
+
+  - beleg: P4-F1 a (Review 13) - Pflichttext bestaetigt
+    raum: aiact
+    ids: [Art. 13 Abs. 3 lit. b Ziff. vii]
+    setze: {pflicht: 'Angabe nach lit. b, Ziff. vii): gegebenenfalls Informationen, die es den Betreibern ermoeglichen, die Ausgabe des Systems zu interpretieren und es angemessen zu nutzen.'}
+    bestaetigt: false
+
+  - beleg: P4-F1 a (Review 13) - Pflichttext bestaetigt
+    raum: aiact
+    ids: [Anhang III Nr. 2]
+    setze: {pflicht: 'Hochrisiko-Bereich nach Art. 6 Abs. 2 (Anhang III Nr. 2, kritische Infrastruktur): KI-Systeme, die bestimmungsgemaess als Sicherheitsbauteile in der Verwaltung und im Betrieb kritischer digitaler Infrastruktur, des Strassenverkehrs oder der Wasser-, Gas-, Waerme- oder Stromversorgung verwendet werden sollen.'}
+    bestaetigt: false
+
+  - beleg: P4-F1 a (Review 13) - Pflichttext bestaetigt
+    raum: aiact
+    ids: [Art. 3 Nr. 49 lit. d]
+    setze: {pflicht: 'Teil der Definition ''schwerwiegender Vorfall'', Variante d): schwere Sach- oder Umweltschaeden.'}
+    bestaetigt: false
+
+  - beleg: P4-F1 a (Review 13) - Pflichttext bestaetigt
+    raum: omnibus
+    ids: [Art. 3 Nr. 14 n.F.]
+    setze: {pflicht: 'Begriff ''Sicherheitsbauteil'' (Neufassung): Bestandteil eines Produkts oder KI-Systems, der eine Sicherheitsfunktion fuer dieses Produkt oder KI-System erfuellt oder dessen Ausfall oder Stoerung die Gesundheit und Sicherheit von Personen oder Eigentum gefaehrdet; eine Sicherheitsfunktion erfuellt ein Bauteil, dessen Zweckbestimmung es ist, solche Risiken abzuwenden oder zu mindern.'}
+    bestaetigt: false
+
+  - beleg: P4-F1 a (Review 13) - Pflichttext bestaetigt
+    raum: omnibus
+    ids: [Art. 4a Abs. 2 n.F.]
+    setze: {pflicht: 'Einleitung: Anbieter und Betreiber anderer KI-Systeme und KI-Modelle sowie Betreiber von Hochrisiko-KI-Systemen duerfen ausnahmsweise besondere Kategorien personenbezogener Daten verarbeiten, sofern die Bedingungen lit. a und b erfuellt sind.'}
+    bestaetigt: false
+
+  - beleg: P4-F1 a (Review 13) - Pflichttext bestaetigt
+    raum: omnibus
+    ids: [Art. 4a Abs. 2 lit. a n.F.]
+    setze: {pflicht: 'Bedingung a) der Erlaubnis nach Art. 4a Abs. 2 n.F.: die Verarbeitung ist zur Erkennung und Korrektur von Verzerrungen unbedingt erforderlich, die Gesundheit und Sicherheit von Personen beeintraechtigen, negative Auswirkungen auf die Grundrechte haben oder zu einer unionsrechtlich verbotenen Diskriminierung fuehren, insbesondere wenn die Datenausgaben die Eingaben kuenftiger Operationen beeinflussen.'}
+    bestaetigt: false
+
+  - beleg: P4-F1 a (Review 13) - Pflichttext bestaetigt
+    raum: omnibus
+    ids: [Art. 5 Abs. 1 UAbs. 1 lit. ba n.F.]
+    setze: {pflicht: 'Verboten: Inverkehrbringen, Inbetriebnahme oder Verwendung eines KI-Systems, das realistische Bild-, Video-, Ton- oder aehnliche Inhalte erzeugt oder manipuliert, in denen intime Koerperteile einer bestimmbaren natuerlichen Person oder eine an eindeutig sexuellen Handlungen beteiligte bestimmbare Person dargestellt werden, ohne deren freie, spezifische, aufgeklaerte, eindeutige und ausdrueckliche Zustimmung zu dieser Erzeugung oder Manipulation.'}
+    bestaetigt: false
+
+  - beleg: P4-F1 a (Review 13) - Pflichttext bestaetigt
+    raum: omnibus
+    ids: [Art. 5 Abs. 1 UAbs. 1 lit. bb n.F.]
+    setze: {pflicht: 'Verboten: Inverkehrbringen, Inbetriebnahme oder Verwendung eines KI-Systems, das Material oder Darbietungen im Sinne von Art. 2 lit. c und e der Richtlinie 2011/93/EU erzeugt oder manipuliert, es sei denn, das ''unrechtmaessige'' Verhalten gilt nach nationalem Recht als gerechtfertigt.'}
+    bestaetigt: false
+
+  - beleg: P4-F1 a (Review 13) - Pflichttext bestaetigt
+    raum: omnibus
+    ids: [Art. 6 Abs. 1a n.F.]
+    setze: {pflicht: 'KI-Systeme, die ausschliesslich fuer nicht sicherheitsrelevante Aspekte der Nutzerunterstuetzung, Leistungsoptimierung, Leistungseffizienz, Automatisierung, Benutzerfreundlichkeit oder Qualitaetskontrolle verwendet werden, gelten fuer die Zwecke der Verordnung, auch des Abs. 1, nicht als Sicherheitsbauteile.'}
+    bestaetigt: false
+
+  - beleg: P4-F1 a (Review 13) - Pflichttext bestaetigt
+    raum: omnibus
+    ids: [Art. 6 Abs. 1b n.F.]
+    setze: {pflicht: 'Unbeschadet Abs. 1a gelten KI-Systeme, deren Ausfall oder Fehlfunktion Gesundheit und Sicherheit gefaehrden wuerde, als Sicherheitsbauteile.'}
+    bestaetigt: false
+
+  - beleg: P4-F1 a (Review 13) - Pflichttext bestaetigt
+    raum: omnibus
+    ids: [Art. 6 Abs. 1c n.F.]
+    setze: {pflicht: 'Ein Produkt, das ausschliesslich wegen anderer Risiken als fuer Gesundheit und Sicherheit (insbesondere Funkfrequenzen oder elektromagnetische Interferenzen) einer Konformitaetsbewertung durch Dritte unterzogen werden muss, erfuellt nicht die Bedingung des Abs. 1 lit. b.'}
+    bestaetigt: false
+
+  - beleg: P4-F1 a (Review 13) - Pflichttext bestaetigt
+    raum: omnibus
+    ids: [Art. 25 Abs. 2 n.F.]
+    setze: {pflicht: 'Unter den Umstaenden des Abs. 1 gilt der Erstanbieter nicht mehr als Anbieter dieses KI-Systems; er arbeitet eng mit den neuen Anbietern zusammen, stellt die erforderlichen Informationen bereit und sorgt fuer den nach vernuenftigem Ermessen zu erwartenden technischen Zugang und sonstige Unterstuetzung zur Erfuellung ihrer Pflichten, insbesondere fuer die Konformitaetsbewertung; was das insbesondere umfasst, nennen lit. a-c.'}
+    bestaetigt: false
+
+  - beleg: P4-F1 a (Review 13) - Pflichttext bestaetigt
+    raum: omnibus
+    ids: [Art. 113 Abs. 3 lit. a n.F.]
+    setze: {pflicht: 'Kapitel I und II gelten ab dem 2. Februar 2025, ausgenommen Art. 5 Abs. 1 UAbs. 1 lit. ba und bb sowie Art. 5 Abs. 1a und 1b, die ab dem 2. Dezember 2026 gelten.'}
+    bestaetigt: false
+
+  - beleg: P4-F1 a (Review 13) - Pflichttext bestaetigt
+    raum: omnibus
+    ids: [Art. 113 Abs. 3 lit. c n.F.]
+    setze: {pflicht: 'Einleitung: Kapitel III Abschnitte 1, 2 und 3, ausser Art. 6 Abs. 5, gelten ab den in Ziff. i und ii genannten Daten.'}
+    bestaetigt: false
+
+  - beleg: P4-F1 a (Review 13) - Pflichttext bestaetigt
+    raum: omnibus
+    ids: [Art. 113 Abs. 3 lit. c Ziff. i n.F.]
+    setze: {pflicht: 'Fuer KI-Systeme, die nach Art. 6 Abs. 2 und Anhang III als hochriskant eingestuft sind, gelten Kapitel III Abschnitte 1-3 ab dem 2. Dezember 2027.'}
+    bestaetigt: false
+
+  - beleg: IN-1 Gruppe 1 (Review 13) - einzeln geprueft, in und nicht einschlaegig bestaetigt
+    raum: aiact
+    ids: [Art. 2 Abs. 1 lit. b, Art. 3 Nr. 4, Art. 3 Nr. 8, Art. 3 Nr. 23, Art. 3 Nr. 49, Art. 6 Abs. 2, Art. 6 Abs. 3, Art. 6 Abs. 3 lit. a, Art. 6 Abs. 3 lit. b, Art. 6 Abs. 3 lit. c, Art. 6 Abs. 3 lit. d, Art. 6 Abs. 3 UAbs. 3, Art. 15 Abs. 4 UAbs. 2 Satz 1, Art. 113 Abs. 2, Art. 113 Abs. 3, Anhang III, Anhang III Nr. 2]
+    bestaetigt: true
+
+  - beleg: IN-1 Gruppe 1 (Review 13) - einzeln geprueft, in und nicht einschlaegig bestaetigt
+    raum: omnibus
+    ids: [Art. 3 Nr. 14 n.F., Art. 4a Abs. 2 n.F., Art. 4a Abs. 2 UAbs. 2 n.F., Art. 5 Abs. 1a n.F., Art. 5 Abs. 1a lit. b n.F., Art. 5 Abs. 1b n.F., Art. 6 Abs. 1a n.F., Art. 6 Abs. 1b n.F., Art. 6 Abs. 1c n.F., Art. 25 Abs. 2 UAbs. 4 n.F., Art. 113 Abs. 3 lit. a n.F., Art. 113 Abs. 3 lit. c n.F., Art. 113 Abs. 3 lit. c Ziff. i n.F.]
+    bestaetigt: true
+
+  - beleg: FR-1 a (Review 14) - Art. 26 Abs. 11 als Bedingungsparameter, Bau Paket 5
+    raum: aiact
+    ids: [Art. 26 Abs. 11]
+    setze: {befund_grund: 'PO Q11 a (05.10.2026): Redispatch steuert Erzeugungs- und Lastanlagen; das System trifft keine Entscheidungen ueber natuerliche Personen und unterstuetzt keine. Die Pflicht, die Betroffenen zu unterrichten, greift deshalb nicht. Gegenargument, nicht gefolgt (HYPOTHESE, Branchenquellen): Redispatch 2.0 bezieht Anlagen ab 100 kW ein, deren Betreiber natuerliche Personen sein koennen. Wiedervorlage, sobald ein Anwendungsfall Entscheidungen ueber Personen trifft oder unterstuetzt. Bis 05.10.2026 Teilabdeckung mit G-DEP-03 unter Vorbehalt Q11 (P3-F4 b). FR-1 a (06.10.2026): wird Bedingungsparameter - Manifest-Feld ''natuerliche Personen unter den betroffenen Anlagenbetreibern''; bei true meldet ein Check die Zeile als Luecke (Bau Paket 5, wie P2-F4). Bis dahin nicht einschlaegig.'}
+    bestaetigt: true

@@ -143,6 +143,7 @@ Norm (Wortlaut, gehasht)
 AI Act + Omnibus (Pakete 1–8) ──► Prüf-Agent (Paket 9) ──► Sektorstapel (T-13)
 ```
 
+- **Parallel zu Paket 5 (PO FR-2 a, 06.10.2026):** ein Redispatch-Referenzszenario (Fixtures + End-to-End-Lauf) und die Use Cases des Agenten (P9-1) mit Netzbetreibern – der Kunde soll seinen Fall laufen sehen, und die Use Cases steuern, was in Paket 6 zuerst gebaut wird (Review 14).
 - **Sektorstapel nach dem Agenten:** zulässig, weil der Agent seine Grenze offen nennt. Er prüft den AI Act, nicht NIS2, BSIG, DSGVO, KRITIS-DachG oder EnWG.
 - Das ist dieselbe Logik wie H4 (PASS mit Hinweis): Der Agent urteilt nur über das, was er prüft, und sagt, was er nicht prüft.
 - **Anhänge und Omnibus vor der Bedarfsanalyse:** Sonst planen wir Requirements und Gates, bevor alle Pflichten bekannt sind.
@@ -155,7 +156,7 @@ AI Act + Omnibus (Pakete 1–8) ──► Prüf-Agent (Paket 9) ──► Sektor
 |---|---|---|
 | AI-Act-Einheiten ohne in/out (206 Anhänge, 4 Art. 113) | 210 → **0** (Paket 1, Vorschlag, Review 08) | 0 |
 | Omnibus-Einheiten ohne in/out | 259 von 269 → **0** (Paket 2, Vorschlag, Review 09) | 0 |
-| `in`-Pflichten vom PO bestätigt | 64 von 85 (nach Paket 1: 64 von 89; nach Paket 2 mit Omnibus: 61 von 104) | alle |
+| `in`-Pflichten vom PO bestätigt | 64 von 85 (nach Paket 1: 64 von 89; nach Paket 2 mit Omnibus: 61 von 104) → **113 von 113** (06.10.2026, Paket 4) | alle |
 | `out` vom PO bestätigt | 25 von 908 (nach Paket 1: 25 von 1114; nach Paket 2 mit Omnibus: 31 von 1368) | Stichprobe nach Adressat-Gruppen, dann Sammelbestätigung |
 | Lücken (28) und Teilabdeckungen (38) | benannt | je gebaut **oder** `declared_gap` mit Begründung |
 | Gate nennt, was es nicht prüft | nein | `known_limits` je Gate, Hinweis in jedem Lauf (H4) |

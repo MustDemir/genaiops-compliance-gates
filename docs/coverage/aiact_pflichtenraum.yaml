@@ -349,7 +349,7 @@ einheiten:
   gate: []
   befund: nicht_einschlaegig
   befund_grund: Steuernd, begruendet keine eigene pruefbare Pflicht.
-  po_bestaetigt: false
+  po_bestaetigt: true
   uid: Art. 2 Abs. 1 lit. b@264472
   abschnitt: null
   nummer: null
@@ -357,6 +357,7 @@ einheiten:
   ziffer: null
   po_entscheid:
   - 2026-09-23 · 2b E5 (steuernde Norm)
+  - 2026-10-06 · IN-1 Gruppe 1 (Review 13) - einzeln geprueft, in und nicht einschlaegig bestaetigt
 - id: Art. 2 Abs. 1 lit. c
   artikel: '2'
   artikel_titel: Anwendungsbereich
@@ -1020,11 +1021,13 @@ einheiten:
   gate: *id002
   befund: nicht_einschlaegig
   befund_grund: Begriffsbestimmung, begruendet keine eigene pruefbare Pflicht.
-  po_bestaetigt: false
+  po_bestaetigt: true
   migriert_von: Art. 3@269531
   migration: geerbt
   po_entscheid:
   - 2026-09-23 · 2b E5 (steuernde Norm)
+  - 2026-10-06 · P4-F1 a (Review 13) - Pflichttext bestaetigt
+  - 2026-10-06 · IN-1 Gruppe 1 (Review 13) - einzeln geprueft, in und nicht einschlaegig bestaetigt
 - uid: Art. 3 Nr. 5@270807
   id: Art. 3 Nr. 5
   artikel: '3'
@@ -1159,11 +1162,13 @@ einheiten:
   gate: *id002
   befund: nicht_einschlaegig
   befund_grund: Begriffsbestimmung, begruendet keine eigene pruefbare Pflicht.
-  po_bestaetigt: false
+  po_bestaetigt: true
   migriert_von: Art. 3@269531
   migration: geerbt
   po_entscheid:
   - 2026-09-23 · 2b E5 (steuernde Norm)
+  - 2026-10-06 · P4-F1 a (Review 13) - Pflichttext bestaetigt
+  - 2026-10-06 · IN-1 Gruppe 1 (Review 13) - einzeln geprueft, in und nicht einschlaegig bestaetigt
 - uid: Art. 3 Nr. 9@271742
   id: Art. 3 Nr. 9
   artikel: '3'
@@ -1685,11 +1690,13 @@ einheiten:
   gate: *id002
   befund: nicht_einschlaegig
   befund_grund: Begriffsbestimmung, begruendet keine eigene pruefbare Pflicht.
-  po_bestaetigt: false
+  po_bestaetigt: true
   migriert_von: Art. 3@269531
   migration: geerbt
   po_entscheid:
   - 2026-09-23 · 2b E5 (steuernde Norm)
+  - 2026-10-06 · P4-F1 a (Review 13) - Pflichttext bestaetigt
+  - 2026-10-06 · IN-1 Gruppe 1 (Review 13) - einzeln geprueft, in und nicht einschlaegig bestaetigt
 - uid: Art. 3 Nr. 24@275200
   id: Art. 3 Nr. 24
   artikel: '3'
@@ -2650,11 +2657,13 @@ einheiten:
   gate: *id004
   befund: nicht_einschlaegig
   befund_grund: Begriffsbestimmung, begruendet keine eigene pruefbare Pflicht.
-  po_bestaetigt: false
+  po_bestaetigt: true
   migriert_von: Art. 3 lit. b@280589
   migration: geerbt
   po_entscheid:
   - 2026-09-23 · 2b E5 (steuernde Norm)
+  - 2026-10-06 · P4-F1 a (Review 13) - Pflichttext bestaetigt
+  - 2026-10-06 · IN-1 Gruppe 1 (Review 13) - einzeln geprueft, in und nicht einschlaegig bestaetigt
 - uid: Art. 3 Nr. 49 lit. a@282190
   id: Art. 3 Nr. 49 lit. a
   artikel: '3'
@@ -2786,6 +2795,7 @@ einheiten:
   migration: kennung_geaendert
   po_entscheid:
   - 2026-10-05 · S3-2 a (Review 13) - die Folgen lit. a-d teilen Scope und Befund der Definition
+  - 2026-10-06 · P4-F1 a (Review 13) - Pflichttext bestaetigt
 - uid: Art. 3 Nr. 50@282511
   id: Art. 3 Nr. 50
   artikel: '3'
@@ -3830,6 +3840,7 @@ einheiten:
   po_entscheid:
   - 2026-09-23 · 2b E2 (P1 Verbote)
   - 2026-09-23 · 2b E4 (VERIFIZIERT - Betreiber in der Einheit oder ihrem Einleitungssatz genannt)
+  - 2026-10-06 · P4-F1 a (Review 13) - Pflichttext bestaetigt
 - uid: Art. 5 Abs. 1 lit. c Ziff. ii@291652
   id: Art. 5 Abs. 1 lit. c Ziff. ii
   artikel: '5'
@@ -3871,6 +3882,7 @@ einheiten:
   po_entscheid:
   - 2026-09-23 · 2b E4 (VERIFIZIERT - Betreiber in der Einheit oder ihrem Einleitungssatz genannt)
   - 2026-09-23 · T-14.1 (geerbte Zeile, P1)
+  - 2026-10-06 · P4-F1 a (Review 13) - Pflichttext bestaetigt
 - id: Art. 5 Abs. 1 lit. d
   artikel: '5'
   artikel_titel: Verbotene Praktiken im KI-Bereich
@@ -4732,7 +4744,7 @@ einheiten:
   gate: []
   befund: nicht_einschlaegig
   befund_grund: Einstufungsregel, begruendet keine eigene pruefbare Pflicht.
-  po_bestaetigt: false
+  po_bestaetigt: true
   uid: Art. 6 Abs. 2@302942
   abschnitt: null
   nummer: null
@@ -4740,6 +4752,7 @@ einheiten:
   ziffer: null
   po_entscheid:
   - 2026-09-23 · 2b E5 (steuernde Norm)
+  - 2026-10-06 · IN-1 Gruppe 1 (Review 13) - einzeln geprueft, in und nicht einschlaegig bestaetigt
 - id: Art. 6 Abs. 3
   artikel: '6'
   artikel_titel: Einstufungsvorschriften für Hochrisiko-KI-Systeme
@@ -4768,7 +4781,7 @@ einheiten:
   gate: []
   befund: nicht_einschlaegig
   befund_grund: Einstufungsregel, begruendet keine eigene pruefbare Pflicht.
-  po_bestaetigt: false
+  po_bestaetigt: true
   uid: Art. 6 Abs. 3@303075
   abschnitt: null
   nummer: null
@@ -4776,6 +4789,8 @@ einheiten:
   ziffer: null
   po_entscheid:
   - 2026-09-23 · 2b E5 (steuernde Norm)
+  - 2026-10-06 · P4-F1 a (Review 13) - Pflichttext bestaetigt
+  - 2026-10-06 · IN-1 Gruppe 1 (Review 13) - einzeln geprueft, in und nicht einschlaegig bestaetigt
 - id: Art. 6 Abs. 3 lit. a
   artikel: '6'
   artikel_titel: Einstufungsvorschriften für Hochrisiko-KI-Systeme
@@ -4798,7 +4813,7 @@ einheiten:
   gate: []
   befund: nicht_einschlaegig
   befund_grund: Einstufungsregel, begruendet keine eigene pruefbare Pflicht.
-  po_bestaetigt: false
+  po_bestaetigt: true
   uid: Art. 6 Abs. 3 lit. a@303471
   abschnitt: null
   nummer: null
@@ -4806,6 +4821,7 @@ einheiten:
   ziffer: null
   po_entscheid:
   - 2026-09-23 · 2b E5 (steuernde Norm)
+  - 2026-10-06 · IN-1 Gruppe 1 (Review 13) - einzeln geprueft, in und nicht einschlaegig bestaetigt
 - id: Art. 6 Abs. 3 lit. b
   artikel: '6'
   artikel_titel: Einstufungsvorschriften für Hochrisiko-KI-Systeme
@@ -4830,7 +4846,7 @@ einheiten:
   gate: []
   befund: nicht_einschlaegig
   befund_grund: Einstufungsregel, begruendet keine eigene pruefbare Pflicht.
-  po_bestaetigt: false
+  po_bestaetigt: true
   uid: Art. 6 Abs. 3 lit. b@303563
   abschnitt: null
   nummer: null
@@ -4838,6 +4854,7 @@ einheiten:
   ziffer: null
   po_entscheid:
   - 2026-09-23 · 2b E5 (steuernde Norm)
+  - 2026-10-06 · IN-1 Gruppe 1 (Review 13) - einzeln geprueft, in und nicht einschlaegig bestaetigt
 - id: Art. 6 Abs. 3 lit. c
   artikel: '6'
   artikel_titel: Einstufungsvorschriften für Hochrisiko-KI-Systeme
@@ -4863,7 +4880,7 @@ einheiten:
   gate: []
   befund: nicht_einschlaegig
   befund_grund: Einstufungsregel, begruendet keine eigene pruefbare Pflicht.
-  po_bestaetigt: false
+  po_bestaetigt: true
   uid: Art. 6 Abs. 3 lit. c@303683
   abschnitt: null
   nummer: null
@@ -4871,6 +4888,7 @@ einheiten:
   ziffer: null
   po_entscheid:
   - 2026-09-23 · 2b E5 (steuernde Norm)
+  - 2026-10-06 · IN-1 Gruppe 1 (Review 13) - einzeln geprueft, in und nicht einschlaegig bestaetigt
 - id: Art. 6 Abs. 3 lit. d
   artikel: '6'
   artikel_titel: Einstufungsvorschriften für Hochrisiko-KI-Systeme
@@ -4895,7 +4913,7 @@ einheiten:
   gate: &id018 []
   befund: nicht_einschlaegig
   befund_grund: Einstufungsregel, begruendet keine eigene pruefbare Pflicht.
-  po_bestaetigt: false
+  po_bestaetigt: true
   uid: Art. 6 Abs. 3 lit. d@303969
   abschnitt: null
   nummer: null
@@ -4904,6 +4922,7 @@ einheiten:
   po_entscheid:
   - 2026-09-23 · 2b E5 (steuernde Norm)
   - 2026-09-30 · P3-F2 a (Review 10) - Pflichttext nach dem Neuschnitt bestaetigt
+  - 2026-10-06 · IN-1 Gruppe 1 (Review 13) - einzeln geprueft, in und nicht einschlaegig bestaetigt
 - uid: Art. 6 Abs. 3 UAbs. 3@304151
   id: Art. 6 Abs. 3 UAbs. 3
   artikel: '6'
@@ -4933,9 +4952,10 @@ einheiten:
   gate: *id018
   befund: nicht_einschlaegig
   befund_grund: Einstufungsregel, begruendet keine eigene pruefbare Pflicht.
-  po_bestaetigt: false
+  po_bestaetigt: true
   po_entscheid:
   - 2026-09-23 · 2b E5 (steuernde Norm)
+  - 2026-10-06 · IN-1 Gruppe 1 (Review 13) - einzeln geprueft, in und nicht einschlaegig bestaetigt
   migriert_von: Art. 6 Abs. 3 lit. d@303969
   migration: geerbt
 - id: Art. 6 Abs. 4
@@ -7778,6 +7798,7 @@ einheiten:
   po_entscheid:
   - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, Anker (a) und (b))
   - 2026-09-28 · 2c F1 (T-A Betriebsanleitung, M-A1 Pflichtinhalte-Check)
+  - 2026-10-06 · P4-F1 a (Review 13) - Pflichttext bestaetigt
 - uid: Art. 13 Abs. 3 lit. b Ziff. i@326480
   id: Art. 13 Abs. 3 lit. b Ziff. i
   artikel: '13'
@@ -7816,6 +7837,7 @@ einheiten:
   - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, Anker (a) und (b))
   - 2026-09-28 · 2c F1 (T-A Betriebsanleitung, M-A1 Pflichtinhalte-Check)
   - 2026-09-30 · M1a (Nachbarpruefung ist Luecke) - Review 07 Zeile 6
+  - 2026-10-06 · P4-F1 a (Review 13) - Pflichttext bestaetigt
   nachbar_gate:
   - G-PRE-02
 - uid: Art. 13 Abs. 3 lit. b Ziff. ii@326512
@@ -7860,6 +7882,7 @@ einheiten:
   - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, Anker (a) und (b))
   - 2026-09-23 · T-14.1 (geerbte Zeile)
   - 2026-09-30 · M1a (Nachbarpruefung ist Luecke) - Review 07 Zeile 7
+  - 2026-10-06 · P4-F1 a (Review 13) - Pflichttext bestaetigt
   nachbar_gate:
   - G-DEP-02
 - uid: Art. 13 Abs. 3 lit. b Ziff. iii@326874
@@ -7904,6 +7927,7 @@ einheiten:
   - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, Anker (a) und (b))
   - 2026-09-23 · T-14.1 (geerbte Zeile)
   - 2026-09-30 · M1a (Nachbarpruefung ist Luecke) - Review 07 Zeile 8
+  - 2026-10-06 · P4-F1 a (Review 13) - Pflichttext bestaetigt
   nachbar_gate:
   - G-DEP-03
 - uid: Art. 13 Abs. 3 lit. b Ziff. iv@327199
@@ -7942,6 +7966,7 @@ einheiten:
   po_entscheid:
   - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, Anker (a) und (b))
   - 2026-09-23 · T-14.1 (geerbte Zeile, P3)
+  - 2026-10-06 · P4-F1 a (Review 13) - Pflichttext bestaetigt
 - uid: Art. 13 Abs. 3 lit. b Ziff. v@327376
   id: Art. 13 Abs. 3 lit. b Ziff. v
   artikel: '13'
@@ -7983,6 +8008,7 @@ einheiten:
   - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, Anker (a) und (b))
   - 2026-09-28 · 2c F1 (T-A Betriebsanleitung, M-A1 Pflichtinhalte-Check)
   - 2026-09-30 · M1a (Nachbarpruefung ist Luecke) - Review 07 Zeile 10
+  - 2026-10-06 · P4-F1 a (Review 13) - Pflichttext bestaetigt
   nachbar_gate:
   - G-DEP-05
   - G-DEP-02
@@ -8030,6 +8056,7 @@ einheiten:
   po_entscheid:
   - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, Anker (a) und (b))
   - 2026-09-23 · T-14.1 (geerbte Zeile, Bezug P4)
+  - 2026-10-06 · P4-F1 a (Review 13) - Pflichttext bestaetigt
 - uid: Art. 13 Abs. 3 lit. b Ziff. vii@327770
   id: Art. 13 Abs. 3 lit. b Ziff. vii
   artikel: '13'
@@ -8067,6 +8094,7 @@ einheiten:
   po_entscheid:
   - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, Anker (a) und (b))
   - 2026-09-23 · T-14.1 (geerbte Zeile, P3, Bezug P2)
+  - 2026-10-06 · P4-F1 a (Review 13) - Pflichttext bestaetigt
   nachbar_gate:
   - G-DEP-03
 - id: Art. 13 Abs. 3 lit. c
@@ -8960,13 +8988,14 @@ einheiten:
   gate: []
   befund: nicht_einschlaegig
   befund_grund: Mittel ('kann durch technische Redundanz erreicht werden'), keine eigene pruefbare Pflicht.
-  po_bestaetigt: false
+  po_bestaetigt: true
   migriert_von: Art. 15 Abs. 4@333319
   migration: geerbt
   po_entscheid:
   - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, kein Anker benannt)
   - 2026-09-28 · 2c F2 (Mittel, keine Pflicht)
   - 2026-09-30 · P3-F2 a (Review 10) - Pflichttext nach dem Neuschnitt bestaetigt
+  - 2026-10-06 · IN-1 Gruppe 1 (Review 13) - einzeln geprueft, in und nicht einschlaegig bestaetigt
 - uid: Art. 15 Abs. 4 UAbs. 3 Satz 1@333868
   id: Art. 15 Abs. 4 UAbs. 3 Satz 1
   artikel: '15'
@@ -12261,7 +12290,9 @@ einheiten:
     zu unterrichten, greift deshalb nicht. Gegenargument, nicht gefolgt (HYPOTHESE, Branchenquellen):
     Redispatch 2.0 bezieht Anlagen ab 100 kW ein, deren Betreiber natuerliche Personen sein koennen. Wiedervorlage,
     sobald ein Anwendungsfall Entscheidungen ueber Personen trifft oder unterstuetzt. Bis 05.10.2026 Teilabdeckung
-    mit G-DEP-03 unter Vorbehalt Q11 (P3-F4 b).'
+    mit G-DEP-03 unter Vorbehalt Q11 (P3-F4 b). FR-1 a (06.10.2026): wird Bedingungsparameter - Manifest-Feld
+    ''natuerliche Personen unter den betroffenen Anlagenbetreibern''; bei true meldet ein Check die Zeile
+    als Luecke (Bau Paket 5, wie P2-F4). Bis dahin nicht einschlaegig.'
   po_bestaetigt: true
   uid: Art. 26 Abs. 11@366623
   abschnitt: null
@@ -12272,6 +12303,7 @@ einheiten:
   - 2026-09-23 · 2b E4 (VERIFIZIERT - Betreiber in der Einheit oder ihrem Einleitungssatz genannt)
   - 2026-10-01 · P3-F4 b (Review 11) - Vorbehalt bis Q11
   - 2026-10-05 · Q11 a (Review 13) - Redispatch trifft keine Entscheidungen ueber natuerliche Personen
+  - 2026-10-06 · FR-1 a (Review 14) - Art. 26 Abs. 11 als Bedingungsparameter, Bau Paket 5
 - id: Art. 26 Abs. 12
   artikel: '26'
   artikel_titel: Pflichten der Betreiber von Hochrisiko-KI-Systemen
@@ -33515,9 +33547,11 @@ einheiten:
   gate: *id068
   befund: nicht_einschlaegig
   befund_grund: Stichtag, begruendet keine eigene pruefbare Pflicht.
-  po_bestaetigt: false
+  po_bestaetigt: true
   migriert_von: Art. 113@586936
   migration: geerbt
+  po_entscheid:
+  - 2026-10-06 · IN-1 Gruppe 1 (Review 13) - einzeln geprueft, in und nicht einschlaegig bestaetigt
 - uid: Art. 113 Abs. 3@587088
   id: Art. 113 Abs. 3
   artikel: '113'
@@ -33545,9 +33579,11 @@ einheiten:
   gate: *id068
   befund: nicht_einschlaegig
   befund_grund: Einleitung einer Liste von Stichtagen, begruendet keine eigene pruefbare Pflicht.
-  po_bestaetigt: false
+  po_bestaetigt: true
   migriert_von: Art. 113@586936
   migration: geerbt
+  po_entscheid:
+  - 2026-10-06 · IN-1 Gruppe 1 (Review 13) - einzeln geprueft, in und nicht einschlaegig bestaetigt
 - uid: Art. 113 Abs. 3 lit. a@587097
   id: Art. 113 Abs. 3 lit. a
   artikel: '113'
@@ -34482,7 +34518,9 @@ einheiten:
   gate: []
   befund: nicht_einschlaegig
   befund_grund: Einstufung, begruendet keine eigene pruefbare Pflicht.
-  po_bestaetigt: false
+  po_bestaetigt: true
+  po_entscheid:
+  - 2026-10-06 · IN-1 Gruppe 1 (Review 13) - einzeln geprueft, in und nicht einschlaegig bestaetigt
 - uid: Anhang III Nr. 1@610494
   id: Anhang III Nr. 1
   artikel: Anhang III
@@ -34649,6 +34687,9 @@ einheiten:
   ziffer: null
   po_entscheid:
   - 2026-09-23 · 2b E5 (steuernde Norm)
+  - 2026-10-06 · P4-F1 a (Review 13) - Pflichttext bestaetigt
+  - 2026-10-06 · IN-1 Gruppe 1 (Review 13) - einzeln geprueft, in und nicht einschlaegig bestaetigt
+  po_bestaetigt: true
 - uid: Anhang III Nr. 3@611479
   id: Anhang III Nr. 3
   artikel: Anhang III
