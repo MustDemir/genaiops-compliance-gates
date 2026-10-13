@@ -2,7 +2,7 @@
 titel: Leitfall Bank – kritische Prüfung, was an Pflichtenraum, Gates und Rechtsquellen angepasst werden muss
 stand: 2026-10-13
 basis: Branch domain_bank = c4a1ce9 (gemessen) · Review 16 (Leitfall Bank) · Auftrag PO 13.10.2026 („kritisch prüfen, welche Regularien und Gesetzestexte wir für die Bank anpassen müssen“)
-status: Vorschlag · nichts im Pflichtenraum geändert · Fragen BK-F3 bis BK-F5 an den PO
+status: Vorschlag · nichts im Pflichtenraum geändert · BK-F3 b, BK-F4 a, BK-F5 c entschieden 13.10.2026
 ---
 
 # Kurz
@@ -103,6 +103,8 @@ README, HANDBUCH, Register nachziehen       ──►  Push-Freigabe
 | BK-F3 | Mechanik für drei Fälle im Pflichtenraum | a) **`scope` gilt dem Leitfall Bank; Zeilen nur für Fall 2 oder 3 gehen `out` mit Schalter-Vermerk** – wie FR-7 b · b) `scope` gilt allen drei Fällen zugleich (Profil-Mechanismus, FR-7 a wieder auf) |
 | BK-F4 | Welche Bank ist der Leitfall? | a) **private Geschäftsbank, Scoring zugekauft** (K1, nur Betreiber) · b) Sparkasse/öffentlich-rechtliche Bank – dann Art. 27 „Einrichtung des öffentlichen Rechts“, ggf. Art. 49 Abs. 3 und Art. 111 Abs. 2 Satz 2 n.F. (HYPOTHESE) · c) Eigenentwicklung (K2) – Bank wird Anbieter, Art. 16 ff. (größter offener Block) |
 | BK-F5 | Rechtsquellen für die Bank | a) **jetzt, begrenzt auf die Verweisnormen**: DSGVO Art. 22, 35, 13–15 einordnen; CRD Art. 74/KWG § 25a, Verbraucherkredit (BGB, KWG § 18a), BDSG § 37a als Wortlaut holen · b) alles erst im Sektorstapel nach dem Agenten (Plan C) · c) jetzt vollständig inkl. DORA |
+
+**Entschieden 13.10.2026:** BK-F3 **b** (ein Pflichtenraum für alle drei Fälle – Profil-Mechanismus, löst FR-7 b ab; Entwurf in [Review 18](18-profil-mechanismus.md)) · BK-F4 **a** (private Geschäftsbank, Scoring zugekauft) · BK-F5 **c** (Rechtsquellen erst im Sektorstapel nach dem Agenten; BK-B10, BK-B11 dorthin).
 
 # Ehrlich zur Methode
 
