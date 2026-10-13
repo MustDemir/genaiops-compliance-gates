@@ -1,6 +1,6 @@
 ---
 titel: Entscheidungsregister – was der PO noch entscheiden muss und welche Schritte ausstehen
-stand: 2026-10-06 (nach Paket 3b, P3-F5 und Review 12 Evidence Store; T-16.1 gebaut und abgenommen: ES-1, ES-2, ES-F3 a; P4-B1 umgesetzt; PO-Runde Teil 1: Q1, Q11, S3-1, S3-2, A-F1, R-1, R-7, P3-B1, A-W12; Teil 2 06.10.2026: P4-F1, IN-1, R-8, FR-1–FR-5, S3-3 umgesetzt, S3-4, OUT-1; Review 14 Teil 8: FR-6–FR-9, FR-B1–FR-B4)
+stand: 2026-10-13 (Review 15: S3-4 G1 und G4 geprüft, S34-B1–B6, S34-F1–F3, FR-B1 umgesetzt, PUSH-7; davor nach Paket 3b, P3-F5 und Review 12 Evidence Store; T-16.1 gebaut und abgenommen: ES-1, ES-2, ES-F3 a; P4-B1 umgesetzt; PO-Runde Teil 1: Q1, Q11, S3-1, S3-2, A-F1, R-1, R-7, P3-B1, A-W12; Teil 2 06.10.2026: P4-F1, IN-1, R-8, FR-1–FR-5, S3-3 umgesetzt, S3-4, OUT-1; Review 14 Teil 8: FR-6–FR-9, FR-B1–FR-B4)
 basis: Reviews 00–09, Entscheidungsdateien in docs/coverage/entscheide/, Plan Teil C
 status: lebendes Register · der Wächter PO_DECISIONS_REGISTERED hält es vollständig
 ---
@@ -31,6 +31,9 @@ Pakete:  1 Anhänge ✅ · 2 Omnibus · 3 Befunde + Matrix · 4 PO-Runde · 5 Be
 | P9-3 | Architektur des Agenten | `00-systembild-und-plan.md` | offen | 9 |
 | PUSH-2 | Commit 47c9833 auf `claude/scrum-solo-developer-6xyy9k` pushen (Whitepaper-PDFs in `.gitignore`) | `entscheidungsregister.md` | offen | jederzeit |
 | WP-1 | Benennung des Whitepapers; Änderungen liegen in `stash@{0}` | `entscheidungsregister.md` | offen | jederzeit |
+| S34-F1 | Leitfall Netzbetrieb nach G1: wechseln auf Zustandsüberwachung der Betriebsmittel (Rn. 184 lit. b), auf Anomalieerkennung im Netzbetrieb, oder Redispatch halten (Arm B) | `15-s3-4-hypothesen.md` | offen | 4 |
+| S34-F2 | Status „Betreiber kritischer Anlagen“ (CER / KRITIS-DachG) als Bedingung für Anhang III Nr. 2 im Manifest – Einzelschalter wie FR-1 a oder erst nach den endgültigen Leitlinien | `15-s3-4-hypothesen.md` | offen | 4 |
+| S34-F3 | Regel VERIFIZIERT (S3-3) erweitern: Begriff, den eine Legaldefinition wörtlich auf den Betreiber erstreckt, gilt als Wortlaut (trifft Art. 79 Abs. 2, G4) | `15-s3-4-hypothesen.md` | offen | 4 |
 
 # Teil 2 – Entschieden, Umsetzung steht aus
 
@@ -68,12 +71,17 @@ Pakete:  1 Anhänge ✅ · 2 Omnibus · 3 Befunde + Matrix · 4 PO-Runde · 5 Be
 | ES-6 | Belegverzeichnis beim Rollenwechsel (Soll/Ist je geschuldetem Beleg, P3-F3) fehlt im Store | `12-evidence-store-beweis.md` | offen | T-16 |
 | ES-7 | Dritter Läufer `pipeline/test_pipeline_local.sh` (nicht in `make verify`, nicht in der CI) kennt die menschliche Entscheidung nicht: G-PRE-01/G-PRE-05 ohne Freigabe, G-DEP-03 als AUTO, meldet „Deploy authorized“ – angleichen oder entfernen | `12-evidence-store-beweis.md` | offen | T-16 |
 | PR-1 | Paket 8: Der PR muss von `review-2c` kommen, nicht von `spec06-aiact-stufe0` (Plan Teil C). `review-2c` enthält `spec06-aiact-stufe0` und `t14-pflichtenraum-werkzeug` vollständig und liegt 38 Commits darüber (gemessen 30.09.2026); ein PR von `spec06-aiact-stufe0` ließe T-14 und alle Pakete aus | `entscheidungsregister.md` | offen | 8 |
-| FR-B1 | Leitlinien-Entwurf der Kommission (19.05.2026, SEKUNDÄRQUELLE): Anhang III Nr. 2 verlangt direkte Schutzfunktion und kritische Einrichtung nach CER – Redispatch nicht eindeutig Hochrisiko; Entwurf im Original lesen | `14-fachreview-business-ready.md` | offen | 4 |
 | FR-B2 | 121 Zeilen nur wegen Anhang III Nr. 2 `out` (103 Systemtyp, 18 Bereichsausnahme Nr. 2); je Referenzfall Einzelschalter (FR-7 b) | `14-fachreview-business-ready.md` | offen | 5 |
 | FR-B3 | Healthcare-Szenario widersprüchlich eingestuft (README `domain_Healthcare`: Art. 6 Abs. 1 + Anhang I Nr. 11; Fixtures: Anhang III Nr. 5 lit. a); wird mit FR-2 Diagnose-Assistent | `14-fachreview-business-ready.md` | offen | 6 |
 | FR-B4 | G-PRE-01 prüft inhaltlich nur den Nr.-2-Pfad; Art. 6 Abs. 1 + Anhang I nur als Selbstauskunft (C-01) | `14-fachreview-business-ready.md` | offen | 5 |
 | W-1 | Wiedervorlage Anhang XI/XII (GPAI) beim Prüf-Agenten selbst | `entscheidungsregister.md` | offen | 9 |
 | W-2 | Wiedervorlage Anhang IX, sobald der Betreiber an einem Test unter Realbedingungen teilnimmt | `entscheidungsregister.md` | offen | jederzeit |
+| S34-B1 | Leitlinien-Entwurf im Original: direkte Schutzfunktion verlangt (Rn. 180–184), Optimierung ausgenommen (Rn. 181), Redundanz spricht dagegen (Rn. 186), Prognose-/Warnsysteme mit menschlicher Prüfung nicht Hochrisiko (S. 47 f.), Art. 6 Abs. 3 greift für einen Maßnahmenplan nicht (Rn. 70 f., 108) – Redispatch-Planer eher nicht Hochrisiko; Anhang III Nr. 2 bleibt HYPOTHESE mit neuem Grund | `15-s3-4-hypothesen.md` | offen | 4 |
+| S34-B2 | Nr.-2-Teil des Entwurfs prüft nur Arm A; Arm B (Art. 3 Nr. 14 2. Alt., Art. 6 Abs. 1b n.F.) bleibt ungeprüft, der Anhang-I-Teil prüft beide | `15-s3-4-hypothesen.md` | offen | 9 |
+| S34-B3 | CER-Bedingung (Rn. 190, 204): Nr. 2 nur bei Betreiber kritischer Anlagen (KRITIS-DachG § 2 Nr. 1, 3, § 5, § 8); G-PRE-01 fragt den Status nicht ab | `15-s3-4-hypothesen.md` | offen | 5 |
+| S34-B4 | HANDBUCH 4.4: Redispatch „eindeutig Sicherheitsbauteil“ (widerspricht HYPOTHESE und 1.4); geplanter Negativfall prädiktive Instandhaltung (D-22) ist nach Rn. 184 lit. b Sicherheitsfunktion – HANDBUCH mit S34-F1 nachziehen | `15-s3-4-hypothesen.md` | offen | 4 |
+| S34-B5 | Fixture `art6_redispatch_pass.json` beschreibt einen Übertragungsnetzbetreiber, der Leitfall ist ein Verteilnetzbetreiber | `15-s3-4-hypothesen.md` | offen | 6 |
+| S34-B6 | Konsultation zum Entwurf lief bis 23.07.2026 (nicht 23.06.); endgültige Leitlinien bis Ende 2026 angekündigt – Wiedervorlage G1 | `15-s3-4-hypothesen.md` | offen | jederzeit |
 
 # Teil 4 – Erledigt
 
@@ -121,6 +129,8 @@ Pakete:  1 Anhänge ✅ · 2 Omnibus · 3 Befunde + Matrix · 4 PO-Runde · 5 Be
 | PUSH-3 | `review-2c` 876c1b1..7ca98ce nach origin: Commits auf dem Mac mit dem SSH-Schlüssel des PO neu signiert, Schlüssel als Signing Key im GitHub-Konto, pre-push `make verify` grün, alle fünf Commits auf GitHub „Verified“ | `entscheidungsregister.md` | umgesetzt 02.10.2026 | – |
 | PUSH-4 | `review-2c` 7ca98ce..555f137 nach origin (T-16.1, Review 13, ES-F3): auf dem Mac mit dem SSH-Schlüssel des PO neu signiert, pre-push `make verify` grün, alle vier Commits auf GitHub „Verified“ | `entscheidungsregister.md` | umgesetzt 05.10.2026 | – |
 | PUSH-6 | `review-2c` 0c35968..6787b60 nach origin (S3-3, OUT-1, P4-F2): auf dem Mac mit dem SSH-Schlüssel des PO neu signiert, pre-push `make verify` grün, alle vier Commits auf GitHub „Verified“ | `entscheidungsregister.md` | umgesetzt 06.10.2026 | – |
+| PUSH-7 | `review-2c` 6787b60..5ac2628 nach origin (FR-6 bis FR-9, Review 14 Teil 8): auf dem Mac mit dem SSH-Schlüssel des PO neu signiert, pre-push `make verify` grün, der Commit auf GitHub „Verified“ | `entscheidungsregister.md` | umgesetzt 06.10.2026 | – |
+| FR-B1 | Leitlinien-Entwurf der Kommission (19.05.2026): Anhang III Nr. 2 verlangt direkte Schutzfunktion und kritische Einrichtung nach CER – Redispatch nicht eindeutig Hochrisiko; am 13.10.2026 im Original gelesen, bestätigt (Review 15: S34-B1–B3) | `14-fachreview-business-ready.md` | umgesetzt 13.10.2026 | – |
 | FR-6 | Zielbild: branchenoffen – gebaut für Betreiber von Hochrisiko-KI-Systemen jeder Branche, Leitfall Netzbetrieb; HANDBUCH 1.1, 1.3, 1.4, Teil 7 und Leitsatz (00) nachgezogen | `14-fachreview-business-ready.md` | umgesetzt 06.10.2026 a | – |
 | FR-7 | Branchenfähigkeit des Pflichtenraums über Einzelschalter wie bisher (P2-F4 c, FR-1 a, S3-1 a), kein Profil-Mechanismus | `14-fachreview-business-ready.md` | entschieden 06.10.2026 b (keine Änderung) | – |
 | FR-9 | FR-2 nach Paket 5; Reihenfolge S3-4 → T-16.2 → Paket 5 → FR-2 in Plan C2 | `14-fachreview-business-ready.md` | umgesetzt 06.10.2026 a | – |
