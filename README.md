@@ -46,6 +46,61 @@ Most AI governance tooling answers *"is there a policy?"*. This answers *"can yo
 - **Nothing is claimed that is not enforced.** 48 of 55 checks are implemented, 7 are design-only — and each check states which it is. The integrity suite fails the build if a declaration and reality drift apart.
 - **There is no exception path.** The waiver mechanism was abolished rather than left as an unimplemented promise, because an exception that leaves no trace devalues the completeness of the chain.
 
+## Lead case: a bank deploying a credit-scoring AI
+
+*What a bank faces as **deployer** — the one that uses the system, not the one that builds it.* Lead case since 13 Oct 2026 ([review 16](docs/coverage/review/16-leitfall-bank.md)); grid operation stays as a further case, a diagnostic assistant in a hospital is the second reference case.
+
+**Why it is high-risk — without doubt**
+
+```
+Annex III No. 5(b)   AI systems intended to be used to evaluate the creditworthiness of natural persons
+                     or establish their credit score, except systems used to detect financial fraud
+  ├─ natural persons · essential service (consumer credit, mortgage) ──► in scope
+  ├─ scoring is profiling ──► Art. 6(3), third subparagraph: the exemption filter never applies
+  └─ high-risk duties apply from 2 Dec 2027 (Art. 113 as amended by Regulation (EU) 2026/1744)
+```
+
+The Commission's draft classification guidelines of 19 May 2026 (Annex III part, para. 294 ff.) name credit scoring for consumer lending and mortgages as a high-risk example.
+
+**AI Act — what the bank owes as deployer**
+
+| Provision | Duty, in short |
+|---|---|
+| Art. 4 (as amended) | Support the AI literacy of staff who operate or use the system |
+| Art. 26(1) | Use the system according to the provider's instructions for use |
+| Art. 26(2) | Assign human oversight to people with the competence, training and authority for it |
+| Art. 26(4) | Input data under the bank's control fit the intended purpose and are sufficiently representative |
+| Art. 26(5) | Monitor operation; on risk, inform provider and authority and suspend use; report serious incidents (Art. 73). **For financial institutions the monitoring duty counts as met through their internal-governance rules under financial-services law** |
+| Art. 26(6) | Keep the automatically generated logs for at least six months. **Financial institutions keep them as part of their financial-services documentation** |
+| Art. 26(7) | Inform workers' representatives and affected staff before use at the workplace |
+| Art. 26(9) | Use the provider's Art. 13 information for the data protection impact assessment |
+| Art. 26(11) | Inform applicants that they are subject to a high-risk AI system |
+| Art. 26(12) | Cooperate with the competent authorities |
+| Art. 27 | **Fundamental rights impact assessment before first use** — Annex III No. 5(b) is named explicitly; results go to the market surveillance authority; the DPIA may be reused (Art. 27(4) as amended) |
+| Art. 86 | On request, a clear and meaningful explanation of the AI system's role and the main elements of the decision |
+| Art. 25 | The bank becomes **provider** if it puts its own name on the system, modifies it substantially or changes its purpose |
+| Art. 74(6) | Market surveillance by the **financial supervisor** — in Germany BaFin, under the national AI Act implementation law (KI-MIG) |
+| Art. 99(4)(e) | Breaching Art. 26: fines up to €15 million or 3 % of worldwide annual turnover |
+
+**Other law that bites on the same system**
+
+| Regime | What it adds for the bank | Applies |
+|---|---|---|
+| GDPR Art. 22, 13–15, 35 | Solely automated decisions only on a legal basis and with safeguards (human intervention, contesting the decision); meaningful information about the logic involved; DPIA. CJEU C-634/21 (*SCHUFA*, 7 Dec 2023): the score itself can be the decision when it plays a decisive role | now |
+| BGB § 505a ff., KWG § 18a — consumer-credit reform (Directive (EU) 2023/2225; BGBl. I 2026 No. 139) | Credit only if repayment is *likely*; documented assessment strategies and procedures; no data from social networks | 20 Nov 2026 |
+| BDSG § 37a (new, same reform) | Rules on scoring — *not yet checked against the text* | 20 Nov 2026 |
+| KWG § 25a, MaRisk, EBA/GL/2020/06 | Proper business organisation; governance and model risk of automated credit-decision models | now |
+| DORA (EU) 2022/2554 | ICT risk management, ICT incident reporting, register and oversight of ICT third-party providers — the AI provider is one | since 17 Jan 2025 |
+| AGG | Non-discrimination; how far it reaches credit contracts depends on § 19 AGG | now |
+
+```
+17 Jan 2025 ── DORA applies
+20 Nov 2026 ── consumer-credit reform: § 505a BGB, § 18a KWG, § 37a BDSG
+ 2 Dec 2027 ── AI Act high-risk duties for Annex III systems: Art. 26, 27, 86 bite
+```
+
+What the gates check of this today, and with which evidence, is being re-derived for this case: the gates are generic, but G-PRE-01 so far tests the content of a classification only for Annex III No. 2. The status of national law is taken from secondary sources as of 13 Oct 2026. None of this is legal advice.
+
 ## What "business ready" means here
 
 Not "finished". A gate is never absolutely done — it is **done at a declared assurance level**, and it has to say which. That follows from the E-0…E-3 axis: not every gate must reach E-3, every gate must reach the level its obligation requires, and state it.

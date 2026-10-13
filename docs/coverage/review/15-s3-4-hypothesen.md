@@ -131,6 +131,8 @@ Redispatch-Planer beim VNB (heute Leitfall)
 | S34-F2 | Status „Betreiber kritischer Anlagen“ (CER / KRITIS-DachG) als Bedingung für Nr. 2 im Manifest | a) **ja, als Einzelschalter wie FR-1 a** (Bau Paket 5); G-PRE-01 meldet „Nr. 2 nach Entwurf nicht erfüllt“, wenn der Status fehlt, Vermerk „Entwurf“ · b) erst nach den endgültigen Leitlinien |
 | S34-F3 | Regel für VERIFIZIERT (S3-3) erweitern: am Wortlaut belegt ist auch eine Einheit, die einen Begriff verwendet, den eine Legaldefinition des AI Act wörtlich auf den Betreiber erstreckt | a) **ja** – Art. 79 Abs. 2 wird VERIFIZIERT (heute die einzige Zeile, die das trifft) · b) nein, Art. 79 Abs. 2 bleibt HYPOTHESE |
 
+**Entschieden 13.10.2026 (nur auf `domain_bank`):** S34-F1 – keine der Optionen: Leitfall wird eine Bank mit Kreditscoring (Anhang III Nr. 5 lit. b), Netzbetrieb Fall 3, eigene Branch `domain_bank` ([Review 16](16-leitfall-bank.md)). S34-F2 und S34-F3 offen.
+
 # Ehrlich zur Methode
 
 - Der Entwurf ist im Original gelesen (Text aus den PDFs mit pdftotext, Hashes oben). Wiedergabe sinngemäß, keine amtliche Übersetzung; deutsche Sprachfassung gibt es nicht.

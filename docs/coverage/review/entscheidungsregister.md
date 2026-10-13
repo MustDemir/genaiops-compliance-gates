@@ -1,6 +1,6 @@
 ---
 titel: Entscheidungsregister – was der PO noch entscheiden muss und welche Schritte ausstehen
-stand: 2026-10-13 (Review 15: S3-4 G1 und G4 geprüft, S34-B1–B6, S34-F1–F3, FR-B1 umgesetzt, PUSH-7; davor nach Paket 3b, P3-F5 und Review 12 Evidence Store; T-16.1 gebaut und abgenommen: ES-1, ES-2, ES-F3 a; P4-B1 umgesetzt; PO-Runde Teil 1: Q1, Q11, S3-1, S3-2, A-F1, R-1, R-7, P3-B1, A-W12; Teil 2 06.10.2026: P4-F1, IN-1, R-8, FR-1–FR-5, S3-3 umgesetzt, S3-4, OUT-1; Review 14 Teil 8: FR-6–FR-9, FR-B1–FR-B4)
+stand: 2026-10-13 (Branch domain_bank: Leitfall Bank, Review 16, BK-B1–B5, BK-F1, S34-F1 entschieden, PUSH-8; davor Review 15: S3-4 G1 und G4 geprüft, S34-B1–B6, S34-F1–F3, FR-B1 umgesetzt, PUSH-7; davor nach Paket 3b, P3-F5 und Review 12 Evidence Store; T-16.1 gebaut und abgenommen: ES-1, ES-2, ES-F3 a; P4-B1 umgesetzt; PO-Runde Teil 1: Q1, Q11, S3-1, S3-2, A-F1, R-1, R-7, P3-B1, A-W12; Teil 2 06.10.2026: P4-F1, IN-1, R-8, FR-1–FR-5, S3-3 umgesetzt, S3-4, OUT-1; Review 14 Teil 8: FR-6–FR-9, FR-B1–FR-B4)
 basis: Reviews 00–09, Entscheidungsdateien in docs/coverage/entscheide/, Plan Teil C
 status: lebendes Register · der Wächter PO_DECISIONS_REGISTERED hält es vollständig
 ---
@@ -31,9 +31,9 @@ Pakete:  1 Anhänge ✅ · 2 Omnibus · 3 Befunde + Matrix · 4 PO-Runde · 5 Be
 | P9-3 | Architektur des Agenten | `00-systembild-und-plan.md` | offen | 9 |
 | PUSH-2 | Commit 47c9833 auf `claude/scrum-solo-developer-6xyy9k` pushen (Whitepaper-PDFs in `.gitignore`) | `entscheidungsregister.md` | offen | jederzeit |
 | WP-1 | Benennung des Whitepapers; Änderungen liegen in `stash@{0}` | `entscheidungsregister.md` | offen | jederzeit |
-| S34-F1 | Leitfall Netzbetrieb nach G1: wechseln auf Zustandsüberwachung der Betriebsmittel (Rn. 184 lit. b), auf Anomalieerkennung im Netzbetrieb, oder Redispatch halten (Arm B) | `15-s3-4-hypothesen.md` | offen | 4 |
 | S34-F2 | Status „Betreiber kritischer Anlagen“ (CER / KRITIS-DachG) als Bedingung für Anhang III Nr. 2 im Manifest – Einzelschalter wie FR-1 a oder erst nach den endgültigen Leitlinien | `15-s3-4-hypothesen.md` | offen | 4 |
 | S34-F3 | Regel VERIFIZIERT (S3-3) erweitern: Begriff, den eine Legaldefinition wörtlich auf den Betreiber erstreckt, gilt als Wortlaut (trifft Art. 79 Abs. 2, G4) | `15-s3-4-hypothesen.md` | offen | 4 |
+| BK-F1 | Bank als Leitfall hebt D-06 („Branche Energie/KRITIS“) und den Ausschluss „nicht der Finanzsektor mit DORA“ (HANDBUCH 1.3, bestätigt mit FR-6) auf – aufheben oder Bank nur als weiterer Fall | `16-leitfall-bank.md` | offen | 4 |
 
 # Teil 2 – Entschieden, Umsetzung steht aus
 
@@ -50,6 +50,7 @@ Pakete:  1 Anhänge ✅ · 2 Omnibus · 3 Befunde + Matrix · 4 PO-Runde · 5 Be
 | FR-1 | Art. 26 Abs. 11 als Bedingungsparameter: Manifest-Feld „natürliche Personen unter den betroffenen Anlagenbetreibern“, bei `true` meldet ein Check Lücke (wie P2-F4); bis dahin n.e. | `14-fachreview-business-ready.md` | entschieden 06.10.2026 a | 5 |
 | FR-2 | Referenzszenarien (Fixtures + End-to-End-Lauf) und Use Cases des Agenten (P9-1) – **nach Paket 5** (FR-9): Leitfall Netzbetrieb (Redispatch, wenn S3-4 die Einstufung trägt, sonst ein eindeutiger Nr.-2-Fall) und Diagnose-Assistent (FR-8) | `14-fachreview-business-ready.md` | entschieden 06.10.2026 a, Zeitpunkt und Fälle neu gefasst 06.10.2026 (Teil 8) | 6 |
 | FR-8 | Zweiter Referenzfall: Diagnose-Assistent im Krankenhaus (Art. 6 Abs. 1 + Anhang I Abschn. A Nr. 11, MDR Klasse IIa+; Stichtag 02.08.2028), Bau mit FR-2; Schalter „Hochrisiko über Anhang I“ nach FR-7 b | `14-fachreview-business-ready.md` | entschieden 06.10.2026 b | 6 |
+| S34-F1 | Leitfall: Bank – Kreditscoring natürlicher Personen (Anhang III Nr. 5 lit. b) auf Branch `domain_bank`; Netzbetrieb wird Fall 3, `review-2c` bleibt als Netz-Stand eingefroren; README zeigt den Leitfall aus Betreibersicht | `15-s3-4-hypothesen.md` | entschieden 13.10.2026 (Bank, Review 16) | 4 |
 | FR-5 | Juristische Zweitprüfung der Auslegungsentscheide (Q1, Q11, A-F1, F4, HYPOTHESE-Zeilen mit Befund) vor dem ersten Kunden | `14-fachreview-business-ready.md` | entschieden 06.10.2026 b | 9 |
 | E2 | Rego-Meldungen mit Check-ID (130 von 195 ohne), Wächter `REGO_MESSAGES_CARRY_CHECK_ID` im selben Commit | `05-schritt-2d-2e-gedeckt-querbefunde.md` | entschieden 29.09.2026 a | 5 |
 | P2-F4 | Art. 4a Abs. 1 lit. a–f bleiben out (bedingte Pflicht); Wiedervorlage maschinell: Manifest-Feld `special_categories_for_bias` + Check, der die Zeilen meldet, sobald `true` (Bedingungsparameter je Anwendungsfall, wie SPEC-03) | `09-paket-2-omnibus.md` | entschieden 29.09.2026 c | 5 |
@@ -82,6 +83,11 @@ Pakete:  1 Anhänge ✅ · 2 Omnibus · 3 Befunde + Matrix · 4 PO-Runde · 5 Be
 | S34-B4 | HANDBUCH 4.4: Redispatch „eindeutig Sicherheitsbauteil“ (widerspricht HYPOTHESE und 1.4); geplanter Negativfall prädiktive Instandhaltung (D-22) ist nach Rn. 184 lit. b Sicherheitsfunktion – HANDBUCH mit S34-F1 nachziehen | `15-s3-4-hypothesen.md` | offen | 4 |
 | S34-B5 | Fixture `art6_redispatch_pass.json` beschreibt einen Übertragungsnetzbetreiber, der Leitfall ist ein Verteilnetzbetreiber | `15-s3-4-hypothesen.md` | offen | 6 |
 | S34-B6 | Konsultation zum Entwurf lief bis 23.07.2026 (nicht 23.06.); endgültige Leitlinien bis Ende 2026 angekündigt – Wiedervorlage G1 | `15-s3-4-hypothesen.md` | offen | jederzeit |
+| BK-B1 | Pflichtenraum auf Anhang III Nr. 2 zugeschnitten: für den Leitfall Bank mindestens Art. 27 (11 Zeilen), Art. 86 Abs. 1, Anhang III Nr. 5 und Nr. 5 lit. b, Art. 26 Abs. 5 UAbs. 2 Satz 1 neu einordnen; Art. 26 Abs. 11 einschlägig; Q1 b und Q11 a zur Wiedervorlage | `16-leitfall-bank.md` | offen | 4 |
+| BK-B2 | G-PRE-01 prüft inhaltlich nur den Nr.-2-Pfad; für Anhang III Nr. 5 lit. b fehlen Checks (natürliche Person, keine Betrugserkennung, wesentliche Dienstleistung, Profiling) | `16-leitfall-bank.md` | offen | 5 |
+| BK-B3 | `domain_netzbetrieb` hat 4 Commits, die `review-2c` und `domain_bank` fehlen (PR #6 „verify-reliable“, 2aec8a2) | `16-leitfall-bank.md` | offen | 8 |
+| BK-B4 | HANDBUCH 1.1, 1.3, 1.4, 4.4, Leitsatz (00) und AGENTS.md Abschn. 2 nennen den Netzbetrieb als Leitfall und schließen den Finanzsektor aus – nach BK-F1 nachziehen | `16-leitfall-bank.md` | offen | 4 |
+| BK-B5 | PR-1 nennt `review-2c` als Quelle des PR; Arbeitslinie ist jetzt `domain_bank` | `16-leitfall-bank.md` | offen | 8 |
 
 # Teil 4 – Erledigt
 
@@ -130,6 +136,7 @@ Pakete:  1 Anhänge ✅ · 2 Omnibus · 3 Befunde + Matrix · 4 PO-Runde · 5 Be
 | PUSH-4 | `review-2c` 7ca98ce..555f137 nach origin (T-16.1, Review 13, ES-F3): auf dem Mac mit dem SSH-Schlüssel des PO neu signiert, pre-push `make verify` grün, alle vier Commits auf GitHub „Verified“ | `entscheidungsregister.md` | umgesetzt 05.10.2026 | – |
 | PUSH-6 | `review-2c` 0c35968..6787b60 nach origin (S3-3, OUT-1, P4-F2): auf dem Mac mit dem SSH-Schlüssel des PO neu signiert, pre-push `make verify` grün, alle vier Commits auf GitHub „Verified“ | `entscheidungsregister.md` | umgesetzt 06.10.2026 | – |
 | PUSH-7 | `review-2c` 6787b60..5ac2628 nach origin (FR-6 bis FR-9, Review 14 Teil 8): auf dem Mac mit dem SSH-Schlüssel des PO neu signiert, pre-push `make verify` grün, der Commit auf GitHub „Verified“ | `entscheidungsregister.md` | umgesetzt 06.10.2026 | – |
+| PUSH-8 | `review-2c` 5ac2628..06a0cbd nach origin (Review 15, PUSH-7): auf dem Mac mit dem SSH-Schlüssel des PO neu signiert, pre-push `make verify` grün, der Commit auf GitHub „Verified“; danach `domain_bank` von dort abgezweigt | `entscheidungsregister.md` | umgesetzt 13.10.2026 | – |
 | FR-B1 | Leitlinien-Entwurf der Kommission (19.05.2026): Anhang III Nr. 2 verlangt direkte Schutzfunktion und kritische Einrichtung nach CER – Redispatch nicht eindeutig Hochrisiko; am 13.10.2026 im Original gelesen, bestätigt (Review 15: S34-B1–B3) | `14-fachreview-business-ready.md` | umgesetzt 13.10.2026 | – |
 | FR-6 | Zielbild: branchenoffen – gebaut für Betreiber von Hochrisiko-KI-Systemen jeder Branche, Leitfall Netzbetrieb; HANDBUCH 1.1, 1.3, 1.4, Teil 7 und Leitsatz (00) nachgezogen | `14-fachreview-business-ready.md` | umgesetzt 06.10.2026 a | – |
 | FR-7 | Branchenfähigkeit des Pflichtenraums über Einzelschalter wie bisher (P2-F4 c, FR-1 a, S3-1 a), kein Profil-Mechanismus | `14-fachreview-business-ready.md` | entschieden 06.10.2026 b (keine Änderung) | – |
