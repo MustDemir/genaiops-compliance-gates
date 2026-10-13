@@ -19,8 +19,8 @@ faelle:
     einstufung:
       - {raum: aiact, id: "Anhang III Nr. 5 lit. b"}
     stichtag: "2027-12-02"
-    pflichtenraum: offen
-    entscheide: [S34-F1, BK-F1, BK-F4]
+    pflichtenraum: geprueft
+    entscheide: [S34-F1, BK-F1, BK-F4, BK-F7]
   klinik:
     rolle: Fall 2
     system: diagnostic assistant in a hospital, medical device of MDR class IIa or higher

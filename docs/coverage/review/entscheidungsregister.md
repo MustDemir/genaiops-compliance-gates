@@ -1,6 +1,6 @@
 ---
 titel: Entscheidungsregister – was der PO noch entscheiden muss und welche Schritte ausstehen
-stand: 2026-10-13 (Review 18: Profil-Mechanismus, BK-F3 b, BK-F4 a, BK-F5 c, BK-F6 a, M1 gebaut, R-10 offen; Review 17: Bank-Prüfliste, BK-B6–B14, PUSH-9; davor Branch domain_bank: Leitfall Bank, Review 16, BK-B1–B5, BK-F1 a umgesetzt, BK-F2 offen, S34-F1 entschieden, PUSH-8; davor Review 15: S3-4 G1 und G4 geprüft, S34-B1–B6, S34-F1–F3, FR-B1 umgesetzt, PUSH-7; davor nach Paket 3b, P3-F5 und Review 12 Evidence Store; T-16.1 gebaut und abgenommen: ES-1, ES-2, ES-F3 a; P4-B1 umgesetzt; PO-Runde Teil 1: Q1, Q11, S3-1, S3-2, A-F1, R-1, R-7, P3-B1, A-W12; Teil 2 06.10.2026: P4-F1, IN-1, R-8, FR-1–FR-5, S3-3 umgesetzt, S3-4, OUT-1; Review 14 Teil 8: FR-6–FR-9, FR-B1–FR-B4)
+stand: 2026-10-13 (Review 18: Profil-Mechanismus, BK-F3 b, BK-F4 a, BK-F5 c, BK-F6 a, M1 gebaut, M2 umgesetzt (BK-F7 a), R-10 HIGH, BK-B15 umgesetzt, BK-B16 und BK-F8 offen; Review 17: Bank-Prüfliste, BK-B6–B14, PUSH-9; davor Branch domain_bank: Leitfall Bank, Review 16, BK-B1–B5, BK-F1 a umgesetzt, BK-F2 offen, S34-F1 entschieden, PUSH-8; davor Review 15: S3-4 G1 und G4 geprüft, S34-B1–B6, S34-F1–F3, FR-B1 umgesetzt, PUSH-7; davor nach Paket 3b, P3-F5 und Review 12 Evidence Store; T-16.1 gebaut und abgenommen: ES-1, ES-2, ES-F3 a; P4-B1 umgesetzt; PO-Runde Teil 1: Q1, Q11, S3-1, S3-2, A-F1, R-1, R-7, P3-B1, A-W12; Teil 2 06.10.2026: P4-F1, IN-1, R-8, FR-1–FR-5, S3-3 umgesetzt, S3-4, OUT-1; Review 14 Teil 8: FR-6–FR-9, FR-B1–FR-B4)
 basis: Reviews 00–09, Entscheidungsdateien in docs/coverage/entscheide/, Plan Teil C
 status: lebendes Register · der Wächter PO_DECISIONS_REGISTERED hält es vollständig
 ---
@@ -34,12 +34,13 @@ Pakete:  1 Anhänge ✅ · 2 Omnibus · 3 Befunde + Matrix · 4 PO-Runde · 5 Be
 | S34-F2 | Status „Betreiber kritischer Anlagen“ (CER / KRITIS-DachG) als Bedingung für Anhang III Nr. 2 im Manifest – Einzelschalter wie FR-1 a oder erst nach den endgültigen Leitlinien | `15-s3-4-hypothesen.md` | offen | 4 |
 | S34-F3 | Regel VERIFIZIERT (S3-3) erweitern: Begriff, den eine Legaldefinition wörtlich auf den Betreiber erstreckt, gilt als Wortlaut (trifft Art. 79 Abs. 2, G4) | `15-s3-4-hypothesen.md` | offen | 4 |
 | BK-F2 | Welche Anwendung ist Fall 3 (Netzbetrieb, Anhang III Nr. 2): Zustandsüberwachung der Betriebsmittel, Anomalieerkennung oder Redispatch als Grenzfall – Entscheid mit FR-2 | `16-leitfall-bank.md` | offen | 6 |
-| BK-F3 | Ein Pflichtenraum für alle drei Fälle (Profil-Mechanismus): Fallregister, `faelle` je Zeile, Abweichungen je Fall, Wächter `CASE_SCOPE_DECLARED`; löst FR-7 b ab, FR-B2 geht darin auf (Entwurf Review 18, M1–M4) | `17-bank-pruefliste.md` | entschieden 13.10.2026 b | 4 |
+| BK-F3 | Ein Pflichtenraum für alle drei Fälle (Profil-Mechanismus): Fallregister, `faelle` je Zeile, Abweichungen je Fall, Wächter `CASE_SCOPE_DECLARED`; löst FR-7 b ab, FR-B2 geht darin auf (Entwurf Review 18, M1–M4) | `17-bank-pruefliste.md` | entschieden 13.10.2026 b (M1, M2 umgesetzt; M3 Klinik, M4 Gates offen) | 5 |
 | BK-F4 | Leitfall ist eine private Geschäftsbank mit zugekauftem Scoring (K1, nur Betreiber); Art. 49 Abs. 3, Anhang VIII Abschn. C bleiben `out`, Schalter S3-1 für die Bank `false` | `17-bank-pruefliste.md` | umgesetzt 13.10.2026 a | – |
 | BK-F5 | Rechtsquellen der Bank (DSGVO-Einordnung, CRD Art. 74/KWG § 25a, Verbraucherkredit, BDSG § 37a, DORA) erst im Sektorstapel nach dem Agenten; bis dahin bleiben Art. 86 Abs. 3 und Art. 26 Abs. 5 UAbs. 2 HYPOTHESE, der Agent meldet „Verweisnorm nicht geprüft“ | `17-bank-pruefliste.md` | entschieden 13.10.2026 c | T-13 |
-| BK-F6 | Zeitpunkt Profil-Mechanismus: M1 (Fallregister, Schema, Wächter) und M2 (Prüfliste Bank) jetzt, vor S3-4 G2 – M1 gebaut 13.10.2026, M2 offen | `18-profil-mechanismus.md` | entschieden 13.10.2026 a | 4 |
-| R-10 | Severity `CASE_SCOPE_DECLARED` (MEDIUM vorgeschlagen, oder HIGH) | `18-profil-mechanismus.md` | offen | 4 |
-| BK-F7 | Prüfliste M2 Bank (Gruppen A–J): `faelle`, Befund und Stufe je Zeile für den Leitfall; danach `bank: geprueft` | `18-profil-mechanismus.md` | offen | 4 |
+| BK-F6 | Zeitpunkt Profil-Mechanismus: M1 und M2 jetzt, vor S3-4 G2 – beide umgesetzt 13.10.2026 | `18-profil-mechanismus.md` | umgesetzt 13.10.2026 a | – |
+| R-10 | Severity `CASE_SCOPE_DECLARED` = HIGH (vorgeschlagen MEDIUM; ein Bank-Urteil auf Netz-Zeilen ist ein falsches Urteil) | `18-profil-mechanismus.md` | umgesetzt 13.10.2026 HIGH | – |
+| BK-F7 | Prüfliste M2 Bank (Gruppen A–J): Entscheidungsdatei `2026-10-13_m2-bank.yaml`, 29 Zeilen; `bank: geprueft`; in bank 134 · netz 125 · klinik 105 (offen) | `18-profil-mechanismus.md` | umgesetzt 13.10.2026 a | – |
+| BK-F8 | Pflichttexte der 16 Zeilen, die M2 für die Bank `in` gesetzt hat, gegen den Wortlaut bestätigen (wie P4-F2; Anhang III Nr. 5 lit. b neu nach BK-B15) | `18-profil-mechanismus.md` | offen | 4 |
 
 # Teil 2 – Entschieden, Umsetzung steht aus
 
@@ -88,7 +89,7 @@ Pakete:  1 Anhänge ✅ · 2 Omnibus · 3 Befunde + Matrix · 4 PO-Runde · 5 Be
 | S34-B3 | CER-Bedingung (Rn. 190, 204): Nr. 2 nur bei Betreiber kritischer Anlagen (KRITIS-DachG § 2 Nr. 1, 3, § 5, § 8); G-PRE-01 fragt den Status nicht ab | `15-s3-4-hypothesen.md` | offen | 5 |
 | S34-B5 | Fixture `art6_redispatch_pass.json` beschreibt einen Übertragungsnetzbetreiber, der Leitfall ist ein Verteilnetzbetreiber | `15-s3-4-hypothesen.md` | offen | 6 |
 | S34-B6 | Konsultation zum Entwurf lief bis 23.07.2026 (nicht 23.06.); endgültige Leitlinien bis Ende 2026 angekündigt – Wiedervorlage G1 | `15-s3-4-hypothesen.md` | offen | jederzeit |
-| BK-B1 | Pflichtenraum auf Anhang III Nr. 2 zugeschnitten: für den Leitfall Bank mindestens Art. 27 (11 Zeilen), Art. 86 Abs. 1, Anhang III Nr. 5 und Nr. 5 lit. b, Art. 26 Abs. 5 UAbs. 2 Satz 1 neu einordnen; Art. 26 Abs. 11 einschlägig; Q1 b und Q11 a zur Wiedervorlage | `16-leitfall-bank.md` | offen | 4 |
+| BK-B1 | Pflichtenraum auf Anhang III Nr. 2 zugeschnitten: für den Leitfall Bank mindestens Art. 27 (11 Zeilen), Art. 86 Abs. 1, Anhang III Nr. 5 und Nr. 5 lit. b, Art. 26 Abs. 5 UAbs. 2 Satz 1 neu einordnen; Art. 26 Abs. 11 einschlägig; Q1 b und Q11 a zur Wiedervorlage | `16-leitfall-bank.md` | entschieden 13.10.2026 (M2 umgesetzt; R012-Anker Art. 27 und Q1 offen) | 5 |
 | BK-B2 | G-PRE-01 prüft inhaltlich nur den Nr.-2-Pfad; für Anhang III Nr. 5 lit. b fehlen Checks (natürliche Person, keine Betrugserkennung, wesentliche Dienstleistung, Profiling) | `16-leitfall-bank.md` | offen | 5 |
 | BK-B3 | `domain_netzbetrieb` hat 4 Commits, die `review-2c` und `domain_bank` fehlen (PR #6 „verify-reliable“, 2aec8a2) | `16-leitfall-bank.md` | offen | 8 |
 | BK-B5 | PR-1 nennt `review-2c` als Quelle des PR; Arbeitslinie ist jetzt `domain_bank` | `16-leitfall-bank.md` | offen | 8 |
@@ -101,6 +102,8 @@ Pakete:  1 Anhänge ✅ · 2 Omnibus · 3 Befunde + Matrix · 4 PO-Runde · 5 Be
 | BK-B12 | NIS2/BSIG, KRITIS-DachG, EnWG treffen die Bank weitgehend nicht (DORA sektorspezifisch, NIS2 Art. 4 Abs. 1, ErwG 28); Anker-Hypothese R001/R003 (NIS2/BSIG) fällt für die Bank, Kandidat DORA Kap. II | `17-bank-pruefliste.md` | offen | 5 |
 | BK-B13 | Art. 5 Abs. 1 lit. c (Sozialbewertung) wird für Scoring relevant: Daten aus fremden sozialen Kontexten als Abgrenzungsrisiko | `17-bank-pruefliste.md` | offen | 5 |
 | BK-B14 | DORA Art. 28–30 (IKT-Drittdienstleister) und Art. 25 Abs. 2 n.F. treffen dieselbe Beschaffung; ein Nachweis könnte beides tragen (HYPOTHESE) | `17-bank-pruefliste.md` | offen | 5 |
+| BK-B15 | Pflichttext Anhang III Nr. 5 lit. b brach ab („mit Ausnahme …“); mit `scope: in` griff `IN_UNITS_OWN_DUTY_TEXT` – Text vervollständigt, Bestätigung BK-F8 | `18-profil-mechanismus.md` | umgesetzt 13.10.2026 | – |
+| BK-B16 | Art. 5 Abs. 1 lit. d, Art. 13 Abs. 3 lit. e, Art. 14 Abs. 4 lit. b gelten für bank und netz, `befund_grund` begründet mit Redispatch – fallneutral fassen (Prüfliste M2 nannte irrtümlich BK-B13) | `18-profil-mechanismus.md` | offen | 4 |
 
 # Teil 4 – Erledigt
 

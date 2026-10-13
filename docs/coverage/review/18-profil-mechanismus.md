@@ -2,7 +2,7 @@
 titel: Drei Fälle in einem Pflichtenraum – Entwurf des Profil-Mechanismus (BK-F3 b)
 stand: 2026-10-13
 basis: Branch domain_bank = 73e2673 · Review 17 (Bank-Prüfliste) · Entscheide BK-F3 b, BK-F4 a, BK-F5 c (PO, 13.10.2026)
-status: BK-F6 a (13.10.2026) · M1 gebaut · M2 Prüfliste Bank vorgelegt · Fragen R-10, BK-F7 an den PO
+status: BK-F6 a, BK-F7 a, R-10 HIGH (13.10.2026) · M1 gebaut · M2 umgesetzt · BK-F8 offen · M3 (Klinik) und M4 offen
 ---
 
 # Entscheide vom 13.10.2026
@@ -68,7 +68,7 @@ Manifest eines Laufs:  referenzfall: bank   ──►  Gates und Agent lesen nur
 - **Werkzeug** `tools/legal/faelle.py`: erkennt fallabhängige Zeilen an Textmarken der Begründung (Systemtyp, Bereichsausnahme, Redispatch, Anhang III Nr. …, Finanzinstitut …) oder an der Liste im Register; `--migrieren` schreibt `faelle` aus dem heutigen `scope` (= Netz).
 - **Migration:** 185 fallabhängige Zeilen tragen jetzt `faelle` (AI Act 140, Omnibus 45): 20 `in` mit `faelle: [netz]`, 165 `out` mit `faelle: []`. Keine Zeile hat `scope`, Befund oder Stufe geändert.
 - **Stand je Fall:** `in` netz 125 · bank 105 · klinik 105 – bank und klinik sind `offen`; die 105 sind die fallunabhängigen Zeilen, die für alle gelten.
-- **Wächter** `CASE_SCOPE_DECLARED` (MEDIUM, Vorschlag R-10) in `make verify`.
+- **Wächter** `CASE_SCOPE_DECLARED` in `make verify` – HIGH (R-10, PO 13.10.2026; vorgeschlagen war MEDIUM).
 - `po_entscheide.py` braucht keine Änderung: es setzt jedes Feld einer Entscheidungsdatei, also auch `faelle`.
 
 | # | Frage | Optionen |
@@ -86,7 +86,28 @@ Manifest eines Laufs:  referenzfall: bank   ──►  Gates und Agent lesen nur
 |---|---|---|
 | BK-F7 | Prüfliste M2 Bank (Gruppen A–J) | a) **alles wie vorgeschlagen** · b) mit Abweichungen je Gruppe |
 
+**Entschieden 13.10.2026:** BK-F7 **a** · R-10 **b** (HIGH).
+
+# M2 – umgesetzt (13.10.2026)
+
+- **Entscheidungsdatei** `docs/coverage/entscheide/2026-10-13_m2-bank.yaml`, eingetragen mit `po_entscheide.py`: 29 Zeilen geändert (AI Act 28, Omnibus 1), keine Zeile außerhalb der Datei.
+- **Fallregister:** `bank: geprueft` (Entscheide S34-F1, BK-F1, BK-F4, BK-F7).
+- **Stand je Fall:** `in` bank 134 · netz 125 · klinik 105 (offen); Vereinigung 141; fallabhängige Zeilen 187 (Art. 86 Abs. 2, 3 kamen dazu).
+- **Q11** gilt weiter für netz – als `befund_je_fall`; für die Bank ist Art. 26 Abs. 11 eine Lücke. **Q1** (R012 ohne Art.-27-Anker) bleibt bis Paket 5 stehen: die FRIA-Zeilen sind für die Bank Lücken, bis die Element-Matrix G-PRE-02/05 zuordnet.
+- **Wächter:** `CASE_SCOPE_DECLARED` HIGH, `make verify` 51 von 51 grün.
+
+**Beim Eintragen gefunden**
+
+| # | Befund | Wohin |
+|---|---|---|
+| BK-B15 | Pflichttext von Anhang III Nr. 5 lit. b brach nach „mit Ausnahme …“ ab (Nachtlauf); als `out`-Zeile prüfte ihn kein Wächter, mit `in` wurde `IN_UNITS_OWN_DUTY_TEXT` rot. Text vervollständigt (Entscheidungsdatei, `bestaetigt: false`) | umgesetzt; Bestätigung BK-F8 |
+| BK-B16 | Art. 5 Abs. 1 lit. d, Art. 13 Abs. 3 lit. e, Art. 14 Abs. 4 lit. b gelten für bank und netz, ihre `befund_grund` begründen mit Redispatch. Die Prüfliste M2 nannte dafür BK-B13 – falsch (BK-B13 ist Art. 5 Abs. 1 lit. c); Beleg der Gruppe G verweist jetzt auf BK-B16 | Paket 4 (mit S3-4 G2) |
+
+| # | Frage | Optionen |
+|---|---|---|
+| BK-F8 | Pflichttexte der 16 Zeilen, die M2 für die Bank `in` gesetzt hat (Anhang III Nr. 5, Nr. 5 lit. b, Art. 27 Abs. 1–3 mit lit. a–f, Omnibus Art. 27 Abs. 4 n.F., Art. 86 Abs. 1–3, Art. 26 Abs. 5 UAbs. 2 Satz 1) – Nachtlauf-Texte bzw. BK-B15, bisher ungeprüft (wie P4-F2) | a) **bestätigt, wie sie stehen** (Prüfliste im Project) · b) mit Korrekturen je Zeile |
+
 # Ehrlich zur Methode
 
-- Entwurf, nicht gebaut. Die Feldnamen sind Vorschlag; was eine Zeile je Fall ist (`in`/`out`, Befund, Stufe), entscheidet der PO über die Prüflisten M2 und M3.
-- Umfangsangaben sind Schätzungen.
+- M1 und M2 sind gebaut. Was eine Zeile je Fall ist (`in`/`out`, Befund, Stufe), hat der PO für bank (BK-F7) und netz (heutige Entscheide) entschieden; klinik folgt mit M3.
+- Die Pflichttexte der neuen Bank-Zeilen hat M2 nicht geprüft (BK-F8).

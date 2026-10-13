@@ -3691,9 +3691,9 @@ def check_case_scope_declared() -> dict:
         Faelle der Zeile und tragen gueltige Werte, HYPOTHESE mit Grund;
       * jeder Fall, dessen Pflichtenraum geprueft ist, hat seine Einstufungsnorm `in`.
 
-    MEDIUM als Vorschlag (R-10, offen): wie IN_UNITS_VERIFICATION_DECLARED versteckt eine
-    fehlende Angabe keine Pflicht im Raum - sie laesst aber eine Entscheidung fuer den
-    falschen Fall gelten.
+    HIGH (PO R-10, 13.10.2026; vorgeschlagen war MEDIUM): ein Agent-Urteil fuer die Bank,
+    das auf Zeilen des Netz-Falls steht, ist ein falsches Urteil - derselbe Grund wie bei
+    R-2 und R-3.
     """
     import importlib.util
 
@@ -3706,7 +3706,7 @@ def check_case_scope_declared() -> dict:
 
     je_fall = " · ".join(f"{k} {stand['je_fall'].get(k, 0)}" for k in stand["faelle"])
     return make_result(
-        "CASE_SCOPE_DECLARED", titel, "medium", not findings,
+        "CASE_SCOPE_DECLARED", titel, "high", not findings,
         f"{len(findings)} Befund(e) zwischen Fallregister und Pflichtenraeumen." if findings
         else f"{stand['fallabhaengig']} fallabhaengige Zeilen tragen ihre Faelle; in je Fall: {je_fall}; "
              f"Pflichtenraum geprueft fuer: {', '.join(stand['geprueft']) or '-'}.",

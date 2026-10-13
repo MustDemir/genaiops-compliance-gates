@@ -1,0 +1,166 @@
+# PO-Entscheid vom 13.10.2026 - BK-F7 a: Pflichtenraum fuer den Leitfall Bank (M2, Review 18)
+#
+# Nachweis: docs/coverage/review/18-profil-mechanismus.md (M2), Pruefliste claude/pruefliste-m2-bank.md
+# (Project), Gruppen A-J; der PO hat sie mit "A - alles" bestaetigt.
+#
+# Leitfall: private Geschaeftsbank, die ein Scoring-System zukauft (K1, BK-F4 a), Anhang III Nr. 5
+# lit. b. Gruppe H (nur netz) und I (out fuer alle) bleiben, wie M1 sie geschrieben hat; Gruppe J
+# (fallunabhaengig, ohne `faelle`) gilt unveraendert auch fuer die Bank. Danach steht die Bank im
+# Fallregister auf `pflichtenraum: geprueft`.
+
+entschieden: '2026-10-13'
+eintraege:
+
+  # --- A: Einstufung des Leitfalls ---------------------------------------------------------------
+  - beleg: 'BK-F7 a (Review 18, M2 Gruppe A) - Einstufung des Leitfalls Bank, steuernd fuer G-PRE-01.'
+    raum: aiact
+    ids: ["Anhang III Nr. 5", "Anhang III Nr. 5 lit. b"]
+    setze:
+      scope: in
+      faelle: [bank]
+      scope_grund: 'Steuernde Norm (Fall bank, BK-F7 a): Einstufung des Leitfalls Bank nach Anhang III Nr. 5 lit. b, die G-PRE-01 pruefen muss (BK-B2); fuer netz und klinik Systemtyp, out.'
+      befund: nicht_einschlaegig
+      befund_grund: Einstufung, begruendet keine eigene pruefbare Pflicht.
+      verifikation: VERIFIZIERT
+      hypothese_grund: null
+    bestaetigt: true
+
+  # --- B: Anhang-III-Weg gilt auch fuer die Bank -------------------------------------------------
+  - beleg: 'BK-F7 a (Review 18, M2 Gruppe B) - Anhang-III-Weg (Art. 6 Abs. 2, 3) gilt fuer bank und netz.'
+    raum: aiact
+    ids: ["Anhang III", "Art. 6 Abs. 2", "Art. 6 Abs. 3", "Art. 6 Abs. 3 lit. a", "Art. 6 Abs. 3 lit. b",
+          "Art. 6 Abs. 3 lit. c", "Art. 6 Abs. 3 lit. d", "Art. 6 Abs. 3 UAbs. 3"]
+    setze:
+      faelle: [bank, netz]
+    bestaetigt: true
+
+  # --- C: FRIA ------------------------------------------------------------------------------------
+  - beleg: 'BK-F7 a (Review 18, M2 Gruppe C) - FRIA nach Art. 27: Abs. 1 nennt Anhang III Nr. 5 lit. b.'
+    raum: aiact
+    ids: ["Art. 27 Abs. 1", "Art. 27 Abs. 1 lit. a", "Art. 27 Abs. 1 lit. b", "Art. 27 Abs. 1 lit. c",
+          "Art. 27 Abs. 1 lit. d", "Art. 27 Abs. 1 lit. e", "Art. 27 Abs. 1 lit. f", "Art. 27 Abs. 2",
+          "Art. 27 Abs. 3"]
+    setze:
+      scope: in
+      faelle: [bank]
+      scope_grund: 'Fallabhaengig (BK-F7 a): fuer die Bank in - Art. 27 Abs. 1 nennt Betreiber von Hochrisiko-KI-Systemen nach Anhang III Nr. 5 lit. b; fuer netz Bereichsausnahme (Anhang III Nr. 2), fuer klinik kein System nach Art. 6 Abs. 2.'
+      befund: luecke
+      befund_grund: 'Kein Gate prueft die FRIA als gesetzliche Pflicht nach Art. 27: G-PRE-02/C-01 und G-PRE-05/C-01 pruefen Felder der internen FRIA (R012, Q1 b) - bis zum Element-Abgleich (Paket 5) Nachbarn, kein Element gilt als geprueft (M1).'
+      verifikation: VERIFIZIERT
+      hypothese_grund: null
+    bestaetigt: true
+
+  - beleg: 'BK-F7 a (Review 18, M2 Gruppe C) - Art. 27 Abs. 4 n.F.: Verweis auf die DSFA in der FRIA.'
+    raum: omnibus
+    ids: ["Art. 27 Abs. 4 n.F."]
+    setze:
+      scope: in
+      faelle: [bank]
+      scope_grund: 'Fallabhaengig (BK-F7 a): fuer die Bank in - Abs. 4 n.F. gehoert zur FRIA nach Art. 27 Abs. 1 (Anhang III Nr. 5 lit. b); fuer netz Bereichsausnahme (Anhang III Nr. 2).'
+      befund: nicht_einschlaegig
+      befund_grund: Erlaubnis (Verweis auf die Datenschutz-Folgenabschaetzung), begruendet keine eigene pruefbare Pflicht.
+      verifikation: VERIFIZIERT
+      hypothese_grund: null
+    bestaetigt: true
+
+  # --- D: Recht auf Erlaeuterung ------------------------------------------------------------------
+  - beleg: 'BK-F7 a (Review 18, M2 Gruppe D) - Art. 86 Abs. 1 fuer Anhang-III-Systeme ausser Nr. 2.'
+    raum: aiact
+    ids: ["Art. 86 Abs. 1"]
+    setze:
+      scope: in
+      faelle: [bank]
+      scope_grund: 'Fallabhaengig (BK-F7 a): fuer die Bank in - Abs. 1 erfasst Anhang-III-Systeme ausser Nr. 2; fuer netz Bereichsausnahme (Anhang III Nr. 2), fuer klinik kein Anhang-III-System.'
+      befund: luecke
+      befund_grund: Kein Requirement und kein Gate bildet das Recht auf Erlaeuterung der Entscheidung ab (Paket 5).
+      verifikation: HYPOTHESE
+      hypothese_grund: 'Reichweite nach Abs. 3 offen: ob DSGVO Art. 22 Abs. 3, Art. 15 Abs. 1 lit. h oder die Verbraucherkredit-RL 2023/2225 das Recht anderweitig festlegen, ist nicht geprueft - die Normen liegen nicht im Repo (BK-B6, BK-F5 c).'
+    bestaetigt: true
+
+  - beleg: 'BK-F7 a (Review 18, M2 Gruppe D) - Art. 86 Abs. 2 steuert die Reichweite von Abs. 1.'
+    raum: aiact
+    ids: ["Art. 86 Abs. 2"]
+    setze:
+      scope: in
+      faelle: [bank]
+      scope_grund: 'Fallabhaengig (BK-F7 a): wie Art. 86 Abs. 1 - fuer die Bank in, steuert die Reichweite von Abs. 1; fuer netz Bereichsausnahme (Anhang III Nr. 2).'
+      befund: nicht_einschlaegig
+      befund_grund: Steuernde Ausnahme zu Abs. 1, begruendet keine eigene pruefbare Pflicht.
+      verifikation: VERIFIZIERT
+      hypothese_grund: null
+    bestaetigt: true
+
+  - beleg: 'BK-F7 a (Review 18, M2 Gruppe D) - Art. 86 Abs. 3: Vorrang anderweitig festgelegter Rechte.'
+    raum: aiact
+    ids: ["Art. 86 Abs. 3"]
+    setze:
+      scope: in
+      faelle: [bank]
+      scope_grund: 'Fallabhaengig (BK-F7 a): wie Art. 86 Abs. 1 - fuer die Bank in, steuert die Reichweite von Abs. 1; fuer netz Bereichsausnahme (Anhang III Nr. 2).'
+      befund: nicht_einschlaegig
+      befund_grund: Subsidiaritaetsregel zu Abs. 1, begruendet keine eigene pruefbare Pflicht.
+      verifikation: HYPOTHESE
+      hypothese_grund: 'Welche Rechte anderweitig im Unionsrecht festgelegt sind (DSGVO, Verbraucherkredit-RL 2023/2225), ist nicht geprueft - die Verweisnormen liegen nicht im Repo (BK-B6, BK-F5 c).'
+    bestaetigt: true
+
+  # --- E: Finanzinstitute -------------------------------------------------------------------------
+  - beleg: 'BK-F7 a (Review 18, M2 Gruppe E) - Ueberwachungspflicht der Finanzinstitute ueber ihr Governance-Recht.'
+    raum: aiact
+    ids: ["Art. 26 Abs. 5 UAbs. 2 Satz 1"]
+    setze:
+      scope: in
+      faelle: [bank]
+      scope_grund: 'Fallabhaengig (BK-F7 a): fuer die Bank in - Adressat sind Betreiber, die Finanzinstitute sind; fuer netz und klinik out.'
+      befund: nicht_einschlaegig
+      befund_grund: 'Steuernde Norm: erklaert die Ueberwachungspflicht aus UAbs. 1 Satz 1 fuer Finanzinstitute bei Einhaltung ihres Governance-Rechts fuer erfuellt; die Meldepflichten (Saetze 2-4) bleiben. Folge fuer G-OPS-03/R010: BK-B7.'
+      verifikation: HYPOTHESE
+      hypothese_grund: 'Das Governance-Recht, auf das verwiesen wird (CRD Art. 74, KWG § 25a), liegt nicht im Repo (BK-F5 c); ob die Bank es einhaelt, ist nicht pruefbar.'
+    bestaetigt: true
+
+  # --- F: Anhang-III-Pflichten mit Unterschied je Fall ----------------------------------------------
+  - beleg: 'BK-F7 a (Review 18, M2 Gruppe F1) - Art. 26 Abs. 11 fuer die Bank einschlaegig, fuer netz weiter Q11 a.'
+    raum: aiact
+    ids: ["Art. 26 Abs. 11"]
+    setze:
+      faelle: [bank, netz]
+      befund: luecke
+      befund_grund: 'Fall bank: Kreditentscheidungen betreffen natuerliche Personen; kein Requirement und kein Gate prueft ihre Unterrichtung. Der Schalter aus FR-1 a ist fuer die Bank true (Bau Paket 5).'
+      befund_je_fall:
+        netz:
+          befund: nicht_einschlaegig
+          befund_grund: 'PO Q11 a (05.10.2026): Redispatch steuert Erzeugungs- und Lastanlagen; das System trifft keine Entscheidungen ueber natuerliche Personen und unterstuetzt keine. Gegenargument, nicht gefolgt (HYPOTHESE, Branchenquellen): Redispatch 2.0 bezieht Anlagen ab 100 kW ein, deren Betreiber natuerliche Personen sein koennen. FR-1 a (06.10.2026): Bedingungsparameter, Bau Paket 5.'
+    bestaetigt: true
+
+  - beleg: 'BK-F7 a (Review 18, M2 Gruppe F2) - Art. 73 Abs. 9 fuer bank und netz, eigene HYPOTHESE fuer bank.'
+    raum: aiact
+    ids: ["Art. 73 Abs. 9"]
+    setze:
+      faelle: [bank, netz]
+      befund_je_fall:
+        bank:
+          befund: teilabdeckung
+          befund_grund: 'G-OPS-02/C-02, C-03 verlangen die Angabe, auf welche Vorfallarten die AI-Act-Meldepflicht reduziert ist; ob die Reduktion fuer die Bank greift, prueft kein Check (BK-B9).'
+      verifikation_je_fall:
+        bank:
+          verifikation: HYPOTHESE
+          hypothese_grund: 'Anbieterpflicht, fuer den Betreiber in nach der Durchschlagsregel (2b E4) ueber Art. 26 Abs. 5. Ob der Anbieter des zugekauften Scoring-Systems Rechtsinstrumenten mit gleichwertigen Meldepflichten unterliegt (etwa DORA, wenn er Finanzunternehmen ist), ist offen (BK-B9).'
+    bestaetigt: true
+
+  # --- G: allgemeine Pflichten mit Redispatch-Begruendung -------------------------------------------
+  - beleg: 'BK-F7 a (Review 18, M2 Gruppe G) - allgemeine Pflichten, gelten fuer bank und netz; Begruendung neu fassen (BK-B16).'
+    raum: aiact
+    ids: ["Art. 5 Abs. 1 lit. d", "Art. 13 Abs. 3 lit. e", "Art. 14 Abs. 4 lit. b"]
+    setze:
+      faelle: [bank, netz]
+    bestaetigt: true
+
+  # --- Pflichttext der Einstufungszeile (BK-B15) -----------------------------------------------------
+  # Der Nachtlauf-Text brach nach "mit Ausnahme" ab; als `out`-Zeile pruefte ihn kein Waechter. Mit
+  # `scope: in` greift IN_UNITS_OWN_DUTY_TEXT. Wie P4-F2: der Text ist Vorschlag der KI, die
+  # Bestaetigung fragt BK-F8 - deshalb 'bestaetigt: false'.
+  - beleg: 'BK-B15 (Review 18, M2) - Pflichttext vervollstaendigt; Bestaetigung BK-F8 offen'
+    raum: aiact
+    ids: ["Anhang III Nr. 5 lit. b"]
+    setze:
+      pflicht: 'Hochrisiko-Bereich nach Art. 6 Abs. 2 (Anhang III Nr. 5 lit. b, Kreditwuerdigkeit und Bonitaet): KI-Systeme, die bestimmungsgemaess fuer die Kreditwuerdigkeitspruefung und Bonitaetsbewertung natuerlicher Personen verwendet werden sollen, ausgenommen KI-Systeme, die zur Aufdeckung von Finanzbetrug verwendet werden.'
+    bestaetigt: false

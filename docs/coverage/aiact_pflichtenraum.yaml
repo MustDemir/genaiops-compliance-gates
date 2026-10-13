@@ -3924,8 +3924,8 @@ einheiten:
     Pflicht ab: statt ''sicherzustellen, dass ... ueber ein ausreichendes Mass an KI-Kompetenz verfuegen''
     nun ''ergreifen Massnahmen, um die Entwicklung der KI-Kompetenz ... zu unterstuetzen'', ausdruecklich
     ohne Pflicht zu einem bestimmten Niveau. Abs. 2 und 3 neu. Neufassung: Art. 4 n.F. im Omnibus-Pflichtenraum.'
-  requirement: &id027 []
-  gate: &id028 []
+  requirement: &id029 []
+  gate: &id030 []
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -4237,7 +4237,10 @@ einheiten:
   po_entscheid:
   - 2026-09-23 · 2b E2 (P1 Verbote)
   - 2026-09-23 · 2b E4 (VERIFIZIERT - Betreiber in der Einheit oder ihrem Einleitungssatz genannt)
-  faelle:
+  - 2026-10-13 · BK-F7 a (Review 18, M2 Gruppe G) - allgemeine Pflichten, gelten fuer bank und netz; Begruendung
+    neu fassen (BK-B16).
+  faelle: &id024
+  - bank
   - netz
 - id: Art. 5 Abs. 1 lit. e
   artikel: '5'
@@ -5126,7 +5129,10 @@ einheiten:
   - '2026-10-06 · S3-3 a (Review 13) - VERIFIZIERT: Art. 26 gilt fuer ''Betreiber von Hochrisiko-KI-Systemen'';
     Abs. 2 bestimmt, welche Systeme das nach Anhang III sind - Verweis am Wortlaut. Ob Redispatch darunter
     faellt, steht bei Anhang III Nr. 2.'
-  faelle:
+  - 2026-10-13 · BK-F7 a (Review 18, M2 Gruppe B) - Anhang-III-Weg (Art. 6 Abs. 2, 3) gilt fuer bank und
+    netz.
+  faelle: &id017
+  - bank
   - netz
 - id: Art. 6 Abs. 3
   artikel: '6'
@@ -5168,8 +5174,9 @@ einheiten:
   - 2026-10-06 · IN-1 Gruppe 1 (Review 13) - einzeln geprueft, in und nicht einschlaegig bestaetigt
   - '2026-10-06 · S3-3 a (Review 13) - VERIFIZIERT: Ausnahme von Abs. 2 (''Abweichend von Absatz 2'')
     - steuert, ob Art. 26 greift; Verweis am Wortlaut.'
-  faelle:
-  - netz
+  - 2026-10-13 · BK-F7 a (Review 18, M2 Gruppe B) - Anhang-III-Weg (Art. 6 Abs. 2, 3) gilt fuer bank und
+    netz.
+  faelle: *id017
 - id: Art. 6 Abs. 3 lit. a
   artikel: '6'
   artikel_titel: Einstufungsvorschriften für Hochrisiko-KI-Systeme
@@ -5203,8 +5210,9 @@ einheiten:
   - 2026-10-06 · IN-1 Gruppe 1 (Review 13) - einzeln geprueft, in und nicht einschlaegig bestaetigt
   - '2026-10-06 · S3-3 a (Review 13) - VERIFIZIERT: Bedingung der Ausnahme nach Abs. 3 UAbs. 1 - Verweis
     am Wortlaut.'
-  faelle:
-  - netz
+  - 2026-10-13 · BK-F7 a (Review 18, M2 Gruppe B) - Anhang-III-Weg (Art. 6 Abs. 2, 3) gilt fuer bank und
+    netz.
+  faelle: *id017
 - id: Art. 6 Abs. 3 lit. b
   artikel: '6'
   artikel_titel: Einstufungsvorschriften für Hochrisiko-KI-Systeme
@@ -5240,8 +5248,9 @@ einheiten:
   - 2026-10-06 · IN-1 Gruppe 1 (Review 13) - einzeln geprueft, in und nicht einschlaegig bestaetigt
   - '2026-10-06 · S3-3 a (Review 13) - VERIFIZIERT: Bedingung der Ausnahme nach Abs. 3 UAbs. 1 - Verweis
     am Wortlaut.'
-  faelle:
-  - netz
+  - 2026-10-13 · BK-F7 a (Review 18, M2 Gruppe B) - Anhang-III-Weg (Art. 6 Abs. 2, 3) gilt fuer bank und
+    netz.
+  faelle: *id017
 - id: Art. 6 Abs. 3 lit. c
   artikel: '6'
   artikel_titel: Einstufungsvorschriften für Hochrisiko-KI-Systeme
@@ -5278,8 +5287,9 @@ einheiten:
   - 2026-10-06 · IN-1 Gruppe 1 (Review 13) - einzeln geprueft, in und nicht einschlaegig bestaetigt
   - '2026-10-06 · S3-3 a (Review 13) - VERIFIZIERT: Bedingung der Ausnahme nach Abs. 3 UAbs. 1 - Verweis
     am Wortlaut.'
-  faelle:
-  - netz
+  - 2026-10-13 · BK-F7 a (Review 18, M2 Gruppe B) - Anhang-III-Weg (Art. 6 Abs. 2, 3) gilt fuer bank und
+    netz.
+  faelle: *id017
 - id: Art. 6 Abs. 3 lit. d
   artikel: '6'
   artikel_titel: Einstufungsvorschriften für Hochrisiko-KI-Systeme
@@ -5300,8 +5310,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - VO (EU) 2026/1744 Art. 1 Nr. 8 fuegt lediglich neue Absaetze 1a-1c ein (Klarstellungen
     zu Sicherheitsbauteilen), aendert Abs. 1-8 selbst nicht (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: &id017 []
-  gate: &id018 []
+  requirement: &id018 []
+  gate: &id019 []
   befund: nicht_einschlaegig
   befund_grund: Einstufungsregel, begruendet keine eigene pruefbare Pflicht.
   po_bestaetigt: true
@@ -5316,8 +5326,9 @@ einheiten:
   - 2026-10-06 · IN-1 Gruppe 1 (Review 13) - einzeln geprueft, in und nicht einschlaegig bestaetigt
   - '2026-10-06 · S3-3 a (Review 13) - VERIFIZIERT: Bedingung der Ausnahme nach Abs. 3 UAbs. 1 - Verweis
     am Wortlaut.'
-  faelle:
-  - netz
+  - 2026-10-13 · BK-F7 a (Review 18, M2 Gruppe B) - Anhang-III-Weg (Art. 6 Abs. 2, 3) gilt fuer bank und
+    netz.
+  faelle: *id017
 - uid: Art. 6 Abs. 3 UAbs. 3@304151
   id: Art. 6 Abs. 3 UAbs. 3
   artikel: '6'
@@ -5343,8 +5354,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - VO (EU) 2026/1744 Art. 1 Nr. 8 fuegt lediglich neue Absaetze 1a-1c ein (Klarstellungen
     zu Sicherheitsbauteilen), aendert Abs. 1-8 selbst nicht (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id017
-  gate: *id018
+  requirement: *id018
+  gate: *id019
   befund: nicht_einschlaegig
   befund_grund: Einstufungsregel, begruendet keine eigene pruefbare Pflicht.
   po_bestaetigt: true
@@ -5353,10 +5364,11 @@ einheiten:
   - 2026-10-06 · IN-1 Gruppe 1 (Review 13) - einzeln geprueft, in und nicht einschlaegig bestaetigt
   - '2026-10-06 · S3-3 a (Review 13) - VERIFIZIERT: Gegenausnahme (''Ungeachtet des Unterabsatzes 1'')
     - Verweis am Wortlaut.'
+  - 2026-10-13 · BK-F7 a (Review 18, M2 Gruppe B) - Anhang-III-Weg (Art. 6 Abs. 2, 3) gilt fuer bank und
+    netz.
   migriert_von: Art. 6 Abs. 3 lit. d@303969
   migration: geerbt
-  faelle:
-  - netz
+  faelle: *id017
 - id: Art. 6 Abs. 4
   artikel: '6'
   artikel_titel: Einstufungsvorschriften für Hochrisiko-KI-Systeme
@@ -6067,8 +6079,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - Art. 7 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
     nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: &id019 []
-  gate: &id020 []
+  requirement: &id020 []
+  gate: &id021 []
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -6100,8 +6112,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - Art. 7 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
     nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id019
-  gate: *id020
+  requirement: *id020
+  gate: *id021
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -8455,7 +8467,7 @@ einheiten:
     1 und 9 verweisen auf Art. 13.'
   omnibus: unveraendert - Art. 13 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
     (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: &id021
+  requirement: &id022
   - R007
   - R003
   gate: []
@@ -8501,7 +8513,7 @@ einheiten:
     1 und 9 verweisen auf Art. 13.'
   omnibus: unveraendert - Art. 13 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
     (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id021
+  requirement: *id022
   gate: []
   befund: luecke
   befund_grund: 'Kein Element geprueft (M1a). Nachbar: G-DEP-02 misst accuracy und safety_score. Ungeprueft:
@@ -8546,7 +8558,7 @@ einheiten:
     1 und 9 verweisen auf Art. 13.'
   omnibus: unveraendert - Art. 13 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
     (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id021
+  requirement: *id022
   gate: []
   befund: luecke
   befund_grund: 'Kein Element geprueft (M1a). Nachbar: G-DEP-03 prueft, dass known_limitations nicht leer
@@ -8588,7 +8600,7 @@ einheiten:
     1 und 9 verweisen auf Art. 13.'
   omnibus: unveraendert - Art. 13 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
     (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id021
+  requirement: *id022
   gate: []
   befund: luecke
   befund_grund: 'Kein implementierter Check: der einzige passende, G-DEP-03/C-02, ist design_only (P3).'
@@ -8625,7 +8637,7 @@ einheiten:
     1 und 9 verweisen auf Art. 13.'
   omnibus: unveraendert - Art. 13 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
     (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: &id022
+  requirement: &id023
   - R013
   - R006
   - R007
@@ -8672,7 +8684,7 @@ einheiten:
     1 und 9 verweisen auf Art. 13.'
   omnibus: unveraendert - Art. 13 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
     (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id022
+  requirement: *id023
   gate:
   - G-DEP-01
   befund: teilabdeckung
@@ -8715,7 +8727,7 @@ einheiten:
     1 und 9 verweisen auf Art. 13.'
   omnibus: unveraendert - Art. 13 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
     (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id022
+  requirement: *id023
   gate: []
   befund: luecke
   befund_grund: Kein Gate prueft, ob die Informationen zur Interpretation der Ausgaben in der Betriebsanleitung
@@ -8845,8 +8857,9 @@ einheiten:
   po_entscheid:
   - 2026-09-23 · 2b E2 (P3 Betriebsanleitung)
   - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, Anker (a) und (b))
-  faelle:
-  - netz
+  - 2026-10-13 · BK-F7 a (Review 18, M2 Gruppe G) - allgemeine Pflichten, gelten fuer bank und netz; Begruendung
+    neu fassen (BK-B16).
+  faelle: *id024
 - id: Art. 13 Abs. 3 lit. f
   artikel: '13'
   artikel_titel: Transparenz und Bereitstellung von Informationen für die Betreiber
@@ -9226,8 +9239,9 @@ einheiten:
   po_entscheid:
   - 2026-09-23 · 2b E2 (P2 KI-Kompetenz)
   - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, Anker (a) und (b))
-  faelle:
-  - netz
+  - 2026-10-13 · BK-F7 a (Review 18, M2 Gruppe G) - allgemeine Pflichten, gelten fuer bank und netz; Begruendung
+    neu fassen (BK-B16).
+  faelle: *id024
 - id: Art. 14 Abs. 4 lit. c
   artikel: '14'
   artikel_titel: Menschliche Aufsicht
@@ -9540,9 +9554,9 @@ einheiten:
   omnibus: 'unveraendert - Art. 15 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
     (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf: die Liste geaenderter Artikel geht
     von Nr. 10 [Art. 11] direkt auf Nr. 11 [Art. 17] ueber).'
-  requirement: &id023
+  requirement: &id025
   - R003
-  gate: &id024
+  gate: &id026
   - G-DEP-02
   - G-OPS-04
   befund: teilabdeckung
@@ -9583,8 +9597,8 @@ einheiten:
   omnibus: 'unveraendert - Art. 15 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
     (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf: die Liste geaenderter Artikel geht
     von Nr. 10 [Art. 11] direkt auf Nr. 11 [Art. 17] ueber).'
-  requirement: *id023
-  gate: *id024
+  requirement: *id025
+  gate: *id026
   befund: teilabdeckung
   befund_grund: 'Wie Abs. 1: Infrastruktur-Redundanz/-Resilienz teilweise ueber G-OPS-04 pruefbar. Echte
     Luecke: die ''Rueckkopplungsschleifen'' bei weiterlernenden Systemen (Bias-Verstaerkung durch eigene
@@ -9624,7 +9638,7 @@ einheiten:
   omnibus: 'unveraendert - Art. 15 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
     (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf: die Liste geaenderter Artikel geht
     von Nr. 10 [Art. 11] direkt auf Nr. 11 [Art. 17] ueber).'
-  requirement: *id023
+  requirement: *id025
   gate: []
   befund: nicht_einschlaegig
   befund_grund: Mittel ('kann durch technische Redundanz erreicht werden'), keine eigene pruefbare Pflicht.
@@ -9667,7 +9681,7 @@ einheiten:
   omnibus: 'unveraendert - Art. 15 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht enthalten
     (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf: die Liste geaenderter Artikel geht
     von Nr. 10 [Art. 11] direkt auf Nr. 11 [Art. 17] ueber).'
-  requirement: *id023
+  requirement: *id025
   gate: []
   befund: luecke
   befund_grund: Rueckkopplungsschleifen bei Systemen, die im Betrieb weiterlernen, prueft kein Gate; G-OPS-03
@@ -11469,8 +11483,8 @@ einheiten:
   verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: unveraendert (geprueft am verfuegenden Teil).
-  requirement: &id025 []
-  gate: &id026 []
+  requirement: &id027 []
+  gate: &id028 []
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -11507,8 +11521,8 @@ einheiten:
   verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: unveraendert (geprueft am verfuegenden Teil).
-  requirement: *id025
-  gate: *id026
+  requirement: *id027
+  gate: *id028
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -12290,8 +12304,8 @@ einheiten:
     Pflicht zur Zusammenarbeit MIT NEUEN ANBIETERN UND zur Uebergabe der Dokumentation (vorher nur von
     der Uebergabepflicht allein). Beide Fassungen sind inhaltlich in dieselbe Richtung, die neue ist praeziser
     und breiter im Carve-out.'
-  requirement: *id027
-  gate: *id028
+  requirement: *id029
+  gate: *id030
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -12693,7 +12707,7 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - VO (EU) 2026/1744 Art. 1 aendert Art. 25 und Art. 27, Art. 26 ist in der Aenderungsliste
     nicht enthalten (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: &id029
+  requirement: &id031
   - R009
   gate:
   - G-OPS-01
@@ -12739,7 +12753,7 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - VO (EU) 2026/1744 Art. 1 aendert Art. 25 und Art. 27, Art. 26 ist in der Aenderungsliste
     nicht enthalten (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id029
+  requirement: *id031
   gate: []
   befund: luecke
   befund_grund: 'Hat der Betreiber Grund zur Annahme eines Risikos nach Art. 79 Abs. 1, setzt er die Verwendung
@@ -12780,8 +12794,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - VO (EU) 2026/1744 Art. 1 aendert Art. 25 und Art. 27, Art. 26 ist in der Aenderungsliste
     nicht enthalten (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id029
-  gate: &id030
+  requirement: *id031
+  gate: &id032
   - G-OPS-02
   befund: teilabdeckung
   befund_grund: G-OPS-02/C-01 prueft, dass ein Incident-Kontakt deklariert ist, nicht die Reihenfolge
@@ -12816,8 +12830,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - VO (EU) 2026/1744 Art. 1 aendert Art. 25 und Art. 27, Art. 26 ist in der Aenderungsliste
     nicht enthalten (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id029
-  gate: *id030
+  requirement: *id031
+  gate: *id032
   befund: teilabdeckung
   befund_grund: G-OPS-02/C-04 fuehrt die Fristen des Art. 73, aber als eigene Betreiberpflicht; der Fall,
     fuer den sie dem Betreiber gelten - Anbieter nicht erreichbar -, ist nicht abgebildet (M-E4, M-F1).
@@ -12854,7 +12868,7 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - VO (EU) 2026/1744 Art. 1 aendert Art. 25 und Art. 27, Art. 26 ist in der Aenderungsliste
     nicht enthalten (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id029
+  requirement: *id031
   gate: []
   befund: null
   befund_grund: null
@@ -12888,17 +12902,20 @@ einheiten:
   adressat: betreiber
   pflicht: Fuer Betreiber, die Finanzinstitute sind, gilt die Ueberwachungspflicht als erfuellt, wenn
     sie die Governance-Vorschriften des Finanzdienstleistungsrechts einhalten.
-  scope: out
-  scope_grund: Adressat - Betreiber, die Finanzinstitute sind (Ueberwachungspflicht gilt durch Governance-Recht
-    als erfuellt).
-  verifikation: VERIFIZIERT
-  hypothese_grund: null
+  scope: in
+  scope_grund: 'Fallabhaengig (BK-F7 a): fuer die Bank in - Adressat sind Betreiber, die Finanzinstitute
+    sind; fuer netz und klinik out.'
+  verifikation: HYPOTHESE
+  hypothese_grund: Das Governance-Recht, auf das verwiesen wird (CRD Art. 74, KWG § 25a), liegt nicht
+    im Repo (BK-F5 c); ob die Bank es einhaelt, ist nicht pruefbar.
   omnibus: unveraendert - VO (EU) 2026/1744 Art. 1 aendert Art. 25 und Art. 27, Art. 26 ist in der Aenderungsliste
     nicht enthalten (geprüft am verfügenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id029
+  requirement: *id031
   gate: []
-  befund: null
-  befund_grund: null
+  befund: nicht_einschlaegig
+  befund_grund: 'Steuernde Norm: erklaert die Ueberwachungspflicht aus UAbs. 1 Satz 1 fuer Finanzinstitute
+    bei Einhaltung ihres Governance-Rechts fuer erfuellt; die Meldepflichten (Saetze 2-4) bleiben. Folge
+    fuer G-OPS-03/R010: BK-B7.'
   po_bestaetigt: true
   migriert_von: Art. 26 Abs. 5@359967
   migration: geerbt
@@ -12906,7 +12923,10 @@ einheiten:
   - 2026-09-23 · 2b E4 (VERIFIZIERT - Betreiber in der Einheit oder ihrem Einleitungssatz genannt)
   - 2026-09-28 · 2c F2 (anderer Betreibertyp, wie 2a Gruppe B)
   - 2026-09-30 · P3-F2 a (Review 10) - Pflichttext nach dem Neuschnitt bestaetigt
-  faelle: []
+  - 2026-10-13 · BK-F7 a (Review 18, M2 Gruppe E) - Ueberwachungspflicht der Finanzinstitute ueber ihr
+    Governance-Recht.
+  faelle:
+  - bank
 - id: Art. 26 Abs. 6
   artikel: '26'
   artikel_titel: Pflichten der Betreiber von Hochrisiko-KI-Systemen
@@ -13157,15 +13177,9 @@ einheiten:
   requirement:
   - R007
   gate: []
-  befund: nicht_einschlaegig
-  befund_grund: 'PO Q11 a (05.10.2026): Redispatch steuert Erzeugungs- und Lastanlagen; das System trifft
-    keine Entscheidungen ueber natuerliche Personen und unterstuetzt keine. Die Pflicht, die Betroffenen
-    zu unterrichten, greift deshalb nicht. Gegenargument, nicht gefolgt (HYPOTHESE, Branchenquellen):
-    Redispatch 2.0 bezieht Anlagen ab 100 kW ein, deren Betreiber natuerliche Personen sein koennen. Wiedervorlage,
-    sobald ein Anwendungsfall Entscheidungen ueber Personen trifft oder unterstuetzt. Bis 05.10.2026 Teilabdeckung
-    mit G-DEP-03 unter Vorbehalt Q11 (P3-F4 b). FR-1 a (06.10.2026): wird Bedingungsparameter - Manifest-Feld
-    ''natuerliche Personen unter den betroffenen Anlagenbetreibern''; bei true meldet ein Check die Zeile
-    als Luecke (Bau Paket 5, wie P2-F4). Bis dahin nicht einschlaegig.'
+  befund: luecke
+  befund_grund: 'Fall bank: Kreditentscheidungen betreffen natuerliche Personen; kein Requirement und
+    kein Gate prueft ihre Unterrichtung. Der Schalter aus FR-1 a ist fuer die Bank true (Bau Paket 5).'
   po_bestaetigt: true
   uid: Art. 26 Abs. 11@366623
   abschnitt: null
@@ -13177,8 +13191,19 @@ einheiten:
   - 2026-10-01 · P3-F4 b (Review 11) - Vorbehalt bis Q11
   - 2026-10-05 · Q11 a (Review 13) - Redispatch trifft keine Entscheidungen ueber natuerliche Personen
   - 2026-10-06 · FR-1 a (Review 14) - Art. 26 Abs. 11 als Bedingungsparameter, Bau Paket 5
+  - 2026-10-13 · BK-F7 a (Review 18, M2 Gruppe F1) - Art. 26 Abs. 11 fuer die Bank einschlaegig, fuer
+    netz weiter Q11 a.
   faelle:
+  - bank
   - netz
+  befund_je_fall:
+    netz:
+      befund: nicht_einschlaegig
+      befund_grund: 'PO Q11 a (05.10.2026): Redispatch steuert Erzeugungs- und Lastanlagen; das System
+        trifft keine Entscheidungen ueber natuerliche Personen und unterstuetzt keine. Gegenargument,
+        nicht gefolgt (HYPOTHESE, Branchenquellen): Redispatch 2.0 bezieht Anlagen ab 100 kW ein, deren
+        Betreiber natuerliche Personen sein koennen. FR-1 a (06.10.2026): Bedingungsparameter, Bau Paket
+        5.'
 - id: Art. 26 Abs. 12
   artikel: '26'
   artikel_titel: Pflichten der Betreiber von Hochrisiko-KI-Systemen
@@ -13234,18 +13259,20 @@ einheiten:
   pflicht: Vor Erstinbetriebnahme eines Hochrisiko-KI-Systems (ausser Anhang-III-Nr.-2-Systemen) fuehren
     Betreiber, die oeffentliche/oeffentliche-Dienste-Einrichtungen sind, sowie Betreiber von Anhang-III-Nr.-5-lit.-b/c-Systemen,
     eine Grundrechte-Folgenabschaetzung (FRIA) mit den in lit. a-f genannten Elementen durch.
-  scope: out
-  scope_grund: 'Bereichsausnahme: Art. 27 Abs. 1 nimmt Hochrisiko-KI-Systeme aus, die in dem in Anhang
-    III Nummer 2 aufgefuehrten Bereich verwendet werden sollen; lit. a-f und Abs. 2-4 setzen die Pflicht
-    aus Abs. 1 voraus. Die DSFA bleibt ueber Art. 26 Abs. 9.'
+  scope: in
+  scope_grund: 'Fallabhaengig (BK-F7 a): fuer die Bank in - Art. 27 Abs. 1 nennt Betreiber von Hochrisiko-KI-Systemen
+    nach Anhang III Nr. 5 lit. b; fuer netz Bereichsausnahme (Anhang III Nr. 2), fuer klinik kein System
+    nach Art. 6 Abs. 2.'
   verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: unveraendert (Art. 27 Abs. 1 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht
     enthalten - Nr. 13 aendert nur Abs. 4 und Abs. 5).
   requirement: []
   gate: []
-  befund: null
-  befund_grund: null
+  befund: luecke
+  befund_grund: 'Kein Gate prueft die FRIA als gesetzliche Pflicht nach Art. 27: G-PRE-02/C-01 und G-PRE-05/C-01
+    pruefen Felder der internen FRIA (R012, Q1 b) - bis zum Element-Abgleich (Paket 5) Nachbarn, kein
+    Element gilt als geprueft (M1).'
   po_bestaetigt: true
   uid: Art. 27 Abs. 1@367366
   abschnitt: null
@@ -13254,7 +13281,10 @@ einheiten:
   ziffer: null
   po_entscheid:
   - 2026-09-23 · 2a Gruppe A (Bereichsausnahme Anhang III Nr. 2)
-  faelle: []
+  - '2026-10-13 · BK-F7 a (Review 18, M2 Gruppe C) - FRIA nach Art. 27: Abs. 1 nennt Anhang III Nr. 5
+    lit. b.'
+  faelle: &id033
+  - bank
 - id: Art. 27 Abs. 1 lit. a
   artikel: '27'
   artikel_titel: Grundrechte-Folgenabschätzung für Hochrisiko-KI-Systeme
@@ -13268,17 +13298,19 @@ einheiten:
   adressat: betreiber
   pflicht: 'Element 1 der FRIA: Beschreibung der Verfahren, in denen das System zweckbestimmungsgemaess
     verwendet wird.'
-  scope: out
-  scope_grund: 'Bereichsausnahme: Art. 27 Abs. 1 nimmt Hochrisiko-KI-Systeme aus, die in dem in Anhang
-    III Nummer 2 aufgefuehrten Bereich verwendet werden sollen; lit. a-f und Abs. 2-4 setzen die Pflicht
-    aus Abs. 1 voraus. Die DSFA bleibt ueber Art. 26 Abs. 9.'
+  scope: in
+  scope_grund: 'Fallabhaengig (BK-F7 a): fuer die Bank in - Art. 27 Abs. 1 nennt Betreiber von Hochrisiko-KI-Systemen
+    nach Anhang III Nr. 5 lit. b; fuer netz Bereichsausnahme (Anhang III Nr. 2), fuer klinik kein System
+    nach Art. 6 Abs. 2.'
   verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: unveraendert (s. Art. 27 Abs. 1).
   requirement: []
   gate: []
-  befund: null
-  befund_grund: null
+  befund: luecke
+  befund_grund: 'Kein Gate prueft die FRIA als gesetzliche Pflicht nach Art. 27: G-PRE-02/C-01 und G-PRE-05/C-01
+    pruefen Felder der internen FRIA (R012, Q1 b) - bis zum Element-Abgleich (Paket 5) Nachbarn, kein
+    Element gilt als geprueft (M1).'
   po_bestaetigt: true
   uid: Art. 27 Abs. 1 lit. a@368007
   abschnitt: null
@@ -13287,7 +13319,9 @@ einheiten:
   ziffer: null
   po_entscheid:
   - 2026-09-23 · 2a Gruppe A (Bereichsausnahme Anhang III Nr. 2)
-  faelle: []
+  - '2026-10-13 · BK-F7 a (Review 18, M2 Gruppe C) - FRIA nach Art. 27: Abs. 1 nennt Anhang III Nr. 5
+    lit. b.'
+  faelle: *id033
 - id: Art. 27 Abs. 1 lit. b
   artikel: '27'
   artikel_titel: Grundrechte-Folgenabschätzung für Hochrisiko-KI-Systeme
@@ -13300,17 +13334,19 @@ einheiten:
     verwendet werden soll;
   adressat: betreiber
   pflicht: 'Element 2 der FRIA: Beschreibung von Zeitraum und Haeufigkeit der vorgesehenen Verwendung.'
-  scope: out
-  scope_grund: 'Bereichsausnahme: Art. 27 Abs. 1 nimmt Hochrisiko-KI-Systeme aus, die in dem in Anhang
-    III Nummer 2 aufgefuehrten Bereich verwendet werden sollen; lit. a-f und Abs. 2-4 setzen die Pflicht
-    aus Abs. 1 voraus. Die DSFA bleibt ueber Art. 26 Abs. 9.'
+  scope: in
+  scope_grund: 'Fallabhaengig (BK-F7 a): fuer die Bank in - Art. 27 Abs. 1 nennt Betreiber von Hochrisiko-KI-Systemen
+    nach Anhang III Nr. 5 lit. b; fuer netz Bereichsausnahme (Anhang III Nr. 2), fuer klinik kein System
+    nach Art. 6 Abs. 2.'
   verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: unveraendert (s. Art. 27 Abs. 1).
   requirement: []
   gate: []
-  befund: null
-  befund_grund: null
+  befund: luecke
+  befund_grund: 'Kein Gate prueft die FRIA als gesetzliche Pflicht nach Art. 27: G-PRE-02/C-01 und G-PRE-05/C-01
+    pruefen Felder der internen FRIA (R012, Q1 b) - bis zum Element-Abgleich (Paket 5) Nachbarn, kein
+    Element gilt als geprueft (M1).'
   po_bestaetigt: true
   uid: Art. 27 Abs. 1 lit. b@368153
   abschnitt: null
@@ -13319,7 +13355,9 @@ einheiten:
   ziffer: null
   po_entscheid:
   - 2026-09-23 · 2a Gruppe A (Bereichsausnahme Anhang III Nr. 2)
-  faelle: []
+  - '2026-10-13 · BK-F7 a (Review 18, M2 Gruppe C) - FRIA nach Art. 27: Abs. 1 nennt Anhang III Nr. 5
+    lit. b.'
+  faelle: *id033
 - id: Art. 27 Abs. 1 lit. c
   artikel: '27'
   artikel_titel: Grundrechte-Folgenabschätzung für Hochrisiko-KI-Systeme
@@ -13332,17 +13370,19 @@ einheiten:
     spezifischen Kontext betroffen sein könnten;
   adressat: betreiber
   pflicht: 'Element 3 der FRIA: Kategorien der betroffenen natuerlichen Personen/Personengruppen.'
-  scope: out
-  scope_grund: 'Bereichsausnahme: Art. 27 Abs. 1 nimmt Hochrisiko-KI-Systeme aus, die in dem in Anhang
-    III Nummer 2 aufgefuehrten Bereich verwendet werden sollen; lit. a-f und Abs. 2-4 setzen die Pflicht
-    aus Abs. 1 voraus. Die DSFA bleibt ueber Art. 26 Abs. 9.'
+  scope: in
+  scope_grund: 'Fallabhaengig (BK-F7 a): fuer die Bank in - Art. 27 Abs. 1 nennt Betreiber von Hochrisiko-KI-Systemen
+    nach Anhang III Nr. 5 lit. b; fuer netz Bereichsausnahme (Anhang III Nr. 2), fuer klinik kein System
+    nach Art. 6 Abs. 2.'
   verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: unveraendert (s. Art. 27 Abs. 1).
   requirement: []
   gate: []
-  befund: null
-  befund_grund: null
+  befund: luecke
+  befund_grund: 'Kein Gate prueft die FRIA als gesetzliche Pflicht nach Art. 27: G-PRE-02/C-01 und G-PRE-05/C-01
+    pruefen Felder der internen FRIA (R012, Q1 b) - bis zum Element-Abgleich (Paket 5) Nachbarn, kein
+    Element gilt als geprueft (M1).'
   po_bestaetigt: true
   uid: Art. 27 Abs. 1 lit. c@368293
   abschnitt: null
@@ -13351,7 +13391,9 @@ einheiten:
   ziffer: null
   po_entscheid:
   - 2026-09-23 · 2a Gruppe A (Bereichsausnahme Anhang III Nr. 2)
-  faelle: []
+  - '2026-10-13 · BK-F7 a (Review 18, M2 Gruppe C) - FRIA nach Art. 27: Abs. 1 nennt Anhang III Nr. 5
+    lit. b.'
+  faelle: *id033
 - id: Art. 27 Abs. 1 lit. d
   artikel: '27'
   artikel_titel: Grundrechte-Folgenabschätzung für Hochrisiko-KI-Systeme
@@ -13366,17 +13408,19 @@ einheiten:
   adressat: betreiber
   pflicht: 'Element 4 der FRIA: spezifische Schadensrisiken fuer die unter lit. c ermittelten Personen(-gruppen),
     unter Beruecksichtigung der vom Anbieter nach Art. 13 bereitgestellten Informationen.'
-  scope: out
-  scope_grund: 'Bereichsausnahme: Art. 27 Abs. 1 nimmt Hochrisiko-KI-Systeme aus, die in dem in Anhang
-    III Nummer 2 aufgefuehrten Bereich verwendet werden sollen; lit. a-f und Abs. 2-4 setzen die Pflicht
-    aus Abs. 1 voraus. Die DSFA bleibt ueber Art. 26 Abs. 9.'
+  scope: in
+  scope_grund: 'Fallabhaengig (BK-F7 a): fuer die Bank in - Art. 27 Abs. 1 nennt Betreiber von Hochrisiko-KI-Systemen
+    nach Anhang III Nr. 5 lit. b; fuer netz Bereichsausnahme (Anhang III Nr. 2), fuer klinik kein System
+    nach Art. 6 Abs. 2.'
   verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: unveraendert (s. Art. 27 Abs. 1).
   requirement: []
   gate: []
-  befund: null
-  befund_grund: null
+  befund: luecke
+  befund_grund: 'Kein Gate prueft die FRIA als gesetzliche Pflicht nach Art. 27: G-PRE-02/C-01 und G-PRE-05/C-01
+    pruefen Felder der internen FRIA (R012, Q1 b) - bis zum Element-Abgleich (Paket 5) Nachbarn, kein
+    Element gilt als geprueft (M1).'
   po_bestaetigt: true
   uid: Art. 27 Abs. 1 lit. d@368436
   abschnitt: null
@@ -13385,7 +13429,9 @@ einheiten:
   ziffer: null
   po_entscheid:
   - 2026-09-23 · 2a Gruppe A (Bereichsausnahme Anhang III Nr. 2)
-  faelle: []
+  - '2026-10-13 · BK-F7 a (Review 18, M2 Gruppe C) - FRIA nach Art. 27: Abs. 1 nennt Anhang III Nr. 5
+    lit. b.'
+  faelle: *id033
 - id: Art. 27 Abs. 1 lit. e
   artikel: '27'
   artikel_titel: Grundrechte-Folgenabschätzung für Hochrisiko-KI-Systeme
@@ -13398,17 +13444,19 @@ einheiten:
   adressat: betreiber
   pflicht: 'Element 5 der FRIA: Beschreibung der Umsetzung menschlicher Aufsichtsmassnahmen entsprechend
     der Betriebsanleitung.'
-  scope: out
-  scope_grund: 'Bereichsausnahme: Art. 27 Abs. 1 nimmt Hochrisiko-KI-Systeme aus, die in dem in Anhang
-    III Nummer 2 aufgefuehrten Bereich verwendet werden sollen; lit. a-f und Abs. 2-4 setzen die Pflicht
-    aus Abs. 1 voraus. Die DSFA bleibt ueber Art. 26 Abs. 9.'
+  scope: in
+  scope_grund: 'Fallabhaengig (BK-F7 a): fuer die Bank in - Art. 27 Abs. 1 nennt Betreiber von Hochrisiko-KI-Systemen
+    nach Anhang III Nr. 5 lit. b; fuer netz Bereichsausnahme (Anhang III Nr. 2), fuer klinik kein System
+    nach Art. 6 Abs. 2.'
   verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: unveraendert (s. Art. 27 Abs. 1).
   requirement: []
   gate: []
-  befund: null
-  befund_grund: null
+  befund: luecke
+  befund_grund: 'Kein Gate prueft die FRIA als gesetzliche Pflicht nach Art. 27: G-PRE-02/C-01 und G-PRE-05/C-01
+    pruefen Felder der internen FRIA (R012, Q1 b) - bis zum Element-Abgleich (Paket 5) Nachbarn, kein
+    Element gilt als geprueft (M1).'
   po_bestaetigt: true
   uid: Art. 27 Abs. 1 lit. e@368702
   abschnitt: null
@@ -13417,7 +13465,9 @@ einheiten:
   ziffer: null
   po_entscheid:
   - 2026-09-23 · 2a Gruppe A (Bereichsausnahme Anhang III Nr. 2)
-  faelle: []
+  - '2026-10-13 · BK-F7 a (Review 18, M2 Gruppe C) - FRIA nach Art. 27: Abs. 1 nennt Anhang III Nr. 5
+    lit. b.'
+  faelle: *id033
 - id: Art. 27 Abs. 1 lit. f
   artikel: '27'
   artikel_titel: Grundrechte-Folgenabschätzung für Hochrisiko-KI-Systeme
@@ -13431,17 +13481,19 @@ einheiten:
   adressat: betreiber
   pflicht: 'Element 6 der FRIA: Massnahmen bei Risikoeintritt, einschliesslich interner Governance-Regelungen
     und Beschwerdemechanismen.'
-  scope: out
-  scope_grund: 'Bereichsausnahme: Art. 27 Abs. 1 nimmt Hochrisiko-KI-Systeme aus, die in dem in Anhang
-    III Nummer 2 aufgefuehrten Bereich verwendet werden sollen; lit. a-f und Abs. 2-4 setzen die Pflicht
-    aus Abs. 1 voraus. Die DSFA bleibt ueber Art. 26 Abs. 9.'
+  scope: in
+  scope_grund: 'Fallabhaengig (BK-F7 a): fuer die Bank in - Art. 27 Abs. 1 nennt Betreiber von Hochrisiko-KI-Systemen
+    nach Anhang III Nr. 5 lit. b; fuer netz Bereichsausnahme (Anhang III Nr. 2), fuer klinik kein System
+    nach Art. 6 Abs. 2.'
   verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: unveraendert (s. Art. 27 Abs. 1).
   requirement: []
   gate: []
-  befund: null
-  befund_grund: null
+  befund: luecke
+  befund_grund: 'Kein Gate prueft die FRIA als gesetzliche Pflicht nach Art. 27: G-PRE-02/C-01 und G-PRE-05/C-01
+    pruefen Felder der internen FRIA (R012, Q1 b) - bis zum Element-Abgleich (Paket 5) Nachbarn, kein
+    Element gilt als geprueft (M1).'
   po_bestaetigt: true
   uid: Art. 27 Abs. 1 lit. f@368820
   abschnitt: null
@@ -13450,7 +13502,9 @@ einheiten:
   ziffer: null
   po_entscheid:
   - 2026-09-23 · 2a Gruppe A (Bereichsausnahme Anhang III Nr. 2)
-  faelle: []
+  - '2026-10-13 · BK-F7 a (Review 18, M2 Gruppe C) - FRIA nach Art. 27: Abs. 1 nennt Anhang III Nr. 5
+    lit. b.'
+  faelle: *id033
 - id: Art. 27 Abs. 2
   artikel: '27'
   artikel_titel: Grundrechte-Folgenabschätzung für Hochrisiko-KI-Systeme
@@ -13469,17 +13523,19 @@ einheiten:
   pflicht: Die FRIA-Pflicht gilt fuer die Erstverwendung; der Betreiber kann sich in aehnlichen Faellen
     auf frueher durchgefuehrte eigene oder Anbieter-Folgenabschaetzungen stuetzen; aendern sich die Abs.-1-Elemente
     wesentlich, muss der Betreiber die Informationen aktualisieren.
-  scope: out
-  scope_grund: 'Bereichsausnahme: Art. 27 Abs. 1 nimmt Hochrisiko-KI-Systeme aus, die in dem in Anhang
-    III Nummer 2 aufgefuehrten Bereich verwendet werden sollen; lit. a-f und Abs. 2-4 setzen die Pflicht
-    aus Abs. 1 voraus. Die DSFA bleibt ueber Art. 26 Abs. 9.'
+  scope: in
+  scope_grund: 'Fallabhaengig (BK-F7 a): fuer die Bank in - Art. 27 Abs. 1 nennt Betreiber von Hochrisiko-KI-Systemen
+    nach Anhang III Nr. 5 lit. b; fuer netz Bereichsausnahme (Anhang III Nr. 2), fuer klinik kein System
+    nach Art. 6 Abs. 2.'
   verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: unveraendert (s. Art. 27 Abs. 1 - Nr. 13 aendert nur Abs. 4/5).
   requirement: []
   gate: []
-  befund: null
-  befund_grund: null
+  befund: luecke
+  befund_grund: 'Kein Gate prueft die FRIA als gesetzliche Pflicht nach Art. 27: G-PRE-02/C-01 und G-PRE-05/C-01
+    pruefen Felder der internen FRIA (R012, Q1 b) - bis zum Element-Abgleich (Paket 5) Nachbarn, kein
+    Element gilt als geprueft (M1).'
   po_bestaetigt: true
   uid: Art. 27 Abs. 2@368998
   abschnitt: null
@@ -13488,7 +13544,9 @@ einheiten:
   ziffer: null
   po_entscheid:
   - 2026-09-23 · 2a Gruppe A (Bereichsausnahme Anhang III Nr. 2)
-  faelle: []
+  - '2026-10-13 · BK-F7 a (Review 18, M2 Gruppe C) - FRIA nach Art. 27: Abs. 1 nennt Anhang III Nr. 5
+    lit. b.'
+  faelle: *id033
 - id: Art. 27 Abs. 3
   artikel: '27'
   artikel_titel: Grundrechte-Folgenabschätzung für Hochrisiko-KI-Systeme
@@ -13505,17 +13563,19 @@ einheiten:
   pflicht: Nach Abschluss der FRIA teilt der Betreiber der Marktueberwachungsbehoerde die Ergebnisse mittels
     des Musters aus Abs. 5 mit; im Fall des Art. 46 Abs. 1 kann von dieser Mitteilungspflicht befreit
     werden.
-  scope: out
-  scope_grund: 'Bereichsausnahme: Art. 27 Abs. 1 nimmt Hochrisiko-KI-Systeme aus, die in dem in Anhang
-    III Nummer 2 aufgefuehrten Bereich verwendet werden sollen; lit. a-f und Abs. 2-4 setzen die Pflicht
-    aus Abs. 1 voraus. Die DSFA bleibt ueber Art. 26 Abs. 9.'
+  scope: in
+  scope_grund: 'Fallabhaengig (BK-F7 a): fuer die Bank in - Art. 27 Abs. 1 nennt Betreiber von Hochrisiko-KI-Systemen
+    nach Anhang III Nr. 5 lit. b; fuer netz Bereichsausnahme (Anhang III Nr. 2), fuer klinik kein System
+    nach Art. 6 Abs. 2.'
   verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: unveraendert (s. Art. 27 Abs. 1).
   requirement: []
   gate: []
-  befund: null
-  befund_grund: null
+  befund: luecke
+  befund_grund: 'Kein Gate prueft die FRIA als gesetzliche Pflicht nach Art. 27: G-PRE-02/C-01 und G-PRE-05/C-01
+    pruefen Felder der internen FRIA (R012, Q1 b) - bis zum Element-Abgleich (Paket 5) Nachbarn, kein
+    Element gilt als geprueft (M1).'
   po_bestaetigt: true
   uid: Art. 27 Abs. 3@369586
   abschnitt: null
@@ -13524,7 +13584,9 @@ einheiten:
   ziffer: null
   po_entscheid:
   - 2026-09-23 · 2a Gruppe A (Bereichsausnahme Anhang III Nr. 2)
-  faelle: []
+  - '2026-10-13 · BK-F7 a (Review 18, M2 Gruppe C) - FRIA nach Art. 27: Abs. 1 nennt Anhang III Nr. 5
+    lit. b.'
+  faelle: *id033
 - id: Art. 27 Abs. 4
   artikel: '27'
   artikel_titel: Grundrechte-Folgenabschätzung für Hochrisiko-KI-Systeme
@@ -15531,8 +15593,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - Art. 36 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
     nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: &id031 []
-  gate: &id032 []
+  requirement: &id034 []
+  gate: &id035 []
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -15571,8 +15633,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - Art. 36 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
     nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id031
-  gate: *id032
+  requirement: *id034
+  gate: *id035
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -15606,8 +15668,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - Art. 36 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
     nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id031
-  gate: *id032
+  requirement: *id034
+  gate: *id035
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -16100,8 +16162,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - Art. 41 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
     nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: &id033 []
-  gate: &id034 []
+  requirement: &id036 []
+  gate: &id037 []
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -16135,8 +16197,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - Art. 41 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
     nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id033
-  gate: *id034
+  requirement: *id036
+  gate: *id037
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -16170,8 +16232,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - Art. 41 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
     nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id033
-  gate: *id034
+  requirement: *id036
+  gate: *id037
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -16204,8 +16266,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - Art. 41 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
     nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id033
-  gate: *id034
+  requirement: *id036
+  gate: *id037
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -16237,8 +16299,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - Art. 41 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
     nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: &id035 []
-  gate: &id036 []
+  requirement: &id038 []
+  gate: &id039 []
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -16275,8 +16337,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - Art. 41 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
     nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id035
-  gate: *id036
+  requirement: *id038
+  gate: *id039
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -16309,8 +16371,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - Art. 41 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
     nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id035
-  gate: *id036
+  requirement: *id038
+  gate: *id039
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -16657,8 +16719,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - Art. 43 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
     nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: &id037 []
-  gate: &id038 []
+  requirement: &id040 []
+  gate: &id041 []
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -16692,8 +16754,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - Art. 43 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
     nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id037
-  gate: *id038
+  requirement: *id040
+  gate: *id041
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -16824,8 +16886,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - Art. 43 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
     nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: &id039 []
-  gate: &id040 []
+  requirement: &id042 []
+  gate: &id043 []
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -16863,8 +16925,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - Art. 43 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
     nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id039
-  gate: *id040
+  requirement: *id042
+  gate: *id043
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -18376,8 +18438,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - Art. 49 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
     nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: &id041 []
-  gate: &id042 []
+  requirement: &id044 []
+  gate: &id045 []
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -18414,8 +18476,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - Art. 49 ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 (Nr. 1-41)
     nicht erwaehnt (geprueft am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id041
-  gate: *id042
+  requirement: *id044
+  gate: *id045
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -19291,8 +19353,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: &id043 []
-  gate: &id044 []
+  requirement: &id046 []
+  gate: &id047 []
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -19326,8 +19388,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id043
-  gate: *id044
+  requirement: *id046
+  gate: *id047
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -21664,8 +21726,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: &id045 []
-  gate: &id046 []
+  requirement: &id048 []
+  gate: &id049 []
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -21703,8 +21765,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id045
-  gate: *id046
+  requirement: *id048
+  gate: *id049
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -22245,8 +22307,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: &id047 []
-  gate: &id048 []
+  requirement: &id050 []
+  gate: &id051 []
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -22282,8 +22344,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id047
-  gate: *id048
+  requirement: *id050
+  gate: *id051
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -22317,8 +22379,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id047
-  gate: *id048
+  requirement: *id050
+  gate: *id051
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -22353,8 +22415,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id047
-  gate: *id048
+  requirement: *id050
+  gate: *id051
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -24899,8 +24961,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: &id049 []
-  gate: &id050 []
+  requirement: &id052 []
+  gate: &id053 []
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -24938,8 +25000,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id049
-  gate: *id050
+  requirement: *id052
+  gate: *id053
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -24974,8 +25036,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id049
-  gate: *id050
+  requirement: *id052
+  gate: *id053
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -25010,8 +25072,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id049
-  gate: *id050
+  requirement: *id052
+  gate: *id053
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -25046,8 +25108,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: &id051 []
-  gate: &id052 []
+  requirement: &id054 []
+  gate: &id055 []
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -25082,8 +25144,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id051
-  gate: *id052
+  requirement: *id054
+  gate: *id055
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -25119,8 +25181,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id051
-  gate: *id052
+  requirement: *id054
+  gate: *id055
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -25941,8 +26003,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: &id053 []
-  gate: &id054 []
+  requirement: &id056 []
+  gate: &id057 []
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -25982,8 +26044,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id053
-  gate: *id054
+  requirement: *id056
+  gate: *id057
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -26083,8 +26145,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: &id055 []
-  gate: &id056 []
+  requirement: &id058 []
+  gate: &id059 []
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -26118,8 +26180,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id055
-  gate: *id056
+  requirement: *id058
+  gate: *id059
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -26153,8 +26215,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id055
-  gate: *id056
+  requirement: *id058
+  gate: *id059
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -26188,8 +26250,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id055
-  gate: *id056
+  requirement: *id058
+  gate: *id059
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -27309,9 +27371,9 @@ einheiten:
   hypothese_grund: 'Anbieterpflicht, fuer den Betreiber in nach der Durchschlagsregel (2b E4): (b) Art.
     26 Abs. 5 verweist auf Art. 73.'
   omnibus: unveraendert (s. Art. 73 Abs. 1).
-  requirement: &id057
+  requirement: &id060
   - R009
-  gate: &id058
+  gate: &id061
   - G-OPS-02
   befund: teilabdeckung
   befund_grund: Regelfrist (15 Tage = 360h) fuer den Meldefall aus Abs. 1; durchschlagend fuer den Betreiber
@@ -27350,8 +27412,8 @@ einheiten:
   hypothese_grund: 'Anbieterpflicht, fuer den Betreiber in nach der Durchschlagsregel (2b E4): (b) Art.
     26 Abs. 5 verweist auf Art. 73.'
   omnibus: unveraendert (s. Art. 73 Abs. 1).
-  requirement: *id057
-  gate: *id058
+  requirement: *id060
+  gate: *id061
   befund: gedeckt
   befund_grund: Die Frist dieser Einheit ist in governance/incident_thresholds.yaml deklariert und policy_incident_thresholds
     haelt sie gegen das Gesetz (48 h / 240 h / 360 h, je mit Rechtsgrundlage). Nur deklariert (E-0) -
@@ -27649,8 +27711,22 @@ einheiten:
   po_entscheid:
   - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, Anker (b))
   - 2026-09-28 · 2c F1 (T-F Art. 73, M-F2 Reduktion an den Anbieter-Status)
+  - 2026-10-13 · BK-F7 a (Review 18, M2 Gruppe F2) - Art. 73 Abs. 9 fuer bank und netz, eigene HYPOTHESE
+    fuer bank.
   faelle:
+  - bank
   - netz
+  befund_je_fall:
+    bank:
+      befund: teilabdeckung
+      befund_grund: G-OPS-02/C-02, C-03 verlangen die Angabe, auf welche Vorfallarten die AI-Act-Meldepflicht
+        reduziert ist; ob die Reduktion fuer die Bank greift, prueft kein Check (BK-B9).
+  verifikation_je_fall:
+    bank:
+      verifikation: HYPOTHESE
+      hypothese_grund: Anbieterpflicht, fuer den Betreiber in nach der Durchschlagsregel (2b E4) ueber
+        Art. 26 Abs. 5. Ob der Anbieter des zugekauften Scoring-Systems Rechtsinstrumenten mit gleichwertigen
+        Meldepflichten unterliegt (etwa DORA, wenn er Finanzunternehmen ist), ist offen (BK-B9).
 - id: Art. 73 Abs. 10
   artikel: '73'
   artikel_titel: Meldung schwerwiegender Vorfälle
@@ -30675,8 +30751,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: &id059 []
-  gate: &id060 []
+  requirement: &id062 []
+  gate: &id063 []
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -30711,8 +30787,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id059
-  gate: *id060
+  requirement: *id062
+  gate: *id063
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -30741,17 +30817,20 @@ einheiten:
     Nr. 2) betroffene Personen, deren Gesundheit/Sicherheit/Grundrechte dadurch nach ihrer Auffassung
     erheblich beeintraechtigt werden, haben das Recht, vom Betreiber eine klare, aussagekraeftige Erlaeuterung
     zur Rolle des KI-Systems und den wichtigsten Entscheidungselementen zu erhalten.
-  scope: out
-  scope_grund: Bereichsausnahme Art. 86 Abs. 1 ('mit Ausnahme der in Nummer 2 des genannten Anhangs aufgefuehrten
-    Systeme').
-  verifikation: VERIFIZIERT
-  hypothese_grund: null
+  scope: in
+  scope_grund: 'Fallabhaengig (BK-F7 a): fuer die Bank in - Abs. 1 erfasst Anhang-III-Systeme ausser Nr.
+    2; fuer netz Bereichsausnahme (Anhang III Nr. 2), fuer klinik kein Anhang-III-System.'
+  verifikation: HYPOTHESE
+  hypothese_grund: 'Reichweite nach Abs. 3 offen: ob DSGVO Art. 22 Abs. 3, Art. 15 Abs. 1 lit. h oder
+    die Verbraucherkredit-RL 2023/2225 das Recht anderweitig festlegen, ist nicht geprueft - die Normen
+    liegen nicht im Repo (BK-B6, BK-F5 c).'
   omnibus: unveraendert - Art. 86 ist in der Aenderungsliste der VO (EU) 2026/1744 nicht erwaehnt (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
   requirement: []
   gate: []
-  befund: null
-  befund_grund: null
+  befund: luecke
+  befund_grund: Kein Requirement und kein Gate bildet das Recht auf Erlaeuterung der Entscheidung ab (Paket
+    5).
   po_bestaetigt: true
   uid: Art. 86 Abs. 1@541619
   abschnitt: null
@@ -30760,7 +30839,10 @@ einheiten:
   ziffer: null
   po_entscheid:
   - 2026-09-23 · 2a Gruppe A (Bereichsausnahme Anhang III Nr. 2)
-  faelle: []
+  - 2026-10-13 · BK-F7 a (Review 18, M2 Gruppe D) - Art. 86 Abs. 1 fuer Anhang-III-Systeme ausser Nr.
+    2.
+  faelle:
+  - bank
 - id: Art. 86 Abs. 2
   artikel: '86'
   artikel_titel: Recht auf Erläuterung der Entscheidungsfindung im Einzelfall
@@ -30775,17 +30857,17 @@ einheiten:
   adressat: sonstige
   pflicht: Abs. 1 gilt nicht, soweit sich Ausnahmen/Beschraenkungen der Erlaeuterungspflicht aus Unions-
     oder nationalem Recht ergeben.
-  scope: out
-  scope_grund: Scope-modulierende Ausnahmeklausel zu Abs. 1, adressiert den Rechtsrahmen (anderweitiges
-    Unionsrecht/nationales Recht), keine eigenstaendige Handlungspflicht des Betreibers.
+  scope: in
+  scope_grund: 'Fallabhaengig (BK-F7 a): wie Art. 86 Abs. 1 - fuer die Bank in, steuert die Reichweite
+    von Abs. 1; fuer netz Bereichsausnahme (Anhang III Nr. 2).'
   verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: unveraendert - Art. 86 ist in der Aenderungsliste nicht erwaehnt (geprueft am verfuegenden
     Teil).
   requirement: []
   gate: []
-  befund: null
-  befund_grund: null
+  befund: nicht_einschlaegig
+  befund_grund: Steuernde Ausnahme zu Abs. 1, begruendet keine eigene pruefbare Pflicht.
   po_bestaetigt: true
   uid: Art. 86 Abs. 2@542266
   abschnitt: null
@@ -30795,6 +30877,9 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe sonstige, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  - 2026-10-13 · BK-F7 a (Review 18, M2 Gruppe D) - Art. 86 Abs. 2 steuert die Reichweite von Abs. 1.
+  faelle:
+  - bank
 - id: Art. 86 Abs. 3
   artikel: '86'
   artikel_titel: Recht auf Erläuterung der Entscheidungsfindung im Einzelfall
@@ -30808,17 +30893,18 @@ einheiten:
   adressat: sonstige
   pflicht: Art. 86 gilt nur, soweit das Recht aus Abs. 1 nicht bereits anderweitig im Unionsrecht festgelegt
     ist.
-  scope: out
-  scope_grund: Subsidiaritaets-/Kollisionsklausel, adressiert das Verhaeltnis zu anderem Unionsrecht,
-    keine eigenstaendige Handlungspflicht des Betreibers.
-  verifikation: VERIFIZIERT
-  hypothese_grund: null
+  scope: in
+  scope_grund: 'Fallabhaengig (BK-F7 a): wie Art. 86 Abs. 1 - fuer die Bank in, steuert die Reichweite
+    von Abs. 1; fuer netz Bereichsausnahme (Anhang III Nr. 2).'
+  verifikation: HYPOTHESE
+  hypothese_grund: Welche Rechte anderweitig im Unionsrecht festgelegt sind (DSGVO, Verbraucherkredit-RL
+    2023/2225), ist nicht geprueft - die Verweisnormen liegen nicht im Repo (BK-B6, BK-F5 c).
   omnibus: unveraendert - Art. 86 ist in der Aenderungsliste nicht erwaehnt (geprueft am verfuegenden
     Teil).
   requirement: []
   gate: []
-  befund: null
-  befund_grund: null
+  befund: nicht_einschlaegig
+  befund_grund: Subsidiaritaetsregel zu Abs. 1, begruendet keine eigene pruefbare Pflicht.
   po_bestaetigt: true
   uid: Art. 86 Abs. 3@542503
   abschnitt: null
@@ -30828,6 +30914,10 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe sonstige, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  - '2026-10-13 · BK-F7 a (Review 18, M2 Gruppe D) - Art. 86 Abs. 3: Vorrang anderweitig festgelegter
+    Rechte.'
+  faelle:
+  - bank
 - id: Art. 87
   artikel: '87'
   artikel_titel: Meldung von Verstößen und Schutz von Hinweisgebern
@@ -32612,8 +32702,8 @@ einheiten:
   omnibus: unveraendert - Art. 1 Nr. 36 der VO (EU) 2026/1744 fasst in Art. 96 Abs. 1 nur UAbs. 1 lit.
     a und UAbs. 2 neu und fuegt lit. g an; diese Einheit ist nicht betroffen (geprueft am verfuegenden
     Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
-  requirement: &id061 []
-  gate: &id062 []
+  requirement: &id064 []
+  gate: &id065 []
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -32653,8 +32743,8 @@ einheiten:
   hypothese_grund: null
   omnibus: ersetzt - Art. 1 Nr. 36 lit. c der VO (EU) 2026/1744 fasst UAbs. 2 neu (Art. 96 Abs. 1 UAbs.
     2 n.F.) (geprueft am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
-  requirement: *id061
-  gate: *id062
+  requirement: *id064
+  gate: *id065
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -32694,8 +32784,8 @@ einheiten:
   omnibus: unveraendert - Art. 1 Nr. 36 der VO (EU) 2026/1744 fasst in Art. 96 Abs. 1 nur UAbs. 1 lit.
     a und UAbs. 2 neu und fuegt lit. g an; diese Einheit ist nicht betroffen (geprueft am verfuegenden
     Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
-  requirement: *id061
-  gate: *id062
+  requirement: *id064
+  gate: *id065
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -34534,8 +34624,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: &id063 []
-  gate: &id064 []
+  requirement: &id066 []
+  gate: &id067 []
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -34574,8 +34664,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id063
-  gate: *id064
+  requirement: *id066
+  gate: *id067
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -34990,8 +35080,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: &id065 []
-  gate: &id066 []
+  requirement: &id068 []
+  gate: &id069 []
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -35038,8 +35128,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id065
-  gate: *id066
+  requirement: *id068
+  gate: *id069
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -35077,8 +35167,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id065
-  gate: *id066
+  requirement: *id068
+  gate: *id069
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -35116,8 +35206,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id065
-  gate: *id066
+  requirement: *id068
+  gate: *id069
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -35155,8 +35245,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id065
-  gate: *id066
+  requirement: *id068
+  gate: *id069
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -35194,8 +35284,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id065
-  gate: *id066
+  requirement: *id068
+  gate: *id069
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -35233,8 +35323,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - nicht Teil der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 Nr. 1-41 (geprueft
     am verfuegenden Teil, docs/legal/OJ_L_202601744_DE.pdf).
-  requirement: *id065
-  gate: *id066
+  requirement: *id068
+  gate: *id069
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -35404,8 +35494,8 @@ einheiten:
     Teil, docs/legal/OJ_L_202601744_DE.pdf). Damit verschiebt sich der in befund_grund beschriebene Bestandsschutz-Stichtag
     inhaltlich auf den 2. Dezember 2027 (statt 2. August 2026) - die zeitliche Anwendbarkeitsfrage wird
     dadurch NOCH bedeutsamer, nicht kleiner.'
-  requirement: *id027
-  gate: *id028
+  requirement: *id029
+  gate: *id030
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -35457,8 +35547,8 @@ einheiten:
     Teil, docs/legal/OJ_L_202601744_DE.pdf). Damit verschiebt sich der in befund_grund beschriebene Bestandsschutz-Stichtag
     inhaltlich auf den 2. Dezember 2027 (statt 2. August 2026) - die zeitliche Anwendbarkeitsfrage wird
     dadurch NOCH bedeutsamer, nicht kleiner.'
-  requirement: *id027
-  gate: *id028
+  requirement: *id029
+  gate: *id030
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -36280,8 +36370,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - VO (EU) 2026/1744 Art. 1 Nr. 40 aendert nur Art. 113 Abs. 3 (lit. a und c neu
     gefasst, lit. d angefuegt) (geprueft am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
-  requirement: &id067 []
-  gate: &id068 []
+  requirement: &id070 []
+  gate: &id071 []
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -36313,8 +36403,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - VO (EU) 2026/1744 Art. 1 Nr. 40 aendert nur Art. 113 Abs. 3 (lit. a und c neu
     gefasst, lit. d angefuegt) (geprueft am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
-  requirement: *id067
-  gate: *id068
+  requirement: *id070
+  gate: *id071
   befund: nicht_einschlaegig
   befund_grund: Stichtag, begruendet keine eigene pruefbare Pflicht.
   po_bestaetigt: true
@@ -36345,8 +36435,8 @@ einheiten:
   hypothese_grund: null
   omnibus: geaendert - VO (EU) 2026/1744 Art. 1 Nr. 40 fasst lit. a und c neu und fuegt lit. d an; die
     Einleitung selbst ist unveraendert (geprueft am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
-  requirement: *id067
-  gate: *id068
+  requirement: *id070
+  gate: *id071
   befund: nicht_einschlaegig
   befund_grund: Einleitung einer Liste von Stichtagen, begruendet keine eigene pruefbare Pflicht.
   po_bestaetigt: true
@@ -36380,8 +36470,8 @@ einheiten:
   hypothese_grund: null
   omnibus: 'geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 40 lit. a - neu gefasst (Ausnahme fuer die neuen
     Verbote, ab 2. Dezember 2026). Neufassung: Art. 113 Abs. 3 lit. a n.F. im Omnibus-Pflichtenraum.'
-  requirement: *id027
-  gate: *id028
+  requirement: *id029
+  gate: *id030
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -36456,8 +36546,8 @@ einheiten:
   hypothese_grund: null
   omnibus: 'geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 40 lit. b - neu gefasst (Ziff. i: Anhang III
     ab 02.12.2027, Ziff. ii: Anhang I ab 02.08.2028). Neufassung: Art. 113 Abs. 3 lit. c n.F. im Omnibus-Pflichtenraum.'
-  requirement: *id027
-  gate: *id028
+  requirement: *id029
+  gate: *id030
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -36975,8 +37065,8 @@ einheiten:
   hypothese_grund: null
   omnibus: geaendert durch VO (EU) 2026/1744 Art. 1 Nr. 41 lit. b - Nr. 21 (Maschinenverordnung (EU) 2023/1230)
     angefuegt, siehe Anhang I Abschn. B Nr. 21 n.F.
-  requirement: &id069 []
-  gate: &id070 []
+  requirement: &id072 []
+  gate: &id073 []
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -37012,8 +37102,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - Art. 1 Nr. 41 der VO (EU) 2026/1744 fuegt in Abschn. B nur Nr. 21 an (geprueft
     am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
-  requirement: *id069
-  gate: *id070
+  requirement: *id072
+  gate: *id073
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -37051,8 +37141,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - Art. 1 Nr. 41 der VO (EU) 2026/1744 fuegt in Abschn. B nur Nr. 21 an (geprueft
     am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
-  requirement: *id069
-  gate: *id070
+  requirement: *id072
+  gate: *id073
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -37090,8 +37180,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - Art. 1 Nr. 41 der VO (EU) 2026/1744 fuegt in Abschn. B nur Nr. 21 an (geprueft
     am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
-  requirement: *id069
-  gate: *id070
+  requirement: *id072
+  gate: *id073
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -37128,8 +37218,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - Art. 1 Nr. 41 der VO (EU) 2026/1744 fuegt in Abschn. B nur Nr. 21 an (geprueft
     am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
-  requirement: *id069
-  gate: *id070
+  requirement: *id072
+  gate: *id073
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -37167,8 +37257,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - Art. 1 Nr. 41 der VO (EU) 2026/1744 fuegt in Abschn. B nur Nr. 21 an (geprueft
     am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
-  requirement: *id069
-  gate: *id070
+  requirement: *id072
+  gate: *id073
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -37208,8 +37298,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - Art. 1 Nr. 41 der VO (EU) 2026/1744 fuegt in Abschn. B nur Nr. 21 an (geprueft
     am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
-  requirement: *id069
-  gate: *id070
+  requirement: *id072
+  gate: *id073
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -37254,8 +37344,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - Art. 1 Nr. 41 der VO (EU) 2026/1744 fuegt in Abschn. B nur Nr. 21 an (geprueft
     am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
-  requirement: *id069
-  gate: *id070
+  requirement: *id072
+  gate: *id073
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -37299,8 +37389,8 @@ einheiten:
   hypothese_grund: null
   omnibus: unveraendert - Art. 1 Nr. 41 der VO (EU) 2026/1744 fuegt in Abschn. B nur Nr. 21 an (geprueft
     am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
-  requirement: *id069
-  gate: *id070
+  requirement: *id072
+  gate: *id073
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -37385,8 +37475,9 @@ einheiten:
   po_bestaetigt: true
   po_entscheid:
   - 2026-10-06 · IN-1 Gruppe 1 (Review 13) - einzeln geprueft, in und nicht einschlaegig bestaetigt
-  faelle:
-  - netz
+  - 2026-10-13 · BK-F7 a (Review 18, M2 Gruppe B) - Anhang-III-Weg (Art. 6 Abs. 2, 3) gilt fuer bank und
+    netz.
+  faelle: *id017
 - uid: Anhang III Nr. 1@610494
   id: Anhang III Nr. 1
   artikel: Anhang III
@@ -37893,10 +37984,9 @@ einheiten:
   pflicht: 'Hochrisiko-Bereich nach Art. 6 Abs. 2 (Anhang III Nr. 5, grundlegende private und oeffentliche
     Dienste): Zugänglichkeit und Inanspruchnahme grundlegender privater und grundlegender öffentlicher
     Dienste und Leistungen.'
-  scope: out
-  scope_grund: 'Systemtyp (T-13 Schritt 2b): Bereich Anhang III Nr. 5 (grundlegende private und oeffentliche
-    Dienste). Das Redispatch-System ist nach Anhang III Nr. 2 (kritische Infrastruktur) eingestuft; Pflichten,
-    die an diesen Bereich knuepfen, treffen es nicht (wie Art. 14 Abs. 5).'
+  scope: in
+  scope_grund: 'Steuernde Norm (Fall bank, BK-F7 a): Einstufung des Leitfalls Bank nach Anhang III Nr.
+    5 lit. b, die G-PRE-01 pruefen muss (BK-B2); fuer netz und klinik Systemtyp, out.'
   verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: unveraendert - Anhang III ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht
@@ -37904,8 +37994,8 @@ einheiten:
     B Nr. 7 und 9) und Nr. 43 (neuer Anhang XIV) (geprueft am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
   requirement: []
   gate: []
-  befund: null
-  befund_grund: null
+  befund: nicht_einschlaegig
+  befund_grund: Einstufung, begruendet keine eigene pruefbare Pflicht.
   abschnitt: null
   nummer: '5'
   unterabsatz: null
@@ -37914,7 +38004,9 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe sonstige, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
-  faelle: []
+  - 2026-10-13 · BK-F7 a (Review 18, M2 Gruppe A) - Einstufung des Leitfalls Bank, steuernd fuer G-PRE-01.
+  faelle: &id074
+  - bank
 - uid: Anhang III Nr. 5 lit. a@613468
   id: Anhang III Nr. 5 lit. a
   artikel: Anhang III
@@ -37967,13 +38059,13 @@ einheiten:
     Personen verwendet werden sollen, mit Ausnahme von KI-Systemen, die zur Aufdeckung von Finanzbetrug
     verwendet werden;
   adressat: sonstige
-  pflicht: 'Hochrisiko-Bereich nach Art. 6 Abs. 2 (Anhang III Nr. 5, grundlegende private und oeffentliche
-    Dienste): KI-Systeme, die bestimmungsgemäß für die Kreditwürdigkeitsprüfung und Bonitätsbewertung
-    natürlicher Personen verwendet werden sollen, mit Ausnahme …'
-  scope: out
-  scope_grund: 'Systemtyp (T-13 Schritt 2b): Bereich Anhang III Nr. 5 (grundlegende private und oeffentliche
-    Dienste). Das Redispatch-System ist nach Anhang III Nr. 2 (kritische Infrastruktur) eingestuft; Pflichten,
-    die an diesen Bereich knuepfen, treffen es nicht (wie Art. 14 Abs. 5).'
+  pflicht: 'Hochrisiko-Bereich nach Art. 6 Abs. 2 (Anhang III Nr. 5 lit. b, Kreditwuerdigkeit und Bonitaet):
+    KI-Systeme, die bestimmungsgemaess fuer die Kreditwuerdigkeitspruefung und Bonitaetsbewertung natuerlicher
+    Personen verwendet werden sollen, ausgenommen KI-Systeme, die zur Aufdeckung von Finanzbetrug verwendet
+    werden.'
+  scope: in
+  scope_grund: 'Steuernde Norm (Fall bank, BK-F7 a): Einstufung des Leitfalls Bank nach Anhang III Nr.
+    5 lit. b, die G-PRE-01 pruefen muss (BK-B2); fuer netz und klinik Systemtyp, out.'
   verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: unveraendert - Anhang III ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht
@@ -37981,8 +38073,8 @@ einheiten:
     B Nr. 7 und 9) und Nr. 43 (neuer Anhang XIV) (geprueft am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
   requirement: []
   gate: []
-  befund: null
-  befund_grund: null
+  befund: nicht_einschlaegig
+  befund_grund: Einstufung, begruendet keine eigene pruefbare Pflicht.
   abschnitt: null
   nummer: '5'
   unterabsatz: null
@@ -37991,7 +38083,9 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe sonstige, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
-  faelle: []
+  - 2026-10-13 · BK-F7 a (Review 18, M2 Gruppe A) - Einstufung des Leitfalls Bank, steuernd fuer G-PRE-01.
+  - 2026-10-13 · BK-B15 (Review 18, M2) - Pflichttext vervollstaendigt; Bestaetigung BK-F8 offen
+  faelle: *id074
 - uid: Anhang III Nr. 5 lit. c@614067
   id: Anhang III Nr. 5 lit. c
   artikel: Anhang III
@@ -43440,8 +43534,8 @@ einheiten:
   omnibus: unveraendert - Anhang XI ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht
     enthalten; Aenderungen an Anhaengen nur durch Art. 1 Nr. 41 (Anhang I), Nr. 42 (Anhang VIII Abschn.
     B Nr. 7 und 9) und Nr. 43 (neuer Anhang XIV) (geprueft am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
-  requirement: &id071 []
-  gate: &id072 []
+  requirement: &id075 []
+  gate: &id076 []
   befund: null
   befund_grund: null
   po_bestaetigt: true
@@ -43477,8 +43571,8 @@ einheiten:
   omnibus: unveraendert - Anhang XI ist in der Aenderungsliste des Art. 1 der VO (EU) 2026/1744 nicht
     enthalten; Aenderungen an Anhaengen nur durch Art. 1 Nr. 41 (Anhang I), Nr. 42 (Anhang VIII Abschn.
     B Nr. 7 und 9) und Nr. 43 (neuer Anhang XIV) (geprueft am verfuegenden Teil, docs/legal/wortlaut/omnibus_2026-1744_DE.txt).
-  requirement: *id071
-  gate: *id072
+  requirement: *id075
+  gate: *id076
   befund: null
   befund_grund: null
   po_bestaetigt: true

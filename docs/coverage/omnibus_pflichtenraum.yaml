@@ -2718,22 +2718,25 @@ einheiten:
   adressat: betreiber
   pflicht: Der Betreiber kann in der FRIA auf die Datenschutz-Folgenabschaetzung verweisen oder Teile
     daraus aufnehmen.
-  scope: out
-  scope_grund: 'Bereichsausnahme (T-13 Schritt 2): Art. 27 Abs. 1 nimmt Anhang-III-Nr.-2-Systeme aus;
-    Abs. 4 setzt die Pflicht aus Abs. 1 voraus (wie Art. 27 Abs. 4 der Grundfassung, PO 23.09.2026, 2a
-    Gruppe A). Frage Q1 (FRIA) offen, Paket 4.'
+  scope: in
+  scope_grund: 'Fallabhaengig (BK-F7 a): fuer die Bank in - Abs. 4 n.F. gehoert zur FRIA nach Art. 27
+    Abs. 1 (Anhang III Nr. 5 lit. b); fuer netz Bereichsausnahme (Anhang III Nr. 2).'
   verifikation: VERIFIZIERT
   hypothese_grund: null
   omnibus: null
   requirement: []
   gate: []
-  befund: null
-  befund_grund: null
+  befund: nicht_einschlaegig
+  befund_grund: Erlaubnis (Verweis auf die Datenschutz-Folgenabschaetzung), begruendet keine eigene pruefbare
+    Pflicht.
   po_bestaetigt: true
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe betreiber, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
-  faelle: []
+  - '2026-10-13 · BK-F7 a (Review 18, M2 Gruppe C) - Art. 27 Abs. 4 n.F.: Verweis auf die DSFA in der
+    FRIA.'
+  faelle:
+  - bank
 - uid: Omnibus Art. 1 Nr. 13 lit. b@97299
   id: Omnibus Art. 1 Nr. 13 lit. b
   artikel: '27'
