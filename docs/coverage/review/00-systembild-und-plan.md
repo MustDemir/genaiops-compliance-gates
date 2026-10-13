@@ -1,6 +1,6 @@
 ---
 titel: Systembild + Plan – Regulariendurchlauf abschließen
-stand: 2026-10-06 (Leitsatz branchenoffen, FR-6; C2 Reihenfolge FR-9) · 2026-09-29 (Teil C Ziellinie und Reihenfolge; Teil A/B unverändert seit 2026-09-23)
+stand: 2026-10-13 (Leitfall Bank, S34-F1/BK-F1, Review 16) · 2026-10-06 (Leitsatz branchenoffen, FR-6; C2 Reihenfolge FR-9) · 2026-09-29 (Teil C Ziellinie und Reihenfolge; Teil A/B unverändert seit 2026-09-23)
 basis: Branch spec06-aiact-stufe0 (30 Commits vor domain_netzbetrieb, nicht gemergt)
 status: Systembild vom PO bestätigt 23.09.2026 · Leitsatz ergänzt 28.09.2026 · Teil C vom PO bestätigt 29.09.2026
 ---
@@ -10,12 +10,12 @@ status: Systembild vom PO bestätigt 23.09.2026 · Leitsatz ergänzt 28.09.2026 
 
 # Leitsatz – unser Ziel
 
-> **EU-AI-Act-Konformität für Betreiber von Hochrisiko-KI-Systemen nachweisbar statt behauptbar machen – Leitfall Verteilnetzbetreiber –, lückenlos von der Norm bis zum Beleg.**
+> **EU-AI-Act-Konformität für Betreiber von Hochrisiko-KI-Systemen nachweisbar statt behauptbar machen – Leitfall Bank –, lückenlos von der Norm bis zum Beleg.**
 >
 > Bis 06.10.2026: „für einen Verteilnetzbetreiber“. Seit PO FR-6 a branchenoffen (Review 14 Teil 8).
 
-- **Wer:** Betreiber, nicht Anbieter – Leitfall Verteilnetzbetreiber, zweiter Referenzfall Krankenhaus (FR-8)
-- **Was:** Leitfall KI im Redispatch, Einstufung Anhang III Nr. 2 (kritische Infrastruktur) – HYPOTHESE bis S3-4 (Leitlinien-Entwurf 19.05.2026, FR-B1); Referenzfall Diagnose-Assistent, Art. 6 Abs. 1 + Anhang I Abschn. A Nr. 11 (MDR)
+- **Wer:** Betreiber, nicht Anbieter – Leitfall Bank (S34-F1, BK-F1), zweiter Referenzfall Krankenhaus (FR-8), Fall 3 Verteilnetzbetreiber
+- **Was:** Leitfall Kreditscoring natürlicher Personen, Anhang III Nr. 5 lit. b (Review 16); Referenzfall Diagnose-Assistent, Art. 6 Abs. 1 + Anhang I Abschn. A Nr. 11 (MDR); Fall 3 Netzbetrieb, Anhang III Nr. 2 – Redispatch nach dem Leitlinien-Entwurf nicht eindeutig Hochrisiko (Review 15)
 - **Bis wann:** Stichtag 02.12.2027 für Anhang III, 02.08.2028 für Anhang I (Omnibus)
 - **Form:** Referenzarchitektur, kein Produkt (D-05)
 

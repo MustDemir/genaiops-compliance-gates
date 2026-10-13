@@ -2,7 +2,7 @@
 titel: Leitfall Bank – Kreditscoring nach Anhang III Nr. 5 lit. b
 stand: 2026-10-13
 basis: Branch domain_bank, abgezweigt von review-2c = 06a0cbd (Netz-Linie, eingefroren) · Review 15 (S3-4 G1)
-status: Entscheid S34-F1 (13.10.2026) festgehalten · Frage BK-F1 offen · Neueinordnung des Pflichtenraums steht aus
+status: S34-F1 und BK-F1 a entschieden 13.10.2026 · BK-F2 offen · Neueinordnung des Pflichtenraums steht aus
 ---
 
 # Entscheid (PO, 13.10.2026)
@@ -65,6 +65,9 @@ domain_netzbetrieb (origin/HEAD)
 | # | Frage | Optionen |
 |---|---|---|
 | BK-F1 | Bank als Leitfall hebt D-06 (14.08., „Branche Energie/KRITIS“) und den Ausschluss „nicht der Finanzsektor mit DORA“ in HANDBUCH 1.3 auf, den FR-6 am 06.10. bestätigt hat. Gründe damals (HISTORIE H2, 6.2): Markt hoch besetzt, Publikum Frankfurt/Zürich, Thesis-Anschluss F4 = Anhang III Nr. 2 | a) **aufheben**: Bank Leitfall, Netz Fall 3 hält den Thesis-Anschluss; HANDBUCH, Leitsatz, AGENTS.md nachziehen · b) nicht aufheben: Bank nur als weiterer Fall, Netz bleibt Leitfall |
+| BK-F2 | Welche Anwendung ist Fall 3 (Netzbetrieb, Anhang III Nr. 2)? | a) **Zustandsüberwachung der Betriebsmittel** (Rn. 184 lit. b) · b) Anomalieerkennung im Netzbetrieb (Beispiel S. 47) · c) Redispatch als Grenzfall – Entscheid mit FR-2 |
+
+**Entschieden 13.10.2026:** BK-F1 **a** – Ausschluss des Finanzsektors aufgehoben. HANDBUCH (Titel, 1.1, 1.3, 1.4, 4.4, Fahrplan), Leitsatz (00), AGENTS.md Abschn. 2 und HISTORIE D-06, D-08 nachgezogen; damit auch S34-B4 umgesetzt.
 
 # Ehrlich zur Methode
 

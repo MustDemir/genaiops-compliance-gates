@@ -23,9 +23,9 @@ Diese Datei führte einen Gate-Zählstand aus der Zeit vor SPEC-01 und SPEC-03 �
 
 ## 2. Aktiver Kurs
 
-- **Branch `domain_netzbetrieb`** ist `origin/HEAD` und der Ort der Weiterentwicklung. `domain_Healthcare` ist der eingefrorene Thesis-Stand.
-- **Der Anwendungsfall ist Redispatch im Netzbetrieb.** Adressat ist der **Betreiber**, nicht der Anbieter (HANDBUCH 1.3).
-- **Die Healthcare-Vignette bleibt** als erste Vignette (D-18). Sie wird nicht ersetzt, die Netzbetrieb-Vignette kommt daneben.
+- **Branch `domain_bank`** ist der Ort der Weiterentwicklung (PO 13.10.2026). `review-2c` ist der eingefrorene Netz-Stand, `domain_netzbetrieb` bleibt `origin/HEAD` bis zum PR (Paket 8), `domain_Healthcare` ist der eingefrorene Thesis-Stand.
+- **Leitfall ist eine Bank mit Kreditscoring** natürlicher Personen (Anhang III Nr. 5 lit. b); zweiter Referenzfall Diagnose-Assistent, dritter Netzbetrieb (S34-F1, BK-F1, Review 16). Adressat ist der **Betreiber**, nicht der Anbieter (HANDBUCH 1.3).
+- **Die Healthcare-Vignette bleibt** als erste Vignette (D-18). Sie wird nicht ersetzt, die Referenzszenarien kommen daneben (FR-2).
 - **Der Thesis-Stand ist unter dem Tag `thesis-v1.0` eingefroren** (Zenodo-DOI 10.5281/zenodo.19920310) und bleibt reproduzierbar. **Er ist NICHT der aktuelle Stand** — er nennt andere Zahlen, andere Gates und eine andere Lizenz. Wer ihn zitiert, zitiert die Vergangenheit; wer den Stand meint, liest README und HANDBUCH.
 
 ## 3. Rollen: wer entscheidet was

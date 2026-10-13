@@ -1,4 +1,4 @@
-# Handbuch — KI-Compliance-Kontrollsystem für Netzbetreiber
+# Handbuch — KI-Compliance-Kontrollsystem für Betreiber von Hochrisiko-KI-Systemen
 
 **Version 1.2 · Stand 3. September 2026**
 Projekt „Cloud Architect AI Governance" · Mustafa Demir
@@ -43,7 +43,7 @@ Keine Empfehlung, sondern Auslöser. In diesen Fällen ist Weiterarbeiten ohne d
 
 ## 1.1 In fünf Sätzen
 
-Aus einer abgeschlossenen Masterarbeit existiert eine lauffähige Referenzarchitektur, die regulatorische Anforderungen als Quality Gates in CI/CD-Pipelines durchsetzt und die Nachweise in einem manipulationserkennbaren Evidence Store ablegt. Diese Architektur wird über den akademischen Stand hinaus zu einem business-ready Artefakt weiterentwickelt und ist **branchenoffen** angelegt: gebaut für Betreiber von Hochrisiko-KI-Systemen jeder Branche, die Pflichten eines Anwendungsfalls schalten Parameter im Manifest. **Leitfall** sind **Netzbetreiber in der Energieversorgung**, zweiter Referenzfall ein **Diagnose-Assistent im Krankenhaus** (Medizinprodukt, Art. 6 Abs. 1) – PO FR-6, FR-8, 06.10.2026. Der Zweck des Kontrollsystems ist, **Konformität nachweisbar statt behauptbar** zu machen: jede regulatorische Anforderung wird auf einen Check abgebildet, jeder Check erzeugt einen Nachweis, und jeder Nachweis sagt, wie beweiskräftig er ist. Der inhaltliche Hebel ist eine Unterscheidung, die im Markt regelmäßig falsch gemacht wird: **wer schuldet welche Pflicht — der Anbieter oder der Betreiber**. Der methodische Hebel ist eine zweite Klassifikationsachse, die bislang niemand explizit führt: **wie beweiskräftig ist die Evidenz, die ein Gate erzeugt**.
+Aus einer abgeschlossenen Masterarbeit existiert eine lauffähige Referenzarchitektur, die regulatorische Anforderungen als Quality Gates in CI/CD-Pipelines durchsetzt und die Nachweise in einem manipulationserkennbaren Evidence Store ablegt. Diese Architektur wird über den akademischen Stand hinaus zu einem business-ready Artefakt weiterentwickelt und ist **branchenoffen** angelegt: gebaut für Betreiber von Hochrisiko-KI-Systemen jeder Branche, die Pflichten eines Anwendungsfalls schalten Parameter im Manifest. **Leitfall** ist eine **Bank, die die Kreditwürdigkeit natürlicher Personen mit KI bewertet** (Anhang III Nr. 5 lit. b), zweiter Referenzfall ein **Diagnose-Assistent im Krankenhaus** (Medizinprodukt, Art. 6 Abs. 1), dritter Fall der **Netzbetrieb** (Anhang III Nr. 2) – PO FR-6, FR-8 06.10.2026; S34-F1, BK-F1 13.10.2026. Der Zweck des Kontrollsystems ist, **Konformität nachweisbar statt behauptbar** zu machen: jede regulatorische Anforderung wird auf einen Check abgebildet, jeder Check erzeugt einen Nachweis, und jeder Nachweis sagt, wie beweiskräftig er ist. Der inhaltliche Hebel ist eine Unterscheidung, die im Markt regelmäßig falsch gemacht wird: **wer schuldet welche Pflicht — der Anbieter oder der Betreiber**. Der methodische Hebel ist eine zweite Klassifikationsachse, die bislang niemand explizit führt: **wie beweiskräftig ist die Evidenz, die ein Gate erzeugt**.
 
 ## 1.2 Verwertungsform (D-05)
 
@@ -53,17 +53,18 @@ Das Artefakt wird **nicht als Produkt** betrieben: kein SaaS, kein Abonnement, k
 
 ## 1.3 Was es ausdrücklich nicht ist
 
-Kein Produktunternehmen · nicht der Finanzsektor mit DORA · nicht der Maschinenbau (erzwänge die Anbieterperspektive) · **nicht Modellanbieter als Zielgruppe** (D-25). Der Adressat ist der **Betreiber** eines Hochrisiko-KI-Systems – im Leitfall in der Energieversorgung, im zweiten Referenzfall im Krankenhaus; jede Zielgruppe, die das Artefakt in die Anbieterrolle zwingen würde, ist damit ausgeschlossen. Branchenoffen heißt nicht, dass jede Branche Referenzfall ist: die Ausschlüsse oben bleiben (FR-6, 06.10.2026).
+Kein Produktunternehmen · nicht der Maschinenbau (erzwänge die Anbieterperspektive) · **nicht Modellanbieter als Zielgruppe** (D-25). Der Adressat ist der **Betreiber** eines Hochrisiko-KI-Systems – im Leitfall eine Bank, im zweiten Referenzfall ein Krankenhaus, im dritten ein Netzbetreiber; jede Zielgruppe, die das Artefakt in die Anbieterrolle zwingen würde, ist damit ausgeschlossen. Branchenoffen heißt nicht, dass jede Branche Referenzfall ist: die Ausschlüsse oben bleiben (FR-6, 06.10.2026). Den früheren Ausschluss des Finanzsektors (D-06) hat der PO am 13.10.2026 aufgehoben (BK-F1, Review 16).
 
 ## 1.4 Der rote Faden
 
 ```
 Masterarbeit (Artefakt)
    -> normagnostisches Gate-Kontrollsystem
-      -> Normenpackungen (EU AI Act, NIS2, EnWG § 11 ...)
+      -> Normenpackungen (EU AI Act, DSGVO; je Fall DORA und Verbraucherkreditrecht, MDR, NIS2/EnWG § 11 ...)
          -> Adressat Betreiber eines Hochrisiko-KI-Systems (branchenoffen, FR-6)
-            -> Leitfall Netzbetreiber, Anwendungsfall Redispatch (Einstufung offen bis S3-4)
+            -> Leitfall Bank, Kreditscoring natürlicher Personen (Anhang III Nr. 5 lit. b; S34-F1, BK-F1)
             -> Referenzfall Krankenhaus, Diagnose-Assistent (FR-8)
+            -> Fall 3 Netzbetrieb (Anhang III Nr. 2; Redispatch nicht eindeutig Hochrisiko, Review 15)
 ```
 
 ---
@@ -271,13 +272,15 @@ Ein präventives Gate kann ein Requirement, das „kontinuierlich" verlangt, **s
 
 ## 4.4 Branche, Adressat, Anwendungsfall (D-06, D-07, D-08)
 
+> **Stand 13.10.2026 (S34-F1, BK-F1):** Leitfall ist eine Bank mit Kreditscoring nach Anhang III Nr. 5 lit. b – was sie als Betreiber schuldet, steht im README („Lead case“) und in Review 16. Dieser Abschnitt beschreibt den Netzbetrieb, jetzt Fall 3.
+
 **Branche:** Energie / Kritische Infrastruktur. **Adressat:** Verteilnetzbetreiber mittlerer bis großer Größe (~850–900 in DE), **ÜNB-Rigorosität als Maßstab**. **Region:** Südwestdeutschland.
 
 **Der Normenstapel auf einem Adressaten — vier Regelwerke gleichzeitig:** EnWG § 11 + IT-Sicherheitskatalog BNetzA (zertifiziertes ISMS) · NIS2UmsuCG (Anhang I, in Kraft ohne Übergangsfrist) · KRITIS-Dachgesetz · EU AI Act Annex III Nr. 2 ab 02.12.2027.
 
 > Der Adressat hat bereits ein zertifiziertes ISMS. Die Frage ist nicht „wie fange ich an", sondern **„wie hängt die KI-Pflichtenlage an meinem bestehenden ISMS"** — ein Übersetzungsproblem, kein Aufbauproblem.
 
-**Anwendungsfall Redispatch:** Bei Engpassmanagement ist die KI eindeutig Sicherheitsbauteil über **beide Arme** der Legaldefinition. Drei Konstellationen: K1 Zukauf (`DEPLOYER`, **Regelfall**), K2 Eigenentwicklung (`BOTH`), K3 Zukauf mit wesentlicher Anpassung (Übergang). Voraussichtlicher Haupttrigger ist **Art. 25 lit. c** (Zweckänderung), nicht lit. b — Hypothese aus dem Marktbefund (D-23). **Zwingende Auflage: mindestens ein Negativfall** aus derselben Domäne — Kandidat: prädiktive Instandhaltung (D-22).
+**Anwendungsfall Redispatch:** Ob die KI im Engpassmanagement Sicherheitsbauteil ist, ist **nicht eindeutig**: nach dem Leitlinien-Entwurf der Kommission (19.05.2026) eher nicht über Arm A, Arm B offen, dazu die CER-Bedingung am Betreiber (Review 15, S34-B1 bis S34-B3). Drei Konstellationen: K1 Zukauf (`DEPLOYER`, **Regelfall**), K2 Eigenentwicklung (`BOTH`), K3 Zukauf mit wesentlicher Anpassung (Übergang). Voraussichtlicher Haupttrigger ist **Art. 25 lit. c** (Zweckänderung), nicht lit. b — Hypothese aus dem Marktbefund (D-23). **Zwingende Auflage: mindestens ein Negativfall** aus derselben Domäne (D-22). Der frühere Kandidat prädiktive Instandhaltung taugt dafür nicht: der Entwurf führt das Erkennen von Wartungsbedarf als Sicherheitsfunktion (Rn. 184 lit. b, S34-B4). Im Leitfall Bank liefert der Wortlaut den Negativfall selbst: Betrugserkennung.
 
 ## 4.5 Differenzierungsachsen (D-14)
 
@@ -409,7 +412,7 @@ Ausformuliert nach den fünf Fragen aus 3.4, weil dieses Gate die Lücke am deut
 | Aufsichtsmetriken, Output-Drift, Fairness im Betrieb, Fristenuhr Art. 73 (B-08) | offen |
 | Tag- und Versionierungsfrage (D-24) — Release-Tags und Zenodo-Pushes bleiben blockiert | vertagt, nicht erledigt |
 | Drift-CronJob im Cluster nicht lauffähig — braucht conftest und Policies im Image, kein Dockerfile vorhanden | dokumentiert |
-| Referenzfälle bauen, inkl. Negativfall — Netzbetrieb (Leitfall) und Diagnose-Assistent | offen — nach Paket 5 (FR-2, FR-8, FR-9); macht die Branchenoffenheit erst sichtbar |
+| Referenzfälle bauen, inkl. Negativfall — Bank (Leitfall), Diagnose-Assistent, Netzbetrieb (Fall 3) | offen — nach Paket 5 (FR-2, FR-8, FR-9); macht die Branchenoffenheit erst sichtbar |
 | Ersten Fachbeitrag zur Rollenabgrenzung schreiben | braucht EUR-Lex-Abgleich |
 | **Kettenkontinuität über Läufe hinweg** (D-32) — der Nachweis eines Laufs ist signiert und verlässt den Runner; ob zwischen zwei Läufen etwas fehlt, prüft nichts | offen, eigene SPEC. In SPEC-05 Abschnitt 13 benannt statt beantwortet |
 | **`make verify` ohne Cluster lauffähig** | ✅ T-09, 04.09. — sechs Suiten in rund 6,5 s, `verify-cluster` für den Smoke-Test, `PYTHON` aus `Makefile.local`. Der `pre-push`-Hook fährt es bei jedem Push |
@@ -445,7 +448,7 @@ Ausformuliert nach den fünf Fragen aus 3.4, weil dieses Gate die Lücke am deut
 
 12. Art. 13 im Wortlaut — Grundlage für Richtung B1
 13. NIS2 und EnWG § 11 als Primärquellen
-14. **Referenzfälle inkl. Negativfall** — Leitfall Netzbetrieb (Redispatch, wenn S3-4 die Hochrisiko-Einstufung trägt, sonst ein eindeutiger Fall nach Anhang III Nr. 2) und Diagnose-Assistent im Krankenhaus (Art. 6 Abs. 1 + Anhang I Nr. 11); nach Paket 5 (Review 14 Teil 8: FR-2, FR-8, FR-9). Zeigt die Branchenoffenheit: gleiche Gates, anderer Einstufungspfad, andere Pflichten
+14. **Referenzfälle inkl. Negativfall** — Leitfall Bank (Kreditscoring, Anhang III Nr. 5 lit. b; Negativfall Betrugserkennung), Diagnose-Assistent im Krankenhaus (Art. 6 Abs. 1 + Anhang I Nr. 11) und Netzbetrieb als Fall 3 (Anhang III Nr. 2; welche Anwendung, ist offen – BK-F2); nach Paket 5 (Review 14 Teil 8: FR-2, FR-8, FR-9). Zeigt die Branchenoffenheit: gleiche Gates, anderer Einstufungspfad, andere Pflichten
 15. Ersten Fachbeitrag zur Rollenabgrenzung
 
 **Mittelfristig:**

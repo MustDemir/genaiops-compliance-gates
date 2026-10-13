@@ -34,9 +34,9 @@ Chronologisch. Status: **gültig** · **revidiert** (mit sichtbarer alter Fassun
 | **D-03** | 13.08. | Differenzierung über Lifecycle-Vollständigkeit inkl. Retirement | **revidiert** — in D-14 nachrangig gestellt | H2 |
 | **D-04** | 14.08. | Masterarbeit ist Ansatzpunkt, nicht SSOT; Anspruch business ready | gültig | Handbuch 2.1 |
 | **D-05** | 14.08. | Zielrolle A + C, ausdrücklich nicht B (Produktunternehmen) | gültig | H2 |
-| **D-06** | 14.08. | Branche Energie/Kritis, Adressat Netzbetreiber | gültig | H2 |
+| **D-06** | 14.08. | Branche Energie/Kritis, Adressat Netzbetreiber | abgelöst 13.10.2026: Leitfall Bank, Netzbetrieb Fall 3 (S34-F1, BK-F1) | H2, Review 16 |
 | **D-07** | 14.08. | Normenpackungen NIS2 Anhang I, AI Act Annex III Nr. 2, ergänzend EnWG § 11 | gültig | H2, H3 |
-| **D-08** | 14.08. | Anwendungsfall Redispatch in drei Rollenkonstellationen | gültig | H2 |
+| **D-08** | 14.08. | Anwendungsfall Redispatch in drei Rollenkonstellationen | abgelöst 13.10.2026: Redispatch nicht eindeutig Hochrisiko, Anwendung für Fall 3 offen (BK-F2) | H2, Review 15, 16 |
 | **D-09** | 14.08. | Normenraum-Aufnahmeregel: Prüfbarkeit am KI-Lebenszyklus | gültig | Handbuch 4.1 |
 | **D-10** | 14.08. | Evidenz-Ebenen-Modell E6; Gates zunächst flächendeckend auf E-1 als Ziel | gültig | H4 |
 | **D-11** | 14.08. | Severity auf Check-Ebene statt Gate-Ebene | gültig, umgesetzt SPEC-01 | H5 |
