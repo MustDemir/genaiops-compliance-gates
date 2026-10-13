@@ -119,12 +119,14 @@ def pruefen(repo_root: Path = REPO_ROOT) -> tuple[list[str], dict]:
                     findings.append(f"{pfad.name}: {e['id']} — scope '{scope}', aber faelle {f}: "
                                     f"`in` heisst einschlaegig fuer mindestens einen Fall")
             gilt = faelle_der_zeile(e, alle)
-            for feld, erlaubt in (("befund_je_fall", BEFUNDE), ("verifikation_je_fall", STUFEN)):
+            for feld, schluessel, erlaubt in (("befund_je_fall", "befund", BEFUNDE),
+                                              ("verifikation_je_fall", "verifikation", STUFEN)):
                 for k, v in (e.get(feld) or {}).items():
                     if k not in gilt:
                         findings.append(f"{pfad.name}: {e['id']} — {feld} nennt '{k}', "
                                         f"die Zeile gilt nicht fuer diesen Fall")
-                    wert = v.get("verifikation") if isinstance(v, dict) else v
+                    # a plain value, or {befund|verifikation: …, <its reason>: …}
+                    wert = v.get(schluessel) if isinstance(v, dict) else v
                     if wert not in erlaubt:
                         findings.append(f"{pfad.name}: {e['id']} — {feld}.{k} = {wert!r} ist kein gueltiger Wert")
                     if feld == "verifikation_je_fall" and wert == "HYPOTHESE" and not (

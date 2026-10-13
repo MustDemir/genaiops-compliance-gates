@@ -39,6 +39,7 @@ Pakete:  1 Anhänge ✅ · 2 Omnibus · 3 Befunde + Matrix · 4 PO-Runde · 5 Be
 | BK-F5 | Rechtsquellen der Bank (DSGVO-Einordnung, CRD Art. 74/KWG § 25a, Verbraucherkredit, BDSG § 37a, DORA) erst im Sektorstapel nach dem Agenten; bis dahin bleiben Art. 86 Abs. 3 und Art. 26 Abs. 5 UAbs. 2 HYPOTHESE, der Agent meldet „Verweisnorm nicht geprüft“ | `17-bank-pruefliste.md` | entschieden 13.10.2026 c | T-13 |
 | BK-F6 | Zeitpunkt Profil-Mechanismus: M1 (Fallregister, Schema, Wächter) und M2 (Prüfliste Bank) jetzt, vor S3-4 G2 – M1 gebaut 13.10.2026, M2 offen | `18-profil-mechanismus.md` | entschieden 13.10.2026 a | 4 |
 | R-10 | Severity `CASE_SCOPE_DECLARED` (MEDIUM vorgeschlagen, oder HIGH) | `18-profil-mechanismus.md` | offen | 4 |
+| BK-F7 | Prüfliste M2 Bank (Gruppen A–J): `faelle`, Befund und Stufe je Zeile für den Leitfall; danach `bank: geprueft` | `18-profil-mechanismus.md` | offen | 4 |
 
 # Teil 2 – Entschieden, Umsetzung steht aus
 

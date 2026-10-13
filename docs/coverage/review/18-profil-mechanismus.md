@@ -2,7 +2,7 @@
 titel: Drei Fälle in einem Pflichtenraum – Entwurf des Profil-Mechanismus (BK-F3 b)
 stand: 2026-10-13
 basis: Branch domain_bank = 73e2673 · Review 17 (Bank-Prüfliste) · Entscheide BK-F3 b, BK-F4 a, BK-F5 c (PO, 13.10.2026)
-status: BK-F6 a (13.10.2026) · M1 gebaut · M2 Prüfliste Bank in Arbeit · Frage R-10 an den PO
+status: BK-F6 a (13.10.2026) · M1 gebaut · M2 Prüfliste Bank vorgelegt · Fragen R-10, BK-F7 an den PO
 ---
 
 # Entscheide vom 13.10.2026
@@ -74,6 +74,17 @@ Manifest eines Laufs:  referenzfall: bank   ──►  Gates und Agent lesen nur
 | # | Frage | Optionen |
 |---|---|---|
 | R-10 | Severity `CASE_SCOPE_DECLARED` | a) **MEDIUM** – wie `IN_UNITS_VERIFICATION_DECLARED`: versteckt keine Pflicht, lässt aber eine Entscheidung für den falschen Fall gelten · b) HIGH – ein Agent-Urteil für die Bank auf Netz-Zeilen wäre ein falsches Urteil |
+
+# M2 – Prüfliste Bank (Vorschlag)
+
+- Liegt im Project als `claude/pruefliste-m2-bank.md`. Gruppen A–J, je Zeile `faelle`, Befund, Stufe.
+- **Ergebnis bei GO:** `in` für die Bank 134 Zeilen (105 fallunabhängig + 29 fallabhängig), Vereinigung 141; netz unverändert 125; Fallregister `bank: geprueft`.
+- Abweichungen je Fall: Art. 26 Abs. 11 (Lücke, für netz n.e. nach Q11 a), Art. 73 Abs. 9 (eigene HYPOTHESE für bank).
+- `befund_je_fall` und `verifikation_je_fall` tragen ihren Grund: `{befund: …, befund_grund: …}` bzw. `{verifikation: …, hypothese_grund: …}`; `faelle.py` prüft beide Formen.
+
+| # | Frage | Optionen |
+|---|---|---|
+| BK-F7 | Prüfliste M2 Bank (Gruppen A–J) | a) **alles wie vorgeschlagen** · b) mit Abweichungen je Gruppe |
 
 # Ehrlich zur Methode
 
