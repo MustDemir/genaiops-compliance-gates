@@ -867,6 +867,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe betreiber, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - id: Art. 2 Abs. 11
   artikel: '2'
   artikel_titel: Anwendungsbereich
@@ -3669,6 +3670,8 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - steuernde Begriffsbestimmung, die ein Gate auswertet (wie 2b E5)
   - 2026-10-06 · P4-F2 a (Review 13) - Pflichttext und Verifikationsstufe bestaetigt
+  faelle:
+  - netz
 - uid: Art. 3 Nr. 63@286592
   id: Art. 3 Nr. 63
   artikel: '3'
@@ -4234,6 +4237,8 @@ einheiten:
   po_entscheid:
   - 2026-09-23 · 2b E2 (P1 Verbote)
   - 2026-09-23 · 2b E4 (VERIFIZIERT - Betreiber in der Einheit oder ihrem Einleitungssatz genannt)
+  faelle:
+  - netz
 - id: Art. 5 Abs. 1 lit. e
   artikel: '5'
   artikel_titel: Verbotene Praktiken im KI-Bereich
@@ -4397,6 +4402,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe behoerde, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Art. 5 Abs. 1 lit. h Ziff. i@294219
   id: Art. 5 Abs. 1 lit. h Ziff. i
   artikel: '5'
@@ -4436,6 +4442,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe behoerde, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Art. 5 Abs. 1 lit. h Ziff. ii@294364
   id: Art. 5 Abs. 1 lit. h Ziff. ii
   artikel: '5'
@@ -4476,6 +4483,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe behoerde, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Art. 5 Abs. 1 lit. h Ziff. iii@294616
   id: Art. 5 Abs. 1 lit. h Ziff. iii
   artikel: '5'
@@ -4520,6 +4528,7 @@ einheiten:
   - 2026-10-02 · P3-F5 a (Review 11) - Pflichttext nach A-W13 bestaetigt
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe behoerde, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Art. 5 Abs. 1 UAbs. 2@295079
   id: Art. 5 Abs. 1 UAbs. 2
   artikel: '5'
@@ -4560,6 +4569,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe behoerde, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - id: Art. 5 Abs. 2
   artikel: '5'
   artikel_titel: Verbotene Praktiken im KI-Bereich
@@ -4599,6 +4609,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe behoerde, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - id: Art. 5 Abs. 2 lit. a
   artikel: '5'
   artikel_titel: Verbotene Praktiken im KI-Bereich
@@ -5115,6 +5126,8 @@ einheiten:
   - '2026-10-06 · S3-3 a (Review 13) - VERIFIZIERT: Art. 26 gilt fuer ''Betreiber von Hochrisiko-KI-Systemen'';
     Abs. 2 bestimmt, welche Systeme das nach Anhang III sind - Verweis am Wortlaut. Ob Redispatch darunter
     faellt, steht bei Anhang III Nr. 2.'
+  faelle:
+  - netz
 - id: Art. 6 Abs. 3
   artikel: '6'
   artikel_titel: Einstufungsvorschriften für Hochrisiko-KI-Systeme
@@ -5155,6 +5168,8 @@ einheiten:
   - 2026-10-06 · IN-1 Gruppe 1 (Review 13) - einzeln geprueft, in und nicht einschlaegig bestaetigt
   - '2026-10-06 · S3-3 a (Review 13) - VERIFIZIERT: Ausnahme von Abs. 2 (''Abweichend von Absatz 2'')
     - steuert, ob Art. 26 greift; Verweis am Wortlaut.'
+  faelle:
+  - netz
 - id: Art. 6 Abs. 3 lit. a
   artikel: '6'
   artikel_titel: Einstufungsvorschriften für Hochrisiko-KI-Systeme
@@ -5188,6 +5203,8 @@ einheiten:
   - 2026-10-06 · IN-1 Gruppe 1 (Review 13) - einzeln geprueft, in und nicht einschlaegig bestaetigt
   - '2026-10-06 · S3-3 a (Review 13) - VERIFIZIERT: Bedingung der Ausnahme nach Abs. 3 UAbs. 1 - Verweis
     am Wortlaut.'
+  faelle:
+  - netz
 - id: Art. 6 Abs. 3 lit. b
   artikel: '6'
   artikel_titel: Einstufungsvorschriften für Hochrisiko-KI-Systeme
@@ -5223,6 +5240,8 @@ einheiten:
   - 2026-10-06 · IN-1 Gruppe 1 (Review 13) - einzeln geprueft, in und nicht einschlaegig bestaetigt
   - '2026-10-06 · S3-3 a (Review 13) - VERIFIZIERT: Bedingung der Ausnahme nach Abs. 3 UAbs. 1 - Verweis
     am Wortlaut.'
+  faelle:
+  - netz
 - id: Art. 6 Abs. 3 lit. c
   artikel: '6'
   artikel_titel: Einstufungsvorschriften für Hochrisiko-KI-Systeme
@@ -5259,6 +5278,8 @@ einheiten:
   - 2026-10-06 · IN-1 Gruppe 1 (Review 13) - einzeln geprueft, in und nicht einschlaegig bestaetigt
   - '2026-10-06 · S3-3 a (Review 13) - VERIFIZIERT: Bedingung der Ausnahme nach Abs. 3 UAbs. 1 - Verweis
     am Wortlaut.'
+  faelle:
+  - netz
 - id: Art. 6 Abs. 3 lit. d
   artikel: '6'
   artikel_titel: Einstufungsvorschriften für Hochrisiko-KI-Systeme
@@ -5295,6 +5316,8 @@ einheiten:
   - 2026-10-06 · IN-1 Gruppe 1 (Review 13) - einzeln geprueft, in und nicht einschlaegig bestaetigt
   - '2026-10-06 · S3-3 a (Review 13) - VERIFIZIERT: Bedingung der Ausnahme nach Abs. 3 UAbs. 1 - Verweis
     am Wortlaut.'
+  faelle:
+  - netz
 - uid: Art. 6 Abs. 3 UAbs. 3@304151
   id: Art. 6 Abs. 3 UAbs. 3
   artikel: '6'
@@ -5332,6 +5355,8 @@ einheiten:
     - Verweis am Wortlaut.'
   migriert_von: Art. 6 Abs. 3 lit. d@303969
   migration: geerbt
+  faelle:
+  - netz
 - id: Art. 6 Abs. 4
   artikel: '6'
   artikel_titel: Einstufungsvorschriften für Hochrisiko-KI-Systeme
@@ -8065,6 +8090,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe anbieter, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - id: Art. 12 Abs. 3 lit. a
   artikel: '12'
   artikel_titel: Aufzeichnungspflichten
@@ -8100,6 +8126,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe anbieter, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - id: Art. 12 Abs. 3 lit. b
   artikel: '12'
   artikel_titel: Aufzeichnungspflichten
@@ -8134,6 +8161,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe anbieter, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - id: Art. 12 Abs. 3 lit. c
   artikel: '12'
   artikel_titel: Aufzeichnungspflichten
@@ -8168,6 +8196,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe anbieter, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - id: Art. 12 Abs. 3 lit. d
   artikel: '12'
   artikel_titel: Aufzeichnungspflichten
@@ -8204,6 +8233,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe anbieter, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - id: Art. 13 Abs. 1
   artikel: '13'
   artikel_titel: Transparenz und Bereitstellung von Informationen für die Betreiber
@@ -8815,6 +8845,8 @@ einheiten:
   po_entscheid:
   - 2026-09-23 · 2b E2 (P3 Betriebsanleitung)
   - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, Anker (a) und (b))
+  faelle:
+  - netz
 - id: Art. 13 Abs. 3 lit. f
   artikel: '13'
   artikel_titel: Transparenz und Bereitstellung von Informationen für die Betreiber
@@ -9194,6 +9226,8 @@ einheiten:
   po_entscheid:
   - 2026-09-23 · 2b E2 (P2 KI-Kompetenz)
   - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, Anker (a) und (b))
+  faelle:
+  - netz
 - id: Art. 14 Abs. 4 lit. c
   artikel: '14'
   artikel_titel: Menschliche Aufsicht
@@ -9354,6 +9388,7 @@ einheiten:
   ziffer: null
   po_entscheid:
   - 2026-09-23 · 2a Gruppe C (anderer Systemtyp)
+  faelle: []
 - id: Art. 15 Abs. 1
   artikel: '15'
   artikel_titel: Genauigkeit, Robustheit und Cybersicherheit
@@ -12314,6 +12349,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe anbieter, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - id: Art. 25 Abs. 3 lit. a
   artikel: '25'
   artikel_titel: Verantwortlichkeiten entlang der KI-Wertschöpfungskette
@@ -12829,6 +12865,7 @@ einheiten:
   - 2026-09-23 · 2b E4 (VERIFIZIERT - Betreiber in der Einheit oder ihrem Einleitungssatz genannt)
   - 2026-09-28 · 2c F2 (anderer Betreibertyp, wie 2a Gruppe B)
   - 2026-09-30 · P3-F2 a (Review 10) - Pflichttext nach dem Neuschnitt bestaetigt
+  faelle: []
 - uid: Art. 26 Abs. 5 UAbs. 2 Satz 1@360889
   id: Art. 26 Abs. 5 UAbs. 2 Satz 1
   artikel: '26'
@@ -12869,6 +12906,7 @@ einheiten:
   - 2026-09-23 · 2b E4 (VERIFIZIERT - Betreiber in der Einheit oder ihrem Einleitungssatz genannt)
   - 2026-09-28 · 2c F2 (anderer Betreibertyp, wie 2a Gruppe B)
   - 2026-09-30 · P3-F2 a (Review 10) - Pflichttext nach dem Neuschnitt bestaetigt
+  faelle: []
 - id: Art. 26 Abs. 6
   artikel: '26'
   artikel_titel: Pflichten der Betreiber von Hochrisiko-KI-Systemen
@@ -13139,6 +13177,8 @@ einheiten:
   - 2026-10-01 · P3-F4 b (Review 11) - Vorbehalt bis Q11
   - 2026-10-05 · Q11 a (Review 13) - Redispatch trifft keine Entscheidungen ueber natuerliche Personen
   - 2026-10-06 · FR-1 a (Review 14) - Art. 26 Abs. 11 als Bedingungsparameter, Bau Paket 5
+  faelle:
+  - netz
 - id: Art. 26 Abs. 12
   artikel: '26'
   artikel_titel: Pflichten der Betreiber von Hochrisiko-KI-Systemen
@@ -13214,6 +13254,7 @@ einheiten:
   ziffer: null
   po_entscheid:
   - 2026-09-23 · 2a Gruppe A (Bereichsausnahme Anhang III Nr. 2)
+  faelle: []
 - id: Art. 27 Abs. 1 lit. a
   artikel: '27'
   artikel_titel: Grundrechte-Folgenabschätzung für Hochrisiko-KI-Systeme
@@ -13246,6 +13287,7 @@ einheiten:
   ziffer: null
   po_entscheid:
   - 2026-09-23 · 2a Gruppe A (Bereichsausnahme Anhang III Nr. 2)
+  faelle: []
 - id: Art. 27 Abs. 1 lit. b
   artikel: '27'
   artikel_titel: Grundrechte-Folgenabschätzung für Hochrisiko-KI-Systeme
@@ -13277,6 +13319,7 @@ einheiten:
   ziffer: null
   po_entscheid:
   - 2026-09-23 · 2a Gruppe A (Bereichsausnahme Anhang III Nr. 2)
+  faelle: []
 - id: Art. 27 Abs. 1 lit. c
   artikel: '27'
   artikel_titel: Grundrechte-Folgenabschätzung für Hochrisiko-KI-Systeme
@@ -13308,6 +13351,7 @@ einheiten:
   ziffer: null
   po_entscheid:
   - 2026-09-23 · 2a Gruppe A (Bereichsausnahme Anhang III Nr. 2)
+  faelle: []
 - id: Art. 27 Abs. 1 lit. d
   artikel: '27'
   artikel_titel: Grundrechte-Folgenabschätzung für Hochrisiko-KI-Systeme
@@ -13341,6 +13385,7 @@ einheiten:
   ziffer: null
   po_entscheid:
   - 2026-09-23 · 2a Gruppe A (Bereichsausnahme Anhang III Nr. 2)
+  faelle: []
 - id: Art. 27 Abs. 1 lit. e
   artikel: '27'
   artikel_titel: Grundrechte-Folgenabschätzung für Hochrisiko-KI-Systeme
@@ -13372,6 +13417,7 @@ einheiten:
   ziffer: null
   po_entscheid:
   - 2026-09-23 · 2a Gruppe A (Bereichsausnahme Anhang III Nr. 2)
+  faelle: []
 - id: Art. 27 Abs. 1 lit. f
   artikel: '27'
   artikel_titel: Grundrechte-Folgenabschätzung für Hochrisiko-KI-Systeme
@@ -13404,6 +13450,7 @@ einheiten:
   ziffer: null
   po_entscheid:
   - 2026-09-23 · 2a Gruppe A (Bereichsausnahme Anhang III Nr. 2)
+  faelle: []
 - id: Art. 27 Abs. 2
   artikel: '27'
   artikel_titel: Grundrechte-Folgenabschätzung für Hochrisiko-KI-Systeme
@@ -13441,6 +13488,7 @@ einheiten:
   ziffer: null
   po_entscheid:
   - 2026-09-23 · 2a Gruppe A (Bereichsausnahme Anhang III Nr. 2)
+  faelle: []
 - id: Art. 27 Abs. 3
   artikel: '27'
   artikel_titel: Grundrechte-Folgenabschätzung für Hochrisiko-KI-Systeme
@@ -13476,6 +13524,7 @@ einheiten:
   ziffer: null
   po_entscheid:
   - 2026-09-23 · 2a Gruppe A (Bereichsausnahme Anhang III Nr. 2)
+  faelle: []
 - id: Art. 27 Abs. 4
   artikel: '27'
   artikel_titel: Grundrechte-Folgenabschätzung für Hochrisiko-KI-Systeme
@@ -13519,6 +13568,7 @@ einheiten:
   neufassung: ersetzt
   fassung_2026_1744:
   - Art. 27 Abs. 4 n.F.@96790
+  faelle: []
 - id: Art. 27 Abs. 5
   artikel: '27'
   artikel_titel: Grundrechte-Folgenabschätzung für Hochrisiko-KI-Systeme
@@ -18182,6 +18232,7 @@ einheiten:
   ziffer: null
   po_entscheid:
   - 2026-09-23 · 2a Gruppe A (Bereichsausnahme Anhang III Nr. 2)
+  faelle: []
 - id: Art. 49 Abs. 4
   artikel: '49'
   artikel_titel: Registrierung
@@ -18537,6 +18588,7 @@ einheiten:
   ziffer: null
   po_entscheid:
   - 2026-09-23 · 2b E1 (anderer Systemtyp)
+  faelle: []
 - id: Art. 50 Abs. 4
   artikel: '50'
   artikel_titel: Transparenzpflichten für Anbieter und Betreiber bestimmter KI-Systeme
@@ -18582,6 +18634,7 @@ einheiten:
   ziffer: null
   po_entscheid:
   - 2026-09-23 · 2b E1 (anderer Systemtyp)
+  faelle: []
 - id: Art. 50 Abs. 5
   artikel: '50'
   artikel_titel: Transparenzpflichten für Anbieter und Betreiber bestimmter KI-Systeme
@@ -18615,6 +18668,7 @@ einheiten:
   ziffer: null
   po_entscheid:
   - 2026-09-23 · 2b E1 (anderer Systemtyp)
+  faelle: []
 - id: Art. 50 Abs. 6
   artikel: '50'
   artikel_titel: Transparenzpflichten für Anbieter und Betreiber bestimmter KI-Systeme
@@ -27178,6 +27232,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe anbieter, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - id: Art. 73 Abs. 1
   artikel: '73'
   artikel_titel: Meldung schwerwiegender Vorfälle
@@ -27594,6 +27649,8 @@ einheiten:
   po_entscheid:
   - 2026-09-23 · 2b E4 (HYPOTHESE - Durchschlagsregel, Anker (b))
   - 2026-09-28 · 2c F1 (T-F Art. 73, M-F2 Reduktion an den Anbieter-Status)
+  faelle:
+  - netz
 - id: Art. 73 Abs. 10
   artikel: '73'
   artikel_titel: Meldung schwerwiegender Vorfälle
@@ -27628,6 +27685,7 @@ einheiten:
   ziffer: null
   po_entscheid:
   - 2026-09-23 · 2a Gruppe C (anderer Systemtyp)
+  faelle: []
 - id: Art. 73 Abs. 11
   artikel: '73'
   artikel_titel: Meldung schwerwiegender Vorfälle
@@ -29111,6 +29169,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe behoerde, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - id: Art. 78 Abs. 4
   artikel: '78'
   artikel_titel: Vertraulichkeit
@@ -30701,6 +30760,7 @@ einheiten:
   ziffer: null
   po_entscheid:
   - 2026-09-23 · 2a Gruppe A (Bereichsausnahme Anhang III Nr. 2)
+  faelle: []
 - id: Art. 86 Abs. 2
   artikel: '86'
   artikel_titel: Recht auf Erläuterung der Entscheidungsfindung im Einzelfall
@@ -34721,6 +34781,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe behoerde, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - id: Art. 103
   artikel: '103'
   artikel_titel: Änderung der Verordnung (EU) Nr. 167/2013
@@ -34758,6 +34819,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe behoerde, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - id: Art. 104
   artikel: '104'
   artikel_titel: Änderung der Verordnung (EU) Nr. 168/2013
@@ -34794,6 +34856,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe behoerde, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - id: Art. 105
   artikel: '105'
   artikel_titel: Änderung der Richtlinie 2014/90/EU
@@ -34830,6 +34893,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe behoerde, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - id: Art. 106
   artikel: '106'
   artikel_titel: Änderung der Richtlinie (EU) 2016/797
@@ -34867,6 +34931,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe behoerde, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - id: Art. 107
   artikel: '107'
   artikel_titel: Änderung der Verordnung (EU) 2018/858
@@ -34904,6 +34969,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe behoerde, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - id: Art. 108
   artikel: '108'
   artikel_titel: Änderungen der Verordnung (EU) 2018/1139
@@ -34937,6 +35003,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe behoerde, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Art. 108 Nr. 1@575131
   id: Art. 108 Nr. 1
   artikel: '108'
@@ -34981,6 +35048,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe behoerde, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Art. 108 Nr. 2@576062
   id: Art. 108 Nr. 2
   artikel: '108'
@@ -35019,6 +35087,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe behoerde, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Art. 108 Nr. 3@576433
   id: Art. 108 Nr. 3
   artikel: '108'
@@ -35057,6 +35126,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe behoerde, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Art. 108 Nr. 4@576798
   id: Art. 108 Nr. 4
   artikel: '108'
@@ -35095,6 +35165,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe behoerde, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Art. 108 Nr. 5@577169
   id: Art. 108 Nr. 5
   artikel: '108'
@@ -35133,6 +35204,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe behoerde, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Art. 108 Nr. 6@577522
   id: Art. 108 Nr. 6
   artikel: '108'
@@ -35171,6 +35243,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe behoerde, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - id: Art. 109
   artikel: '109'
   artikel_titel: Änderung der Verordnung (EU) 2019/2144
@@ -35208,6 +35281,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe behoerde, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - id: Art. 110
   artikel: '110'
   artikel_titel: Änderung der Richtlinie (EU) 2020/1828
@@ -35246,6 +35320,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe behoerde, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - id: Art. 111 Abs. 1
   artikel: '111'
   artikel_titel: Bereits in Verkehr gebrachte oder in Betrieb genommene KI-Systeme und bereits in Verkehr
@@ -35289,6 +35364,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe sonstige, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Art. 111 Abs. 2 Satz 1@579919
   id: Art. 111 Abs. 2 Satz 1
   artikel: '111'
@@ -36428,6 +36504,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe sonstige, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Anhang I Abschn. A Nr. 1@603074
   id: Anhang I Abschn. A Nr. 1
   artikel: Anhang I
@@ -36467,6 +36544,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe sonstige, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Anhang I Abschn. A Nr. 2@603252
   id: Anhang I Abschn. A Nr. 2
   artikel: Anhang I
@@ -36502,6 +36580,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe sonstige, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Anhang I Abschn. A Nr. 3@603409
   id: Anhang I Abschn. A Nr. 3
   artikel: Anhang I
@@ -36538,6 +36617,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe sonstige, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Anhang I Abschn. A Nr. 4@603617
   id: Anhang I Abschn. A Nr. 4
   artikel: Anhang I
@@ -36574,6 +36654,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe sonstige, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Anhang I Abschn. A Nr. 5@603852
   id: Anhang I Abschn. A Nr. 5
   artikel: Anhang I
@@ -36610,6 +36691,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe sonstige, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Anhang I Abschn. A Nr. 6@604139
   id: Anhang I Abschn. A Nr. 6
   artikel: Anhang I
@@ -36646,6 +36728,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe sonstige, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Anhang I Abschn. A Nr. 7@604428
   id: Anhang I Abschn. A Nr. 7
   artikel: Anhang I
@@ -36682,6 +36765,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe sonstige, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Anhang I Abschn. A Nr. 8@604669
   id: Anhang I Abschn. A Nr. 8
   artikel: Anhang I
@@ -36717,6 +36801,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe sonstige, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Anhang I Abschn. A Nr. 9@604852
   id: Anhang I Abschn. A Nr. 9
   artikel: Anhang I
@@ -36753,6 +36838,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe sonstige, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Anhang I Abschn. A Nr. 10@605067
   id: Anhang I Abschn. A Nr. 10
   artikel: Anhang I
@@ -36789,6 +36875,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe sonstige, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Anhang I Abschn. A Nr. 11@605290
   id: Anhang I Abschn. A Nr. 11
   artikel: Anhang I
@@ -36826,6 +36913,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe sonstige, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Anhang I Abschn. A Nr. 12@605618
   id: Anhang I Abschn. A Nr. 12
   artikel: Anhang I
@@ -36862,6 +36950,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe sonstige, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Anhang I Abschn. B@605859
   id: Anhang I Abschn. B
   artikel: Anhang I
@@ -36894,6 +36983,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe sonstige, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Anhang I Abschn. B Nr. 13@605935
   id: Anhang I Abschn. B Nr. 13
   artikel: Anhang I
@@ -36932,6 +37022,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe sonstige, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Anhang I Abschn. B Nr. 14@606187
   id: Anhang I Abschn. B Nr. 14
   artikel: Anhang I
@@ -36970,6 +37061,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe sonstige, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Anhang I Abschn. B Nr. 15@606417
   id: Anhang I Abschn. B Nr. 15
   artikel: Anhang I
@@ -37008,6 +37100,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe sonstige, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Anhang I Abschn. B Nr. 16@606637
   id: Anhang I Abschn. B Nr. 16
   artikel: Anhang I
@@ -37045,6 +37138,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe sonstige, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Anhang I Abschn. B Nr. 17@606838
   id: Anhang I Abschn. B Nr. 17
   artikel: Anhang I
@@ -37083,6 +37177,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe sonstige, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Anhang I Abschn. B Nr. 18@607039
   id: Anhang I Abschn. B Nr. 18
   artikel: Anhang I
@@ -37123,6 +37218,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe sonstige, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Anhang I Abschn. B Nr. 19@607465
   id: Anhang I Abschn. B Nr. 19
   artikel: Anhang I
@@ -37168,6 +37264,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe sonstige, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Anhang I Abschn. B Nr. 20@608444
   id: Anhang I Abschn. B Nr. 20
   artikel: Anhang I
@@ -37212,6 +37309,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe sonstige, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Anhang II@609409
   id: Anhang II
   artikel: Anhang II
@@ -37287,6 +37385,8 @@ einheiten:
   po_bestaetigt: true
   po_entscheid:
   - 2026-10-06 · IN-1 Gruppe 1 (Review 13) - einzeln geprueft, in und nicht einschlaegig bestaetigt
+  faelle:
+  - netz
 - uid: Anhang III Nr. 1@610494
   id: Anhang III Nr. 1
   artikel: Anhang III
@@ -37322,6 +37422,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe sonstige, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Anhang III Nr. 1 lit. a@610601
   id: Anhang III Nr. 1 lit. a
   artikel: Anhang III
@@ -37359,6 +37460,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe sonstige, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Anhang III Nr. 1 lit. b@610896
   id: Anhang III Nr. 1 lit. b
   artikel: Anhang III
@@ -37396,6 +37498,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe sonstige, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Anhang III Nr. 1 lit. c@611127
   id: Anhang III Nr. 1 lit. c
   artikel: Anhang III
@@ -37430,6 +37533,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe sonstige, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Anhang III Nr. 2@611215
   id: Anhang III Nr. 2
   artikel: Anhang III
@@ -37472,6 +37576,8 @@ einheiten:
   - 2026-10-06 · IN-1 Gruppe 1 (Review 13) - einzeln geprueft, in und nicht einschlaegig bestaetigt
   - 2026-10-06 · S3-3 a (Review 13) - HYPOTHESE mit Grund
   po_bestaetigt: true
+  faelle:
+  - netz
 - uid: Anhang III Nr. 3@611479
   id: Anhang III Nr. 3
   artikel: Anhang III
@@ -37506,6 +37612,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe sonstige, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Anhang III Nr. 3 lit. a@611521
   id: Anhang III Nr. 3 lit. a
   artikel: Anhang III
@@ -37543,6 +37650,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe sonstige, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Anhang III Nr. 3 lit. b@611745
   id: Anhang III Nr. 3 lit. b
   artikel: Anhang III
@@ -37580,6 +37688,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe sonstige, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Anhang III Nr. 3 lit. c@612046
   id: Anhang III Nr. 3 lit. c
   artikel: Anhang III
@@ -37617,6 +37726,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe sonstige, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Anhang III Nr. 3 lit. d@612340
   id: Anhang III Nr. 3 lit. d
   artikel: Anhang III
@@ -37654,6 +37764,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe sonstige, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Anhang III Nr. 4@612588
   id: Anhang III Nr. 4
   artikel: Anhang III
@@ -37688,6 +37799,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe sonstige, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Anhang III Nr. 4 lit. a@612663
   id: Anhang III Nr. 4 lit. a
   artikel: Anhang III
@@ -37725,6 +37837,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe sonstige, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Anhang III Nr. 4 lit. b@612902
   id: Anhang III Nr. 4 lit. b
   artikel: Anhang III
@@ -37764,6 +37877,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe sonstige, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Anhang III Nr. 5@613347
   id: Anhang III Nr. 5
   artikel: Anhang III
@@ -37800,6 +37914,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe sonstige, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Anhang III Nr. 5 lit. a@613468
   id: Anhang III Nr. 5 lit. a
   artikel: Anhang III
@@ -37838,6 +37953,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe sonstige, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Anhang III Nr. 5 lit. b@613841
   id: Anhang III Nr. 5 lit. b
   artikel: Anhang III
@@ -37875,6 +37991,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe sonstige, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Anhang III Nr. 5 lit. c@614067
   id: Anhang III Nr. 5 lit. c
   artikel: Anhang III
@@ -37911,6 +38028,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe sonstige, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Anhang III Nr. 5 lit. d@614253
   id: Anhang III Nr. 5 lit. d
   artikel: Anhang III
@@ -37949,6 +38067,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe sonstige, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Anhang III Nr. 6@614614
   id: Anhang III Nr. 6
   artikel: Anhang III
@@ -37984,6 +38103,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe sonstige, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Anhang III Nr. 6 lit. a@614727
   id: Anhang III Nr. 6 lit. a
   artikel: Anhang III
@@ -38022,6 +38142,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe sonstige, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Anhang III Nr. 6 lit. b@615061
   id: Anhang III Nr. 6 lit. b
   artikel: Anhang III
@@ -38059,6 +38180,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe sonstige, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Anhang III Nr. 6 lit. c@615333
   id: Anhang III Nr. 6 lit. c
   artikel: Anhang III
@@ -38097,6 +38219,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe sonstige, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Anhang III Nr. 6 lit. d@615665
   id: Anhang III Nr. 6 lit. d
   artikel: Anhang III
@@ -38137,6 +38260,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe sonstige, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Anhang III Nr. 6 lit. e@616255
   id: Anhang III Nr. 6 lit. e
   artikel: Anhang III
@@ -38175,6 +38299,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe sonstige, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Anhang III Nr. 7@616650
   id: Anhang III Nr. 7
   artikel: Anhang III
@@ -38211,6 +38336,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe sonstige, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Anhang III Nr. 7 lit. a@616782
   id: Anhang III Nr. 7 lit. a
   artikel: Anhang III
@@ -38248,6 +38374,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe sonstige, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Anhang III Nr. 7 lit. b@616999
   id: Anhang III Nr. 7 lit. b
   artikel: Anhang III
@@ -38287,6 +38414,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe sonstige, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Anhang III Nr. 7 lit. c@617451
   id: Anhang III Nr. 7 lit. c
   artikel: Anhang III
@@ -38326,6 +38454,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe sonstige, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Anhang III Nr. 7 lit. d@617956
   id: Anhang III Nr. 7 lit. d
   artikel: Anhang III
@@ -38364,6 +38493,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe sonstige, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Anhang III Nr. 8@618313
   id: Anhang III Nr. 8
   artikel: Anhang III
@@ -38398,6 +38528,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe sonstige, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Anhang III Nr. 8 lit. a@618361
   id: Anhang III Nr. 8 lit. a
   artikel: Anhang III
@@ -38436,6 +38567,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe sonstige, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Anhang III Nr. 8 lit. b@618730
   id: Anhang III Nr. 8 lit. b
   artikel: Anhang III
@@ -38475,6 +38607,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe sonstige, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Anhang IV@619270
   id: Anhang IV
   artikel: Anhang IV
@@ -41792,6 +41925,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe betreiber, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Anhang VIII Abschn. C Nr. 1@640044
   id: Anhang VIII Abschn. C Nr. 1
   artikel: Anhang VIII
@@ -41825,6 +41959,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe betreiber, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Anhang VIII Abschn. C Nr. 2@640113
   id: Anhang VIII Abschn. C Nr. 2
   artikel: Anhang VIII
@@ -41860,6 +41995,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe betreiber, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Anhang VIII Abschn. C Nr. 3@640233
   id: Anhang VIII Abschn. C Nr. 3
   artikel: Anhang VIII
@@ -41893,6 +42029,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe betreiber, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Anhang VIII Abschn. C Nr. 4@640320
   id: Anhang VIII Abschn. C Nr. 4
   artikel: Anhang VIII
@@ -41926,6 +42063,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe betreiber, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Anhang VIII Abschn. C Nr. 5@640431
   id: Anhang VIII Abschn. C Nr. 5
   artikel: Anhang VIII
@@ -41962,6 +42100,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe betreiber, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Anhang IX@640853
   id: Anhang IX
   artikel: Anhang IX
@@ -42212,6 +42351,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe sonstige, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Anhang X Nr. 1 lit. a@641744
   id: Anhang X Nr. 1 lit. a
   artikel: Anhang X
@@ -42250,6 +42390,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe sonstige, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Anhang X Nr. 1 lit. b@641987
   id: Anhang X Nr. 1 lit. b
   artikel: Anhang X
@@ -42289,6 +42430,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe sonstige, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Anhang X Nr. 1 lit. c@642388
   id: Anhang X Nr. 1 lit. c
   artikel: Anhang X
@@ -42330,6 +42472,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe sonstige, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Anhang X Nr. 2@642913
   id: Anhang X Nr. 2
   artikel: Anhang X
@@ -42365,6 +42508,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe sonstige, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Anhang X Nr. 2 lit. a@642943
   id: Anhang X Nr. 2 lit. a
   artikel: Anhang X
@@ -42404,6 +42548,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe sonstige, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Anhang X Nr. 2 lit. b@643323
   id: Anhang X Nr. 2 lit. b
   artikel: Anhang X
@@ -42444,6 +42589,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe sonstige, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Anhang X Nr. 3@643812
   id: Anhang X Nr. 3
   artikel: Anhang X
@@ -42488,6 +42634,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe sonstige, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Anhang X Nr. 4@644712
   id: Anhang X Nr. 4
   artikel: Anhang X
@@ -42529,6 +42676,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe sonstige, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Anhang X Nr. 5@645271
   id: Anhang X Nr. 5
   artikel: Anhang X
@@ -42564,6 +42712,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe sonstige, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Anhang X Nr. 5 lit. a@645333
   id: Anhang X Nr. 5 lit. a
   artikel: Anhang X
@@ -42603,6 +42752,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe sonstige, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Anhang X Nr. 5 lit. b@645679
   id: Anhang X Nr. 5 lit. b
   artikel: Anhang X
@@ -42641,6 +42791,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe sonstige, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Anhang X Nr. 6@645956
   id: Anhang X Nr. 6
   artikel: Anhang X
@@ -42682,6 +42833,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe sonstige, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Anhang X Nr. 7@646475
   id: Anhang X Nr. 7
   artikel: Anhang X
@@ -42717,6 +42869,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe sonstige, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Anhang X Nr. 7 lit. a@646499
   id: Anhang X Nr. 7 lit. a
   artikel: Anhang X
@@ -42757,6 +42910,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe sonstige, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Anhang X Nr. 7 lit. b@647005
   id: Anhang X Nr. 7 lit. b
   artikel: Anhang X
@@ -42796,6 +42950,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe sonstige, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Anhang XI Abschn. 1@647533
   id: Anhang XI Abschn. 1
   artikel: Anhang XI

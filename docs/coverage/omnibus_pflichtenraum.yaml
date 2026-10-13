@@ -183,6 +183,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe sonstige, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Omnibus Art. 1 Nr. 2 lit. b@81046
   id: Omnibus Art. 1 Nr. 2 lit. b
   artikel: '2'
@@ -324,6 +325,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe sonstige, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Art. 2 Abs. 13 lit. a n.F.@81819
   id: Art. 2 Abs. 13 lit. a n.F.
   artikel: '2'
@@ -361,6 +363,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe sonstige, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Art. 2 Abs. 13 lit. b n.F.@82120
   id: Art. 2 Abs. 13 lit. b n.F.
   artikel: '2'
@@ -399,6 +402,7 @@ einheiten:
   - 2026-10-02 · P3-F5 a (Review 11) - Pflichttext nach A-W13 bestaetigt
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe sonstige, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Art. 2 Abs. 13 UAbs. 2 n.F.@82248
   id: Art. 2 Abs. 13 UAbs. 2 n.F.
   artikel: '2'
@@ -438,6 +442,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe behoerde, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Omnibus Art. 1 Nr. 4@82592
   id: Omnibus Art. 1 Nr. 4
   artikel: '3'
@@ -547,6 +552,8 @@ einheiten:
   - '2026-10-06 · S3-3 a (Review 13) - VERIFIZIERT: Anhang III Nr. 2 verwendet den Begriff ''Sicherheitsbauteile''
     woertlich.'
   po_bestaetigt: true
+  faelle:
+  - netz
 - uid: Omnibus Art. 1 Nr. 4 lit. b@83149
   id: Omnibus Art. 1 Nr. 4 lit. b
   artikel: '3'
@@ -944,6 +951,7 @@ einheiten:
   po_bestaetigt: true
   po_entscheid:
   - 2026-09-29 · P2-F4 c (bedingte Pflicht out, Wiedervorlage ueber Bedingungsparameter, Bau Paket 5)
+  faelle: []
 - uid: Art. 4a Abs. 1 lit. a n.F.@85737
   id: Art. 4a Abs. 1 lit. a n.F.
   artikel: ''
@@ -984,6 +992,7 @@ einheiten:
   po_bestaetigt: true
   po_entscheid:
   - 2026-09-29 · P2-F4 c (bedingte Pflicht out, Wiedervorlage ueber Bedingungsparameter, Bau Paket 5)
+  faelle: []
 - uid: Art. 4a Abs. 1 lit. b n.F.@85921
   id: Art. 4a Abs. 1 lit. b n.F.
   artikel: ''
@@ -1025,6 +1034,7 @@ einheiten:
   po_bestaetigt: true
   po_entscheid:
   - 2026-09-29 · P2-F4 c (bedingte Pflicht out, Wiedervorlage ueber Bedingungsparameter, Bau Paket 5)
+  faelle: []
 - uid: Art. 4a Abs. 1 lit. c n.F.@86163
   id: Art. 4a Abs. 1 lit. c n.F.
   artikel: ''
@@ -1068,6 +1078,7 @@ einheiten:
   po_bestaetigt: true
   po_entscheid:
   - 2026-09-29 · P2-F4 c (bedingte Pflicht out, Wiedervorlage ueber Bedingungsparameter, Bau Paket 5)
+  faelle: []
 - uid: Art. 4a Abs. 1 lit. d n.F.@86678
   id: Art. 4a Abs. 1 lit. d n.F.
   artikel: ''
@@ -1108,6 +1119,7 @@ einheiten:
   po_bestaetigt: true
   po_entscheid:
   - 2026-09-29 · P2-F4 c (bedingte Pflicht out, Wiedervorlage ueber Bedingungsparameter, Bau Paket 5)
+  faelle: []
 - uid: Art. 4a Abs. 1 lit. e n.F.@86847
   id: Art. 4a Abs. 1 lit. e n.F.
   artikel: ''
@@ -1149,6 +1161,7 @@ einheiten:
   po_bestaetigt: true
   po_entscheid:
   - 2026-09-29 · P2-F4 c (bedingte Pflicht out, Wiedervorlage ueber Bedingungsparameter, Bau Paket 5)
+  faelle: []
 - uid: Art. 4a Abs. 1 lit. f n.F.@87072
   id: Art. 4a Abs. 1 lit. f n.F.
   artikel: ''
@@ -1191,6 +1204,7 @@ einheiten:
   po_bestaetigt: true
   po_entscheid:
   - 2026-09-29 · P2-F4 c (bedingte Pflicht out, Wiedervorlage ueber Bedingungsparameter, Bau Paket 5)
+  faelle: []
 - uid: Art. 4a Abs. 2 n.F.@87468
   id: Art. 4a Abs. 2 n.F.
   artikel: ''
@@ -1816,6 +1830,8 @@ einheiten:
     des Absatzes 1'' - also auch fuer den Begriff in Anhang III Nr. 2; G-PRE-01 prueft ihn (C-A3 bis C-A6).
     Wie er auf Redispatch anzuwenden ist, ist HYPOTHESE (Anhang III Nr. 2).'
   po_bestaetigt: true
+  faelle:
+  - netz
 - uid: Art. 6 Abs. 1b n.F.@91291
   id: Art. 6 Abs. 1b n.F.
   artikel: '6'
@@ -1854,6 +1870,8 @@ einheiten:
   - '2026-10-06 · S3-3 a (Review 13) - VERIFIZIERT: Wie Abs. 1a: ''Unbeschadet des Absatzes 1a'' - Teil
     derselben Begriffsbestimmung; G-PRE-01 prueft ihn.'
   po_bestaetigt: true
+  faelle:
+  - netz
 - uid: Art. 6 Abs. 1c n.F.@91443
   id: Art. 6 Abs. 1c n.F.
   artikel: '6'
@@ -1897,6 +1915,8 @@ einheiten:
   - 2026-10-06 · IN-1 Gruppe 1 (Review 13) - einzeln geprueft, in und nicht einschlaegig bestaetigt
   - 2026-10-06 · S3-3 a (Review 13) - HYPOTHESE mit Grund
   po_bestaetigt: true
+  faelle:
+  - netz
 - uid: Omnibus Art. 1 Nr. 9@91871
   id: Omnibus Art. 1 Nr. 9
   artikel: '10'
@@ -2713,6 +2733,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe betreiber, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Omnibus Art. 1 Nr. 13 lit. b@97299
   id: Omnibus Art. 1 Nr. 13 lit. b
   artikel: '27'
@@ -3294,6 +3315,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe anbieter, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Omnibus Art. 1 Nr. 20@107692
   id: Omnibus Art. 1 Nr. 20
   artikel: '50'
@@ -4432,6 +4454,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe behoerde, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Art. 60a Abs. 2 n.F.@115646
   id: Art. 60a Abs. 2 n.F.
   artikel: ''
@@ -4468,6 +4491,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe behoerde, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Art. 60a Abs. 3 n.F.@115808
   id: Art. 60a Abs. 3 n.F.
   artikel: ''
@@ -4505,6 +4529,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe behoerde, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Art. 60a Abs. 4 n.F.@116097
   id: Art. 60a Abs. 4 n.F.
   artikel: ''
@@ -4547,6 +4572,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe behoerde, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Art. 60a Abs. 5 n.F.@116918
   id: Art. 60a Abs. 5 n.F.
   artikel: ''
@@ -4583,6 +4609,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe behoerde, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Art. 60a Abs. 5 lit. a n.F.@117084
   id: Art. 60a Abs. 5 lit. a n.F.
   artikel: ''
@@ -4621,6 +4648,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe behoerde, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Art. 60a Abs. 5 lit. b n.F.@117414
   id: Art. 60a Abs. 5 lit. b n.F.
   artikel: ''
@@ -4660,6 +4688,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe behoerde, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Art. 60a Abs. 5 lit. c n.F.@117848
   id: Art. 60a Abs. 5 lit. c n.F.
   artikel: ''
@@ -4694,6 +4723,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe behoerde, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Art. 60a Abs. 5 lit. d n.F.@117921
   id: Art. 60a Abs. 5 lit. d n.F.
   artikel: ''
@@ -4728,6 +4758,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe behoerde, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Art. 60a Abs. 6 n.F.@118016
   id: Art. 60a Abs. 6 n.F.
   artikel: ''
@@ -4765,6 +4796,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe behoerde, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Omnibus Art. 1 Nr. 26@118385
   id: Omnibus Art. 1 Nr. 26
   artikel: '63'
@@ -5388,6 +5420,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe behoerde, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Art. 75 Abs. 1 lit. a Ziff. iii n.F.@121617
   id: Art. 75 Abs. 1 lit. a Ziff. iii n.F.
   artikel: '75'
@@ -8069,6 +8102,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe behoerde, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Omnibus Art. 1 Nr. 34@146343
   id: Omnibus Art. 1 Nr. 34
   artikel: '77'
@@ -9289,6 +9323,8 @@ einheiten:
   po_entscheid:
   - 2026-10-05 · S3-1 a (Review 13) - Luecke bleibt; Manifest-Feld 'Betreiber ist Behoerde' als dritte
     Bedingung im P0-Check (Paket 5)
+  faelle:
+  - netz
 - uid: Omnibus Art. 1 Nr. 39 lit. b@154482
   id: Omnibus Art. 1 Nr. 39 lit. b
   artikel: '111'
@@ -9607,6 +9643,7 @@ einheiten:
   po_bestaetigt: true
   po_entscheid:
   - 2026-10-05 · S3-2 a (Review 13) - bestaetigt, wie die Zeile steht
+  faelle: []
 - uid: Omnibus Art. 1 Nr. 40 lit. c@155498
   id: Omnibus Art. 1 Nr. 40 lit. c
   artikel: '113'
@@ -9741,6 +9778,7 @@ einheiten:
   po_entscheid:
   - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
     Art. 4)
+  faelle: []
 - uid: Omnibus Art. 1 Nr. 41 lit. b@155681
   id: Omnibus Art. 1 Nr. 41 lit. b
   artikel: ''
@@ -9774,6 +9812,7 @@ einheiten:
   po_entscheid:
   - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
     Art. 4)
+  faelle: []
 - uid: Anhang I Abschn. B Nr. 21 n.F.@155731
   id: Anhang I Abschn. B Nr. 21 n.F.
   artikel: ''
@@ -9809,6 +9848,7 @@ einheiten:
   po_entscheid:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe sonstige, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
+  faelle: []
 - uid: Omnibus Art. 1 Nr. 42@156047
   id: Omnibus Art. 1 Nr. 42
   artikel: ''
@@ -10119,6 +10159,7 @@ einheiten:
   po_entscheid:
   - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
     Art. 4)
+  faelle: []
 - uid: Omnibus Art. 2 Nr. 2@160398
   id: Omnibus Art. 2 Nr. 2
   artikel: ''
@@ -10158,6 +10199,7 @@ einheiten:
   po_entscheid:
   - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
     Art. 4)
+  faelle: []
 - uid: Omnibus Art. 2 Nr. 3@160801
   id: Omnibus Art. 2 Nr. 3
   artikel: ''
@@ -10197,6 +10239,7 @@ einheiten:
   po_entscheid:
   - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
     Art. 4)
+  faelle: []
 - uid: Omnibus Art. 2 Nr. 4@161129
   id: Omnibus Art. 2 Nr. 4
   artikel: ''
@@ -10236,6 +10279,7 @@ einheiten:
   po_entscheid:
   - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
     Art. 4)
+  faelle: []
 - uid: Omnibus Art. 2 Nr. 5@161515
   id: Omnibus Art. 2 Nr. 5
   artikel: ''
@@ -10275,6 +10319,7 @@ einheiten:
   po_entscheid:
   - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
     Art. 4)
+  faelle: []
 - uid: Omnibus Art. 2 Nr. 6@161843
   id: Omnibus Art. 2 Nr. 6
   artikel: ''
@@ -10314,6 +10359,7 @@ einheiten:
   po_entscheid:
   - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
     Art. 4)
+  faelle: []
 - uid: Omnibus Art. 2 Nr. 7@162229
   id: Omnibus Art. 2 Nr. 7
   artikel: ''
@@ -10353,6 +10399,7 @@ einheiten:
   po_entscheid:
   - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
     Art. 4)
+  faelle: []
 - uid: Omnibus Art. 3 Nr. 1@162696
   id: Omnibus Art. 3 Nr. 1
   artikel: ''
@@ -10403,6 +10450,7 @@ einheiten:
   po_entscheid:
   - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
     Art. 4)
+  faelle: []
 - uid: Omnibus Art. 3 Nr. 2@164204
   id: Omnibus Art. 3 Nr. 2
   artikel: ''
@@ -10445,6 +10493,7 @@ einheiten:
   po_entscheid:
   - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
     Art. 4)
+  faelle: []
 - uid: Omnibus Art. 3 Nr. 3@164849
   id: Omnibus Art. 3 Nr. 3
   artikel: ''
@@ -10500,6 +10549,7 @@ einheiten:
   po_entscheid:
   - 2026-09-29 · P2-F1 a (Aenderungsanweisung out, bewertet wird die n.F.-Zeile) und P2-F5 a (Omnibus
     Art. 4)
+  faelle: []
 - uid: Omnibus Art. 4@166868
   id: Omnibus Art. 4
   artikel: ''

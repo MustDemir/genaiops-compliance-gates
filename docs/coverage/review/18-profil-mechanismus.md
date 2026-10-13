@@ -2,7 +2,7 @@
 titel: Drei Fälle in einem Pflichtenraum – Entwurf des Profil-Mechanismus (BK-F3 b)
 stand: 2026-10-13
 basis: Branch domain_bank = 73e2673 · Review 17 (Bank-Prüfliste) · Entscheide BK-F3 b, BK-F4 a, BK-F5 c (PO, 13.10.2026)
-status: Entwurf · Frage BK-F6 (Zeitpunkt) an den PO · noch nichts gebaut
+status: BK-F6 a (13.10.2026) · M1 gebaut · M2 Prüfliste Bank in Arbeit · Frage R-10 an den PO
 ---
 
 # Entscheide vom 13.10.2026
@@ -16,7 +16,7 @@ status: Entwurf · Frage BK-F6 (Zeitpunkt) an den PO · noch nichts gebaut
 # Entwurf
 
 ```
-docs/coverage/faelle.yaml            Fallregister
+docs/coverage/faelle/faelle.yaml            Fallregister
   bank    Leitfall  Art. 6 Abs. 2 + Anhang III Nr. 5 lit. b   private Bank, Zukauf (K1)   ab 02.12.2027
   klinik  Fall 2    Art. 6 Abs. 1 + Anhang I Abschn. A Nr. 11  Krankenhaus                 ab 02.08.2028
   netz    Fall 3    Art. 6 Abs. 2 + Anhang III Nr. 2           Verteilnetzbetreiber        ab 02.12.2027
@@ -59,6 +59,21 @@ Manifest eines Laufs:  referenzfall: bank   ──►  Gates und Agent lesen nur
 | # | Frage | Optionen |
 |---|---|---|
 | BK-F6 | Wann bauen wir M1 und M2? | a) **jetzt, vor S3-4 G2** – der Leitfall braucht seinen Pflichtenraum, sonst prüft S3-4 Zeilen eines anderen Falls · b) mit Paket 5, wie FR-B2 geplant war; S3-4 G2 vorher |
+
+**Entschieden 13.10.2026:** BK-F6 **a** – M1 und M2 jetzt, vor S3-4 G2.
+
+# M1 – gebaut (13.10.2026)
+
+- **Fallregister** `docs/coverage/faelle/faelle.yaml`: bank, klinik, netz mit Einstufungsweg, Einstufungsnorm, Betreiber, Stichtag, Entscheiden; `pflichtenraum: geprueft` nur für netz. Liegt in einem Unterordner, weil `LEGAL_QUOTES_VERBATIM` jede YAML-Datei direkt unter `docs/coverage/` als Pflichtenraum liest.
+- **Werkzeug** `tools/legal/faelle.py`: erkennt fallabhängige Zeilen an Textmarken der Begründung (Systemtyp, Bereichsausnahme, Redispatch, Anhang III Nr. …, Finanzinstitut …) oder an der Liste im Register; `--migrieren` schreibt `faelle` aus dem heutigen `scope` (= Netz).
+- **Migration:** 185 fallabhängige Zeilen tragen jetzt `faelle` (AI Act 140, Omnibus 45): 20 `in` mit `faelle: [netz]`, 165 `out` mit `faelle: []`. Keine Zeile hat `scope`, Befund oder Stufe geändert.
+- **Stand je Fall:** `in` netz 125 · bank 105 · klinik 105 – bank und klinik sind `offen`; die 105 sind die fallunabhängigen Zeilen, die für alle gelten.
+- **Wächter** `CASE_SCOPE_DECLARED` (MEDIUM, Vorschlag R-10) in `make verify`.
+- `po_entscheide.py` braucht keine Änderung: es setzt jedes Feld einer Entscheidungsdatei, also auch `faelle`.
+
+| # | Frage | Optionen |
+|---|---|---|
+| R-10 | Severity `CASE_SCOPE_DECLARED` | a) **MEDIUM** – wie `IN_UNITS_VERIFICATION_DECLARED`: versteckt keine Pflicht, lässt aber eine Entscheidung für den falschen Fall gelten · b) HIGH – ein Agent-Urteil für die Bank auf Netz-Zeilen wäre ein falsches Urteil |
 
 # Ehrlich zur Methode
 

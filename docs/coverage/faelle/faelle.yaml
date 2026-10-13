@@ -1,0 +1,57 @@
+# Case register: the reference cases one duty space carries at once (BK-F3 b, review 18).
+#
+# A duty-space row without `faelle` applies to every case listed here. A row whose
+# application depends on the case names the cases it is `in` for: `faelle: [bank, netz]`,
+# or `faelle: []` when it is `out` for all of them. Deviations of finding or verification
+# level per case go into `befund_je_fall` / `verifikation_je_fall`.
+#
+# `pflichtenraum: geprueft` means the PO has confirmed the duty space for this case;
+# `offen` means the rows have not been reviewed for it yet, and an agent reading the space
+# for that case has to say so. The guard CASE_SCOPE_DECLARED holds this file and the rows
+# together (tools/legal/faelle.py).
+
+faelle:
+  bank:
+    rolle: Leitfall
+    system: AI system that evaluates the creditworthiness of natural persons or establishes their credit score (consumer credit, mortgage)
+    betreiber: private commercial bank that buys the scoring system (K1, deployer only)
+    einstufungsweg: Art. 6 Abs. 2 + Anhang III Nr. 5 lit. b
+    einstufung:
+      - {raum: aiact, id: "Anhang III Nr. 5 lit. b"}
+    stichtag: "2027-12-02"
+    pflichtenraum: offen
+    entscheide: [S34-F1, BK-F1, BK-F4]
+  klinik:
+    rolle: Fall 2
+    system: diagnostic assistant in a hospital, medical device of MDR class IIa or higher
+    betreiber: hospital
+    einstufungsweg: Art. 6 Abs. 1 + Anhang I Abschn. A Nr. 11
+    einstufung:
+      - {raum: aiact, id: "Anhang I Abschn. A Nr. 11"}
+    stichtag: "2028-08-02"
+    pflichtenraum: offen
+    entscheide: [FR-8]
+  netz:
+    rolle: Fall 3
+    system: AI system in the operation of an electricity distribution grid; which application is open (BK-F2)
+    betreiber: distribution system operator
+    einstufungsweg: Art. 6 Abs. 2 + Anhang III Nr. 2
+    einstufung:
+      - {raum: aiact, id: "Anhang III Nr. 2"}
+    stichtag: "2027-12-02"
+    pflichtenraum: geprueft
+    entscheide: [IN-1, OUT-1, S3-3, Q1, Q11]
+
+# Rows whose application depends on the case although their own reasoning does not say so.
+# Every row matched here, or by the text markers in tools/legal/faelle.py, has to carry
+# `faelle` explicitly.
+fallabhaengig:
+  - raum: aiact
+    ids: ["Anhang III", "Art. 6 Abs. 2", "Art. 6 Abs. 3", "Art. 6 Abs. 3 lit. a", "Art. 6 Abs. 3 lit. b",
+          "Art. 6 Abs. 3 lit. c", "Art. 6 Abs. 3 lit. d", "Art. 6 Abs. 3 UAbs. 3", "Art. 26 Abs. 11",
+          "Art. 3 Nr. 62", "Art. 73 Abs. 9"]
+    grund: classification path of Annex III (Art. 6(2), (3)) and duties tied to it (Art. 26(11), Art. 73(9)); critical infrastructure only for the grid case
+  - raum: omnibus
+    ids: ["Art. 3 Nr. 14 n.F.", "Art. 6 Abs. 1a n.F.", "Art. 6 Abs. 1b n.F.", "Art. 6 Abs. 1c n.F.",
+          "Art. 111 Abs. 2 Satz 2 n.F."]
+    grund: safety-component and Annex I classification path; transitional rule for public-authority deployers

@@ -3672,6 +3672,48 @@ def check_in_units_verification_declared() -> dict:
     )
 
 
+def check_case_scope_declared() -> dict:
+    """Jede fallabhaengige Zeile sagt, fuer welche Faelle sie gilt (BK-F3 b, Review 18).
+
+    Bis zum 13.10.2026 beantwortete `scope` eine Frage: bindet die Pflicht den Betreiber
+    des Redispatch-Systems? Seither traegt ein Pflichtenraum drei Faelle - Bank (Leitfall),
+    Klinik, Netz -, und eine Zeile, die fuer das Netz `out` ist, kann fuer die Bank `in`
+    sein (Art. 27, Art. 86) oder fuer die Klinik (Anhang-I-Weg). Ein einzelnes `scope`
+    sagt das nicht; ein Pruef-Agent, der den Raum fuer die Bank liest, saehe die Netz-
+    Entscheidung und hielte sie fuer seine.
+
+    Geprueft (tools/legal/faelle.py, Fallregister docs/coverage/faelle/faelle.yaml):
+      * jede Zeile, deren Begruendung an einen Einstufungsweg, eine Branche oder eine
+        Betreiberart knuepft, oder die das Register listet, traegt `faelle`;
+      * `faelle` nennt nur Faelle aus dem Register, und `in` heisst: fuer mindestens
+        einen Fall einschlaegig - `out` heisst `faelle: []`;
+      * Abweichungen je Fall (`befund_je_fall`, `verifikation_je_fall`) gelten nur fuer
+        Faelle der Zeile und tragen gueltige Werte, HYPOTHESE mit Grund;
+      * jeder Fall, dessen Pflichtenraum geprueft ist, hat seine Einstufungsnorm `in`.
+
+    MEDIUM als Vorschlag (R-10, offen): wie IN_UNITS_VERIFICATION_DECLARED versteckt eine
+    fehlende Angabe keine Pflicht im Raum - sie laesst aber eine Entscheidung fuer den
+    falschen Fall gelten.
+    """
+    import importlib.util
+
+    titel = "jede fallabhaengige Zeile sagt, fuer welche Faelle sie gilt (BK-F3 b)"
+    pfad = REPO_ROOT / "tools" / "legal" / "faelle.py"
+    spec = importlib.util.spec_from_file_location("faelle", pfad)
+    modul = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(modul)
+    findings, stand = modul.pruefen(REPO_ROOT)
+
+    je_fall = " · ".join(f"{k} {stand['je_fall'].get(k, 0)}" for k in stand["faelle"])
+    return make_result(
+        "CASE_SCOPE_DECLARED", titel, "medium", not findings,
+        f"{len(findings)} Befund(e) zwischen Fallregister und Pflichtenraeumen." if findings
+        else f"{stand['fallabhaengig']} fallabhaengige Zeilen tragen ihre Faelle; in je Fall: {je_fall}; "
+             f"Pflichtenraum geprueft fuer: {', '.join(stand['geprueft']) or '-'}.",
+        findings[:12] + ([f"… und {len(findings) - 12} weitere"] if len(findings) > 12 else []),
+    )
+
+
 def check_requirement_anchor_declared() -> dict:
     """Ein Requirement nennt seinen gesetzlichen Anker - oder sagt, warum es keinen hat (Q1 b, F4).
 
@@ -3960,6 +4002,7 @@ def collect_results() -> list[dict]:
         check_norm_units_match_extractor,
         check_in_units_own_duty_text,
         check_in_units_verification_declared,
+        check_case_scope_declared,
         check_requirement_anchor_declared,
         check_norm_refs_resolve,
         check_po_decisions_registered,

@@ -1,6 +1,6 @@
 ---
 titel: Entscheidungsregister – was der PO noch entscheiden muss und welche Schritte ausstehen
-stand: 2026-10-13 (Review 18: Profil-Mechanismus, BK-F3 b, BK-F4 a, BK-F5 c, BK-F6 offen; Review 17: Bank-Prüfliste, BK-B6–B14, PUSH-9; davor Branch domain_bank: Leitfall Bank, Review 16, BK-B1–B5, BK-F1 a umgesetzt, BK-F2 offen, S34-F1 entschieden, PUSH-8; davor Review 15: S3-4 G1 und G4 geprüft, S34-B1–B6, S34-F1–F3, FR-B1 umgesetzt, PUSH-7; davor nach Paket 3b, P3-F5 und Review 12 Evidence Store; T-16.1 gebaut und abgenommen: ES-1, ES-2, ES-F3 a; P4-B1 umgesetzt; PO-Runde Teil 1: Q1, Q11, S3-1, S3-2, A-F1, R-1, R-7, P3-B1, A-W12; Teil 2 06.10.2026: P4-F1, IN-1, R-8, FR-1–FR-5, S3-3 umgesetzt, S3-4, OUT-1; Review 14 Teil 8: FR-6–FR-9, FR-B1–FR-B4)
+stand: 2026-10-13 (Review 18: Profil-Mechanismus, BK-F3 b, BK-F4 a, BK-F5 c, BK-F6 a, M1 gebaut, R-10 offen; Review 17: Bank-Prüfliste, BK-B6–B14, PUSH-9; davor Branch domain_bank: Leitfall Bank, Review 16, BK-B1–B5, BK-F1 a umgesetzt, BK-F2 offen, S34-F1 entschieden, PUSH-8; davor Review 15: S3-4 G1 und G4 geprüft, S34-B1–B6, S34-F1–F3, FR-B1 umgesetzt, PUSH-7; davor nach Paket 3b, P3-F5 und Review 12 Evidence Store; T-16.1 gebaut und abgenommen: ES-1, ES-2, ES-F3 a; P4-B1 umgesetzt; PO-Runde Teil 1: Q1, Q11, S3-1, S3-2, A-F1, R-1, R-7, P3-B1, A-W12; Teil 2 06.10.2026: P4-F1, IN-1, R-8, FR-1–FR-5, S3-3 umgesetzt, S3-4, OUT-1; Review 14 Teil 8: FR-6–FR-9, FR-B1–FR-B4)
 basis: Reviews 00–09, Entscheidungsdateien in docs/coverage/entscheide/, Plan Teil C
 status: lebendes Register · der Wächter PO_DECISIONS_REGISTERED hält es vollständig
 ---
@@ -37,7 +37,8 @@ Pakete:  1 Anhänge ✅ · 2 Omnibus · 3 Befunde + Matrix · 4 PO-Runde · 5 Be
 | BK-F3 | Ein Pflichtenraum für alle drei Fälle (Profil-Mechanismus): Fallregister, `faelle` je Zeile, Abweichungen je Fall, Wächter `CASE_SCOPE_DECLARED`; löst FR-7 b ab, FR-B2 geht darin auf (Entwurf Review 18, M1–M4) | `17-bank-pruefliste.md` | entschieden 13.10.2026 b | 4 |
 | BK-F4 | Leitfall ist eine private Geschäftsbank mit zugekauftem Scoring (K1, nur Betreiber); Art. 49 Abs. 3, Anhang VIII Abschn. C bleiben `out`, Schalter S3-1 für die Bank `false` | `17-bank-pruefliste.md` | umgesetzt 13.10.2026 a | – |
 | BK-F5 | Rechtsquellen der Bank (DSGVO-Einordnung, CRD Art. 74/KWG § 25a, Verbraucherkredit, BDSG § 37a, DORA) erst im Sektorstapel nach dem Agenten; bis dahin bleiben Art. 86 Abs. 3 und Art. 26 Abs. 5 UAbs. 2 HYPOTHESE, der Agent meldet „Verweisnorm nicht geprüft“ | `17-bank-pruefliste.md` | entschieden 13.10.2026 c | T-13 |
-| BK-F6 | Zeitpunkt für M1 (Fallregister, Schema, Wächter) und M2 (Prüfliste Bank): jetzt vor S3-4 G2 oder mit Paket 5 | `18-profil-mechanismus.md` | offen | 4 |
+| BK-F6 | Zeitpunkt Profil-Mechanismus: M1 (Fallregister, Schema, Wächter) und M2 (Prüfliste Bank) jetzt, vor S3-4 G2 – M1 gebaut 13.10.2026, M2 offen | `18-profil-mechanismus.md` | entschieden 13.10.2026 a | 4 |
+| R-10 | Severity `CASE_SCOPE_DECLARED` (MEDIUM vorgeschlagen, oder HIGH) | `18-profil-mechanismus.md` | offen | 4 |
 
 # Teil 2 – Entschieden, Umsetzung steht aus
 
