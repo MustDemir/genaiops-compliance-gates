@@ -102,10 +102,11 @@ Manifest eines Laufs:  referenzfall: bank   ──►  Gates und Agent lesen nur
 |---|---|---|
 | BK-B15 | Pflichttext von Anhang III Nr. 5 lit. b brach nach „mit Ausnahme …“ ab (Nachtlauf); als `out`-Zeile prüfte ihn kein Wächter, mit `in` wurde `IN_UNITS_OWN_DUTY_TEXT` rot. Text vervollständigt (Entscheidungsdatei, `bestaetigt: false`) | umgesetzt; Bestätigung BK-F8 |
 | BK-B16 | Art. 5 Abs. 1 lit. d, Art. 13 Abs. 3 lit. e, Art. 14 Abs. 4 lit. b gelten für bank und netz, ihre `befund_grund` begründen mit Redispatch. Die Prüfliste M2 nannte dafür BK-B13 – falsch (BK-B13 ist Art. 5 Abs. 1 lit. c); Beleg der Gruppe G verweist jetzt auf BK-B16 | Paket 4 (mit S3-4 G2) |
+| BK-B17 | Gegenlesen für BK-F8: 7 der 16 Pflichttexte sagen mehr oder weniger als der Wortlaut – Art. 27 Abs. 2 erfindet „wesentlich“, Art. 86 Abs. 1 fehlt der Arm „rechtliche Auswirkungen“, Art. 26 Abs. 5 UAbs. 2 Satz 1 und Omnibus Art. 27 Abs. 4 n.F. fehlt die Bedingung; dazu Art. 27 Abs. 1, lit. c, Art. 86 Abs. 2. `IN_UNITS_OWN_DUTY_TEXT` erkennt Abbruch und Sammeltext, nicht inhaltliche Abweichung | BK-F8 (Paket 4) |
 
 | # | Frage | Optionen |
 |---|---|---|
-| BK-F8 | Pflichttexte der 16 Zeilen, die M2 für die Bank `in` gesetzt hat (Anhang III Nr. 5, Nr. 5 lit. b, Art. 27 Abs. 1–3 mit lit. a–f, Omnibus Art. 27 Abs. 4 n.F., Art. 86 Abs. 1–3, Art. 26 Abs. 5 UAbs. 2 Satz 1) – Nachtlauf-Texte bzw. BK-B15, bisher ungeprüft (wie P4-F2) | a) **bestätigt, wie sie stehen** (Prüfliste im Project) · b) mit Korrekturen je Zeile |
+| BK-F8 | Pflichttexte der 16 Zeilen, die M2 für die Bank `in` gesetzt hat (Anhang III Nr. 5, Nr. 5 lit. b, Art. 27 Abs. 1–3 mit lit. a–f, Omnibus Art. 27 Abs. 4 n.F., Art. 86 Abs. 1–3, Art. 26 Abs. 5 UAbs. 2 Satz 1) – Nachtlauf-Texte bzw. BK-B15, bisher ungeprüft (wie P4-F2); Prüfliste im Project `claude/pruefliste-bk-f8-pflichttexte.md` | a) **9 wie sie stehen, 7 nach Vorschlag neu** (BK-B17) · b) alle 16 wie sie stehen · c) je Zeile eigene Korrektur |
 
 # Ehrlich zur Methode
 

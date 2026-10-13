@@ -1,6 +1,6 @@
 ---
 titel: Entscheidungsregister – was der PO noch entscheiden muss und welche Schritte ausstehen
-stand: 2026-10-13 (Review 18: Profil-Mechanismus, BK-F3 b, BK-F4 a, BK-F5 c, BK-F6 a, M1 gebaut, M2 umgesetzt (BK-F7 a), R-10 HIGH, BK-B15 umgesetzt, BK-B16 und BK-F8 offen; Review 17: Bank-Prüfliste, BK-B6–B14, PUSH-9; davor Branch domain_bank: Leitfall Bank, Review 16, BK-B1–B5, BK-F1 a umgesetzt, BK-F2 offen, S34-F1 entschieden, PUSH-8; davor Review 15: S3-4 G1 und G4 geprüft, S34-B1–B6, S34-F1–F3, FR-B1 umgesetzt, PUSH-7; davor nach Paket 3b, P3-F5 und Review 12 Evidence Store; T-16.1 gebaut und abgenommen: ES-1, ES-2, ES-F3 a; P4-B1 umgesetzt; PO-Runde Teil 1: Q1, Q11, S3-1, S3-2, A-F1, R-1, R-7, P3-B1, A-W12; Teil 2 06.10.2026: P4-F1, IN-1, R-8, FR-1–FR-5, S3-3 umgesetzt, S3-4, OUT-1; Review 14 Teil 8: FR-6–FR-9, FR-B1–FR-B4)
+stand: 2026-10-13 (Review 18: Profil-Mechanismus, BK-F3 b, BK-F4 a, BK-F5 c, BK-F6 a, M1 gebaut, M2 umgesetzt (BK-F7 a), R-10 HIGH, BK-B15 umgesetzt, BK-B16, BK-B17 und BK-F8 offen, PUSH-10; Review 17: Bank-Prüfliste, BK-B6–B14, PUSH-9; davor Branch domain_bank: Leitfall Bank, Review 16, BK-B1–B5, BK-F1 a umgesetzt, BK-F2 offen, S34-F1 entschieden, PUSH-8; davor Review 15: S3-4 G1 und G4 geprüft, S34-B1–B6, S34-F1–F3, FR-B1 umgesetzt, PUSH-7; davor nach Paket 3b, P3-F5 und Review 12 Evidence Store; T-16.1 gebaut und abgenommen: ES-1, ES-2, ES-F3 a; P4-B1 umgesetzt; PO-Runde Teil 1: Q1, Q11, S3-1, S3-2, A-F1, R-1, R-7, P3-B1, A-W12; Teil 2 06.10.2026: P4-F1, IN-1, R-8, FR-1–FR-5, S3-3 umgesetzt, S3-4, OUT-1; Review 14 Teil 8: FR-6–FR-9, FR-B1–FR-B4)
 basis: Reviews 00–09, Entscheidungsdateien in docs/coverage/entscheide/, Plan Teil C
 status: lebendes Register · der Wächter PO_DECISIONS_REGISTERED hält es vollständig
 ---
@@ -40,7 +40,7 @@ Pakete:  1 Anhänge ✅ · 2 Omnibus · 3 Befunde + Matrix · 4 PO-Runde · 5 Be
 | BK-F6 | Zeitpunkt Profil-Mechanismus: M1 und M2 jetzt, vor S3-4 G2 – beide umgesetzt 13.10.2026 | `18-profil-mechanismus.md` | umgesetzt 13.10.2026 a | – |
 | R-10 | Severity `CASE_SCOPE_DECLARED` = HIGH (vorgeschlagen MEDIUM; ein Bank-Urteil auf Netz-Zeilen ist ein falsches Urteil) | `18-profil-mechanismus.md` | umgesetzt 13.10.2026 HIGH | – |
 | BK-F7 | Prüfliste M2 Bank (Gruppen A–J): Entscheidungsdatei `2026-10-13_m2-bank.yaml`, 29 Zeilen; `bank: geprueft`; in bank 134 · netz 125 · klinik 105 (offen) | `18-profil-mechanismus.md` | umgesetzt 13.10.2026 a | – |
-| BK-F8 | Pflichttexte der 16 Zeilen, die M2 für die Bank `in` gesetzt hat, gegen den Wortlaut bestätigen (wie P4-F2; Anhang III Nr. 5 lit. b neu nach BK-B15) | `18-profil-mechanismus.md` | offen | 4 |
+| BK-F8 | Pflichttexte der 16 Zeilen, die M2 für die Bank `in` gesetzt hat, gegen den Wortlaut bestätigen (wie P4-F2; Anhang III Nr. 5 lit. b neu nach BK-B15); Vorschlag: 9 wie sie stehen, 7 neu (BK-B17) | `18-profil-mechanismus.md` | offen | 4 |
 
 # Teil 2 – Entschieden, Umsetzung steht aus
 
@@ -104,6 +104,7 @@ Pakete:  1 Anhänge ✅ · 2 Omnibus · 3 Befunde + Matrix · 4 PO-Runde · 5 Be
 | BK-B14 | DORA Art. 28–30 (IKT-Drittdienstleister) und Art. 25 Abs. 2 n.F. treffen dieselbe Beschaffung; ein Nachweis könnte beides tragen (HYPOTHESE) | `17-bank-pruefliste.md` | offen | 5 |
 | BK-B15 | Pflichttext Anhang III Nr. 5 lit. b brach ab („mit Ausnahme …“); mit `scope: in` griff `IN_UNITS_OWN_DUTY_TEXT` – Text vervollständigt, Bestätigung BK-F8 | `18-profil-mechanismus.md` | umgesetzt 13.10.2026 | – |
 | BK-B16 | Art. 5 Abs. 1 lit. d, Art. 13 Abs. 3 lit. e, Art. 14 Abs. 4 lit. b gelten für bank und netz, `befund_grund` begründet mit Redispatch – fallneutral fassen (Prüfliste M2 nannte irrtümlich BK-B13) | `18-profil-mechanismus.md` | offen | 4 |
+| BK-B17 | 7 der 16 neuen Bank-Pflichttexte weichen vom Wortlaut ab (Art. 27 Abs. 2 „wesentlich“, Art. 86 Abs. 1 ohne Arm „rechtliche Auswirkungen“, Art. 26 Abs. 5 UAbs. 2 Satz 1 und Omnibus Art. 27 Abs. 4 n.F. ohne Bedingung, dazu Art. 27 Abs. 1, lit. c, Art. 86 Abs. 2); kein Wächter erkennt inhaltliche Abweichung | `18-profil-mechanismus.md` | offen | 4 |
 
 # Teil 4 – Erledigt
 
@@ -154,6 +155,7 @@ Pakete:  1 Anhänge ✅ · 2 Omnibus · 3 Befunde + Matrix · 4 PO-Runde · 5 Be
 | PUSH-7 | `review-2c` 6787b60..5ac2628 nach origin (FR-6 bis FR-9, Review 14 Teil 8): auf dem Mac mit dem SSH-Schlüssel des PO neu signiert, pre-push `make verify` grün, der Commit auf GitHub „Verified“ | `entscheidungsregister.md` | umgesetzt 06.10.2026 | – |
 | PUSH-8 | `review-2c` 5ac2628..06a0cbd nach origin (Review 15, PUSH-7): auf dem Mac mit dem SSH-Schlüssel des PO neu signiert, pre-push `make verify` grün, der Commit auf GitHub „Verified“; danach `domain_bank` von dort abgezweigt | `entscheidungsregister.md` | umgesetzt 13.10.2026 | – |
 | PUSH-9 | `domain_bank` neu nach origin (06a0cbd..c4a1ce9: Leitfall Bank, README, BK-F1 a): auf dem Mac mit dem SSH-Schlüssel des PO neu signiert, pre-push `make verify` grün, beide Commits auf GitHub „Verified“ | `entscheidungsregister.md` | umgesetzt 13.10.2026 | – |
+| PUSH-10 | `domain_bank` c4a1ce9..4c26b2c nach origin (Review 17, BK-F3 b/F4 a/F5 c, M1, M2 mit BK-F7 a und R-10): auf dem Mac mit dem SSH-Schlüssel des PO neu signiert (Bündel über einen freigegebenen Ordner statt base64), pre-push `make verify` grün (51 Checks), alle fünf Commits auf GitHub „Verified“ | `entscheidungsregister.md` | umgesetzt 13.10.2026 | – |
 | BK-F1 | Ausschluss „nicht der Finanzsektor mit DORA“ (D-06, HANDBUCH 1.3, bestätigt mit FR-6) aufgehoben – Bank ist Leitfall; HANDBUCH, Leitsatz (00), AGENTS.md 2 und HISTORIE D-06/D-08 nachgezogen | `16-leitfall-bank.md` | umgesetzt 13.10.2026 a | – |
 | S34-B4 | HANDBUCH 4.4: Redispatch „eindeutig Sicherheitsbauteil“ (widerspricht HYPOTHESE und 1.4); geplanter Negativfall prädiktive Instandhaltung (D-22) ist nach Rn. 184 lit. b Sicherheitsfunktion – HANDBUCH mit S34-F1 nachziehen | `15-s3-4-hypothesen.md` | umgesetzt 13.10.2026 | – |
 | BK-B4 | HANDBUCH 1.1, 1.3, 1.4, 4.4, Leitsatz (00) und AGENTS.md Abschn. 2 nennen den Netzbetrieb als Leitfall und schließen den Finanzsektor aus – nach BK-F1 nachziehen | `16-leitfall-bank.md` | umgesetzt 13.10.2026 | – |
