@@ -1,6 +1,6 @@
 ---
 titel: Entscheidungsregister – was der PO noch entscheiden muss und welche Schritte ausstehen
-stand: 2026-10-13 (Branch domain_bank: Leitfall Bank, Review 16, BK-B1–B5, BK-F1 a umgesetzt, BK-F2 offen, S34-F1 entschieden, PUSH-8; davor Review 15: S3-4 G1 und G4 geprüft, S34-B1–B6, S34-F1–F3, FR-B1 umgesetzt, PUSH-7; davor nach Paket 3b, P3-F5 und Review 12 Evidence Store; T-16.1 gebaut und abgenommen: ES-1, ES-2, ES-F3 a; P4-B1 umgesetzt; PO-Runde Teil 1: Q1, Q11, S3-1, S3-2, A-F1, R-1, R-7, P3-B1, A-W12; Teil 2 06.10.2026: P4-F1, IN-1, R-8, FR-1–FR-5, S3-3 umgesetzt, S3-4, OUT-1; Review 14 Teil 8: FR-6–FR-9, FR-B1–FR-B4)
+stand: 2026-10-13 (Review 17: Bank-Prüfliste, BK-B6–B14, BK-F3–F5, PUSH-9; davor Branch domain_bank: Leitfall Bank, Review 16, BK-B1–B5, BK-F1 a umgesetzt, BK-F2 offen, S34-F1 entschieden, PUSH-8; davor Review 15: S3-4 G1 und G4 geprüft, S34-B1–B6, S34-F1–F3, FR-B1 umgesetzt, PUSH-7; davor nach Paket 3b, P3-F5 und Review 12 Evidence Store; T-16.1 gebaut und abgenommen: ES-1, ES-2, ES-F3 a; P4-B1 umgesetzt; PO-Runde Teil 1: Q1, Q11, S3-1, S3-2, A-F1, R-1, R-7, P3-B1, A-W12; Teil 2 06.10.2026: P4-F1, IN-1, R-8, FR-1–FR-5, S3-3 umgesetzt, S3-4, OUT-1; Review 14 Teil 8: FR-6–FR-9, FR-B1–FR-B4)
 basis: Reviews 00–09, Entscheidungsdateien in docs/coverage/entscheide/, Plan Teil C
 status: lebendes Register · der Wächter PO_DECISIONS_REGISTERED hält es vollständig
 ---
@@ -34,6 +34,9 @@ Pakete:  1 Anhänge ✅ · 2 Omnibus · 3 Befunde + Matrix · 4 PO-Runde · 5 Be
 | S34-F2 | Status „Betreiber kritischer Anlagen“ (CER / KRITIS-DachG) als Bedingung für Anhang III Nr. 2 im Manifest – Einzelschalter wie FR-1 a oder erst nach den endgültigen Leitlinien | `15-s3-4-hypothesen.md` | offen | 4 |
 | S34-F3 | Regel VERIFIZIERT (S3-3) erweitern: Begriff, den eine Legaldefinition wörtlich auf den Betreiber erstreckt, gilt als Wortlaut (trifft Art. 79 Abs. 2, G4) | `15-s3-4-hypothesen.md` | offen | 4 |
 | BK-F2 | Welche Anwendung ist Fall 3 (Netzbetrieb, Anhang III Nr. 2): Zustandsüberwachung der Betriebsmittel, Anomalieerkennung oder Redispatch als Grenzfall – Entscheid mit FR-2 | `16-leitfall-bank.md` | offen | 6 |
+| BK-F3 | Mechanik für drei Fälle: `scope` gilt dem Leitfall Bank, Zeilen nur für Fall 2/3 gehen `out` mit Schalter-Vermerk (wie FR-7 b) – oder `scope` für alle drei Fälle zugleich | `17-bank-pruefliste.md` | offen | 4 |
+| BK-F4 | Welche Bank ist der Leitfall: private Geschäftsbank mit zugekauftem Scoring (K1), öffentlich-rechtliche Bank (Art. 27, 49 Abs. 3, 111 Abs. 2 Satz 2 n.F.) oder Eigenentwicklung (K2, Anbieter) | `17-bank-pruefliste.md` | offen | 4 |
+| BK-F5 | Rechtsquellen für die Bank: jetzt begrenzt auf die Verweisnormen (DSGVO Art. 22, 35, 13–15; CRD Art. 74/KWG § 25a; Verbraucherkredit BGB/KWG § 18a; BDSG § 37a), alles erst im Sektorstapel, oder jetzt vollständig inkl. DORA | `17-bank-pruefliste.md` | offen | 4 |
 
 # Teil 2 – Entschieden, Umsetzung steht aus
 
@@ -86,6 +89,15 @@ Pakete:  1 Anhänge ✅ · 2 Omnibus · 3 Befunde + Matrix · 4 PO-Runde · 5 Be
 | BK-B2 | G-PRE-01 prüft inhaltlich nur den Nr.-2-Pfad; für Anhang III Nr. 5 lit. b fehlen Checks (natürliche Person, keine Betrugserkennung, wesentliche Dienstleistung, Profiling) | `16-leitfall-bank.md` | offen | 5 |
 | BK-B3 | `domain_netzbetrieb` hat 4 Commits, die `review-2c` und `domain_bank` fehlen (PR #6 „verify-reliable“, 2aec8a2) | `16-leitfall-bank.md` | offen | 8 |
 | BK-B5 | PR-1 nennt `review-2c` als Quelle des PR; Arbeitslinie ist jetzt `domain_bank` | `16-leitfall-bank.md` | offen | 8 |
+| BK-B6 | Art. 86 gilt nur, soweit das Erläuterungsrecht nicht anderweitig im Unionsrecht festgelegt ist (Abs. 3) – für Scoring DSGVO Art. 22 Abs. 3, Art. 15 Abs. 1 lit. h, Verbraucherkredit-RL 2023/2225; README nennt Art. 86 ohne Vorbehalt | `17-bank-pruefliste.md` | offen | 4 |
+| BK-B7 | Art. 26 Abs. 5 UAbs. 2 erklärt für Finanzinstitute nur die Überwachungspflicht (UAbs. 1 Satz 1) für erfüllt; Meldepflichten bleiben – G-OPS-03/R010 brauchen einen zweiten Nachweisweg (Governance-Recht) | `17-bank-pruefliste.md` | offen | 5 |
+| BK-B8 | Art. 26 Abs. 6 ist eine Zeile mit zwei Unterabsätzen; UAbs. 2 (Finanzinstitute) ohne eigene Einheit, „gedeckt“ gilt nur für UAbs. 1 | `17-bank-pruefliste.md` | offen | 4 |
+| BK-B9 | G-OPS-02 begründet die Reduktion nach Art. 73 Abs. 9 mit Nr. 2 unter CER/NIS2; Abs. 9 knüpft an gleichwertige Meldepflichten des Anbieters – ob DORA dazu zählt, offen; Kernarm Art. 3 Nr. 49 lit. c | `17-bank-pruefliste.md` | offen | 5 |
+| BK-B10 | DSGVO-Pflichtenraum vollständig uneingeordnet (780 Zeilen ohne `scope`); für die Bank verweist der AI Act direkt hinein (Art. 26 Abs. 9, Art. 27 Abs. 4 n.F., Art. 86 Abs. 3) | `17-bank-pruefliste.md` | offen | 4 |
+| BK-B11 | Es fehlen die Wortlaute, auf die der AI Act für die Bank verweist (CRD Art. 74/KWG § 25a, Verbraucherkredit BGB/KWG § 18a, BDSG § 37a), dazu DORA, AGG, EBA/GL/2020/06 | `17-bank-pruefliste.md` | offen | 4 |
+| BK-B12 | NIS2/BSIG, KRITIS-DachG, EnWG treffen die Bank weitgehend nicht (DORA sektorspezifisch, NIS2 Art. 4 Abs. 1, ErwG 28); Anker-Hypothese R001/R003 (NIS2/BSIG) fällt für die Bank, Kandidat DORA Kap. II | `17-bank-pruefliste.md` | offen | 5 |
+| BK-B13 | Art. 5 Abs. 1 lit. c (Sozialbewertung) wird für Scoring relevant: Daten aus fremden sozialen Kontexten als Abgrenzungsrisiko | `17-bank-pruefliste.md` | offen | 5 |
+| BK-B14 | DORA Art. 28–30 (IKT-Drittdienstleister) und Art. 25 Abs. 2 n.F. treffen dieselbe Beschaffung; ein Nachweis könnte beides tragen (HYPOTHESE) | `17-bank-pruefliste.md` | offen | 5 |
 
 # Teil 4 – Erledigt
 
@@ -135,6 +147,7 @@ Pakete:  1 Anhänge ✅ · 2 Omnibus · 3 Befunde + Matrix · 4 PO-Runde · 5 Be
 | PUSH-6 | `review-2c` 0c35968..6787b60 nach origin (S3-3, OUT-1, P4-F2): auf dem Mac mit dem SSH-Schlüssel des PO neu signiert, pre-push `make verify` grün, alle vier Commits auf GitHub „Verified“ | `entscheidungsregister.md` | umgesetzt 06.10.2026 | – |
 | PUSH-7 | `review-2c` 6787b60..5ac2628 nach origin (FR-6 bis FR-9, Review 14 Teil 8): auf dem Mac mit dem SSH-Schlüssel des PO neu signiert, pre-push `make verify` grün, der Commit auf GitHub „Verified“ | `entscheidungsregister.md` | umgesetzt 06.10.2026 | – |
 | PUSH-8 | `review-2c` 5ac2628..06a0cbd nach origin (Review 15, PUSH-7): auf dem Mac mit dem SSH-Schlüssel des PO neu signiert, pre-push `make verify` grün, der Commit auf GitHub „Verified“; danach `domain_bank` von dort abgezweigt | `entscheidungsregister.md` | umgesetzt 13.10.2026 | – |
+| PUSH-9 | `domain_bank` neu nach origin (06a0cbd..c4a1ce9: Leitfall Bank, README, BK-F1 a): auf dem Mac mit dem SSH-Schlüssel des PO neu signiert, pre-push `make verify` grün, beide Commits auf GitHub „Verified“ | `entscheidungsregister.md` | umgesetzt 13.10.2026 | – |
 | BK-F1 | Ausschluss „nicht der Finanzsektor mit DORA“ (D-06, HANDBUCH 1.3, bestätigt mit FR-6) aufgehoben – Bank ist Leitfall; HANDBUCH, Leitsatz (00), AGENTS.md 2 und HISTORIE D-06/D-08 nachgezogen | `16-leitfall-bank.md` | umgesetzt 13.10.2026 a | – |
 | S34-B4 | HANDBUCH 4.4: Redispatch „eindeutig Sicherheitsbauteil“ (widerspricht HYPOTHESE und 1.4); geplanter Negativfall prädiktive Instandhaltung (D-22) ist nach Rn. 184 lit. b Sicherheitsfunktion – HANDBUCH mit S34-F1 nachziehen | `15-s3-4-hypothesen.md` | umgesetzt 13.10.2026 | – |
 | BK-B4 | HANDBUCH 1.1, 1.3, 1.4, 4.4, Leitsatz (00) und AGENTS.md Abschn. 2 nennen den Netzbetrieb als Leitfall und schließen den Finanzsektor aus – nach BK-F1 nachziehen | `16-leitfall-bank.md` | umgesetzt 13.10.2026 | – |
