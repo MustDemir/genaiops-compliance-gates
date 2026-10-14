@@ -1,0 +1,123 @@
+# PO-Entscheid vom 14.10.2026 - BK-F8 a: Pflichttexte der 16 Zeilen, die M2 fuer die Bank `in` gesetzt hat
+#
+# Nachweis: docs/coverage/review/18-profil-mechanismus.md (BK-F8, BK-B17), Pruefliste
+# claude/pruefliste-bk-f8-pflichttexte.md (Project): je Zeile Wortlaut gegen Pflichttext.
+# Wie P4-F2: bestaetigt ist der Text, nicht Einordnung und Befund - die hat BK-F7 a entschieden.
+# Deshalb 'bestaetigt: false'. PO_DECISIONS_APPLIED haelt die Texte von hier an fest.
+
+entschieden: '2026-10-14'
+eintraege:
+
+  # --- 9 Texte bestaetigt, wie sie stehen (Anhang III Nr. 5 lit. b aus BK-B15) ---------------------
+  - beleg: 'BK-F8 a (Review 18) - Pflichttext bestaetigt, wie er steht'
+    raum: aiact
+    ids: ['Anhang III Nr. 5']
+    setze:
+      pflicht: 'Hochrisiko-Bereich nach Art. 6 Abs. 2 (Anhang III Nr. 5, grundlegende private und oeffentliche Dienste): Zugänglichkeit und Inanspruchnahme grundlegender privater und grundlegender öffentlicher Dienste und Leistungen.'
+    bestaetigt: false
+
+  - beleg: 'BK-F8 a (Review 18) - Pflichttext bestaetigt, wie er steht'
+    raum: aiact
+    ids: ['Anhang III Nr. 5 lit. b']
+    setze:
+      pflicht: 'Hochrisiko-Bereich nach Art. 6 Abs. 2 (Anhang III Nr. 5 lit. b, Kreditwuerdigkeit und Bonitaet): KI-Systeme, die bestimmungsgemaess fuer die Kreditwuerdigkeitspruefung und Bonitaetsbewertung natuerlicher Personen verwendet werden sollen, ausgenommen KI-Systeme, die zur Aufdeckung von Finanzbetrug verwendet werden.'
+    bestaetigt: false
+
+  - beleg: 'BK-F8 a (Review 18) - Pflichttext bestaetigt, wie er steht'
+    raum: aiact
+    ids: ['Art. 27 Abs. 1 lit. a']
+    setze:
+      pflicht: 'Element 1 der FRIA: Beschreibung der Verfahren, in denen das System zweckbestimmungsgemaess verwendet wird.'
+    bestaetigt: false
+
+  - beleg: 'BK-F8 a (Review 18) - Pflichttext bestaetigt, wie er steht'
+    raum: aiact
+    ids: ['Art. 27 Abs. 1 lit. b']
+    setze:
+      pflicht: 'Element 2 der FRIA: Beschreibung von Zeitraum und Haeufigkeit der vorgesehenen Verwendung.'
+    bestaetigt: false
+
+  - beleg: 'BK-F8 a (Review 18) - Pflichttext bestaetigt, wie er steht'
+    raum: aiact
+    ids: ['Art. 27 Abs. 1 lit. d']
+    setze:
+      pflicht: 'Element 4 der FRIA: spezifische Schadensrisiken fuer die unter lit. c ermittelten Personen(-gruppen), unter Beruecksichtigung der vom Anbieter nach Art. 13 bereitgestellten Informationen.'
+    bestaetigt: false
+
+  - beleg: 'BK-F8 a (Review 18) - Pflichttext bestaetigt, wie er steht'
+    raum: aiact
+    ids: ['Art. 27 Abs. 1 lit. e']
+    setze:
+      pflicht: 'Element 5 der FRIA: Beschreibung der Umsetzung menschlicher Aufsichtsmassnahmen entsprechend der Betriebsanleitung.'
+    bestaetigt: false
+
+  - beleg: 'BK-F8 a (Review 18) - Pflichttext bestaetigt, wie er steht'
+    raum: aiact
+    ids: ['Art. 27 Abs. 1 lit. f']
+    setze:
+      pflicht: 'Element 6 der FRIA: Massnahmen bei Risikoeintritt, einschliesslich interner Governance-Regelungen und Beschwerdemechanismen.'
+    bestaetigt: false
+
+  - beleg: 'BK-F8 a (Review 18) - Pflichttext bestaetigt, wie er steht'
+    raum: aiact
+    ids: ['Art. 27 Abs. 3']
+    setze:
+      pflicht: 'Nach Abschluss der FRIA teilt der Betreiber der Marktueberwachungsbehoerde die Ergebnisse mittels des Musters aus Abs. 5 mit; im Fall des Art. 46 Abs. 1 kann von dieser Mitteilungspflicht befreit werden.'
+    bestaetigt: false
+
+  - beleg: 'BK-F8 a (Review 18) - Pflichttext bestaetigt, wie er steht'
+    raum: aiact
+    ids: ['Art. 86 Abs. 3']
+    setze:
+      pflicht: 'Art. 86 gilt nur, soweit das Recht aus Abs. 1 nicht bereits anderweitig im Unionsrecht festgelegt ist.'
+    bestaetigt: false
+
+  # --- 7 Texte neu nach dem Wortlaut (BK-B17) --------------------------------------------------------
+  - beleg: 'BK-F8 a (Review 18) - Pflichttext neu nach dem Wortlaut (BK-B17)'
+    raum: aiact
+    ids: ['Art. 27 Abs. 1']
+    setze:
+      pflicht: 'Vor der Inbetriebnahme eines Hochrisiko-KI-Systems nach Art. 6 Abs. 2 (ausser Systemen im Bereich Anhang III Nr. 2) fuehren Betreiber, die Einrichtungen des oeffentlichen Rechts oder private Einrichtungen sind, die oeffentliche Dienste erbringen, sowie Betreiber von Hochrisiko-KI-Systemen nach Anhang III Nr. 5 lit. b und c eine Abschaetzung der Auswirkungen auf die Grundrechte (FRIA) mit den Elementen nach lit. a-f durch.'
+    bestaetigt: false
+
+  - beleg: 'BK-F8 a (Review 18) - Pflichttext neu nach dem Wortlaut (BK-B17)'
+    raum: aiact
+    ids: ['Art. 27 Abs. 1 lit. c']
+    setze:
+      pflicht: 'Element 3 der FRIA: Kategorien der natuerlichen Personen und Personengruppen, die von der Verwendung im spezifischen Kontext betroffen sein koennten.'
+    bestaetigt: false
+
+  - beleg: 'BK-F8 a (Review 18) - Pflichttext neu nach dem Wortlaut (BK-B17)'
+    raum: aiact
+    ids: ['Art. 27 Abs. 2']
+    setze:
+      pflicht: 'Die FRIA-Pflicht gilt fuer die erste Verwendung; in aehnlichen Faellen kann sich der Betreiber auf zuvor durchgefuehrte FRIA oder vorhandene Folgenabschaetzungen des Anbieters stuetzen; gelangt er waehrend der Verwendung zur Auffassung, dass sich ein Element nach Abs. 1 geaendert hat oder nicht mehr aktuell ist, aktualisiert er die Informationen.'
+    bestaetigt: false
+
+  - beleg: 'BK-F8 a (Review 18) - Pflichttext neu nach dem Wortlaut (BK-B17)'
+    raum: aiact
+    ids: ['Art. 86 Abs. 1']
+    setze:
+      pflicht: 'Personen, die von einer Entscheidung des Betreibers auf Grundlage der Ausgaben eines Hochrisiko-KI-Systems nach Anhang III (ausser Nr. 2) betroffen sind, die rechtliche Auswirkungen hat oder sie in aehnlicher Art erheblich so beeintraechtigt, dass nach ihrer Ansicht ihre Gesundheit, Sicherheit oder Grundrechte beeintraechtigt sind, haben das Recht, vom Betreiber eine klare und aussagekraeftige Erlaeuterung zur Rolle des KI-Systems im Entscheidungsprozess und zu den wichtigsten Elementen der Entscheidung zu erhalten.'
+    bestaetigt: false
+
+  - beleg: 'BK-F8 a (Review 18) - Pflichttext neu nach dem Wortlaut (BK-B17)'
+    raum: aiact
+    ids: ['Art. 86 Abs. 2']
+    setze:
+      pflicht: 'Abs. 1 gilt nicht fuer die Verwendung von KI-Systemen, fuer die sich Ausnahmen von oder Beschraenkungen der Erlaeuterungspflicht aus dem Unionsrecht oder aus nationalem Recht im Einklang mit dem Unionsrecht ergeben.'
+    bestaetigt: false
+
+  - beleg: 'BK-F8 a (Review 18) - Pflichttext neu nach dem Wortlaut (BK-B17)'
+    raum: aiact
+    ids: ['Art. 26 Abs. 5 UAbs. 2 Satz 1']
+    setze:
+      pflicht: 'Fuer Betreiber, die Finanzinstitute sind und nach dem Unionsrecht ueber Finanzdienstleistungen Anforderungen an ihre interne Unternehmensfuehrung unterliegen, gilt die Ueberwachungspflicht nach UAbs. 1 als erfuellt, wenn sie die Vorschriften ueber Regelungen, Verfahren oder Mechanismen der internen Unternehmensfuehrung nach dem einschlaegigen Finanzdienstleistungsrecht einhalten.'
+    bestaetigt: false
+
+  - beleg: 'BK-F8 a (Review 18) - Pflichttext neu nach dem Wortlaut (BK-B17)'
+    raum: omnibus
+    ids: ['Art. 27 Abs. 4 n.F.']
+    setze:
+      pflicht: 'Wird eine Pflicht aus Art. 27 bereits durch eine Datenschutz-Folgenabschaetzung nach DSGVO Art. 35 oder RL (EU) 2016/680 Art. 27 erfuellt, kann der Betreiber in der FRIA auf die einschlaegigen Abschnitte der DSFA verweisen oder deren einschlaegige Teile aufnehmen.'
+    bestaetigt: false

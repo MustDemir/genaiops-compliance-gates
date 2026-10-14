@@ -2716,8 +2716,9 @@ einheiten:
   ziel: Art. 27 Abs. 4
   aenderung: neu_gefasst
   adressat: betreiber
-  pflicht: Der Betreiber kann in der FRIA auf die Datenschutz-Folgenabschaetzung verweisen oder Teile
-    daraus aufnehmen.
+  pflicht: Wird eine Pflicht aus Art. 27 bereits durch eine Datenschutz-Folgenabschaetzung nach DSGVO
+    Art. 35 oder RL (EU) 2016/680 Art. 27 erfuellt, kann der Betreiber in der FRIA auf die einschlaegigen
+    Abschnitte der DSFA verweisen oder deren einschlaegige Teile aufnehmen.
   scope: in
   scope_grund: 'Fallabhaengig (BK-F7 a): fuer die Bank in - Abs. 4 n.F. gehoert zur FRIA nach Art. 27
     Abs. 1 (Anhang III Nr. 5 lit. b); fuer netz Bereichsausnahme (Anhang III Nr. 2).'
@@ -2735,6 +2736,7 @@ einheiten:
     out bestaetigt
   - '2026-10-13 · BK-F7 a (Review 18, M2 Gruppe C) - Art. 27 Abs. 4 n.F.: Verweis auf die DSFA in der
     FRIA.'
+  - 2026-10-14 · BK-F8 a (Review 18) - Pflichttext neu nach dem Wortlaut (BK-B17)
   faelle:
   - bank
 - uid: Omnibus Art. 1 Nr. 13 lit. b@97299

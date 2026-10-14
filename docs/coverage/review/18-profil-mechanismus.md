@@ -2,7 +2,7 @@
 titel: Drei Fälle in einem Pflichtenraum – Entwurf des Profil-Mechanismus (BK-F3 b)
 stand: 2026-10-13
 basis: Branch domain_bank = 73e2673 · Review 17 (Bank-Prüfliste) · Entscheide BK-F3 b, BK-F4 a, BK-F5 c (PO, 13.10.2026)
-status: BK-F6 a, BK-F7 a, R-10 HIGH (13.10.2026) · M1 gebaut · M2 umgesetzt · BK-F8 offen · M3 (Klinik) und M4 offen
+status: BK-F6 a, BK-F7 a, R-10 HIGH (13.10.2026), BK-F8 a (14.10.2026) · M1 gebaut · M2 umgesetzt · M3 (Klinik) und M4 offen
 ---
 
 # Entscheide vom 13.10.2026
@@ -108,7 +108,9 @@ Manifest eines Laufs:  referenzfall: bank   ──►  Gates und Agent lesen nur
 |---|---|---|
 | BK-F8 | Pflichttexte der 16 Zeilen, die M2 für die Bank `in` gesetzt hat (Anhang III Nr. 5, Nr. 5 lit. b, Art. 27 Abs. 1–3 mit lit. a–f, Omnibus Art. 27 Abs. 4 n.F., Art. 86 Abs. 1–3, Art. 26 Abs. 5 UAbs. 2 Satz 1) – Nachtlauf-Texte bzw. BK-B15, bisher ungeprüft (wie P4-F2); Prüfliste im Project `claude/pruefliste-bk-f8-pflichttexte.md` | a) **9 wie sie stehen, 7 nach Vorschlag neu** (BK-B17) · b) alle 16 wie sie stehen · c) je Zeile eigene Korrektur |
 
+**Entschieden 14.10.2026:** BK-F8 **a** – Entscheidungsdatei `docs/coverage/entscheide/2026-10-14_bk-f8.yaml`: 16 Zeilen, 7 Pflichttexte neu (Art. 27 Abs. 1, lit. c, Abs. 2, Art. 86 Abs. 1, 2, Art. 26 Abs. 5 UAbs. 2 Satz 1, Omnibus Art. 27 Abs. 4 n.F.), 9 bestätigt, wie sie stehen. Keine Zeile außerhalb der Datei geändert; `PO_DECISIONS_APPLIED` hält die Texte fest.
+
 # Ehrlich zur Methode
 
 - M1 und M2 sind gebaut. Was eine Zeile je Fall ist (`in`/`out`, Befund, Stufe), hat der PO für bank (BK-F7) und netz (heutige Entscheide) entschieden; klinik folgt mit M3.
-- Die Pflichttexte der neuen Bank-Zeilen hat M2 nicht geprüft (BK-F8).
+- Die Pflichttexte der neuen Bank-Zeilen hat M2 nicht geprüft; das hat BK-F8 nachgeholt (14.10.2026). Kein Wächter erkennt, ob ein Pflichttext inhaltlich vom Wortlaut abweicht – `PO_DECISIONS_APPLIED` hält nur fest, was der PO bestätigt hat.

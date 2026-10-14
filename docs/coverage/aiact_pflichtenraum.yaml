@@ -12900,8 +12900,10 @@ einheiten:
     Regelungen, Verfahren oder Mechanismen der internen Unternehmensführung gemäß einschlägigem Recht
     über Finanzdienstleistungen eingehalten werden.
   adressat: betreiber
-  pflicht: Fuer Betreiber, die Finanzinstitute sind, gilt die Ueberwachungspflicht als erfuellt, wenn
-    sie die Governance-Vorschriften des Finanzdienstleistungsrechts einhalten.
+  pflicht: Fuer Betreiber, die Finanzinstitute sind und nach dem Unionsrecht ueber Finanzdienstleistungen
+    Anforderungen an ihre interne Unternehmensfuehrung unterliegen, gilt die Ueberwachungspflicht nach
+    UAbs. 1 als erfuellt, wenn sie die Vorschriften ueber Regelungen, Verfahren oder Mechanismen der internen
+    Unternehmensfuehrung nach dem einschlaegigen Finanzdienstleistungsrecht einhalten.
   scope: in
   scope_grund: 'Fallabhaengig (BK-F7 a): fuer die Bank in - Adressat sind Betreiber, die Finanzinstitute
     sind; fuer netz und klinik out.'
@@ -12925,6 +12927,7 @@ einheiten:
   - 2026-09-30 · P3-F2 a (Review 10) - Pflichttext nach dem Neuschnitt bestaetigt
   - 2026-10-13 · BK-F7 a (Review 18, M2 Gruppe E) - Ueberwachungspflicht der Finanzinstitute ueber ihr
     Governance-Recht.
+  - 2026-10-14 · BK-F8 a (Review 18) - Pflichttext neu nach dem Wortlaut (BK-B17)
   faelle:
   - bank
 - id: Art. 26 Abs. 6
@@ -13256,9 +13259,11 @@ einheiten:
     eines solchen Systems auf die Grundrechte haben kann, durch. Zu diesem Zweck führen die Betreiber
     eine Abschätzung durch, die Folgendes umfasst:'
   adressat: betreiber
-  pflicht: Vor Erstinbetriebnahme eines Hochrisiko-KI-Systems (ausser Anhang-III-Nr.-2-Systemen) fuehren
-    Betreiber, die oeffentliche/oeffentliche-Dienste-Einrichtungen sind, sowie Betreiber von Anhang-III-Nr.-5-lit.-b/c-Systemen,
-    eine Grundrechte-Folgenabschaetzung (FRIA) mit den in lit. a-f genannten Elementen durch.
+  pflicht: Vor der Inbetriebnahme eines Hochrisiko-KI-Systems nach Art. 6 Abs. 2 (ausser Systemen im Bereich
+    Anhang III Nr. 2) fuehren Betreiber, die Einrichtungen des oeffentlichen Rechts oder private Einrichtungen
+    sind, die oeffentliche Dienste erbringen, sowie Betreiber von Hochrisiko-KI-Systemen nach Anhang III
+    Nr. 5 lit. b und c eine Abschaetzung der Auswirkungen auf die Grundrechte (FRIA) mit den Elementen
+    nach lit. a-f durch.
   scope: in
   scope_grund: 'Fallabhaengig (BK-F7 a): fuer die Bank in - Art. 27 Abs. 1 nennt Betreiber von Hochrisiko-KI-Systemen
     nach Anhang III Nr. 5 lit. b; fuer netz Bereichsausnahme (Anhang III Nr. 2), fuer klinik kein System
@@ -13283,6 +13288,7 @@ einheiten:
   - 2026-09-23 · 2a Gruppe A (Bereichsausnahme Anhang III Nr. 2)
   - '2026-10-13 · BK-F7 a (Review 18, M2 Gruppe C) - FRIA nach Art. 27: Abs. 1 nennt Anhang III Nr. 5
     lit. b.'
+  - 2026-10-14 · BK-F8 a (Review 18) - Pflichttext neu nach dem Wortlaut (BK-B17)
   faelle: &id033
   - bank
 - id: Art. 27 Abs. 1 lit. a
@@ -13321,6 +13327,7 @@ einheiten:
   - 2026-09-23 · 2a Gruppe A (Bereichsausnahme Anhang III Nr. 2)
   - '2026-10-13 · BK-F7 a (Review 18, M2 Gruppe C) - FRIA nach Art. 27: Abs. 1 nennt Anhang III Nr. 5
     lit. b.'
+  - 2026-10-14 · BK-F8 a (Review 18) - Pflichttext bestaetigt, wie er steht
   faelle: *id033
 - id: Art. 27 Abs. 1 lit. b
   artikel: '27'
@@ -13357,6 +13364,7 @@ einheiten:
   - 2026-09-23 · 2a Gruppe A (Bereichsausnahme Anhang III Nr. 2)
   - '2026-10-13 · BK-F7 a (Review 18, M2 Gruppe C) - FRIA nach Art. 27: Abs. 1 nennt Anhang III Nr. 5
     lit. b.'
+  - 2026-10-14 · BK-F8 a (Review 18) - Pflichttext bestaetigt, wie er steht
   faelle: *id033
 - id: Art. 27 Abs. 1 lit. c
   artikel: '27'
@@ -13369,7 +13377,8 @@ einheiten:
   beleg: c) die Kategorien der natürlichen Personen und Personengruppen, die von seiner Verwendung im
     spezifischen Kontext betroffen sein könnten;
   adressat: betreiber
-  pflicht: 'Element 3 der FRIA: Kategorien der betroffenen natuerlichen Personen/Personengruppen.'
+  pflicht: 'Element 3 der FRIA: Kategorien der natuerlichen Personen und Personengruppen, die von der
+    Verwendung im spezifischen Kontext betroffen sein koennten.'
   scope: in
   scope_grund: 'Fallabhaengig (BK-F7 a): fuer die Bank in - Art. 27 Abs. 1 nennt Betreiber von Hochrisiko-KI-Systemen
     nach Anhang III Nr. 5 lit. b; fuer netz Bereichsausnahme (Anhang III Nr. 2), fuer klinik kein System
@@ -13393,6 +13402,7 @@ einheiten:
   - 2026-09-23 · 2a Gruppe A (Bereichsausnahme Anhang III Nr. 2)
   - '2026-10-13 · BK-F7 a (Review 18, M2 Gruppe C) - FRIA nach Art. 27: Abs. 1 nennt Anhang III Nr. 5
     lit. b.'
+  - 2026-10-14 · BK-F8 a (Review 18) - Pflichttext neu nach dem Wortlaut (BK-B17)
   faelle: *id033
 - id: Art. 27 Abs. 1 lit. d
   artikel: '27'
@@ -13431,6 +13441,7 @@ einheiten:
   - 2026-09-23 · 2a Gruppe A (Bereichsausnahme Anhang III Nr. 2)
   - '2026-10-13 · BK-F7 a (Review 18, M2 Gruppe C) - FRIA nach Art. 27: Abs. 1 nennt Anhang III Nr. 5
     lit. b.'
+  - 2026-10-14 · BK-F8 a (Review 18) - Pflichttext bestaetigt, wie er steht
   faelle: *id033
 - id: Art. 27 Abs. 1 lit. e
   artikel: '27'
@@ -13467,6 +13478,7 @@ einheiten:
   - 2026-09-23 · 2a Gruppe A (Bereichsausnahme Anhang III Nr. 2)
   - '2026-10-13 · BK-F7 a (Review 18, M2 Gruppe C) - FRIA nach Art. 27: Abs. 1 nennt Anhang III Nr. 5
     lit. b.'
+  - 2026-10-14 · BK-F8 a (Review 18) - Pflichttext bestaetigt, wie er steht
   faelle: *id033
 - id: Art. 27 Abs. 1 lit. f
   artikel: '27'
@@ -13504,6 +13516,7 @@ einheiten:
   - 2026-09-23 · 2a Gruppe A (Bereichsausnahme Anhang III Nr. 2)
   - '2026-10-13 · BK-F7 a (Review 18, M2 Gruppe C) - FRIA nach Art. 27: Abs. 1 nennt Anhang III Nr. 5
     lit. b.'
+  - 2026-10-14 · BK-F8 a (Review 18) - Pflichttext bestaetigt, wie er steht
   faelle: *id033
 - id: Art. 27 Abs. 2
   artikel: '27'
@@ -13520,9 +13533,10 @@ einheiten:
     in Absatz 1 aufgeführten Elemente geändert hat oder nicht mehr auf dem neuesten Stand ist, so unternimmt
     der Betreiber die erforderlichen Schritte, um die Informationen zu aktualisieren.
   adressat: betreiber
-  pflicht: Die FRIA-Pflicht gilt fuer die Erstverwendung; der Betreiber kann sich in aehnlichen Faellen
-    auf frueher durchgefuehrte eigene oder Anbieter-Folgenabschaetzungen stuetzen; aendern sich die Abs.-1-Elemente
-    wesentlich, muss der Betreiber die Informationen aktualisieren.
+  pflicht: Die FRIA-Pflicht gilt fuer die erste Verwendung; in aehnlichen Faellen kann sich der Betreiber
+    auf zuvor durchgefuehrte FRIA oder vorhandene Folgenabschaetzungen des Anbieters stuetzen; gelangt
+    er waehrend der Verwendung zur Auffassung, dass sich ein Element nach Abs. 1 geaendert hat oder nicht
+    mehr aktuell ist, aktualisiert er die Informationen.
   scope: in
   scope_grund: 'Fallabhaengig (BK-F7 a): fuer die Bank in - Art. 27 Abs. 1 nennt Betreiber von Hochrisiko-KI-Systemen
     nach Anhang III Nr. 5 lit. b; fuer netz Bereichsausnahme (Anhang III Nr. 2), fuer klinik kein System
@@ -13546,6 +13560,7 @@ einheiten:
   - 2026-09-23 · 2a Gruppe A (Bereichsausnahme Anhang III Nr. 2)
   - '2026-10-13 · BK-F7 a (Review 18, M2 Gruppe C) - FRIA nach Art. 27: Abs. 1 nennt Anhang III Nr. 5
     lit. b.'
+  - 2026-10-14 · BK-F8 a (Review 18) - Pflichttext neu nach dem Wortlaut (BK-B17)
   faelle: *id033
 - id: Art. 27 Abs. 3
   artikel: '27'
@@ -13586,6 +13601,7 @@ einheiten:
   - 2026-09-23 · 2a Gruppe A (Bereichsausnahme Anhang III Nr. 2)
   - '2026-10-13 · BK-F7 a (Review 18, M2 Gruppe C) - FRIA nach Art. 27: Abs. 1 nennt Anhang III Nr. 5
     lit. b.'
+  - 2026-10-14 · BK-F8 a (Review 18) - Pflichttext bestaetigt, wie er steht
   faelle: *id033
 - id: Art. 27 Abs. 4
   artikel: '27'
@@ -30813,10 +30829,12 @@ einheiten:
     aussagekräftige Erläuterung zur Rolle des KI-Systems im Entscheidungsprozess und zu den wichtigsten
     Elementen der getroffenen Entscheidung zu erhalten.
   adressat: betreiber
-  pflicht: Von einer Entscheidung des Betreibers auf Grundlage der Ausgaben eines Anhang-III-Systems (ausser
-    Nr. 2) betroffene Personen, deren Gesundheit/Sicherheit/Grundrechte dadurch nach ihrer Auffassung
-    erheblich beeintraechtigt werden, haben das Recht, vom Betreiber eine klare, aussagekraeftige Erlaeuterung
-    zur Rolle des KI-Systems und den wichtigsten Entscheidungselementen zu erhalten.
+  pflicht: Personen, die von einer Entscheidung des Betreibers auf Grundlage der Ausgaben eines Hochrisiko-KI-Systems
+    nach Anhang III (ausser Nr. 2) betroffen sind, die rechtliche Auswirkungen hat oder sie in aehnlicher
+    Art erheblich so beeintraechtigt, dass nach ihrer Ansicht ihre Gesundheit, Sicherheit oder Grundrechte
+    beeintraechtigt sind, haben das Recht, vom Betreiber eine klare und aussagekraeftige Erlaeuterung
+    zur Rolle des KI-Systems im Entscheidungsprozess und zu den wichtigsten Elementen der Entscheidung
+    zu erhalten.
   scope: in
   scope_grund: 'Fallabhaengig (BK-F7 a): fuer die Bank in - Abs. 1 erfasst Anhang-III-Systeme ausser Nr.
     2; fuer netz Bereichsausnahme (Anhang III Nr. 2), fuer klinik kein Anhang-III-System.'
@@ -30841,6 +30859,7 @@ einheiten:
   - 2026-09-23 · 2a Gruppe A (Bereichsausnahme Anhang III Nr. 2)
   - 2026-10-13 · BK-F7 a (Review 18, M2 Gruppe D) - Art. 86 Abs. 1 fuer Anhang-III-Systeme ausser Nr.
     2.
+  - 2026-10-14 · BK-F8 a (Review 18) - Pflichttext neu nach dem Wortlaut (BK-B17)
   faelle:
   - bank
 - id: Art. 86 Abs. 2
@@ -30855,8 +30874,9 @@ einheiten:
     Beschränkungen der Pflicht nach dem genannten Absatz aus dem Unionsrecht oder dem nationalen Recht
     im Einklang mit dem Unionsrecht ergeben.
   adressat: sonstige
-  pflicht: Abs. 1 gilt nicht, soweit sich Ausnahmen/Beschraenkungen der Erlaeuterungspflicht aus Unions-
-    oder nationalem Recht ergeben.
+  pflicht: Abs. 1 gilt nicht fuer die Verwendung von KI-Systemen, fuer die sich Ausnahmen von oder Beschraenkungen
+    der Erlaeuterungspflicht aus dem Unionsrecht oder aus nationalem Recht im Einklang mit dem Unionsrecht
+    ergeben.
   scope: in
   scope_grund: 'Fallabhaengig (BK-F7 a): wie Art. 86 Abs. 1 - fuer die Bank in, steuert die Reichweite
     von Abs. 1; fuer netz Bereichsausnahme (Anhang III Nr. 2).'
@@ -30878,6 +30898,7 @@ einheiten:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe sonstige, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
   - 2026-10-13 · BK-F7 a (Review 18, M2 Gruppe D) - Art. 86 Abs. 2 steuert die Reichweite von Abs. 1.
+  - 2026-10-14 · BK-F8 a (Review 18) - Pflichttext neu nach dem Wortlaut (BK-B17)
   faelle:
   - bank
 - id: Art. 86 Abs. 3
@@ -30916,6 +30937,7 @@ einheiten:
     out bestaetigt
   - '2026-10-13 · BK-F7 a (Review 18, M2 Gruppe D) - Art. 86 Abs. 3: Vorrang anderweitig festgelegter
     Rechte.'
+  - 2026-10-14 · BK-F8 a (Review 18) - Pflichttext bestaetigt, wie er steht
   faelle:
   - bank
 - id: Art. 87
@@ -38005,6 +38027,7 @@ einheiten:
   - 2026-10-06 · OUT-1 b (Review 13) - Gruppe sonstige, Stichprobe ohne Fehler bzw. ganz durchgesehen;
     out bestaetigt
   - 2026-10-13 · BK-F7 a (Review 18, M2 Gruppe A) - Einstufung des Leitfalls Bank, steuernd fuer G-PRE-01.
+  - 2026-10-14 · BK-F8 a (Review 18) - Pflichttext bestaetigt, wie er steht
   faelle: &id074
   - bank
 - uid: Anhang III Nr. 5 lit. a@613468
@@ -38085,6 +38108,7 @@ einheiten:
     out bestaetigt
   - 2026-10-13 · BK-F7 a (Review 18, M2 Gruppe A) - Einstufung des Leitfalls Bank, steuernd fuer G-PRE-01.
   - 2026-10-13 · BK-B15 (Review 18, M2) - Pflichttext vervollstaendigt; Bestaetigung BK-F8 offen
+  - 2026-10-14 · BK-F8 a (Review 18) - Pflichttext bestaetigt, wie er steht
   faelle: *id074
 - uid: Anhang III Nr. 5 lit. c@614067
   id: Anhang III Nr. 5 lit. c
